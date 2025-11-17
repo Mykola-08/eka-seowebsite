@@ -23,7 +23,7 @@ export default function Home() {
       description: t('services.massage.description'),
       icon: Heart,
       color: 'from-orange-400 to-orange-600',
-      image: 'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/massage-therapy.jpg',
+      image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: '/serveis/massatge',
       durations: [60, 90, 120]
     },
@@ -34,7 +34,7 @@ export default function Home() {
       description: t('services.kinesiology.description'),
       icon: Brain,
       color: 'from-blue-400 to-blue-600',
-      image: 'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/kinesiology-treatment.jpg',
+      image: 'https://images.pexels.com/photos/7187991/pexels-photo-7187991.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: '/serveis/kinesiologia',
       durations: [60, 90]
     },
@@ -45,7 +45,7 @@ export default function Home() {
       description: t('services.nutrition.description'),
       icon: Leaf,
       color: 'from-green-400 to-green-600',
-      image: 'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/healthy-nutrition.jpg',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: '/serveis/nutritio',
       durations: []
     },
@@ -56,7 +56,7 @@ export default function Home() {
       description: t('services.revision360.description'),
       icon: RotateCcw,
       color: 'from-purple-400 to-purple-600',
-      image: 'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/wellness-center.jpg',
+      image: 'https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: 'https://360revision.ekabalance.com',
       isExternal: true,
       durations: [60, 90, 120]
@@ -297,7 +297,7 @@ export default function Home() {
         
         {/* Testimonials with Background Image */}
         <TestimonialSlider 
-          backgroundImage="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&h=600&fit=crop"
+          backgroundImage="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop"
         />
 
         {/* Casos Section */}

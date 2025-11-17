@@ -19,7 +19,7 @@ const personalizedServices = [
     result: 'personalizedServices.officeWorkers.result',
     duration: '1 h',
     price: '70 €',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+    image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/serveis/treballadors-oficina'
   },
   {
@@ -34,7 +34,7 @@ const personalizedServices = [
     result: 'personalizedServices.athletes.result',
     duration: '1 h',
     price: '70 €',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
+    image: 'https://images.pexels.com/photos/3768593/pexels-photo-3768593.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/serveis/esportistes'
   },
   {
@@ -49,7 +49,7 @@ const personalizedServices = [
     result: 'personalizedServices.artists.result',
     duration: '1 h',
     price: '70 €',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop',
+    image: 'https://images.pexels.com/photos/3760613/pexels-photo-3760613.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/serveis/artistes'
   },
   {
@@ -64,7 +64,7 @@ const personalizedServices = [
     result: 'personalizedServices.musicians.result',
     duration: '1 h',
     price: '70 €',
-    image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop',
+    image: 'https://images.pexels.com/photos/4472042/pexels-photo-4472042.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/serveis/musics',
     hasPlans: true
   },
@@ -80,7 +80,7 @@ const personalizedServices = [
     result: 'personalizedServices.students.result',
     duration: '1 h',
     price: '70 €',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+    image: 'https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/serveis/estudiants'
   }
 ];
@@ -101,7 +101,7 @@ export default function PersonalizedServices() {
       <section 
         className="bg-section-full min-h-screen flex items-center"
         style={{
-          backgroundImage: `url(https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/wellness-center.jpg)`
+          backgroundImage: `url(https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=1920)`
         }}
       >
         <div className="bg-overlay" />
@@ -244,7 +244,7 @@ export default function PersonalizedServices() {
       <section 
         className="bg-section-full py-24"
         style={{
-          backgroundImage: `url(https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/meditation-nature.jpg)`
+          backgroundImage: `url(https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=1920)`
         }}
       >
         <div className="bg-overlay-dark" />

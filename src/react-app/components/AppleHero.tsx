@@ -4,9 +4,9 @@ import { Button } from 'keep-react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 const heroImages = [
-  'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/massage-therapy.jpg',
-  'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/kinesiology-treatment.jpg',
-  'https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/wellness-center.jpg'
+  'https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/7187991/pexels-photo-7187991.jpeg?auto=compress&cs=tinysrgb&w=1920'
 ];
 export default function AppleHero() {
   const { t } = useLanguage();

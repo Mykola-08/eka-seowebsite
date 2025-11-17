@@ -1,0 +1,11 @@
+
+CREATE TABLE user_feedback (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT NOT NULL,
+  feedback_type TEXT NOT NULL,
+  rating INTEGER,
+  message TEXT,
+  page TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

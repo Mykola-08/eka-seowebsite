@@ -1,0 +1,3 @@
+
+ALTER TABLE user_profiles ADD COLUMN is_admin BOOLEAN DEFAULT 0;
+ALTER TABLE user_profiles ADD COLUMN is_therapist BOOLEAN DEFAULT 0;

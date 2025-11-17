@@ -1,0 +1,405 @@
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+
+import ToastContainer from './Toast';
+import { OfflineIndicator } from './OfflineIndicator';
+import { useLanguage, Language } from '@/react-app/contexts/LanguageContext';
+import CookieBanner from './CookieBanner';
+
+import { useClickOutside } from '@/react-app/hooks/useClickOutside';
+
+export default function Layout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  const location = useLocation();
+  const { t, language, setLanguage } = useLanguage();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  
+  const [showPersonalServices, setShowPersonalServices] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const personalServicesRef = useClickOutside<HTMLDivElement>(() => setShowPersonalServices(false));
+  
+  // Hover intent management for dropdown
+  const [hideTimeout, setHideTimeout] = useState<NodeJS.Timeout | null>(null);
+  
+  const openDropdown = () => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+      setHideTimeout(null);
+    }
+    setShowPersonalServices(true);
+  };
+  
+  const scheduleHide = () => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+    }
+    const timeout = setTimeout(() => {
+      setShowPersonalServices(false);
+    }, 220);
+    setHideTimeout(timeout);
+  };
+  
+  // Handle scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  
+  
+  // Navigation items
+  const navigation = [
+    {
+      name: t('nav.services'),
+      href: '/services'
+    },
+    {
+      name: t('nav.personalizedServices'),
+      href: '/serveis-personalitzats',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: t('nav.officeWorkers'), href: '/serveis/treballadors-oficina' },
+        { name: t('nav.athletes'), href: '/serveis/esportistes' },
+        { name: t('nav.artists'), href: '/serveis/artistes' },
+        { name: t('nav.musicians'), href: '/serveis/musics' },
+        { name: t('nav.students'), href: '/serveis/estudiants' },
+      ]
+    },
+    {
+      name: t('nav.casos'),
+      href: '/casos'
+    },
+    {
+      name: t('nav.revision360'),
+      href: 'https://360revision.ekabalance.com',
+      isExternal: true
+    },
+    {
+      name: t('nav.vip'),
+      href: '/vip'
+    }
+  ];
+  
+  const isActivePath = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+  
+  
+  
+  return (
+    <div className="min-h-screen bg-white">
+      <OfflineIndicator />
+      
+      {/* Navigation with scroll effect */}
+      <nav className={`sticky top-0 z-50 transition-all duration-300`} style={{
+        backgroundColor: isScrolled ? 'rgba(245, 245, 247, 0.9)' : '#F5F5F7'
+      }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className={`flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? 'h-14' : 'h-16'
+          }`}>
+            {/* Logo Only - Left Side */}
+            <Link to="/" className="flex items-center flex-shrink-0">
+              <img 
+                src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/eka_logo.png" 
+                alt="EKA Balance Logo"
+                className={`transition-all duration-300 ${
+                  isScrolled ? 'w-8 h-8' : 'w-10 h-10'
+                } object-contain`}
+              />
+            </Link>
+
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex items-center justify-center flex-1 mx-8">
+              <div className="flex items-center space-x-2">
+                {navigation.map(item => (
+                  <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative' : ''}`} 
+                       ref={item.hasDropdown ? personalServicesRef : undefined}>
+                    {item.hasDropdown ? (
+                      <>
+                        <Link 
+                          to={item.href}
+                          className={`nav-trigger font-medium transition-all duration-200 flex items-center px-5 py-3 rounded-[20px] hover:bg-white/60 ${
+                            isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
+                          }`}
+                          onMouseEnter={openDropdown}
+                          onMouseLeave={scheduleHide}
+                          onFocus={openDropdown}
+                          onBlur={scheduleHide}
+                        >
+                          {item.name}
+                          <ChevronDown className="ml-1 w-4 h-4" />
+                        </Link>
+                        
+                        {/* Hover bridge for seamless navigation */}
+                        <div 
+                          className="hover-bridge"
+                          onMouseEnter={openDropdown}
+                          onMouseLeave={scheduleHide}
+                          aria-hidden="true"
+                        />
+                        
+                        {/* Dropdown menu with CSS-first positioning */}
+                        <div 
+                          className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''}`}
+                          style={{ 
+                            backgroundColor: isScrolled ? 'rgba(245, 245, 247, 0.9)' : '#F5F5F7',
+                            backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+                            WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
+                          }}
+                          onMouseEnter={openDropdown}
+                          onMouseLeave={scheduleHide}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Escape') {
+                              setShowPersonalServices(false);
+                            }
+                          }}
+                          role="menu"
+                          aria-label={`${item.name} submenu`}
+                        >
+                          {item.dropdownItems?.map((dropdownItem, index) => (
+                            <Link 
+                              key={dropdownItem.name}
+                              to={dropdownItem.href} 
+                              onClick={() => setShowPersonalServices(false)} 
+                              className="flex items-center justify-center h-12 text-sm font-medium transition-colors duration-200 text-[#000035] hover:text-[#FFB405]"
+                              style={{
+                                marginBottom: index < item.dropdownItems!.length - 1 ? '8px' : '0'
+                              }}
+                              role="menuitem"
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    ) : item.isExternal ? (
+                      <a 
+                        href={item.href}
+                        rel="noopener noreferrer"
+                        className="font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 text-[#000035] hover:text-[#FFB405]"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.open(item.href, '_blank', 'noopener,noreferrer');
+                        }}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link 
+                        to={item.href} 
+                        className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${
+                          isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side actions */}
+            <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+              {/* Reserva Button */}
+              <Link
+                to="/booking"
+                className="hidden sm:inline-flex bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200"
+              >
+                {t('nav.bookNow')}
+              </Link>
+
+              {/* Mobile menu button */}
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                className="md:hidden p-2 rounded-2xl hover:bg-gray-100 transition-colors duration-200"
+              >
+                {isMenuOpen ? (
+                  <X className="w-5 h-5 text-gray-700" />
+                ) : (
+                  <Menu className="w-5 h-5 text-gray-700" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="md:hidden border-t border-gray-100 py-3">
+              <div className="space-y-1">
+                {navigation.map(item => (
+                  <div key={item.name}>
+                    {item.isExternal ? (
+                      <a 
+                        href={item.href}
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsMenuOpen(false);
+                          window.open(item.href, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 text-gray-700 hover:bg-gray-50"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link 
+                        to={item.href} 
+                        onClick={() => setIsMenuOpen(false)} 
+                        className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${
+                          isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                    {item.hasDropdown && (
+                      <div className="ml-4 space-y-1 mt-2">
+                        {item.dropdownItems?.map(dropdownItem => (
+                          <Link 
+                            key={dropdownItem.name}
+                            to={dropdownItem.href} 
+                            onClick={() => setIsMenuOpen(false)} 
+                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg"
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                
+                {/* Mobile Reserva */}
+                <div className="pt-2 border-t border-gray-100 mt-2">
+                  <Link
+                    to="/booking"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-4 py-3 rounded-xl text-center transition-colors duration-200"
+                  >
+                    {t('nav.bookNow')}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="flex-1">
+        {children}
+      </main>
+
+      
+
+      {/* Toast Notifications */}
+      <ToastContainer />
+
+      {/* Cookie Banner */}
+      <CookieBanner />
+
+      
+
+      
+
+      {/* Footer */}
+      <footer className="py-12 sm:py-16 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          {/* Logo */}
+          <div className="flex items-center justify-center space-x-3 mb-8">
+            <img 
+              src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/eka_logo.png" 
+              alt="EKA Balance Logo"
+              className="w-10 h-10 object-contain"
+            />
+            <span className="text-xl font-medium">EKA Balance</span>
+          </div>
+          
+          {/* Contact Info */}
+          <div className="space-y-2 mb-8 text-gray-300">
+            <p>{t('footer.address')}</p>
+            <p>{t('footer.email')}</p>
+          </div>
+          
+          {/* Footer Links */}
+          <div className="mb-8">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+              <Link
+                to="/discounts"
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+              >
+                {t('footer.discounts')}
+              </Link>
+              <Link
+                to="/privacy-policy"
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/cookie-policy"
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+              >
+                Cookie Policy
+              </Link>
+              <Link
+                to="/terms-of-service"
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+              >
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+          
+          {/* Language Selector */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <Globe className="w-4 h-4 text-gray-400" />
+              <span className="text-sm text-gray-400">{t('footer.selectLanguage')}</span>
+            </div>
+            <div className="flex justify-center space-x-4">
+              {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                    language === lang
+                      ? 'bg-[#FFB405] text-[#000035]'
+                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  }`}
+                >
+                  {lang === 'ca' && 'Català'}
+                  {lang === 'en' && 'English'}
+                  {lang === 'es' && 'Español'}
+                  {lang === 'ru' && 'Русский'}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {/* Copyright */}
+          <div className="border-t border-gray-800 pt-8">
+            <p className="text-sm text-gray-400">
+              {t('footer.copyright')}
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

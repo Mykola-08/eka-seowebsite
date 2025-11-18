@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: 'Maria Rodríguez',
     role: 'Directora Marketing',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&auto=format',
+    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'Després de mesos amb dolor d\'esquena crònic, Elena va aconseguir alleujar el meu dolor amb només tres sessions de kinesiologia. El seu enfocament integral m\'ha canviat la vida.',
     service: 'Kinesiologia'
@@ -16,7 +16,7 @@ const testimonials = [
     id: 2,
     name: 'Jordi Martínez',
     role: 'Enginyer de Software',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&auto=format',
+    image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'L\'estrès laboral m\'estava afectant molt. Amb les sessions d\'osteobalance i els exercicis personalitzats, he recuperat l\'equilibri emocional i físic.',
     service: 'Osteobalance'
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: 'Anna Fernández',
     role: 'Professora',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&auto=format',
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'El tractament per al meu fill amb necessitats especials ha estat increïble. Elena té una sensibilitat especial per tractar nens i ha millorat molt la seva mobilitat.',
     service: 'Massatge Familiar'
@@ -34,7 +34,7 @@ const testimonials = [
     id: 4,
     name: 'Carles Miró',
     role: 'Empresari',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&auto=format',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'Com a client VIP Silver, l\'experiència ha estat excepcional. Les sessions a domicili i el seguiment personalitzat han millorat significativament la meva qualitat de vida.',
     service: 'Pla VIP Silver'
@@ -43,7 +43,7 @@ const testimonials = [
     id: 5,
     name: 'Laura Soler',
     role: 'Artista',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&auto=format',
+    image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'Les sessions de moviment conscient m\'han ajudat enormement amb les tensions musculars dels assajos. Ara puc actuar amb més llibertat i confiança.',
     service: 'Lliçons de Moviment'
@@ -54,7 +54,7 @@ interface TestimonialSliderProps {
   backgroundImage?: string;
 }
 
-export default function TestimonialSlider({ backgroundImage = 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=600&fit=crop' }: TestimonialSliderProps) {
+export default function TestimonialSlider({ backgroundImage = 'https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop' }: TestimonialSliderProps) {
   const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

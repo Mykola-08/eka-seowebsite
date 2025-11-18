@@ -70,7 +70,7 @@ export default function KinesiologiaPage() {
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <img 
-                  src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/kinesiology-treatment.jpg"
+                  src="https://images.pexels.com/photos/7187991/pexels-photo-7187991.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Sessió de kinesiologia holística en ambient professional i natural"
                   className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
                 />

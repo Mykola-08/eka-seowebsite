@@ -40,9 +40,6 @@ import AboutElena from "@/react-app/pages/AboutElena";
 // Booking Page
 import BookingPage from "@/react-app/pages/BookingPage";
 
-// Hero Header Example
-import HeroHeaderExample from "@/react-app/pages/HeroHeaderExample";
-
 // Discovery Form
 import DiscoveryForm from "@/react-app/pages/DiscoveryForm";
 import FirstTimeVisitor from './pages/FirstTimeVisitor';
@@ -95,9 +92,6 @@ function AppRoutes() {
       
       {/* Booking */}
       <Route path="/booking" element={<BookingPage />} />
-      
-      {/* Hero Header Example */}
-      <Route path="/hero-header" element={<HeroHeaderExample />} />
       
       {/* Discovery Form */}
       <Route path="/descobriment" element={<DiscoveryForm />} />

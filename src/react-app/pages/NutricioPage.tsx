@@ -81,7 +81,7 @@ export default function NutricioPage() {
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <img 
-                  src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/healthy-nutrition.jpg"
+                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Fruites i verdures fresques representant una alimentació saludable i colorida"
                   className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
                 />

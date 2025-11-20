@@ -1,8 +1,18 @@
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond } from 'lucide-react';
-import { useState } from 'react';
+import { Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond, User, Calendar } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { supabase } from '@/react-app/lib/supabase';
+import { Link } from 'react-router';
+
+const iconMap = {
+  Diamond,
+  Award,
+  Globe,
+  Zap
+};
 
 const vipServices = [
   {
@@ -55,86 +65,59 @@ const testimonials = [
   }
 ];
 
-const plans = [
-  {
-    name: 'Bronze Elite',
-    price: '390',
-    sessions: 2,
-    description: 'Accés exclusiu al món VIP',
-    features: [
-      '2 sessions mensuals (1,5h)',
-      'Control de salut integral',
-      'Desplaçaments inclosos',
-      'Seguiment personalitzat',
-      'Accés prioritari',
-      'Material premium'
-    ],
-    popular: false,
-    tier: 'bronze'
-  },
-  {
-    name: 'Silver Elite',
-    price: '690',
-    sessions: 3,
-    description: 'L\'equilibri perfecte per a professionals',
-    features: [
-      '3 sessions mensuals (1,5h)',
-      'Control de salut avançat',
-      'Desplaçaments premium',
-      'Família 50% descompte',
-      'Sessions transferibles',
-      'Consultoria nutricional',
-      'Línia directa VIP'
-    ],
-    popular: true,
-    tier: 'silver'
-  },
-  {
-    name: 'Gold Elite',
-    price: '990',
-    sessions: 4,
-    description: 'L\'experiència VIP definitiva',
-    features: [
-      '4 sessions mensuals (1,5h)',
-      'Control de salut premium',
-      'Desplaçaments 24/7',
-      'Família completament gratuïta',
-      'Sessions il·limitades transferibles',
-      'Consultoria integral',
-      'Concierge de salut personal',
-      'Accés exclusiu a esdeveniments'
-    ],
-    popular: false,
-    tier: 'gold'
-  }
-];
-
-const luxuryFeatures = [
-  {
-    icon: Diamond,
-    title: 'Experiència Diamond',
-    description: 'Servei d\'elit amb els millors professionals i tecnologia més avançada del sector'
-  },
-  {
-    icon: Award,
-    title: 'Certificació Internacional',
-    description: 'Reconeixement mundial per excel·lència en serveis de salut i benestar premium'
-  },
-  {
-    icon: Globe,
-    title: 'Xarxa Global Elite',
-    description: 'Accés a centres d\'elit i especialistes reconeguts internacionalment'
-  },
-  {
-    icon: Zap,
-    title: 'Tecnologia d\'Avantguarda',
-    description: 'Equips i tècniques més innovadores per a resultats excepcionals i ràpids'
-  }
-];
-
 export default function VIPUltraPremium() {
   const { t } = useLanguage();
+  const { user } = useSupabaseAuth();
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
+  const [vipTier, setVipTier] = useState<string>('none');
+  const [loadingTier, setLoadingTier] = useState(true);
+  const [plans, setPlans] = useState<any[]>([]);
+  const [luxuryFeatures, setLuxuryFeatures] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const { data: plansData } = await supabase
+        .from('content_blocks')
+        .select('data')
+        .eq('key', 'vip_features')
+        .single();
+      
+      if (plansData) {
+        setPlans(plansData.data);
+      }
+
+      const { data: luxuryData } = await supabase
+        .from('content_blocks')
+        .select('data')
+        .eq('key', 'luxury_features')
+        .single();
+      
+      if (luxuryData) {
+        setLuxuryFeatures(luxuryData.data);
+      }
+    };
+    fetchContent();
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      const fetchTier = async () => {
+        const { data, error } = await supabase
+          .from('user_profiles')
+          .select('vip_tier')
+          .eq('user_id', user.id)
+          .single();
+        
+        if (data) {
+          setVipTier(data.vip_tier || 'none');
+        }
+        setLoadingTier(false);
+      };
+      fetchTier();
+    } else {
+      setLoadingTier(false);
+    }
+  }, [user]);
 
   const getTierColors = (tier: string) => {
     switch (tier) {
@@ -259,6 +242,48 @@ export default function VIPUltraPremium() {
         </div>
       </section>
 
+      {/* Member Dashboard Section (Visible only to logged-in users) */}
+      {user && !loadingTier && (
+        <section className="py-16 bg-gray-900 border-y border-gray-800">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <User className="w-6 h-6 text-yellow-400" />
+                  <span className="text-yellow-400 font-medium tracking-wider text-sm">MEMBRE REGISTRAT</span>
+                </div>
+                <h2 className="text-3xl text-white font-light mb-2">
+                  Hola, <span className="font-medium">{user.email?.split('@')[0]}</span>
+                </h2>
+                <p className="text-gray-400">
+                  Estat actual: <span className={`font-bold ${vipTier !== 'none' ? 'text-yellow-400' : 'text-gray-300'}`}>{vipTier === 'none' ? 'Estàndard' : `${vipTier.toUpperCase()} ELITE`}</span>
+                </p>
+              </div>
+
+              <div className="flex gap-4">
+                {vipTier !== 'none' ? (
+                  <Link 
+                    to="/booking" 
+                    className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-bold transition-colors"
+                  >
+                    <Calendar className="w-5 h-5" />
+                    Reserva Prioritària
+                  </Link>
+                ) : (
+                  <button 
+                    onClick={() => document.getElementById('plans-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-colors border border-white/20"
+                  >
+                    <Crown className="w-5 h-5 text-yellow-400" />
+                    Veure Plans VIP
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Luxury Features Section */}
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
@@ -278,7 +303,7 @@ export default function VIPUltraPremium() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
             {luxuryFeatures.map((feature, index) => {
-              const Icon = feature.icon;
+              const Icon = iconMap[feature.icon as keyof typeof iconMap] || Diamond;
               return (
                 <div key={index} className="group">
                   <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 shadow-xl hover:shadow-2xl border border-gray-100 hover:border-yellow-200 transition-all duration-300">
@@ -296,7 +321,7 @@ export default function VIPUltraPremium() {
       </section>
 
       {/* Ultra Premium Plans Section */}
-      <section className="py-32 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
+      <section id="plans-section" className="py-32 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
         {/* Dynamic Background */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>

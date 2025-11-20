@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle } from 'lucide-react';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { supabase } from '@/react-app/lib/supabase';
 
 interface ContactFormData {
   name: string;
@@ -12,6 +14,7 @@ interface ContactFormData {
 }
 
 export default function ContactFormOptimized() {
+  const { user } = useSupabaseAuth();
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -21,6 +24,33 @@ export default function ContactFormOptimized() {
     preferred_contact: 'email',
     preferred_time: ''
   });
+
+  useEffect(() => {
+    if (user) {
+      const fetchProfile = async () => {
+        const { data } = await supabase
+          .from('user_profiles')
+          .select('full_name, email, phone')
+          .eq('user_id', user.id)
+          .single();
+        
+        if (data) {
+          setFormData(prev => ({
+            ...prev,
+            name: data.full_name || prev.name,
+            email: data.email || user.email || prev.email,
+            phone: data.phone || prev.phone
+          }));
+        } else if (user.email) {
+          setFormData(prev => ({
+            ...prev,
+            email: user.email || prev.email
+          }));
+        }
+      };
+      fetchProfile();
+    }
+  }, [user]);
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

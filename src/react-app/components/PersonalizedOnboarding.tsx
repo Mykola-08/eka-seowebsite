@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronRight, Heart, Brain, Leaf, Clock, User, Target, Sparkles, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { supabase } from '@/react-app/lib/supabase';
 
 interface OnboardingData {
   userType: string;
@@ -23,6 +25,7 @@ interface Question {
 
 export default function PersonalizedOnboarding() {
   const { t } = useLanguage();
+  const { user } = useSupabaseAuth();
   const [showWelcome, setShowWelcome] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState<OnboardingData>({
@@ -144,6 +147,28 @@ export default function PersonalizedOnboarding() {
     // Generate recommendations based on user data
     const recs = generateRecommendations(data);
     setRecommendations(recs);
+
+    // Save to Supabase if user is logged in
+    if (user) {
+      try {
+        await supabase.from('user_preferences').upsert({
+          user_id: user.id,
+          goals: data.goals,
+          preferred_therapy_type: data.approach,
+          preferred_session_duration: data.timePreference,
+          metadata: {
+            userType: data.userType,
+            preferredFeeling: data.preferredFeeling,
+            onboardingCompletedAt: new Date().toISOString(),
+            recommendations: recs
+          },
+          updated_at: new Date().toISOString()
+        });
+      } catch (error) {
+        console.error('Error saving onboarding data:', error);
+      }
+    }
+
     setIsProcessing(false);
     setShowResults(true);
   };

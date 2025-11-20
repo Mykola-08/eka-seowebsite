@@ -1,70 +1,105 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { supabase } from '@/react-app/lib/supabase';
+import { useSupabaseAuth } from './SupabaseAuthContext';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
 export interface Discount {
   id: string;
   name: string;
   percentage: number;
   code: string;
+  description?: string;
   isActive: boolean;
 }
 
 interface DiscountContextType {
   selectedDiscount: Discount | null;
   availableDiscounts: Discount[];
-  applyDiscount: (code: string) => boolean;
+  applyDiscount: (code: string) => Promise<boolean>;
   removeDiscount: () => void;
   calculateDiscountedPrice: (originalPrice: number) => number;
   getDiscountAmount: (originalPrice: number) => number;
+  isLoading: boolean;
 }
 
 const DiscountContext = createContext<DiscountContextType | undefined>(undefined);
 
-// Available discounts
-const AVAILABLE_DISCOUNTS: Discount[] = [
-  {
-    id: 'mykola-friend',
-    name: 'Mykola\'s Friend',
-    percentage: 20,
-    code: 'MYKOLA20',
-    isActive: true
-  },
-  {
-    id: 'conocido-mykola',
-    name: 'Conocido de Mykola',
-    percentage: 10,
-    code: 'CONOCIDO10',
-    isActive: true
-  }
-];
-
 export function DiscountProvider({ children }: { children: React.ReactNode }) {
   const [selectedDiscount, setSelectedDiscount] = useState<Discount | null>(null);
+  const [availableDiscounts, setAvailableDiscounts] = useState<Discount[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useSupabaseAuth();
+  const { logEvent } = useAnalytics();
 
-  // Load discount from localStorage on mount
+  // Load discounts from Supabase
   useEffect(() => {
-    const savedDiscountCode = localStorage.getItem('eka-applied-discount');
-    if (savedDiscountCode) {
-      const discount = AVAILABLE_DISCOUNTS.find(d => d.code === savedDiscountCode && d.isActive);
-      if (discount) {
-        setSelectedDiscount(discount);
-      } else {
-        // Clean up invalid discount
-        localStorage.removeItem('eka-applied-discount');
+    const fetchDiscounts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('discounts')
+          .select('*')
+          .eq('is_active', true);
+
+        if (error) throw error;
+
+        if (data) {
+          const mappedDiscounts: Discount[] = data.map(d => ({
+            id: d.id,
+            name: d.name,
+            percentage: d.percentage,
+            code: d.code,
+            description: d.description,
+            isActive: d.is_active || false
+          }));
+          setAvailableDiscounts(mappedDiscounts);
+
+          // Check for saved discount
+          const savedDiscountCode = localStorage.getItem('eka-applied-discount');
+          if (savedDiscountCode) {
+            const discount = mappedDiscounts.find(d => d.code === savedDiscountCode);
+            if (discount) {
+              setSelectedDiscount(discount);
+            } else {
+              localStorage.removeItem('eka-applied-discount');
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching discounts:', error);
+      } finally {
+        setIsLoading(false);
       }
-    }
+    };
+
+    fetchDiscounts();
   }, []);
 
-  const applyDiscount = (code: string): boolean => {
-    const discount = AVAILABLE_DISCOUNTS.find(
-      d => d.code.toLowerCase() === code.toLowerCase() && d.isActive
+  const applyDiscount = async (code: string): Promise<boolean> => {
+    const discount = availableDiscounts.find(
+      d => d.code.toLowerCase() === code.toLowerCase()
     );
     
     if (discount) {
       setSelectedDiscount(discount);
       localStorage.setItem('eka-applied-discount', discount.code);
+
+      // Log the interaction
+      logEvent('apply_discount', {
+        discount_id: discount.id,
+        discount_name: discount.name,
+        percentage: discount.percentage,
+        success: true
+      }, code);
+
       return true;
     }
     
+    // Log failed attempt
+    logEvent('apply_discount_failed', {
+      success: false,
+      reason: 'Invalid code'
+    }, code);
+
     return false;
   };
 
@@ -87,21 +122,22 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
   return (
     <DiscountContext.Provider value={{
       selectedDiscount,
-      availableDiscounts: AVAILABLE_DISCOUNTS.filter(d => d.isActive),
+      availableDiscounts,
       applyDiscount,
       removeDiscount,
       calculateDiscountedPrice,
-      getDiscountAmount
+      getDiscountAmount,
+      isLoading
     }}>
       {children}
     </DiscountContext.Provider>
   );
 }
 
-export function useDiscount() {
+export const useDiscount = () => {
   const context = useContext(DiscountContext);
   if (context === undefined) {
     throw new Error('useDiscount must be used within a DiscountProvider');
   }
   return context;
-}
+};

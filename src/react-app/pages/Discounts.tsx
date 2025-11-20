@@ -17,35 +17,16 @@ interface Discount {
 
 export default function Discounts() {
   const { t } = useLanguage();
-  const { selectedDiscount, applyDiscount, removeDiscount } = useDiscount();
+  const { selectedDiscount, availableDiscounts, applyDiscount, removeDiscount } = useDiscount();
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleApplyDiscount = (code: string) => {
-    const success = applyDiscount(code);
+  const handleApplyDiscount = async (code: string) => {
+    const success = await applyDiscount(code);
     if (success) {
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
     }
   };
-
-  const discounts: Discount[] = [
-    {
-      id: 'mykola-friend',
-      name: 'Mykola\'s Friend',
-      percentage: 20,
-      description: t('discounts.mykolaFriend.description'),
-      code: 'MYKOLA20',
-      isActive: true
-    },
-    {
-      id: 'conocido-mykola',
-      name: 'Conocido de Mykola',
-      percentage: 10,
-      description: t('discounts.conocidoMykola.description'),
-      code: 'CONOCIDO10',
-      isActive: true
-    }
-  ];
 
   return (
     <Layout>
@@ -116,7 +97,7 @@ export default function Discounts() {
             </div>
 
             <div className="grid gap-8 md:gap-12">
-              {discounts.map((discount) => (
+              {availableDiscounts.map((discount) => (
                 <div 
                   key={discount.id}
                   className="group relative bg-white rounded-3xl p-8 sm:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden"

@@ -4,6 +4,7 @@ import AppleHero from '@/react-app/components/AppleHero';
 import TestimonialSlider from '@/react-app/components/TestimonialSlider';
 import FAQ from '@/react-app/components/FAQ';
 import CasosSection from '@/react-app/components/CasosSection';
+import GallerySection from '@/react-app/components/GallerySection';
 
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
@@ -302,6 +303,9 @@ export default function Home() {
 
         {/* Casos Section */}
         <CasosSection />
+
+        {/* Gallery Section */}
+        <GallerySection />
 
         {/* Why Choose EKA Balance */}
         <section className="py-16 sm:py-24 bg-white">

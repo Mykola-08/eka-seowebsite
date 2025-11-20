@@ -1,64 +1,26 @@
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
-
-const serviceCategories = [
-  {
-    id: 1,
-    number: '01',
-    name: 'Kinesiologia',
-    description: 'Troba totes les respostes',
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop',
-    href: '/services',
-    color: 'from-blue-600 to-blue-800'
-  },
-  {
-    id: 2,
-    number: '02',
-    name: 'Lliçons de moviment',
-    description: 'Viu sense dolor',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
-    href: '/services',
-    color: 'from-green-600 to-green-800'
-  },
-  {
-    id: 3,
-    number: '03',
-    name: 'Flors de Bach',
-    description: 'Les emocions en ordre',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=600&fit=crop',
-    href: '/services',
-    color: 'from-purple-600 to-purple-800'
-  },
-  {
-    id: 4,
-    number: '04',
-    name: 'Massatge',
-    description: 'Zen per al cos i l\'ànima',
-    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
-    href: '/services',
-    color: 'from-yellow-600 to-orange-600'
-  },
-  {
-    id: 5,
-    number: '05',
-    name: 'Nutrició conscient',
-    description: 'Som el que mengem',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop',
-    href: '/services',
-    color: 'from-red-600 to-red-800'
-  },
-  {
-    id: 6,
-    number: '06',
-    name: 'Osteobalance',
-    description: 'Cos en equilibri',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
-    href: '/services',
-    color: 'from-indigo-600 to-indigo-800'
-  }
-];
+import { useEffect, useState } from 'react';
+import { supabase } from '@/react-app/lib/supabase';
 
 export default function ServiceCategoryPills() {
+  const [serviceCategories, setServiceCategories] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase
+        .from('content_blocks')
+        .select('data')
+        .eq('key', 'service_categories')
+        .single();
+      
+      if (data) {
+        setServiceCategories(data.data);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <section className="apple-section bg-white">
       <div className="apple-container">

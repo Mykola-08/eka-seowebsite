@@ -1,69 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CheckCircle, Sparkles, Crown, Heart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { useBooking } from './BookingProvider';
 import { useDiscount } from '@/react-app/contexts/DiscountContext';
+import { supabase } from '@/react-app/lib/supabase';
 
-
-const plans = [
-  {
-    id: 'individual',
-    name: 'Sessió Individual',
-    price: 65,
-    originalPrice: null,
-    sessions: 1,
-    validityMonths: 1,
-    popular: false,
-    description: 'Perfecte per començar el teu viatge de benestar',
-    features: [
-      'Una sessió de 60 minuts',
-      'Consulta inicial inclosa',
-      'Suport per email',
-      'Material informatiu personalitzat'
-    ],
-    icon: Heart,
-    buttonText: 'Reservar sessió'
-  },
-  {
-    id: 'pack-benestar',
-    name: 'Pack Benestar',
-    price: 180,
-    originalPrice: 195,
-    sessions: 3,
-    validityMonths: 2,
-    popular: true,
-    description: 'La millor opció per veure resultats reals',
-    features: [
-      '3 sessions de 60 minuts',
-      'Reserva prioritària',
-      'Seguiment personalitzat',
-      'Descompte del 8%',
-      'Suport telefònic'
-    ],
-    icon: Sparkles,
-    buttonText: 'Començar ara'
-  },
-  {
-    id: 'pack-premium',
-    name: 'Pack Premium',
-    price: 350,
-    originalPrice: 390,
-    sessions: 6,
-    validityMonths: 4,
-    popular: false,
-    description: 'Transformació completa amb resultats duradors',
-    features: [
-      '6 sessions de 60 minuts',
-      'Terapeuta dedicat',
-      'Pla personalitzat',
-      'Descompte del 10%',
-      'Suport prioritari 24/7',
-      'Revisió trimestral'
-    ],
-    icon: Crown,
-    buttonText: 'Triar Premium'
-  }
-];
+const iconMap = {
+  Heart,
+  Sparkles,
+  Crown
+};
 
 const features = [
   {
@@ -86,8 +32,24 @@ const features = [
 
 export default function PricingSection() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const [plans, setPlans] = useState<any[]>([]);
   const { navigateToBooking } = useBooking();
   const { calculateDiscountedPrice, selectedDiscount } = useDiscount();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase
+        .from('content_blocks')
+        .select('data')
+        .eq('key', 'pricing_plans')
+        .single();
+      
+      if (data) {
+        setPlans(data.data);
+      }
+    };
+    fetchData();
+  }, []);
 
   const formatPrice = (price: number) => `${price}€`;
 
@@ -125,7 +87,7 @@ export default function PricingSection() {
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32">
           {plans.map((plan) => {
-            const Icon = plan.icon;
+            const Icon = iconMap[plan.icon as keyof typeof iconMap] || Heart;
             const discountedPrice = calculateDiscountedPrice(plan.price);
             const originalSavings = calculateSavings(plan.price, plan.originalPrice);
             const additionalSavings = selectedDiscount ? plan.price - discountedPrice : 0;

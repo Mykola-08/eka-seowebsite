@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import { useNavigate } from 'react-router';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
 interface BookingContextType {
   navigateToBooking: () => void;
@@ -17,8 +18,10 @@ export function useBooking() {
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
+  const { logEvent } = useAnalytics();
 
   const navigateToBooking = () => {
+    logEvent('initiate_booking', { source: 'provider' });
     navigate('/booking');
   };
 

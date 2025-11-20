@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, Clock, CheckCircle, MessageCircle, ChevronDown, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { supabase } from '@/react-app/lib/supabase';
 
 interface FormData {
   name: string;
@@ -15,6 +17,7 @@ interface FormData {
 
 export default function BookingPage() {
   const { t } = useLanguage();
+  const { user } = useSupabaseAuth();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -24,6 +27,26 @@ export default function BookingPage() {
     availability: '',
     timeSlot: ''
   });
+
+  useEffect(() => {
+    if (user) {
+      const fetchProfile = async () => {
+        const { data } = await supabase
+          .from('user_profiles')
+          .select('full_name')
+          .eq('user_id', user.id)
+          .single();
+        
+        if (data?.full_name) {
+          setFormData(prev => ({ ...prev, name: data.full_name }));
+        } else if (user.email) {
+          // Fallback to email username if no profile name
+          setFormData(prev => ({ ...prev, name: user.email!.split('@')[0] }));
+        }
+      };
+      fetchProfile();
+    }
+  }, [user]);
 
   const services = [
     'Massatge',

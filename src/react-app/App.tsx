@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from '@getmocha/users-service/react';
+import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext';
 import { Cursor } from './components/MotionPrimitives';
 import ErrorBoundary from './components/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
@@ -115,21 +116,23 @@ function AppRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
-      <LanguageProvider>
-        <DiscountProvider>
-          <AuthProvider>
-            <ErrorBoundary>
-              <Cursor className="bg-blue-500" />
-              <Router>
-                <BookingProvider>
-                  <ScrollToTop />
-                  <AppRoutes />
-                </BookingProvider>
-              </Router>
-            </ErrorBoundary>
-          </AuthProvider>
-        </DiscountProvider>
-      </LanguageProvider>
+      <SupabaseAuthProvider>
+        <LanguageProvider>
+          <DiscountProvider>
+            <AuthProvider>
+              <ErrorBoundary>
+                <Cursor className="bg-blue-500" />
+                <Router>
+                  <BookingProvider>
+                    <ScrollToTop />
+                    <AppRoutes />
+                  </BookingProvider>
+                </Router>
+              </ErrorBoundary>
+            </AuthProvider>
+          </DiscountProvider>
+        </LanguageProvider>
+      </SupabaseAuthProvider>
     </HelmetProvider>
   );
 }

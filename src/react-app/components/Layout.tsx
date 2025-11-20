@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe, User as UserIcon } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
 import { useLanguage, Language } from '@/react-app/contexts/LanguageContext';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import CookieBanner from './CookieBanner';
 
 import { useClickOutside } from '@/react-app/hooks/useClickOutside';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
 export default function Layout({
   children
@@ -16,8 +18,14 @@ export default function Layout({
 }) {
   const location = useLocation();
   const { t, language, setLanguage } = useLanguage();
+  const { user, signInWithGoogle, signOut } = useSupabaseAuth();
+  const { logPageView } = useAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
+  // Log page views
+  useEffect(() => {
+    logPageView(location.pathname);
+  }, [location.pathname, logPageView]);
   
   const [showPersonalServices, setShowPersonalServices] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -215,6 +223,44 @@ export default function Layout({
 
             {/* Right side actions */}
             <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+              {/* EKA Account Link */}
+              <a
+                href="https://account.ekabalance.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center text-[#000035] hover:text-[#FFB405] font-medium transition-colors duration-200"
+              >
+                EKA Account
+              </a>
+
+              {/* Login / User Profile */}
+              {user ? (
+                <div className="hidden sm:flex items-center space-x-3">
+                  <Link to="/vip" className="flex items-center space-x-2 group">
+                    <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
+                      <UserIcon className="w-4 h-4 text-yellow-700" />
+                    </div>
+                    <span className="text-sm font-medium text-[#000035] group-hover:text-[#FFB405] transition-colors">
+                      {user.user_metadata.full_name || user.email?.split('@')[0]}
+                    </span>
+                  </Link>
+                  <button
+                    onClick={signOut}
+                    className="text-xs text-gray-500 hover:text-red-500 transition-colors border border-gray-200 px-2 py-1 rounded-md"
+                  >
+                    Sortir
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={signInWithGoogle}
+                  className="hidden sm:inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100 transition-colors duration-200 text-[#000035]"
+                  title="Login"
+                >
+                  <UserIcon className="w-5 h-5" />
+                </button>
+              )}
+
               {/* Reserva Button */}
               <Link
                 to="/booking"
@@ -285,7 +331,38 @@ export default function Layout({
                 ))}
                 
                 {/* Mobile Reserva */}
-                <div className="pt-2 border-t border-gray-100 mt-2">
+                <div className="pt-2 border-t border-gray-100 mt-2 space-y-2">
+                  <a
+                    href="https://account.ekabalance.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center py-2 text-[#000035] font-medium hover:text-[#FFB405]"
+                  >
+                    EKA Account
+                  </a>
+                  
+                  {user ? (
+                    <button
+                      onClick={() => {
+                        signOut();
+                        setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-center py-2 text-gray-600 hover:text-[#FFB405]"
+                    >
+                      Logout ({user.email?.split('@')[0]})
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        signInWithGoogle();
+                        setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-center py-2 text-[#000035] font-medium hover:text-[#FFB405]"
+                    >
+                      Login
+                    </button>
+                  )}
+
                   <Link
                     to="/booking"
                     onClick={() => setIsMenuOpen(false)}

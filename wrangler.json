@@ -23,5 +23,10 @@
       "binding": "R2_BUCKET",
       "bucket_name": "019867be-db17-7148-8002-575a3f797108"
     }
-  ]
+  ],
+  "env": {
+    "test": {
+      "name": "eka-balance-test"
+    }
+  }
 }

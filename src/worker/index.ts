@@ -42,44 +42,44 @@ function getAuthenticatedUser(c: any) {
 async function initializeSessionTypes(db: D1Database) {
   try {
     const count = await db.prepare('SELECT COUNT(*) as count FROM session_types').first();
-    
-    if (!count || count.count === 0) {
-    const sessionTypes = [
-      {
-        name: 'Massatge Bàsic (1h)',
-        description: 'Sessió de massatge terapèutic d\'una hora per alleujar tensions quotidianes i millorar el benestar general',
-        base_price_cents: 6000,
-        features: JSON.stringify(['Alleujar tensions musculars', 'Millorar circulació', 'Reduir estrès', 'Relaxació profunda']),
-        category: 'Massatge',
-        is_active: 1
-      },
-      {
-        name: 'Massatge Complet (1,5h)',
-        description: 'Sessió completa d\'una hora i mitja que combina tècniques diverses per un tractament integral del cos',
-        base_price_cents: 8500,
-        features: JSON.stringify(['Tractament corporal complet', 'Combinació de tècniques', 'Alleujar contractures profundes', 'Equilibri energètic']),
-        category: 'Massatge',
-        is_active: 1
-      },
-      {
-        name: 'Massatge Premium (2h)',
-        description: 'L\'experiència més completa: dues hores de tractament personalitzat amb tècniques avançades',
-        base_price_cents: 12000,
-        features: JSON.stringify(['Tractament personalitzat complet', 'Tècniques avançades', 'Atenció detallada', 'Màxima relaxació']),
-        category: 'Massatge',
-        is_active: 1
-      },
-      {
-        name: 'Kinesiologia Barcelona (1h)',
-        description: 'Sessió de kinesiologia aplicada per equilibrar el cos i detectar desequilibris energètics',
-        base_price_cents: 7000,
-        features: JSON.stringify(['Equilibri energètic global', 'Detecció de desequilibris', 'Reducció de l\'estrès', 'Millora de la postura']),
-        category: 'Equilibri',
-        is_active: 1
-      }
-    ];
 
-    for (const sessionType of sessionTypes) {
+    if (!count || count.count === 0) {
+      const sessionTypes = [
+        {
+          name: 'Massatge Bàsic (1h)',
+          description: 'Sessió de massatge terapèutic d\'una hora per alleujar tensions quotidianes i millorar el benestar general',
+          base_price_cents: 6000,
+          features: JSON.stringify(['Alleujar tensions musculars', 'Millorar circulació', 'Reduir estrès', 'Relaxació profunda']),
+          category: 'Massatge',
+          is_active: 1
+        },
+        {
+          name: 'Massatge Complet (1,5h)',
+          description: 'Sessió completa d\'una hora i mitja que combina tècniques diverses per un tractament integral del cos',
+          base_price_cents: 8500,
+          features: JSON.stringify(['Tractament corporal complet', 'Combinació de tècniques', 'Alleujar contractures profundes', 'Equilibri energètic']),
+          category: 'Massatge',
+          is_active: 1
+        },
+        {
+          name: 'Massatge Premium (2h)',
+          description: 'L\'experiència més completa: dues hores de tractament personalitzat amb tècniques avançades',
+          base_price_cents: 12000,
+          features: JSON.stringify(['Tractament personalitzat complet', 'Tècniques avançades', 'Atenció detallada', 'Màxima relaxació']),
+          category: 'Massatge',
+          is_active: 1
+        },
+        {
+          name: 'Kinesiologia Barcelona (1h)',
+          description: 'Sessió de kinesiologia aplicada per equilibrar el cos i detectar desequilibris energètics',
+          base_price_cents: 7000,
+          features: JSON.stringify(['Equilibri energètic global', 'Detecció de desequilibris', 'Reducció de l\'estrès', 'Millora de la postura']),
+          category: 'Equilibri',
+          is_active: 1
+        }
+      ];
+
+      for (const sessionType of sessionTypes) {
         await db.prepare(`
           INSERT INTO session_types (name, description, base_price_cents, features, category, is_active, created_at, updated_at)
           VALUES (?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))
@@ -169,6 +169,20 @@ app.get('/api/logout', async (c) => {
   }
 });
 
+// Test Vercel Blob
+import { uploadTestBlob } from './blob';
+
+app.post('/api/blob-test', async (c) => {
+  // @ts-ignore
+  const token = c.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_READ_WRITE_TOKEN;
+  if (!token) {
+    return c.json({ error: 'Missing BLOB_READ_WRITE_TOKEN' }, 500);
+  }
+
+  const result = await uploadTestBlob(token);
+  return c.json(result);
+});
+
 // Basic health check
 app.get('/api/health', (c) => {
   return c.json({ status: 'ok', timestamp: new Date().toISOString() });
@@ -178,7 +192,7 @@ app.get('/api/health', (c) => {
 app.get('/api/session-types', async (c) => {
   try {
     await initializeSessionTypes(c.env.DB);
-    
+
     const sessionTypes = await c.env.DB.prepare(`
       SELECT id, name, description, base_price_cents, features, category, is_active
       FROM session_types 
@@ -218,7 +232,7 @@ app.post('/api/recommendations', authMiddleware, zValidator('json', z.object({
     const user = getAuthenticatedUser(c);
 
     const data = c.req.valid('json');
-    
+
     // Save recommendation data for future reference
     await c.env.DB.prepare(`
       INSERT INTO user_assessments_improved (user_id, assessment_data, created_at, updated_at)
@@ -227,33 +241,33 @@ app.post('/api/recommendations', authMiddleware, zValidator('json', z.object({
 
     // Simple recommendation logic
     let recommendations = [];
-    
+
     const sessionTypes = await c.env.DB.prepare(`
       SELECT * FROM session_types WHERE is_active = 1
     `).all();
 
     // Feldenkrais for movement and posture issues
-    if (data.discomfort_areas.includes('neck_shoulders') || 
-        data.discomfort_areas.includes('back_lumbar') ||
-        data.goals.includes('improve_posture') ||
-        data.preferred_technique === 'feldenkrais') {
+    if (data.discomfort_areas.includes('neck_shoulders') ||
+      data.discomfort_areas.includes('back_lumbar') ||
+      data.goals.includes('improve_posture') ||
+      data.preferred_technique === 'feldenkrais') {
       const feldenkrais = sessionTypes.results.find((s: any) => s.name.includes('Feldenkrais'));
       if (feldenkrais) recommendations.push(feldenkrais);
     }
 
     // Massage for pain relief and relaxation
-    if (data.goals.includes('relieve_pain') || 
-        data.goals.includes('relax') ||
-        data.preferred_technique === 'therapeutic_massage') {
+    if (data.goals.includes('relieve_pain') ||
+      data.goals.includes('relax') ||
+      data.preferred_technique === 'therapeutic_massage') {
       const massage = sessionTypes.results.find((s: any) => s.name.includes('Massatge'));
       if (massage) recommendations.push(massage);
     }
 
     // Kinesiology for energy and stress
-    if (data.goals.includes('reduce_anxiety') || 
-        data.goals.includes('more_energy') ||
-        data.stress_level > 7 ||
-        data.preferred_technique === 'kinesiology') {
+    if (data.goals.includes('reduce_anxiety') ||
+      data.goals.includes('more_energy') ||
+      data.stress_level > 7 ||
+      data.preferred_technique === 'kinesiology') {
       const kinesiology = sessionTypes.results.find((s: any) => s.name.includes('Kinesiologia'));
       if (kinesiology) recommendations.push(kinesiology);
     }
@@ -301,7 +315,7 @@ app.get('/api/pricing/calculate', async (c) => {
     }
 
     let basePriceCents = Number(service.base_price_cents);
-    
+
     // Adjust price based on duration (basic multiplier)
     const baseDuration = 60; // minutes
     basePriceCents = Math.round(basePriceCents * (duration / baseDuration));
@@ -347,7 +361,7 @@ app.get('/api/pricing/calculate', async (c) => {
         const profile = await c.env.DB.prepare(`
           SELECT is_vip, vip_expires_at FROM user_profiles WHERE user_id = ?
         `).bind(userId).first();
-        
+
         if (profile && profile.is_vip) {
           // Check if VIP status has expired
           if (profile.vip_expires_at) {
@@ -364,7 +378,7 @@ app.get('/api/pricing/calculate', async (c) => {
         console.error('Error checking VIP status:', error);
         isVip = false;
       }
-      
+
       if (isVip) {
         const discount = Math.round(basePriceCents * 0.05);
         finalPriceCents -= discount;
@@ -503,24 +517,24 @@ app.get('/api/availability', async (c) => {
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
     const isSaturday = dayOfWeek === 6;
     const isSunday = dayOfWeek === 0;
-    
+
     // Different schedules for weekdays vs weekends
     const weekdaySlots = [
       '09:00', '10:30', '12:00', '14:00', '15:30', '17:00', '18:30', '20:00'
     ];
-    
+
     const weekendSlots = [
       '10:00', '11:30', '14:00', '15:30', '17:00', '18:30'
     ];
-    
+
     const availableSlots = isWeekend ? weekendSlots : weekdaySlots;
-    
+
     // Check existing bookings for the day to determine demand
     const existingBookings = await c.env.DB.prepare(`
       SELECT COUNT(*) as count FROM appointments 
       WHERE appointment_date = ? AND status NOT IN ('cancelled', 'no_show')
     `).bind(date).first();
-    
+
     const totalSlots = availableSlots.length;
     const bookedSlots = Number(existingBookings?.count) || 0;
     const occupancyRate = bookedSlots / totalSlots;
@@ -532,7 +546,7 @@ app.get('/api/availability', async (c) => {
         const profile = await c.env.DB.prepare(`
           SELECT is_vip, vip_expires_at FROM user_profiles WHERE user_id = ?
         `).bind(userId).first();
-        
+
         if (profile && profile.is_vip) {
           if (profile.vip_expires_at) {
             const expiryDate = new Date(String(profile.vip_expires_at));
@@ -552,7 +566,7 @@ app.get('/api/availability', async (c) => {
     const slots = availableSlots.map((time) => {
       // Simulate some unavailable slots
       const isAvailable = Math.random() > 0.15; // 85% availability
-      
+
       let priceCents = basePriceCents;
       let isHighDemand = false;
       let demandLabel = '';
@@ -569,7 +583,7 @@ app.get('/api/availability', async (c) => {
         const hour = parseInt(time.split(':')[0]);
         const isEveningSlot = hour >= 18;
         const isPopularSlot = occupancyRate > 0.6 && (isEveningSlot || Math.random() > 0.7);
-        
+
         if (isPopularSlot) {
           isHighDemand = true;
           const surcharge = Math.round(basePriceCents * 0.15);
@@ -619,7 +633,7 @@ app.post('/api/appointments', authMiddleware, zValidator('json', z.object({
     const user = getAuthenticatedUser(c);
 
     const data = c.req.valid('json');
-    
+
     // Get session type details
     const sessionType = await c.env.DB.prepare(`
       SELECT * FROM session_types WHERE id = ?
@@ -636,10 +650,10 @@ app.post('/api/appointments', authMiddleware, zValidator('json', z.object({
 
     // Calculate final price with all modifiers
     let finalPrice = Number(sessionType.base_price_cents);
-    
+
     // Adjust for duration
     finalPrice = Math.round(finalPrice * (data.duration_minutes / 60));
-    
+
     // Add subcategory price modifier if applicable
     if (data.subcategory) {
       const subcategoryPrices: { [key: string]: number } = {
@@ -686,8 +700,8 @@ app.post('/api/appointments', authMiddleware, zValidator('json', z.object({
       appointmentNotes
     ).run();
 
-    return c.json({ 
-      success: true, 
+    return c.json({
+      success: true,
       appointment_id: result.meta.last_row_id,
       message: 'Appointment created successfully'
     });
@@ -839,8 +853,8 @@ Usuari actual: ${user.email}`;
 
     if (!response.ok) {
       console.error('Perplexity API error:', response.status, response.statusText);
-      return c.json({ 
-        message: 'Ho sento, hi ha hagut un problema tècnic. Si us plau, prova-ho més tard o contacta\'ns directament al 658 867 133.' 
+      return c.json({
+        message: 'Ho sento, hi ha hagut un problema tècnic. Si us plau, prova-ho més tard o contacta\'ns directament al 658 867 133.'
       });
     }
 
@@ -850,8 +864,8 @@ Usuari actual: ${user.email}`;
     return c.json({ message: aiMessage });
   } catch (error) {
     console.error('AI Chat error:', error);
-    return c.json({ 
-      message: 'Ho sento, hi ha hagut un error inesperat. Per a assistència immediata, pots trucar-nos al 658 867 133 o enviar-nos un email a contact@ekabalance.com.' 
+    return c.json({
+      message: 'Ho sento, hi ha hagut un error inesperat. Per a assistència immediata, pots trucar-nos al 658 867 133 o enviar-nos un email a contact@ekabalance.com.'
     });
   }
 });
@@ -873,7 +887,7 @@ app.post('/api/contact', zValidator('json', z.object({
 })), async (c) => {
   try {
     const data = c.req.valid('json');
-    
+
     // Save contact form submission to database
     await c.env.DB.prepare(`
       INSERT INTO contact_submissions (

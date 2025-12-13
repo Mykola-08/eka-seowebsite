@@ -15,29 +15,29 @@ export default function Athletes() {
         description="Teràpies especialitzades per esportistes: recuperació muscular, millora de flexibilitat i gestió d'estrès pre-competició. Sessions d'1 hora per 70€."
         keywords="massatge esportistes Barcelona, recuperació muscular, flexibilitat esportiva, estrès competició"
       />
-      
+
       {/* Hero Section */}
-      <section 
+      <section
         className="bg-section-full min-h-screen flex items-center"
         style={{
           backgroundImage: `url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop)`
         }}
       >
         <div className="bg-overlay" />
-        
+
         <div className="relative z-10 apple-container text-center text-white">
           <div className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full mb-8 border border-white/20">
             <span className="font-medium">{t('athletes.hero.badge')}</span>
           </div>
-          
+
           <h1 className="apple-large-title text-white mb-8">
             {t('athletes.hero.title')}
           </h1>
-          
+
           <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto">
             {t('athletes.hero.subtitle')}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/booking"
@@ -126,7 +126,7 @@ export default function Athletes() {
             <p className="apple-subtitle mb-8">
               {t('athletes.result.desc')}
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
                 <div className="text-3xl font-light text-yellow-600 mb-2">90%</div>
@@ -151,17 +151,17 @@ export default function Athletes() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="squircle-image">
               <img
-                src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/physiotherapy.jpg"
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop"
                 alt="Sessió de teràpia per a esportistes"
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             <div>
               <h3 className="apple-title mb-6">
                 {t('athletes.session.title')}
               </h3>
-              
+
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-gray-500 mr-3" />
@@ -171,16 +171,16 @@ export default function Athletes() {
                   <span className="text-3xl font-light text-gray-900">70€</span>
                 </div>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
+                <Link
                   to="/booking"
                   className="flex-1 inline-flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-2xl font-medium"
                 >
                   {t('common.reserve')}
                 </Link>
                 <Link to="/services" className="flex-1">
-                  <Button 
+                  <Button
                     variant="outline"
                     className="w-full border-gray-200 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-2xl font-medium"
                   >

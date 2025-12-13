@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { supabase } from '@/react-app/lib/supabase';
-import { useSupabaseAuth } from './SupabaseAuthContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
 export interface Discount {
@@ -28,7 +27,6 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
   const [selectedDiscount, setSelectedDiscount] = useState<Discount | null>(null);
   const [availableDiscounts, setAvailableDiscounts] = useState<Discount[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { user } = useSupabaseAuth();
   const { logEvent } = useAnalytics();
 
   // Load discounts from Supabase
@@ -48,7 +46,7 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
             name: d.name,
             percentage: d.percentage,
             code: d.code,
-            description: d.description,
+            description: d.description || undefined,
             isActive: d.is_active || false
           }));
           setAvailableDiscounts(mappedDiscounts);

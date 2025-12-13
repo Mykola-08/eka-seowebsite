@@ -5,16 +5,6 @@ import SEOHead from '@/react-app/components/SEOHead';
 import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
 import { useState } from 'react';
 
-interface Discount {
-  id: string;
-  name: string;
-  percentage: number;
-  description: string;
-  code?: string;
-  validUntil?: string;
-  isActive: boolean;
-}
-
 export default function Discounts() {
   const { t } = useLanguage();
   const { selectedDiscount, availableDiscounts, applyDiscount, removeDiscount } = useDiscount();

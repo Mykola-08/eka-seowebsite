@@ -83,7 +83,7 @@ export default function VIPUltraPremium() {
         .single();
       
       if (plansData) {
-        setPlans(plansData.data);
+        setPlans(plansData.data as any[]);
       }
 
       const { data: luxuryData } = await supabase
@@ -93,7 +93,7 @@ export default function VIPUltraPremium() {
         .single();
       
       if (luxuryData) {
-        setLuxuryFeatures(luxuryData.data);
+        setLuxuryFeatures(luxuryData.data as any[]);
       }
     };
     fetchContent();
@@ -102,7 +102,7 @@ export default function VIPUltraPremium() {
   useEffect(() => {
     if (user) {
       const fetchTier = async () => {
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('user_profiles')
           .select('vip_tier')
           .eq('user_id', user.id)
@@ -393,7 +393,7 @@ export default function VIPUltraPremium() {
 
                       {/* Features */}
                       <div className="space-y-5 mb-12">
-                        {plan.features.map((feature, featureIndex) => (
+                        {plan.features.map((feature: string, featureIndex: number) => (
                           <div
                             key={featureIndex}
                             className="flex items-center space-x-4"

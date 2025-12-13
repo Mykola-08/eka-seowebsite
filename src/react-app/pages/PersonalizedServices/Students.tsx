@@ -20,7 +20,7 @@ export default function Students() {
       <section
         className="bg-section-full min-h-screen flex items-center"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop)`
+          backgroundImage: `url(https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&h=1080&fit=crop)`
         }}
       >
         <div className="bg-overlay" />

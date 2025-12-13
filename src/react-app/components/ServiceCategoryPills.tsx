@@ -8,14 +8,14 @@ export default function ServiceCategoryPills() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from('content_blocks')
         .select('data')
         .eq('key', 'service_categories')
         .single();
       
       if (data) {
-        setServiceCategories(data.data);
+        setServiceCategories(data.data as any[]);
       }
     };
     fetchData();

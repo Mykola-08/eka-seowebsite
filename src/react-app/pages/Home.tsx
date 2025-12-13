@@ -110,7 +110,7 @@ export default function Home() {
               <div className="order-1 lg:order-1">
                 <div className="relative max-w-md mx-auto lg:max-w-none">
                   <img
-                    src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/photo_2025-09-14_11-55-52.jpg"
+                    src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                     alt="Elena, terapeuta corporal d'EKA Balance"
                     className="w-full h-auto rounded-full object-cover aspect-square"
                   />

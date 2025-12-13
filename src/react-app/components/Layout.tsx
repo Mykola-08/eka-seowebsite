@@ -122,7 +122,7 @@ export default function Layout({
             {/* Logo Only - Left Side */}
             <Link to="/" className="flex items-center flex-shrink-0">
               <img 
-                src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/eka_logo.png" 
+                src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png" 
                 alt="EKA Balance Logo"
                 className={`transition-all duration-300 ${
                   isScrolled ? 'w-8 h-8' : 'w-10 h-10'
@@ -400,7 +400,7 @@ export default function Layout({
           {/* Logo */}
           <div className="flex items-center justify-center space-x-3 mb-8">
             <img 
-              src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/eka_logo.png" 
+              src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png" 
               alt="EKA Balance Logo"
               className="w-10 h-10 object-contain"
             />

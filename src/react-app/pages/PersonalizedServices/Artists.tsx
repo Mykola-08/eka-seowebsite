@@ -20,7 +20,7 @@ export default function Artists() {
       <section
         className="bg-section-full min-h-screen flex items-center"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&h=1080&fit=crop)`
+          backgroundImage: `url(https://images.unsplash.com/photo-1599447421405-0c325d26d77e?w=1920&h=1080&fit=crop)`
         }}
       >
         <div className="bg-overlay" />

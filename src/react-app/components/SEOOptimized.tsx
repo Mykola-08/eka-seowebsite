@@ -30,7 +30,7 @@ export default function SEOOptimized({
         "url": url,
         "logo": {
           "@type": "ImageObject",
-          "url": "https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/eka_logo.png"
+          "url": "https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
         },
         "contactPoint": {
           "@type": "ContactPoint",

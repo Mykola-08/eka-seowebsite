@@ -47,7 +47,7 @@ export default function AboutElena() {
           <div className="relative max-w-xs mx-auto mb-12">
             <div className="relative">
               <img
-                src="https://mocha-cdn.com/019867be-db17-7148-8002-575a3f797108/photo_2025-09-14_11-55-52.jpg"
+                src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                 alt="Elena Kucherova"
                 className="w-full h-auto rounded-full object-cover aspect-square shadow-2xl border-4 border-white"
               />

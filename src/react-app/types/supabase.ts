@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      content_blocks: {
+        Row: {
+          id: string
+          key: string
+          data: Json
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          key: string
+          data: Json
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          key?: string
+          data?: Json
+          created_at?: string
+        }
+        Relationships: []
+      }
+      discounts: {
+        Row: {
+          id: string
+          name: string
+          code: string
+          percentage: number
+          is_active: boolean
+          description: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          code: string
+          percentage: number
+          is_active?: boolean
+          description?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          code?: string
+          percentage?: number
+          is_active?: boolean
+          description?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       academy_applications: {
         Row: {
           application_date: string | null
@@ -4655,6 +4706,7 @@ export type Database = {
           updated_at: string
           user_id: string
           years_of_experience: number | null
+          vip_tier: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -4679,6 +4731,7 @@ export type Database = {
           updated_at?: string
           user_id: string
           years_of_experience?: number | null
+          vip_tier?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -4703,6 +4756,7 @@ export type Database = {
           updated_at?: string
           user_id?: string
           years_of_experience?: number | null
+          vip_tier?: string | null
         }
         Relationships: []
       }

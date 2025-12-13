@@ -21,6 +21,7 @@ type Bindings = {
   STRIPE_PUBLISHABLE_KEY: string;
   MOCHA_USERS_SERVICE_API_KEY: string;
   MOCHA_USERS_SERVICE_API_URL: string;
+  BLOB_READ_WRITE_TOKEN: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();

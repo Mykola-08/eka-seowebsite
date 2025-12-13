@@ -3,6 +3,7 @@ import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { authMiddleware } from '@getmocha/users-service/backend';
+import { uploadTestBlob } from './blob';
 
 type Bindings = {
   DB: D1Database;
@@ -12,10 +13,17 @@ type Bindings = {
   STRIPE_PUBLISHABLE_KEY: string;
   MOCHA_USERS_SERVICE_API_KEY: string;
   MOCHA_USERS_SERVICE_API_URL: string;
+  BLOB_READ_WRITE_TOKEN: string;
 };
 
 export function addDashboardEndpoints(app: Hono<{ Bindings: Bindings }>) {
   
+  // Test Blob Upload
+  app.post('/api/test-blob', async (c) => {
+    const result = await uploadTestBlob(c.env.BLOB_READ_WRITE_TOKEN);
+    return c.json(result);
+  });
+
   // Get user profile with enhanced data
   app.get('/api/users/me', authMiddleware, async (c) => {
     const user = c.get('user');

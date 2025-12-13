@@ -20,7 +20,7 @@ export default function Athletes() {
       <section
         className="bg-section-full min-h-screen flex items-center"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop)`
+          backgroundImage: `url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1920&h=1080&fit=crop)`
         }}
       >
         <div className="bg-overlay" />

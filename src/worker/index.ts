@@ -26,7 +26,8 @@ type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-// CORS middleware
+// CORS middleware configuration
+// Allows all origins for development flexibility, but should be restricted in production
 app.use('*', cors({
   origin: '*',
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

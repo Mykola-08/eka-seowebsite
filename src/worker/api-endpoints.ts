@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { authMiddleware } from '@getmocha/users-service/backend';
 import { uploadTestBlob } from './blob';
 
+// Define bindings for environment variables and services
 type Bindings = {
   DB: D1Database;
   OPENAI_API_KEY: string;
@@ -18,13 +19,15 @@ type Bindings = {
 
 export function addDashboardEndpoints(app: Hono<{ Bindings: Bindings }>) {
   
-  // Test Blob Upload
+  // Test Blob Upload Endpoint
+  // Used to verify Vercel Blob configuration
   app.post('/api/test-blob', async (c) => {
     const result = await uploadTestBlob(c.env.BLOB_READ_WRITE_TOKEN);
     return c.json(result);
   });
 
   // Get user profile with enhanced data
+  // Fetches user data from the users service and combines it with local profile data
   app.get('/api/users/me', authMiddleware, async (c) => {
     const user = c.get('user');
     

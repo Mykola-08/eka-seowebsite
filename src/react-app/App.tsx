@@ -8,6 +8,8 @@ import ScrollToTop from './components/ScrollToTop';
 import { BookingProvider } from './components/BookingProvider';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { DiscountProvider } from './contexts/DiscountContext';
+
+// Page Imports
 import HomePage from "@/react-app/pages/Home";
 import Services from "@/react-app/pages/Services";
 import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
@@ -17,7 +19,7 @@ import MassatgePage from "@/react-app/pages/MassatgePage";
 import KinesiologiaPage from "@/react-app/pages/KinesiologiaPage";
 import NutricioPage from "@/react-app/pages/NutricioPage";
 
-// Personal Services
+// Personal Services (Landing Pages)
 import PersonalizedServices from "@/react-app/pages/PersonalizedServices";
 import OfficeWorkers from "@/react-app/pages/PersonalizedServices/OfficeWorkers";
 import Musicians from "@/react-app/pages/PersonalizedServices/Musicians";
@@ -25,7 +27,7 @@ import Athletes from "@/react-app/pages/PersonalizedServices/Athletes";
 import Artists from "@/react-app/pages/PersonalizedServices/Artists";
 import Students from "@/react-app/pages/PersonalizedServices/Students";
 
-// Personalized Pages
+// Personalized Pages (Detailed)
 import StudentsPersonalized from "@/react-app/pages/PersonalizedPages/Students";
 import OfficeWorkersPersonalized from "@/react-app/pages/PersonalizedPages/OfficeWorkers";
 import MusiciansPersonalized from "@/react-app/pages/PersonalizedPages/Musicians";

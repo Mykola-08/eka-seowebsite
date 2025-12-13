@@ -9,6 +9,9 @@ interface SEOHeadProps {
   type?: string;
 }
 
+/**
+ * @deprecated Consider using SEOOptimized component instead which includes structured data (JSON-LD).
+ */
 export default function SEOHead({
   title = 'EKA Balance Barcelona - Massatge Terapèutic i Kinesiologia | Carrer Pelai 12',
   description = 'Centre de benestar EKA Balance a Barcelona (Carrer Pelai 12). Massatge terapèutic, kinesiologia i plans VIP per al teu equilibri integral. Reserva ara!',

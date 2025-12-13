@@ -1,14 +1,35 @@
 import { createClient } from '@supabase/supabase-js';
 import { Database } from '../types/supabase';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+import { SupabaseClient } from '@supabase/supabase-js';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing Supabase environment variables');
-}
+const createSupabaseClient = (): SupabaseClient<Database> => {
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
-export const supabase = createClient<Database>(
-  supabaseUrl || '',
-  supabaseAnonKey || ''
-);
+  if (supabaseUrl && supabaseKey) {
+    return createClient<Database>(supabaseUrl, supabaseKey);
+  }
+
+  // Return a proxy that logs errors when accessed, preventing immediate crash
+  // but ensuring the error is caught by ErrorBoundary when used
+  console.error('Supabase initialization failed: Missing environment variables');
+
+  return new Proxy({} as any, {
+    get: (_, prop) => {
+      // Allow auth.onAuthStateChange to run safely (returning a dummy subscription)
+      // to prevents crash in SupabaseAuthProvider useEffect
+      if (prop === 'auth') {
+        return {
+          onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => { } } } }),
+          getSession: () => Promise.resolve({ data: { session: null } }),
+          signInWithOAuth: () => Promise.reject(new Error('Missing Supabase credentials')),
+          signOut: () => Promise.resolve(),
+        } as any;
+      }
+      throw new Error(`Cannot access supabase.${String(prop)}: Missing environment variables(VITE_SUPABASE_URL, VITE_SUPABASE_PUBLISHABLE_KEY)`);
+    }
+  }) as SupabaseClient<Database>;
+};
+
+export const supabase = createSupabaseClient();

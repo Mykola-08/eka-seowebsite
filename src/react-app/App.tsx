@@ -65,13 +65,13 @@ function AppRoutes() {
       <Route path="/" element={<HomePage />} />
       <Route path="/services" element={<Services />} />
       {/* Revisió 360° routes redirect to external app */}
-      
+
       {/* Individual Service Pages */}
       <Route path="/serveis/massatge" element={<MassatgePage />} />
       <Route path="/serveis/kinesiologia" element={<KinesiologiaPage />} />
       <Route path="/serveis/nutritio" element={<NutricioPage />} />
       <Route path="/vip" element={<VIPUltraPremium />} />
-      
+
       {/* Personal Services */}
       <Route path="/serveis-personalitzats" element={<PersonalizedServices />} />
       <Route path="/serveis/treballadors-oficina" element={<OfficeWorkers />} />
@@ -79,34 +79,34 @@ function AppRoutes() {
       <Route path="/serveis/esportistes" element={<Athletes />} />
       <Route path="/serveis/artistes" element={<Artists />} />
       <Route path="/serveis/estudiants" element={<Students />} />
-      
+
       {/* Personalized Onboarding Pages */}
       <Route path="/per-a-estudiants" element={<StudentsPersonalized />} />
       <Route path="/per-a-treballadors-oficina" element={<OfficeWorkersPersonalized />} />
       <Route path="/per-a-musics" element={<MusiciansPersonalized />} />
       <Route path="/per-a-esportistes" element={<AthletesPersonalized />} />
       <Route path="/per-a-pares" element={<ParentsPersonalized />} />
-      
+
       {/* Contact */}
       <Route path="/contacte" element={<ContactPage />} />
-      
+
       {/* About Elena */}
       <Route path="/sobre-elena" element={<AboutElena />} />
-      
+
       {/* Booking */}
       <Route path="/booking" element={<BookingPage />} />
-      
+
       {/* Discovery Form */}
       <Route path="/descobriment" element={<DiscoveryForm />} />
       <Route path="/primer-cop" element={<FirstTimeVisitor />} />
-      
+
       {/* Cases */}
       <Route path="/casos" element={<Casos />} />
       <Route path="/casos/:id" element={<CasoDetail />} />
-      
+
       {/* Discounts */}
       <Route path="/discounts" element={<Discounts />} />
-      
+
       {/* Legal Pages */}
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
@@ -118,11 +118,11 @@ function AppRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
-      <SupabaseAuthProvider>
-        <LanguageProvider>
-          <DiscountProvider>
-            <AuthProvider>
-              <ErrorBoundary>
+      <ErrorBoundary>
+        <SupabaseAuthProvider>
+          <LanguageProvider>
+            <DiscountProvider>
+              <AuthProvider>
                 <Cursor className="bg-blue-500" />
                 <Router>
                   <BookingProvider>
@@ -130,11 +130,18 @@ export default function App() {
                     <AppRoutes />
                   </BookingProvider>
                 </Router>
-              </ErrorBoundary>
-            </AuthProvider>
-          </DiscountProvider>
-        </LanguageProvider>
-      </SupabaseAuthProvider>
+                <Cursor className="bg-blue-500" />
+                <Router>
+                  <BookingProvider>
+                    <ScrollToTop />
+                    <AppRoutes />
+                  </BookingProvider>
+                </Router>
+              </AuthProvider>
+            </DiscountProvider>
+          </LanguageProvider>
+        </SupabaseAuthProvider>
+      </ErrorBoundary>
     </HelmetProvider>
   );
 }

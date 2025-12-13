@@ -24,7 +24,7 @@ export default function AnimatedCounter({
 }: AnimatedCounterProps) {
   const [current, setCurrent] = useState(start);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [elementRef, isInView] = useIntersectionObserver({
+  const [elementRef, isInView] = useIntersectionObserver<HTMLSpanElement>({
     triggerOnce: true,
     threshold: 0.3,
   });

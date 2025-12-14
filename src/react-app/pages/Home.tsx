@@ -362,11 +362,6 @@ export default function Home() {
                 {t('common.bookNow')}
               </button>
             </div>
-
-            <div className="mt-12 text-gray-400">
-              <p>📍 {t('footer.address')}</p>
-              <p>✉️ {t('footer.email')}</p>
-            </div>
           </div>
         </section>
 

@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: 'Maria R.',
     role: 'Barcelona',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+    image: 'https://images.pexels.com/photos/35150128/pexels-photo-35150128.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'Honestly didn\'t think it would help after trying so many things. But after three sessions, the chronic back pain I\'ve had for years just... got better. Still shocked.',
     service: 'Kinesiology'
@@ -16,7 +16,7 @@ const testimonials = [
     id: 2,
     name: 'Jordi M.',
     role: 'Sant Cugat',
-    image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+    image: 'https://images.pexels.com/photos/6973088/pexels-photo-6973088.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'Work was destroying me. Started the sessions thinking it was just another thing I\'d try and forget about. Two months in and I actually feel like myself again.',
     service: 'Osteobalance'
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: 'Anna F.',
     role: 'Madrid',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+    image: 'https://images.pexels.com/photos/4452215/pexels-photo-4452215.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'My kid was struggling. Found Elena completely by accident and honestly, her patience and approach made all the difference. He\'s so much more mobile now.',
     service: 'Family Massage'
@@ -34,7 +34,7 @@ const testimonials = [
     id: 4,
     name: 'Carles M.',
     role: 'Valencia',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+    image: 'https://images.pexels.com/photos/8837543/pexels-photo-8837543.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'The home sessions are a game changer when you\'re constantly traveling. Actually feel taken care of instead of just going through the motions.',
     service: 'Premium Plan'
@@ -43,7 +43,7 @@ const testimonials = [
     id: 5,
     name: 'Laura S.',
     role: 'Palma',
-    image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+    image: 'https://images.pexels.com/photos/27041642/pexels-photo-27041642.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
     text: 'Rehearsals used to leave me wrecked. The tension was killing me. Now I can actually get through them feeling loose and ready instead of tight and anxious.',
     service: 'Movement'
@@ -54,7 +54,7 @@ interface TestimonialSliderProps {
   backgroundImage?: string;
 }
 
-export default function TestimonialSlider({ backgroundImage = 'https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop' }: TestimonialSliderProps) {
+export default function TestimonialSlider({ backgroundImage = 'https://images.pexels.com/photos/6724383/pexels-photo-6724383.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop' }: TestimonialSliderProps) {
   const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

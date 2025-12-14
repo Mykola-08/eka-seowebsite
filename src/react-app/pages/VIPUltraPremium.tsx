@@ -15,6 +15,59 @@ const iconMap = {
   Zap
 };
 
+const defaultPlans = [
+  {
+    tier: 'bronze',
+    name: 'Bronze',
+    description: 'Accés essencial al món VIP',
+    price: '150',
+    sessions: '2',
+    popular: false,
+    features: ['Accés prioritari', 'Descomptes en serveis addicionals', 'Atenció personalitzada']
+  },
+  {
+    tier: 'silver',
+    name: 'Silver',
+    description: 'Equilibri perfecte per a la teva salut',
+    price: '250',
+    sessions: '4',
+    popular: true,
+    features: ['Tots els beneficis Bronze', 'Sessions a domicili', 'Seguiment mensual']
+  },
+  {
+    tier: 'gold',
+    name: 'Gold',
+    description: 'L\'experiència definitiva sense límits',
+    price: '500',
+    sessions: '8',
+    popular: false,
+    features: ['Tots els beneficis Silver', 'Disponibilitat 24/7', 'Accés a esdeveniments exclusius']
+  }
+];
+
+const defaultLuxuryFeatures = [
+  {
+    icon: 'Diamond',
+    title: 'Exclusivitat Total',
+    description: 'Accés limitat a un grup selecte de membres per garantir la màxima atenció.'
+  },
+  {
+    icon: 'Award',
+    title: 'Excel·lència Certificada',
+    description: 'Professionals amb la màxima qualificació i experiència internacional.'
+  },
+  {
+    icon: 'Globe',
+    title: 'Cobertura Global',
+    description: 'Serveis disponibles allà on siguis, amb la mateixa qualitat de sempre.'
+  },
+  {
+    icon: 'Zap',
+    title: 'Resposta Immediata',
+    description: 'Canal de comunicació directe i prioritari per a qualsevol necessitat.'
+  }
+];
+
 const vipServices = [
   {
     icon: Home,
@@ -85,6 +138,8 @@ export default function VIPUltraPremium() {
       
       if (plansData) {
         setPlans(plansData.data as any[]);
+      } else {
+        setPlans(defaultPlans);
       }
 
       const { data: luxuryData } = await supabase
@@ -95,6 +150,8 @@ export default function VIPUltraPremium() {
       
       if (luxuryData) {
         setLuxuryFeatures(luxuryData.data as any[]);
+      } else {
+        setLuxuryFeatures(defaultLuxuryFeatures);
       }
     };
     fetchContent();
@@ -183,22 +240,21 @@ export default function VIPUltraPremium() {
           {/* Ultra Premium Badge */}
           <div className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 backdrop-blur-xl border border-yellow-400/30 rounded-full mb-16">
             <Diamond className="mr-4 w-8 h-8 text-yellow-400" />
-            <span className="text-white font-bold tracking-wider text-xl">INNER CIRCLE ELITE</span>
+            <span className="text-white font-bold tracking-wider text-xl">{t('vip.hero.badge')}</span>
             <Diamond className="ml-4 w-8 h-8 text-yellow-400" />
           </div>
 
           <h1 className="text-7xl sm:text-8xl lg:text-9xl font-light mb-12 leading-tight tracking-tighter">
             <span className="block bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
-              BEYOND
+              {t('vip.hero.title.beyond')}
             </span>
             <span className="block text-5xl sm:text-6xl lg:text-7xl font-medium text-white/90 italic mt-4">
-              wellness
+              {t('vip.hero.title.wellness')}
             </span>
           </h1>
 
           <p className="text-2xl sm:text-3xl text-white/80 mb-20 max-w-5xl mx-auto font-light leading-relaxed">
-            Entra al cercle més exclusiu de salut i benestar a Barcelona.<br />
-            <span className="text-yellow-400 font-medium">Només per a aquells que busquen la perfecció.</span>
+            {t('vip.hero.subtitle')}
           </p>
 
           {/* Luxury CTA */}
@@ -209,7 +265,7 @@ export default function VIPUltraPremium() {
               rel="noopener noreferrer"
               className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-400/30"
             >
-              <span className="text-xl tracking-wide">UNIR-ME A L'INNER CIRCLE</span>
+              <span className="text-xl tracking-wide">{t('vip.hero.cta.join')}</span>
               <Crown className="ml-4 w-7 h-7 group-hover:animate-bounce" />
             </a>
 
@@ -226,19 +282,19 @@ export default function VIPUltraPremium() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-4xl font-light text-yellow-400 mb-2">&lt; 1%</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">Clients Elite</div>
+              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.clients')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-light text-yellow-400 mb-2">24/7</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">Concierge</div>
+              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.concierge')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-light text-yellow-400 mb-2">100%</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">Exclusivitat</div>
+              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.exclusivity')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-light text-yellow-400 mb-2">∞</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">Possibilitats</div>
+              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.possibilities')}</div>
             </div>
           </div>
         </div>
@@ -252,13 +308,13 @@ export default function VIPUltraPremium() {
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <User className="w-6 h-6 text-yellow-400" />
-                  <span className="text-yellow-400 font-medium tracking-wider text-sm">MEMBRE REGISTRAT</span>
+                  <span className="text-yellow-400 font-medium tracking-wider text-sm">{t('vip.dashboard.member')}</span>
                 </div>
                 <h2 className="text-3xl text-white font-light mb-2">
-                  Hola, <span className="font-medium">{user.email?.split('@')[0]}</span>
+                  {t('vip.dashboard.hello')} <span className="font-medium">{user.email?.split('@')[0]}</span>
                 </h2>
                 <p className="text-gray-400">
-                  Estat actual: <span className={`font-bold ${vipTier !== 'none' ? 'text-yellow-400' : 'text-gray-300'}`}>{vipTier === 'none' ? 'Estàndard' : `${vipTier.toUpperCase()} ELITE`}</span>
+                  {t('vip.dashboard.status')} <span className={`font-bold ${vipTier !== 'none' ? 'text-yellow-400' : 'text-gray-300'}`}>{vipTier === 'none' ? 'Estàndard' : `${vipTier.toUpperCase()} ELITE`}</span>
                 </p>
               </div>
 
@@ -269,7 +325,7 @@ export default function VIPUltraPremium() {
                     className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-bold transition-colors"
                   >
                     <Calendar className="w-5 h-5" />
-                    Reserva Prioritària
+                    {t('vip.dashboard.priorityBooking')}
                   </Link>
                 ) : (
                   <button 
@@ -277,7 +333,7 @@ export default function VIPUltraPremium() {
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-colors border border-white/20"
                   >
                     <Crown className="w-5 h-5 text-yellow-400" />
-                    Veure Plans VIP
+                    {t('vip.dashboard.viewPlans')}
                   </button>
                 )}
               </div>
@@ -293,13 +349,13 @@ export default function VIPUltraPremium() {
           <div className="text-center mb-20">
             <div className="inline-flex items-center px-6 py-2 bg-yellow-100 rounded-full mb-8">
               <Sparkles className="mr-2 w-5 h-5 text-yellow-600" />
-              <span className="text-yellow-700 font-medium text-sm tracking-wide">EXPERIÈNCIA INIGUALABLE</span>
+              <span className="text-yellow-700 font-medium text-sm tracking-wide">{t('vip.features.badge')}</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-6">
-              Benvingut a <span className="text-yellow-500 font-medium">l'elit</span>
+              {t('vip.features.title')}
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
-              Descobreix què significa formar part del cercle més exclusiu.
+              {t('vip.features.subtitle')}
             </p>
           </div>
 
@@ -335,13 +391,13 @@ export default function VIPUltraPremium() {
           <div className="text-center mb-20">
             <div className="inline-flex items-center px-6 py-2 bg-white/10 backdrop-blur-md rounded-full mb-8">
               <Crown className="mr-2 w-5 h-5 text-yellow-400" />
-              <span className="text-white font-medium text-sm tracking-wide">MEMBRESIES D'ELIT</span>
+              <span className="text-white font-medium text-sm tracking-wide">{t('vip.plans.badge')}</span>
             </div>
             <h2 className="text-5xl sm:text-6xl font-light mb-6 leading-tight">
-              Tria la teva <span className="text-yellow-400 font-medium">experiència elite</span>
+              {t('vip.plans.title')}
             </h2>
             <p className="text-2xl text-white/80 max-w-4xl mx-auto font-light">
-              Cada pla està meticulosament dissenyat per oferir una experiència inoblidable.
+              {t('vip.plans.subtitle')}
             </p>
           </div>
 
@@ -361,7 +417,7 @@ export default function VIPUltraPremium() {
                   {plan.popular && (
                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
                       <div className="bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 px-8 py-3 rounded-full text-sm font-bold shadow-lg">
-                        MÉS EXCLUSIU
+                        {t('vip.plans.popular')}
                       </div>
                     </div>
                   )}
@@ -386,10 +442,10 @@ export default function VIPUltraPremium() {
                           <span className="text-6xl font-light text-white">
                             {plan.price}
                           </span>
-                          <span className="text-2xl text-white/60 ml-2">€/mes</span>
+                          <span className="text-2xl text-white/60 ml-2">{t('vip.plans.perMonth')}</span>
                         </div>
                         <p className="text-white/50 text-sm">
-                          {plan.sessions} sessions exclusives mensuals
+                          {plan.sessions} {t('vip.plans.sessions')}
                         </p>
                       </div>
 
@@ -419,7 +475,7 @@ export default function VIPUltraPremium() {
                             : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
                         }`}
                       >
-                        Contactar per a {plan.name}
+                        {t('vip.plans.contact')} {plan.name}
                       </a>
                     </div>
                   </div>
@@ -438,7 +494,7 @@ export default function VIPUltraPremium() {
               {t('vip.exclusivePrivileges')} 
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
-              Beneficis que només els membres de l'Inner Circle poden gaudir.
+              {t('vip.features.subtitle')}
             </p>
           </div>
 
@@ -489,10 +545,10 @@ export default function VIPUltraPremium() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl sm:text-6xl font-light text-gray-900 mb-6">
-              Veus d'<span className="text-yellow-500 font-medium">excel·lència</span>
+              {t('vip.testimonials.title')}
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
-              Experiències reals dels nostres membres de l'Inner Circle.
+              {t('vip.testimonials.subtitle')}
             </p>
           </div>
 
@@ -548,20 +604,19 @@ export default function VIPUltraPremium() {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 text-center">
           <div className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 backdrop-blur-xl border border-yellow-400/30 rounded-full mb-16">
             <Heart className="mr-4 w-6 h-6 text-yellow-400" />
-            <span className="text-white font-bold tracking-wider text-lg">L'INNER CIRCLE T'ESPERA</span>
+            <span className="text-white font-bold tracking-wider text-lg">{t('vip.cta.badge')}</span>
             <Heart className="ml-4 w-6 h-6 text-yellow-400" />
           </div>
 
           <h2 className="text-6xl sm:text-7xl lg:text-8xl font-light text-white mb-12 leading-tight">
-            Preparat per<br />
+            {t('vip.cta.title')}<br />
             <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent font-medium italic">
-              transcendir
+              {t('vip.hero.title.beyond')}
             </span>
           </h2>
 
           <p className="text-2xl text-gray-300 mb-20 max-w-4xl mx-auto font-light leading-relaxed">
-            Només els qui busquen l'excel·lència poden formar part d'aquesta experiència única.<br />
-            <span className="text-yellow-400 font-medium">La teva transformació comença aquí.</span>
+            {t('vip.cta.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
@@ -571,7 +626,7 @@ export default function VIPUltraPremium() {
               rel="noopener noreferrer"
               className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-400/30"
             >
-              <span className="text-xl tracking-wide">UNIR-ME A L'INNER CIRCLE</span>
+              <span className="text-xl tracking-wide">{t('vip.hero.cta.join')}</span>
               <ArrowRight className="ml-4 w-7 h-7 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
 
@@ -582,33 +637,6 @@ export default function VIPUltraPremium() {
               <Phone className="w-6 h-6 mr-4" />
               <span className="text-xl tracking-wide">658 867 133</span>
             </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16 border-t border-white/10">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-yellow-400 font-semibold text-lg mb-2">UBICACIÓ EXCLUSIVA</h3>
-              <p className="text-white/70">📍 Carrer Pelai, 12, Barcelona</p>
-              <p className="text-white/50 text-sm mt-2">Centre d'excel·lència internacional</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Crown className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-yellow-400 font-semibold text-lg mb-2">SERVEI CONCIERGE</h3>
-              <p className="text-white/70">🕐 Disponibilitat 24/7 per a Gold</p>
-              <p className="text-white/50 text-sm mt-2">Atenció personalitzada sempre</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-yellow-400 font-semibold text-lg mb-2">GARANTIA TOTAL</h3>
-              <p className="text-white/70">📞 Línia directa VIP exclusiva</p>
-              <p className="text-white/50 text-sm mt-2">Satisfacció garantida al 100%</p>
-            </div>
           </div>
         </div>
       </section>

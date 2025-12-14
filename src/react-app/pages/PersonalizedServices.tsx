@@ -3,7 +3,7 @@ import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
-import { useBooking } from '../components/BookingProvider';
+import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 const personalizedServices = [

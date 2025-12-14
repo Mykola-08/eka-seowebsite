@@ -1,19 +1,10 @@
-import React, { createContext, useContext, useEffect } from 'react';
-/* eslint-disable react-refresh/only-export-components */
+import React, { createContext, useEffect } from 'react';
 
 interface SmoothScrollContextType {
   scrollToSection: (elementId: string, offset?: number) => void;
 }
 
-const SmoothScrollContext = createContext<SmoothScrollContextType | undefined>(undefined);
-
-export const useSmoothScroll = () => {
-  const context = useContext(SmoothScrollContext);
-  if (!context) {
-    throw new Error('useSmoothScroll must be used within a SmoothScrollProvider');
-  }
-  return context;
-};
+export const SmoothScrollContext = createContext<SmoothScrollContextType | undefined>(undefined);
 
 interface SmoothScrollProviderProps {
   children: React.ReactNode;

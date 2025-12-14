@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { useBooking } from '@/react-app/components/BookingProvider';
+import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Mail, MessageCircle, Calendar, Heart, Brain, Sparkles } from 'lucide-react';
 

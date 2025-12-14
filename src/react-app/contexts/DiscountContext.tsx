@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { supabase } from '@/react-app/lib/supabase';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
-/* eslint-disable react-refresh/only-export-components */
 export interface Discount {
   id: string;
   name: string;

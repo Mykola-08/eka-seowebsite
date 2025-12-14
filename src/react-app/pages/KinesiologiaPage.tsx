@@ -1,7 +1,7 @@
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
-import { useBooking } from '../components/BookingProvider';
+import { useBooking } from '@/react-app/hooks/useBooking';
 
 export default function KinesiologiaPage() {
   const { navigateToBooking } = useBooking();

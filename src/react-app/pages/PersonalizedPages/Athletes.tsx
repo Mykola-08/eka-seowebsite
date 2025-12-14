@@ -2,7 +2,7 @@ import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Zap, Clock, CheckCircle, ArrowRight } from 'lucide-react';
-import { useBooking } from '@/react-app/components/BookingProvider';
+import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function AthletesPersonalized() {

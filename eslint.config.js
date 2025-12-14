@@ -25,4 +25,19 @@ export default tseslint.config(
       ],
     },
   }
+  ,
+  {
+    // Allow exporting hooks/contexts/utilities alongside components in these paths
+    files: [
+      "src/react-app/contexts/**/*.{ts,tsx}",
+      "src/react-app/hooks/**/*.{ts,tsx}",
+      "src/react-app/components/Toast.tsx",
+      "src/react-app/components/SmoothScrollProvider.tsx",
+      "src/react-app/components/BookingProvider.tsx",
+      "src/react-app/components/ErrorBoundary.tsx",
+    ],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  }
 );

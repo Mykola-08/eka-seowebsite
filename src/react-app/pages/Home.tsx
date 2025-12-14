@@ -9,7 +9,7 @@ import GallerySection from '@/react-app/components/GallerySection';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
-import { useBooking } from '../components/BookingProvider';
+import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function Home() {

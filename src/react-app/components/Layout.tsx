@@ -223,15 +223,7 @@ export default function Layout({
 
             {/* Right side actions */}
             <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
-              {/* EKA Account Link */}
-              <a
-                href="https://account.ekabalance.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center text-[#000035] hover:text-[#FFB405] font-medium transition-colors duration-200"
-              >
-                EKA Account
-              </a>
+              {/* EKA Account Link - HIDDEN FOR NOW */}
 
               {/* Login / User Profile */}
               {user ? (
@@ -332,14 +324,7 @@ export default function Layout({
                 
                 {/* Mobile Reserva */}
                 <div className="pt-2 border-t border-gray-100 mt-2 space-y-2">
-                  <a
-                    href="https://account.ekabalance.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center py-2 text-[#000035] font-medium hover:text-[#FFB405]"
-                  >
-                    EKA Account
-                  </a>
+                  {/* EKA Account Link - HIDDEN FOR NOW */}
                   
                   {user ? (
                     <button

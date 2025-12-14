@@ -34,6 +34,7 @@ export default function AnimatedCounter({
   useEffect(() => {
     if (!shouldAnimate) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHasAnimated(true);
     const startTime = Date.now();
     const difference = end - start;

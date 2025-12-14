@@ -242,7 +242,7 @@ app.post('/api/recommendations', authMiddleware, zValidator('json', z.object({
     `).bind(user?.id || '', JSON.stringify(data)).run();
 
     // Simple recommendation logic
-    let recommendations = [];
+    const recommendations = [];
 
     const sessionTypes = await c.env.DB.prepare(`
       SELECT * FROM session_types WHERE is_active = 1

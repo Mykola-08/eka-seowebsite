@@ -115,6 +115,7 @@ export default function VIPUltraPremium() {
       };
       fetchTier();
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoadingTier(false);
     }
   }, [user]);

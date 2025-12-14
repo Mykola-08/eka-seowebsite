@@ -22,6 +22,11 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
+  const handleClose = () => {
+    setIsExiting(true);
+    setTimeout(() => onClose(toast.id), 200);
+  };
+
   useEffect(() => {
     // Animate in
     const timer = setTimeout(() => setIsVisible(true), 50);
@@ -34,11 +39,6 @@ function ToastComponent({ toast, onClose }: ToastProps) {
       return () => clearTimeout(timer);
     }
   }, [toast.duration]);
-
-  const handleClose = () => {
-    setIsExiting(true);
-    setTimeout(() => onClose(toast.id), 200);
-  };
 
   const getKeepColor = () => {
     switch (toast.type) {

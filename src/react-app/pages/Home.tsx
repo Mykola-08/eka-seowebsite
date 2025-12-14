@@ -276,26 +276,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Quick Booking Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-8">            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                to="/primer-cop"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 inline-block"
-              >
-                {t('hero.dontKnowWhatToChoose')}
-              </Link>
-              <button
-                onClick={navigateToBooking}
-                className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
-              >
-                {t('common.bookNow')}
-              </button>
-            </div>
-          </div>
-        </section>
-        
         {/* Testimonials with Background Image */}
         <TestimonialSlider 
           backgroundImage="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop"

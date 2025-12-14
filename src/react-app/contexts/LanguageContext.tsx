@@ -1447,6 +1447,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.bookNow': 'Reservar ahora',
     'nav.contact': 'Contacto',
     'nav.aboutElena': 'Sobre Elena',
+    'nav.casos': 'Casos',
     
     // Dropdown items
     'nav.officeWorkers': 'Trabajadores de oficina',
@@ -1460,6 +1461,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.title': 'EKA Balance',
     'hero.subtitle': 'Centro de bienestar integral especializado en masaje terapéutico, kinesiología y terapias personalizadas en el corazón de Barcelona',
     'hero.firstTime': '¿Es tu primera vez?',
+    'hero.dontKnowWhatToChoose': '¿No sabes qué elegir?',
     'hero.discoverServices': 'Descubre nuestros servicios',
     'hero.stats.sessions': 'Sesiones realizadas',
     'hero.stats.clients': 'Clientes felices',

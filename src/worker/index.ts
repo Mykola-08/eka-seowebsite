@@ -2,14 +2,6 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import { getCookie, setCookie } from 'hono/cookie';
-import {
-  exchangeCodeForSessionToken,
-  getOAuthRedirectUrl,
-  authMiddleware,
-  deleteSession,
-  MOCHA_SESSION_TOKEN_COOKIE_NAME,
-} from '@getmocha/users-service/backend';
 import { addDashboardEndpoints } from './api-endpoints';
 
 
@@ -19,12 +11,27 @@ type Bindings = {
   PERPLEXITY_API_KEY: string;
   STRIPE_SECRET_KEY: string;
   STRIPE_PUBLISHABLE_KEY: string;
-  MOCHA_USERS_SERVICE_API_KEY: string;
-  MOCHA_USERS_SERVICE_API_URL: string;
   BLOB_READ_WRITE_TOKEN: string;
 };
 
-const app = new Hono<{ Bindings: Bindings }>();
+type Variables = {
+  user?: {
+    id: string;
+    email?: string;
+    [key: string]: any;
+  };
+};
+
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
+
+// Simple auth middleware - checks for Authorization header
+const authMiddleware = async (c: any, next: any) => {
+  const auth = c.req.header('Authorization');
+  if (!auth) {
+    return c.json({ error: 'Unauthorized' }, 401);
+  }
+  await next();
+};
 
 // CORS middleware configuration
 // Allows all origins for development flexibility, but should be restricted in production
@@ -100,75 +107,12 @@ async function initializeSessionTypes(db: D1Database) {
   }
 }
 
-// Authentication endpoints
-app.get('/api/oauth/google/redirect_url', async (c) => {
-  try {
-    const redirectUrl = await getOAuthRedirectUrl('google', {
-      apiUrl: c.env.MOCHA_USERS_SERVICE_API_URL,
-      apiKey: c.env.MOCHA_USERS_SERVICE_API_KEY,
-    });
-
-    return c.json({ redirectUrl }, 200);
-  } catch (error) {
-    console.error('Error getting OAuth redirect URL:', error);
-    return c.json({ error: 'Failed to get redirect URL' }, 500);
-  }
-});
-
-app.post('/api/sessions', async (c) => {
-  try {
-    const body = await c.req.json();
-
-    if (!body.code) {
-      return c.json({ error: 'No authorization code provided' }, 400);
-    }
-
-    const sessionToken = await exchangeCodeForSessionToken(body.code, {
-      apiUrl: c.env.MOCHA_USERS_SERVICE_API_URL,
-      apiKey: c.env.MOCHA_USERS_SERVICE_API_KEY,
-    });
-
-    setCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME, sessionToken, {
-      httpOnly: true,
-      path: '/',
-      sameSite: 'none',
-      secure: true,
-      maxAge: 60 * 24 * 60 * 60, // 60 days
-    });
-
-    return c.json({ success: true }, 200);
-  } catch (error) {
-    console.error('Error exchanging code for session token:', error);
-    return c.json({ error: 'Failed to authenticate' }, 500);
-  }
-});
+// Authentication endpoints removed - using Supabase instead
 
 // User profile endpoint moved to api-endpoints.ts
 
-app.get('/api/logout', async (c) => {
-  try {
-    const sessionToken = getCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME);
-
-    if (typeof sessionToken === 'string') {
-      await deleteSession(sessionToken, {
-        apiUrl: c.env.MOCHA_USERS_SERVICE_API_URL,
-        apiKey: c.env.MOCHA_USERS_SERVICE_API_KEY,
-      });
-    }
-
-    setCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME, '', {
-      httpOnly: true,
-      path: '/',
-      sameSite: 'none',
-      secure: true,
-      maxAge: 0,
-    });
-
-    return c.json({ success: true }, 200);
-  } catch (error) {
-    console.error('Error logging out:', error);
-    return c.json({ error: 'Failed to logout' }, 500);
-  }
+app.post('/api/health', async (c) => {
+  return c.json({ success: true }, 200);
 });
 
 // Test Vercel Blob

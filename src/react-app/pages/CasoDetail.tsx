@@ -253,7 +253,7 @@ export default function CasoDetail() {
       title={`${problem.title} | Tractament i solucions | EKA Balance`}
       description={`${problem.description} Descobreix com tractem ${problem.title.toLowerCase()} amb teràpies holístiques efectives.`}
       keywords={`${problem.title}, tractament, teràpia holística, Barcelona`}
-      url={`https://ekabalance.mocha.app/casos/${problem.id}`}
+      url={`https://ekabalance.com/casos/${problem.id}`}
     >
       <Layout>
         {/* Back navigation */}

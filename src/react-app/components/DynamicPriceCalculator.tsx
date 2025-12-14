@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useAuth } from '@getmocha/users-service/react';
 import { 
   TrendingDown, 
   TrendingUp, 
@@ -51,7 +50,6 @@ export default function DynamicPriceCalculator({
   showDetailed = true,
   className = ''
 }: DynamicPriceCalculatorProps) {
-  const { user } = useAuth();
   const [priceBreakdown, setPriceBreakdown] = useState<PriceBreakdown | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -73,10 +71,6 @@ export default function DynamicPriceCalculator({
         time: selectedTime,
         location: location || 'barcelona'
       });
-
-      if (user?.id) {
-        params.append('userId', user.id);
-      }
 
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
@@ -121,7 +115,7 @@ export default function DynamicPriceCalculator({
     } finally {
       setLoading(false);
     }
-  }, [serviceId, duration, selectedDate, selectedTime, location, user?.id]);
+  }, [serviceId, duration, selectedDate, selectedTime, location]);
 
   useEffect(() => {
     calculatePrice();
@@ -319,7 +313,7 @@ export default function DynamicPriceCalculator({
           </div>
         )}
         
-        {user && priceBreakdown.modifiers.some(m => m.icon === 'vip') && (
+        {priceBreakdown.modifiers.some(m => m.icon === 'vip') && (
           <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400">
             <Star className="w-3 h-3 mr-1" />
             VIP

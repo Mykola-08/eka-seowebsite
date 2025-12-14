@@ -6,7 +6,7 @@ export default function CookiePolicy() {
     <SEOOptimized
       title="Cookie Policy - EKA Balance"
       description="Cookie Policy for EKA Balance wellness center"
-      url="https://ekabalance.mocha.app/cookie-policy"
+      url="https://ekabalance.com/cookie-policy"
     >
       <Layout>
         <div className="min-h-screen bg-gray-50 py-16">

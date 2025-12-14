@@ -17,7 +17,7 @@ export default function SEOHead({
   description = 'Centre de benestar EKA Balance a Barcelona (Carrer Pelai 12). Massatge terapèutic, kinesiologia i plans VIP per al teu equilibri integral. Reserva ara!',
   keywords = 'massatge Barcelona, kinesiologia Barcelona, teràpia benestar, Carrer Pelai, Plaça Universitat, plans VIP salut',
   image = 'https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png',
-  url = 'https://ekabalance.mocha.app',
+  url = 'https://ekabalance.com',
   type = 'website'
 }: SEOHeadProps) {
   return (

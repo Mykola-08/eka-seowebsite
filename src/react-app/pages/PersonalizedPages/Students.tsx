@@ -31,7 +31,7 @@ export default function StudentsPersonalized() {
       title="Teràpies per a Estudiants - Gestió de l'Estrès i Concentració | EKA Balance"
       description="Serveis especialitzats per a estudiants: reducció de l'estrès mental, millora de la concentració i gestió de l'ansietat acadèmica. Kinesiologia i massatge per a ments joves i curioses."
       keywords="teràpies estudiants, estrès estudis, concentració, ansietat acadèmica, kinesiologia estudiants, massatge relaxant Barcelona"
-      url="https://ekabalance.mocha.app/per-a-estudiants"
+      url="https://ekabalance.com/per-a-estudiants"
     >
       <Layout>
         {/* Hero Section */}

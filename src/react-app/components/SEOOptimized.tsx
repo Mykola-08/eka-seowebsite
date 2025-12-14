@@ -16,7 +16,7 @@ export default function SEOOptimized({
   description = 'Descobreix el benestar integral a EKA Balance. Especialistes en massatge terapèutic, kinesiologia i osteobalance a Barcelona. Reserva la teva sessió avui.',
   keywords = 'massatge terapèutic Barcelona, kinesiologia Barcelona, osteobalance, teràpia holística, benestar integral, relaxació, alleujar tensions, Plaça Universitat',
   image = 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=630&fit=crop',
-  url = 'https://ekabalance.mocha.app',
+  url = 'https://ekabalance.com',
   type = 'website',
   children
 }: SEOOptimizedProps) {

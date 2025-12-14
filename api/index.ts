@@ -3,17 +3,18 @@ import { handle } from 'hono/vercel';
 import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import { getCookie, setCookie } from 'hono/cookie';
 import { createClient } from '@supabase/supabase-js';
-import {
-  exchangeCodeForSessionToken,
-  getOAuthRedirectUrl,
-  authMiddleware,
-  deleteSession,
-  MOCHA_SESSION_TOKEN_COOKIE_NAME,
-} from '@getmocha/users-service/backend';
 
 const app = new Hono();
+
+// Simple auth middleware - checks for Authorization header
+const authMiddleware = async (c: any, next: any) => {
+  const auth = c.req.header('Authorization');
+  if (!auth) {
+    return c.json({ error: 'Unauthorized' }, 401);
+  }
+  await next();
+};
 
 // CORS middleware
 app.use('*', cors({
@@ -82,67 +83,6 @@ async function initializeSessionTypes() {
     await supabase.from('session_types').insert(sessionTypes);
   }
 }
-
-// Auth endpoints
-app.get('/api/oauth/google/redirect_url', async (c) => {
-  try {
-    const redirectUrl = await getOAuthRedirectUrl('google', {
-      apiUrl: process.env.MOCHA_USERS_SERVICE_API_URL!,
-      apiKey: process.env.MOCHA_USERS_SERVICE_API_KEY!,
-    });
-    return c.json({ redirectUrl });
-  } catch (error) {
-    console.error('Error getting OAuth redirect URL:', error);
-    return c.json({ error: 'Failed to get redirect URL' }, 500);
-  }
-});
-
-app.post('/api/sessions', async (c) => {
-  try {
-    const body = await c.req.json();
-    if (!body.code) return c.json({ error: 'No authorization code provided' }, 400);
-
-    const sessionToken = await exchangeCodeForSessionToken(body.code, {
-      apiUrl: process.env.MOCHA_USERS_SERVICE_API_URL!,
-      apiKey: process.env.MOCHA_USERS_SERVICE_API_KEY!,
-    });
-
-    setCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME, sessionToken, {
-      httpOnly: true,
-      path: '/',
-      sameSite: 'none',
-      secure: true,
-      maxAge: 60 * 24 * 60 * 60,
-    });
-
-    return c.json({ success: true });
-  } catch (error) {
-    console.error('Error exchanging code:', error);
-    return c.json({ error: 'Failed to authenticate' }, 500);
-  }
-});
-
-app.get('/api/logout', async (c) => {
-  try {
-    const sessionToken = getCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME);
-    if (sessionToken) {
-      await deleteSession(sessionToken, {
-        apiUrl: process.env.MOCHA_USERS_SERVICE_API_URL!,
-        apiKey: process.env.MOCHA_USERS_SERVICE_API_KEY!,
-      });
-    }
-    setCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME, '', {
-      httpOnly: true,
-      path: '/',
-      sameSite: 'none',
-      secure: true,
-      maxAge: 0,
-    });
-    return c.json({ success: true });
-  } catch (error) {
-    return c.json({ error: 'Failed to logout' }, 500);
-  }
-});
 
 app.get('/api/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOString() }));
 

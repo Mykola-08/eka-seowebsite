@@ -31,7 +31,7 @@ export default function AthletesPersonalized() {
       title="Teràpies per a Esportistes - Recuperació i Rendiment | EKA Balance"
       description="Serveis especialitzats per a atletes: recuperació muscular, prevenció de lesions, millora del rendiment esportiu. Massatge esportiu i osteobalance per a qui no pot parar."
       keywords="recuperació esportistes, massatge esportiu, osteobalance, prevenció lesions, rendiment atletes Barcelona"
-      url="https://ekabalance.mocha.app/per-a-esportistes"
+      url="https://ekabalance.com/per-a-esportistes"
     >
       <Layout>
         {/* Hero Section */}

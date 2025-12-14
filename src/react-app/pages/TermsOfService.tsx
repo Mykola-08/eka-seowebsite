@@ -6,7 +6,7 @@ export default function TermsOfService() {
     <SEOOptimized
       title="Terms of Service - EKA Balance"
       description="Terms of Service for EKA Balance wellness center"
-      url="https://ekabalance.mocha.app/terms-of-service"
+      url="https://ekabalance.com/terms-of-service"
     >
       <Layout>
         <div className="min-h-screen bg-gray-50 py-16">

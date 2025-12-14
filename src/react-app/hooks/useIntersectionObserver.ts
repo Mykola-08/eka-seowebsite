@@ -19,7 +19,7 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
 
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
-  const elementRef = useRef<T>(null);
+  const elementRef = useRef<T | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -53,7 +53,7 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
     };
   }, [threshold, root, rootMargin, triggerOnce, hasTriggered]);
 
-  return [elementRef, isIntersecting];
+  return [elementRef as RefObject<T>, isIntersecting];
 }
 
 // Hook for lazy loading images

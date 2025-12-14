@@ -2,7 +2,6 @@
 import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import { authMiddleware } from '@getmocha/users-service/backend';
 import { uploadTestBlob } from './blob';
 
 // Define bindings for environment variables and services
@@ -12,12 +11,27 @@ type Bindings = {
   PERPLEXITY_API_KEY: string;
   STRIPE_SECRET_KEY: string;
   STRIPE_PUBLISHABLE_KEY: string;
-  MOCHA_USERS_SERVICE_API_KEY: string;
-  MOCHA_USERS_SERVICE_API_URL: string;
   BLOB_READ_WRITE_TOKEN: string;
 };
 
-export function addDashboardEndpoints(app: Hono<{ Bindings: Bindings }>) {
+type Variables = {
+  user?: {
+    id: string;
+    email?: string;
+    [key: string]: any;
+  };
+};
+
+// Simple auth middleware - checks for Authorization header
+const authMiddleware = async (c: any, next: any) => {
+  const auth = c.req.header('Authorization');
+  if (!auth) {
+    return c.json({ error: 'Unauthorized' }, 401);
+  }
+  await next();
+};
+
+export function addDashboardEndpoints(app: Hono<{ Bindings: Bindings; Variables: Variables }>) {
   
   // Test Blob Upload Endpoint
   // Used to verify Vercel Blob configuration

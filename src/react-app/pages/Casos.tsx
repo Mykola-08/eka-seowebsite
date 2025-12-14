@@ -224,7 +224,7 @@ export default function Casos() {
       title="Problemes que resolem | Casos reals de teràpia holística | EKA Balance"
       description="Descobreix com podem ajudar-te amb dolor d'esquena, estrès, problemes digestius, migranyes i molts altres casos. Casos reals amb resultats comprovats."
       keywords="dolor esquena, estrès ansietat, problemes digestius, migranyes, fatiga crònica, teràpia holística Barcelona"
-      url="https://ekabalance.mocha.app/casos"
+      url="https://ekabalance.com/casos"
     >
       <Layout>
         {/* Hero Section */}

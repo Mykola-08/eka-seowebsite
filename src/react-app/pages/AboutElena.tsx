@@ -34,7 +34,7 @@ export default function AboutElena() {
         title={t('elena.title')}
         description={t('elena.about.p1')}
         keywords="Elena Kucherova, terapeuta integradora, kinesiologia Barcelona, sanació somàtica, desenvolupament personal"
-        url="https://ekabalance.mocha.app/sobre-elena"
+        url="https://ekabalance.com/sobre-elena"
       />
 
       {/* Meta tag to prevent indexing */}

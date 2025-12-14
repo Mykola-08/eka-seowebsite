@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
     <SEOOptimized
       title="Privacy Policy - EKA Balance"
       description="Privacy Policy for EKA Balance wellness center"
-      url="https://ekabalance.mocha.app/privacy-policy"
+      url="https://ekabalance.com/privacy-policy"
     >
       <Layout>
         <div className="min-h-screen bg-gray-50 py-16">

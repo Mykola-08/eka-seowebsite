@@ -9,7 +9,7 @@ export default function ContactPage() {
       title="Contacte - EKA Balance | Centre de Teràpies Holístiques a Barcelona"
       description="Contacta amb EKA Balance per reserves i consultes. Centres a Barcelona i Rubí. Telefon 658 867 133, email contact@ekabalance.com"
       keywords="contacte EKA Balance, reserves massatge Barcelona, teràpies holístiques Rubí, centre benestar Barcelona"
-      url="https://ekabalance.mocha.app/contacte"
+      url="https://ekabalance.com/contacte"
     >
       <Layout>
         {/* Hero Section */}

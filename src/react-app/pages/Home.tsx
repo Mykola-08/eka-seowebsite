@@ -78,7 +78,7 @@ export default function Home() {
       title="EKA Balance - Centre de Teràpies Holístiques a Barcelona | Massatge & Kinesiologia"
       description="Descobreix el benestar integral a EKA Balance. Especialistes en massatge terapèutic, kinesiologia i osteobalance a Barcelona. Reserves per WhatsApp/Telegram 658867133."
       keywords="massatge terapèutic Barcelona, kinesiologia Barcelona, osteobalance, centre teràpies holístiques, benestar integral, relaxació Barcelona, Plaça Universitat"
-      url="https://ekabalance.mocha.app"
+      url="https://ekabalance.com"
     >
       <Layout>
         {/* Apple-style Hero Section */}

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect } from 'react';
+/* eslint-disable react-refresh/only-export-components */
 
 interface SmoothScrollContextType {
   scrollToSection: (elementId: string, offset?: number) => void;

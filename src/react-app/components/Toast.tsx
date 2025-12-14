@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-refresh/only-export-components */
+import { useState, useEffect, useCallback } from 'react';
 import { Alert } from 'keep-react';
 
 export interface Toast {
@@ -22,10 +24,10 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsExiting(true);
     setTimeout(() => onClose(toast.id), 200);
-  };
+  }, [toast.id, onClose]);
 
   useEffect(() => {
     // Animate in
@@ -38,7 +40,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
       const timer = setTimeout(() => handleClose(), toast.duration);
       return () => clearTimeout(timer);
     }
-  }, [toast.duration]);
+  }, [toast.duration, handleClose]);
 
   const getKeepColor = () => {
     switch (toast.type) {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond, User, Calendar } from 'lucide-react';

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';

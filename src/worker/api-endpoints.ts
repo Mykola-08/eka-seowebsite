@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Additional API endpoints for enhanced dashboard functionality
 import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';

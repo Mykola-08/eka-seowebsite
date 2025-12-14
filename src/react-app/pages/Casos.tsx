@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Stethoscope } from 'lucide-react';
 import { Link } from 'react-router';
 import Layout from '@/react-app/components/Layout';

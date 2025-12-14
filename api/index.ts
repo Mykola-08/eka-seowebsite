@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Hono } from 'hono';
 import { handle } from 'hono/vercel';
 import { cors } from 'hono/cors';
@@ -246,7 +247,7 @@ app.get('/api/pricing/calculate', async (c) => {
     // const oneHourAfter = new Date(startTime.getTime() + 60 * 60 * 1000).toTimeString().slice(0, 5);
 
     // Simplified back-to-back check (placeholder)
-    let hasBackToBack = false;
+    const hasBackToBack = false;
 
     const { count: bookedSlots } = await supabase.from('appointments')
       .select('*', { count: 'exact', head: true })

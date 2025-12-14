@@ -13,7 +13,7 @@ export function useCopyToClipboard() {
       
       // Reset after 2 seconds
       setTimeout(() => setIsCopied(false), 2000);
-    } catch (error) {
+    } catch {
       // Fallback for older browsers
       const textArea = document.createElement('textarea');
       textArea.value = text;
@@ -29,7 +29,7 @@ export function useCopyToClipboard() {
         setIsCopied(true);
         toast.success('Copiat!', successMessage || 'S\'ha copiat al porta-retalls');
         setTimeout(() => setIsCopied(false), 2000);
-      } catch (fallbackError) {
+      } catch {
         toast.error('Error', 'No s\'ha pogut copiar al porta-retalls');
       }
       

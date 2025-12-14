@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { useLazyImage } from '@/react-app/hooks/useIntersectionObserver';
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';

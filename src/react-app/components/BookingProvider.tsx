@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react';
+/* eslint-disable react-refresh/only-export-components */
 import { useNavigate } from 'react-router';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 

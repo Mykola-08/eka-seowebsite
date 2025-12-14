@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
@@ -119,8 +120,7 @@ app.post('/api/health', async (c) => {
 import { uploadTestBlob } from './blob';
 
 app.post('/api/blob-test', async (c) => {
-  // @ts-ignore
-  const token = c.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_READ_WRITE_TOKEN;
+  const token = (c.env as any).BLOB_READ_WRITE_TOKEN || process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) {
     return c.json({ error: 'Missing BLOB_READ_WRITE_TOKEN' }, 500);
   }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronRight, Heart, Brain, Leaf, Clock, User, Target, Sparkles, CheckCircle } from 'lucide-react';

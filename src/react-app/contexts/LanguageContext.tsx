@@ -723,6 +723,24 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.description': 'Utilitzem cookies essencials per a la funcionalitat del lloc web i analítiques anònimes per millorar els nostres serveis. No utilitzem cookies publicitàries ni de seguiment. En continuar utilitzant el nostre lloc, acceptes l\'ús de cookies.',
     'cookies.accept': 'Acceptar',
     'cookies.learnMore': 'Saber més',
+    
+    // Layout footer
+    'footer.privacyPolicy': 'Política de Privacitat',
+    'footer.cookiePolicy': 'Política de Cookies',
+    'footer.termsOfService': 'Condicions de Servei',
+    'footer.logout': 'Sortir',
+    'footer.login': 'Entrar',
+    
+    // Service pages
+    'services.page.benefits': 'Beneficis',
+    'services.page.testimonials': 'Testimonials',
+    'services.page.sessions': 'Sessions',
+    'services.page.duration': 'Durada',
+    'services.page.price': 'Preu',
+    
+    // Policy pages
+    'policy.lastUpdated': 'Última actualització:',
+    'policy.introduction': 'Introducció',
   },
   
   en: {
@@ -1435,6 +1453,24 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.description': 'We use essential cookies for website functionality and anonymous analytics to improve our services. We do not use advertising or tracking cookies. By continuing to use our site, you agree to our use of cookies.',
     'cookies.accept': 'Accept All',
     'cookies.learnMore': 'Learn more',
+    
+    // Layout footer
+    'footer.privacyPolicy': 'Privacy Policy',
+    'footer.cookiePolicy': 'Cookie Policy',
+    'footer.termsOfService': 'Terms of Service',
+    'footer.logout': 'Logout',
+    'footer.login': 'Login',
+    
+    // Service pages
+    'services.page.benefits': 'Benefits',
+    'services.page.testimonials': 'Testimonials',
+    'services.page.sessions': 'Sessions',
+    'services.page.duration': 'Duration',
+    'services.page.price': 'Price',
+    
+    // Policy pages
+    'policy.lastUpdated': 'Last Updated:',
+    'policy.introduction': 'Introduction',
   },
   
   es: {
@@ -1994,6 +2030,30 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.discovery.benefit2': 'Plan personalizado',
     'form.recommendation.discovery.benefit3': 'Primera experiencia',
     'form.recommendation.discovery.benefit4': 'Orientación profesional',
+    
+    // Cookie translations
+    'cookies.title': 'Utilizamos cookies para mejorar tu experiencia',
+    'cookies.description': 'Utilizamos cookies esenciales para la funcionalidad del sitio web y análisis anónimos para mejorar nuestros servicios. No utilizamos cookies publicitarias ni de seguimiento. Al continuar utilizando nuestro sitio, aceptas el uso de cookies.',
+    'cookies.accept': 'Aceptar todo',
+    'cookies.learnMore': 'Más información',
+    
+    // Layout footer
+    'footer.privacyPolicy': 'Política de Privacidad',
+    'footer.cookiePolicy': 'Política de Cookies',
+    'footer.termsOfService': 'Términos de Servicio',
+    'footer.logout': 'Cerrar sesión',
+    'footer.login': 'Iniciar sesión',
+    
+    // Service pages
+    'services.page.benefits': 'Beneficios',
+    'services.page.testimonials': 'Testimonios',
+    'services.page.sessions': 'Sesiones',
+    'services.page.duration': 'Duración',
+    'services.page.price': 'Precio',
+    
+    // Policy pages
+    'policy.lastUpdated': 'Última actualización:',
+    'policy.introduction': 'Introducción',
   },
   
   ru: {
@@ -2566,6 +2626,24 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.description': 'Мы используем основные файлы cookie для функциональности веб-сайта и анонимную аналитику для улучшения наших услуг. Мы не используем рекламные файлы cookie или файлы отслеживания. Продолжая использовать наш сайт, вы соглашаетесь на использование файлов cookie.',
     'cookies.accept': 'Принять все',
     'cookies.learnMore': 'Узнать больше',
+    
+    // Layout footer
+    'footer.privacyPolicy': 'Политика конфиденциальности',
+    'footer.cookiePolicy': 'Политика использования файлов cookie',
+    'footer.termsOfService': 'Условия обслуживания',
+    'footer.logout': 'Выход',
+    'footer.login': 'Вход',
+    
+    // Service pages
+    'services.page.benefits': 'Преимущества',
+    'services.page.testimonials': 'Отзывы',
+    'services.page.sessions': 'Сеансы',
+    'services.page.duration': 'Продолжительность',
+    'services.page.price': 'Цена',
+    
+    // Policy pages
+    'policy.lastUpdated': 'Последнее обновление:',
+    'policy.introduction': 'Введение',
   }
 };
 

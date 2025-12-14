@@ -2,13 +2,15 @@ import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function MassatgePage() {
   const { navigateToBooking } = useBooking();
+  const { t } = useLanguage();
 
   const benefits = [
     'Alleuja el dolor muscular i articular',
-    'Redueix l\'estrès i l\'ansietat', 
+    t('services.massage.subtitle'), 
     'Millora la circulació i la mobilitat',
     'Benestar immediat i descans de veritat'
   ];

@@ -241,7 +241,7 @@ export default function Layout({
                     onClick={signOut}
                     className="text-xs text-gray-500 hover:text-red-500 transition-colors border border-gray-200 px-2 py-1 rounded-md"
                   >
-                    Sortir
+                    {t('footer.logout')}
                   </button>
                 </div>
               ) : (
@@ -335,7 +335,7 @@ export default function Layout({
                       }}
                       className="block w-full text-center py-2 text-gray-600 hover:text-[#FFB405]"
                     >
-                      Logout ({user.email?.split('@')[0]})
+                      {t('footer.logout')} ({user.email?.split('@')[0]})
                     </button>
                   ) : (
                     <button
@@ -345,7 +345,7 @@ export default function Layout({
                       }}
                       className="block w-full text-center py-2 text-[#000035] font-medium hover:text-[#FFB405]"
                     >
-                      Login
+                      {t('footer.login')}
                     </button>
                   )}
 
@@ -412,19 +412,19 @@ export default function Layout({
                 to="/privacy-policy"
                 className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
               >
-                Privacy Policy
+                {t('footer.privacyPolicy')}
               </Link>
               <Link
                 to="/cookie-policy"
                 className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
               >
-                Cookie Policy
+                {t('footer.cookiePolicy')}
               </Link>
               <Link
                 to="/terms-of-service"
                 className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
               >
-                Terms of Service
+                {t('footer.termsOfService')}
               </Link>
             </div>
           </div>

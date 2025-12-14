@@ -2,12 +2,14 @@ import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function KinesiologiaPage() {
   const { navigateToBooking } = useBooking();
+  const { t } = useLanguage();
 
   const benefits = [
-    'Detecta i resol bloquejos físics i emocionals',
+    t('services.kinesiology.subtitle'),
     'Millora la postura i la coordinació',
     'Redueix l\'estrès i millora el descans',
     'Més autoconeixement i energia estable'

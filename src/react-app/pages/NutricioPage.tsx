@@ -2,13 +2,15 @@ import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function NutricioPage() {
   const { navigateToBooking } = useBooking();
+  const { t } = useLanguage();
 
   const benefits = [
     'Hàbits alimentaris clars i sostenibles',
-    'Més energia i vitalitat',
+    t('services.nutrition.subtitle'),
     'Suport en la gestió del pes i la composició corporal',
     'Prevenció i salut a llarg termini'
   ];

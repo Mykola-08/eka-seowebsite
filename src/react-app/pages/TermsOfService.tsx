@@ -1,7 +1,10 @@
 import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function TermsOfService() {
+  const { t } = useLanguage();
+  
   return (
     <SEOOptimized
       title="Terms of Service - EKA Balance"
@@ -15,10 +18,10 @@ export default function TermsOfService() {
               {/* Header */}
               <div className="bg-gray-900 text-white px-12 py-10">
                 <h1 className="text-3xl font-light tracking-tight mb-3">
-                  Terms of Service
+                  {t('footer.termsOfService')}
                 </h1>
                 <div className="flex items-center text-gray-300 text-sm">
-                  <span className="font-medium">Last Updated:</span>
+                  <span className="font-medium">{t('policy.lastUpdated')}</span>
                   <span className="ml-2">November 15, 2025</span>
                 </div>
               </div>

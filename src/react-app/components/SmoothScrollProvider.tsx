@@ -1,10 +1,5 @@
-import React, { createContext, useEffect } from 'react';
-
-interface SmoothScrollContextType {
-  scrollToSection: (elementId: string, offset?: number) => void;
-}
-
-export const SmoothScrollContext = createContext<SmoothScrollContextType | undefined>(undefined);
+import React, { useEffect } from 'react';
+import { SmoothScrollContext } from '@/react-app/contexts/smoothScrollContext';
 
 interface SmoothScrollProviderProps {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 const musicianPlans = [
   {

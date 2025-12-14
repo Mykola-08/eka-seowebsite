@@ -3,8 +3,8 @@ import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond, User, Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 import { Link } from 'react-router';
 

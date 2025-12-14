@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 const testimonials = [
   {

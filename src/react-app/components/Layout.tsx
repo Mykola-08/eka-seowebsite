@@ -4,8 +4,9 @@ import { Menu, X, ChevronDown, Globe, User as UserIcon } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
-import { useLanguage, Language } from '@/react-app/contexts/LanguageContext';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { Language } from '@/react-app/contexts/languageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import CookieBanner from './CookieBanner';
 
 import { useClickOutside } from '@/react-app/hooks/useClickOutside';

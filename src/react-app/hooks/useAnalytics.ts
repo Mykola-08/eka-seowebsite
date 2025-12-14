@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback } from 'react';
 import { supabase } from '@/react-app/lib/supabase';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 
 export const useAnalytics = () => {
   const { user } = useSupabaseAuth();

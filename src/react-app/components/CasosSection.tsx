@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from 'react-router';
 import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from 'lucide-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface Problem {
   id: string;

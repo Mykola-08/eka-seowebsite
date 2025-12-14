@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, Clock, CheckCircle, MessageCircle, ChevronDown, X } from 'lucide-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 
 interface FormData {

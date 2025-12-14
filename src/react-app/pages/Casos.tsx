@@ -3,7 +3,7 @@ import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Stethoscope } from 'luci
 import { Link } from 'react-router';
 import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface Problem {
   id: string;

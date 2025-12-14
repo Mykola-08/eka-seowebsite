@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
 import { ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 const heroImages = [
   'https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920',

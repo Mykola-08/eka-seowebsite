@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle } from 'lucide-react';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 
 interface ContactFormData {

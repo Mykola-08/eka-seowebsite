@@ -1,5 +1,5 @@
 import { TrendingDown, TrendingUp, Star } from 'lucide-react';
-import { useDiscount } from '@/react-app/contexts/DiscountContext';
+import { useDiscount } from '@/react-app/hooks/useDiscount';
 
 interface PriceDisplayProps {
   basePriceCents: number;

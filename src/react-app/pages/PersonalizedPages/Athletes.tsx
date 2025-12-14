@@ -3,7 +3,7 @@ import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Zap, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function AthletesPersonalized() {
   const { navigateToBooking } = useBooking();

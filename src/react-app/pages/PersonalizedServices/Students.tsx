@@ -3,7 +3,7 @@ import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function Students() {
   const { t } = useLanguage();

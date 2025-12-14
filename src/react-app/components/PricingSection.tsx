@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { CheckCircle, Sparkles, Crown, Heart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { useBooking } from './BookingProvider';
-import { useDiscount } from '@/react-app/contexts/DiscountContext';
+import { useDiscount } from '@/react-app/hooks/useDiscount';
 import { supabase } from '@/react-app/lib/supabase';
 
 const iconMap = {

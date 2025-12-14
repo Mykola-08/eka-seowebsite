@@ -2,7 +2,7 @@ import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 
 export default function Services() {

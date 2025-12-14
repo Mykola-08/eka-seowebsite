@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useToast } from '@/react-app/components/Toast';
+import { useToast } from '@/react-app/hooks/useToast';
 
 export function useCopyToClipboard() {
   const [isCopied, setIsCopied] = useState(false);

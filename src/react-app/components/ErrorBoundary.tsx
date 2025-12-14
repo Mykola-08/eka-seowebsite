@@ -103,14 +103,6 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-// Hook-based error boundary for functional components
-export function useErrorHandler() {
-  return (error: Error, errorInfo?: ErrorInfo) => {
-    console.error('Error caught by useErrorHandler:', error, errorInfo);
-    // In a real app, you might want to send this to an error reporting service
-  };
-}
-
 // Simple error fallback component
 export function ErrorFallback({ 
   error, 

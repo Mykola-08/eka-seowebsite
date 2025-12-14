@@ -1,5 +1,5 @@
 import { useOnlineStatus } from '@/react-app/hooks/useOnlineStatus';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export function OfflineIndicator() {
   const { isOnline } = useOnlineStatus();

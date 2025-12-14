@@ -173,16 +173,3 @@ export default function ToastContainer() {
   );
 }
 
-// Hook for using toasts
-export function useToast() {
-  return {
-    success: (title: string, message?: string, options?: Partial<Toast>) => 
-      (window as any).toast?.success?.(title, message, options),
-    error: (title: string, message?: string, options?: Partial<Toast>) => 
-      (window as any).toast?.error?.(title, message, options),
-    info: (title: string, message?: string, options?: Partial<Toast>) => 
-      (window as any).toast?.info?.(title, message, options),
-    warning: (title: string, message?: string, options?: Partial<Toast>) => 
-      (window as any).toast?.warning?.(title, message, options),
-  };
-}

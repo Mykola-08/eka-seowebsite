@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronRight, Heart, Brain, Leaf, Clock, User, Target, Sparkles, CheckCircle } from 'lucide-react';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 
 interface OnboardingData {

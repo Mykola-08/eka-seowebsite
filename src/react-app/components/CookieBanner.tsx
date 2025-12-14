@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X, Cookie } from 'lucide-react';
 import { Link } from 'react-router';
-import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);

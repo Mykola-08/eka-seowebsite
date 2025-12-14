@@ -1,6 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { servicesTranslations } from './TranslationExtensions';
-import { LanguageContext, Language } from '@/react-app/contexts/languageContext';
+
+export type Language = 'ca' | 'en' | 'es' | 'ru';
+
+export interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 // Translation files
 const translations: Record<Language, Record<string, string>> = {

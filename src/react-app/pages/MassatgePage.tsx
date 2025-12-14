@@ -15,13 +15,13 @@ export default function MassatgePage() {
 
   const testimonials = [
     {
-      name: 'Maria Soler',
-      text: 'Després de cada sessió de massatge surto com nova. Les contractures han desaparegut i la sensació de relaxació dura dies.',
+      name: 'Maria S.',
+      text: 'I come in tight and knotted. Leave totally loose. That\'s it. Simple. Lasts for days.',
       rating: 5
     },
     {
-      name: 'Jordi Martín', 
-      text: 'El millor massatge terapèutic que he rebut mai. L\'equip és molt professional i l\'espai és molt acollidor.',
+      name: 'Jordi M.', 
+      text: 'Best massage I\'ve had. Really knows what she\'s doing. The space feels great too.',
       rating: 5
     }
   ];

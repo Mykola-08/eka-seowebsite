@@ -1,7 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
-import { AuthContext } from '@/react-app/contexts/supabaseAuthContext';
+
+export interface AuthContextType {
+  user: User | null;
+  session: Session | null;
+  loading: boolean;
+  signInWithGoogle: () => Promise<void>;
+  signOut: () => Promise<void>;
+}
+
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function SupabaseAuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);

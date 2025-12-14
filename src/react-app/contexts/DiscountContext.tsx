@@ -1,7 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { supabase } from '@/react-app/lib/supabase';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
-import { DiscountContext, Discount } from '@/react-app/contexts/discountContext';
+
+export interface Discount {
+  id: string;
+  name: string;
+  percentage: number;
+  code: string;
+  description?: string;
+  isActive: boolean;
+}
+
+export interface DiscountContextType {
+  selectedDiscount: Discount | null;
+  availableDiscounts: Discount[];
+  applyDiscount: (code: string) => Promise<boolean>;
+  removeDiscount: () => void;
+  calculateDiscountedPrice: (originalPrice: number) => number;
+  getDiscountAmount: (originalPrice: number) => number;
+  isLoading: boolean;
+}
+
+export const DiscountContext = createContext<DiscountContextType | undefined>(undefined);
 
 export function DiscountProvider({ children }: { children: React.ReactNode }) {
   const [selectedDiscount, setSelectedDiscount] = useState<Discount | null>(null);

@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, Globe, User as UserIcon } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
-import { Language } from '@/react-app/contexts/languageContext';
+import { Language } from '@/react-app/contexts/LanguageContext';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import CookieBanner from './CookieBanner';

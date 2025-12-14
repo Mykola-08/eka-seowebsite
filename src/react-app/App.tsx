@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { HelmetProvider } from 'react-helmet-async';
-import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext';
+import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext.tsx';
 import { Cursor } from './components/MotionPrimitives';
 import ErrorBoundary from './components/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
 import { BookingProvider } from './components/BookingProvider';
-import { LanguageProvider } from './contexts/LanguageContext';
-import { DiscountProvider } from './contexts/DiscountContext';
+import { LanguageProvider } from './contexts/LanguageContext.tsx';
+import { DiscountProvider } from './contexts/DiscountContext.tsx';
 
 // Page Imports
 import HomePage from "@/react-app/pages/Home";

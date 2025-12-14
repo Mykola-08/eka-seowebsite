@@ -5,48 +5,48 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 const testimonials = [
   {
     id: 1,
-    name: 'Maria Rodríguez',
-    role: 'Directora Marketing',
+    name: 'Maria R.',
+    role: 'Barcelona',
     image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
-    text: 'Després de mesos amb dolor d\'esquena crònic, Elena va aconseguir alleujar el meu dolor amb només tres sessions de kinesiologia. El seu enfocament integral m\'ha canviat la vida.',
-    service: 'Kinesiologia'
+    text: 'Honestly didn\'t think it would help after trying so many things. But after three sessions, the chronic back pain I\'ve had for years just... got better. Still shocked.',
+    service: 'Kinesiology'
   },
   {
     id: 2,
-    name: 'Jordi Martínez',
-    role: 'Enginyer de Software',
+    name: 'Jordi M.',
+    role: 'Sant Cugat',
     image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
-    text: 'L\'estrès laboral m\'estava afectant molt. Amb les sessions d\'osteobalance i els exercicis personalitzats, he recuperat l\'equilibri emocional i físic.',
+    text: 'Work was destroying me. Started the sessions thinking it was just another thing I\'d try and forget about. Two months in and I actually feel like myself again.',
     service: 'Osteobalance'
   },
   {
     id: 3,
-    name: 'Anna Fernández',
-    role: 'Professora',
+    name: 'Anna F.',
+    role: 'Madrid',
     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
-    text: 'El tractament per al meu fill amb necessitats especials ha estat increïble. Elena té una sensibilitat especial per tractar nens i ha millorat molt la seva mobilitat.',
-    service: 'Massatge Familiar'
+    text: 'My kid was struggling. Found Elena completely by accident and honestly, her patience and approach made all the difference. He\'s so much more mobile now.',
+    service: 'Family Massage'
   },
   {
     id: 4,
-    name: 'Carles Miró',
-    role: 'Empresari',
+    name: 'Carles M.',
+    role: 'Valencia',
     image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
-    text: 'Com a client VIP Silver, l\'experiència ha estat excepcional. Les sessions a domicili i el seguiment personalitzat han millorat significativament la meva qualitat de vida.',
-    service: 'Pla VIP Silver'
+    text: 'The home sessions are a game changer when you\'re constantly traveling. Actually feel taken care of instead of just going through the motions.',
+    service: 'Premium Plan'
   },
   {
     id: 5,
-    name: 'Laura Soler',
-    role: 'Artista',
+    name: 'Laura S.',
+    role: 'Palma',
     image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     rating: 5,
-    text: 'Les sessions de moviment conscient m\'han ajudat enormement amb les tensions musculars dels assajos. Ara puc actuar amb més llibertat i confiança.',
-    service: 'Lliçons de Moviment'
+    text: 'Rehearsals used to leave me wrecked. The tension was killing me. Now I can actually get through them feeling loose and ready instead of tight and anxious.',
+    service: 'Movement'
   }
 ];
 

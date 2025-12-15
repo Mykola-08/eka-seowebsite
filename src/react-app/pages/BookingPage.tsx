@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { Calendar, Clock, CheckCircle, MessageCircle, ChevronDown, X } from 'lucide-react';
+import { Calendar, MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
@@ -49,34 +49,34 @@ export default function BookingPage() {
   }, [user]);
 
   const services = [
-    'Massatge',
-    'Kinesiologia',
-    'Osteobalance', 
-    'Movement Lesson',
-    'Feldenkrais',
-    'Consulta Online',
-    'Altres'
+    t('booking.options.service.massage'),
+    t('booking.options.service.kinesiology'),
+    t('booking.options.service.osteobalance'),
+    t('booking.options.service.movementLesson'),
+    t('booking.options.service.feldenkrais'),
+    t('booking.options.service.online'),
+    t('booking.options.service.other')
   ];
 
   const locations = [
-    'Barcelona',
-    'Rubí',
-    'Online'
+    t('booking.options.location.barcelona'),
+    t('booking.options.location.rubi'),
+    t('booking.options.location.online')
   ];
 
   const availabilityOptions = [
-    'Demà',
-    'Demà passat',
-    'Setmana vinent',
-    'Cap de setmana',
-    'Flexible'
+    t('booking.options.availability.tomorrow'),
+    t('booking.options.availability.dayAfterTomorrow'),
+    t('booking.options.availability.nextWeek'),
+    t('booking.options.availability.weekend'),
+    t('booking.options.availability.flexible')
   ];
 
   const timeSlots = [
-    'Matí (9:00-12:00)',
-    'Migdia (12:00-15:00)',
-    'Tarda (15:00-18:00)',
-    'Vespre (18:00-21:00)'
+    t('booking.options.timeSlot.morning'),
+    t('booking.options.timeSlot.noon'),
+    t('booking.options.timeSlot.afternoon'),
+    t('booking.options.timeSlot.evening')
   ];
 
   const handleFormChange = (field: keyof FormData, value: string) => {
@@ -84,21 +84,20 @@ export default function BookingPage() {
   };
 
   const generateWhatsAppMessage = () => {
-    const message = `Hola, sóc ${formData.name}.
+    const message = `${t('booking.whatsapp.greeting', { name: formData.name })}
 
-M'interessa: ${formData.service}
-Necessito: ${formData.objective}
-Preferència de lloc: ${formData.location}
-Disponibilitat: ${formData.availability} – ${formData.timeSlot}
-
-Gràcies!`;
+${t('booking.whatsapp.service', { service: formData.service })}
+${t('booking.whatsapp.comments', { comments: formData.objective })}
+${t('booking.whatsapp.location', { location: formData.location })}
+${t('booking.whatsapp.date', { date: formData.availability })}
+${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
 
     return encodeURIComponent(message);
   };
 
   const handleFormSubmit = () => {
     if (!formData.name || !formData.service) {
-      alert('Si us plau, omple almenys el nom i el servei d\'interès.');
+      alert(t('booking.form.validationError'));
       return;
     }
 
@@ -127,179 +126,159 @@ Gràcies!`;
             <span className="text-blue-600 font-medium">{t('booking.hero.title').split(' ').slice(-1)[0]}</span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
             {t('booking.hero.subtitle')}
           </p>
-
-          {/* Benefits */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div className="flex items-center justify-center p-4 bg-white rounded-2xl shadow-sm">
-              <MessageCircle className="w-6 h-6 text-green-600 mr-3" />
-              <span className="text-gray-700 font-medium">{t('booking.benefits.whatsapp')}</span>
-            </div>
-            <div className="flex items-center justify-center p-4 bg-white rounded-2xl shadow-sm">
-              <Clock className="w-6 h-6 text-blue-600 mr-3" />
-              <span className="text-gray-700 font-medium">{t('booking.benefits.flexible')}</span>
-            </div>
-            <div className="flex items-center justify-center p-4 bg-white rounded-2xl shadow-sm">
-              <CheckCircle className="w-6 h-6 text-purple-600 mr-3" />
-              <span className="text-gray-700 font-medium">{t('booking.benefits.confirmation')}</span>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Booking Options Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-8">
-          {/* WhatsApp Contact Options */}
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-8">
-            <div className="p-6 sm:p-8 border-b border-gray-100 bg-gradient-to-r from-green-50 to-white">
-              <h2 className="text-2xl sm:text-3xl font-light text-gray-900 text-center mb-2">
-                {t('booking.contact.title')}
-              </h2>
-              <p className="text-gray-600 text-center">
-                {t('booking.contact.subtitle')}
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Option 1: Direct Contact */}
+            <div className="bg-green-50 rounded-3xl p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t('booking.direct.title')}
+              </h3>
+              <p className="text-gray-600 mb-8 text-sm leading-relaxed">
+                {t('booking.direct.description')}
               </p>
+              <a
+                href="https://wa.me/34658867133"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-200 w-full"
+              >
+                {t('booking.direct.button')}
+              </a>
             </div>
 
-            <div className="p-6 sm:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Option 1: Direct Contact */}
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    {t('booking.direct.title')}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {t('booking.direct.description')}
-                  </p>
-                  <a
-                    href="https://wa.me/34658867133"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg w-full"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    {t('booking.direct.button')}
-                  </a>
-                </div>
+            {/* Option 2: Form */}
+            <div className="bg-blue-50 rounded-3xl p-8 text-center hover:shadow-lg transition-all duration-300 border border-blue-100">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t('booking.form.title')}
+              </h3>
+              <p className="text-gray-600 mb-8 text-sm leading-relaxed">
+                {t('booking.form.description')}
+              </p>
+              <button
+                onClick={() => setShowForm(!showForm)}
+                className={`inline-flex items-center justify-center font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full ${
+                  showForm 
+                    ? 'bg-gray-900 text-white hover:bg-gray-800 shadow-gray-200' 
+                    : 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200'
+                }`}
+              >
+                {showForm ? t('booking.form.hide') : t('booking.form.button')}
+              </button>
+            </div>
+          </div>
 
-                {/* Option 2: Form */}
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    {t('booking.form.title')}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {t('booking.form.description')}
-                  </p>
-                  <button
-                    onClick={() => setShowForm(!showForm)}
-                    className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg w-full"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    {showForm ? t('booking.form.hide') : t('booking.form.button')}
-                    <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showForm ? 'rotate-180' : ''}`} />
-                  </button>
-                </div>
+          {/* Quick Form */}
+          {showForm && (
+            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 animate-fade-in-up">
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="text-2xl font-light text-gray-900">
+                  {t('booking.form.quickTitle')}
+                </h3>
+                <button
+                  onClick={() => setShowForm(false)}
+                  className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100"
+                >
+                  <X className="w-6 h-6" />
+                </button>
               </div>
 
-              {/* Quick Form */}
-              {showForm && (
-                <div className="mt-8 p-6 bg-gray-50 rounded-2xl relative">
-                  <button
-                    onClick={() => setShowForm(false)}
-                    className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('booking.form.nameRequired')}
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => handleFormChange('name', e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    placeholder={t('booking.form.namePlaceholder')}
+                  />
+                </div>
+
+                {/* Service */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('booking.form.serviceRequired')}
+                  </label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => handleFormChange('service', e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   >
-                    <X className="w-5 h-5" />
-                  </button>
+                    <option value="">{t('booking.form.servicePlaceholder')}</option>
+                    {services.map((service) => (
+                      <option key={service} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-                  <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                    {t('booking.form.quickTitle')}
-                  </h3>
+                {/* Location */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('booking.form.location')}
+                  </label>
+                  <select
+                    value={formData.location}
+                    onChange={(e) => handleFormChange('location', e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">{t('booking.form.locationPlaceholder')}</option>
+                    {locations.map((location) => (
+                      <option key={location} value={location}>
+                        {location}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    {/* Name */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('booking.form.nameRequired')}
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => handleFormChange('name', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder={t('booking.form.namePlaceholder')}
-                      />
-                    </div>
+                {/* Time Slot */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('booking.form.timeSlot')}
+                  </label>
+                  <select
+                    value={formData.timeSlot}
+                    onChange={(e) => handleFormChange('timeSlot', e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">{t('booking.form.timeSlotPlaceholder')}</option>
+                    {timeSlots.map((slot) => (
+                      <option key={slot} value={slot}>
+                        {slot}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-                    {/* Service */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('booking.form.serviceRequired')}
-                      </label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => handleFormChange('service', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                {/* Availability */}
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('booking.form.availability')}
+                  </label>
+                  <select
+                    value={formData.availability}
+                    onChange={(e) => handleFormChange('availability', e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       >
-                        <option value="">{t('booking.form.servicePlaceholder')}</option>
-                        {services.map((service) => (
-                          <option key={service} value={service}>
-                            {service}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Location */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Preferència de lloc
-                      </label>
-                      <select
-                        value={formData.location}
-                        onChange={(e) => handleFormChange('location', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      >
-                        <option value="">Selecciona un lloc</option>
-                        {locations.map((location) => (
-                          <option key={location} value={location}>
-                            {location}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Time Slot */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Franja horària
-                      </label>
-                      <select
-                        value={formData.timeSlot}
-                        onChange={(e) => handleFormChange('timeSlot', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      >
-                        <option value="">Selecciona una franja</option>
-                        {timeSlots.map((slot) => (
-                          <option key={slot} value={slot}>
-                            {slot}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Availability */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Disponibilitat
-                      </label>
-                      <select
-                        value={formData.availability}
-                        onChange={(e) => handleFormChange('availability', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      >
-                        <option value="">Quan pots venir?</option>
+                        <option value="">{t('booking.form.availabilityPlaceholder')}</option>
                         {availabilityOptions.map((option) => (
                           <option key={option} value={option}>
                             {option}
@@ -311,14 +290,14 @@ Gràcies!`;
                     {/* Objective */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Objectiu o tipus de dolor
+                        {t('booking.form.objective')}
                       </label>
                       <input
                         type="text"
                         value={formData.objective}
                         onChange={(e) => handleFormChange('objective', e.target.value)}
                         className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Ex: mal d'esquena, estrès, relaxació..."
+                        placeholder={t('booking.form.objectivePlaceholder')}
                       />
                     </div>
                   </div>
@@ -332,10 +311,6 @@ Gràcies!`;
                   </button>
                 </div>
               )}
-            </div>
-          </div>
-
-          
         </div>
       </section>
 
@@ -343,31 +318,30 @@ Gràcies!`;
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h3 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8">
-            Necessites ajuda amb la reserva?
+            {t('booking.help.title')}
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-4">Contacta'ns directament</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t('booking.help.contactDirect')}</h4>
               <div className="space-y-2 text-gray-600">
-                <p>📧 contact@ekabalance.com</p>
-                <p>📍 Carrer Pelai, 12, Barcelona</p>
+                <p>{t('booking.help.email')}</p>
+                <p>{t('booking.help.address')}</p>
               </div>
             </div>
             
             <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-4">Horari d'atenció</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t('booking.help.hours')}</h4>
               <div className="space-y-2 text-gray-600">
-                <p>Dilluns - Divendres: 9:00 - 20:00</p>
-                <p>Dissabte: 9:00 - 14:00</p>
-                <p>Diumenge: Tancat</p>
+                <p>{t('booking.help.hours.weekdays')}</p>
+                <p>{t('booking.help.hours.saturday')}</p>
+                <p>{t('booking.help.hours.sunday')}</p>
               </div>
             </div>
           </div>
           
           <p className="text-gray-500 text-sm">
-            Si tens qualsevol dubte sobre els nostres serveis o necessites ajuda amb la reserva, 
-            no dubtis en contactar-nos. Estem aquí per ajudar-te.
+            {t('booking.help.footer')}
           </p>
         </div>
       </section>

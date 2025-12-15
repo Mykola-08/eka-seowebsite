@@ -4,6 +4,7 @@ import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface FormData {
   objective: string;
@@ -25,6 +26,7 @@ interface Recommendation {
 }
 
 export default function DiscoveryForm() {
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     objective: '',
@@ -39,124 +41,124 @@ export default function DiscoveryForm() {
   const objectives = [
     {
       id: 'relax',
-      title: 'Relaxar-me i reduir l\'estrès',
-      description: 'Senteixo molta tensió o nerviosisme i vull relaxar-me',
+      title: t('discovery.objectives.relax.title'),
+      description: t('discovery.objectives.relax.desc'),
       type: 'emotional'
     },
     {
       id: 'pain',
-      title: 'Alleujar dolor o contractures musculars',
-      description: 'Tinc dolor o rigidesa a zones com coll, esquena, espatlles, etc.',
+      title: t('discovery.objectives.pain.title'),
+      description: t('discovery.objectives.pain.desc'),
       type: 'physical'
     },
     {
       id: 'recovery',
-      title: 'Millorar recuperació física',
-      description: 'Post-lesió o esport: vull recuperar mobilitat i alleujar tensions profundes',
+      title: t('discovery.objectives.recovery.title'),
+      description: t('discovery.objectives.recovery.desc'),
       type: 'physical'
     },
     {
       id: 'emotional',
-      title: 'Reequilibrar l\'estat emocional',
-      description: 'Em sento molt ansiós, trist o desmotivat i vull gestionar les meves emocions',
+      title: t('discovery.objectives.emotional.title'),
+      description: t('discovery.objectives.emotional.desc'),
       type: 'emotional'
     },
     {
       id: 'other',
-      title: 'Altres objectius',
-      description: 'Tinc altres necessitats específiques',
+      title: t('discovery.objectives.other.title'),
+      description: t('discovery.objectives.other.desc'),
       type: 'mixed'
     }
   ];
 
   const tensionOptions = [
-    'Coll / Espatlles / Clatell',
-    'Zona lumbar / Baix d\'esquena',
-    'Cames / Genolls / Peus',
-    'Cap (mal de cap, migranya, etc.)',
-    'Tot el cos (tensió generalitzada)',
-    'No tinc dolor muscular destacat'
+    t('discovery.tension.neck'),
+    t('discovery.tension.lumbar'),
+    t('discovery.tension.legs'),
+    t('discovery.tension.head'),
+    t('discovery.tension.full'),
+    t('discovery.tension.none')
   ];
 
   const specialConditions = [
     {
       id: 'pregnancy',
-      title: 'Em trobo embarassada o en post-part',
-      description: 'Necessito teràpia adaptada'
+      title: t('discovery.conditions.pregnancy.title'),
+      description: t('discovery.conditions.pregnancy.desc')
     },
     {
       id: 'injuries',
-      title: 'He tingut lesions esportives o fractures recents',
-      description: 'Requereixo atenció especialitzada'
+      title: t('discovery.conditions.injuries.title'),
+      description: t('discovery.conditions.injuries.desc')
     },
     {
       id: 'energetic',
-      title: 'M\'interessa un enfocament molt energètic',
-      description: 'Com reiki o teràpia floral'
+      title: t('discovery.conditions.energetic.title'),
+      description: t('discovery.conditions.energetic.desc')
     },
     {
       id: 'none',
-      title: 'Cap de les anteriors',
-      description: 'Continuar amb el procés normal'
+      title: t('discovery.conditions.none.title'),
+      description: t('discovery.conditions.none.desc')
     }
   ];
 
   const emotionalStates = [
     {
       id: 'stressed',
-      title: 'Molt estressat/ansiós',
-      description: 'Amb dificultat per relaxar-me'
+      title: t('discovery.emotional.stressed.title'),
+      description: t('discovery.emotional.stressed.desc')
     },
     {
       id: 'sad',
-      title: 'Em sento trist/apatètic',
-      description: 'I tinc ganes de canviar-ho'
+      title: t('discovery.emotional.sad.title'),
+      description: t('discovery.emotional.sad.desc')
     },
     {
       id: 'balanced',
-      title: 'Em sento equilibrat',
-      description: 'No hi ha un problema emocional fort actual'
+      title: t('discovery.emotional.balanced.title'),
+      description: t('discovery.emotional.balanced.desc')
     },
     {
       id: 'focus_physical',
-      title: 'Prefereixo enfocar-me en l\'àmbit físic',
-      description: 'No ho sé, però vull centrar-me en el cos'
+      title: t('discovery.emotional.focus_physical.title'),
+      description: t('discovery.emotional.focus_physical.desc')
     }
   ];
 
   const timeCommitments = [
     {
       id: 'short',
-      title: 'Sessió curta (fins a 1h)',
-      description: 'Ideal si tens poc temps'
+      title: t('discovery.time.short.title'),
+      description: t('discovery.time.short.desc')
     },
     {
       id: 'standard',
-      title: 'Sessió estàndard (1-1,5h)',
-      description: 'Temps habitual de massatge/teràpia'
+      title: t('discovery.time.standard.title'),
+      description: t('discovery.time.standard.desc')
     },
     {
       id: 'long',
-      title: 'Sessió llarga o intensiva (fins a 2h)',
-      description: 'Si vols una atenció molt completa'
+      title: t('discovery.time.long.title'),
+      description: t('discovery.time.long.desc')
     }
   ];
 
   const budgetOptions = [
     {
       id: 'basic',
-      title: 'Fins a 60€',
-      description: 'Opció bàsica'
+      title: t('discovery.budget.basic.title'),
+      description: t('discovery.budget.basic.desc')
     },
     {
       id: 'standard',
-      title: '60-90€',
-      description: 'Fins a 2h, modalitat plena'
+      title: t('discovery.budget.standard.title'),
+      description: t('discovery.budget.standard.desc')
     },
     {
       id: 'premium',
-      title: 'Més de 90€',
-      description: 'Sessió llarga premium'
+      title: t('discovery.budget.premium.title'),
+      description: t('discovery.budget.premium.desc')
     }
   ];
 
@@ -164,16 +166,21 @@ export default function DiscoveryForm() {
     const selectedObjective = objectives.find(obj => obj.id === formData.objective);
     const isPhysical = selectedObjective?.type === 'physical';
     const isEmotional = selectedObjective?.type === 'emotional' || formData.emotionalState === 'stressed' || formData.emotionalState === 'sad';
-    const hasPain = formData.tensionAreas.length > 0 && !formData.tensionAreas.includes('No tinc dolor muscular destacat');
+    const hasPain = formData.tensionAreas.length > 0 && !formData.tensionAreas.includes(t('discovery.tension.none'));
     const wantsEnergetic = formData.specialCondition === 'energetic';
 
     if (wantsEnergetic || (isEmotional && !isPhysical)) {
       return {
-        service: 'Reequilibri Emocional',
-        description: 'Teràpia holística per gestionar estrès, ansietat o tristesa. Se centra a superar problemes emocionals i recuperar harmonia i felicitat.',
+        service: t('discovery.recommendation.emotional.service'),
+        description: t('discovery.recommendation.emotional.desc'),
         price: '70€',
         duration: '1-1,5h',
-        benefits: ['Reducció de l\'estrès', 'Equilibri emocional', 'Claredat mental', 'Pau interior'],
+        benefits: [
+          t('discovery.recommendation.emotional.benefit1'),
+          t('discovery.recommendation.emotional.benefit2'),
+          t('discovery.recommendation.emotional.benefit3'),
+          t('discovery.recommendation.emotional.benefit4')
+        ],
         icon: Brain,
         color: 'purple'
       };
@@ -181,23 +188,33 @@ export default function DiscoveryForm() {
 
     if (hasPain && isPhysical) {
       return {
-        service: 'Sessió Terapèutica Manual',
-        description: 'Massatge terapèutic especialitzat per alleujar dolor i tensions musculars. Professionals amb experiència t\'ajudaran a relaxar contractures.',
+        service: t('discovery.recommendation.manual.service'),
+        description: t('discovery.recommendation.manual.desc'),
         price: '60-75€',
         duration: '1-1,5h',
-        benefits: ['Alleujament del dolor', 'Reducció de contractures', 'Millora de la mobilitat', 'Relaxació muscular'],
+        benefits: [
+          t('discovery.recommendation.manual.benefit1'),
+          t('discovery.recommendation.manual.benefit2'),
+          t('discovery.recommendation.manual.benefit3'),
+          t('discovery.recommendation.manual.benefit4')
+        ],
         icon: Heart,
         color: 'orange'
       };
     }
 
-    if (formData.objective === 'recovery' || (hasPain && formData.tensionAreas.includes('Tot el cos (tensió generalitzada)'))) {
+    if (formData.objective === 'recovery' || (hasPain && formData.tensionAreas.includes(t('discovery.tension.full')))) {
       return {
-        service: 'Alleujament Tensional Integratiu (4 en 1)',
-        description: 'Combina massatge, kinesiologia, osteopatia i moviments (Feldenkrais) per un alleujament profund de tensions cròniques.',
+        service: t('discovery.recommendation.integrative.service'),
+        description: t('discovery.recommendation.integrative.desc'),
         price: '90-120€',
         duration: '1,5-2h',
-        benefits: ['Tractament integral', 'Alleujament profund', 'Combinació de tècniques', 'Resultats duradors'],
+        benefits: [
+          t('discovery.recommendation.integrative.benefit1'),
+          t('discovery.recommendation.integrative.benefit2'),
+          t('discovery.recommendation.integrative.benefit3'),
+          t('discovery.recommendation.integrative.benefit4')
+        ],
         icon: Sparkles,
         color: 'blue'
       };
@@ -205,11 +222,16 @@ export default function DiscoveryForm() {
 
     // Default: Massatge Relaxant Complet
     return {
-      service: 'Massatge Relaxant Complet',
-      description: 'Experiència de relaxació global (física i mental), ideal si el teu objectiu és senzillament descansar i recarregar energies.',
+      service: t('discovery.recommendation.relax.service'),
+      description: t('discovery.recommendation.relax.desc'),
       price: '60-80€',
       duration: '1-1,5h',
-      benefits: ['Relaxació profunda', 'Reducció de l\'estrès', 'Renovació d\'energia', 'Benestar general'],
+      benefits: [
+        t('discovery.recommendation.relax.benefit1'),
+        t('discovery.recommendation.relax.benefit2'),
+        t('discovery.recommendation.relax.benefit3'),
+        t('discovery.recommendation.relax.benefit4')
+      ],
       icon: Heart,
       color: 'green'
     };
@@ -285,8 +307,8 @@ export default function DiscoveryForm() {
     return (
       <Layout>
         <SEOHead
-          title="Recomanació Personalitzada - EKA Balance"
-          description="Descobreix el servei perfecte per a les teves necessitats a EKA Balance"
+          title={t('discovery.recommendation.title')}
+          description={t('discovery.recommendation.subtitle')}
         />
 
         <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
@@ -294,15 +316,15 @@ export default function DiscoveryForm() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center px-6 py-3 bg-green-100 rounded-full mb-8">
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
-                <span className="text-green-700 font-medium">Recomanació personalitzada</span>
+                <span className="text-green-700 font-medium">{t('discovery.recommendation.badge')}</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight">
-                El teu servei ideal
+                {t('discovery.recommendation.title')}
               </h1>
               
               <p className="text-xl text-gray-600 mb-12">
-                Basant-nos en les teves respostes, hem trobat el servei perfecte per a tu
+                {t('discovery.recommendation.subtitle')}
               </p>
             </div>
 
@@ -324,17 +346,17 @@ export default function DiscoveryForm() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div className="text-center p-4 bg-gray-50 rounded-2xl">
-                    <h4 className="font-semibold text-gray-900 mb-2">Preu</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">{t('common.price')}</h4>
                     <p className="text-2xl font-bold text-gray-800">{recommendation.price}</p>
                   </div>
                   <div className="text-center p-4 bg-gray-50 rounded-2xl">
-                    <h4 className="font-semibold text-gray-900 mb-2">Durada</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">{t('common.duration')}</h4>
                     <p className="text-2xl font-bold text-gray-800">{recommendation.duration}</p>
                   </div>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 mb-4">Beneficis principals:</h4>
+                  <h4 className="font-semibold text-gray-900 mb-4">{t('common.benefits')}:</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {recommendation.benefits.map((benefit, index) => (
                       <div key={index} className="flex items-center text-gray-700">
@@ -351,24 +373,24 @@ export default function DiscoveryForm() {
                   to="/booking"
                   className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                 >
-                  Reserva ara
+                  {t('discovery.recommendation.book')}
                 </Link>
                 <button
                   onClick={() => setShowRecommendation(false)}
                   className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
                 >
-                  Tornar al formulari
+                  {t('discovery.recommendation.restart')}
                 </button>
               </div>
             </div>
 
             <div className="text-center text-gray-500">
-              <p className="mb-4">Tens dubtes sobre aquesta recomanació?</p>
+              <p className="mb-4">{t('discovery.recommendation.why')}</p>
               <Link
                 to="/contacte"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
-                Parla amb el nostre equip
+                {t('common.contact')}
               </Link>
             </div>
           </div>
@@ -390,16 +412,15 @@ export default function DiscoveryForm() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-8">
               <Sparkles className="w-5 h-5 text-blue-600 mr-2" />
-              <span className="text-blue-700 font-medium">Descobriment personalitzat</span>
+              <span className="text-blue-700 font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight">
-              👋 Benvingut/da a EKA Balance
+              👋 {t('hero.title')}
             </h1>
             
             <p className="text-xl text-gray-600 mb-8">
-              Trobem la sessió perfecta per a tu. Aquest formulari ràpid ens ajudarà a entendre 
-              on et trobes, què vols aconseguir i què necessita el teu cos o emocions ara mateix.
+              {t('discovery.recommendation.subtitle')}
             </p>
 
             {/* Progress indicator */}
@@ -421,9 +442,9 @@ export default function DiscoveryForm() {
             {currentStep === 1 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  💡 Quin és el teu objectiu principal per la sessió?
+                  💡 {t('discovery.step1.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">Selecciona l'opció que més s'assembli al que busques:</p>
+                <p className="text-gray-600 mb-8">{t('discovery.step1.subtitle')}</p>
                 
                 <div className="space-y-4">
                   {objectives.map((objective) => (
@@ -448,9 +469,9 @@ export default function DiscoveryForm() {
             {currentStep === 2 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  📍 On tens més tensió o dolor físic?
+                  📍 {t('discovery.step2.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">Pots seleccionar múltiples zones:</p>
+                <p className="text-gray-600 mb-8">{t('discovery.step2.subtitle')}</p>
                 
                 <div className="space-y-4">
                   {tensionOptions.map((option) => (
@@ -484,8 +505,9 @@ export default function DiscoveryForm() {
             {currentStep === 3 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  ⚡ Tens alguna condició especial o preferència?
+                  ⚡ {t('discovery.step3.title')}
                 </h2>
+                <p className="text-gray-600 mb-8">{t('discovery.step3.subtitle')}</p>
                 
                 <div className="space-y-4">
                   {specialConditions.map((condition) => (
@@ -510,8 +532,9 @@ export default function DiscoveryForm() {
             {currentStep === 4 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  🧘 Com et trobes en l'àmbit emocional?
+                  🧘 {t('discovery.step4.title')}
                 </h2>
+                <p className="text-gray-600 mb-8">{t('discovery.step4.subtitle')}</p>
                 
                 <div className="space-y-4">
                   {emotionalStates.map((state) => (
@@ -536,8 +559,9 @@ export default function DiscoveryForm() {
             {currentStep === 5 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  ⏰ Quant de temps tens i quant et vols implicar?
+                  ⏰ {t('discovery.step5.title')}
                 </h2>
+                <p className="text-gray-600 mb-8">{t('discovery.step5.subtitle')}</p>
                 
                 <div className="space-y-4">
                   {timeCommitments.map((time) => (
@@ -562,8 +586,9 @@ export default function DiscoveryForm() {
             {currentStep === 6 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  💰 Quin pressupost tens per sessió?
+                  💰 {t('discovery.step6.title')}
                 </h2>
+                <p className="text-gray-600 mb-8">{t('discovery.step6.subtitle')}</p>
                 
                 <div className="space-y-4">
                   {budgetOptions.map((budget) => (
@@ -596,11 +621,11 @@ export default function DiscoveryForm() {
                 disabled={currentStep === 1}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Anterior
+                {t('discovery.back')}
               </button>
 
               <span className="text-sm text-gray-500">
-                Pas {currentStep} de 6
+                {t('common.step')} {currentStep} {t('common.of')} 6
               </span>
 
               <button
@@ -612,7 +637,7 @@ export default function DiscoveryForm() {
                 }`}
                 disabled={!canProceed()}
               >
-                {currentStep === 6 ? 'Veure recomanació' : 'Següent'}
+                {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </button>
             </div>

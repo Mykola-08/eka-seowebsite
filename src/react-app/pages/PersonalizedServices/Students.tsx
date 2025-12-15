@@ -11,9 +11,9 @@ export default function Students() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis per a Estudiants - EKA Balance Barcelona"
-        description="Teràpies especialitzades per estudiants: alleuja tensions d'estudi, millora concentració i gestiona l'estrès d'exàmens. Sessions d'1 hora per 70€."
-        keywords="massatge estudiants Barcelona, estrès exàmens, concentració estudi, tensions posturals"
+        title={t('students.seo.title')}
+        description={t('students.seo.desc')}
+        keywords={t('students.seo.keywords')}
       />
 
       {/* Hero Section */}

@@ -4,9 +4,11 @@ import { Button } from 'keep-react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 const heroImages = [
-  'https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/7187991/pexels-photo-7187991.jpeg?auto=compress&cs=tinysrgb&w=1920'
+  'https://images.pexels.com/photos/32784597/pexels-photo-32784597.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Aerial
+  'https://images.pexels.com/photos/6629559/pexels-photo-6629559.jpeg?auto=compress&cs=tinysrgb&w=1920', // Relaxing Massage
+  'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920', // Spa Environment
+  'https://images.pexels.com/photos/5793694/pexels-photo-5793694.jpeg?auto=compress&cs=tinysrgb&w=1920', // Kinesiology/Therapy
+  'https://images.pexels.com/photos/3654620/pexels-photo-3654620.jpeg?auto=compress&cs=tinysrgb&w=1920'  // Candle/Peaceful
 ];
 export default function AppleHero() {
   const { t } = useLanguage();

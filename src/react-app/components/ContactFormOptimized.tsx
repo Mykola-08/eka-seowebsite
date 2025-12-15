@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle } from 'lucide-react';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface ContactFormData {
   name: string;
@@ -14,6 +15,7 @@ interface ContactFormData {
 }
 
 export default function ContactFormOptimized() {
+  const { t } = useLanguage();
   const { user } = useSupabaseAuth();
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -57,22 +59,22 @@ export default function ContactFormOptimized() {
   const [error, setError] = useState('');
 
   const services = [
-    'Massatge Bàsic (1h)',
-    'Massatge Complet (1,5h)', 
-    'Massatge Premium (2h)',
-    'Kinesiologia Holística',
-    'Nutrició Conscient',
-    'Revisió 360°',
-    'Plans VIP',
-    'Altres consultes'
+    t('contact.services.basic'),
+    t('contact.services.complete'),
+    t('contact.services.premium'),
+    t('contact.services.kinesiology'),
+    t('contact.services.nutrition'),
+    t('contact.services.review'),
+    t('contact.services.vip'),
+    t('contact.services.other')
   ];
 
   const timeSlots = [
-    'Matí (9:00 - 12:00)',
-    'Migdia (12:00 - 15:00)', 
-    'Tarda (15:00 - 18:00)',
-    'Vespre (18:00 - 21:00)',
-    'Sense preferència'
+    t('contact.timeSlots.morning'),
+    t('contact.timeSlots.noon'),
+    t('contact.timeSlots.afternoon'),
+    t('contact.timeSlots.evening'),
+    t('contact.timeSlots.noPreference')
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -124,16 +126,16 @@ export default function ContactFormOptimized() {
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
           <h3 className="text-2xl font-light text-gray-900 mb-4">
-            Missatge enviat correctament!
+            {t('contact.success.title')}
           </h3>
           <p className="text-gray-600 mb-8 leading-relaxed">
-            Gràcies per contactar amb nosaltres. Ens posarem en contacte amb tu molt aviat.
+            {t('contact.success.message')}
           </p>
           <button
             onClick={() => setIsSubmitted(false)}
             className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-3 rounded-xl transition-colors duration-200"
           >
-            Enviar un altre missatge
+            {t('contact.success.button')}
           </button>
         </div>
       </div>
@@ -147,11 +149,10 @@ export default function ContactFormOptimized() {
         <div className="space-y-8">
           <div>
             <h2 className="text-3xl font-light text-gray-900 mb-6">
-              Parla amb nosaltres
+              {t('contact.info.title')}
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-              Estem aquí per ajudar-te en el teu camí cap al benestar. Contacta amb nosaltres 
-              i descobreix com podem millorar la teva qualitat de vida.
+              {t('contact.info.subtitle')}
             </p>
           </div>
 
@@ -161,13 +162,13 @@ export default function ContactFormOptimized() {
                 <Phone className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-1">Telèfon i WhatsApp</h4>
+                <h4 className="font-medium text-gray-900 mb-1">{t('contact.info.phone')}</h4>
                 <p className="text-gray-600 mb-2">
                   <a href="tel:+34658867133" className="hover:text-blue-600 transition-colors text-lg font-medium">
                     658 867 133
                   </a>
                 </p>
-                <p className="text-sm text-gray-500">WhatsApp disponible 24/7</p>
+                <p className="text-sm text-gray-500">{t('contact.info.whatsapp')}</p>
               </div>
             </div>
 
@@ -176,13 +177,13 @@ export default function ContactFormOptimized() {
                 <Mail className="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-1">Email</h4>
+                <h4 className="font-medium text-gray-900 mb-1">{t('contact.info.email')}</h4>
                 <p className="text-gray-600 mb-2">
                   <a href="mailto:contact@ekabalance.com" className="hover:text-purple-600 transition-colors text-lg">
                     contact@ekabalance.com
                   </a>
                 </p>
-                <p className="text-sm text-gray-500">Resposta en menys de 24h</p>
+                <p className="text-sm text-gray-500">{t('contact.info.response')}</p>
               </div>
             </div>
 
@@ -191,12 +192,12 @@ export default function ContactFormOptimized() {
                 <MapPin className="w-6 h-6 text-green-600" />
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-1">Ubicació</h4>
+                <h4 className="font-medium text-gray-900 mb-1">{t('contact.info.location')}</h4>
                 <p className="text-gray-600 mb-2">
                   Carrer Pelai, 12<br />
                   08001 Barcelona
                 </p>
-                <p className="text-sm text-gray-500">Metro: L1 i L2 (Universitat)</p>
+                <p className="text-sm text-gray-500">{t('contact.info.metro')}</p>
               </div>
             </div>
           </div>
@@ -205,18 +206,18 @@ export default function ContactFormOptimized() {
             <div className="flex items-start space-x-3">
               <Clock className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Horaris d'atenció</h4>
+                <h4 className="font-medium text-gray-900 mb-3">{t('contact.hours.title')}</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Dilluns - Divendres:</span>
+                    <span className="text-gray-600">{t('contact.hours.weekdays')}:</span>
                     <span className="font-medium text-gray-900">9:00 - 20:00</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Dissabte:</span>
+                    <span className="text-gray-600">{t('contact.hours.saturday')}:</span>
                     <span className="font-medium text-gray-900">9:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Diumenge:</span>
+                    <span className="text-gray-600">{t('contact.hours.sunday')}:</span>
                     <span className="font-medium text-gray-900">10:00 - 16:00</span>
                   </div>
                 </div>
@@ -231,7 +232,7 @@ export default function ContactFormOptimized() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <h3 className="text-2xl font-light text-gray-900 mb-6">
-                  Envia'ns un missatge
+                  {t('contact.form.title')}
                 </h3>
               </div>
 
@@ -244,7 +245,7 @@ export default function ContactFormOptimized() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nom complet *
+                    {t('contact.form.name')} *
                   </label>
                   <input
                     type="text"
@@ -254,13 +255,13 @@ export default function ContactFormOptimized() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="El teu nom"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
+                    {t('contact.form.email')} *
                   </label>
                   <input
                     type="email"
@@ -270,14 +271,14 @@ export default function ContactFormOptimized() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="el.teu@email.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Telèfon
+                  {t('contact.form.phone')}
                 </label>
                 <input
                   type="tel"
@@ -292,7 +293,7 @@ export default function ContactFormOptimized() {
 
               <div>
                 <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                  Servei d'interès
+                  {t('contact.form.service')}
                 </label>
                 <select
                   id="service"
@@ -352,7 +353,7 @@ export default function ContactFormOptimized() {
                         onChange={handleChange}
                         className="text-blue-600 focus:ring-blue-500 w-4 h-4"
                       />
-                      <span className="ml-3 text-sm text-gray-700">Telèfon</span>
+                      <span className="ml-3 text-sm text-gray-700">{t('contact.form.phone')}</span>
                     </label>
                     <label className="flex items-center">
                       <input
@@ -363,14 +364,14 @@ export default function ContactFormOptimized() {
                         onChange={handleChange}
                         className="text-blue-600 focus:ring-blue-500 w-4 h-4"
                       />
-                      <span className="ml-3 text-sm text-gray-700">WhatsApp</span>
+                      <span className="ml-3 text-sm text-gray-700">{t('contact.form.whatsapp')}</span>
                     </label>
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="preferred_time" className="block text-sm font-medium text-gray-700 mb-2">
-                    Horari preferit
+                    {t('contact.form.preferredTime')}
                   </label>
                   <select
                     id="preferred_time"
@@ -379,7 +380,7 @@ export default function ContactFormOptimized() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                   >
-                    <option value="">Selecciona un horari</option>
+                    <option value="">{t('contact.form.selectTime')}</option>
                     {timeSlots.map((slot) => (
                       <option key={slot} value={slot}>
                         {slot}
@@ -397,12 +398,12 @@ export default function ContactFormOptimized() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                    Enviant...
+                    {t('contact.form.submitting')}
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5 mr-2" />
-                    Enviar missatge
+                    {t('contact.form.submit')}
                   </>
                 )}
               </button>
@@ -411,7 +412,7 @@ export default function ContactFormOptimized() {
             {/* Quick Contact */}
             <div className="mt-8 pt-8 border-t border-gray-200">
               <p className="text-center text-gray-600 mb-4 text-sm">
-                O contacta'ns directament:
+                {t('contact.quick.title')}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
@@ -428,7 +429,7 @@ export default function ContactFormOptimized() {
                   className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-lg transition-colors duration-200 text-sm"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  Trucar ara
+                  {t('contact.quick.call')}
                 </a>
               </div>
             </div>

@@ -92,9 +92,9 @@ export default function PersonalizedServices() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis Personalitzats - EKA Balance Barcelona"
-        description="Tria el servei que més s'adapta a tu: treballadors d'oficina, esportistes, artistes, músics i estudiants. Cuida el teu cos amb teràpies personalitzades."
-        keywords="serveis personalitzats Barcelona, massatge oficina, esportistes, artistes, músics, estudiants"
+        title={t('seo.personalized.title')}
+        description={t('seo.personalized.description')}
+        keywords={t('seo.personalized.keywords')}
       />
       
       {/* Hero Section */}
@@ -167,10 +167,10 @@ export default function PersonalizedServices() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {personalizedServices.map((service) => (
-              <div key={service.id} className="squircle-card bg-white overflow-hidden">
-                <div className="squircle-image aspect-[16/10] overflow-hidden">
+              <div key={service.id} className="squircle-card bg-white overflow-hidden h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
+                <div className="squircle-image aspect-[16/10] overflow-hidden flex-shrink-0">
                   <img
                     src={service.image}
                     alt={t(service.title)}
@@ -178,12 +178,12 @@ export default function PersonalizedServices() {
                   />
                 </div>
                 
-                <div className="p-8">
-                  <h3 className="apple-title mb-4">
+                <div className="p-8 flex flex-col flex-1">
+                  <h3 className="apple-title mb-4 text-xl font-semibold">
                     {t(service.title)}
                   </h3>
                   
-                  <p className="apple-body mb-6">
+                  <p className="apple-body mb-6 text-gray-600 flex-grow">
                     {t(service.description)}
                   </p>
 
@@ -198,7 +198,7 @@ export default function PersonalizedServices() {
                     </ul>
                   </div>
 
-                  <div className="mb-6 p-4 bg-yellow-50 rounded-2xl">
+                  <div className="mb-6 p-4 bg-yellow-50 rounded-2xl mt-auto">
                     <div className="font-semibold text-yellow-900 text-sm mb-2">
                       {t('artists.result.title')}:
                     </div>
@@ -220,14 +220,14 @@ export default function PersonalizedServices() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       onClick={navigateToBooking}
-                      className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-2xl font-medium transition-colors"
+                      className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-xl font-medium transition-colors text-sm"
                     >
                       {t('common.reserve')}
                     </button>
                     <Link to={service.href} className="flex-1">
                       <Button 
                         variant="outline"
-                        className="w-full border-gray-200 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-2xl font-medium"
+                        className="w-full border-gray-200 text-gray-700 hover:bg-gray-50 px-4 py-3 rounded-xl font-medium text-sm"
                       >
                         {service.hasPlans ? t('common.seePlans') : t('common.moreInfo')}
                       </Button>

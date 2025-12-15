@@ -28,9 +28,9 @@ export default function ParentsPersonalized() {
 
   return (
     <SEOOptimized
-      title="Teràpies per a Pares i Mares - Recuperar Energia i Equilibri | EKA Balance"
-      description="Serveis especialitzats per a pares i mares: recuperar energia, pau i claredat per poder cuidar sense buidar-se. Kinesiologia emocional i massatge relaxant per a qui cuida de tothom."
-      keywords="teràpies pares mares, recuperar energia, kinesiologia emocional, equilibri familiar, cuidadors Barcelona"
+      title={t('seo.parents.title')}
+      description={t('seo.parents.description')}
+      keywords={t('seo.parents.keywords')}
       url="https://ekabalance.com/per-a-pares"
     >
       <Layout>

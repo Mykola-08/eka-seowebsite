@@ -1,4 +1,5 @@
 import { X } from 'lucide-react';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface BookingPopupProps {
   isOpen: boolean;
@@ -6,6 +7,7 @@ interface BookingPopupProps {
 }
 
 export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
+  const { t } = useLanguage();
 
   if (!isOpen) return null;
 
@@ -22,10 +24,10 @@ export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
           </button>
           
           <h2 className="text-3xl font-light text-gray-900 mb-2">
-            Reserva la teva sessió
+            {t('booking.popup.title')}
           </h2>
           <p className="text-gray-600">
-            Selecciona el servei i la data que millor t'convingui
+            {t('booking.popup.subtitle')}
           </p>
         </div>
 

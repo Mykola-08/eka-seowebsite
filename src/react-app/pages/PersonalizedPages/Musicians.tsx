@@ -28,9 +28,9 @@ export default function MusiciansPersonalized() {
 
   return (
     <SEOOptimized
-      title="Teràpies per a Músics - Expressió Corporal i Flow Musical | EKA Balance"
-      description="Serveis especialitzats per a músics: millora de l'expressió corporal, gestió de l'ansietat escènica, optimització del flow musical. Feldenkrais i kinesiologia per a artistes del so."
-      keywords="teràpies músics, expressió corporal, ansietat escènica, flow musical, Feldenkrais músics, kinesiologia performance Barcelona"
+      title={t('seo.musicians.title')}
+      description={t('seo.musicians.description')}
+      keywords={t('seo.musicians.keywords')}
       url="https://ekabalance.com/per-a-musics"
     >
       <Layout>

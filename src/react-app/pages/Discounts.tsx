@@ -30,7 +30,7 @@ export default function Discounts() {
         {showSuccess && (
           <div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-2xl shadow-lg flex items-center space-x-3 animate-slide-in">
             <Check className="w-5 h-5" />
-            <span className="font-medium">Descompte aplicat correctament!</span>
+            <span className="font-medium">{t('discounts.success')}</span>
           </div>
         )}
 
@@ -41,7 +41,7 @@ export default function Discounts() {
               <div className="flex items-center space-x-3">
                 <Check className="w-5 h-5" />
                 <span className="font-medium">
-                  {selectedDiscount.name} actiu - {selectedDiscount.percentage}% de descompte aplicat a tots els preus
+                  {selectedDiscount.name} {t('discounts.active').replace('{percentage}', selectedDiscount.percentage.toString())}
                 </span>
               </div>
               <button
@@ -49,7 +49,7 @@ export default function Discounts() {
                 className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
               >
                 <X className="w-4 h-4" />
-                <span className="text-sm">Eliminar</span>
+                <span className="text-sm">{t('discounts.remove')}</span>
               </button>
             </div>
           </div>

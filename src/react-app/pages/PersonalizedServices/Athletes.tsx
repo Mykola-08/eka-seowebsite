@@ -11,9 +11,9 @@ export default function Athletes() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis per a Esportistes - EKA Balance Barcelona"
-        description="Teràpies especialitzades per esportistes: recuperació muscular, millora de flexibilitat i gestió d'estrès pre-competició. Sessions d'1 hora per 70€."
-        keywords="massatge esportistes Barcelona, recuperació muscular, flexibilitat esportiva, estrès competició"
+        title={t('athletes.seo.title')}
+        description={t('athletes.seo.desc')}
+        keywords={t('athletes.seo.keywords')}
       />
 
       {/* Hero Section */}

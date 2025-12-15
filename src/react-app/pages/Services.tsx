@@ -29,7 +29,7 @@ export default function Services() {
       icon: Brain,
       color: 'blue',
       durations: [60, 90],
-      image: 'https://images.pexels.com/photos/7187991/pexels-photo-7187991.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/5793694/pexels-photo-5793694.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: '/serveis/kinesiologia',
       benefits: [t('services.benefits.blockages'), t('services.benefits.posture'), t('services.benefits.stress'), t('services.benefits.energy')]
     },
@@ -103,9 +103,9 @@ export default function Services() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis de Teràpies Holístiques a Barcelona | EKA Balance"
-        description="Descobreix els nostres serveis: massatge terapèutic, kinesiologia, nutrició conscient i revisió 360°. Centre de benestar integral a Barcelona."
-        keywords="serveis terapèutics Barcelona, massatge, kinesiologia, nutrició, revisió integral, teràpies holístiques"
+        title={t('seo.services.title')}
+        description={t('seo.services.description')}
+        keywords={t('seo.services.keywords')}
       />
 
       {/* Hero Section */}
@@ -146,10 +146,10 @@ export default function Services() {
               return (
                 <div
                   key={service.id}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full flex flex-col"
                 >
                   {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden flex-shrink-0">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -159,8 +159,8 @@ export default function Services() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-8">
-                    <div className="mb-6">
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="mb-6 flex-grow">
                       <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                         {service.title}
                       </h3>
@@ -186,7 +186,7 @@ export default function Services() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                       {service.isExternal ? (
                         <a
                           href={service.href}

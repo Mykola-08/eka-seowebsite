@@ -10,9 +10,9 @@ export default function KinesiologiaPage() {
 
   const benefits = [
     t('services.kinesiology.subtitle'),
-    'Millora la postura i la coordinació',
-    'Redueix l\'estrès i millora el descans',
-    'Més autoconeixement i energia estable'
+    t('kinesiology.benefits.posture'),
+    t('kinesiology.benefits.stress'),
+    t('kinesiology.benefits.energy')
   ];
 
   const testimonials = [
@@ -33,9 +33,9 @@ export default function KinesiologiaPage() {
   return (
     <Layout>
       <SEOHead
-        title="Kinesiologia Holística a Barcelona | EKA Balance"
-        description="Kinesiologia holística professional a Barcelona. Troba l'equilibri entre cos, ment i emocions. Sessions de 60 i 90 minuts. Reserva ara."
-        keywords="kinesiologia Barcelona, equilibri emocional, test muscular, bloquejos emocionals, postura, coordinació"
+        title={t('seo.kinesiology.title')}
+        description={t('seo.kinesiology.description')}
+        keywords={t('seo.kinesiology.keywords')}
       />
 
       {/* Hero Section */}
@@ -44,7 +44,7 @@ export default function KinesiologiaPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-                <span className="text-blue-700 font-medium text-sm">Cos, ment i emocions en equilibri</span>
+                <span className="text-blue-700 font-medium text-sm">{t('kinesiology.hero.badge')}</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">

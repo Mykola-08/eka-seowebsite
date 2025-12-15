@@ -5,6 +5,7 @@ import { ChevronRight, Heart, Brain, Leaf, Clock, User, Target, Sparkles, CheckC
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
+import PriceDisplay from './PriceDisplay';
 
 interface OnboardingData {
   userType: string;
@@ -183,6 +184,7 @@ export default function PersonalizedOnboarding() {
         id: 'massage',
         title: t('services.massage.title'),
         description: t('recommendations.massage.description'),
+        price: 60,
         link: '/serveis/massatge',
         personalizedLink: getPersonalizedLink(userData.userType)
       });
@@ -193,6 +195,7 @@ export default function PersonalizedOnboarding() {
         id: 'kinesiology',
         title: t('services.kinesiology.title'),
         description: t('recommendations.kinesiology.description'),
+        price: 70,
         link: '/serveis/kinesiologia',
         personalizedLink: getPersonalizedLink(userData.userType)
       });
@@ -203,6 +206,7 @@ export default function PersonalizedOnboarding() {
         id: 'feldenkrais',
         title: t('services.feldenkrais.title'),
         description: t('recommendations.feldenkrais.description'),
+        price: 60,
         link: '/serveis/feldenkrais',
         personalizedLink: getPersonalizedLink(userData.userType)
       });
@@ -287,10 +291,11 @@ export default function PersonalizedOnboarding() {
                       {rec.description}
                     </p>
                   </div>
-                  <div className="text-right ml-4">
-                    <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+                  <div className="text-right ml-4 flex flex-col items-end">
+                    <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-2">
                       #{index + 1} {t('onboarding.results.recommended')}
                     </span>
+                    {rec.price && <PriceDisplay basePriceCents={rec.price * 100} size="lg" showCalculation={true} />}
                   </div>
                 </div>
                 
@@ -302,10 +307,10 @@ export default function PersonalizedOnboarding() {
                     {t('common.learnMore')}
                   </Link>
                   <Link
-                    to={rec.personalizedLink}
-                    className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                    to="/booking"
+                    className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
-                    {t('onboarding.results.personalizedInfo')}
+                    {t('common.bookNow')}
                   </Link>
                 </div>
               </div>
@@ -315,7 +320,7 @@ export default function PersonalizedOnboarding() {
           <div className="text-center">
             <Link
               to="/booking"
-              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               {t('common.bookNow')}
               <ChevronRight className="w-5 h-5 ml-2" />
@@ -418,15 +423,14 @@ export default function PersonalizedOnboarding() {
         {/* Navigation */}
         <div className="flex justify-between items-center">
           <button
-            onClick={() => setCurrentStep(prev => prev - 1)}
-            disabled={currentStep === 0}
-            className={`
-              px-6 py-3 rounded-full font-semibold transition-colors duration-200
-              ${currentStep === 0 
-                ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+            onClick={() => {
+              if (currentStep === 0) {
+                setShowWelcome(true);
+              } else {
+                setCurrentStep(prev => prev - 1);
               }
-            `}
+            }}
+            className="px-6 py-3 rounded-full font-semibold transition-colors duration-200 bg-gray-100 hover:bg-gray-200 text-gray-700"
           >
             {t('common.back')}
           </button>

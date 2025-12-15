@@ -11,9 +11,9 @@ export default function Artists() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis per a Artistes - EKA Balance Barcelona"
-        description="Teràpies especialitzades per artistes: alleuja tensions després d'assajos, millora postura i gestiona l'estrès pre-actuació. Sessions d'1 hora per 70€."
-        keywords="massatge artistes Barcelona, tensions escèniques, postura artistes, estrès actuació"
+        title={t('artists.seo.title')}
+        description={t('artists.seo.desc')}
+        keywords={t('artists.seo.keywords')}
       />
 
       {/* Hero Section */}

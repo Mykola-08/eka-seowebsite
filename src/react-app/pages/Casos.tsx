@@ -45,19 +45,19 @@ export default function Casos() {
       category: 'fisic',
       description: t('casos.problems.backPain.description'),
       symptoms: [
-        'Dolor punxant o tensió constant a la zona lumbar o cervical',
-        'Dificultat per girar el coll o aixecar el braç',
-        'Fatiga després d\'estar assegut o dret molta estona',
-        'Sensació de pressió a les espatlles o cap'
+        t('casos.problems.backPain.symptom1'),
+        t('casos.problems.backPain.symptom2'),
+        t('casos.problems.backPain.symptom3'),
+        t('casos.problems.backPain.symptom4')
       ],
       causes: [
-        'Postures mantingudes i mala ergonomia',
-        'Estrès emocional acumulat',
-        'Falta de moviment i sedentarisme',
-        'Respiració bloquejada o superficial'
+        t('casos.problems.backPain.cause1'),
+        t('casos.problems.backPain.cause2'),
+        t('casos.problems.backPain.cause3'),
+        t('casos.problems.backPain.cause4')
       ],
-      treatment: 'Amb massatge terapèutic, alliberament miofascial, Kinesiologia per trobar la causa profunda (estrès, bloqueig articular o visceral), i tècniques de reeducació postural (Feldenkrais).',
-      results: 'Moltes persones noten alleujament immediat i més mobilitat després de la primera sessió. Amb el temps, el cos reaprèn a sostenir-se amb menys esforç i més fluïdesa.',
+      treatment: t('casos.problems.backPain.treatment'),
+      results: t('casos.problems.backPain.results'),
       icon: Activity,
       color: 'blue',
       href: '/serveis/massatge'
@@ -68,19 +68,19 @@ export default function Casos() {
       category: 'emocional',
       description: t('casos.problems.stress.description'),
       symptoms: [
-        'Pensaments constants i bucle mental',
-        'Dificultat per relaxar-se o dormir',
-        'Dolor cervical, tensió mandibular, fatiga al matí',
-        'Emocions intenses sense motiu aparent'
+        t('casos.problems.stress.symptom1'),
+        t('casos.problems.stress.symptom2'),
+        t('casos.problems.stress.symptom3'),
+        t('casos.problems.stress.symptom4')
       ],
       causes: [
-        'Excés de responsabilitats i pressió',
-        'Estrès crònic i falta de temps per un mateix',
-        'Traumes no resolts o experiències difícils',
-        'Desajust del sistema nerviós autònom'
+        t('casos.problems.stress.cause1'),
+        t('casos.problems.stress.cause2'),
+        t('casos.problems.stress.cause3'),
+        t('casos.problems.stress.cause4')
       ],
-      treatment: 'Amb Kinesiologia emocional i tècniques del sistema vagal per calmar el sistema nerviós. Afegim treball corporal suau (Feldenkrais, respiració conscient) per ensenyar al cos a "sortir de la lluita".',
-      results: 'La persona torna a dormir millor, disminueix la tensió interna i recupera la sensació de control i serenitat.',
+      treatment: t('casos.problems.stress.treatment'),
+      results: t('casos.problems.stress.results'),
       icon: Brain,
       color: 'purple',
       href: '/serveis/kinesiologia'
@@ -91,19 +91,19 @@ export default function Casos() {
       category: 'digestiu',
       description: t('casos.problems.digestive.description'),
       symptoms: [
-        'Inflor abdominal, gasos, reflux o dolor després de menjar',
-        'Cansament o somnolència postprandial',
-        'Canvis d\'humor o irritabilitat sense motiu',
-        'Intoleràncies alimentàries o sensibilitats'
+        t('casos.problems.digestive.symptom1'),
+        t('casos.problems.digestive.symptom2'),
+        t('casos.problems.digestive.symptom3'),
+        t('casos.problems.digestive.symptom4')
       ],
       causes: [
-        'Intoleràncies alimentàries no detectades',
-        'Alimentació irregular o estrès durant els àpats',
-        'Estrès emocional que afecta la digestió',
-        'Bloquejos viscerals que afecten la mobilitat dels òrgans'
+        t('casos.problems.digestive.cause1'),
+        t('casos.problems.digestive.cause2'),
+        t('casos.problems.digestive.cause3'),
+        t('casos.problems.digestive.cause4')
       ],
-      treatment: 'Amb Kinesiologia nutricional per detectar intoleràncies o dèficits, tècniques de massatge visceral suau i recomanacions alimentàries personalitzades.',
-      results: 'Millora la digestió, desapareix la inflor i augmenta l\'energia diària. El client aprèn a escoltar el seu cos i a adaptar la seva alimentació.',
+      treatment: t('casos.problems.digestive.treatment'),
+      results: t('casos.problems.digestive.results'),
       icon: Heart,
       color: 'green',
       href: '/serveis/nutritio'
@@ -114,19 +114,19 @@ export default function Casos() {
       category: 'fisic',
       description: t('casos.problems.migraines.description'),
       symptoms: [
-        'Dolor intens d\'un costat del cap o al clatell',
-        'Pressió ocular o sensació de casc',
-        'Marejos o nàusees',
-        'Sensibilitat a la llum i als sorolls'
+        t('casos.problems.migraines.symptom1'),
+        t('casos.problems.migraines.symptom2'),
+        t('casos.problems.migraines.symptom3'),
+        t('casos.problems.migraines.symptom4')
       ],
       causes: [
-        'Bloqueig cervical i tensió muscular',
-        'Tensió mandibular (bruxisme)',
-        'Falta de descans o excés d\'estimulació mental',
-        'Desequilibris hormonals o alimentaris'
+        t('casos.problems.migraines.cause1'),
+        t('casos.problems.migraines.cause2'),
+        t('casos.problems.migraines.cause3'),
+        t('casos.problems.migraines.cause4')
       ],
-      treatment: 'Amb Osteobalance cranial, descàrrega muscular i tècniques vagals per equilibrar el sistema nerviós. També revisem la respiració i la postura.',
-      results: 'Reducció de la freqüència i intensitat de les migranyes. En molts casos, desapareixen completament després de regular el coll i el crani.',
+      treatment: t('casos.problems.migraines.treatment'),
+      results: t('casos.problems.migraines.results'),
       icon: Brain,
       color: 'red',
       href: '/serveis/massatge'
@@ -137,19 +137,19 @@ export default function Casos() {
       category: 'energetic',
       description: t('casos.problems.lowEnergy.description'),
       symptoms: [
-        'Cansament constant malgrat dormir bé',
-        'Baixa concentració i memòria',
-        'Irritabilitat o apatia',
-        'Sensació de "funcionar amb el pilot automàtic"'
+        t('casos.problems.lowEnergy.symptom1'),
+        t('casos.problems.lowEnergy.symptom2'),
+        t('casos.problems.lowEnergy.symptom3'),
+        t('casos.problems.lowEnergy.symptom4')
       ],
       causes: [
-        'Estrès prolongat i burnout',
-        'Dèficits nutricionals o desequilibris metabòlics',
-        'Problemes hormonals (tiroide, adrenals)',
-        'Desgast emocional i falta de propòsit'
+        t('casos.problems.lowEnergy.cause1'),
+        t('casos.problems.lowEnergy.cause2'),
+        t('casos.problems.lowEnergy.cause3'),
+        t('casos.problems.lowEnergy.cause4')
       ],
-      treatment: 'Amb Kinesiologia per identificar desequilibris químics o emocionals, suplementació natural i tècniques de moviment conscient.',
-      results: 'Millora notable de l\'energia, claredat mental i estat d\'ànim més estable.',
+      treatment: t('casos.problems.lowEnergy.treatment'),
+      results: t('casos.problems.lowEnergy.results'),
       icon: Zap,
       color: 'orange',
       href: '/serveis/kinesiologia'
@@ -161,19 +161,19 @@ export default function Casos() {
       category: 'son',
       description: t('casos.problems.sleep.description'),
       symptoms: [
-        'Dificultat per adormir-se o despertes nocturns',
-        'Fatiga matinal, tensió o somnis intensos',
-        'Pensaments recurrents abans de dormir',
-        'Son lleuguer o poc reparador'
+        t('casos.problems.sleep.symptom1'),
+        t('casos.problems.sleep.symptom2'),
+        t('casos.problems.sleep.symptom3'),
+        t('casos.problems.sleep.symptom4')
       ],
       causes: [
-        'Excés d\'estrès i hiperactivació mental',
-        'Desajust del sistema nerviós i ritmes circadians',
-        'Manca de rutina o higiene del son',
-        'Problemes digestius o hormonal'
+        t('casos.problems.sleep.cause1'),
+        t('casos.problems.sleep.cause2'),
+        t('casos.problems.sleep.cause3'),
+        t('casos.problems.sleep.cause4')
       ],
-      treatment: 'Amb Feldenkrais, respiració guiada, tècniques vagals i kinesiologia per equilibrar el sistema hormonal.',
-      results: 'Millora del son profund i descans reparador després de poques sessions.',
+      treatment: t('casos.problems.sleep.treatment'),
+      results: t('casos.problems.sleep.results'),
       icon: Moon,
       color: 'indigo',
       href: '/serveis/kinesiologia'
@@ -184,19 +184,19 @@ export default function Casos() {
       category: 'recuperacio',
       description: t('casos.problems.recovery.description'),
       symptoms: [
-        'Dolor residual o limitació articular',
-        'Sensació de debilitat o desequilibri',
-        'Bloquejos emocionals associats a la lesió',
-        'Por al moviment o reactivitat'
+        t('casos.problems.recovery.symptom1'),
+        t('casos.problems.recovery.symptom2'),
+        t('casos.problems.recovery.symptom3'),
+        t('casos.problems.recovery.symptom4')
       ],
       causes: [
-        'Cicatrius internes i adherències',
-        'Compensacions musculars i posturals',
-        'Trauma físic amb component emocional',
-        'Memòria corporal de l\'experiència traumàtica'
+        t('casos.problems.recovery.cause1'),
+        t('casos.problems.recovery.cause2'),
+        t('casos.problems.recovery.cause3'),
+        t('casos.problems.recovery.cause4')
       ],
-      treatment: 'Amb Osteobalance, reeducació postural i treball del sistema fascial. Acompanyem també la confiança corporal i la memòria del cos.',
-      results: 'Recuperació de la mobilitat, alleujament del dolor i sensació de seguretat en el moviment.',
+      treatment: t('casos.problems.recovery.treatment'),
+      results: t('casos.problems.recovery.results'),
       icon: Stethoscope,
       color: 'red',
       href: '/serveis/massatge'
@@ -222,9 +222,9 @@ export default function Casos() {
 
   return (
     <SEOOptimized
-      title="Problemes que resolem | Casos reals de teràpia holística | EKA Balance"
-      description="Descobreix com podem ajudar-te amb dolor d'esquena, estrès, problemes digestius, migranyes i molts altres casos. Casos reals amb resultats comprovats."
-      keywords="dolor esquena, estrès ansietat, problemes digestius, migranyes, fatiga crònica, teràpia holística Barcelona"
+      title={t('casos.seo.title')}
+      description={t('casos.seo.desc')}
+      keywords={t('casos.seo.keywords')}
       url="https://ekabalance.com/casos"
     >
       <Layout>

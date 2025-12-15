@@ -9,10 +9,10 @@ export default function MassatgePage() {
   const { t } = useLanguage();
 
   const benefits = [
-    'Alleuja el dolor muscular i articular',
+    t('massage.benefits.pain'),
     t('services.massage.subtitle'), 
-    'Millora la circulació i la mobilitat',
-    'Benestar immediat i descans de veritat'
+    t('massage.benefits.circulation'),
+    t('massage.benefits.wellbeing')
   ];
 
   const testimonials = [
@@ -33,9 +33,9 @@ export default function MassatgePage() {
   return (
     <Layout>
       <SEOHead
-        title="Massatge Terapèutic i Relaxant a Barcelona | EKA Balance"
-        description="Massatge terapèutic professional a Barcelona. Allibera tensions, cuida el teu cos i relaxa la ment. Sessions de 60, 90 i 120 minuts. Reserva ara."
-        keywords="massatge terapèutic Barcelona, massatge relaxant, contractures, dolor muscular, estrès, Plaza Universitat"
+        title={t('seo.massage.title')}
+        description={t('seo.massage.description')}
+        keywords={t('seo.massage.keywords')}
       />
 
       {/* Hero Section */}
@@ -44,7 +44,7 @@ export default function MassatgePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center px-4 py-2 bg-orange-100 rounded-full mb-6">
-                <span className="text-orange-700 font-medium text-sm">Benestar per al cos i la ment</span>
+                <span className="text-orange-700 font-medium text-sm">{t('massage.hero.badge')}</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">

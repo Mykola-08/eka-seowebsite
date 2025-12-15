@@ -18,80 +18,80 @@ const iconMap = {
 const defaultPlans = [
   {
     tier: 'bronze',
-    name: 'Bronze',
-    description: 'Accés essencial al món VIP',
-    price: '150',
+    name: 'vip.plan.bronze',
+    description: 'vip.plan.bronze.description',
+    price: 'vip.plan.bronze.price',
     sessions: '2',
     popular: false,
-    features: ['Accés prioritari', 'Descomptes en serveis addicionals', 'Atenció personalitzada']
+    features: ['vip.service.priority.title', 'vip.benefits.transferable', 'vip.benefits.monthly']
   },
   {
     tier: 'silver',
-    name: 'Silver',
-    description: 'Equilibri perfecte per a la teva salut',
-    price: '250',
+    name: 'vip.plan.silver',
+    description: 'vip.plan.silver.description',
+    price: 'vip.plan.silver.price',
     sessions: '4',
     popular: true,
-    features: ['Tots els beneficis Bronze', 'Sessions a domicili', 'Seguiment mensual']
+    features: ['vip.plan.bronze', 'vip.service.displacements.title', 'vip.benefits.monthlyDesc']
   },
   {
     tier: 'gold',
-    name: 'Gold',
-    description: 'L\'experiència definitiva sense límits',
-    price: '500',
+    name: 'vip.plan.gold',
+    description: 'vip.plan.gold.description',
+    price: 'vip.plan.gold.price',
     sessions: '8',
     popular: false,
-    features: ['Tots els beneficis Silver', 'Disponibilitat 24/7', 'Accés a esdeveniments exclusius']
+    features: ['vip.plan.silver', 'vip.stats.concierge', 'vip.service.family.title']
   }
 ];
 
 const defaultLuxuryFeatures = [
   {
     icon: 'Diamond',
-    title: 'Exclusivitat Total',
-    description: 'Accés limitat a un grup selecte de membres per garantir la màxima atenció.'
+    title: 'vip.mostExclusive',
+    description: 'vip.experienceDescription'
   },
   {
     icon: 'Award',
-    title: 'Excel·lència Certificada',
-    description: 'Professionals amb la màxima qualificació i experiència internacional.'
+    title: 'vip.voicesOfExcellence',
+    description: 'vip.testimonialsSubtitle'
   },
   {
     icon: 'Globe',
-    title: 'Cobertura Global',
-    description: 'Serveis disponibles allà on siguis, amb la mateixa qualitat de sempre.'
+    title: 'vip.benefits.barcelona',
+    description: 'vip.benefits.barcelonaDesc'
   },
   {
     icon: 'Zap',
-    title: 'Resposta Immediata',
-    description: 'Canal de comunicació directe i prioritari per a qualsevol necessitat.'
+    title: 'vip.service.priority.title',
+    description: 'vip.service.priority.description'
   }
 ];
 
 const vipServices = [
   {
     icon: Home,
-    title: 'Desplaçaments exclusius',
-    description: 'Servei VIP a domicili o oficina amb total discreció i flexibilitat horària absoluta',
-    features: ['Equip portàtil de luxe', 'Horaris 24/7 disponibles', 'Màxima privacitat', 'Transport premium inclòs']
+    title: 'vip.service.displacements.title',
+    description: 'vip.service.displacements.description',
+    features: ['vip.benefits.barcelona', 'vip.stats.concierge', 'vip.service.priority.title', 'vip.benefits.transferable']
   },
   {
     icon: Clock,
-    title: 'Seguiment personalitzat',
-    description: 'Monitoratge continu de salut amb tecnologia avançada i atenció mèdica personalitzada',
-    features: ['Anàlisi biomètrics', 'Informes mensuals PDF', 'Consulta telemàtica', 'Seguiment 365 dies']
+    title: 'vip.service.health.title',
+    description: 'vip.service.health.description',
+    features: ['vip.benefits.monthly', 'vip.benefits.monthlyDesc', 'vip.stats.control', 'vip.benefits.sessions']
   },
   {
     icon: Sparkles,
-    title: 'Privilegis familiars',
-    description: 'Extensió dels beneficis VIP a la teva família directa amb condicions preferents',
-    features: ['Parella inclosa', 'Fills amb descompte', 'Sessions transferibles', 'Atenció familiar prioritària']
+    title: 'vip.service.family.title',
+    description: 'vip.service.family.description',
+    features: ['vip.stats.family', 'vip.benefits.transferable', 'vip.benefits.transferableDesc', 'vip.service.family.title']
   },
   {
     icon: Shield,
-    title: 'Accés prioritari',
-    description: 'Garantia d\'atenció immediata amb temps de resposta exclusius per a membres VIP',
-    features: ['Resposta menor a 2h', 'Urgències 24/7', 'Línia directa VIP', 'Disponibilitat garantida']
+    title: 'vip.service.priority.title',
+    description: 'vip.service.priority.description',
+    features: ['vip.stats.concierge', 'vip.service.priority.title', 'vip.service.priority.description', 'vip.stats.exclusivity']
   }
 ];
 
@@ -100,21 +100,21 @@ const testimonials = [
     name: 'Marina Castellví',
     role: 'CEO, Tech Company',
     rating: 5,
-    comment: 'El servei Gold VIP ha transformat completament la meva qualitat de vida. L\'atenció personalitzada i la disponibilitat 24/7 són incomparables.',
+    comment: 'vip.testimonials.comment1',
     tier: 'GOLD'
   },
   {
     name: 'Dr. Albert Vidal',
     role: 'Cirurgià cardiovascular',
     rating: 5,
-    comment: 'Com a professional de la salut, puc afirmar que EKA Balance ofereix un estàndard d\'excel·lència que supera les meves expectatives més exigents.',
+    comment: 'vip.testimonials.comment2',
     tier: 'GOLD'
   },
   {
     name: 'Laura Montserrat',
     role: 'Emprenedora',
     rating: 5,
-    comment: 'El pla Silver VIP m\'ha permès cuidar la meva família i mantenir l\'equilibri entre vida professional i personal. Una inversió que val la pena.',
+    comment: 'vip.testimonials.comment3',
     tier: 'SILVER'
   }
 ];
@@ -214,9 +214,9 @@ export default function VIPUltraPremium() {
   return (
     <Layout>
       <SEOHead
-        title="Inner Circle VIP - Experiència Premium Exclusiva | EKA Balance"
-        description="Uneix-te al cercle interior VIP d'EKA Balance. Plans Bronze, Silver i Gold Elite amb beneficis exclusius, atenció 24/7 i experiències personalitzades."
-        keywords="VIP Elite Barcelona, plans exclusius salut, cercle interior wellness, control salut premium"
+        title={t('seo.vip.title')}
+        description={t('seo.vip.description')}
+        keywords={t('seo.vip.keywords')}
       />
       
       {/* Ultra Premium Hero Section */}
@@ -314,7 +314,7 @@ export default function VIPUltraPremium() {
                   {t('vip.dashboard.hello')} <span className="font-medium">{user.email?.split('@')[0]}</span>
                 </h2>
                 <p className="text-gray-400">
-                  {t('vip.dashboard.status')} <span className={`font-bold ${vipTier !== 'none' ? 'text-yellow-400' : 'text-gray-300'}`}>{vipTier === 'none' ? 'Estàndard' : `${vipTier.toUpperCase()} ELITE`}</span>
+                  {t('vip.dashboard.status')} <span className={`font-bold ${vipTier !== 'none' ? 'text-yellow-400' : 'text-gray-300'}`}>{vipTier === 'none' ? t('vip.tier.standard') : `${vipTier.toUpperCase()} ELITE`}</span>
                 </p>
               </div>
 
@@ -368,8 +368,8 @@ export default function VIPUltraPremium() {
                     <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">{feature.description}</p>
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">{t(feature.title)}</h3>
+                    <p className="text-lg text-gray-600 leading-relaxed">{t(feature.description)}</p>
                   </div>
                 </div>
               );
@@ -433,14 +433,14 @@ export default function VIPUltraPremium() {
                           <Crown className="w-10 h-10 text-white" />
                         </div>
                         <h3 className="text-3xl font-light text-white mb-4">
-                          {plan.name}
+                          {t(plan.name)}
                         </h3>
                         <p className="text-white/70 mb-8 font-light text-lg">
-                          {plan.description}
+                          {t(plan.description)}
                         </p>
                         <div className="flex items-baseline justify-center mb-2">
                           <span className="text-6xl font-light text-white">
-                            {plan.price}
+                            {t(plan.price)}
                           </span>
                           <span className="text-2xl text-white/60 ml-2">{t('vip.plans.perMonth')}</span>
                         </div>
@@ -459,14 +459,14 @@ export default function VIPUltraPremium() {
                             <div className="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0">
                               <CheckCircle className="w-4 h-4 text-green-400" />
                             </div>
-                            <span className="text-white/90 font-light text-lg">{feature}</span>
+                            <span className="text-white/90 font-light text-lg">{t(feature)}</span>
                           </div>
                         ))}
                       </div>
 
                       {/* CTA Button */}
                       <a
-                        href={`https://wa.me/34658867133?text=Hola,%20estic%20interessat%20en%20el%20pla%20VIP%20${plan.name}.%20M'agradaria%20rebre%20més%20informació.`}
+                        href={`https://wa.me/34658867133?text=Hola,%20estic%20interessat%20en%20el%20pla%20VIP%20${t(plan.name)}.%20M'agradaria%20rebre%20més%20informació.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 ${
@@ -475,7 +475,7 @@ export default function VIPUltraPremium() {
                             : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
                         }`}
                       >
-                        {t('vip.plans.contact')} {plan.name}
+                        {t('vip.plans.contact')} {t(plan.name)}
                       </a>
                     </div>
                   </div>
@@ -514,10 +514,10 @@ export default function VIPUltraPremium() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
-                          {service.title}
+                          {t(service.title)}
                         </h3>
                         <p className="text-gray-600 text-lg mb-6 font-light leading-relaxed">
-                          {service.description}
+                          {t(service.description)}
                         </p>
                         <div className="space-y-3">
                           {service.features.map((feature, featureIndex) => (
@@ -526,7 +526,7 @@ export default function VIPUltraPremium() {
                               className="flex items-center space-x-3"
                             >
                               <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                              <span className="text-gray-700 font-light">{feature}</span>
+                              <span className="text-gray-700 font-light">{t(feature)}</span>
                             </div>
                           ))}
                         </div>
@@ -577,7 +577,7 @@ export default function VIPUltraPremium() {
 
                   {/* Quote */}
                   <blockquote className="text-gray-700 text-lg mb-10 leading-relaxed font-light">
-                    &quot;{testimonial.comment}&quot;
+                    &quot;{t(testimonial.comment)}&quot;
                   </blockquote>
 
                   {/* Author */}

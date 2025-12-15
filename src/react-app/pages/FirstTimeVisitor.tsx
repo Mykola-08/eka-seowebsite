@@ -1,12 +1,15 @@
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import PersonalizedOnboarding from '@/react-app/components/PersonalizedOnboarding';
+import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function FirstTimeVisitor() {
+  const { t } = useLanguage();
+  
   return (
     <SEOOptimized
-      title="No saps què triar? - Troba el teu servei ideal a EKA Balance"
-      description="Sistema personalitzat intel·ligent per descobrir el servei de teràpia holística perfecte per a les teves necessitats específiques. Recomanacions empàtiques basades en qui ets i què busques."
-      keywords="no sé què triar, formulari personalitzat, recomanacions teràpia, servei ideal, Barcelona, onboarding intel·ligent"
+      title={t('firstTime.seo.title')}
+      description={t('firstTime.seo.desc')}
+      keywords={t('firstTime.seo.keywords')}
       url="https://ekabalance.com/primer-cop"
     >
       <PersonalizedOnboarding />

@@ -4,7 +4,6 @@ import AppleHero from '@/react-app/components/AppleHero';
 import TestimonialSlider from '@/react-app/components/TestimonialSlider';
 import FAQ from '@/react-app/components/FAQ';
 import CasosSection from '@/react-app/components/CasosSection';
-import GallerySection from '@/react-app/components/GallerySection';
 
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
@@ -75,9 +74,9 @@ export default function Home() {
 
   return (
     <SEOOptimized
-      title="EKA Balance - Centre de Teràpies Holístiques a Barcelona | Massatge & Kinesiologia"
-      description="Descobreix el benestar integral a EKA Balance. Especialistes en massatge terapèutic, kinesiologia i osteobalance a Barcelona. Reserves per WhatsApp/Telegram 658867133."
-      keywords="massatge terapèutic Barcelona, kinesiologia Barcelona, osteobalance, centre teràpies holístiques, benestar integral, relaxació Barcelona, Plaça Universitat"
+      title={t('seo.home.title')}
+      description={t('seo.home.description')}
+      keywords={t('seo.home.keywords')}
       url="https://ekabalance.com"
     >
       <Layout>
@@ -284,9 +283,6 @@ export default function Home() {
         {/* Casos Section */}
         <CasosSection />
 
-        {/* Gallery Section */}
-        <GallerySection />
-
         {/* Why Choose EKA Balance */}
         <section className="py-16 sm:py-24 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-8">
@@ -342,8 +338,6 @@ export default function Home() {
         {/* FAQ Section */}
         <FAQ />
         
-        
-
         {/* Final CTA */}
         <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">

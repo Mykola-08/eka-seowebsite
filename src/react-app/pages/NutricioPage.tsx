@@ -9,10 +9,10 @@ export default function NutricioPage() {
   const { t } = useLanguage();
 
   const benefits = [
-    'Hàbits alimentaris clars i sostenibles',
+    t('nutrition.benefits.habits'),
     t('services.nutrition.subtitle'),
-    'Suport en la gestió del pes i la composició corporal',
-    'Prevenció i salut a llarg termini'
+    t('nutrition.benefits.weight'),
+    t('nutrition.benefits.prevention')
   ];
 
   const testimonials = [
@@ -30,23 +30,23 @@ export default function NutricioPage() {
 
   const sessionTypes = [
     {
-      name: 'Primera sessió',
+      name: t('nutrition.session.first.name'),
       duration: '60 min',
-      description: 'Avaluació completa i pla personalitzat'
+      description: t('nutrition.session.first.description')
     },
     {
-      name: 'Seguiment',
+      name: t('nutrition.session.followup.name'),
       duration: '45 min', 
-      description: 'Ajust del pla i resolució de dubtes'
+      description: t('nutrition.session.followup.description')
     }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title="Assessorament Nutricional Personalitzat a Barcelona | EKA Balance"
-        description="Nutrició conscient i personalitzada a Barcelona. Menjar bé per viure millor. Sessió inicial i seguiment personalitzat. Reserva ara."
-        keywords="nutrició Barcelona, assessorament nutricional, hàbits alimentaris, energia, gestió pes, salut alimentària"
+        title={t('seo.nutrition.title')}
+        description={t('seo.nutrition.description')}
+        keywords={t('seo.nutrition.keywords')}
       />
 
       {/* Hero Section */}

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Menu, X, ChevronDown, Globe, User as UserIcon } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
 import { Language } from '@/react-app/contexts/LanguageContext';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
-import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
+// import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import CookieBanner from './CookieBanner';
 
 import { useClickOutside } from '@/react-app/hooks/useClickOutside';
@@ -19,7 +19,7 @@ export default function Layout({
 }) {
   const location = useLocation();
   const { t, language, setLanguage } = useLanguage();
-  const { user, signInWithGoogle, signOut } = useSupabaseAuth();
+  // const { user, signInWithGoogle, signOut } = useSupabaseAuth();
   const { logPageView } = useAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -226,7 +226,7 @@ export default function Layout({
             <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
               {/* EKA Account Link - HIDDEN FOR NOW */}
 
-              {/* Login / User Profile */}
+              {/* Login / User Profile - HIDDEN FOR NOW
               {user ? (
                 <div className="hidden sm:flex items-center space-x-3">
                   <Link to="/vip" className="flex items-center space-x-2 group">
@@ -253,6 +253,7 @@ export default function Layout({
                   <UserIcon className="w-5 h-5" />
                 </button>
               )}
+              */}
 
               {/* Reserva Button */}
               <Link
@@ -327,6 +328,7 @@ export default function Layout({
                 <div className="pt-2 border-t border-gray-100 mt-2 space-y-2">
                   {/* EKA Account Link - HIDDEN FOR NOW */}
                   
+                  {/* 
                   {user ? (
                     <button
                       onClick={() => {
@@ -348,6 +350,7 @@ export default function Layout({
                       {t('footer.login')}
                     </button>
                   )}
+                  */}
 
                   <Link
                     to="/booking"

@@ -28,9 +28,9 @@ export default function OfficeWorkersPersonalized() {
 
   return (
     <SEOOptimized
-      title="Teràpies per a Treballadors d'Oficina - Dolor Cervical i Postura | EKA Balance"
-      description="Serveis especialitzats per a professionals d'oficina: alleujar dolor cervical, corregir postura, reduir estrès tecnològic. Massatge terapèutic i Feldenkrais per a qui passa hores davant l'ordinador."
-      keywords="dolor cervical oficina, postura ordinador, estrès tecnològic, massatge terapèutic, Feldenkrais Barcelona, treballadors oficina"
+      title={t('seo.officeWorkers.title')}
+      description={t('seo.officeWorkers.description')}
+      keywords={t('seo.officeWorkers.keywords')}
       url="https://ekabalance.com/per-a-treballadors-oficina"
     >
       <Layout>

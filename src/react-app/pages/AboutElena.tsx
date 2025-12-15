@@ -31,9 +31,9 @@ export default function AboutElena() {
   return (
     <Layout>
       <SEOHead
-        title={t('elena.title')}
-        description={t('elena.about.p1')}
-        keywords="Elena Kucherova, terapeuta integradora, kinesiologia Barcelona, sanació somàtica, desenvolupament personal"
+        title={t('elena.seo.title')}
+        description={t('elena.seo.desc')}
+        keywords={t('elena.seo.keywords')}
         url="https://ekabalance.com/sobre-elena"
       />
 

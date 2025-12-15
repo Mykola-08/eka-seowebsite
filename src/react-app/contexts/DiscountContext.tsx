@@ -61,9 +61,24 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
               localStorage.removeItem('eka-applied-discount');
             }
           }
+        } else {
+          // Fallback discounts if Supabase returns no data
+          const fallbackDiscounts: Discount[] = [
+            { id: '1', name: 'Amic Mykola', percentage: 20, code: 'MYKOLA20', description: 'Descompte especial del 20% per a amics de Mykola', isActive: true },
+            { id: '2', name: 'Conegut Mykola', percentage: 10, code: 'MYKOLA10', description: 'Descompte del 10% per a coneguts de Mykola', isActive: true },
+            { id: '3', name: 'Benvinguda', percentage: 20, code: 'WELCOME20', description: 'Descompte de benvinguda', isActive: true }
+          ];
+          setAvailableDiscounts(fallbackDiscounts);
         }
       } catch (error) {
         console.error('Error fetching discounts:', error);
+        // Fallback discounts on error
+        const fallbackDiscounts: Discount[] = [
+          { id: '1', name: 'Amic Mykola', percentage: 20, code: 'MYKOLA20', description: 'Descompte especial del 20% per a amics de Mykola', isActive: true },
+          { id: '2', name: 'Conegut Mykola', percentage: 10, code: 'MYKOLA10', description: 'Descompte del 10% per a coneguts de Mykola', isActive: true },
+          { id: '3', name: 'Benvinguda', percentage: 20, code: 'WELCOME20', description: 'Descompte de benvinguda', isActive: true }
+        ];
+        setAvailableDiscounts(fallbackDiscounts);
       } finally {
         setIsLoading(false);
       }

@@ -12,9 +12,9 @@ export default function OfficeWorkers() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis per a Treballadors d'Oficina - EKA Balance Barcelona"
-        description="Teràpies especialitzades per a treballadors d'oficina: alleuja tensions, millora postura i gestiona l'estrès laboral. Sessions d'1 hora per 70€."
-        keywords="massatge oficina Barcelona, estrès laboral, dolor esquena ordinador, kinesiologia treballadors"
+        title={t('office.seo.title')}
+        description={t('office.seo.desc')}
+        keywords={t('office.seo.keywords')}
       />
       
       {/* Hero Section */}
@@ -63,22 +63,22 @@ export default function OfficeWorkers() {
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{t('personalizedServices.officeWorkers.benefit1')}</h3>
-                    <p className="text-gray-600">Dolor al coll, espatlles i esquena per postures incorrectes davant l'ordinador</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('office.problems.pain.title')}</h3>
+                    <p className="text-gray-600">{t('office.problems.pain.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{t('personalizedServices.officeWorkers.benefit3')}</h3>
-                    <p className="text-gray-600">Pressió constant, deadlines i excés de responsabilitats que afecten el benestar</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('office.problems.stress.title')}</h3>
+                    <p className="text-gray-600">{t('office.problems.stress.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Sedentarisme</h3>
-                    <p className="text-gray-600">Pèrdua de mobilitat i flexibilitat per passar massa hores assegut</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('office.problems.sedentary.title')}</h3>
+                    <p className="text-gray-600">{t('office.problems.sedentary.desc')}</p>
                   </div>
                 </div>
               </div>
@@ -93,22 +93,22 @@ export default function OfficeWorkers() {
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{t('personalizedServices.officeWorkers.benefit1')}</h3>
-                    <p className="text-gray-600">Tècniques específiques per descontracturar zones afectades pel treball d'oficina</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('office.benefits.techniques.title')}</h3>
+                    <p className="text-gray-600">{t('office.benefits.techniques.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{t('personalizedServices.officeWorkers.benefit2')}</h3>
-                    <p className="text-gray-600">Exercicis i correccions posturals per prevenir futurs problemes</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('office.benefits.exercises.title')}</h3>
+                    <p className="text-gray-600">{t('office.benefits.exercises.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{t('personalizedServices.officeWorkers.benefit3')}</h3>
-                    <p className="text-gray-600">Tècniques de relaxació i mindfulness adaptades a l'entorn professional</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('office.benefits.mindfulness.title')}</h3>
+                    <p className="text-gray-600">{t('office.benefits.mindfulness.desc')}</p>
                   </div>
                 </div>
               </div>

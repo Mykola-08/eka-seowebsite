@@ -41,9 +41,9 @@ export default function Musicians() {
   return (
     <Layout>
       <SEOHead
-        title="Serveis per a Músics - EKA Balance Barcelona"
-        description="Teràpies especialitzades per músics: allibera tensions, millora postura i moviment. Plans des de 70€. Centre a Carrer Pelai, Barcelona."
-        keywords="massatge músics Barcelona, dolor músics, postura músics, kinesiologia músics"
+        title={t('musicians.seo.title')}
+        description={t('musicians.seo.desc')}
+        keywords={t('musicians.seo.keywords')}
       />
       
       {/* Hero Section */}

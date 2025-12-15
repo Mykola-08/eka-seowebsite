@@ -591,7 +591,6 @@ const translations: Record<Language, Record<string, string>> = {
     'discounts.mykolaFriend.description': 'Descompte especial del 20% per a amics de Mykola. Vàlid per a totes les sessions i serveis.',
     'discounts.conocidoMykola.description': 'Descompte del 10% per a coneguts de Mykola. Aplicable a tots els nostres tractaments.',
     'discounts.off': 'descompte',
-    'discounts.active': 'Actiu',
     'discounts.code': 'Codi',
     'discounts.copy': 'Copiar',
     'discounts.howToUse.title': 'Com utilitzar els descomptes',
@@ -713,7 +712,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.form.namePlaceholder': 'El teu nom',
     'booking.form.serviceRequired': 'Servei *',
     'booking.form.servicePlaceholder': 'Selecciona un servei',
-    'booking.form.submit': 'Enviar per WhatsApp',
     'booking.form.validationError': 'Si us plau, omple almenys el nom i el servei d\'interès.',
     'booking.popup.title': 'Reserva la teva sessió',
     'booking.popup.subtitle': 'Selecciona el servei i la data que millor t\'convingui',
@@ -723,7 +721,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.whatsapp.date': 'Data preferida: {date}',
     'booking.whatsapp.time': 'Hora preferida: {time}',
     'booking.whatsapp.comments': 'Comentaris: {comments}',
-    'booking.whatsapp.location': 'Preferència de lloc: {location}',
     'booking.whatsapp.availability': 'Disponibilitat: {availability} – {timeSlot}',
     'booking.whatsapp.thanks': 'Gràcies!',
     
@@ -855,13 +852,6 @@ const translations: Record<Language, Record<string, string>> = {
     'students.stats.tension': 'menys tensió',
     'students.stats.stress': 'menys estrès',
     'students.session.title': 'Sessió per a estudiants',
-    
-    // Office Workers specific translations
-    'office.stats.pain': 'menys dolor',
-    'office.stats.posture': 'millor postura',
-    'office.stats.stress': 'menys estrès',
-    'office.session.title': 'Sessió per a treballadors d\'oficina',
-    'office.session.plans': 'Veure plans',
     
     // FAQ Section
     'faq.title': 'Preguntes freqüents',
@@ -1156,7 +1146,6 @@ const translations: Record<Language, Record<string, string>> = {
     'common.continue': 'Continuar',
     'common.disclaimer': 'Els serveis d\'EKA Balance són de suport complementari, no mèdic. No substitueixen cap diagnòstic ni tractament professional. L\'objectiu és acompanyar-te cap a més benestar, consciència i equilibri global.',
     
-    'contact.form.phone': 'Telèfon',
     'contact.form.whatsapp': 'WhatsApp',
     'contact.form.preferredTime': 'Horari preferit',
     'contact.form.selectTime': 'Selecciona un horari',
@@ -1646,7 +1635,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.form.namePlaceholder': 'Your name',
     'booking.form.serviceRequired': 'Service *',
     'booking.form.servicePlaceholder': 'Select a service',
-    'booking.form.submit': 'Send via WhatsApp',
     'booking.form.validationError': 'Please fill in at least the name and the service of interest.',
     'booking.popup.title': 'Book your session',
     'booking.popup.subtitle': 'Select the service and date that suits you best',
@@ -2103,7 +2091,6 @@ const translations: Record<Language, Record<string, string>> = {
     'common.continue': 'Continue',
     'common.disclaimer': 'EKA Balance services are complementary support, not medical. They do not replace any professional diagnosis or treatment. The goal is to accompany you towards more wellbeing, awareness and global balance.',
     
-    'contact.form.phone': 'Phone',
     'contact.form.whatsapp': 'WhatsApp',
     'contact.form.preferredTime': 'Preferred time',
     'contact.form.selectTime': 'Select a time',
@@ -2593,7 +2580,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.form.namePlaceholder': 'Tu nombre',
     'booking.form.serviceRequired': 'Servicio *',
     'booking.form.servicePlaceholder': 'Selecciona un servicio',
-    'booking.form.submit': 'Enviar por WhatsApp',
     'booking.form.validationError': 'Por favor, rellena al menos el nombre y el servicio de interés.',
     'booking.popup.title': 'Reserva tu sesión',
     'booking.popup.subtitle': 'Selecciona el servicio y la fecha que mejor te convenga',
@@ -2938,7 +2924,6 @@ const translations: Record<Language, Record<string, string>> = {
     'seo.parents.description': 'Apoyo para padres y madres. Recupera tu energía, reduce el estrés y encuentra el equilibrio entre la vida familiar y personal.',
     'seo.parents.keywords': 'estrés parental, recuperación posparto, energía padres, bienestar familiar, masaje relajante padres',
     
-    'contact.form.phone': 'Teléfono',
     'contact.form.whatsapp': 'WhatsApp',
     'contact.form.preferredTime': 'Horario preferido',
     'contact.form.selectTime': 'Selecciona un horario',
@@ -3392,7 +3377,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.form.namePlaceholder': 'Ваше имя',
     'booking.form.serviceRequired': 'Услуга *',
     'booking.form.servicePlaceholder': 'Выберите услугу',
-    'booking.form.submit': 'Отправить через WhatsApp',
     'booking.form.validationError': 'Пожалуйста, заполните хотя бы имя и интересующую услугу.',
     'booking.popup.title': 'Забронируйте сеанс',
     'booking.popup.subtitle': 'Выберите услугу и дату, которые вам подходят',
@@ -3710,7 +3694,6 @@ const translations: Record<Language, Record<string, string>> = {
     'common.continue': 'Продолжить',
     'common.disclaimer': 'Услуги EKA Balance являются дополнительной поддержкой, а не медицинской. Они не заменяют профессиональную диагностику или лечение. Цель - сопровождать вас к большему благополучию, осознанности и глобальному балансу.',
     
-    'contact.form.phone': 'Телефон',
     'contact.form.whatsapp': 'WhatsApp',
     'contact.form.preferredTime': 'Предпочтительное время',
     'contact.form.selectTime': 'Выберите время',

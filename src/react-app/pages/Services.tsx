@@ -7,7 +7,7 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function Services() {
   const { t } = useLanguage();
-  
+
   const services = [
     {
       id: 'massatge',
@@ -98,7 +98,7 @@ export default function Services() {
     return colors[color as keyof typeof colors] || colors.orange;
   };
 
-  
+
 
   return (
     <Layout>
@@ -115,12 +115,12 @@ export default function Services() {
             <Heart className="w-5 h-5 text-blue-600 mr-2" />
             <span className="text-blue-700 font-medium">{t('services.integralWellbeingFor')}</span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-8 leading-tight">
             {t('services.ourServices')}{' '}
             <span className="text-blue-600 font-medium">{t('services.ourServices2')}</span>
           </h1>
-          
+
           <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
             {t('services.wellnessPath')}
           </p>
@@ -142,7 +142,7 @@ export default function Services() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {services.map((service) => {
               const colors = getColorClasses(service.color);
-              
+
               return (
                 <div
                   key={service.id}
@@ -167,7 +167,7 @@ export default function Services() {
                       <p className={`text-lg font-medium ${colors.text} mb-4`}>
                         {service.subtitle}
                       </p>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-800 leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -249,7 +249,7 @@ export default function Services() {
               {t('services.quickBookingSubtitle')}
             </p>
           </div>
-          
+
           <div className="flex justify-center">
             <Link
               to="/booking"
@@ -281,7 +281,7 @@ export default function Services() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {t('whyChoose.personalized.title')}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700">
                 {t('whyChoose.personalized.description')}
               </p>
             </div>
@@ -293,7 +293,7 @@ export default function Services() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {t('whyChoose.holistic.title')}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700">
                 {t('whyChoose.holistic.description')}
               </p>
             </div>
@@ -305,7 +305,7 @@ export default function Services() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {t('whyChoose.experienced.title')}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700">
                 {t('whyChoose.experienced.description')}
               </p>
             </div>
@@ -322,7 +322,7 @@ export default function Services() {
           <p className="text-xl mb-8 text-gray-300">
             {t('services.contactUsToBook')}
           </p>
-          
+
           <div className="flex justify-center">
             <Link
               to="/booking"
@@ -334,7 +334,7 @@ export default function Services() {
         </div>
       </section>
 
-      
+
     </Layout>
   );
 }

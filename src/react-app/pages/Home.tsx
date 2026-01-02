@@ -34,7 +34,7 @@ export default function Home() {
       description: t('services.kinesiology.description'),
       icon: Brain,
       color: 'from-blue-400 to-blue-600',
-      image: 'https://images.pexels.com/photos/7187991/pexels-photo-7187991.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: '/serveis/kinesiologia',
       durations: [60, 90]
     },
@@ -56,7 +56,7 @@ export default function Home() {
       description: t('services.revision360.description'),
       icon: RotateCcw,
       color: 'from-purple-400 to-purple-600',
-      image: 'https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/7699526/pexels-photo-7699526.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: 'https://360revision.ekabalance.com',
       isExternal: true,
       durations: [60, 90, 120]
@@ -164,7 +164,7 @@ export default function Home() {
                 </span>
               </h2>
 
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 {t('services.personalizedTreatments')}
               </p>
             </div>
@@ -193,10 +193,10 @@ export default function Home() {
                         <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                           {service.title}
                         </h3>
-                        <p className="text-lg text-gray-600 mb-4">
+                        <p className="text-lg text-gray-700 mb-4">
                           {service.subtitle}
                         </p>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-800 leading-relaxed">
                           {service.description}
                         </p>
                       </div>
@@ -290,7 +290,7 @@ export default function Home() {
               <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
                 {t('whyChoose.title')}
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 {t('whyChoose.subtitle')}
               </p>
             </div>
@@ -344,7 +344,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-light mb-6">
               {t('finalCta.title')}
             </h2>
-            <p className="text-xl mb-8 text-gray-300">
+            <p className="text-xl mb-8 text-gray-200">
               {t('finalCta.subtitle')}
             </p>
 

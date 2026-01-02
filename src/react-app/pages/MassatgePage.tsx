@@ -10,7 +10,7 @@ export default function MassatgePage() {
 
   const benefits = [
     t('massage.benefits.pain'),
-    t('services.massage.subtitle'), 
+    t('services.massage.subtitle'),
     t('massage.benefits.circulation'),
     t('massage.benefits.wellbeing')
   ];
@@ -22,7 +22,7 @@ export default function MassatgePage() {
       rating: 5
     },
     {
-      name: 'Jordi M.', 
+      name: 'Jordi M.',
       text: t('massage.testimonial.2.text'),
       rating: 5
     }
@@ -46,15 +46,15 @@ export default function MassatgePage() {
               <div className="inline-flex items-center px-4 py-2 bg-orange-100 rounded-full mb-6">
                 <span className="text-orange-700 font-medium text-sm">{t('massage.hero.badge')}</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
                 {t('massage.page.title')}
               </h1>
-              
+
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {t('massage.page.subtitle')}
               </p>
-              
+
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 {t('massage.page.description')}
               </p>
@@ -68,10 +68,10 @@ export default function MassatgePage() {
                 </button>
               </div>
             </div>
-            
+
             <div className="order-1 lg:order-2">
               <div className="relative">
-                <img 
+                <img
                   src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Sessió de massatge terapèutic professional en ambient relaxant"
                   className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
@@ -99,7 +99,7 @@ export default function MassatgePage() {
               {t('massage.page.fillForm')}
             </p>
           </div>
-          
+
           <div className="flex justify-center">
             <button
               onClick={navigateToBooking}
@@ -122,7 +122,7 @@ export default function MassatgePage() {
               {t('massage.page.benefitsSubtitle')}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start space-x-4 p-6 bg-orange-50 rounded-2xl">
@@ -143,7 +143,7 @@ export default function MassatgePage() {
           <p className="text-xl text-gray-600 mb-12">
             {t('massage.page.durationsSubtitle')}
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {durations.map((duration) => (
               <div key={duration} className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -155,8 +155,8 @@ export default function MassatgePage() {
                 </h3>
                 <p className="text-gray-600 mb-6">
                   {duration === 60 ? t('massage.page.duration60') :
-                   duration === 90 ? t('massage.page.duration90') :
-                   t('massage.page.duration120')}
+                    duration === 90 ? t('massage.page.duration90') :
+                      t('massage.page.duration120')}
                 </p>
                 <button
                   onClick={navigateToBooking}
@@ -178,7 +178,7 @@ export default function MassatgePage() {
               {t('massage.page.testimonialsTitle')}
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-orange-50 rounded-3xl p-8">
@@ -205,10 +205,10 @@ export default function MassatgePage() {
           <h2 className="text-3xl sm:text-4xl font-light mb-6">
             {t('services.readyToStart')}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-8">
             {t('services.contactUsToBook')}
           </p>
-          
+
           <div className="flex justify-center">
             <button
               onClick={navigateToBooking}
@@ -220,7 +220,7 @@ export default function MassatgePage() {
         </div>
       </section>
 
-      
+
     </Layout>
   );
 }

@@ -303,20 +303,26 @@ export default function PersonalizedOnboarding() {
   // Welcome Screen - Full Page
   if (showWelcome) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
-        <div className="text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-100 rounded-full mb-8">
-            <Heart className="w-12 h-12 text-blue-600" />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#FFB405]/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-200/20 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="text-center max-w-2xl mx-auto relative z-10">
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full mb-8 shadow-xl shadow-blue-900/5 ring-4 ring-white">
+            <Heart className="w-12 h-12 text-[#FFB405]" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-8 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
             🌿 {t('onboarding.welcome.title')}
           </h1>
-          <p className="text-xl text-gray-700 mb-12 leading-relaxed max-w-xl mx-auto">
+          <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-xl mx-auto font-light">
             {t('onboarding.welcome.description')}
           </p>
           <button
             onClick={startOnboarding}
-            className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition-colors duration-200 text-lg"
+            className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition-all duration-300 text-lg shadow-lg hover:shadow-[#FFB405]/20 hover:-translate-y-1"
           >
             {t('common.getStarted')}
             <ChevronRight className="w-6 h-6 ml-3" />
@@ -415,20 +421,20 @@ export default function PersonalizedOnboarding() {
   // Processing Screen - Full Page
   if (isProcessing) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
         <div className="text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-8 animate-pulse">
-            <Brain className="w-10 h-10 text-blue-600" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-8 shadow-lg">
+            <Brain className="w-10 h-10 text-[#FFB405] animate-pulse" />
           </div>
           <h2 className="text-2xl font-light text-gray-900 mb-4">
             {t('onboarding.processing.title')}
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-500">
             {t('onboarding.processing.subtitle')}
           </p>
           <div className="mt-8">
-            <div className="w-64 h-2 bg-gray-200 rounded-full mx-auto overflow-hidden">
-              <div className="h-full bg-blue-600 rounded-full animate-pulse" style={{ width: '75%' }}></div>
+            <div className="w-64 h-1.5 bg-gray-200 rounded-full mx-auto overflow-hidden">
+              <div className="h-full bg-[#FFB405] rounded-full animate-progress" style={{ width: '75%' }}></div>
             </div>
           </div>
         </div>
@@ -438,8 +444,12 @@ export default function PersonalizedOnboarding() {
 
   // Onboarding Form - Full Page, Single Screen
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <div className="flex-1 flex flex-col py-6 px-4 max-w-5xl mx-auto w-full mb-24">
+    <div className="min-h-screen bg-slate-50 flex flex-col relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFB405]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="flex-1 flex flex-col py-6 px-4 max-w-5xl mx-auto w-full mb-24 relative z-10">
         {/* Progress Bar */}
         <div className="mb-6">
           <div className="flex justify-between items-center mb-3">
@@ -450,9 +460,9 @@ export default function PersonalizedOnboarding() {
               {Math.round(((currentStep + 1) / questions.length) * 100)}%
             </span>
           </div>
-          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-blue-600 rounded-full transition-all duration-500 ease-out"
+              className="h-full bg-[#FFB405] rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(255,180,5,0.5)]"
               style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
@@ -460,11 +470,11 @@ export default function PersonalizedOnboarding() {
 
         {/* Question */}
         <div className="flex-1 flex flex-col justify-center mb-6">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 text-center animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-10 text-center animate-fade-in tracking-tight">
             {t(`onboarding.questions.${currentQuestion.id}.title`)}
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 animate-fade-in-up">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 animate-fade-in-up">
             {currentQuestion.options.map((option) => {
               const isSelected = currentQuestion.id === 'goals'
                 ? data.goals.includes(option.id)
@@ -475,26 +485,36 @@ export default function PersonalizedOnboarding() {
                   key={option.id}
                   onClick={() => handleSelection(currentQuestion.id, option.id)}
                   className={`
-                    p-4 rounded-xl border-2 transition-all duration-200 text-left min-h-[80px] flex items-center
+                    group relative p-6 rounded-2xl transition-all duration-300 text-left min-h-[100px] flex items-center
+                    border shadow-sm
                     ${isSelected
-                      ? 'border-blue-600 bg-blue-50 ring-2 ring-blue-100'
-                      : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50'
+                      ? 'border-[#FFB405] bg-[#FFB405]/5 ring-1 ring-[#FFB405] shadow-md'
+                      : 'border-white bg-white hover:border-[#FFB405]/50 hover:shadow-lg hover:-translate-y-1'
                     }
                   `}
                 >
-                  <div className="flex items-center space-x-3 w-full">
+                  <div className="flex items-center space-x-4 w-full relative z-10">
                     {option.icon && (
                       <div className={`
-                        w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors
-                        ${isSelected ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'}
+                        w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300
+                        ${isSelected
+                          ? 'bg-[#FFB405] text-[#000035] shadow-md transform scale-110'
+                          : 'bg-gray-50 text-gray-400 group-hover:bg-[#FFB405]/10 group-hover:text-[#FFB405]'}
                       `}>
-                        <option.icon className="w-5 h-5" />
+                        <option.icon className="w-6 h-6" />
                       </div>
                     )}
-                    <span className={`font-medium text-sm leading-tight ${isSelected ? 'text-blue-900' : 'text-gray-900'}`}>
+                    <span className={`font-medium text-lg leading-tight transition-colors ${isSelected ? 'text-[#000035]' : 'text-gray-600 group-hover:text-gray-900'}`}>
                       {option.label}
                     </span>
                   </div>
+
+                  {/* Selection Indicator */}
+                  {isSelected && (
+                    <div className="absolute top-4 right-4 text-[#FFB405] animate-scale-in">
+                      <CheckCircle className="w-5 h-5 fill-current" />
+                    </div>
+                  )}
                 </button>
               );
             })}
@@ -503,7 +523,7 @@ export default function PersonalizedOnboarding() {
       </div>
 
       {/* Fixed Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-4 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+      <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-white/50 p-4 z-50 shadow-[0_-4px_30px_rgba(0,0,0,0.03)]">
         <div className="max-w-5xl mx-auto flex justify-between items-center">
           <button
             onClick={() => {

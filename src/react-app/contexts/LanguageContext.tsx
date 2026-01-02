@@ -83,6 +83,9 @@ const translations: Record<Language, Record<string, string>> = {
     'services.therapiesFor': 'Teràpies per al',
     'services.integralWellbeing': 'benestar integral',
     'services.personalizedTreatments': 'Descobreix tractaments personalitzats que s\'adapten a les teves necessitats específiques',
+    'services.consultation.title': 'Consulta Gratuïta 15 min',
+    'services.consultation.description': 'No estàs segura? Parlem 15 minuts sense compromís per veure com et puc ajudar.',
+    'services.consultation.feeling': 'Claredat sobre el teu camí',
 
     // Common
     'common.moreInfo': 'Més informació',
@@ -98,6 +101,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.seeOtherServices': 'Veure altres serveis',
     'common.price': 'Preu',
     'common.duration': 'Durada',
+    'common.getStarted': 'Començar',
     'common.benefits': 'Beneficis principals',
 
     // About Elena
@@ -1288,6 +1292,9 @@ const translations: Record<Language, Record<string, string>> = {
     'services.therapiesFor': 'Therapies for',
     'services.integralWellbeing': 'Integral Wellbeing',
     'services.personalizedTreatments': 'Discover personalized treatments tailored to your specific needs',
+    'services.consultation.title': 'Free 15 min Consultation',
+    'services.consultation.description': 'Not sure? Let\'s talk for 15 minutes with no obligation to see how I can help you.',
+    'services.consultation.feeling': 'Clarity on your path',
 
     // Common
     'common.moreInfo': 'More Information',
@@ -1301,6 +1308,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.hours': 'hours',
     'common.reserveSession': 'Book Your Session',
     'common.seeOtherServices': 'See Other Services',
+    'common.getStarted': 'Get Started',
 
     // About Elena
     'elena.greeting': 'Hello! I\'m Elena',
@@ -2487,6 +2495,9 @@ const translations: Record<Language, Record<string, string>> = {
     'services.therapiesFor': 'Terapias para el',
     'services.integralWellbeing': 'bienestar integral',
     'services.personalizedTreatments': 'Descubre tratamientos personalizados que se adaptan a tus necesidades específicas',
+    'services.consultation.title': 'Consulta Gratuita 15 min',
+    'services.consultation.description': '¿No estás segura? Hablemos 15 minutos sin compromiso para ver cómo te puedo ayudar.',
+    'services.consultation.feeling': 'Claridad sobre tu camino',
 
     // Common
     'common.moreInfo': 'Más información',
@@ -2500,6 +2511,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.hours': 'horas',
     'common.reserveSession': 'Reserva tu sesión',
     'common.seeOtherServices': 'Ver otros servicios',
+    'common.getStarted': 'Empezar',
 
     // About Elena
     'elena.greeting': '¡Hola! Me llamo Elena',
@@ -3750,6 +3762,9 @@ const translations: Record<Language, Record<string, string>> = {
     'services.therapiesFor': 'Терапии для',
     'services.integralWellbeing': 'комплексного благополучия',
     'services.personalizedTreatments': 'Откройте персонализированные методы лечения, адаптированные к вашим конкретным потребностям',
+    'services.consultation.title': 'Бесплатная консультация 15 мин',
+    'services.consultation.description': 'Не уверены? Поговорим 15 минут без обязательств, чтобы понять, чем я могу вам помочь.',
+    'services.consultation.feeling': 'Ясность на вашем пути',
 
     // Common
     'common.moreInfo': 'Подробнее',
@@ -3763,6 +3778,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.hours': 'часов',
     'common.reserveSession': 'Забронировать сессию',
     'common.seeOtherServices': 'Посмотреть другие услуги',
+    'common.getStarted': 'Начать',
 
     // About Elena
     'elena.greeting': 'Привет! Меня зовут Елена',

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 const heroImages = [
   'https://images.pexels.com/photos/22941022/pexels-photo-22941022.jpeg?auto=compress&cs=tinysrgb&w=1920', // University of Barcelona Facade (Placa Universitat)
@@ -34,9 +34,10 @@ export default function AppleHero() {
 
     {/* Content */}
     <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
-      {/* Badge - Pure text style, no button look */}
-      <div className="inline-block mb-6">
-        <span className="text-sm md:text-base font-medium tracking-wide uppercase text-white/90 border-b border-white/30 pb-1">
+      {/* Badge - Glassy Style */}
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg mb-8 animate-fade-in">
+        <Sparkles className="w-4 h-4 text-accent-gold" />
+        <span className="text-sm md:text-base font-medium tracking-wide uppercase text-white/95">
           {t('hero.badge')}
         </span>
       </div>

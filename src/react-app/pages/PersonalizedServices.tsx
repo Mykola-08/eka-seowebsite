@@ -101,7 +101,7 @@ export default function PersonalizedServices() {
       <section 
         className="bg-section-full min-h-screen flex items-center"
         style={{
-          backgroundImage: `url(https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=1920)`
+          backgroundImage: `url(https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1920)`
         }}
       >
         <div className="bg-overlay" />

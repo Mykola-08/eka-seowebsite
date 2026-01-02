@@ -4,13 +4,10 @@ import { Button } from 'keep-react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 const heroImages = [
-  'https://images.pexels.com/photos/22941022/pexels-photo-22941022.jpeg?auto=compress&cs=tinysrgb&w=1920', // University of Barcelona Facade (Placa Universitat)
-  // 'https://images.pexels.com/photos/5869159/pexels-photo-5869159.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Placa Universitat (Stand-in: MNAC)
-  // 'https://images.pexels.com/photos/32784597/pexels-photo-32784597.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Aerial
-  // 'https://images.pexels.com/photos/6629559/pexels-photo-6629559.jpeg?auto=compress&cs=tinysrgb&w=1920', // Relaxing Massage
-  // 'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920', // Spa Environment
-  // 'https://images.pexels.com/photos/5793694/pexels-photo-5793694.jpeg?auto=compress&cs=tinysrgb&w=1920', // Kinesiology/Therapy
-  // 'https://images.pexels.com/photos/3654620/pexels-photo-3654620.jpeg?auto=compress&cs=tinysrgb&w=1920'  // Candle/Peaceful
+  'https://images.pexels.com/photos/3779165/pexels-photo-3779165.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Park Guell View
+  'https://images.pexels.com/photos/6629559/pexels-photo-6629559.jpeg?auto=compress&cs=tinysrgb&w=1920', // Relaxing Massage
+  'https://images.pexels.com/photos/4156300/pexels-photo-4156300.jpeg?auto=compress&cs=tinysrgb&w=1920', // Bathtub/Reading/Relax
+  'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920', // Spa Environment
 ];
 export default function AppleHero() {
   const { t } = useLanguage();

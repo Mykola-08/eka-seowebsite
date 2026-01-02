@@ -2,12 +2,13 @@
 import { useState } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface FormData {
   location: string;
+  description: string;
   userType: string;
   tensionAreas: string[];
   emotionalState: string;
@@ -27,9 +28,10 @@ interface Recommendation {
 
 export default function DiscoveryForm() {
   const { t } = useLanguage();
-  const [currentStep, setCurrentStep] = useState(0); // 0 = Location, 1 = UserType...
+  const [currentStep, setCurrentStep] = useState(0); // 0 = Location, 1 = Description, 2 = UserType...
   const [formData, setFormData] = useState<FormData>({
     location: '',
+    description: '',
     userType: '',
     tensionAreas: [],
     emotionalState: '',
@@ -37,6 +39,7 @@ export default function DiscoveryForm() {
     budget: ''
   });
   const [showRecommendation, setShowRecommendation] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('');
 
   // New Location Step
   const locations = [
@@ -146,7 +149,7 @@ export default function DiscoveryForm() {
     }
   ];
 
-  const getRecommendation = (): Recommendation => {
+    const getRecommendation = (): Recommendation => {
     // 0. Online Location -> Online Service
     if (formData.location === 'online') {
       return {
@@ -165,87 +168,221 @@ export default function DiscoveryForm() {
       };
     }
 
+    const desc = formData.description.toLowerCase();
+    
+    // Advanced Keyword Analysis with Weights
+    const keywordWeights: Record<string, { category: 'physical' | 'emotional' | 'complex', weight: number }> = {
+      // Physical (High Intensity)
+      'agony': { category: 'physical', weight: 5 },
+      'unbearable': { category: 'physical', weight: 5 },
+      'injury': { category: 'physical', weight: 4 },
+      'sciatica': { category: 'physical', weight: 4 },
+      'contracture': { category: 'physical', weight: 3 },
+      'pain': { category: 'physical', weight: 2 },
+      'ache': { category: 'physical', weight: 2 },
+      'stiff': { category: 'physical', weight: 2 },
+      'dolor': { category: 'physical', weight: 2 },
+      'lesion': { category: 'physical', weight: 4 },
+      'ciatica': { category: 'physical', weight: 4 },
+      'contractura': { category: 'physical', weight: 3 },
+      'боль': { category: 'physical', weight: 2 },
+      'травма': { category: 'physical', weight: 4 },
+      'ишиас': { category: 'physical', weight: 4 },
+
+      // Emotional (High Intensity)
+      'panic': { category: 'emotional', weight: 5 },
+      'anxiety': { category: 'emotional', weight: 4 },
+      'insomnia': { category: 'emotional', weight: 4 },
+      'stress': { category: 'emotional', weight: 3 },
+      'overwhelmed': { category: 'emotional', weight: 3 },
+      'sad': { category: 'emotional', weight: 2 },
+      'ansiedad': { category: 'emotional', weight: 4 },
+      'insomnio': { category: 'emotional', weight: 4 },
+      'estres': { category: 'emotional', weight: 3 },
+      'agobio': { category: 'emotional', weight: 3 },
+      'паника': { category: 'emotional', weight: 5 },
+      'тревога': { category: 'emotional', weight: 4 },
+      'бессонница': { category: 'emotional', weight: 4 },
+      'стресс': { category: 'emotional', weight: 3 },
+
+      // Complex/Integrative (High Intensity)
+      'fibromyalgia': { category: 'complex', weight: 5 },
+      'chronic': { category: 'complex', weight: 4 },
+      'migraine': { category: 'complex', weight: 4 },
+      'burnout': { category: 'complex', weight: 4 },
+      'digestive': { category: 'complex', weight: 3 },
+      'hormonal': { category: 'complex', weight: 3 },
+      'fatigue': { category: 'complex', weight: 3 },
+      'fibromialgia': { category: 'complex', weight: 5 },
+      'cronico': { category: 'complex', weight: 4 },
+      'migraña': { category: 'complex', weight: 4 },
+      'digestivo': { category: 'complex', weight: 3 },
+      'фибромиалгия': { category: 'complex', weight: 5 },
+      'хронический': { category: 'complex', weight: 4 },
+      'мигрень': { category: 'complex', weight: 4 },
+      'выгорание': { category: 'complex', weight: 4 }
+    };
+
+    // Scoring System
+    let scores = {
+      manual: 0,
+      emotional: 0,
+      integrative: 0,
+      relax: 0
+    };
+
+    // 1. Analyze Description Keywords with Weights
+    Object.entries(keywordWeights).forEach(([keyword, info]) => {
+      if (desc.includes(keyword)) {
+        if (info.category === 'physical') scores.manual += info.weight;
+        if (info.category === 'emotional') scores.emotional += info.weight;
+        if (info.category === 'complex') scores.integrative += info.weight;
+      }
+    });
+
+    // 2. Analyze User Type
     const selectedType = userTypes.find(obj => obj.id === formData.userType);
-    const isPhysical = selectedType?.type === 'physical';
-    const isEmotional = selectedType?.type === 'emotional' || formData.emotionalState === 'stressed' || formData.emotionalState === 'sad';
+    if (selectedType?.type === 'physical') scores.manual += 3;
+    if (selectedType?.type === 'emotional') scores.emotional += 3;
+    if (selectedType?.type === 'mixed') scores.relax += 2;
+
+    // 3. Analyze Tension Areas
     const hasPain = formData.tensionAreas.length > 0 && !formData.tensionAreas.includes(t('discovery.tension.none'));
     const fullBodyTension = formData.tensionAreas.includes(t('discovery.tension.full'));
-
-    // 1. Emotional/Relaxation (Mother, Woman, Regular w/o heavy pain)
-    if (isEmotional && !hasPain && !fullBodyTension) {
-      return {
-        service: t('discovery.recommendation.emotional.service'),
-        description: t('discovery.recommendation.emotional.desc'),
-        price: '70€',
-        duration: '1-1,5h',
-        benefits: [
-          t('discovery.recommendation.emotional.benefit1'),
-          t('discovery.recommendation.emotional.benefit2'),
-          t('discovery.recommendation.emotional.benefit3'),
-          t('discovery.recommendation.emotional.benefit4')
-        ],
-        icon: Brain,
-        color: 'purple'
-      };
+    const headTension = formData.tensionAreas.includes(t('discovery.tension.head'));
+    
+    if (hasPain) scores.manual += 2;
+    if (fullBodyTension) scores.integrative += 3;
+    if (headTension) {
+      scores.integrative += 2; // Head tension often relates to stress/posture complex
+      scores.manual += 1;
     }
 
-    // 2. Integrative (Complex cases, recovery, full body tension)
-    if (fullBodyTension || (isPhysical && isEmotional)) {
+    // 4. Analyze Emotional State
+    if (formData.emotionalState === 'stressed') scores.emotional += 3;
+    if (formData.emotionalState === 'sad') scores.emotional += 2;
+    if (formData.emotionalState === 'focus_physical') scores.manual += 2;
+    if (formData.emotionalState === 'balanced') scores.relax += 2;
+
+    // 5. Apply Constraints (Time & Budget)
+    if (formData.timeCommitment === 'short' || formData.budget === 'basic') {
+      scores.integrative -= 5; // Penalize complex treatments if time/budget is low
+      scores.manual += 2; // Prefer manual for quick fixes
+      scores.relax += 2;
+    } else if (formData.timeCommitment === 'long' || formData.budget === 'premium') {
+      scores.integrative += 4; // Boost integrative for premium/long sessions
+      scores.emotional += 2;
+    }
+
+    // 6. Complex Interaction (Synergy)
+    // If high physical AND high emotional score, boost integrative significantly
+    if (scores.manual > 3 && scores.emotional > 3) {
+      scores.integrative += 5; 
+    }
+
+    console.log('Advanced Recommendation Scores:', scores);
+
+    // Determine Winner
+    const maxScore = Math.max(scores.manual, scores.emotional, scores.integrative, scores.relax);
+    
+    // Dynamic Benefit Generation
+    const generateBenefits = (baseBenefits: string[]) => {
+      const dynamicBenefits = [...baseBenefits];
+      
+      // Add specific benefits based on inputs
+      if (desc.includes('sleep') || desc.includes('insomnia') || desc.includes('dormir')) {
+        dynamicBenefits[0] = t('casos.problems.sleep.results'); // "Improves deep sleep..."
+      }
+      if (desc.includes('migraine') || desc.includes('headache') || headTension) {
+        dynamicBenefits[1] = t('casos.problems.migraines.results'); // "Reduces migraine frequency..."
+      }
+      if (selectedType?.id === 'athlete') {
+        dynamicBenefits[2] = t('personalizedServices.athletes.result'); // "Faster recovery..."
+      }
+      if (selectedType?.id === 'office') {
+        dynamicBenefits[2] = t('personalizedServices.officeWorkers.result'); // "Better posture..."
+      }
+      
+      return dynamicBenefits.slice(0, 4); // Keep it to 4 items
+    };
+
+    if (maxScore === scores.integrative && scores.integrative > 0) {
       return {
         service: t('discovery.recommendation.integrative.service'),
         description: t('discovery.recommendation.integrative.desc'),
         price: '90-120€',
         duration: '1,5-2h',
-        benefits: [
+        benefits: generateBenefits([
           t('discovery.recommendation.integrative.benefit1'),
           t('discovery.recommendation.integrative.benefit2'),
           t('discovery.recommendation.integrative.benefit3'),
           t('discovery.recommendation.integrative.benefit4')
-        ],
+        ]),
         icon: Sparkles,
         color: 'blue'
       };
     }
 
-    // 3. Manual/Physical (Office, Athlete, Pain)
-    if (hasPain || isPhysical) {
+    if (maxScore === scores.emotional) {
       return {
-        service: t('discovery.recommendation.manual.service'),
+        service: t('discovery.recommendation.emotional.service'),
+        description: t('discovery.recommendation.emotional.desc'),
+        price: '70€',
+        duration: '1-1,5h',
+        benefits: generateBenefits([
+          t('discovery.recommendation.emotional.benefit1'),
+          t('discovery.recommendation.emotional.benefit2'),
+          t('discovery.recommendation.emotional.benefit3'),
+          t('discovery.recommendation.emotional.benefit4')
+        ]),
+        icon: Brain,
+        color: 'purple'
+      };
+    }
+
+    if (maxScore === scores.manual) {
+      // Contextual Title for Manual Therapy
+      let serviceTitle = t('discovery.recommendation.manual.service');
+      if (selectedType?.id === 'athlete') serviceTitle += ` (${t('discovery.userTypes.athlete.title')})`;
+      if (selectedType?.id === 'office') serviceTitle += ` (${t('discovery.userTypes.office.title')})`;
+
+      return {
+        service: serviceTitle,
         description: t('discovery.recommendation.manual.desc'),
         price: '60-75€',
         duration: '1-1,5h',
-        benefits: [
+        benefits: generateBenefits([
           t('discovery.recommendation.manual.benefit1'),
           t('discovery.recommendation.manual.benefit2'),
           t('discovery.recommendation.manual.benefit3'),
           t('discovery.recommendation.manual.benefit4')
-        ],
+        ]),
         icon: Heart,
         color: 'orange'
       };
     }
 
-    // Default: Relax (Regular user, no specific complaints)
+    // Default Fallback
     return {
       service: t('discovery.recommendation.relax.service'),
       description: t('discovery.recommendation.relax.desc'),
       price: '60-80€',
       duration: '1-1,5h',
-      benefits: [
+      benefits: generateBenefits([
         t('discovery.recommendation.relax.benefit1'),
         t('discovery.recommendation.relax.benefit2'),
         t('discovery.recommendation.relax.benefit3'),
         t('discovery.recommendation.relax.benefit4')
-      ],
+      ]),
       icon: Heart,
       color: 'green'
     };
   };
 
   const handleNext = () => {
-    // Flow: 0 (Loc) -> 1 (User) -> 2 (Tension) -> 3 (Emotional) -> 4 (Time) -> 5 (Budget) -> 6 (Rec)
+    // Flow: 0 (Loc) -> 1 (Desc) -> 2 (User) -> 3 (Tension) -> 4 (Emotional) -> 5 (Time) -> 6 (Budget) -> 7 (Rec)
     setCurrentStep(currentStep + 1);
-    if (currentStep === 5) { // 5 is budget, so +1 = 6 (Rec)
+    if (currentStep === 6) { // 6 is budget, so +1 = 7 (Rec)
       setShowRecommendation(true);
     }
   };
@@ -259,14 +396,16 @@ export default function DiscoveryForm() {
       case 0:
         return formData.location !== '';
       case 1:
-        return formData.userType !== '';
+        return formData.description.length > 3; // Require at least 3 chars
       case 2:
-        return formData.tensionAreas.length > 0;
+        return formData.userType !== '';
       case 3:
-        return formData.emotionalState !== '';
+        return formData.tensionAreas.length > 0;
       case 4:
-        return formData.timeCommitment !== '';
+        return formData.emotionalState !== '';
       case 5:
+        return formData.timeCommitment !== '';
+      case 6:
         return formData.budget !== '';
       default:
         return false;
@@ -275,6 +414,23 @@ export default function DiscoveryForm() {
 
   const recommendation = showRecommendation ? getRecommendation() : null;
   const Icon = recommendation?.icon;
+
+  const handleBooking = () => {
+    if (!selectedTime) {
+      alert(t('booking.form.validationError'));
+      return;
+    }
+    
+    const message = `${t('booking.whatsapp.greeting', { name: 'Client' })}
+
+${t('booking.whatsapp.service', { service: recommendation?.service })}
+${t('booking.whatsapp.comments', { comments: formData.description })}
+${t('booking.whatsapp.location', { location: formData.location })}
+${t('booking.whatsapp.time', { time: selectedTime })}`;
+
+    const url = `https://wa.me/34658867133?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
 
   const getColorClasses = (color: string) => {
     const colors = {
@@ -350,6 +506,25 @@ export default function DiscoveryForm() {
                   </div>
                 </div>
 
+                <div className="mb-8">
+                  <h4 className="font-semibold text-gray-900 mb-4">{t('booking.form.timeSlot')}:</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {['morning', 'noon', 'afternoon', 'evening'].map((slot) => (
+                      <button
+                        key={slot}
+                        onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
+                        className={`py-2 px-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium ${
+                          selectedTime === t(`booking.options.timeSlot.${slot}`)
+                            ? 'border-blue-500 bg-blue-50 text-blue-700'
+                            : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                        }`}
+                      >
+                        {t(`booking.options.timeSlot.${slot}`)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {formData.location === 'online' && (
                   <div className="bg-yellow-50 p-4 rounded-xl mb-6 text-yellow-800 text-sm">
                     {/* Hardcoded fallback or key if exists, using generic message for now */}
@@ -359,12 +534,13 @@ export default function DiscoveryForm() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/booking"
-                  className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
+                <button
+                  onClick={handleBooking}
+                  className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
-                  {t('discovery.recommendation.book')}
-                </Link>
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  {t('booking.direct.button')}
+                </button>
                 <button
                   onClick={() => setShowRecommendation(false)}
                   className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
@@ -405,17 +581,20 @@ export default function DiscoveryForm() {
               <span className="text-blue-700 font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight flex items-center justify-center gap-3">
               👋 {t('hero.title')}
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                BETA
+              </span>
             </h1>
 
             <p className="text-xl text-gray-600 mb-8">
               {t('discovery.recommendation.subtitle')}
             </p>
 
-            {/* Progress indicator - 6 steps now */}
+            {/* Progress indicator - 7 steps now */}
             <div className="flex items-center justify-center space-x-2 mb-8">
-              {[0, 1, 2, 3, 4, 5].map((step) => (
+              {[0, 1, 2, 3, 4, 5, 6].map((step) => (
                 <div
                   key={step}
                   className={`w-3 h-3 rounded-full transition-colors duration-300 ${step <= currentStep ? 'bg-blue-600' : 'bg-gray-200'
@@ -460,8 +639,28 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 1: User Type */}
+            {/* Step 1: Description */}
             {currentStep === 1 && (
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                  📝 {t('discovery.step.description.title')}
+                </h2>
+                <p className="text-gray-600 mb-8">{t('discovery.step.description.subtitle')}</p>
+
+                <textarea
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  placeholder={t('discovery.step.description.placeholder')}
+                  className="w-full h-40 p-4 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:ring-0 resize-none text-lg"
+                />
+                <p className="text-sm text-gray-500 mt-2 text-right">
+                  {formData.description.length}/3 characters minimum
+                </p>
+              </div>
+            )}
+
+            {/* Step 2: User Type */}
+            {currentStep === 2 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   💡 {t('discovery.step1.title')}
@@ -486,8 +685,8 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 2: Tension Areas */}
-            {currentStep === 2 && (
+            {/* Step 3: Tension Areas */}
+            {currentStep === 3 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   📍 {t('discovery.step2.title')}
@@ -521,8 +720,8 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 3: Emotional State */}
-            {currentStep === 3 && (
+            {/* Step 4: Emotional State */}
+            {currentStep === 4 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   🧘 {t('discovery.step4.title')}
@@ -547,8 +746,8 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 4: Time Commitment */}
-            {currentStep === 4 && (
+            {/* Step 5: Time Commitment */}
+            {currentStep === 5 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   ⏰ {t('discovery.step5.title')}
@@ -573,8 +772,8 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 5: Budget */}
-            {currentStep === 5 && (
+            {/* Step 6: Budget */}
+            {currentStep === 6 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   💰 {t('discovery.step6.title')}
@@ -614,7 +813,7 @@ export default function DiscoveryForm() {
               </button>
 
               <span className="text-sm text-gray-500">
-                {t('common.step')} {currentStep + 1} {t('common.of')} 6
+                {t('common.step')} {currentStep + 1} {t('common.of')} 7
               </span>
 
               <button
@@ -625,7 +824,7 @@ export default function DiscoveryForm() {
                   }`}
                 disabled={!canProceed()}
               >
-                {currentStep === 5 ? t('discovery.seeRecommendation') : t('discovery.next')}
+                {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </button>
             </div>

@@ -98,21 +98,21 @@ const vipServices = [
 const testimonials = [
   {
     name: 'Marina Castellví',
-    role: 'CEO, Tech Company',
+    role: 'vip.testimonials.role1',
     rating: 5,
     comment: 'vip.testimonials.comment1',
     tier: 'GOLD'
   },
   {
     name: 'Dr. Albert Vidal',
-    role: 'Cirurgià cardiovascular',
+    role: 'vip.testimonials.role2',
     rating: 5,
     comment: 'vip.testimonials.comment2',
     tier: 'GOLD'
   },
   {
     name: 'Laura Montserrat',
-    role: 'Emprenedora',
+    role: 'vip.testimonials.role3',
     rating: 5,
     comment: 'vip.testimonials.comment3',
     tier: 'SILVER'
@@ -589,7 +589,7 @@ export default function VIPUltraPremium() {
                   {/* Author */}
                   <div>
                     <p className="font-semibold text-gray-900 text-lg">{testimonial.name}</p>
-                    <p className="text-gray-500">{testimonial.role}</p>
+                    <p className="text-gray-500">{t(testimonial.role)}</p>
                   </div>
                 </div>
               </div>

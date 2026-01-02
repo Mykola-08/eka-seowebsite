@@ -11,8 +11,6 @@ interface OnboardingData {
   userType: string;
   goals: string[];
   preferredFeeling: string;
-  approach: string;
-  timePreference: number;
 }
 
 interface Question {
@@ -33,9 +31,7 @@ export default function PersonalizedOnboarding() {
   const [data, setData] = useState<OnboardingData>({
     userType: '',
     goals: [],
-    preferredFeeling: '',
-    approach: '',
-    timePreference: 60
+    preferredFeeling: ''
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -52,6 +48,7 @@ export default function PersonalizedOnboarding() {
         { id: 'musician', label: t('onboarding.userTypes.musician'), icon: User },
         { id: 'athlete', label: t('onboarding.userTypes.athlete'), icon: User },
         { id: 'parent', label: t('onboarding.userTypes.parent'), icon: User },
+        { id: 'free_woman', label: t('onboarding.userTypes.freeWoman'), icon: User },
         { id: 'entrepreneur', label: t('onboarding.userTypes.entrepreneur'), icon: User },
         { id: 'therapist', label: t('onboarding.userTypes.therapist'), icon: User },
         { id: 'senior', label: t('onboarding.userTypes.senior'), icon: User },
@@ -69,7 +66,14 @@ export default function PersonalizedOnboarding() {
         { id: 'energy', label: t('onboarding.goals.energy'), icon: Sparkles },
         { id: 'focus', label: t('onboarding.goals.focus'), icon: Brain },
         { id: 'bodyAwareness', label: t('onboarding.goals.bodyAwareness'), icon: Target },
-        { id: 'feelGood', label: t('onboarding.goals.feelGood'), icon: Heart }
+        { id: 'feelGood', label: t('onboarding.goals.feelGood'), icon: Heart },
+        { id: 'lightness', label: t('onboarding.goals.lightness'), icon: Sparkles },
+        { id: 'inspiration', label: t('onboarding.goals.inspiration'), icon: Sparkles },
+        { id: 'vitality', label: t('onboarding.goals.vitality'), icon: Sparkles },
+        { id: 'money', label: t('onboarding.goals.money'), icon: Target },
+        { id: 'relationships', label: t('onboarding.goals.relationships'), icon: Heart },
+        { id: 'family', label: t('onboarding.goals.family'), icon: User },
+        { id: 'selfworth', label: t('onboarding.goals.selfworth'), icon: Sparkles }
       ]
     },
     {
@@ -81,26 +85,6 @@ export default function PersonalizedOnboarding() {
         { id: 'energized', label: t('onboarding.feelings.energized'), icon: Sparkles },
         { id: 'focused', label: t('onboarding.feelings.focused'), icon: Brain },
         { id: 'confident', label: t('onboarding.feelings.confident'), icon: Target }
-      ]
-    },
-    {
-      id: 'approach',
-      type: 'single',
-      options: [
-        { id: 'massage', label: t('onboarding.approaches.massage'), icon: Heart },
-        { id: 'kinesiology', label: t('onboarding.approaches.kinesiology'), icon: Brain },
-        { id: 'feldenkrais', label: t('onboarding.approaches.feldenkrais'), icon: Target },
-        { id: 'energy', label: t('onboarding.approaches.energy'), icon: Sparkles },
-        { id: 'open', label: t('onboarding.approaches.open'), icon: Heart }
-      ]
-    },
-    {
-      id: 'timePreference',
-      type: 'single',
-      options: [
-        { id: '60', label: t('onboarding.time.60min'), icon: Clock },
-        { id: '90', label: t('onboarding.time.90min'), icon: Clock },
-        { id: '120', label: t('onboarding.time.120min'), icon: Clock }
       ]
     }
   ];
@@ -119,7 +103,7 @@ export default function PersonalizedOnboarding() {
     } else {
       setData(prev => ({
         ...prev,
-        [questionId]: questionId === 'timePreference' ? parseInt(optionId) : optionId
+        [questionId]: optionId
       }));
     }
   };
@@ -142,10 +126,10 @@ export default function PersonalizedOnboarding() {
 
   const processResults = async () => {
     setIsProcessing(true);
-    
+
     // Simulate processing time
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     // Generate recommendations based on user data
     const recs = generateRecommendations(data);
     setRecommendations(recs);
@@ -156,8 +140,8 @@ export default function PersonalizedOnboarding() {
         await supabase.from('user_preferences').upsert({
           user_id: user.id,
           goals: data.goals,
-          preferred_therapy_type: data.approach,
-          preferred_session_duration: data.timePreference,
+          preferred_therapy_type: '', // Determined by recommendation
+          preferred_session_duration: 60, // Default
           metadata: {
             userType: data.userType,
             preferredFeeling: data.preferredFeeling,
@@ -177,42 +161,122 @@ export default function PersonalizedOnboarding() {
 
   const generateRecommendations = (userData: OnboardingData): any[] => {
     const recommendations = [];
-    
-    // Base recommendations on user type and goals
-    if (userData.goals.includes('stress') || userData.goals.includes('pain')) {
-      recommendations.push({
-        id: 'massage',
-        title: t('services.massage.title'),
-        description: t('recommendations.massage.description'),
-        price: 60,
-        link: '/serveis/massatge',
-        personalizedLink: getPersonalizedLink(userData.userType)
-      });
-    }
-    
-    if (userData.goals.includes('energy') || userData.goals.includes('focus')) {
+
+    // Always recommend Massage (Fast Result, Pleasant) 
+    recommendations.push({
+      id: 'massage',
+      title: t('services.massage.title'),
+      description: t('recommendations.massage.description'),
+      price: 60,
+      duration: '60 min',
+      link: '/serveis/massatge',
+      personalizedLink: getPersonalizedLink(userData.userType),
+      feeling: t('recommendations.massage.feeling') || 'Cos relaxat i ment en calma'
+    });
+
+    // Recommend Kinesiology/Osteopathy based on goals (Deep work, Long-term)
+    if (userData.goals.includes('pain') ||
+      userData.goals.includes('posture') ||
+      userData.goals.includes('energy') ||
+      userData.goals.includes('vitality') ||
+      userData.goals.includes('stress')) {
       recommendations.push({
         id: 'kinesiology',
         title: t('services.kinesiology.title'),
         description: t('recommendations.kinesiology.description'),
         price: 70,
+        duration: '60 min',
         link: '/serveis/kinesiologia',
-        personalizedLink: getPersonalizedLink(userData.userType)
+        personalizedLink: getPersonalizedLink(userData.userType),
+        feeling: t('recommendations.kinesiology.feeling') || 'Claredat mental i energia renovada'
       });
     }
-    
-    if (userData.goals.includes('bodyAwareness') || userData.approach === 'feldenkrais') {
+
+    // Recommend Kinesiology emotional/mental focus
+    if (userData.goals.includes('focus') ||
+      userData.goals.includes('inspiration') ||
+      userData.goals.includes('lightness')) {
+      recommendations.push({
+        id: 'kinesiology_psy',
+        title: t('services.kinesiology.subtitle') || 'Kinesiologia',
+        description: t('recommendations.kinesiology.emotional_description') || t('recommendations.kinesiology.description'),
+        price: 70,
+        duration: '60 min',
+        link: '/serveis/kinesiologia',
+        personalizedLink: getPersonalizedLink(userData.userType),
+        feeling: t('recommendations.kinesiology.emotional_feeling') || 'Equilibri emocional i pau interior'
+      });
+    }
+
+    // Recommend Systemic Therapy for life/relationship issues
+    if (userData.goals.includes('money') ||
+      userData.goals.includes('relationships') ||
+      userData.goals.includes('family') ||
+      userData.goals.includes('selfworth')) {
+      recommendations.push({
+        id: 'systemic',
+        title: t('service.systemic.title') || 'Teràpia Sistèmica',
+        description: t('recommendations.systemic.description') || 'Ordena els teus vincles familiars i sistèmics per desbloquejar la teva vida.',
+        price: 80,
+        duration: '90 min',
+        link: '/serveis/sistemica',
+        personalizedLink: getPersonalizedLink(userData.userType),
+        feeling: t('recommendations.systemic.feeling') || 'Ordre intern i alleujament'
+      });
+    }
+
+    // Recommend Supplements for Energy/Vitality/Focus
+    if (userData.goals.includes('energy') ||
+      userData.goals.includes('vitality') ||
+      userData.goals.includes('focus') ||
+      userData.goals.includes('lightness')) {
+      recommendations.push({
+        id: 'supplements',
+        title: t('service.supplements.title') || 'Personalized Supplements',
+        description: t('recommendations.supplements.description') || 'Advanced cellular nutrition to boost your daily performance.',
+        price: 0,
+        duration: 'Product',
+        link: '/agenyz',
+        personalizedLink: getPersonalizedLink(userData.userType),
+        feeling: t('recommendations.supplements.feeling') || 'Vitality from within'
+      });
+    }
+
+    // Ensure we have at least 2 recommendations
+    if (recommendations.length < 2) {
       recommendations.push({
         id: 'feldenkrais',
         title: t('services.feldenkrais.title'),
         description: t('recommendations.feldenkrais.description'),
         price: 60,
+        duration: '60 min',
         link: '/serveis/feldenkrais',
-        personalizedLink: getPersonalizedLink(userData.userType)
+        personalizedLink: getPersonalizedLink(userData.userType),
+        feeling: t('recommendations.feldenkrais.feeling') || 'Moviment lliure i sense dolor'
       });
     }
-    
-    return recommendations.slice(0, 3); // Return top 3 recommendations
+
+    // Add Free Consultation Fallback if not sure
+    recommendations.push({
+      id: 'consultation',
+      title: t('services.consultation.title') || 'Consulta Gratuïta 15 min',
+      description: t('services.consultation.description') || 'No estàs segura? Parlem 15 minuts sense compromís per veure com et puc ajudar.',
+      price: 0,
+      duration: '15 min',
+      link: '/contacte', // Or booking specific link
+      personalizedLink: '/contacte',
+      feeling: t('services.consultation.feeling') || 'Claredat sobre el teu camí'
+    });
+
+    const uniqueRecs = [];
+    const seen = new Set();
+    for (const rec of recommendations) {
+      if (!seen.has(rec.id)) {
+        seen.add(rec.id);
+        uniqueRecs.push(rec);
+      }
+    }
+    return uniqueRecs; // Return all unique recs, including consultation if applicable
   };
 
   const getPersonalizedLink = (userType: string): string => {
@@ -227,7 +291,7 @@ export default function PersonalizedOnboarding() {
       therapist: 'terapeutes',
       senior: 'persones-grans'
     };
-    
+
     const mappedType = userTypeMap[userType] || userType;
     return `/per-a-${mappedType}`;
   };
@@ -295,10 +359,27 @@ export default function PersonalizedOnboarding() {
                     <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-2">
                       #{index + 1} {t('onboarding.results.recommended')}
                     </span>
-                    {rec.price && <PriceDisplay basePriceCents={rec.price * 100} size="lg" showCalculation={true} />}
+                    <div className="flex flex-col items-end">
+                      {rec.price && <PriceDisplay basePriceCents={rec.price * 100} size="lg" showCalculation={true} />}
+                      {rec.duration && (
+                        <span className="text-sm text-gray-500 font-medium mt-1">
+                          {rec.duration}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
-                
+
+                {rec.feeling && (
+                  <div className="mb-4 bg-blue-50/50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 text-blue-800 text-sm font-medium mb-1">
+                      <Sparkles className="w-4 h-4" />
+                      <span>{t('onboarding.results.howYouWillFeel') || 'Com et sentiràs:'}</span>
+                    </div>
+                    <p className="text-gray-700 text-sm italic">"{rec.feeling}"</p>
+                  </div>
+                )}
+
                 <div className="flex gap-3">
                   <Link
                     to={rec.link}
@@ -357,8 +438,8 @@ export default function PersonalizedOnboarding() {
 
   // Onboarding Form - Full Page, Single Screen
   return (
-    <div className="min-h-screen bg-white py-6 px-4 flex flex-col">
-      <div className="max-w-5xl mx-auto flex-1 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
+      <div className="flex-1 flex flex-col py-6 px-4 max-w-5xl mx-auto w-full mb-24">
         {/* Progress Bar */}
         <div className="mb-6">
           <div className="flex justify-between items-center mb-3">
@@ -370,7 +451,7 @@ export default function PersonalizedOnboarding() {
             </span>
           </div>
           <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div 
+            <div
               className="h-full bg-blue-600 rounded-full transition-all duration-500 ease-out"
               style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
             ></div>
@@ -379,13 +460,13 @@ export default function PersonalizedOnboarding() {
 
         {/* Question */}
         <div className="flex-1 flex flex-col justify-center mb-6">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 text-center animate-fade-in">
             {t(`onboarding.questions.${currentQuestion.id}.title`)}
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 animate-fade-in-up">
             {currentQuestion.options.map((option) => {
-              const isSelected = currentQuestion.id === 'goals' 
+              const isSelected = currentQuestion.id === 'goals'
                 ? data.goals.includes(option.id)
                 : data[currentQuestion.id as keyof OnboardingData] === option.id;
 
@@ -395,8 +476,8 @@ export default function PersonalizedOnboarding() {
                   onClick={() => handleSelection(currentQuestion.id, option.id)}
                   className={`
                     p-4 rounded-xl border-2 transition-all duration-200 text-left min-h-[80px] flex items-center
-                    ${isSelected 
-                      ? 'border-blue-600 bg-blue-50' 
+                    ${isSelected
+                      ? 'border-blue-600 bg-blue-50 ring-2 ring-blue-100'
                       : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50'
                     }
                   `}
@@ -404,13 +485,13 @@ export default function PersonalizedOnboarding() {
                   <div className="flex items-center space-x-3 w-full">
                     {option.icon && (
                       <div className={`
-                        w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0
+                        w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors
                         ${isSelected ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'}
                       `}>
-                        <option.icon className="w-4 h-4" />
+                        <option.icon className="w-5 h-5" />
                       </div>
                     )}
-                    <span className={`font-medium text-sm ${isSelected ? 'text-blue-900' : 'text-gray-900'}`}>
+                    <span className={`font-medium text-sm leading-tight ${isSelected ? 'text-blue-900' : 'text-gray-900'}`}>
                       {option.label}
                     </span>
                   </div>
@@ -419,9 +500,11 @@ export default function PersonalizedOnboarding() {
             })}
           </div>
         </div>
+      </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between items-center">
+      {/* Fixed Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-4 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+        <div className="max-w-5xl mx-auto flex justify-between items-center">
           <button
             onClick={() => {
               if (currentStep === 0) {
@@ -439,9 +522,9 @@ export default function PersonalizedOnboarding() {
             onClick={nextStep}
             disabled={!canProceed()}
             className={`
-              px-8 py-3 rounded-full font-semibold transition-colors duration-200 flex items-center
-              ${canProceed() 
-                ? 'bg-[#FFB405] hover:bg-[#e8a204] text-[#000035]' 
+              px-8 py-3 rounded-full font-semibold transition-all duration-200 flex items-center
+              ${canProceed()
+                ? 'bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }
             `}

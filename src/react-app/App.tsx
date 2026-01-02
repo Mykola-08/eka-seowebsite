@@ -17,6 +17,7 @@ import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
 import MassatgePage from "@/react-app/pages/MassatgePage";
 import KinesiologiaPage from "@/react-app/pages/KinesiologiaPage";
 import NutricioPage from "@/react-app/pages/NutricioPage";
+import AgenyzPage from "@/react-app/pages/AgenyzPage";
 
 // Personal Services (Landing Pages)
 import PersonalizedServices from "@/react-app/pages/PersonalizedServices";
@@ -69,7 +70,8 @@ function AppRoutes() {
       <Route path="/serveis/massatge" element={<MassatgePage />} />
       <Route path="/serveis/kinesiologia" element={<KinesiologiaPage />} />
       <Route path="/serveis/nutritio" element={<NutricioPage />} />
-      <Route path="/vip" element={<VIPUltraPremium />} />
+      <Route path="/agenyz" element={<AgenyzPage />} />
+      {/* <Route path="/vip" element={<VIPUltraPremium />} /> */}
 
       {/* Personal Services */}
       <Route path="/serveis-personalitzats" element={<PersonalizedServices />} />

@@ -6,6 +6,8 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     // Service-specific translations
     'service.duration': 'Duració',
     'service.price': 'Preu',
+    'service.supplements.title': 'Suplements Personalitzats',
+    'service.systemic.title': 'Teràpia Sistèmica',
     'service.benefits': 'Beneficis',
     'service.ideal.for': 'Ideal per a',
     'service.what.to.expect': 'Què esperar',
@@ -15,6 +17,35 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Nota de reserva',
     'service.sessions.recommended': 'Sessions recomanades',
     'service.frequency': 'Freqüència',
+
+    // Onboarding Goals & Feelings
+    'onboarding.goals.stress': 'Estrès i Ansietat',
+    'onboarding.goals.pain': 'Dolor o Molèsties',
+    'onboarding.goals.posture': 'Millorar Postura',
+    'onboarding.goals.sleep': 'Dormir millor',
+    'onboarding.goals.energy': 'Més Energia',
+    'onboarding.goals.focus': 'Enfocament Mental',
+    'onboarding.goals.bodyAwareness': 'Connexió amb el cos',
+    'onboarding.goals.feelGood': 'Sentir-me bé',
+    'onboarding.goals.lightness': 'Lleugeresa',
+    'onboarding.goals.inspiration': 'Inspiració',
+    'onboarding.goals.vitality': 'Vitalitat',
+    'onboarding.goals.money': 'Diners i Abundància',
+    'onboarding.goals.relationships': 'Relacions i Parella',
+    'onboarding.goals.family': 'Família i Arrels',
+    'onboarding.goals.selfworth': 'Autoestima',
+
+    'onboarding.results.howYouWillFeel': 'Com et sentiràs:',
+    'services.consultation.title': 'Consulta Gratuïta 15 min',
+    'services.consultation.description': 'No estàs segura? Parlem 15 minuts sense compromís.',
+    'services.consultation.feeling': 'Claredat sobre el teu camí',
+
+    'recommendations.massage.feeling': 'Cos relaxat i ment en calma',
+    'recommendations.kinesiology.feeling': 'Claredat mental i energia renovada',
+    'recommendations.kinesiology.emotional_feeling': 'Equilibri emocional i pau interior',
+    'recommendations.feldenkrais.feeling': 'Moviment lliure i sense dolor',
+    'recommendations.systemic.feeling': 'Ordre intern i alleujament',
+    'recommendations.supplements.feeling': 'Vitalitat i suport físic',
 
     // Services page
     'services.integralWellbeingFor': 'Teràpies per al benestar integral',
@@ -227,7 +258,15 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.subtitle': 'Cada cos té la seva història. Aquests són els casos més freqüents que tractem amb èxit.',
     'casos.section.readMore': 'Llegir més',
     'casos.section.viewAll': 'Veure tots els casos',
+    'casos.section.viewAll': 'Veure tots els casos',
     'casos.section.findYourCase': 'Troba el teu cas',
+    'casos.other.title': 'Altres àrees que tractem',
+    'casos.other.money': 'Diners i Finances',
+    'casos.other.relationships': 'Relacions i Parella',
+    'casos.other.selfworth': 'Autoestima i Realització',
+    'casos.other.family': 'Conflictes Familiars',
+    'casos.other.work': 'Orientació Professional',
+    'casos.other.trauma': 'Traumes Emocionals',
 
     // Problems
     'casos.problems.backPain.title': 'Dolor d\'esquena i coll',
@@ -238,7 +277,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.problems.digestive.description': 'Quan el sistema digestiu es bloqueja, no només costa digerir el menjar —també les emocions i el dia a dia.',
     'casos.problems.migraines.title': 'Migranyes i tensió cranial',
     'casos.problems.migraines.description': 'Dolors recurrents al cap, fotofòbia, sorolls que molesten o cansament extrem. La ment no pot fluir quan el cos està tens.',
-    'casos.problems.lowEnergy.title': 'Falta d\'energia o rendiment baix',
+    'casos.problems.lowEnergy.title': 'Manca de força i energia',
     'casos.problems.lowEnergy.description': 'Quan tot costa, quan t\'aixeques cansada o sents que el cos "no respon". No és mandra —és falta de regulació interna.',
     'casos.problems.sleep.title': 'Dificultats per dormir',
     'casos.problems.sleep.description': 'La ment no para, el cos tampoc. El descans és essencial per regenerar-te i mantenir la salut física i mental.',
@@ -261,6 +300,8 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     // Kinesiologia Page
     'kinesiology.page.title': 'Kinesiologia holística',
     'kinesiology.page.subtitle': 'Escolta el cos, troba l\'arrel.',
+    'kinesiology.page.subtitle': 'Escolta el cos, troba l\'arrel.',
+    'kinesiology.page.imageAlt': 'Sessió de kinesiologia holística en ambient professional i natural',
     'kinesiology.page.description': 'Test neuromuscular i correccions suaus per reequilibrar cos, emocions i hàbits. Beneficis clau: menys estrès, millor coordinació i energia estable.',
     'kinesiology.page.energyBalance': 'Equilibri energètic',
     'kinesiology.page.benefitsTitle': 'Beneficis de la kinesiologia',
@@ -293,6 +334,8 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     // Service-specific translations
     'service.duration': 'Duration',
     'service.price': 'Price',
+    'service.supplements.title': 'Personalized Supplements',
+    'service.systemic.title': 'Systemic Therapy',
     'service.benefits': 'Benefits',
     'service.ideal.for': 'Ideal for',
     'service.what.to.expect': 'What to expect',
@@ -302,6 +345,35 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Booking note',
     'service.sessions.recommended': 'Recommended sessions',
     'service.frequency': 'Frequency',
+
+    // Onboarding Goals & Feelings
+    'onboarding.goals.stress': 'Stress and Anxiety',
+    'onboarding.goals.pain': 'Pain or Discomfort',
+    'onboarding.goals.posture': 'Improve Posture',
+    'onboarding.goals.sleep': 'Sleep Better',
+    'onboarding.goals.energy': 'More Energy',
+    'onboarding.goals.focus': 'Mental Focus',
+    'onboarding.goals.bodyAwareness': 'Body Connection',
+    'onboarding.goals.feelGood': 'Feel Good',
+    'onboarding.goals.lightness': 'Lightness',
+    'onboarding.goals.inspiration': 'Inspiration',
+    'onboarding.goals.vitality': 'Vitality',
+    'onboarding.goals.money': 'Money & Abundance',
+    'onboarding.goals.relationships': 'Relationships',
+    'onboarding.goals.family': 'Family & Roots',
+    'onboarding.goals.selfworth': 'Self-worth',
+
+    'onboarding.results.howYouWillFeel': 'How you will feel:',
+    'services.consultation.title': 'Free 15 min Consultation',
+    'services.consultation.description': 'Not sure? Let\'s talk for 15 mins, no strings attached.',
+    'services.consultation.feeling': 'Clarity on your path',
+
+    'recommendations.massage.feeling': 'Relaxed body and calm mind',
+    'recommendations.kinesiology.feeling': 'Mental clarity and renewed energy',
+    'recommendations.kinesiology.emotional_feeling': 'Emotional balance and inner peace',
+    'recommendations.feldenkrais.feeling': 'Free movement without pain',
+    'recommendations.systemic.feeling': 'Inner order and relief',
+    'recommendations.supplements.feeling': 'Vitality and physical support',
 
     // Services page
     'services.integralWellbeingFor': 'Therapies for integral wellbeing',
@@ -515,6 +587,13 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.readMore': 'Read more',
     'casos.section.viewAll': 'View all cases',
     'casos.section.findYourCase': 'Find your case',
+    'casos.other.title': 'Other areas we treat',
+    'casos.other.money': 'Money & Finances',
+    'casos.other.relationships': 'Relationships & Couple',
+    'casos.other.selfworth': 'Self-worth & Realization',
+    'casos.other.family': 'Family Conflicts',
+    'casos.other.work': 'Professional Guidance',
+    'casos.other.trauma': 'Emotional Trauma',
 
     // Problems
     'casos.problems.backPain.title': 'Back and neck pain',
@@ -573,7 +652,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.problems.migraines.results': 'Reduction in the frequency and intensity of migraines. In many cases, they disappear completely after regulating the neck and skull.',
     'casos.problems.migraines.successStory': 'Carla, 39 years old, designer: "I had migraines 3-4 times a week. After the cranial treatment, I haven\'t had any for 6 months. It has been a total life change."',
 
-    'casos.problems.lowEnergy.title': 'Lack of energy or low performance',
+    'casos.problems.lowEnergy.title': 'Lack of strength and energy',
     'casos.problems.lowEnergy.description': 'When everything is difficult, when you wake up tired or feel that the body "does not respond". It is not laziness —it is lack of internal regulation.',
     'casos.problems.lowEnergy.symptoms.0': 'Constant tiredness despite sleeping well',
     'casos.problems.lowEnergy.symptoms.1': 'Low concentration and memory',
@@ -648,6 +727,8 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     // Kinesiologia Page
     'kinesiology.page.title': 'Holistic Kinesiology',
     'kinesiology.page.subtitle': 'Listen to the body, find the root.',
+    'kinesiology.page.subtitle': 'Listen to the body, find the root.',
+    'kinesiology.page.imageAlt': 'Holistic kinesiology session in a professional and natural environment',
     'kinesiology.page.description': 'Neuromuscular test and gentle corrections to rebalance body, emotions and habits. Key benefits: less stress, better coordination and stable energy.',
     'kinesiology.page.energyBalance': 'Energy balance',
     'kinesiology.page.benefitsTitle': 'Benefits of kinesiology',
@@ -680,6 +761,8 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     // Service-specific translations
     'service.duration': 'Duración',
     'service.price': 'Precio',
+    'service.supplements.title': 'Suplementos Personalizados',
+    'service.systemic.title': 'Terapia Sistémica',
     'service.benefits': 'Beneficios',
     'service.ideal.for': 'Ideal para',
     'service.what.to.expect': 'Qué esperar',
@@ -689,6 +772,35 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Nota de reserva',
     'service.sessions.recommended': 'Sesiones recomendadas',
     'service.frequency': 'Frecuencia',
+
+    // Onboarding Goals & Feelings
+    'onboarding.goals.stress': 'Estrés y Ansiedad',
+    'onboarding.goals.pain': 'Dolor o Molestias',
+    'onboarding.goals.posture': 'Mejorar Postura',
+    'onboarding.goals.sleep': 'Dormir mejor',
+    'onboarding.goals.energy': 'Más Energía',
+    'onboarding.goals.focus': 'Enfoque Mental',
+    'onboarding.goals.bodyAwareness': 'Conexión con el cuerpo',
+    'onboarding.goals.feelGood': 'Sentirme bien',
+    'onboarding.goals.lightness': 'Ligereza',
+    'onboarding.goals.inspiration': 'Inspiración',
+    'onboarding.goals.vitality': 'Vitalidad',
+    'onboarding.goals.money': 'Dinero y Abundancia',
+    'onboarding.goals.relationships': 'Relaciones y Pareja',
+    'onboarding.goals.family': 'Familia y Raíces',
+    'onboarding.goals.selfworth': 'Autoestima',
+
+    'onboarding.results.howYouWillFeel': 'Cómo te sentirás:',
+    'services.consultation.title': 'Consulta Gratuita 15 min',
+    'services.consultation.description': '¿No estás segura? Hablemos 15 minutos sin compromiso.',
+    'services.consultation.feeling': 'Claridad sobre tu camino',
+
+    'recommendations.massage.feeling': 'Cuerpo relajado y mente en calma',
+    'recommendations.kinesiology.feeling': 'Claridad mental y energía renovada',
+    'recommendations.kinesiology.emotional_feeling': 'Equilibrio emocional y paz interior',
+    'recommendations.feldenkrais.feeling': 'Movimiento libre y sin dolor',
+    'recommendations.systemic.feeling': 'Orden interno y alivio',
+    'recommendations.supplements.feeling': 'Vitalidad y soporte físico',
 
     // Services page
     'services.integralWellbeingFor': 'Terapias para el bienestar integral',
@@ -1347,7 +1459,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.problems.migraines.results': 'Уменьшение частоты и интенсивности мигреней. Во многих случаях они полностью исчезают после регулировки шеи и черепа.',
     'casos.problems.migraines.successStory': 'Карла, 39 лет, дизайнер: "У меня были мигрени 3-4 раза в неделю. После краниального лечения у меня их не было уже 6 месяцев. Это полностью изменило мою жизнь."',
 
-    'casos.problems.lowEnergy.title': 'Недостаток энергии или низкая производительность',
+    'casos.problems.lowEnergy.title': 'Нехватка сил и энергии',
     'casos.problems.lowEnergy.description': 'Когда все дается с трудом, когда вы просыпаетесь уставшими или чувствуете, что тело "не отвечает". Это не лень —это недостаток внутренней регуляции.',
     'casos.problems.lowEnergy.symptoms.0': 'Постоянная усталость, несмотря на хороший сон',
     'casos.problems.lowEnergy.symptoms.1': 'Низкая концентрация и память',
@@ -1374,6 +1486,51 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.problems.hormonal.treatment': 'С помощью гормональной кинезиологии, тазового остеобаланса и персонализированной нутрициологической поддержки. Мы также работаем над отношениями с собственным телом и женственностью.',
     'casos.problems.hormonal.results': 'Цикл улучшается, боль исчезает, и восстанавливается естественный и здоровый ритм.',
     'casos.problems.hormonal.successStory': 'София, 32 года, учительница: "Мои циклы были хаосом, а менструальная боль парализовала меня. После гормонального лечения мой цикл стал регулярным и безболезненным. Я чувствую воссоединение со своим телом."',
+
+    // Service-specific translations
+    'service.duration': 'Длительность',
+    'service.price': 'Цена',
+    'service.benefits': 'Преимущества',
+    'service.supplements.title': 'Персонализированные добавки',
+    'service.systemic.title': 'Системная терапия',
+
+    // Onboarding Goals & Feelings
+    'onboarding.goals.stress': 'Стресс и тревога',
+    'onboarding.goals.pain': 'Боль или дискомфорт',
+    'onboarding.goals.posture': 'Улучшить осанку',
+    'onboarding.goals.sleep': 'Лучше спать',
+    'onboarding.goals.energy': 'Больше энергии',
+    'onboarding.goals.focus': 'Умственная концентрация',
+    'onboarding.goals.bodyAwareness': 'Связь с телом',
+    'onboarding.goals.feelGood': 'Чувствовать себя хорошо',
+    'onboarding.goals.lightness': 'Легкость',
+    'onboarding.goals.inspiration': 'Вдохновение',
+    'onboarding.goals.vitality': 'Витальность',
+    'onboarding.goals.money': 'Деньги и изобилие',
+    'onboarding.goals.relationships': 'Отношения',
+    'onboarding.goals.family': 'Семья и корни',
+    'onboarding.goals.selfworth': 'Самооценка',
+
+    'onboarding.results.howYouWillFeel': 'Как вы будете себя чувствовать:',
+    'services.consultation.title': 'Бесплатная консультация 15 мин',
+    'services.consultation.description': 'Не уверены? Поговорим 15 минут без обязательств.',
+    'services.consultation.feeling': 'Ясность вашего пути',
+
+    'recommendations.massage.feeling': 'Расслабленное тело и спокойный ум',
+    'recommendations.kinesiology.feeling': 'Ясность ума и обновленная энергия',
+    'recommendations.kinesiology.emotional_feeling': 'Эмоциональное равновесие и внутренний покой',
+    'recommendations.feldenkrais.feeling': 'Свободное движение без боли',
+    'recommendations.systemic.feeling': 'Внутренний порядок и облегчение',
+    'recommendations.supplements.feeling': 'Витальность и физическая поддержка',
+
+    // New Casos Keys
+    'casos.other.title': 'Другие области, с которыми мы работаем',
+    'casos.other.money': 'Деньги и Финансы',
+    'casos.other.relationships': 'Отношения и Пара',
+    'casos.other.selfworth': 'Самооценка и Реализация',
+    'casos.other.family': 'Семейные Конфликты',
+    'casos.other.work': 'Профессиональная Ориентация',
+    'casos.other.trauma': 'Эмоциональные Травмы',
 
     'casos.problems.sleep.title': 'Трудности со сном',
     'casos.problems.sleep.description': 'Разум не останавливается, тело тоже. Отдых необходим для восстановления и поддержания физического и ментального здоровья.',
@@ -1422,6 +1579,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     // Kinesiologia Page
     'kinesiology.page.title': 'Холистическая кинезиология',
     'kinesiology.page.subtitle': 'Слушайте тело, найдите корень.',
+    'kinesiology.page.imageAlt': 'Сеанс холистической кинезиологии в профессиональной и природной обстановке',
     'kinesiology.page.description': 'Нейромышечный тест и мягкая коррекция для восстановления баланса тела, эмоций и привычек. Ключевые преимущества: меньше стресса, лучшая координация и стабильная энергия.',
     'kinesiology.page.energyBalance': 'Энергетический баланс',
     'kinesiology.page.benefitsTitle': 'Преимущества кинезиологии',
@@ -1440,6 +1598,19 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'nutrition.page.benefitsSubtitle': 'Узнайте, как правильное питание может изменить вашу жизнь',
     'nutrition.page.sessionTypes': 'Типы сеансов',
     'nutrition.page.sessionSubtitle': 'Персонализированное сопровождение для ваших целей в области питания',
+
+    // Agenyz Page
+    'agenyz.page.title': 'Agenyz Клеточная Нутрициология',
+    'agenyz.page.subtitle': 'Передовые добавки для клеточной регенерации.',
+    'agenyz.page.description': 'Биохакинг и нутрициология, работающие на уровне клетки. Восстановите энергию, иммунитет и молодость изнутри.',
+    'agenyz.benefits.cell': 'Когнитивная Ясность',
+    'agenyz.benefits.energy': 'Бесконечная Энергия',
+    'agenyz.benefits.immunity': 'Иммунная Защита',
+    'agenyz.benefits.antiaging': 'Антивозрастной Эффект',
+
+    'service.supplements.title': 'Персонализированные добавки',
+    'recommendations.supplements.description': 'Передовое клеточное питание для повышения вашей повседневной продуктивности.',
+    'recommendations.supplements.feeling': 'Жизненная сила изнутри',
 
     // Testimonials
     'massage.testimonial.1.text': 'Прихожу напряженным и с узлами. Ухожу полностью расслабленным. Все просто. Эффект длится днями.',

@@ -73,7 +73,7 @@ export default function KinesiologiaPage() {
               <div className="relative">
                 <img
                   src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Sessió de kinesiologia holística en ambient professional i natural"
+                  alt={t('kinesiology.page.imageAlt')}
                   className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">

@@ -94,10 +94,10 @@ export default function Layout({
       href: 'https://360revision.ekabalance.com',
       isExternal: true
     },
-    {
+    /* {
       name: t('nav.vip'),
       href: '/vip'
-    }
+    } */
   ];
 
   const isActivePath = (path: string) => {
@@ -404,7 +404,7 @@ export default function Layout({
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-2 mb-8 text-gray-300">
+          <div className="space-y-2 mb-8 text-gray-100">
             <p>{t('footer.address')}</p>
             <p>{t('footer.email')}</p>
           </div>

@@ -34,9 +34,11 @@ export default function AppleHero() {
 
     {/* Content */}
     <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
-      {/* Badge */}
-      <div className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-2xl mb-8 border border-white/20">
-        <span className="font-medium">{t('hero.badge')}</span>
+      {/* Badge - Pure text style, no button look */}
+      <div className="inline-block mb-6">
+        <span className="text-sm md:text-base font-medium tracking-wide uppercase text-white/90 border-b border-white/30 pb-1">
+          {t('hero.badge')}
+        </span>
       </div>
 
       {/* Main Title */}

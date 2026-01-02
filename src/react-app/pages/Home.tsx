@@ -56,10 +56,32 @@ export default function Home() {
       description: t('services.revision360.description'),
       icon: RotateCcw,
       color: 'from-purple-400 to-purple-600',
-      image: 'https://images.pexels.com/photos/7699526/pexels-photo-7699526.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/4099304/pexels-photo-4099304.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: 'https://360revision.ekabalance.com',
       isExternal: true,
       durations: [60, 90, 120]
+    },
+    {
+      id: 'Suplements',
+      title: t('service.supplements.title'),
+      subtitle: t('nutrition.page.subtitle'),
+      description: t('nutrition.page.description'),
+      icon: Leaf,
+      color: 'from-green-500 to-emerald-600',
+      image: 'https://images.pexels.com/photos/8845019/pexels-photo-8845019.jpeg?auto=compress&cs=tinysrgb&w=800',
+      href: '/serveis/suplements',
+      durations: []
+    },
+    {
+      id: 'Sistemica',
+      title: t('service.systemic.title'),
+      subtitle: t('kinesiology.page.subtitle'),
+      description: t('kinesiology.page.description'),
+      icon: Heart,
+      color: 'from-pink-400 to-rose-600',
+      image: 'https://images.pexels.com/photos/7176036/pexels-photo-7176036.jpeg?auto=compress&cs=tinysrgb&w=800',
+      href: '/serveis/sistemica',
+      durations: []
     }
   ];
 

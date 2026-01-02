@@ -130,6 +130,25 @@ export default function CasosSection() {
           })}
         </div>
 
+        {/* Other Cases List */}
+        <div className="max-w-4xl mx-auto mb-16 text-center">
+          <h3 className="text-2xl font-light text-gray-800 mb-8">{t('casos.other.title')}</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              'casos.other.money',
+              'casos.other.relationships',
+              'casos.other.selfworth',
+              'casos.other.family',
+              'casos.other.work',
+              'casos.other.trauma'
+            ].map((key) => (
+              <span key={key} className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-600 transition-all duration-200 cursor-default">
+                {t(key)}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* View All Cases */}
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

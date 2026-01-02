@@ -18,12 +18,12 @@ export default function MassatgePage() {
   const testimonials = [
     {
       name: 'Maria S.',
-      text: 'I come in tight and knotted. Leave totally loose. That\'s it. Simple. Lasts for days.',
+      text: t('massage.testimonial.1.text'),
       rating: 5
     },
     {
       name: 'Jordi M.', 
-      text: 'Best massage I\'ve had. Really knows what she\'s doing. The space feels great too.',
+      text: t('massage.testimonial.2.text'),
       rating: 5
     }
   ];
@@ -48,15 +48,15 @@ export default function MassatgePage() {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
-                Massatge terapèutic
+                {t('massage.page.title')}
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Allibera tensions i descansa de veritat.
+                {t('massage.page.subtitle')}
               </p>
               
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Massatge descontracturant i relaxant adaptat a tu per reduir dolor, estrès i rigidesa. Beneficis clau: alleujament muscular, millora de la circulació, calma mental, postura més lliure.
+                {t('massage.page.description')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -64,7 +64,7 @@ export default function MassatgePage() {
                   onClick={navigateToBooking}
                   className="bg-[#FFB405] hover:bg-[#e8a204] text-[000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                 >
-                  Reserva ara
+                  {t('common.bookNow')}
                 </button>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function MassatgePage() {
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-gray-700">Disponible avui</span>
+                    <span className="text-sm font-medium text-gray-700">{t('massage.page.availableToday')}</span>
                   </div>
                 </div>
               </div>
@@ -93,10 +93,10 @@ export default function MassatgePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Reserva la teva sessió
+              {t('massage.page.bookSession')}
             </h2>
             <p className="text-xl text-gray-600">
-              Omple el formulari i t'enviarem un missatge preparat per WhatsApp
+              {t('massage.page.fillForm')}
             </p>
           </div>
           
@@ -105,7 +105,7 @@ export default function MassatgePage() {
               onClick={navigateToBooking}
               className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
             >
-              Reserva ara
+              {t('common.bookNow')}
             </button>
           </div>
         </div>
@@ -116,10 +116,10 @@ export default function MassatgePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Beneficis del massatge terapèutic
+              {t('massage.page.benefitsTitle')}
             </h2>
             <p className="text-xl text-gray-600">
-              Descobreix com el massatge pot millorar la teva qualitat de vida
+              {t('massage.page.benefitsSubtitle')}
             </p>
           </div>
           
@@ -138,10 +138,10 @@ export default function MassatgePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-            Durades disponibles
+            {t('massage.page.durationsTitle')}
           </h2>
           <p className="text-xl text-gray-600 mb-12">
-            Escull la durada que millor s'adapti a les teves necessitats
+            {t('massage.page.durationsSubtitle')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -151,18 +151,18 @@ export default function MassatgePage() {
                   <Clock className="w-8 h-8 text-orange-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                  {duration} minuts
+                  {duration} {t('common.minutes') || 'min'}
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  {duration === 60 ? 'Perfecte per començar' :
-                   duration === 90 ? 'Tractament complet' :
-                   'Experiència premium'}
+                  {duration === 60 ? t('massage.page.duration60') :
+                   duration === 90 ? t('massage.page.duration90') :
+                   t('massage.page.duration120')}
                 </p>
                 <button
                   onClick={navigateToBooking}
                   className="w-full bg-orange-100 hover:bg-orange-200 text-orange-700 font-semibold py-3 rounded-full transition-colors duration-200"
                 >
-                  Reserva ara
+                  {t('common.bookNow')}
                 </button>
               </div>
             ))}
@@ -175,7 +175,7 @@ export default function MassatgePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Què diuen els nostres clients
+              {t('massage.page.testimonialsTitle')}
             </h2>
           </div>
           
@@ -203,10 +203,10 @@ export default function MassatgePage() {
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light mb-6">
-            Comença el teu camí cap al benestar
+            {t('services.readyToStart')}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Reserva la teva sessió de massatge terapèutic i descobreix una nova sensació de benestar
+            {t('services.contactUsToBook')}
           </p>
           
           <div className="flex justify-center">
@@ -214,7 +214,7 @@ export default function MassatgePage() {
               onClick={navigateToBooking}
               className="bg-white text-orange-600 font-semibold px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200"
             >
-              Reserva ara
+              {t('common.bookNow')}
             </button>
           </div>
         </div>

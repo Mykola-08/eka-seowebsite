@@ -18,12 +18,12 @@ export default function NutricioPage() {
   const testimonials = [
     {
       name: 'Carla Ferrer',
-      text: 'L\'assessorament nutricional ha canviat completament la meva relació amb el menjar. Ara tinc més energia i em sento molt millor.',
+      text: t('nutrition.testimonial.1.text'),
       rating: 5
     },
     {
       name: 'Pere Castell', 
-      text: 'Els consells personalitzats m\'han ajudat a crear hàbits saludables que puc mantenir fàcilment. Resultat: més vitalitat cada dia.',
+      text: t('nutrition.testimonial.2.text'),
       rating: 5
     }
   ];
@@ -55,19 +55,19 @@ export default function NutricioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center px-4 py-2 bg-green-100 rounded-full mb-6">
-                <span className="text-green-700 font-medium text-sm">Alimentació conscient</span>
+                <span className="text-green-700 font-medium text-sm">{t('nutrition.hero.badge')}</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
-                Nutrició conscient
+                {t('nutrition.page.title')}
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Menjar amb sentit per tenir energia real.
+                {t('nutrition.page.subtitle')}
               </p>
               
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Assessorament personalitzat per hàbits clars, digestió i energia. Beneficis clau: hàbits sostenibles, vitalitat i suport a la composició corporal.
+                {t('nutrition.page.description')}
               </p>
 
               <div className="flex justify-center">
@@ -75,7 +75,7 @@ export default function NutricioPage() {
                   onClick={navigateToBooking}
                   className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
                 >
-                  Reserva ara
+                  {t('common.bookNow')}
                 </button>
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function NutricioPage() {
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-gray-700">Nutrició personalitzada</span>
+                    <span className="text-sm font-medium text-gray-700">{t('nutrition.page.availableToday')}</span>
                   </div>
                 </div>
               </div>
@@ -104,10 +104,10 @@ export default function NutricioPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Reserva la teva sessió
+              {t('nutrition.page.bookSession')}
             </h2>
             <p className="text-xl text-gray-600">
-              Omple el formulari i t'enviarem un missatge preparat per WhatsApp
+              {t('nutrition.page.fillForm')}
             </p>
           </div>
           
@@ -116,7 +116,7 @@ export default function NutricioPage() {
               onClick={navigateToBooking}
               className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
             >
-              Reserva ara
+              {t('common.bookNow')}
             </button>
           </div>
         </div>
@@ -127,10 +127,10 @@ export default function NutricioPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Beneficis de l'assessorament nutricional
+              {t('nutrition.page.benefitsTitle')}
             </h2>
             <p className="text-xl text-gray-600">
-              Descobreix com una bona alimentació pot transformar la teva vida
+              {t('nutrition.page.benefitsSubtitle')}
             </p>
           </div>
           
@@ -149,10 +149,10 @@ export default function NutricioPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-            Tipus de sessions
+            {t('nutrition.page.sessionTypesTitle')}
           </h2>
           <p className="text-xl text-gray-600 mb-12">
-            Acompanyament personalitzat per als teus objectius nutricionals
+            {t('nutrition.page.sessionTypesSubtitle')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
@@ -174,7 +174,7 @@ export default function NutricioPage() {
                   onClick={navigateToBooking}
                   className="w-full bg-green-100 hover:bg-green-200 text-green-700 font-semibold py-3 rounded-full transition-colors duration-200"
                 >
-                  Reserva ara
+                  {t('common.bookNow')}
                 </button>
               </div>
             ))}
@@ -187,7 +187,7 @@ export default function NutricioPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Què diuen els nostres clients
+              {t('nutrition.page.testimonialsTitle')}
             </h2>
           </div>
           
@@ -215,10 +215,10 @@ export default function NutricioPage() {
       <section className="py-16 bg-gradient-to-r from-green-500 to-green-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light mb-6">
-            Comença a menjar millor avui mateix
+            {t('services.readyToStart')}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Reserva la teva sessió d'assessorament nutricional i descobreix com alimentar-te per viure millor
+            {t('services.contactUsToBook')}
           </p>
           
           <div className="flex justify-center">
@@ -226,7 +226,7 @@ export default function NutricioPage() {
               onClick={navigateToBooking}
               className="bg-white text-green-600 font-semibold px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200"
             >
-              Reserva ara
+              {t('common.bookNow')}
             </button>
           </div>
         </div>

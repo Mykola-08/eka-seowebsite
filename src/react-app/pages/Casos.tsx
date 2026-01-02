@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Stethoscope } from 'lucide-react';
+import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
 import { Link } from 'react-router';
 import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
@@ -10,10 +10,6 @@ interface Problem {
   title: string;
   category: string;
   description: string;
-  symptoms: string[];
-  causes: string[];
-  treatment: string;
-  results: string;
   icon: React.ComponentType<any>;
   color: string;
   href: string;
@@ -44,20 +40,6 @@ export default function Casos() {
       title: t('casos.problems.backPain.title'),
       category: 'fisic',
       description: t('casos.problems.backPain.description'),
-      symptoms: [
-        t('casos.problems.backPain.symptom1'),
-        t('casos.problems.backPain.symptom2'),
-        t('casos.problems.backPain.symptom3'),
-        t('casos.problems.backPain.symptom4')
-      ],
-      causes: [
-        t('casos.problems.backPain.cause1'),
-        t('casos.problems.backPain.cause2'),
-        t('casos.problems.backPain.cause3'),
-        t('casos.problems.backPain.cause4')
-      ],
-      treatment: t('casos.problems.backPain.treatment'),
-      results: t('casos.problems.backPain.results'),
       icon: Activity,
       color: 'blue',
       href: '/serveis/massatge'
@@ -67,20 +49,6 @@ export default function Casos() {
       title: t('casos.problems.stress.title'),
       category: 'emocional',
       description: t('casos.problems.stress.description'),
-      symptoms: [
-        t('casos.problems.stress.symptom1'),
-        t('casos.problems.stress.symptom2'),
-        t('casos.problems.stress.symptom3'),
-        t('casos.problems.stress.symptom4')
-      ],
-      causes: [
-        t('casos.problems.stress.cause1'),
-        t('casos.problems.stress.cause2'),
-        t('casos.problems.stress.cause3'),
-        t('casos.problems.stress.cause4')
-      ],
-      treatment: t('casos.problems.stress.treatment'),
-      results: t('casos.problems.stress.results'),
       icon: Brain,
       color: 'purple',
       href: '/serveis/kinesiologia'
@@ -90,20 +58,6 @@ export default function Casos() {
       title: t('casos.problems.digestive.title'),
       category: 'digestiu',
       description: t('casos.problems.digestive.description'),
-      symptoms: [
-        t('casos.problems.digestive.symptom1'),
-        t('casos.problems.digestive.symptom2'),
-        t('casos.problems.digestive.symptom3'),
-        t('casos.problems.digestive.symptom4')
-      ],
-      causes: [
-        t('casos.problems.digestive.cause1'),
-        t('casos.problems.digestive.cause2'),
-        t('casos.problems.digestive.cause3'),
-        t('casos.problems.digestive.cause4')
-      ],
-      treatment: t('casos.problems.digestive.treatment'),
-      results: t('casos.problems.digestive.results'),
       icon: Heart,
       color: 'green',
       href: '/serveis/nutritio'
@@ -113,20 +67,6 @@ export default function Casos() {
       title: t('casos.problems.migraines.title'),
       category: 'fisic',
       description: t('casos.problems.migraines.description'),
-      symptoms: [
-        t('casos.problems.migraines.symptom1'),
-        t('casos.problems.migraines.symptom2'),
-        t('casos.problems.migraines.symptom3'),
-        t('casos.problems.migraines.symptom4')
-      ],
-      causes: [
-        t('casos.problems.migraines.cause1'),
-        t('casos.problems.migraines.cause2'),
-        t('casos.problems.migraines.cause3'),
-        t('casos.problems.migraines.cause4')
-      ],
-      treatment: t('casos.problems.migraines.treatment'),
-      results: t('casos.problems.migraines.results'),
       icon: Brain,
       color: 'red',
       href: '/serveis/massatge'
@@ -136,44 +76,24 @@ export default function Casos() {
       title: t('casos.problems.lowEnergy.title'),
       category: 'energetic',
       description: t('casos.problems.lowEnergy.description'),
-      symptoms: [
-        t('casos.problems.lowEnergy.symptom1'),
-        t('casos.problems.lowEnergy.symptom2'),
-        t('casos.problems.lowEnergy.symptom3'),
-        t('casos.problems.lowEnergy.symptom4')
-      ],
-      causes: [
-        t('casos.problems.lowEnergy.cause1'),
-        t('casos.problems.lowEnergy.cause2'),
-        t('casos.problems.lowEnergy.cause3'),
-        t('casos.problems.lowEnergy.cause4')
-      ],
-      treatment: t('casos.problems.lowEnergy.treatment'),
-      results: t('casos.problems.lowEnergy.results'),
       icon: Zap,
       color: 'orange',
       href: '/serveis/kinesiologia'
     },
-    
+    {
+      id: 'problemes-hormonals',
+      title: t('casos.problems.hormonal.title'),
+      category: 'hormonal',
+      description: t('casos.problems.hormonal.description'),
+      icon: Shield,
+      color: 'pink',
+      href: '/serveis/kinesiologia'
+    },
     {
       id: 'dificultats-dormir',
       title: t('casos.problems.sleep.title'),
       category: 'son',
       description: t('casos.problems.sleep.description'),
-      symptoms: [
-        t('casos.problems.sleep.symptom1'),
-        t('casos.problems.sleep.symptom2'),
-        t('casos.problems.sleep.symptom3'),
-        t('casos.problems.sleep.symptom4')
-      ],
-      causes: [
-        t('casos.problems.sleep.cause1'),
-        t('casos.problems.sleep.cause2'),
-        t('casos.problems.sleep.cause3'),
-        t('casos.problems.sleep.cause4')
-      ],
-      treatment: t('casos.problems.sleep.treatment'),
-      results: t('casos.problems.sleep.results'),
       icon: Moon,
       color: 'indigo',
       href: '/serveis/kinesiologia'
@@ -183,20 +103,6 @@ export default function Casos() {
       title: t('casos.problems.recovery.title'),
       category: 'recuperacio',
       description: t('casos.problems.recovery.description'),
-      symptoms: [
-        t('casos.problems.recovery.symptom1'),
-        t('casos.problems.recovery.symptom2'),
-        t('casos.problems.recovery.symptom3'),
-        t('casos.problems.recovery.symptom4')
-      ],
-      causes: [
-        t('casos.problems.recovery.cause1'),
-        t('casos.problems.recovery.cause2'),
-        t('casos.problems.recovery.cause3'),
-        t('casos.problems.recovery.cause4')
-      ],
-      treatment: t('casos.problems.recovery.treatment'),
-      results: t('casos.problems.recovery.results'),
       icon: Stethoscope,
       color: 'red',
       href: '/serveis/massatge'

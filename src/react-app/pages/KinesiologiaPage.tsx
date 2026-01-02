@@ -18,12 +18,12 @@ export default function KinesiologiaPage() {
   const testimonials = [
     {
       name: 'Anna Puig',
-      text: 'La kinesiologia m\'ha ajudat a entendre millor el meu cos i les meves emocions. Ara tinc més energia i claredat mental.',
+      text: t('kinesiology.testimonial.1.text'),
       rating: 5
     },
     {
       name: 'Marc Rivera', 
-      text: 'Després de les sessions de kinesiologia he notat una millora increïble en la meva postura i coordinació. Ho recomano totalment.',
+      text: t('kinesiology.testimonial.2.text'),
       rating: 5
     }
   ];
@@ -48,15 +48,15 @@ export default function KinesiologiaPage() {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
-                Kinesiologia holística
+                {t('kinesiology.page.title')}
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Escolta el cos, troba l'arrel.
+                {t('kinesiology.page.subtitle')}
               </p>
               
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Test neuromuscular i correccions suaus per reequilibrar cos, emocions i hàbits. Beneficis clau: menys estrès, millor coordinació i energia estable.
+                {t('kinesiology.page.description')}
               </p>
 
               <div className="flex justify-center">
@@ -64,7 +64,7 @@ export default function KinesiologiaPage() {
                   onClick={navigateToBooking}
                   className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
                 >
-                  Reserva ara
+                  {t('common.bookNow')}
                 </button>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function KinesiologiaPage() {
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-gray-700">Equilibri energètic</span>
+                    <span className="text-sm font-medium text-gray-700">{t('kinesiology.page.availableToday')}</span>
                   </div>
                 </div>
               </div>
@@ -93,10 +93,10 @@ export default function KinesiologiaPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Reserva la teva sessió
+              {t('kinesiology.page.bookSession')}
             </h2>
             <p className="text-xl text-gray-600">
-              Omple el formulari i t'enviarem un missatge preparat per WhatsApp
+              {t('kinesiology.page.fillForm')}
             </p>
           </div>
           
@@ -105,7 +105,7 @@ export default function KinesiologiaPage() {
               onClick={navigateToBooking}
               className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
             >
-              Reserva ara
+              {t('common.bookNow')}
             </button>
           </div>
         </div>
@@ -116,10 +116,10 @@ export default function KinesiologiaPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Beneficis de la kinesiologia
+              {t('kinesiology.page.benefitsTitle')}
             </h2>
             <p className="text-xl text-gray-600">
-              Descobreix com la kinesiologia pot transformar el teu benestar
+              {t('kinesiology.page.benefitsSubtitle')}
             </p>
           </div>
           
@@ -138,10 +138,10 @@ export default function KinesiologiaPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-            Durades disponibles
+            {t('kinesiology.page.durationsTitle')}
           </h2>
           <p className="text-xl text-gray-600 mb-12">
-            Sessions adaptades a les teves necessitats
+            {t('kinesiology.page.durationsSubtitle')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
@@ -151,17 +151,17 @@ export default function KinesiologiaPage() {
                   <Clock className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                  {duration} minuts
+                  {duration} {t('common.minutes') || 'min'}
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  {duration === 60 ? 'Sessió d\'introducció i equilibri bàsic' :
-                   'Tractament complet i aprofundit'}
+                  {duration === 60 ? t('kinesiology.page.duration60') :
+                   t('kinesiology.page.duration90')}
                 </p>
                 <button
                   onClick={navigateToBooking}
                   className="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold py-3 rounded-full transition-colors duration-200"
                 >
-                  Reserva ara
+                  {t('common.bookNow')}
                 </button>
               </div>
             ))}
@@ -174,7 +174,7 @@ export default function KinesiologiaPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Què diuen els nostres clients
+              {t('kinesiology.page.testimonialsTitle')}
             </h2>
           </div>
           
@@ -202,10 +202,10 @@ export default function KinesiologiaPage() {
       <section className="py-16 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light mb-6">
-            Descobreix el teu equilibri interior
+            {t('services.readyToStart')}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Reserva la teva sessió de kinesiologia i comença el camí cap a una vida més equilibrada
+            {t('services.contactUsToBook')}
           </p>
           
           <div className="flex justify-center">
@@ -213,7 +213,7 @@ export default function KinesiologiaPage() {
               onClick={navigateToBooking}
               className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200"
             >
-              Reserva ara
+              {t('common.bookNow')}
             </button>
           </div>
         </div>

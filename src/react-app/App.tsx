@@ -11,6 +11,7 @@ import { DiscountProvider } from './contexts/DiscountContext.tsx';
 // Page Imports
 import HomePage from "@/react-app/pages/Home";
 import Services from "@/react-app/pages/Services";
+import Revision360Page from "@/react-app/pages/Revision360Page";
 import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
 
 // Individual Service Pages
@@ -64,7 +65,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/services" element={<Services />} />
-      {/* Revisió 360° routes redirect to external app */}
+      <Route path="/revisio-360" element={<Revision360Page />} />
 
       {/* Individual Service Pages */}
       <Route path="/serveis/massatge" element={<MassatgePage />} />

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList } from 'lucide-react';
 import { Link } from 'react-router';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
@@ -24,11 +24,24 @@ interface Recommendation {
   benefits: string[];
   icon: React.ComponentType<any>;
   color: string;
+  analysis?: {
+    problem?: string;
+    goal?: string;
+    feeling?: string;
+  };
+  diagnosis?: {
+    profile: string;
+    symptoms: string[];
+    rootCause: string;
+    strategy: string;
+    frequency: string;
+  };
 }
 
 export default function DiscoveryForm() {
   const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0); // 0 = Location, 1 = Description, 2 = UserType...
+  const [viewMode, setViewMode] = useState<'basic' | 'advanced'>('basic');
   const [formData, setFormData] = useState<FormData>({
     location: '',
     description: '',
@@ -306,6 +319,83 @@ export default function DiscoveryForm() {
       return dynamicBenefits.slice(0, 4); // Keep it to 4 items
     };
 
+    // --- Analysis Logic ---
+    const analysis: Recommendation['analysis'] = {};
+    const diagnosis: Recommendation['diagnosis'] = {
+      profile: '',
+      symptoms: [],
+      rootCause: '',
+      strategy: '',
+      frequency: ''
+    };
+
+    // 1. Problem & Symptoms
+    if (formData.tensionAreas.length > 0 && !formData.tensionAreas.includes(t('discovery.tension.none'))) {
+      analysis.problem = formData.tensionAreas.join(', ');
+      diagnosis.symptoms = [...formData.tensionAreas];
+    } else if (desc.length > 0) {
+       const foundKeyword = Object.keys(keywordWeights).find(k => desc.includes(k));
+       if (foundKeyword) {
+         analysis.problem = foundKeyword;
+         diagnosis.symptoms.push(foundKeyword);
+       }
+    }
+
+    // Add keywords to symptoms
+    Object.keys(keywordWeights).forEach(k => {
+      if (desc.includes(k) && !diagnosis.symptoms.includes(k)) {
+        diagnosis.symptoms.push(k);
+      }
+    });
+
+    // 2. Goal & Profile
+    if (selectedType?.id === 'athlete') analysis.goal = t('discovery.goal.athlete');
+    else if (selectedType?.id === 'office') analysis.goal = t('discovery.goal.office');
+    else if (formData.emotionalState === 'stressed') analysis.goal = t('discovery.goal.stress');
+    else if (hasPain) analysis.goal = t('discovery.goal.pain');
+    else analysis.goal = t('discovery.goal.general');
+
+    const emotionalStateObj = emotionalStates.find(e => e.id === formData.emotionalState);
+    diagnosis.profile = `${selectedType?.title || ''} • ${emotionalStateObj?.title || ''}`;
+    
+    // 3. Feeling & Root Cause
+    if (formData.emotionalState === 'stressed') analysis.feeling = t('discovery.feeling.relaxed');
+    else if (formData.emotionalState === 'sad') analysis.feeling = t('discovery.feeling.energized');
+    else if (formData.emotionalState === 'balanced') analysis.feeling = t('discovery.feeling.balanced');
+    else if (hasPain) analysis.feeling = t('discovery.feeling.painfree');
+    else analysis.feeling = t('discovery.feeling.relaxed');
+
+    // Root Cause Logic
+    if (selectedType?.id === 'office' && (headTension || formData.tensionAreas.includes(t('discovery.tension.neck')))) {
+      diagnosis.rootCause = t('discovery.diagnosis.cause.posture');
+    } else if (selectedType?.id === 'athlete') {
+      diagnosis.rootCause = t('discovery.diagnosis.cause.overload');
+    } else if (formData.emotionalState === 'stressed' && (headTension || fullBodyTension)) {
+      diagnosis.rootCause = t('discovery.diagnosis.cause.stress');
+    } else if (formData.emotionalState === 'sad') {
+      diagnosis.rootCause = t('discovery.diagnosis.cause.emotional');
+    } else {
+      diagnosis.rootCause = t('discovery.diagnosis.cause.metabolic');
+    }
+
+    // Strategy Logic
+    if (scores.integrative >= scores.manual && scores.integrative >= scores.emotional) {
+      diagnosis.strategy = t('discovery.diagnosis.strategy.rebalance');
+    } else if (scores.emotional > scores.manual) {
+      diagnosis.strategy = t('discovery.diagnosis.strategy.regulation');
+    } else {
+      diagnosis.strategy = t('discovery.diagnosis.strategy.structural');
+    }
+
+    // Frequency Logic
+    if (hasPain || formData.emotionalState === 'stressed' || formData.emotionalState === 'sad') {
+      diagnosis.frequency = t('discovery.diagnosis.freq.high');
+    } else if (formData.emotionalState === 'balanced') {
+      diagnosis.frequency = t('discovery.diagnosis.freq.low');
+    } else {
+      diagnosis.frequency = t('discovery.diagnosis.freq.medium');
+    }
+
     if (maxScore === scores.integrative && scores.integrative > 0) {
       return {
         service: t('discovery.recommendation.integrative.service'),
@@ -319,7 +409,9 @@ export default function DiscoveryForm() {
           t('discovery.recommendation.integrative.benefit4')
         ]),
         icon: Sparkles,
-        color: 'blue'
+        color: 'blue',
+        analysis,
+        diagnosis
       };
     }
 
@@ -336,7 +428,9 @@ export default function DiscoveryForm() {
           t('discovery.recommendation.emotional.benefit4')
         ]),
         icon: Brain,
-        color: 'purple'
+        color: 'purple',
+        analysis,
+        diagnosis
       };
     }
 
@@ -358,7 +452,9 @@ export default function DiscoveryForm() {
           t('discovery.recommendation.manual.benefit4')
         ]),
         icon: Heart,
-        color: 'orange'
+        color: 'orange',
+        analysis,
+        diagnosis
       };
     }
 
@@ -375,7 +471,9 @@ export default function DiscoveryForm() {
         t('discovery.recommendation.relax.benefit4')
       ]),
       icon: Heart,
-      color: 'green'
+      color: 'green',
+      analysis,
+      diagnosis
     };
   };
 
@@ -423,7 +521,7 @@ export default function DiscoveryForm() {
     
     const message = `${t('booking.whatsapp.greeting', { name: 'Client' })}
 
-${t('booking.whatsapp.service', { service: recommendation?.service })}
+${t('booking.whatsapp.service', { service: recommendation?.service || '' })}
 ${t('booking.whatsapp.comments', { comments: formData.description })}
 ${t('booking.whatsapp.location', { location: formData.location })}
 ${t('booking.whatsapp.time', { time: selectedTime })}`;
@@ -462,93 +560,195 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 {t('discovery.recommendation.title')}
               </h1>
 
-              <p className="text-xl text-gray-600 mb-12">
+              <p className="text-xl text-gray-600 mb-8">
                 {t('discovery.recommendation.subtitle')}
               </p>
+
+              {recommendation.analysis && (
+                <div className="bg-blue-50 p-6 rounded-2xl mb-12 text-center max-w-2xl mx-auto border border-blue-100">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {t('discovery.analysis.intro')}
+                    {recommendation.analysis.problem && (
+                      <span> {t('discovery.analysis.have')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.problem}</strong></span>
+                    )}
+                    {recommendation.analysis.goal && (
+                      <span> {t('discovery.analysis.want')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.goal}</strong></span>
+                    )}
+                    {recommendation.analysis.feeling && (
+                      <span> {t('discovery.analysis.feel')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.feeling}</strong></span>
+                    )}
+                    .
+                  </p>
+                </div>
+              )}
+
+              {/* Toggle */}
+              <div className="inline-flex bg-gray-100 p-1 rounded-xl mb-8">
+                <button
+                  onClick={() => setViewMode('basic')}
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+                    viewMode === 'basic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  {t('discovery.view.basic')}
+                </button>
+                <button
+                  onClick={() => setViewMode('advanced')}
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+                    viewMode === 'advanced' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  {t('discovery.view.advanced')}
+                </button>
+              </div>
             </div>
 
-            <div className={`bg-white rounded-3xl shadow-xl border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
-              <div className="text-center mb-8">
-                {Icon && (
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <Icon className="w-10 h-10 text-gray-700" />
-                  </div>
-                )}
+            {viewMode === 'basic' ? (
+              <div className={`bg-white rounded-3xl shadow-xl border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
+                <div className="text-center mb-8">
+                  {Icon && (
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <Icon className="w-10 h-10 text-gray-700" />
+                    </div>
+                  )}
 
-                <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-                  {recommendation.service}
+                  <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+                    {recommendation.service}
+                  </h2>
+
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                    {recommendation.description}
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div className="text-center p-4 bg-gray-50 rounded-2xl">
+                      <h4 className="font-semibold text-gray-900 mb-2">{t('common.price')}</h4>
+                      <p className="text-2xl font-bold text-gray-800">{recommendation.price}</p>
+                    </div>
+                    <div className="text-center p-4 bg-gray-50 rounded-2xl">
+                      <h4 className="font-semibold text-gray-900 mb-2">{t('common.duration')}</h4>
+                      <p className="text-2xl font-bold text-gray-800">{recommendation.duration}</p>
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <h4 className="font-semibold text-gray-900 mb-4">{t('common.benefits')}:</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {recommendation.benefits.map((benefit, index) => (
+                        <div key={index} className="flex items-center text-gray-700">
+                          <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 flex-shrink-0"></div>
+                          {benefit}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <h4 className="font-semibold text-gray-900 mb-4">{t('booking.form.timeSlot')}:</h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {['morning', 'noon', 'afternoon', 'evening'].map((slot) => (
+                        <button
+                          key={slot}
+                          onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
+                          className={`py-2 px-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium ${
+                            selectedTime === t(`booking.options.timeSlot.${slot}`)
+                              ? 'border-blue-500 bg-blue-50 text-blue-700'
+                              : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                          }`}
+                        >
+                          {t(`booking.options.timeSlot.${slot}`)}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {formData.location === 'online' && (
+                    <div className="bg-yellow-50 p-4 rounded-xl mb-6 text-yellow-800 text-sm">
+                      {/* Hardcoded fallback or key if exists, using generic message for now */}
+                      Note: Since you selected Online, this service is adapted for remote sessions.
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={handleBooking}
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    {t('booking.direct.button')}
+                  </button>
+                  <button
+                    onClick={() => setShowRecommendation(false)}
+                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                  >
+                    {t('discovery.recommendation.restart')}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8 sm:p-12 mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center justify-center">
+                  <ClipboardList className="w-6 h-6 mr-3 text-blue-600" />
+                  {t('discovery.diagnosis.title')}
                 </h2>
-
-                <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  {recommendation.description}
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <div className="text-center p-4 bg-gray-50 rounded-2xl">
-                    <h4 className="font-semibold text-gray-900 mb-2">{t('common.price')}</h4>
-                    <p className="text-2xl font-bold text-gray-800">{recommendation.price}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Profile */}
+                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.profile')}</h3>
+                    <p className="text-lg font-medium text-gray-900">{recommendation.diagnosis?.profile}</p>
                   </div>
-                  <div className="text-center p-4 bg-gray-50 rounded-2xl">
-                    <h4 className="font-semibold text-gray-900 mb-2">{t('common.duration')}</h4>
-                    <p className="text-2xl font-bold text-gray-800">{recommendation.duration}</p>
+                  
+                  {/* Symptoms */}
+                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {recommendation.diagnosis?.symptoms.map((s, i) => (
+                        <span key={i} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700 shadow-sm">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 mb-4">{t('common.benefits')}:</h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    {recommendation.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 flex-shrink-0"></div>
-                        {benefit}
-                      </div>
-                    ))}
+                  {/* Root Cause */}
+                  <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.rootCause')}</h3>
+                    <p className="text-lg font-medium text-blue-900">{recommendation.diagnosis?.rootCause}</p>
                   </div>
-                </div>
 
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 mb-4">{t('booking.form.timeSlot')}:</h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['morning', 'noon', 'afternoon', 'evening'].map((slot) => (
-                      <button
-                        key={slot}
-                        onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
-                        className={`py-2 px-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium ${
-                          selectedTime === t(`booking.options.timeSlot.${slot}`)
-                            ? 'border-blue-500 bg-blue-50 text-blue-700'
-                            : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                        }`}
-                      >
-                        {t(`booking.options.timeSlot.${slot}`)}
-                      </button>
-                    ))}
+                  {/* Strategy */}
+                  <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
+                    <h3 className="text-sm font-semibold text-purple-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.strategy')}</h3>
+                    <p className="text-lg font-medium text-purple-900">{recommendation.diagnosis?.strategy}</p>
                   </div>
                 </div>
 
-                {formData.location === 'online' && (
-                  <div className="bg-yellow-50 p-4 rounded-xl mb-6 text-yellow-800 text-sm">
-                    {/* Hardcoded fallback or key if exists, using generic message for now */}
-                    Note: Since you selected Online, this service is adapted for remote sessions.
-                  </div>
-                )}
+                {/* Frequency */}
+                <div className="mb-12 p-6 bg-green-50 rounded-2xl border border-green-100 text-center">
+                   <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
+                   <p className="text-lg font-medium text-green-900">{recommendation.diagnosis?.frequency}</p>
+                </div>
+                
+                {/* Actions */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={handleBooking}
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    {t('booking.direct.button')}
+                  </button>
+                  <button
+                    onClick={() => setShowRecommendation(false)}
+                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                  >
+                    {t('discovery.recommendation.restart')}
+                  </button>
+                </div>
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={handleBooking}
-                  className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  {t('booking.direct.button')}
-                </button>
-                <button
-                  onClick={() => setShowRecommendation(false)}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
-                >
-                  {t('discovery.recommendation.restart')}
-                </button>
-              </div>
-            </div>
+            )}
 
             <div className="text-center text-gray-500">
               <p className="mb-4">{t('discovery.recommendation.why')}</p>

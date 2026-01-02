@@ -91,8 +91,7 @@ export default function Layout({
     },
     {
       name: t('nav.revision360'),
-      href: 'https://360revision.ekabalance.com',
-      isExternal: true
+      href: '/revisio-360'
     },
     {
       name: t('nav.vip'),

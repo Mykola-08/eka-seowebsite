@@ -54,8 +54,7 @@ export default function Services() {
       color: 'purple',
       durations: [60, 90, 120],
       image: 'https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: 'https://360revision.ekabalance.com',
-      isExternal: true,
+      href: '/revisio-360',
       benefits: [t('services.benefits.assessment'), t('services.benefits.plan'), t('services.benefits.recommendations'), t('services.benefits.followup')]
     }
   ];

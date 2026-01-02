@@ -57,8 +57,7 @@ export default function Home() {
       icon: RotateCcw,
       color: 'from-purple-400 to-purple-600',
       image: 'https://images.pexels.com/photos/4099304/pexels-photo-4099304.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: 'https://360revision.ekabalance.com',
-      isExternal: true,
+      href: '/revisio-360',
       durations: [60, 90, 120]
     },
     {

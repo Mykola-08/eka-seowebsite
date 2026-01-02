@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles, Clock, Star, CheckCircle, Shield, Heart, Brain, Users } from 'lucide-react';
+import { Link } from 'react-router';
 
 const processSteps = [
   {
@@ -224,29 +225,17 @@ export default function Revisio360Section() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://360revision.ekabalance.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/revisio-360"
               className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-2xl hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-xl hover:shadow-2xl text-lg"
-              onClick={(e) => {
-                e.preventDefault();
-                window.open('https://360revision.ekabalance.com', '_blank', 'noopener,noreferrer');
-              }}
             >
               Descobreix més detalls
               <ArrowRight className="ml-3 w-6 h-6" />
-            </a>
+            </Link>
             
-            <a
-              href="https://360revision.ekabalance.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/revisio-360"
               className="inline-flex items-center justify-center px-10 py-5 bg-white/80 backdrop-blur-sm text-gray-900 font-medium rounded-2xl border border-white/20 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
-              onClick={(e) => {
-                e.preventDefault();
-                window.open('https://360revision.ekabalance.com', '_blank', 'noopener,noreferrer');
-              }}
             >
               Reserva la teva Revisió 360°
             </a>

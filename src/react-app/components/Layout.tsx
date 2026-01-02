@@ -7,6 +7,7 @@ import { OfflineIndicator } from './OfflineIndicator';
 import { Language } from '@/react-app/contexts/LanguageContext';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 // import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
+import LanguagePopup from '@/react-app/components/LanguagePopup';
 import CookieBanner from './CookieBanner';
 
 import { useClickOutside } from '@/react-app/hooks/useClickOutside';
@@ -373,6 +374,7 @@ export default function Layout({
 
       {/* Cookie Banner */}
       <CookieBanner />
+      <LanguagePopup />
 
 
 
@@ -449,8 +451,8 @@ export default function Layout({
                   key={lang}
                   onClick={() => setLanguage(lang)}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${language === lang
-                      ? 'bg-[#FFB405] text-[#000035]'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    ? 'bg-[#FFB405] text-[#000035]'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                     }`}
                 >
                   {lang === 'ca' && 'Català'}

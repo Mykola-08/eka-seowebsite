@@ -2,14 +2,14 @@
 import { useState } from 'react';
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe } from 'lucide-react';
 import { Link } from 'react-router';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 interface FormData {
-  objective: string;
+  location: string;
+  userType: string;
   tensionAreas: string[];
-  specialCondition: string;
   emotionalState: string;
   timeCommitment: string;
   budget: string;
@@ -27,47 +27,54 @@ interface Recommendation {
 
 export default function DiscoveryForm() {
   const { t } = useLanguage();
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0); // 0 = Location, 1 = UserType...
   const [formData, setFormData] = useState<FormData>({
-    objective: '',
+    location: '',
+    userType: '',
     tensionAreas: [],
-    specialCondition: '',
     emotionalState: '',
     timeCommitment: '',
     budget: ''
   });
   const [showRecommendation, setShowRecommendation] = useState(false);
 
-  const objectives = [
+  // New Location Step
+  const locations = [
+    { id: 'barcelona', title: t('discovery.location.barcelona'), icon: MapPin },
+    { id: 'rubi', title: t('discovery.location.rubi'), icon: MapPin },
+    { id: 'online', title: t('discovery.location.online'), icon: Globe },
+  ];
+
+  const userTypes = [
     {
-      id: 'relax',
-      title: t('discovery.objectives.relax.title'),
-      description: t('discovery.objectives.relax.desc'),
+      id: 'mother',
+      title: t('discovery.userTypes.mother.title'),
+      description: t('discovery.userTypes.mother.desc'),
       type: 'emotional'
     },
     {
-      id: 'pain',
-      title: t('discovery.objectives.pain.title'),
-      description: t('discovery.objectives.pain.desc'),
-      type: 'physical'
-    },
-    {
-      id: 'recovery',
-      title: t('discovery.objectives.recovery.title'),
-      description: t('discovery.objectives.recovery.desc'),
-      type: 'physical'
-    },
-    {
-      id: 'emotional',
-      title: t('discovery.objectives.emotional.title'),
-      description: t('discovery.objectives.emotional.desc'),
+      id: 'woman',
+      title: t('discovery.userTypes.woman.title'),
+      description: t('discovery.userTypes.woman.desc'),
       type: 'emotional'
     },
     {
-      id: 'other',
-      title: t('discovery.objectives.other.title'),
-      description: t('discovery.objectives.other.desc'),
+      id: 'regular',
+      title: t('discovery.userTypes.regular.title'),
+      description: t('discovery.userTypes.regular.desc'),
       type: 'mixed'
+    },
+    {
+      id: 'office',
+      title: t('discovery.userTypes.office.title'),
+      description: t('discovery.userTypes.office.desc'),
+      type: 'physical'
+    },
+    {
+      id: 'athlete',
+      title: t('discovery.userTypes.athlete.title'),
+      description: t('discovery.userTypes.athlete.desc'),
+      type: 'physical'
     }
   ];
 
@@ -78,29 +85,6 @@ export default function DiscoveryForm() {
     t('discovery.tension.head'),
     t('discovery.tension.full'),
     t('discovery.tension.none')
-  ];
-
-  const specialConditions = [
-    {
-      id: 'pregnancy',
-      title: t('discovery.conditions.pregnancy.title'),
-      description: t('discovery.conditions.pregnancy.desc')
-    },
-    {
-      id: 'injuries',
-      title: t('discovery.conditions.injuries.title'),
-      description: t('discovery.conditions.injuries.desc')
-    },
-    {
-      id: 'energetic',
-      title: t('discovery.conditions.energetic.title'),
-      description: t('discovery.conditions.energetic.desc')
-    },
-    {
-      id: 'none',
-      title: t('discovery.conditions.none.title'),
-      description: t('discovery.conditions.none.desc')
-    }
   ];
 
   const emotionalStates = [
@@ -163,13 +147,32 @@ export default function DiscoveryForm() {
   ];
 
   const getRecommendation = (): Recommendation => {
-    const selectedObjective = objectives.find(obj => obj.id === formData.objective);
-    const isPhysical = selectedObjective?.type === 'physical';
-    const isEmotional = selectedObjective?.type === 'emotional' || formData.emotionalState === 'stressed' || formData.emotionalState === 'sad';
-    const hasPain = formData.tensionAreas.length > 0 && !formData.tensionAreas.includes(t('discovery.tension.none'));
-    const wantsEnergetic = formData.specialCondition === 'energetic';
+    // 0. Online Location -> Online Service
+    if (formData.location === 'online') {
+      return {
+        service: t('discovery.recommendation.online.service'),
+        description: t('discovery.recommendation.online.desc'),
+        price: '50-70€',
+        duration: '1h',
+        benefits: [
+          t('discovery.recommendation.online.benefit1'),
+          t('discovery.recommendation.online.benefit2'),
+          t('discovery.recommendation.online.benefit3'),
+          t('discovery.recommendation.online.benefit4')
+        ],
+        icon: Globe,
+        color: 'blue'
+      };
+    }
 
-    if (wantsEnergetic || (isEmotional && !isPhysical)) {
+    const selectedType = userTypes.find(obj => obj.id === formData.userType);
+    const isPhysical = selectedType?.type === 'physical';
+    const isEmotional = selectedType?.type === 'emotional' || formData.emotionalState === 'stressed' || formData.emotionalState === 'sad';
+    const hasPain = formData.tensionAreas.length > 0 && !formData.tensionAreas.includes(t('discovery.tension.none'));
+    const fullBodyTension = formData.tensionAreas.includes(t('discovery.tension.full'));
+
+    // 1. Emotional/Relaxation (Mother, Woman, Regular w/o heavy pain)
+    if (isEmotional && !hasPain && !fullBodyTension) {
       return {
         service: t('discovery.recommendation.emotional.service'),
         description: t('discovery.recommendation.emotional.desc'),
@@ -186,24 +189,8 @@ export default function DiscoveryForm() {
       };
     }
 
-    if (hasPain && isPhysical) {
-      return {
-        service: t('discovery.recommendation.manual.service'),
-        description: t('discovery.recommendation.manual.desc'),
-        price: '60-75€',
-        duration: '1-1,5h',
-        benefits: [
-          t('discovery.recommendation.manual.benefit1'),
-          t('discovery.recommendation.manual.benefit2'),
-          t('discovery.recommendation.manual.benefit3'),
-          t('discovery.recommendation.manual.benefit4')
-        ],
-        icon: Heart,
-        color: 'orange'
-      };
-    }
-
-    if (formData.objective === 'recovery' || (hasPain && formData.tensionAreas.includes(t('discovery.tension.full')))) {
+    // 2. Integrative (Complex cases, recovery, full body tension)
+    if (fullBodyTension || (isPhysical && isEmotional)) {
       return {
         service: t('discovery.recommendation.integrative.service'),
         description: t('discovery.recommendation.integrative.desc'),
@@ -220,7 +207,25 @@ export default function DiscoveryForm() {
       };
     }
 
-    // Default: Massatge Relaxant Complet
+    // 3. Manual/Physical (Office, Athlete, Pain)
+    if (hasPain || isPhysical) {
+      return {
+        service: t('discovery.recommendation.manual.service'),
+        description: t('discovery.recommendation.manual.desc'),
+        price: '60-75€',
+        duration: '1-1,5h',
+        benefits: [
+          t('discovery.recommendation.manual.benefit1'),
+          t('discovery.recommendation.manual.benefit2'),
+          t('discovery.recommendation.manual.benefit3'),
+          t('discovery.recommendation.manual.benefit4')
+        ],
+        icon: Heart,
+        color: 'orange'
+      };
+    }
+
+    // Default: Relax (Regular user, no specific complaints)
     return {
       service: t('discovery.recommendation.relax.service'),
       description: t('discovery.recommendation.relax.desc'),
@@ -238,52 +243,30 @@ export default function DiscoveryForm() {
   };
 
   const handleNext = () => {
-    if (currentStep === 1) {
-      const selectedObj = objectives.find(obj => obj.id === formData.objective);
-      if (selectedObj?.type === 'physical') {
-        setCurrentStep(2);
-      } else {
-        setCurrentStep(4);
-      }
-    } else if (currentStep === 2) {
-      setCurrentStep(3);
-    } else if (currentStep === 3) {
-      setCurrentStep(4);
-    } else if (currentStep === 4) {
-      setCurrentStep(5);
-    } else if (currentStep === 5) {
-      setCurrentStep(6);
-    } else if (currentStep === 6) {
+    // Flow: 0 (Loc) -> 1 (User) -> 2 (Tension) -> 3 (Emotional) -> 4 (Time) -> 5 (Budget) -> 6 (Rec)
+    setCurrentStep(currentStep + 1);
+    if (currentStep === 5) { // 5 is budget, so +1 = 6 (Rec)
       setShowRecommendation(true);
     }
   };
 
   const handleBack = () => {
-    if (currentStep === 4) {
-      const selectedObj = objectives.find(obj => obj.id === formData.objective);
-      if (selectedObj?.type === 'physical') {
-        setCurrentStep(3);
-      } else {
-        setCurrentStep(1);
-      }
-    } else {
-      setCurrentStep(currentStep - 1);
-    }
+    setCurrentStep(currentStep - 1);
   };
 
   const canProceed = () => {
     switch (currentStep) {
+      case 0:
+        return formData.location !== '';
       case 1:
-        return formData.objective !== '';
+        return formData.userType !== '';
       case 2:
         return formData.tensionAreas.length > 0;
       case 3:
-        return formData.specialCondition !== '';
-      case 4:
         return formData.emotionalState !== '';
-      case 5:
+      case 4:
         return formData.timeCommitment !== '';
-      case 6:
+      case 5:
         return formData.budget !== '';
       default:
         return false;
@@ -318,11 +301,11 @@ export default function DiscoveryForm() {
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                 <span className="text-green-700 font-medium">{t('discovery.recommendation.badge')}</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight">
                 {t('discovery.recommendation.title')}
               </h1>
-              
+
               <p className="text-xl text-gray-600 mb-12">
                 {t('discovery.recommendation.subtitle')}
               </p>
@@ -335,11 +318,11 @@ export default function DiscoveryForm() {
                     <Icon className="w-10 h-10 text-gray-700" />
                   </div>
                 )}
-                
+
                 <h2 className="text-3xl font-semibold text-gray-900 mb-4">
                   {recommendation.service}
                 </h2>
-                
+
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
                   {recommendation.description}
                 </p>
@@ -366,6 +349,13 @@ export default function DiscoveryForm() {
                     ))}
                   </div>
                 </div>
+
+                {formData.location === 'online' && (
+                  <div className="bg-yellow-50 p-4 rounded-xl mb-6 text-yellow-800 text-sm">
+                    {/* Hardcoded fallback or key if exists, using generic message for now */}
+                    Note: Since you selected Online, this service is adapted for remote sessions.
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -414,23 +404,22 @@ export default function DiscoveryForm() {
               <Sparkles className="w-5 h-5 text-blue-600 mr-2" />
               <span className="text-blue-700 font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight">
               👋 {t('hero.title')}
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-8">
               {t('discovery.recommendation.subtitle')}
             </p>
 
-            {/* Progress indicator */}
+            {/* Progress indicator - 6 steps now */}
             <div className="flex items-center justify-center space-x-2 mb-8">
-              {[1, 2, 3, 4, 5, 6].map((step) => (
+              {[0, 1, 2, 3, 4, 5].map((step) => (
                 <div
                   key={step}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                    step <= currentStep ? 'bg-blue-600' : 'bg-gray-200'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${step <= currentStep ? 'bg-blue-600' : 'bg-gray-200'
+                    }`}
                 />
               ))}
             </div>
@@ -438,27 +427,59 @@ export default function DiscoveryForm() {
 
           {/* Form */}
           <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-12">
-            {/* Step 1: Objective */}
+
+            {/* Step 0: Location */}
+            {currentStep === 0 && (
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                  📍 {t('discovery.step.location.title')}
+                </h2>
+                <p className="text-gray-600 mb-8">{t('discovery.step.location.subtitle')}</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {locations.map((loc) => {
+                    const LocIcon = loc.icon;
+                    return (
+                      <button
+                        key={loc.id}
+                        onClick={() => setFormData({ ...formData, location: loc.id })}
+                        className={`text-center p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg flex flex-col items-center justify-center ${formData.location === loc.id
+                            ? 'border-blue-500 bg-blue-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                      >
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
+                          }`}>
+                          <LocIcon className="w-6 h-6" />
+                        </div>
+                        <h3 className="font-semibold text-gray-900">{loc.title}</h3>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Step 1: User Type */}
             {currentStep === 1 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   💡 {t('discovery.step1.title')}
                 </h2>
                 <p className="text-gray-600 mb-8">{t('discovery.step1.subtitle')}</p>
-                
+
                 <div className="space-y-4">
-                  {objectives.map((objective) => (
+                  {userTypes.map((type) => (
                     <button
-                      key={objective.id}
-                      onClick={() => setFormData({ ...formData, objective: objective.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${
-                        formData.objective === objective.id
+                      key={type.id}
+                      onClick={() => setFormData({ ...formData, userType: type.id })}
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.userType === type.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                        }`}
                     >
-                      <h3 className="font-semibold text-gray-900 mb-2">{objective.title}</h3>
-                      <p className="text-gray-600 text-sm">{objective.description}</p>
+                      <h3 className="font-semibold text-gray-900 mb-2">{type.title}</h3>
+                      <p className="text-gray-600 text-sm">{type.description}</p>
                     </button>
                   ))}
                 </div>
@@ -472,7 +493,7 @@ export default function DiscoveryForm() {
                   📍 {t('discovery.step2.title')}
                 </h2>
                 <p className="text-gray-600 mb-8">{t('discovery.step2.subtitle')}</p>
-                
+
                 <div className="space-y-4">
                   {tensionOptions.map((option) => (
                     <button
@@ -483,11 +504,10 @@ export default function DiscoveryForm() {
                           : [...formData.tensionAreas, option];
                         setFormData({ ...formData, tensionAreas: newAreas });
                       }}
-                      className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 ${
-                        formData.tensionAreas.includes(option)
+                      className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 ${formData.tensionAreas.includes(option)
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-gray-900">{option}</span>
@@ -501,51 +521,23 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 3: Special Conditions */}
+            {/* Step 3: Emotional State */}
             {currentStep === 3 && (
-              <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  ⚡ {t('discovery.step3.title')}
-                </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step3.subtitle')}</p>
-                
-                <div className="space-y-4">
-                  {specialConditions.map((condition) => (
-                    <button
-                      key={condition.id}
-                      onClick={() => setFormData({ ...formData, specialCondition: condition.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${
-                        formData.specialCondition === condition.id
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <h3 className="font-semibold text-gray-900 mb-2">{condition.title}</h3>
-                      <p className="text-gray-600 text-sm">{condition.description}</p>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Step 4: Emotional State */}
-            {currentStep === 4 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   🧘 {t('discovery.step4.title')}
                 </h2>
                 <p className="text-gray-600 mb-8">{t('discovery.step4.subtitle')}</p>
-                
+
                 <div className="space-y-4">
                   {emotionalStates.map((state) => (
                     <button
                       key={state.id}
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${
-                        formData.emotionalState === state.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.emotionalState === state.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                        }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{state.title}</h3>
                       <p className="text-gray-600 text-sm">{state.description}</p>
@@ -555,24 +547,23 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 5: Time Commitment */}
-            {currentStep === 5 && (
+            {/* Step 4: Time Commitment */}
+            {currentStep === 4 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   ⏰ {t('discovery.step5.title')}
                 </h2>
                 <p className="text-gray-600 mb-8">{t('discovery.step5.subtitle')}</p>
-                
+
                 <div className="space-y-4">
                   {timeCommitments.map((time) => (
                     <button
                       key={time.id}
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${
-                        formData.timeCommitment === time.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.timeCommitment === time.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                        }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{time.title}</h3>
                       <p className="text-gray-600 text-sm">{time.description}</p>
@@ -582,24 +573,23 @@ export default function DiscoveryForm() {
               </div>
             )}
 
-            {/* Step 6: Budget */}
-            {currentStep === 6 && (
+            {/* Step 5: Budget */}
+            {currentStep === 5 && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                   💰 {t('discovery.step6.title')}
                 </h2>
                 <p className="text-gray-600 mb-8">{t('discovery.step6.subtitle')}</p>
-                
+
                 <div className="space-y-4">
                   {budgetOptions.map((budget) => (
                     <button
                       key={budget.id}
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${
-                        formData.budget === budget.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.budget === budget.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                        }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{budget.title}</h3>
                       <p className="text-gray-600 text-sm">{budget.description}</p>
@@ -613,31 +603,29 @@ export default function DiscoveryForm() {
             <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
               <button
                 onClick={handleBack}
-                className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${
-                  currentStep === 1
+                className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${currentStep === 0
                     ? 'text-gray-400 cursor-not-allowed'
                     : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
-                }`}
-                disabled={currentStep === 1}
+                  }`}
+                disabled={currentStep === 0}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('discovery.back')}
               </button>
 
               <span className="text-sm text-gray-500">
-                {t('common.step')} {currentStep} {t('common.of')} 6
+                {t('common.step')} {currentStep + 1} {t('common.of')} 6
               </span>
 
               <button
                 onClick={handleNext}
-                className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${
-                  canProceed()
+                className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${canProceed()
                     ? 'bg-blue-600 hover:bg-blue-700 text-white'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                }`}
+                  }`}
                 disabled={!canProceed()}
               >
-                {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}
+                {currentStep === 5 ? t('discovery.seeRecommendation') : t('discovery.next')}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </button>
             </div>

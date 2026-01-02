@@ -7,6 +7,10 @@ export interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
+  showLanguagePopup: boolean;
+  setShowLanguagePopup: (show: boolean) => void;
+  confirmLanguage: (lang: Language) => void;
+  languageConfirmed: boolean;
 }
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -50,6 +54,18 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 EKA Balance. Tots els drets reservats.',
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': 'Descomptes',
+
+    // Language Popup & Cookies
+    'language.popup.title': 'Quin idioma prefereixes?',
+    'language.popup.subtitle': 'Selecciona la teva llengua per continuar',
+    'cookies.wrongLanguage': 'Idioma incorrecte?',
+
+    // Discovery Form - Location
+    'discovery.location.barcelona': 'Barcelona',
+    'discovery.location.rubi': 'Rubí',
+    'discovery.location.online': 'Online / No estic a prop',
+    'discovery.step.location.title': 'On et trobes?',
+    'discovery.step.location.subtitle': 'Per suggerir-te la millor opció',
 
     // Services
     'services.massage.title': 'Massatge Terapèutic',
@@ -412,30 +428,18 @@ const translations: Record<Language, Record<string, string>> = {
     'discounts.remove': 'Treure descompte',
 
     // Discovery Form
-    'discovery.objectives.relax.title': 'Relaxar-me i reduir l\'estrès',
-    'discovery.objectives.relax.desc': 'Senteixo molta tensió o nerviosisme i vull relaxar-me',
-    'discovery.objectives.pain.title': 'Alleujar dolor o contractures musculars',
-    'discovery.objectives.pain.desc': 'Tinc dolor o rigidesa a zones com coll, esquena, espatlles, etc.',
-    'discovery.objectives.recovery.title': 'Millorar recuperació física',
-    'discovery.objectives.recovery.desc': 'Post-lesió o esport: vull recuperar mobilitat i alleujar tensions profundes',
-    'discovery.objectives.emotional.title': 'Reequilibrar l\'estat emocional',
-    'discovery.objectives.emotional.desc': 'Em sento molt ansiós, trist o desmotivat i vull gestionar les meves emocions',
-    'discovery.objectives.other.title': 'Altres objectius',
-    'discovery.objectives.other.desc': 'Tinc altres necessitats específiques',
-    'discovery.tension.neck': 'Coll / Espatlles / Clatell',
-    'discovery.tension.lumbar': 'Zona lumbar / Baix d\'esquena',
-    'discovery.tension.legs': 'Cames / Genolls / Peus',
-    'discovery.tension.head': 'Cap (mal de cap, migranya, etc.)',
-    'discovery.tension.full': 'Tot el cos (tensió generalitzada)',
-    'discovery.tension.none': 'No tinc dolor muscular destacat',
-    'discovery.conditions.pregnancy.title': 'Em trobo embarassada o en post-part',
-    'discovery.conditions.pregnancy.desc': 'Necessito teràpia adaptada',
-    'discovery.conditions.injuries.title': 'He tingut lesions esportives o fractures recents',
-    'discovery.conditions.injuries.desc': 'Requereixo atenció especialitzada',
-    'discovery.conditions.energetic.title': 'M\'interessa un enfocament molt energètic',
-    'discovery.conditions.energetic.desc': 'Com reiki o teràpia floral',
-    'discovery.conditions.none.title': 'Cap de les anteriors',
-    'discovery.conditions.none.desc': 'Continuar amb el procés normal',
+    // Discovery Form - User Types
+    'discovery.userTypes.mother.title': 'Mare / Pare',
+    'discovery.userTypes.mother.desc': 'Necessito recuperar energia i cuidar-me per poder cuidar millor',
+    'discovery.userTypes.woman.title': 'Dona',
+    'discovery.userTypes.woman.desc': 'Vull reconnectar amb el meu cos i els meus cicles',
+    'discovery.userTypes.regular.title': 'Només vull sentir-me bé',
+    'discovery.userTypes.regular.desc': 'Busco relaxació i benestar sense etiquetes',
+    'discovery.userTypes.office.title': 'Treballador/a d\'Oficina',
+    'discovery.userTypes.office.desc': 'Passo moltes hores assegut/da i tinc tensió acumulada',
+    'discovery.userTypes.athlete.title': 'Esportista',
+    'discovery.userTypes.athlete.desc': 'Vull millorar el meu rendiment i recuperació',
+
 
     // Discovery Form - Emotional States
     'discovery.emotional.stressed.title': 'Molt estressat/ansiós',
@@ -492,6 +496,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.relax.benefit3': 'Renovació d\'energia',
     'discovery.recommendation.relax.benefit4': 'Benestar general',
 
+    // Online Rec
+    'discovery.recommendation.online.service': 'Consulta Online / Assessorament',
+    'discovery.recommendation.online.desc': 'Rep orientació personalitzada sense desplaçar-te. Ideal per a seguiment, consell nutricional o dubtes.',
+    'discovery.recommendation.online.benefit1': 'Sense desplaçaments',
+    'discovery.recommendation.online.benefit2': 'Horari flexible',
+    'discovery.recommendation.online.benefit3': 'Seguiment continu',
+    'discovery.recommendation.online.benefit4': 'Pla personalitzat en PDF',
+
     'discovery.recommendation.title': 'Recomanació Personalitzada - EKA Balance',
     'discovery.recommendation.badge': 'Recomanació personalitzada',
     'discovery.recommendation.subtitle': 'Basat en les teves respostes, creiem que aquest és el millor servei per a tu:',
@@ -500,8 +512,8 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.restart': 'Tornar a començar',
 
     // Discovery Form - Steps
-    'discovery.step1.title': 'Quin és el teu objectiu principal?',
-    'discovery.step1.subtitle': 'Selecciona l\'opció que millor descrigui el que busques',
+    'discovery.step1.title': 'Com et defineixes?',
+    'discovery.step1.subtitle': 'Selecciona l\'opció que millor et descrigui',
     'discovery.step2.title': 'On sents més tensió?',
     'discovery.step2.subtitle': 'Pots seleccionar múltiples opcions',
     'discovery.step3.title': 'Tens alguna condició especial?',
@@ -1247,6 +1259,18 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 EKA Balance. All rights reserved.',
     'footer.selectLanguage': 'Select language',
     'footer.discounts': 'Discounts',
+
+    // Language Popup & Cookies
+    'language.popup.title': 'Which language do you prefer?',
+    'language.popup.subtitle': 'Select your language to continue',
+    'cookies.wrongLanguage': 'Wrong language?',
+
+    // Discovery Form - Location
+    'discovery.location.barcelona': 'Barcelona',
+    'discovery.location.rubi': 'Rubí',
+    'discovery.location.online': 'Online / Not nearby',
+    'discovery.step.location.title': 'Where are you located?',
+    'discovery.step.location.subtitle': 'To suggest the best option',
 
     // Services
     'services.massage.title': 'Therapeutic Massage',
@@ -2221,30 +2245,18 @@ const translations: Record<Language, Record<string, string>> = {
     'discounts.remove': 'Remove discount',
 
     // Discovery Form
-    'discovery.objectives.relax.title': 'Relax and reduce stress',
-    'discovery.objectives.relax.desc': 'I feel a lot of tension or nervousness and want to relax',
-    'discovery.objectives.pain.title': 'Relieve pain or muscle contractures',
-    'discovery.objectives.pain.desc': 'I have pain or stiffness in areas like neck, back, shoulders, etc.',
-    'discovery.objectives.recovery.title': 'Improve physical recovery',
-    'discovery.objectives.recovery.desc': 'Post-injury or sports: I want to recover mobility and relieve deep tensions',
-    'discovery.objectives.emotional.title': 'Rebalance emotional state',
-    'discovery.objectives.emotional.desc': 'I feel very anxious, sad or unmotivated and want to manage my emotions',
-    'discovery.objectives.other.title': 'Other objectives',
-    'discovery.objectives.other.desc': 'I have other specific needs',
-    'discovery.tension.neck': 'Neck / Shoulders / Nape',
-    'discovery.tension.lumbar': 'Lumbar / Lower back',
-    'discovery.tension.legs': 'Legs / Knees / Feet',
-    'discovery.tension.head': 'Head (headache, migraine, etc.)',
-    'discovery.tension.full': 'Full body (generalized tension)',
-    'discovery.tension.none': 'I do not have significant muscle pain',
-    'discovery.conditions.pregnancy.title': 'I am pregnant or postpartum',
-    'discovery.conditions.pregnancy.desc': 'I need adapted therapy',
-    'discovery.conditions.injuries.title': 'I have had recent sports injuries or fractures',
-    'discovery.conditions.injuries.desc': 'I require specialized attention',
-    'discovery.conditions.energetic.title': 'I am interested in a very energetic approach',
-    'discovery.conditions.energetic.desc': 'Like reiki or floral therapy',
-    'discovery.conditions.none.title': 'None of the above',
-    'discovery.conditions.none.desc': 'Continue with the normal process',
+    // Discovery Form - User Types
+    'discovery.userTypes.mother.title': 'Mother / Father',
+    'discovery.userTypes.mother.desc': 'I need to recover energy and care for myself to better care for others',
+    'discovery.userTypes.woman.title': 'Woman',
+    'discovery.userTypes.woman.desc': 'I want to reconnect with my body and my cycles',
+    'discovery.userTypes.regular.title': 'I just want to feel good',
+    'discovery.userTypes.regular.desc': 'I am looking for relaxation and wellness without labels',
+    'discovery.userTypes.office.title': 'Office Worker',
+    'discovery.userTypes.office.desc': 'I spend many hours sitting and have accumulated tension',
+    'discovery.userTypes.athlete.title': 'Athlete',
+    'discovery.userTypes.athlete.desc': 'I want to improve my performance and recovery',
+
 
     // Discovery Form - Emotional States
     'discovery.emotional.stressed.title': 'Very stressed/anxious',
@@ -2301,6 +2313,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.relax.benefit3': 'Energy renewal',
     'discovery.recommendation.relax.benefit4': 'General wellbeing',
 
+    // Online Rec
+    'discovery.recommendation.online.service': 'Online Consultation / Advisory',
+    'discovery.recommendation.online.desc': 'Get personalized guidance without traveling. Ideal for follow-ups, nutritional advice, or questions.',
+    'discovery.recommendation.online.benefit1': 'No travel needed',
+    'discovery.recommendation.online.benefit2': 'Flexible schedule',
+    'discovery.recommendation.online.benefit3': 'Continuous follow-up',
+    'discovery.recommendation.online.benefit4': 'Personalized plan in PDF',
+
     'discovery.recommendation.title': 'Personalized Recommendation - EKA Balance',
     'discovery.recommendation.badge': 'Personalized recommendation',
     'discovery.recommendation.subtitle': 'Based on your answers, we believe this is the best service for you:',
@@ -2309,8 +2329,8 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.restart': 'Start over',
 
     // Discovery Form - Steps
-    'discovery.step1.title': 'What is your main goal?',
-    'discovery.step1.subtitle': 'Select the option that best describes what you are looking for',
+    'discovery.step1.title': 'How do you define yourself?',
+    'discovery.step1.subtitle': 'Select the option that best describes you',
     'discovery.step2.title': 'Where do you feel most tension?',
     'discovery.step2.subtitle': 'You can select multiple options',
     'discovery.step3.title': 'Do you have any special condition?',
@@ -2438,6 +2458,18 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 EKA Balance. Todos los derechos reservados.',
     'footer.selectLanguage': 'Seleccionar idioma',
     'footer.discounts': 'Descuentos',
+
+    // Language Popup & Cookies
+    'language.popup.title': '¿Qué idioma prefieres?',
+    'language.popup.subtitle': 'Selecciona tu lengua para continuar',
+    'cookies.wrongLanguage': '¿Idioma incorrecto?',
+
+    // Discovery Form - Location
+    'discovery.location.barcelona': 'Barcelona',
+    'discovery.location.rubi': 'Rubí',
+    'discovery.location.online': 'Online / No estoy cerca',
+    'discovery.step.location.title': '¿Dónde te encuentras?',
+    'discovery.step.location.subtitle': 'Para sugerirte la mejor opción',
 
     // Services
     'services.massage.title': 'Masaje Terapéutico',
@@ -3342,30 +3374,18 @@ const translations: Record<Language, Record<string, string>> = {
     'discounts.remove': 'Eliminar descuento',
 
     // Discovery Form
-    'discovery.objectives.relax.title': 'Relajarse y reducir estrés',
-    'discovery.objectives.relax.desc': 'Siento mucha tensión o nerviosismo y quiero relajarme',
-    'discovery.objectives.pain.title': 'Aliviar dolor o contracturas',
-    'discovery.objectives.pain.desc': 'Tengo dolor o rigidez en zonas como cuello, espalda, hombros, etc.',
-    'discovery.objectives.recovery.title': 'Mejorar recuperación física',
-    'discovery.objectives.recovery.desc': 'Post-lesión o deporte: quiero recuperar movilidad y aliviar tensiones profundas',
-    'discovery.objectives.emotional.title': 'Reequilibrar estado emocional',
-    'discovery.objectives.emotional.desc': 'Me siento muy ansioso, triste o desmotivado y quiero gestionar mis emociones',
-    'discovery.objectives.other.title': 'Otros objetivos',
-    'discovery.objectives.other.desc': 'Tengo otras necesidades específicas',
-    'discovery.tension.neck': 'Cuello / Hombros / Nuca',
-    'discovery.tension.lumbar': 'Lumbares / Espalda baja',
-    'discovery.tension.legs': 'Piernas / Rodillas / Pies',
-    'discovery.tension.head': 'Cabeza (dolor de cabeza, migraña, etc.)',
-    'discovery.tension.full': 'Cuerpo completo (tensión generalizada)',
-    'discovery.tension.none': 'No tengo dolor muscular significativo',
-    'discovery.conditions.pregnancy.title': 'Estoy embarazada o en posparto',
-    'discovery.conditions.pregnancy.desc': 'Necesito terapia adaptada',
-    'discovery.conditions.injuries.title': 'He tenido lesiones deportivas recientes o fracturas',
-    'discovery.conditions.injuries.desc': 'Requiero atención especializada',
-    'discovery.conditions.energetic.title': 'Me interesa un enfoque muy energético',
-    'discovery.conditions.energetic.desc': 'Como reiki o terapia floral',
-    'discovery.conditions.none.title': 'Ninguna de las anteriores',
-    'discovery.conditions.none.desc': 'Continuar con el proceso normal',
+    // Discovery Form - User Types
+    'discovery.userTypes.mother.title': 'Madre / Padre',
+    'discovery.userTypes.mother.desc': 'Necesito recuperar energía y cuidarme para poder cuidar mejor',
+    'discovery.userTypes.woman.title': 'Mujer',
+    'discovery.userTypes.woman.desc': 'Quiero reconectar con mi cuerpo y mis ciclos',
+    'discovery.userTypes.regular.title': 'Solo quiero sentirme bien',
+    'discovery.userTypes.regular.desc': 'Busco relajación y bienestar sin etiquetas',
+    'discovery.userTypes.office.title': 'Trabajador/a de Oficina',
+    'discovery.userTypes.office.desc': 'Paso muchas horas sentado/a y tengo tensión acumulada',
+    'discovery.userTypes.athlete.title': 'Deportista',
+    'discovery.userTypes.athlete.desc': 'Quiero mejorar mi rendimiento y recuperación',
+
 
     // Discovery Form - Emotional States
     'discovery.emotional.stressed.title': 'Muy estresado/ansioso',
@@ -3422,6 +3442,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.relax.benefit3': 'Renovación de energía',
     'discovery.recommendation.relax.benefit4': 'Bienestar general',
 
+    // Online Rec
+    'discovery.recommendation.online.service': 'Consulta Online / Asesoramiento',
+    'discovery.recommendation.online.desc': 'Recibe orientación personalizada sin desplazarte. Ideal para seguimiento, consejo nutricional o dudas.',
+    'discovery.recommendation.online.benefit1': 'Sin desplazamientos',
+    'discovery.recommendation.online.benefit2': 'Horario flexible',
+    'discovery.recommendation.online.benefit3': 'Seguimiento continuo',
+    'discovery.recommendation.online.benefit4': 'Plan personalizado en PDF',
+
     'discovery.recommendation.title': 'Recomendación Personalizada - EKA Balance',
     'discovery.recommendation.badge': 'Recomendación personalizada',
     'discovery.recommendation.subtitle': 'Basado en tus respuestas, creemos que este es el mejor servicio para ti:',
@@ -3430,8 +3458,9 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.restart': 'Empezar de nuevo',
 
     // Discovery Form - Steps
-    'discovery.step1.title': '¿Cuál es tu objetivo principal?',
-    'discovery.step1.subtitle': 'Selecciona la opción que mejor describa lo que buscas',
+    'discovery.step1.title': '¿Cómo te defines?',
+    'discovery.step1.subtitle': 'Selecciona la opción que mejor te describa',
+
     'discovery.step2.title': '¿Dónde sientes más tensión?',
     'discovery.step2.subtitle': 'Puedes seleccionar varias opciones',
     'discovery.step3.title': '¿Tienes alguna condición especial?',
@@ -3692,6 +3721,18 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 EKA Balance. Все права защищены.',
     'footer.selectLanguage': 'Выберите язык',
     'footer.discounts': 'Скидки',
+
+    // Language Popup & Cookies
+    'language.popup.title': 'Какой язык вы предпочитаете?',
+    'language.popup.subtitle': 'Выберите ваш язык, чтобы продолжить',
+    'cookies.wrongLanguage': 'Не тот язык?',
+
+    // Discovery Form - Location
+    'discovery.location.barcelona': 'Барселона',
+    'discovery.location.rubi': 'Руби',
+    'discovery.location.online': 'Онлайн / Я не рядом',
+    'discovery.step.location.title': 'Где вы находитесь?',
+    'discovery.step.location.subtitle': 'Чтобы предложить лучший вариант',
 
     // Services
     'services.massage.title': 'Терапевтический массаж',
@@ -4603,30 +4644,18 @@ const translations: Record<Language, Record<string, string>> = {
     'discounts.remove': 'Удалить скидку',
 
     // Discovery Form
-    'discovery.objectives.relax.title': 'Расслабиться и снять стресс',
-    'discovery.objectives.relax.desc': 'Я чувствую сильное напряжение или нервозность и хочу расслабиться',
-    'discovery.objectives.pain.title': 'Облегчить боль или контрактуры',
-    'discovery.objectives.pain.desc': 'У меня боль или скованность в таких зонах, как шея, спина, плечи и т.д.',
-    'discovery.objectives.recovery.title': 'Улучшить физическое восстановление',
-    'discovery.objectives.recovery.desc': 'После травмы или спорта: я хочу восстановить подвижность и снять глубокое напряжение',
-    'discovery.objectives.emotional.title': 'Восстановить эмоциональный баланс',
-    'discovery.objectives.emotional.desc': 'Я чувствую сильную тревогу, грусть или отсутствие мотивации и хочу управлять своими эмоциями',
-    'discovery.objectives.other.title': 'Другие цели',
-    'discovery.objectives.other.desc': 'У меня есть другие конкретные потребности',
-    'discovery.tension.neck': 'Шея / Плечи / Затылок',
-    'discovery.tension.lumbar': 'Поясница / Нижняя часть спины',
-    'discovery.tension.legs': 'Ноги / Колени / Стопы',
-    'discovery.tension.head': 'Голова (головная боль, мигрень и т.д.)',
-    'discovery.tension.full': 'Все тело (общее напряжение)',
-    'discovery.tension.none': 'У меня нет значительной мышечной боли',
-    'discovery.conditions.pregnancy.title': 'Я беременна или в послеродовом периоде',
-    'discovery.conditions.pregnancy.desc': 'Мне нужна адаптированная терапия',
-    'discovery.conditions.injuries.title': 'У меня были недавние спортивные травмы или переломы',
-    'discovery.conditions.injuries.desc': 'Мне требуется специализированное внимание',
-    'discovery.conditions.energetic.title': 'Меня интересует очень энергетический подход',
-    'discovery.conditions.energetic.desc': 'Например, рейки или цветочная терапия',
-    'discovery.conditions.none.title': 'Ничего из вышеперечисленного',
-    'discovery.conditions.none.desc': 'Продолжить обычный процесс',
+    // Discovery Form - User Types
+    'discovery.userTypes.mother.title': 'Мама / Папа',
+    'discovery.userTypes.mother.desc': 'Мне нужно восстановить энергию и позаботиться о себе, чтобы лучше заботиться о других',
+    'discovery.userTypes.woman.title': 'Женщина',
+    'discovery.userTypes.woman.desc': 'Я хочу восстановить связь со своим телом и циклами',
+    'discovery.userTypes.regular.title': 'Я просто хочу чувствовать себя хорошо',
+    'discovery.userTypes.regular.desc': 'Я ищу расслабление и благополучие без ярлыков',
+    'discovery.userTypes.office.title': 'Офисный работник',
+    'discovery.userTypes.office.desc': 'Я провожу много часов сидя и у меня накопилось напряжение',
+    'discovery.userTypes.athlete.title': 'Спортсмен',
+    'discovery.userTypes.athlete.desc': 'Я хочу улучшить свои результаты и восстановление',
+
 
     // Discovery Form - Emotional States
     'discovery.emotional.stressed.title': 'Очень напряжен/тревожен',
@@ -4683,6 +4712,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.relax.benefit3': 'Обновление энергии',
     'discovery.recommendation.relax.benefit4': 'Общее благополучие',
 
+    // Online Rec
+    'discovery.recommendation.online.service': 'Онлайн-консультация / Советы',
+    'discovery.recommendation.online.desc': 'Получите персональные рекомендации, не выходя из дома. Идеально для наблюдения, советов по питанию или вопросов.',
+    'discovery.recommendation.online.benefit1': 'Без поездок',
+    'discovery.recommendation.online.benefit2': 'Гибкий график',
+    'discovery.recommendation.online.benefit3': 'Постоянное наблюдение',
+    'discovery.recommendation.online.benefit4': 'Персональный план в PDF',
+
     'discovery.recommendation.title': 'Персонализированная рекомендация - EKA Balance',
     'discovery.recommendation.badge': 'Персонализированная рекомендация',
     'discovery.recommendation.subtitle': 'На основе ваших ответов мы считаем, что это лучшая услуга для вас:',
@@ -4691,8 +4728,8 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.restart': 'Начать сначала',
 
     // Discovery Form - Steps
-    'discovery.step1.title': 'Какова ваша главная цель?',
-    'discovery.step1.subtitle': 'Выберите вариант, который лучше всего описывает то, что вы ищете',
+    'discovery.step1.title': 'Как вы себя определяете?',
+    'discovery.step1.subtitle': 'Выберите вариант, который лучше всего вас описывает',
     'discovery.step2.title': 'Где вы чувствуете наибольшее напряжение?',
     'discovery.step2.subtitle': 'Вы можете выбрать несколько вариантов',
     'discovery.step3.title': 'У вас есть какие-либо особые условия?',
@@ -4938,6 +4975,25 @@ const getInitialLanguage = (): Language => {
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+  const [showLanguagePopup, setShowLanguagePopup] = useState(false);
+  const [languageConfirmed, setLanguageConfirmed] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const confirmed = localStorage.getItem('eka-language-confirmed') === 'true';
+      setLanguageConfirmed(confirmed);
+
+      // If language not confirmed and first visit, we could show popup, 
+      // but for now we'll wait for manual trigger or ambiguity logic
+    }
+  }, []);
+
+  const confirmLanguage = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('eka-language-confirmed', 'true');
+    setLanguageConfirmed(true);
+    setShowLanguagePopup(false);
+  };
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -4969,7 +5025,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [language]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{
+      language,
+      setLanguage,
+      t,
+      showLanguagePopup,
+      setShowLanguagePopup,
+      confirmLanguage,
+      languageConfirmed
+    }}>
       {children}
     </LanguageContext.Provider>
   );

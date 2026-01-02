@@ -24,7 +24,7 @@ export default function CookieBanner() {
     setIsVisible(false);
   };
 
-  
+
 
   if (!isVisible) return null;
 
@@ -38,7 +38,7 @@ export default function CookieBanner() {
                 <Cookie className="w-5 h-5 text-gray-600" />
               </div>
             </div>
-            
+
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {t('cookies.title')}
@@ -46,7 +46,7 @@ export default function CookieBanner() {
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                 {t('cookies.description')}
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
                 <div className="flex gap-3">
                   <button
@@ -55,8 +55,14 @@ export default function CookieBanner() {
                   >
                     {t('cookies.accept')}
                   </button>
+                  <button
+                    onClick={() => setShowLanguagePopup(true)}
+                    className="text-gray-500 hover:text-blue-600 font-medium text-sm transition-colors duration-200 underline decoration-dotted"
+                  >
+                    {t('cookies.wrongLanguage')}
+                  </button>
                 </div>
-                
+
                 <Link
                   to="/cookie-policy"
                   className="text-[#FFB405] hover:text-[#e8a204] font-medium text-sm transition-colors duration-200"
@@ -65,7 +71,7 @@ export default function CookieBanner() {
                 </Link>
               </div>
             </div>
-            
+
             <button
               onClick={acceptCookies}
               className="flex-shrink-0 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200"

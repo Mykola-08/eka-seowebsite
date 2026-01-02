@@ -8,13 +8,6 @@ export default function AgenyzPage() {
     const { navigateToBooking } = useBooking();
     const { t } = useLanguage();
 
-    const benefits = [
-        t('agenyz.benefits.cell'),
-        t('agenyz.benefits.energy'),
-        t('agenyz.benefits.immunity'),
-        t('agenyz.benefits.antiaging')
-    ];
-
     return (
         <Layout>
             <SEOHead

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe, Home } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
@@ -122,12 +122,15 @@ export default function Layout({
           <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14' : 'h-16'
             }`}>
             {/* Logo Only - Left Side */}
-            <Link to="/" className="flex items-center flex-shrink-0">
+            <Link to="/" className="flex items-center flex-shrink-0 group relative">
               <img
                 src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                 alt="EKA Balance Logo"
                 className={`transition-all duration-300 ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'
-                  } object-contain`}
+                  } object-contain group-hover:opacity-0`}
+              />
+              <Home 
+                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#000035] transition-all duration-300 opacity-0 group-hover:opacity-100 ${isScrolled ? 'w-6 h-6' : 'w-8 h-8'}`}
               />
             </Link>
 
@@ -395,14 +398,19 @@ export default function Layout({
       <footer className="py-12 sm:py-16 bg-gray-900 text-white mb-24 md:mb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           {/* Logo */}
-          <div className="flex items-center justify-center space-x-3 mb-8">
-            <img
-              src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
-              alt="EKA Balance Logo"
-              className="w-10 h-10 object-contain"
-            />
+          <Link to="/" className="flex items-center justify-center space-x-3 mb-8 group w-fit mx-auto">
+            <div className="relative w-10 h-10">
+              <img
+                src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
+                alt="EKA Balance Logo"
+                className="w-10 h-10 object-contain absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
+              />
+              <Home 
+                className="w-8 h-8 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              />
+            </div>
             <span className="text-xl font-medium">EKA Balance</span>
-          </div>
+          </Link>
 
           {/* Contact Info */}
           <div className="space-y-2 mb-8 text-gray-100">

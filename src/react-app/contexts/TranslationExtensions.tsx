@@ -258,7 +258,6 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.subtitle': 'Cada cos té la seva història. Aquests són els casos més freqüents que tractem amb èxit.',
     'casos.section.readMore': 'Llegir més',
     'casos.section.viewAll': 'Veure tots els casos',
-    'casos.section.viewAll': 'Veure tots els casos',
     'casos.section.findYourCase': 'Troba el teu cas',
     'casos.other.title': 'Altres àrees que tractem',
     'casos.other.money': 'Diners i Finances',
@@ -299,7 +298,6 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
 
     // Kinesiologia Page
     'kinesiology.page.title': 'Kinesiologia holística',
-    'kinesiology.page.subtitle': 'Escolta el cos, troba l\'arrel.',
     'kinesiology.page.subtitle': 'Escolta el cos, troba l\'arrel.',
     'kinesiology.page.imageAlt': 'Sessió de kinesiologia holística en ambient professional i natural',
     'kinesiology.page.description': 'Test neuromuscular i correccions suaus per reequilibrar cos, emocions i hàbits. Beneficis clau: menys estrès, millor coordinació i energia estable.',
@@ -726,7 +724,6 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
 
     // Kinesiologia Page
     'kinesiology.page.title': 'Holistic Kinesiology',
-    'kinesiology.page.subtitle': 'Listen to the body, find the root.',
     'kinesiology.page.subtitle': 'Listen to the body, find the root.',
     'kinesiology.page.imageAlt': 'Holistic kinesiology session in a professional and natural environment',
     'kinesiology.page.description': 'Neuromuscular test and gentle corrections to rebalance body, emotions and habits. Key benefits: less stress, better coordination and stable energy.',
@@ -1488,10 +1485,6 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.problems.hormonal.successStory': 'София, 32 года, учительница: "Мои циклы были хаосом, а менструальная боль парализовала меня. После гормонального лечения мой цикл стал регулярным и безболезненным. Я чувствую воссоединение со своим телом."',
 
     // Service-specific translations
-    'service.duration': 'Длительность',
-    'service.price': 'Цена',
-    'service.benefits': 'Преимущества',
-    'service.supplements.title': 'Персонализированные добавки',
     'service.systemic.title': 'Системная терапия',
 
     // Onboarding Goals & Feelings
@@ -1610,7 +1603,6 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
 
     'service.supplements.title': 'Персонализированные добавки',
     'recommendations.supplements.description': 'Передовое клеточное питание для повышения вашей повседневной продуктивности.',
-    'recommendations.supplements.feeling': 'Жизненная сила изнутри',
 
     // Testimonials
     'massage.testimonial.1.text': 'Прихожу напряженным и с узлами. Ухожу полностью расслабленным. Все просто. Эффект длится днями.',

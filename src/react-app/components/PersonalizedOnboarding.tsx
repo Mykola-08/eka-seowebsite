@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { Link } from 'react-router';
-import { ChevronRight, Heart, Brain, Leaf, Clock, User, Target, Sparkles, CheckCircle } from 'lucide-react';
+import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';

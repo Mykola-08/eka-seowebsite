@@ -34,7 +34,7 @@ export default function AboutElena() {
         title={t('elena.seo.title')}
         description={t('elena.seo.desc')}
         keywords={t('elena.seo.keywords')}
-        url="https://ekabalance.com/sobre-elena"
+        url="https://ekabalance.com/about-elena"
       />
 
       {/* Meta tag to prevent indexing */}
@@ -217,7 +217,7 @@ export default function AboutElena() {
             </Link>
 
             <Link
-              to="/contacte"
+              to="/contact"
               className="group bg-purple-600 hover:bg-purple-700 text-white rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Mail className="w-8 h-8 mx-auto mb-4 group-hover:scale-110 transition-transform" />

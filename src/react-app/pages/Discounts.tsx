@@ -243,7 +243,7 @@ export default function Discounts() {
                   {t('discounts.cta.bookNow')}
                 </a>
                 <a
-                  href="/contacte"
+                  href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-semibold rounded-2xl hover:bg-blue-800 transition-colors duration-200"
                 >
                   {t('discounts.cta.contact')}

@@ -15,14 +15,14 @@ export default function MusiciansPersonalized() {
       title: t('personalized.musicians.services.feldenkraisExpression.title'),
       description: t('personalized.musicians.services.feldenkraisExpression.description'),
       duration: '60-90 min',
-      link: '/serveis/feldenkrais'
+      link: '/services/feldenkrais'
     },
     {
       id: 'kinesiology-performance',
       title: t('personalized.musicians.services.kinesiologyPerformance.title'),
       description: t('personalized.musicians.services.kinesiologyPerformance.description'),
       duration: '60 min',
-      link: '/serveis/kinesiologia'
+      link: '/services/kinesiology'
     }
   ];
 
@@ -31,7 +31,7 @@ export default function MusiciansPersonalized() {
       title={t('seo.musicians.title')}
       description={t('seo.musicians.description')}
       keywords={t('seo.musicians.keywords')}
-      url="https://ekabalance.com/per-a-musics"
+      url="https://ekabalance.com/for-musicians"
     >
       <Layout>
         {/* Hero Section */}
@@ -59,7 +59,7 @@ export default function MusiciansPersonalized() {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
                 <Link
-                  to="/contacte"
+                  to="/contact"
                   className="bg-white hover:bg-gray-50 text-gray-700 font-semibold px-8 py-4 rounded-full border-2 border-gray-200 transition-colors duration-200"
                 >
                   {t('common.askQuestions')}

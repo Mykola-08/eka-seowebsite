@@ -20,7 +20,7 @@ const personalizedServices = [
     duration: '1 h',
     price: '70 €',
     image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/serveis/treballadors-oficina'
+    href: '/services/office-workers'
   },
   {
     id: 'athletes',
@@ -35,7 +35,7 @@ const personalizedServices = [
     duration: '1 h',
     price: '70 €',
     image: 'https://images.pexels.com/photos/3768593/pexels-photo-3768593.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/serveis/esportistes'
+    href: '/services/athletes'
   },
   {
     id: 'artists',
@@ -50,7 +50,7 @@ const personalizedServices = [
     duration: '1 h',
     price: '70 €',
     image: 'https://images.pexels.com/photos/3760613/pexels-photo-3760613.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/serveis/artistes'
+    href: '/services/artists'
   },
   {
     id: 'musicians',
@@ -65,7 +65,7 @@ const personalizedServices = [
     duration: '1 h',
     price: '70 €',
     image: 'https://images.pexels.com/photos/4472042/pexels-photo-4472042.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/serveis/musics',
+    href: '/services/musicians',
     hasPlans: true
   },
   {
@@ -81,7 +81,7 @@ const personalizedServices = [
     duration: '1 h',
     price: '70 €',
     image: 'https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/serveis/estudiants'
+    href: '/services/students'
   }
 ];
 

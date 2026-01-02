@@ -24,7 +24,7 @@ export default function Home() {
       icon: Heart,
       color: 'from-orange-400 to-orange-600',
       image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/massatge',
+      href: '/services/massage',
       durations: [60, 90, 120]
     },
     {
@@ -35,7 +35,7 @@ export default function Home() {
       icon: Brain,
       color: 'from-blue-400 to-blue-600',
       image: 'https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/kinesiologia',
+      href: '/services/kinesiology',
       durations: [60, 90]
     },
     {
@@ -46,7 +46,7 @@ export default function Home() {
       icon: Leaf,
       color: 'from-green-400 to-green-600',
       image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/nutritio',
+      href: '/services/nutrition',
       durations: []
     },
     {
@@ -57,7 +57,7 @@ export default function Home() {
       icon: RotateCcw,
       color: 'from-purple-400 to-purple-600',
       image: 'https://images.pexels.com/photos/4099304/pexels-photo-4099304.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/revisio-360',
+      href: '/360-revision',
       durations: [60, 90, 120]
     },
     {
@@ -68,7 +68,7 @@ export default function Home() {
       icon: Leaf,
       color: 'from-green-500 to-emerald-600',
       image: 'https://images.pexels.com/photos/8845019/pexels-photo-8845019.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/suplements',
+      href: '/services/supplements',
       durations: []
     },
     {
@@ -79,7 +79,7 @@ export default function Home() {
       icon: Heart,
       color: 'from-pink-400 to-rose-600',
       image: 'https://images.pexels.com/photos/7176036/pexels-photo-7176036.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/sistemica',
+      href: '/services/systemic',
       durations: []
     }
   ];
@@ -157,7 +157,7 @@ export default function Home() {
                   {/* CTA Button */}
                   <div className="pt-4">
                     <Link
-                      to="/sobre-elena"
+                      to="/about-elena"
                       className="inline-block bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-3 rounded-full transition-colors duration-200"
                     >
                       {t('elena.knowMore')}
@@ -286,7 +286,7 @@ export default function Home() {
                   </svg>
                 </Link>
                 <Link
-                  to="/contacte"
+                  to="/contact"
                   className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-all duration-200"
                 >
                   {t('common.contact')}

@@ -33,14 +33,14 @@ export default function CasoDetail() {
   };
 
   const problemsConfig: Record<string, ProblemConfig> = {
-    'dolor-esquena': { icon: Activity, color: 'blue', href: '/serveis/massatge', key: 'backPain' },
-    'estres-ansietat': { icon: Brain, color: 'purple', href: '/serveis/kinesiologia', key: 'stress' },
-    'problemes-digestius': { icon: Heart, color: 'green', href: '/serveis/nutritio', key: 'digestive' },
-    'migranyes': { icon: Brain, color: 'red', href: '/serveis/massatge', key: 'migraines' },
-    'falta-energia': { icon: Zap, color: 'orange', href: '/serveis/kinesiologia', key: 'lowEnergy' },
-    'problemes-hormonals': { icon: Shield, color: 'pink', href: '/serveis/kinesiologia', key: 'hormonal' },
-    'dificultats-dormir': { icon: Moon, color: 'indigo', href: '/serveis/kinesiologia', key: 'sleep' },
-    'recuperacio-lesio': { icon: Stethoscope, color: 'red', href: '/serveis/massatge', key: 'recovery' }
+    'back-pain': { icon: Activity, color: 'blue', href: '/services/massage', key: 'backPain' },
+    'stress-anxiety': { icon: Brain, color: 'purple', href: '/services/kinesiology', key: 'stress' },
+    'digestive-problems': { icon: Heart, color: 'green', href: '/services/nutrition', key: 'digestive' },
+    'migraines': { icon: Brain, color: 'red', href: '/services/massage', key: 'migraines' },
+    'low-energy': { icon: Zap, color: 'orange', href: '/services/kinesiology', key: 'lowEnergy' },
+    'hormonal-problems': { icon: Shield, color: 'pink', href: '/services/kinesiology', key: 'hormonal' },
+    'sleep-difficulties': { icon: Moon, color: 'indigo', href: '/services/kinesiology', key: 'sleep' },
+    'injury-recovery': { icon: Stethoscope, color: 'red', href: '/services/massage', key: 'recovery' }
   };
 
   const config = id ? problemsConfig[id] : undefined;
@@ -55,7 +55,7 @@ export default function CasoDetail() {
                 language === 'en' ? 'Problem not found' :
                   'Проблема не найдена'}
           </h1>
-          <Link to="/casos" className="text-blue-600 hover:text-blue-700">
+          <Link to="/cases" className="text-blue-600 hover:text-blue-700">
             {t('casos.section.viewAll')}
           </Link>
         </div>
@@ -97,14 +97,14 @@ export default function CasoDetail() {
       title={`${title} | EKA Balance`}
       description={`${description}`}
       keywords={`${title}, EKA Balance`}
-      url={`https://ekabalance.com/casos/${id}`}
+      url={`https://ekabalance.com/cases/${id}`}
     >
       <Layout>
         {/* Back navigation */}
         <div className="py-6 bg-gray-50 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <Link
-              to="/casos"
+              to="/cases"
               className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />

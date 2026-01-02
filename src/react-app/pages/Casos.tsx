@@ -36,76 +36,76 @@ export default function Casos() {
 
   const featuredProblems: Problem[] = [
     {
-      id: 'dolor-esquena',
+      id: 'back-pain',
       title: t('casos.problems.backPain.title'),
       category: 'fisic',
       description: t('casos.problems.backPain.description'),
       icon: Activity,
       color: 'blue',
-      href: '/serveis/massatge'
+      href: '/services/massage'
     },
     {
-      id: 'estres-ansietat',
+      id: 'stress-anxiety',
       title: t('casos.problems.stress.title'),
       category: 'emocional',
       description: t('casos.problems.stress.description'),
       icon: Brain,
       color: 'purple',
-      href: '/serveis/kinesiologia'
+      href: '/services/kinesiology'
     },
     {
-      id: 'problemes-digestius',
+      id: 'digestive-problems',
       title: t('casos.problems.digestive.title'),
       category: 'digestiu',
       description: t('casos.problems.digestive.description'),
       icon: Heart,
       color: 'green',
-      href: '/serveis/nutritio'
+      href: '/services/nutrition'
     },
     {
-      id: 'migranyes',
+      id: 'migraines',
       title: t('casos.problems.migraines.title'),
       category: 'fisic',
       description: t('casos.problems.migraines.description'),
       icon: Brain,
       color: 'red',
-      href: '/serveis/massatge'
+      href: '/services/massage'
     },
     {
-      id: 'falta-energia',
+      id: 'low-energy',
       title: t('casos.problems.lowEnergy.title'),
       category: 'energetic',
       description: t('casos.problems.lowEnergy.description'),
       icon: Zap,
       color: 'orange',
-      href: '/serveis/kinesiologia'
+      href: '/services/kinesiology'
     },
     {
-      id: 'problemes-hormonals',
+      id: 'hormonal-problems',
       title: t('casos.problems.hormonal.title'),
       category: 'hormonal',
       description: t('casos.problems.hormonal.description'),
       icon: Shield,
       color: 'pink',
-      href: '/serveis/kinesiologia'
+      href: '/services/kinesiology'
     },
     {
-      id: 'dificultats-dormir',
+      id: 'sleep-difficulties',
       title: t('casos.problems.sleep.title'),
       category: 'son',
       description: t('casos.problems.sleep.description'),
       icon: Moon,
       color: 'indigo',
-      href: '/serveis/kinesiologia'
+      href: '/services/kinesiology'
     },
     {
-      id: 'recuperacio-lesio',
+      id: 'injury-recovery',
       title: t('casos.problems.recovery.title'),
       category: 'recuperacio',
       description: t('casos.problems.recovery.description'),
       icon: Stethoscope,
       color: 'red',
-      href: '/serveis/massatge'
+      href: '/services/massage'
     }
   ];
 
@@ -131,7 +131,7 @@ export default function Casos() {
       title={t('casos.seo.title')}
       description={t('casos.seo.desc')}
       keywords={t('casos.seo.keywords')}
-      url="https://ekabalance.com/casos"
+      url="https://ekabalance.com/cases"
     >
       <Layout>
         {/* Hero Section */}
@@ -175,7 +175,7 @@ export default function Casos() {
                 return (
                   <Link
                     key={problem.id}
-                    to={`/casos/${problem.id}`}
+                    to={`/cases/${problem.id}`}
                     className="group bg-white rounded-[24px] p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300"
                   >
                     <div className={`w-12 h-12 rounded-xl ${getColorClasses(problem.color)} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -239,7 +239,7 @@ export default function Casos() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/primer-cop"
+                to="/first-time"
                 className="bg-white text-blue-700 hover:bg-blue-50 font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
               >
                 {t('casos.discoverIdeal')}

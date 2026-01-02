@@ -10,7 +10,7 @@ export default function FirstTimeVisitor() {
       title={t('firstTime.seo.title')}
       description={t('firstTime.seo.desc')}
       keywords={t('firstTime.seo.keywords')}
-      url="https://ekabalance.com/primer-cop"
+      url="https://ekabalance.com/first-time"
     >
       <PersonalizedOnboarding />
     </SEOOptimized>

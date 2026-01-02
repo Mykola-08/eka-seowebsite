@@ -169,7 +169,7 @@ export default function PersonalizedOnboarding() {
       description: t('recommendations.massage.description'),
       price: 60,
       duration: '60 min',
-      link: '/serveis/massatge',
+      link: '/services/massage',
       personalizedLink: getPersonalizedLink(userData.userType),
       feeling: t('recommendations.massage.feeling') || 'Cos relaxat i ment en calma'
     });
@@ -186,7 +186,7 @@ export default function PersonalizedOnboarding() {
         description: t('recommendations.kinesiology.description'),
         price: 70,
         duration: '60 min',
-        link: '/serveis/kinesiologia',
+        link: '/services/kinesiology',
         personalizedLink: getPersonalizedLink(userData.userType),
         feeling: t('recommendations.kinesiology.feeling') || 'Claredat mental i energia renovada'
       });
@@ -202,7 +202,7 @@ export default function PersonalizedOnboarding() {
         description: t('recommendations.kinesiology.emotional_description') || t('recommendations.kinesiology.description'),
         price: 70,
         duration: '60 min',
-        link: '/serveis/kinesiologia',
+        link: '/services/kinesiology',
         personalizedLink: getPersonalizedLink(userData.userType),
         feeling: t('recommendations.kinesiology.emotional_feeling') || 'Equilibri emocional i pau interior'
       });
@@ -219,7 +219,7 @@ export default function PersonalizedOnboarding() {
         description: t('recommendations.systemic.description') || 'Ordena els teus vincles familiars i sistèmics per desbloquejar la teva vida.',
         price: 80,
         duration: '90 min',
-        link: '/serveis/sistemica',
+        link: '/services/systemic-therapy',
         personalizedLink: getPersonalizedLink(userData.userType),
         feeling: t('recommendations.systemic.feeling') || 'Ordre intern i alleujament'
       });
@@ -250,7 +250,7 @@ export default function PersonalizedOnboarding() {
         description: t('recommendations.feldenkrais.description'),
         price: 60,
         duration: '60 min',
-        link: '/serveis/feldenkrais',
+        link: '/services/feldenkrais',
         personalizedLink: getPersonalizedLink(userData.userType),
         feeling: t('recommendations.feldenkrais.feeling') || 'Moviment lliure i sense dolor'
       });
@@ -263,8 +263,8 @@ export default function PersonalizedOnboarding() {
       description: t('services.consultation.description') || 'No estàs segura? Parlem 15 minuts sense compromís per veure com et puc ajudar.',
       price: 0,
       duration: '15 min',
-      link: '/contacte', // Or booking specific link
-      personalizedLink: '/contacte',
+      link: '/contact', // Or booking specific link
+      personalizedLink: '/contact',
       feeling: t('services.consultation.feeling') || 'Claredat sobre el teu camí'
     });
 
@@ -281,19 +281,19 @@ export default function PersonalizedOnboarding() {
 
   const getPersonalizedLink = (userType: string): string => {
     const userTypeMap: Record<string, string> = {
-      student: 'estudiants',
-      office: 'treballadors-oficina',
-      artist: 'artistes',
-      musician: 'musics',
-      athlete: 'esportistes',
-      parent: 'pares',
-      entrepreneur: 'emprenedors',
-      therapist: 'terapeutes',
-      senior: 'persones-grans'
+      student: 'students',
+      office: 'office-workers',
+      artist: 'artists',
+      musician: 'musicians',
+      athlete: 'athletes',
+      parent: 'parents',
+      entrepreneur: 'entrepreneurs',
+      therapist: 'therapists',
+      senior: 'seniors'
     };
 
     const mappedType = userTypeMap[userType] || userType;
-    return `/per-a-${mappedType}`;
+    return `/for-${mappedType}`;
   };
 
   const startOnboarding = () => {

@@ -75,23 +75,23 @@ export default function Layout({
     },
     {
       name: t('nav.personalizedServices'),
-      href: '/serveis-personalitzats',
+      href: '/personalized-services',
       hasDropdown: true,
       dropdownItems: [
-        { name: t('nav.officeWorkers'), href: '/serveis/treballadors-oficina' },
-        { name: t('nav.athletes'), href: '/serveis/esportistes' },
-        { name: t('nav.artists'), href: '/serveis/artistes' },
-        { name: t('nav.musicians'), href: '/serveis/musics' },
-        { name: t('nav.students'), href: '/serveis/estudiants' },
+        { name: t('nav.officeWorkers'), href: '/services/office-workers' },
+        { name: t('nav.athletes'), href: '/services/athletes' },
+        { name: t('nav.artists'), href: '/services/artists' },
+        { name: t('nav.musicians'), href: '/services/musicians' },
+        { name: t('nav.students'), href: '/services/students' },
       ]
     },
     {
       name: t('nav.casos'),
-      href: '/casos'
+      href: '/cases'
     },
     {
       name: t('nav.revision360'),
-      href: '/revisio-360'
+      href: '/360-revision'
     },
     {
       name: t('nav.vip'),

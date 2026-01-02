@@ -49,7 +49,7 @@ export default function AppleHero() {
 
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <Link to="/primer-cop" className="group">
+        <Link to="/first-time" className="group">
           <Button size="xl" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-xl">
             {t('hero.firstTime')}
           </Button>

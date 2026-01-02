@@ -65,46 +65,46 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/services" element={<Services />} />
-      <Route path="/revisio-360" element={<Revision360Page />} />
+      <Route path="/360-revision" element={<Revision360Page />} />
 
       {/* Individual Service Pages */}
-      <Route path="/serveis/massatge" element={<MassatgePage />} />
-      <Route path="/serveis/kinesiologia" element={<KinesiologiaPage />} />
-      <Route path="/serveis/nutritio" element={<NutricioPage />} />
+      <Route path="/services/massage" element={<MassatgePage />} />
+      <Route path="/services/kinesiology" element={<KinesiologiaPage />} />
+      <Route path="/services/nutrition" element={<NutricioPage />} />
       <Route path="/agenyz" element={<AgenyzPage />} />
       <Route path="/vip" element={<VIPUltraPremium />} />
 
       {/* Personal Services */}
-      <Route path="/serveis-personalitzats" element={<PersonalizedServices />} />
-      <Route path="/serveis/treballadors-oficina" element={<OfficeWorkers />} />
-      <Route path="/serveis/musics" element={<Musicians />} />
-      <Route path="/serveis/esportistes" element={<Athletes />} />
-      <Route path="/serveis/artistes" element={<Artists />} />
-      <Route path="/serveis/estudiants" element={<Students />} />
+      <Route path="/personalized-services" element={<PersonalizedServices />} />
+      <Route path="/services/office-workers" element={<OfficeWorkers />} />
+      <Route path="/services/musicians" element={<Musicians />} />
+      <Route path="/services/athletes" element={<Athletes />} />
+      <Route path="/services/artists" element={<Artists />} />
+      <Route path="/services/students" element={<Students />} />
 
       {/* Personalized Onboarding Pages */}
-      <Route path="/per-a-estudiants" element={<StudentsPersonalized />} />
-      <Route path="/per-a-treballadors-oficina" element={<OfficeWorkersPersonalized />} />
-      <Route path="/per-a-musics" element={<MusiciansPersonalized />} />
-      <Route path="/per-a-esportistes" element={<AthletesPersonalized />} />
-      <Route path="/per-a-pares" element={<ParentsPersonalized />} />
+      <Route path="/for-students" element={<StudentsPersonalized />} />
+      <Route path="/for-office-workers" element={<OfficeWorkersPersonalized />} />
+      <Route path="/for-musicians" element={<MusiciansPersonalized />} />
+      <Route path="/for-athletes" element={<AthletesPersonalized />} />
+      <Route path="/for-parents" element={<ParentsPersonalized />} />
 
       {/* Contact */}
-      <Route path="/contacte" element={<ContactPage />} />
+      <Route path="/contact" element={<ContactPage />} />
 
       {/* About Elena */}
-      <Route path="/sobre-elena" element={<AboutElena />} />
+      <Route path="/about-elena" element={<AboutElena />} />
 
       {/* Booking */}
       <Route path="/booking" element={<BookingPage />} />
 
       {/* Discovery Form */}
-      <Route path="/descobriment" element={<DiscoveryForm />} />
-      <Route path="/primer-cop" element={<FirstTimeVisitor />} />
+      <Route path="/discovery" element={<DiscoveryForm />} />
+      <Route path="/first-time" element={<FirstTimeVisitor />} />
 
       {/* Cases */}
-      <Route path="/casos" element={<Casos />} />
-      <Route path="/casos/:id" element={<CasoDetail />} />
+      <Route path="/cases" element={<Casos />} />
+      <Route path="/cases/:id" element={<CasoDetail />} />
 
       {/* Discounts */}
       <Route path="/discounts" element={<Discounts />} />

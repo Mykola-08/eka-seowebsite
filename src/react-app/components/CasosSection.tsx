@@ -17,52 +17,52 @@ export default function CasosSection() {
 
   const featuredProblems: Problem[] = [
     {
-      id: 'dolor-esquena',
+      id: 'back-pain',
       titleKey: 'casos.problems.backPain.title',
       descriptionKey: 'casos.problems.backPain.description',
       icon: Activity,
       color: 'blue',
-      href: '/casos/dolor-esquena'
+      href: '/cases/back-pain'
     },
     {
-      id: 'estres-ansietat',
+      id: 'stress-anxiety',
       titleKey: 'casos.problems.stress.title',
       descriptionKey: 'casos.problems.stress.description',
       icon: Brain,
       color: 'purple',
-      href: '/casos/estres-ansietat'
+      href: '/cases/stress-anxiety'
     },
     {
-      id: 'problemes-digestius',
+      id: 'digestive-problems',
       titleKey: 'casos.problems.digestive.title',
       descriptionKey: 'casos.problems.digestive.description',
       icon: Heart,
       color: 'green',
-      href: '/casos/problemes-digestius'
+      href: '/cases/digestive-problems'
     },
     {
-      id: 'migranyes',
+      id: 'migraines',
       titleKey: 'casos.problems.migraines.title',
       descriptionKey: 'casos.problems.migraines.description',
       icon: Brain,
       color: 'red',
-      href: '/casos/migranyes'
+      href: '/cases/migraines'
     },
     {
-      id: 'falta-energia',
+      id: 'low-energy',
       titleKey: 'casos.problems.lowEnergy.title',
       descriptionKey: 'casos.problems.lowEnergy.description',
       icon: Zap,
       color: 'orange',
-      href: '/casos/falta-energia'
+      href: '/cases/low-energy'
     },
     {
-      id: 'dificultats-dormir',
+      id: 'sleep-difficulties',
       titleKey: 'casos.problems.sleep.title',
       descriptionKey: 'casos.problems.sleep.description',
       icon: Moon,
       color: 'indigo',
-      href: '/casos/dificultats-dormir'
+      href: '/cases/sleep-difficulties'
     }
   ];
 
@@ -153,14 +153,14 @@ export default function CasosSection() {
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              to="/casos"
+              to="/cases"
               className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
             >
               {t('casos.section.viewAll')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <Link
-              to="/primer-cop"
+              to="/first-time"
               className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-all duration-200"
             >
               {t('casos.section.findYourCase')}

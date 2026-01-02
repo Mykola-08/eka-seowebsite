@@ -12,7 +12,7 @@ export default function ContactPage() {
       title={t('seo.contact.title')}
       description={t('seo.contact.description')}
       keywords={t('seo.contact.keywords')}
-      url="https://ekabalance.com/contacte"
+      url="https://ekabalance.com/contact"
     >
       <Layout>
         {/* Hero Section */}

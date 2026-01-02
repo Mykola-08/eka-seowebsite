@@ -15,14 +15,14 @@ export default function AthletesPersonalized() {
       title: t('personalized.athletes.services.sportsMassage.title'),
       description: t('personalized.athletes.services.sportsMassage.description'),
       duration: '60-90 min',
-      link: '/serveis/massatge'
+      link: '/services/massage'
     },
     {
       id: 'osteobalance',
       title: t('personalized.athletes.services.osteobalance.title'),
       description: t('personalized.athletes.services.osteobalance.description'),
       duration: '60-90 min',
-      link: '/serveis/osteobalance'
+      link: '/services/osteobalance'
     }
   ];
 
@@ -31,7 +31,7 @@ export default function AthletesPersonalized() {
       title={t('seo.athletes.title')}
       description={t('seo.athletes.description')}
       keywords={t('seo.athletes.keywords')}
-      url="https://ekabalance.com/per-a-esportistes"
+      url="https://ekabalance.com/for-athletes"
     >
       <Layout>
         {/* Hero Section */}
@@ -59,7 +59,7 @@ export default function AthletesPersonalized() {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
                 <Link
-                  to="/contacte"
+                  to="/contact"
                   className="bg-white hover:bg-gray-50 text-gray-700 font-semibold px-8 py-4 rounded-full border-2 border-gray-200 transition-colors duration-200"
                 >
                   {t('common.askQuestions')}

@@ -15,14 +15,14 @@ export default function OfficeWorkersPersonalized() {
       title: t('personalized.officeWorkers.services.therapeuticMassage.title'),
       description: t('personalized.officeWorkers.services.therapeuticMassage.description'),
       duration: '60-90 min',
-      link: '/serveis/massatge'
+      link: '/services/massage'
     },
     {
       id: 'feldenkrais',
       title: t('personalized.officeWorkers.services.feldenkrais.title'),
       description: t('personalized.officeWorkers.services.feldenkrais.description'),
       duration: '60 min',
-      link: '/serveis/feldenkrais'
+      link: '/services/feldenkrais'
     }
   ];
 
@@ -31,7 +31,7 @@ export default function OfficeWorkersPersonalized() {
       title={t('seo.officeWorkers.title')}
       description={t('seo.officeWorkers.description')}
       keywords={t('seo.officeWorkers.keywords')}
-      url="https://ekabalance.com/per-a-treballadors-oficina"
+      url="https://ekabalance.com/for-office-workers"
     >
       <Layout>
         {/* Hero Section */}
@@ -59,7 +59,7 @@ export default function OfficeWorkersPersonalized() {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
                 <Link
-                  to="/contacte"
+                  to="/contact"
                   className="bg-white hover:bg-gray-50 text-gray-700 font-semibold px-8 py-4 rounded-full border-2 border-gray-200 transition-colors duration-200"
                 >
                   {t('common.askQuestions')}

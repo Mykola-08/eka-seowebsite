@@ -18,7 +18,7 @@ export default function Services() {
       color: 'orange',
       durations: [60, 90, 120],
       image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/massatge',
+      href: '/services/massage',
       benefits: [t('services.benefits.reduces'), t('services.benefits.stress'), t('services.benefits.circulation'), t('services.benefits.relaxation')]
     },
     {
@@ -30,7 +30,7 @@ export default function Services() {
       color: 'blue',
       durations: [60, 90],
       image: 'https://images.pexels.com/photos/5793694/pexels-photo-5793694.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/kinesiologia',
+      href: '/services/kinesiology',
       benefits: [t('services.benefits.blockages'), t('services.benefits.posture'), t('services.benefits.stress'), t('services.benefits.energy')]
     },
     {
@@ -42,7 +42,7 @@ export default function Services() {
       color: 'green',
       durations: [],
       image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/serveis/nutritio',
+      href: '/services/nutrition',
       benefits: [t('services.benefits.habits'), t('services.benefits.vitality'), t('services.benefits.weight'), t('services.benefits.longterm')]
     },
     {
@@ -54,7 +54,7 @@ export default function Services() {
       color: 'purple',
       durations: [60, 90, 120],
       image: 'https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/revisio-360',
+      href: '/360-revision',
       benefits: [t('services.benefits.assessment'), t('services.benefits.plan'), t('services.benefits.recommendations'), t('services.benefits.followup')]
     }
   ];

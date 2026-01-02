@@ -182,31 +182,40 @@ export default function VIPUltraPremium() {
     switch (tier) {
       case 'bronze':
         return {
-          border: 'border-amber-200',
-          accent: 'text-amber-600',
-          bg: 'bg-amber-50',
-          gradient: 'from-amber-600 to-amber-700'
+          border: 'border-amber-500/30',
+          hoverBorder: 'border-amber-400/60',
+          accent: 'text-amber-400',
+          bg: 'bg-amber-900/10',
+          gradient: 'from-amber-600 to-amber-700',
+          shadow: 'shadow-amber-500/10'
         };
       case 'silver':
         return {
-          border: 'border-gray-300',
-          accent: 'text-gray-700',
-          bg: 'bg-gray-50',
-          gradient: 'from-gray-500 to-gray-700'
+          border: 'border-slate-400/30',
+          hoverBorder: 'border-slate-200/60',
+          accent: 'text-slate-200',
+          bg: 'bg-slate-800/10',
+          gradient: 'from-slate-400 to-slate-600',
+          shadow: 'shadow-slate-400/10'
         };
       case 'gold':
         return {
-          border: 'border-yellow-300',
-          accent: 'text-yellow-600',
-          bg: 'bg-yellow-50',
-          gradient: 'from-yellow-500 to-yellow-600'
+          border: 'border-yellow-500/40',
+          hoverBorder: 'border-yellow-400',
+          accent: 'text-yellow-400',
+          bg: 'bg-yellow-900/20',
+          gradient: 'from-yellow-400 via-yellow-500 to-amber-600',
+          shadow: 'shadow-yellow-500/30',
+          glow: 'shadow-[0_0_30px_rgba(234,179,8,0.2)]'
         };
       default:
         return {
-          border: 'border-gray-200',
-          accent: 'text-gray-600',
-          bg: 'bg-gray-50',
-          gradient: 'from-gray-400 to-gray-600'
+          border: 'border-gray-500/30',
+          hoverBorder: 'border-gray-400',
+          accent: 'text-gray-400',
+          bg: 'bg-gray-800/10',
+          gradient: 'from-gray-500 to-gray-600',
+          shadow: 'shadow-gray-500/5'
         };
     }
   };
@@ -260,7 +269,7 @@ export default function VIPUltraPremium() {
           {/* Luxury CTA */}
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
             <a
-              href="https://wa.me/34658867133?text=Hola,%20estic%20interessat%20en%20els%20plans%20VIP%20Inner%20Circle.%20M'agradaria%20rebre%20més%20informació."
+              href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.messageGeneral'))}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-400/30"
@@ -421,12 +430,14 @@ export default function VIPUltraPremium() {
                   )}
 
                   {/* Premium Card */}
-                  <div className={`relative h-full bg-white/5 backdrop-blur-lg border-2 rounded-3xl overflow-hidden transition-all duration-500 ${isHovered ? 'shadow-2xl border-white/30 transform scale-105' : 'shadow-lg border-white/10'
+                  <div className={`relative h-full backdrop-blur-lg border-2 rounded-3xl overflow-hidden transition-all duration-500 ${isHovered
+                      ? `shadow-2xl ${colors.hoverBorder} transform scale-105 ${colors.glow || ''}`
+                      : `shadow-lg ${colors.border} ${colors.bg}`
                     }`}>
                     <div className="p-10">
                       {/* Header */}
                       <div className="text-center mb-10">
-                        <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-8 transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
+                        <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-8 transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3 shadow-lg' : ''}`}>
                           <Crown className="w-10 h-10 text-white" />
                         </div>
                         <h3 className="text-3xl font-light text-white mb-4">
@@ -463,11 +474,11 @@ export default function VIPUltraPremium() {
 
                       {/* CTA Button */}
                       <a
-                        href={`https://wa.me/34658867133?text=Hola,%20estic%20interessat%20en%20el%20pla%20VIP%20${t(plan.name)}.%20M'agradaria%20rebre%20més%20informació.`}
+                        href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.message', { plan: t(plan.name) }))}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 ${plan.popular
-                          ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 hover:from-yellow-500 hover:to-amber-600 shadow-lg hover:shadow-xl'
+                          ? `bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 hover:from-yellow-500 hover:to-amber-600 shadow-xl ${colors.shadow}`
                           : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
                           }`}
                       >
@@ -616,7 +627,7 @@ export default function VIPUltraPremium() {
 
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
             <a
-              href="https://wa.me/34658867133?text=Hola,%20estic%20interessat%20en%20unir-me%20al%20Inner%20Circle%20VIP.%20M'agradaria%20una%20consulta%20personalitzada."
+              href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.messageGeneral'))}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-400/30"

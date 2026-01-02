@@ -129,7 +129,7 @@ export default function Layout({
                 className={`transition-all duration-300 ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'
                   } object-contain group-hover:opacity-0`}
               />
-              <Home 
+              <Home
                 className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#000035] transition-all duration-300 opacity-0 group-hover:opacity-100 ${isScrolled ? 'w-6 h-6' : 'w-8 h-8'}`}
               />
             </Link>
@@ -212,7 +212,11 @@ export default function Layout({
                     ) : (
                       <Link
                         to={item.href}
-                        className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
+                        className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${
+                          // @ts-ignore
+                          item.isGold
+                            ? 'text-amber-600 font-bold hover:text-amber-700 bg-gradient-to-r from-amber-50 to-yellow-50 border border-yellow-200/50'
+                            : isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
                           }`}
                       >
                         {item.name}
@@ -301,7 +305,11 @@ export default function Layout({
                       <Link
                         to={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'
+                        className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${
+                          // @ts-ignore
+                          item.isGold
+                            ? 'text-amber-600 bg-amber-50 border border-amber-100 font-bold'
+                            : isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'
                           }`}
                       >
                         {item.name}
@@ -405,7 +413,7 @@ export default function Layout({
                 alt="EKA Balance Logo"
                 className="w-10 h-10 object-contain absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
               />
-              <Home 
+              <Home
                 className="w-8 h-8 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               />
             </div>

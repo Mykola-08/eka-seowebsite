@@ -94,10 +94,11 @@ export default function Layout({
       href: 'https://360revision.ekabalance.com',
       isExternal: true
     },
-    /* {
+    {
       name: t('nav.vip'),
-      href: '/vip'
-    } */
+      href: '/vip',
+      isGold: true
+    }
   ];
 
   const isActivePath = (path: string) => {

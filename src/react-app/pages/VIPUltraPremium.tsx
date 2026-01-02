@@ -238,17 +238,17 @@ export default function VIPUltraPremium() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 text-center text-white">
           {/* Ultra Premium Badge */}
-          <div className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 backdrop-blur-xl border border-yellow-400/30 rounded-2xl mb-16">
-            <Diamond className="mr-4 w-8 h-8 text-yellow-400" />
-            <span className="text-white font-bold tracking-wider text-xl">{t('vip.hero.badge')}</span>
-            <Diamond className="ml-4 w-8 h-8 text-yellow-400" />
+          <div className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-900/40 via-yellow-600/20 to-yellow-900/40 backdrop-blur-xl border border-yellow-500/50 rounded-2xl mb-16 shadow-[0_0_30px_rgba(234,179,8,0.2)]">
+            <Diamond className="mr-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
+            <span className="text-yellow-100 font-bold tracking-[0.2em] text-lg uppercase bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 bg-clip-text text-transparent">{t('vip.hero.badge')}</span>
+            <Diamond className="ml-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
           </div>
 
-          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-light mb-12 leading-tight tracking-tighter">
-            <span className="block bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
+          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-extralight mb-12 leading-tight tracking-tighter">
+            <span className="block bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(234,179,8,0.3)]">
               {t('vip.hero.title.beyond')}
             </span>
-            <span className="block text-5xl sm:text-6xl lg:text-7xl font-medium text-white/90 italic mt-4">
+            <span className="block text-5xl sm:text-6xl lg:text-7xl font-light text-gray-300 italic mt-6 tracking-wide">
               {t('vip.hero.title.wellness')}
             </span>
           </h1>
@@ -279,23 +279,18 @@ export default function VIPUltraPremium() {
           </div>
 
           {/* Exclusive Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-4xl font-light text-yellow-400 mb-2">&lt; 1%</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.clients')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-light text-yellow-400 mb-2">24/7</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.concierge')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-light text-yellow-400 mb-2">100%</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.exclusivity')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-light text-yellow-400 mb-2">∞</div>
-              <div className="text-white/70 text-sm uppercase tracking-wider">{t('vip.stats.possibilities')}</div>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {[
+              { val: '< 1%', label: 'vip.stats.clients' },
+              { val: '24/7', label: 'vip.stats.concierge' },
+              { val: '100%', label: 'vip.stats.exclusivity' },
+              { val: '∞', label: 'vip.stats.possibilities' }
+            ].map((stat, i) => (
+              <div key={i} className="text-center p-6 border border-yellow-500/20 bg-yellow-900/5 rounded-2xl backdrop-blur-sm hover:border-yellow-500/40 transition-colors duration-300">
+                <div className="text-4xl font-light text-yellow-400 mb-2 drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]">{stat.val}</div>
+                <div className="text-yellow-100/60 text-xs uppercase tracking-[0.2em]">{t(stat.label)}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -322,7 +317,7 @@ export default function VIPUltraPremium() {
                 {vipTier !== 'none' ? (
                   <Link
                     to="/booking"
-                    className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-bold transition-colors"
+                    className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black px-6 py-3 rounded-full font-bold transition-all shadow-[0_0_15px_rgba(234,179,8,0.4)] hover:shadow-[0_0_25px_rgba(234,179,8,0.6)]"
                   >
                     <Calendar className="w-5 h-5" />
                     {t('vip.dashboard.priorityBooking')}
@@ -330,7 +325,7 @@ export default function VIPUltraPremium() {
                 ) : (
                   <button
                     onClick={() => document.getElementById('plans-section')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-colors border border-white/20"
+                    className="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full font-medium transition-colors border border-yellow-500/30 hover:border-yellow-400/60 shadow-[0_0_10px_rgba(234,179,8,0.1)]"
                   >
                     <Crown className="w-5 h-5 text-yellow-400" />
                     {t('vip.dashboard.viewPlans')}
@@ -364,12 +359,13 @@ export default function VIPUltraPremium() {
               const Icon = iconMap[feature.icon as keyof typeof iconMap] || Diamond;
               return (
                 <div key={index} className="group">
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 shadow-xl hover:shadow-2xl border border-gray-100 hover:border-yellow-200 transition-all duration-300">
-                    <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 shadow-xl hover:shadow-[0_20px_50px_rgba(234,179,8,0.15)] border border-gray-100 hover:border-yellow-400/50 transition-all duration-500 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-100/20 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150"></div>
+                    <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-[0_10px_20px_rgba(234,179,8,0.3)]">
                       <Icon className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">{t(feature.title)}</h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">{t(feature.description)}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-yellow-700 transition-colors">{t(feature.title)}</h3>
+                    <p className="text-lg text-gray-600 leading-relaxed font-light">{t(feature.description)}</p>
                   </div>
                 </div>
               );
@@ -389,12 +385,14 @@ export default function VIPUltraPremium() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-6 py-2 bg-white/10 backdrop-blur-md rounded-2xl mb-8">
+            <div className="inline-flex items-center px-6 py-2 bg-yellow-500/10 backdrop-blur-md rounded-2xl mb-8 border border-yellow-400/20">
               <Crown className="mr-2 w-5 h-5 text-yellow-400" />
-              <span className="text-white font-medium text-sm tracking-wide">{t('vip.plans.badge')}</span>
+              <span className="text-yellow-200 font-medium text-sm tracking-wide">{t('vip.plans.badge')}</span>
             </div>
             <h2 className="text-5xl sm:text-6xl font-light mb-6 leading-tight">
-              {t('vip.plans.title')}
+              <span className="bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent">
+                {t('vip.plans.title')}
+              </span>
             </h2>
             <p className="text-2xl text-white/80 max-w-4xl mx-auto font-light">
               {t('vip.plans.subtitle')}
@@ -469,8 +467,8 @@ export default function VIPUltraPremium() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 ${plan.popular
-                            ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 hover:from-yellow-500 hover:to-amber-600 shadow-lg hover:shadow-xl'
-                            : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
+                          ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 hover:from-yellow-500 hover:to-amber-600 shadow-lg hover:shadow-xl'
+                          : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
                           }`}
                       >
                         {t('vip.plans.contact')} {t(plan.name)}
@@ -565,8 +563,8 @@ export default function VIPUltraPremium() {
                       ))}
                     </div>
                     <div className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider ${testimonial.tier === 'GOLD'
-                        ? 'bg-yellow-400 text-gray-900'
-                        : 'bg-gray-200 text-gray-700'
+                      ? 'bg-yellow-400 text-gray-900'
+                      : 'bg-gray-200 text-gray-700'
                       }`}>
                       {testimonial.tier} ELITE
                     </div>
@@ -599,15 +597,15 @@ export default function VIPUltraPremium() {
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 text-center">
-          <div className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 backdrop-blur-xl border border-yellow-400/30 rounded-full mb-16">
-            <Heart className="mr-4 w-6 h-6 text-yellow-400" />
-            <span className="text-white font-bold tracking-wider text-lg">{t('vip.cta.badge')}</span>
-            <Heart className="ml-4 w-6 h-6 text-yellow-400" />
+          <div className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-yellow-900/40 via-yellow-600/20 to-yellow-900/40 backdrop-blur-xl border border-yellow-500/50 rounded-full mb-16 shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+            <Heart className="mr-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]" />
+            <span className="text-yellow-100 font-bold tracking-wider text-lg">{t('vip.cta.badge')}</span>
+            <Heart className="ml-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]" />
           </div>
 
           <h2 className="text-6xl sm:text-7xl lg:text-8xl font-light text-white mb-12 leading-tight">
             {t('vip.cta.title')}<br />
-            <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent font-medium italic">
+            <span className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent font-medium italic drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">
               {t('vip.hero.title.beyond')}
             </span>
           </h2>

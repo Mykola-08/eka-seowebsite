@@ -71,7 +71,7 @@ function AppRoutes() {
       <Route path="/serveis/kinesiologia" element={<KinesiologiaPage />} />
       <Route path="/serveis/nutritio" element={<NutricioPage />} />
       <Route path="/agenyz" element={<AgenyzPage />} />
-      {/* <Route path="/vip" element={<VIPUltraPremium />} /> */}
+      <Route path="/vip" element={<VIPUltraPremium />} />
 
       {/* Personal Services */}
       <Route path="/serveis-personalitzats" element={<PersonalizedServices />} />

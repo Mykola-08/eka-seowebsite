@@ -5,7 +5,7 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
-  const { t } = useLanguage();
+  const { t, setShowLanguagePopup } = useLanguage();
 
   useEffect(() => {
     // Check if user has already accepted cookies

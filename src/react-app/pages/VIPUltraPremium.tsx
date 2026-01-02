@@ -135,7 +135,7 @@ export default function VIPUltraPremium() {
         .select('data')
         .eq('key', 'vip_features')
         .single();
-      
+
       if (plansData) {
         setPlans(plansData.data as any[]);
       } else {
@@ -147,7 +147,7 @@ export default function VIPUltraPremium() {
         .select('data')
         .eq('key', 'luxury_features')
         .single();
-      
+
       if (luxuryData) {
         setLuxuryFeatures(luxuryData.data as any[]);
       } else {
@@ -165,7 +165,7 @@ export default function VIPUltraPremium() {
           .select('vip_tier')
           .eq('user_id', user.id)
           .single();
-        
+
         if (data) {
           setVipTier(data.vip_tier || 'none');
         }
@@ -218,7 +218,7 @@ export default function VIPUltraPremium() {
         description={t('seo.vip.description')}
         keywords={t('seo.vip.keywords')}
       />
-      
+
       {/* Ultra Premium Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 overflow-hidden">
         {/* Advanced Background Effects */}
@@ -235,10 +235,10 @@ export default function VIPUltraPremium() {
             backgroundSize: '50px 50px'
           }}></div>
         </div>
-        
+
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 text-center text-white">
           {/* Ultra Premium Badge */}
-          <div className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 backdrop-blur-xl border border-yellow-400/30 rounded-full mb-16">
+          <div className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 backdrop-blur-xl border border-yellow-400/30 rounded-2xl mb-16">
             <Diamond className="mr-4 w-8 h-8 text-yellow-400" />
             <span className="text-white font-bold tracking-wider text-xl">{t('vip.hero.badge')}</span>
             <Diamond className="ml-4 w-8 h-8 text-yellow-400" />
@@ -320,15 +320,15 @@ export default function VIPUltraPremium() {
 
               <div className="flex gap-4">
                 {vipTier !== 'none' ? (
-                  <Link 
-                    to="/booking" 
+                  <Link
+                    to="/booking"
                     className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-bold transition-colors"
                   >
                     <Calendar className="w-5 h-5" />
                     {t('vip.dashboard.priorityBooking')}
                   </Link>
                 ) : (
-                  <button 
+                  <button
                     onClick={() => document.getElementById('plans-section')?.scrollIntoView({ behavior: 'smooth' })}
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-colors border border-white/20"
                   >
@@ -347,7 +347,7 @@ export default function VIPUltraPremium() {
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-6 py-2 bg-yellow-100 rounded-full mb-8">
+            <div className="inline-flex items-center px-6 py-2 bg-yellow-100 rounded-2xl mb-8">
               <Sparkles className="mr-2 w-5 h-5 text-yellow-600" />
               <span className="text-yellow-700 font-medium text-sm tracking-wide">{t('vip.features.badge')}</span>
             </div>
@@ -386,10 +386,10 @@ export default function VIPUltraPremium() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -rotate-12"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-6 py-2 bg-white/10 backdrop-blur-md rounded-full mb-8">
+            <div className="inline-flex items-center px-6 py-2 bg-white/10 backdrop-blur-md rounded-2xl mb-8">
               <Crown className="mr-2 w-5 h-5 text-yellow-400" />
               <span className="text-white font-medium text-sm tracking-wide">{t('vip.plans.badge')}</span>
             </div>
@@ -405,7 +405,7 @@ export default function VIPUltraPremium() {
             {plans.map((plan) => {
               const colors = getTierColors(plan.tier);
               const isHovered = hoveredPlan === plan.tier;
-              
+
               return (
                 <div
                   key={plan.tier}
@@ -423,9 +423,8 @@ export default function VIPUltraPremium() {
                   )}
 
                   {/* Premium Card */}
-                  <div className={`relative h-full bg-white/5 backdrop-blur-lg border-2 rounded-3xl overflow-hidden transition-all duration-500 ${
-                    isHovered ? 'shadow-2xl border-white/30 transform scale-105' : 'shadow-lg border-white/10'
-                  }`}>
+                  <div className={`relative h-full bg-white/5 backdrop-blur-lg border-2 rounded-3xl overflow-hidden transition-all duration-500 ${isHovered ? 'shadow-2xl border-white/30 transform scale-105' : 'shadow-lg border-white/10'
+                    }`}>
                     <div className="p-10">
                       {/* Header */}
                       <div className="text-center mb-10">
@@ -469,11 +468,10 @@ export default function VIPUltraPremium() {
                         href={`https://wa.me/34658867133?text=Hola,%20estic%20interessat%20en%20el%20pla%20VIP%20${t(plan.name)}.%20M'agradaria%20rebre%20més%20informació.`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 ${
-                          plan.popular
+                        className={`block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 ${plan.popular
                             ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 hover:from-yellow-500 hover:to-amber-600 shadow-lg hover:shadow-xl'
                             : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
-                        }`}
+                          }`}
                       >
                         {t('vip.plans.contact')} {t(plan.name)}
                       </a>
@@ -491,7 +489,7 @@ export default function VIPUltraPremium() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl sm:text-6xl font-light text-gray-900 mb-6">
-              {t('vip.exclusivePrivileges')} 
+              {t('vip.exclusivePrivileges')}
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
               {t('vip.features.subtitle')}
@@ -501,7 +499,7 @@ export default function VIPUltraPremium() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {vipServices.map((service, serviceIndex) => {
               const Icon = service.icon;
-              
+
               return (
                 <div
                   key={serviceIndex}
@@ -566,11 +564,10 @@ export default function VIPUltraPremium() {
                         <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    <div className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider ${
-                      testimonial.tier === 'GOLD'
+                    <div className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider ${testimonial.tier === 'GOLD'
                         ? 'bg-yellow-400 text-gray-900'
                         : 'bg-gray-200 text-gray-700'
-                    }`}>
+                      }`}>
                       {testimonial.tier} ELITE
                     </div>
                   </div>

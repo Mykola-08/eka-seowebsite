@@ -33,8 +33,7 @@ export default function SuccessStories() {
     <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 opacity-50"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-200 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 opacity-50"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -73,7 +72,7 @@ export default function SuccessStories() {
               </p>
 
               {/* Result Badge */}
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-sm font-medium mb-6">
+              <div className="inline-flex items-center px-3 py-1 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-sm font-medium mb-6">
                 {testimonial.result}
               </div>
 

@@ -15,7 +15,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Nota de reserva',
     'service.sessions.recommended': 'Sessions recomanades',
     'service.frequency': 'Freqüència',
-    
+
     // Services page
     'services.integralWellbeingFor': 'Teràpies per al benestar integral',
     'services.ourServices': 'Els nostres serveis',
@@ -26,7 +26,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.quickBookingSubtitle': 'Contacta amb nosaltres per WhatsApp o Telegram per reservar',
     'services.readyToStart': 'Preparat per començar?',
     'services.contactUsToBook': 'Contacta amb nosaltres per reservar la teva sessió',
-    
+
     // Service benefits
     'services.benefits.reduces': 'Redueix el dolor',
     'services.benefits.stress': 'Alleugereix l\'estrès',
@@ -43,7 +43,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.benefits.plan': 'Pla personalitzat',
     'services.benefits.recommendations': 'Recomanacions clares',
     'services.benefits.followup': 'Seguiment continu',
-    
+
     // Pricing specific
     'pricing.from': 'Des de',
     'pricing.session': 'sessió',
@@ -53,11 +53,11 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'pricing.popular': 'Popular',
     'pricing.best.value': 'Millor valor',
     'pricing.limited.time': 'Temps limitat',
-    
+
     // VIP specific
     'vip.title': 'Plans VIP - Control de Salut i Benestar | EKA Balance',
     'vip.description': 'Plans VIP exclusius amb sessions a domicili, control de salut mensual i beneficis familiars. Bronze, Silver i Gold VIP a Barcelona.',
-    'vip.badge': 'EXPERIÈNCIA VIP EXCLUSIVA',
+    'vip.badge': 'ATENCIÓ PERSONAL I EXCLUSIVA',
     'vip.hero.title': 'Plans VIP de Control de Salut',
     'vip.hero.subtitle': 'Sessions a domicili • Control mensual • Beneficis familiars • Barcelona',
     'vip.stats.sessions': 'Sessions 1,5h',
@@ -109,25 +109,25 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.final.addressNote': 'Desplaçaments inclosos segons el pla',
     'vip.monthlySessionsOf': 'sessions mensuals d\'1,5h',
     'vip.contactFor': 'Contacta per a',
-    'vip.innerCircle': 'INNER CIRCLE',
+    'vip.innerCircle': 'CERCLE DE BENESTAR',
     'vip.beyond': 'Més enllà del',
     'vip.wellness': 'benestar',
     'vip.experienceDescription': 'Una experiència exclusiva de salut i benestar dissenyada per a professionals exigents',
-    'vip.eliteMemberships': 'Membresies Elite',
+    'vip.eliteMemberships': 'Plans d\'Acompanyament',
     'vip.eliteSubtitle': 'Escull el nivell d\'excel·lència que mereixis',
     'vip.mostExclusive': 'MÉS EXCLUSIU',
-    'vip.exclusivePrivileges': 'Privilegis exclusius',
+    'vip.exclusivePrivileges': 'Avantatges únics',
     'vip.privilegesSubtitle': 'Els beneficis que només els membres VIP poden gaudir',
     'vip.voicesOfExcellence': 'Veus d\'excel·lència',
     'vip.testimonialsSubtitle': 'Històries reals dels nostres membres VIP',
-    'vip.elite': 'ELITE',
-    'vip.innerCircleAwaits': 'EL TEU CERCLE INTERIOR T\'ESPERA',
+    'vip.elite': 'PREMIUM',
+    'vip.innerCircleAwaits': 'EL TEU ESPAI DE CURA T\'ESPERA',
     'vip.readyToTranscend': 'Preparat per transcendir',
-    'vip.transcend': 'el comú?',
+    'vip.transcend': 'fer un pas més?',
     'vip.transcendSubtitle': 'Uneix-te a l\'elit del benestar i experimenta un nou nivell de cura personal',
-    'vip.joinInnerCircle': 'Uneix-te al Inner Circle',
+    'vip.joinInnerCircle': 'Uneix-te al nostre programa',
     'vip.exclusiveExperiences': 'Experiències exclusives per a membres VIP',
-    
+
     // About Elena page
     'elena.title': 'Elena Kucherova - Terapeuta Integradora | EKA Balance',
     'elena.subtitle': 'Especialista en Kinesiologia i Sanació Somàtica',
@@ -170,7 +170,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'elena.connect.title': 'Connecta amb Elena',
     'elena.connect.email': 'Email',
     'elena.connect.whatsapp': 'WhatsApp',
-    
+
     // Revisio360 page
     'revisio360.title': 'Revisió 360° - Avaluació Integral | EKA Balance',
     'revisio360.badge': 'Visió completa del teu benestar',
@@ -212,14 +212,14 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'revisio360.testimonials.title': 'Què diuen els nostres clients',
     'revisio360.final.title': 'Descobreix el teu potencial de benestar',
     'revisio360.final.subtitle': 'Reserva la teva Revisió 360° i comença el camí cap a una vida més equilibrada i saludable',
-    
+
     // Personalized services
     'personalized.tailored': 'Personalitzat',
     'personalized.custom': 'A mida',
     'personalized.specific': 'Específic',
     'personalized.targeted': 'Dirigit',
     'personalized.specialized': 'Especialitzat',
-    
+
     // Casos section
     'casos.section.badge': 'Problemes que resolem',
     'casos.section.title': 'Descobreix si podem',
@@ -228,7 +228,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.readMore': 'Llegir més',
     'casos.section.viewAll': 'Veure tots els casos',
     'casos.section.findYourCase': 'Troba el teu cas',
-    
+
     // Problems
     'casos.problems.backPain.title': 'Dolor d\'esquena i coll',
     'casos.problems.backPain.description': 'Un dels motius més freqüents per venir a consulta. Dolor lumbar, contractures cervicals, rigidesa, o aquella sensació que "carregues el món a l\'esquena".',
@@ -288,7 +288,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'nutrition.testimonial.1.text': 'L\'assessorament nutricional ha canviat completament la meva relació amb el menjar. Ara tinc més energia i em sento molt millor.',
     'nutrition.testimonial.2.text': 'Els consells personalitzats m\'han ajudat a crear hàbits saludables que puc mantenir fàcilment. Resultat: més vitalitat cada dia.',
   },
-  
+
   en: {
     // Service-specific translations
     'service.duration': 'Duration',
@@ -302,7 +302,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Booking note',
     'service.sessions.recommended': 'Recommended sessions',
     'service.frequency': 'Frequency',
-    
+
     // Services page
     'services.integralWellbeingFor': 'Therapies for integral wellbeing',
     'services.ourServices': 'Our professional',
@@ -313,7 +313,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.quickBookingSubtitle': 'Contact us via WhatsApp or Telegram to book',
     'services.readyToStart': 'Ready to start?',
     'services.contactUsToBook': 'Contact us to book your session',
-    
+
     // Service benefits
     'services.benefits.reduces': 'Reduces pain',
     'services.benefits.stress': 'Relieves stress',
@@ -330,7 +330,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.benefits.plan': 'Personalized plan',
     'services.benefits.recommendations': 'Clear recommendations',
     'services.benefits.followup': 'Continuous follow-up',
-    
+
     // Pricing specific
     'pricing.from': 'From',
     'pricing.session': 'session',
@@ -340,11 +340,11 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'pricing.popular': 'Popular',
     'pricing.best.value': 'Best value',
     'pricing.limited.time': 'Limited time',
-    
+
     // VIP specific
     'vip.title': 'VIP Plans - Health & Wellness Control | EKA Balance',
     'vip.description': 'Exclusive VIP plans with home sessions, monthly health control and family benefits. Bronze, Silver and Gold VIP in Barcelona.',
-    'vip.badge': 'EXCLUSIVE VIP EXPERIENCE',
+    'vip.badge': 'EXCLUSIVE PERSONAL ATTENTION',
     'vip.hero.title': 'VIP Health Control Plans',
     'vip.hero.subtitle': 'Home sessions • Monthly control • Family benefits • Barcelona',
     'vip.stats.sessions': '1.5h Sessions',
@@ -396,25 +396,25 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.final.addressNote': 'Travel included according to plan',
     'vip.monthlySessionsOf': 'monthly 1.5h sessions',
     'vip.contactFor': 'Contact for',
-    'vip.innerCircle': 'INNER CIRCLE',
+    'vip.innerCircle': 'WELLNESS CIRCLE',
     'vip.beyond': 'Beyond',
     'vip.wellness': 'wellness',
     'vip.experienceDescription': 'An exclusive health and wellness experience designed for demanding professionals',
-    'vip.eliteMemberships': 'Elite Memberships',
+    'vip.eliteMemberships': 'Accompaniment Plans',
     'vip.eliteSubtitle': 'Choose the level of excellence you deserve',
     'vip.mostExclusive': 'MOST EXCLUSIVE',
-    'vip.exclusivePrivileges': 'Exclusive privileges',
+    'vip.exclusivePrivileges': 'Unique benefits',
     'vip.privilegesSubtitle': 'Benefits that only VIP members can enjoy',
     'vip.voicesOfExcellence': 'Voices of excellence',
     'vip.testimonialsSubtitle': 'Real stories from our VIP members',
-    'vip.elite': 'ELITE',
-    'vip.innerCircleAwaits': 'YOUR INNER CIRCLE AWAITS',
+    'vip.elite': 'PREMIUM',
+    'vip.innerCircleAwaits': 'YOUR CARE SPACE AWAITS',
     'vip.readyToTranscend': 'Ready to transcend',
-    'vip.transcend': 'the ordinary?',
+    'vip.transcend': 'take the next step?',
     'vip.transcendSubtitle': 'Join the wellness elite and experience a new level of personal care',
-    'vip.joinInnerCircle': 'Join the Inner Circle',
+    'vip.joinInnerCircle': 'Join our program',
     'vip.exclusiveExperiences': 'Exclusive experiences for VIP members',
-    
+
     // About Elena page
     'elena.title': 'Elena Kucherova - Integrative Therapist | EKA Balance',
     'elena.subtitle': 'Specialist in Kinesiology and Somatic Healing',
@@ -457,7 +457,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'elena.connect.title': 'Connect with Elena',
     'elena.connect.email': 'Email',
     'elena.connect.whatsapp': 'WhatsApp',
-    
+
     // Revisio360 page
     'revisio360.title': '360° Review - Comprehensive Assessment | EKA Balance',
     'revisio360.badge': 'Complete view of your wellness',
@@ -499,14 +499,14 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'revisio360.testimonials.title': 'What our clients say',
     'revisio360.final.title': 'Discover your wellness potential',
     'revisio360.final.subtitle': 'Book your 360° Review and start the path to a more balanced and healthy life',
-    
+
     // Personalized services
     'personalized.tailored': 'Tailored',
     'personalized.custom': 'Custom',
     'personalized.specific': 'Specific',
     'personalized.targeted': 'Targeted',
     'personalized.specialized': 'Specialized',
-    
+
     // Casos section
     'casos.section.badge': 'Problems we solve',
     'casos.section.title': 'Discover if we can',
@@ -515,7 +515,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.readMore': 'Read more',
     'casos.section.viewAll': 'View all cases',
     'casos.section.findYourCase': 'Find your case',
-    
+
     // Problems
     'casos.problems.backPain.title': 'Back and neck pain',
     'casos.problems.backPain.description': 'One of the most frequent reasons for coming to consultation. Lower back pain, cervical contractures, stiffness, or that feeling that you "carry the world on your back".',
@@ -675,7 +675,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'nutrition.testimonial.1.text': 'Nutritional counseling has completely changed my relationship with food. Now I have more energy and feel much better.',
     'nutrition.testimonial.2.text': 'Personalized advice has helped me create healthy habits that I can easily maintain. Result: more vitality every day.',
   },
-  
+
   es: {
     // Service-specific translations
     'service.duration': 'Duración',
@@ -689,7 +689,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Nota de reserva',
     'service.sessions.recommended': 'Sesiones recomendadas',
     'service.frequency': 'Frecuencia',
-    
+
     // Services page
     'services.integralWellbeingFor': 'Terapias para el bienestar integral',
     'services.ourServices': 'Nuestros servicios',
@@ -700,7 +700,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.quickBookingSubtitle': 'Contáctanos por WhatsApp o Telegram para reservar',
     'services.readyToStart': '¿Listo para empezar?',
     'services.contactUsToBook': 'Contáctanos para reservar tu sesión',
-    
+
     // Service benefits
     'services.benefits.reduces': 'Reduce el dolor',
     'services.benefits.stress': 'Alivia el estrés',
@@ -717,7 +717,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.benefits.plan': 'Plan personalizado',
     'services.benefits.recommendations': 'Recomendaciones claras',
     'services.benefits.followup': 'Seguimiento continuo',
-    
+
     // Pricing specific
     'pricing.from': 'Desde',
     'pricing.session': 'sesión',
@@ -727,11 +727,11 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'pricing.popular': 'Popular',
     'pricing.best.value': 'Mejor valor',
     'pricing.limited.time': 'Tiempo limitado',
-    
+
     // VIP specific
     'vip.title': 'Planes VIP - Control de Salud y Bienestar | EKA Balance',
     'vip.description': 'Planes VIP exclusivos con sesiones a domicilio, control de salud mensual y beneficios familiares. Bronze, Silver y Gold VIP en Barcelona.',
-    'vip.badge': 'EXPERIENCIA VIP EXCLUSIVA',
+    'vip.badge': 'ATENCIÓN PERSONAL Y EXCLUSIVA',
     'vip.hero.title': 'Planes VIP de Control de Salud',
     'vip.hero.subtitle': 'Sesiones a domicilio • Control mensual • Beneficios familiares • Barcelona',
     'vip.stats.sessions': 'Sesiones 1,5h',
@@ -783,25 +783,25 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.final.addressNote': 'Desplazamientos incluidos según el plan',
     'vip.monthlySessionsOf': 'sesiones mensuales de 1,5h',
     'vip.contactFor': 'Contacta para',
-    'vip.innerCircle': 'INNER CIRCLE',
+    'vip.innerCircle': 'CÍRCULO DE BIENESTAR',
     'vip.beyond': 'Más allá del',
     'vip.wellness': 'bienestar',
     'vip.experienceDescription': 'Una experiencia exclusiva de salud y bienestar diseñada para profesionales exigentes',
-    'vip.eliteMemberships': 'Membresías Elite',
+    'vip.eliteMemberships': 'Planes de Acompañamiento',
     'vip.eliteSubtitle': 'Elige el nivel de excelencia que mereces',
     'vip.mostExclusive': 'MÁS EXCLUSIVO',
-    'vip.exclusivePrivileges': 'Privilegios exclusivos',
+    'vip.exclusivePrivileges': 'Ventajas únicas',
     'vip.privilegesSubtitle': 'Beneficios que solo los miembros VIP pueden disfrutar',
     'vip.voicesOfExcellence': 'Voces de excelencia',
     'vip.testimonialsSubtitle': 'Historias reales de nuestros miembros VIP',
-    'vip.elite': 'ELITE',
-    'vip.innerCircleAwaits': 'TU CÍRCULO INTERIOR TE ESPERA',
+    'vip.elite': 'PREMIUM',
+    'vip.innerCircleAwaits': 'TU ESPACIO DE CUIDADO TE ESPERA',
     'vip.readyToTranscend': 'Listo para trascender',
-    'vip.transcend': 'lo común?',
+    'vip.transcend': 'dar el siguiente paso?',
     'vip.transcendSubtitle': 'Únete a la élite del bienestar y experimenta un nuevo nivel de cuidado personal',
-    'vip.joinInnerCircle': 'Únete al Inner Circle',
+    'vip.joinInnerCircle': 'Únete a nuestro programa',
     'vip.exclusiveExperiences': 'Experiencias exclusivas para miembros VIP',
-    
+
     // About Elena page
     'elena.title': 'Elena Kucherova - Terapeuta Integradora | EKA Balance',
     'elena.subtitle': 'Especialista en Kinesiología y Sanación Somática',
@@ -844,7 +844,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'elena.connect.title': 'Conecta con Elena',
     'elena.connect.email': 'Email',
     'elena.connect.whatsapp': 'WhatsApp',
-    
+
     // Revisio360 page
     'revisio360.title': 'Revisión 360° - Evaluación Integral | EKA Balance',
     'revisio360.badge': 'Visión completa de tu bienestar',
@@ -886,14 +886,14 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'revisio360.testimonials.title': 'Qué dicen nuestros clientes',
     'revisio360.final.title': 'Descubre tu potencial de bienestar',
     'revisio360.final.subtitle': 'Reserva tu Revisión 360° y comienza el camino hacia una vida más equilibrada y saludable',
-    
+
     // Personalized services
     'personalized.tailored': 'Personalizado',
     'personalized.custom': 'A medida',
     'personalized.specific': 'Específico',
     'personalized.targeted': 'Dirigido',
     'personalized.specialized': 'Especializado',
-    
+
     // Casos section
     'casos.section.badge': 'Problemas que resolvemos',
     'casos.section.title': 'Descubre si podemos',
@@ -902,7 +902,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.readMore': 'Leer más',
     'casos.section.viewAll': 'Ver todos los casos',
     'casos.section.findYourCase': 'Encuentra tu caso',
-    
+
     // Problems
     'casos.problems.backPain.title': 'Dolor de espalda y cuello',
     'casos.problems.backPain.description': 'Uno de los motivos más frecuentes para venir a consulta. Dolor lumbar, contracturas cervicales, rigidez, o esa sensación de "cargar el mundo en la espalda".',
@@ -1062,7 +1062,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'nutrition.testimonial.1.text': 'El asesoramiento nutricional ha cambiado completamente mi relación con la comida. Ahora tengo más energía y me siento mucho mejor.',
     'nutrition.testimonial.2.text': 'Los consejos personalizados me han ayudado a crear hábitos saludables que puedo mantener fácilmente. Resultado: más vitalidad cada día.',
   },
-  
+
   ru: {
     // Service-specific translations
     'service.duration': 'Продолжительность',
@@ -1076,7 +1076,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.booking.note': 'Примечание к бронированию',
     'service.sessions.recommended': 'Рекомендуемые сессии',
     'service.frequency': 'Частота',
-    
+
     // Services page
     'services.integralWellbeingFor': 'Терапии для комплексного благополучия',
     'services.ourServices': 'Наши профессиональные',
@@ -1087,7 +1087,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.quickBookingSubtitle': 'Свяжитесь с нами через WhatsApp или Telegram для бронирования',
     'services.readyToStart': 'Готовы начать?',
     'services.contactUsToBook': 'Свяжитесь с нами, чтобы забронировать сессию',
-    
+
     // Service benefits
     'services.benefits.reduces': 'Уменьшает боль',
     'services.benefits.stress': 'Снимает стресс',
@@ -1104,7 +1104,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'services.benefits.plan': 'Персонализированный план',
     'services.benefits.recommendations': 'Четкие рекомендации',
     'services.benefits.followup': 'Постоянное наблюдение',
-    
+
     // Pricing specific
     'pricing.from': 'От',
     'pricing.session': 'сессия',
@@ -1114,7 +1114,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'pricing.popular': 'Популярный',
     'pricing.best.value': 'Лучшая цена',
     'pricing.limited.time': 'Ограниченное время',
-    
+
     // VIP specific
     'vip.title': 'VIP планы - Контроль здоровья и благополучия | EKA Balance',
     'vip.description': 'Эксклюзивные VIP планы с домашними сессиями, ежемесячным контролем здоровья и семейными льготами. Bronze, Silver и Gold VIP в Барселоне.',
@@ -1166,7 +1166,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.testimonials.comment3': 'План Silver VIP позволил мне заботиться о своей семье и поддерживать баланс между профессиональной и личной жизнью. Стоящая инвестиция.',
     'vip.final.title': 'Присоединяйтесь к VIP кругу',
     'vip.final.subtitle': 'Начните пользоваться эксклюзивными преимуществами сегодня',
-    'vip.final.address': 'Каррер Пелай, 12, Барселона',
+    'vip.final.address': 'Carrer Pelai, 12, Barcelona',
     'vip.final.addressNote': 'Выезды включены согласно плану',
     'vip.monthlySessionsOf': 'ежемесячных сессий по 1,5ч',
     'vip.contactFor': 'Связаться для',
@@ -1188,7 +1188,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.transcendSubtitle': 'Присоединяйтесь к элите благополучия и испытайте новый уровень личной заботы',
     'vip.joinInnerCircle': 'Присоединиться к Inner Circle',
     'vip.exclusiveExperiences': 'Эксклюзивный опыт для VIP членов',
-    
+
     // About Elena page
     'elena.title': 'Елена Кучерова - Интегративный терапевт | EKA Balance',
     'elena.subtitle': 'Специалист по кинезиологии и соматическому исцелению',
@@ -1231,7 +1231,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'elena.connect.title': 'Свяжитесь с Еленой',
     'elena.connect.email': 'Email',
     'elena.connect.whatsapp': 'WhatsApp',
-    
+
     // Revisio360 page
     'revisio360.title': 'Обзор 360° - Комплексная оценка | EKA Balance',
     'revisio360.badge': 'Полная картина вашего благополучия',
@@ -1273,14 +1273,14 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'revisio360.testimonials.title': 'Что говорят наши клиенты',
     'revisio360.final.title': 'Откройте свой потенциал благополучия',
     'revisio360.final.subtitle': 'Забронируйте свой Обзор 360° и начните путь к более сбалансированной и здоровой жизни',
-    
+
     // Personalized services
     'personalized.tailored': 'Индивидуальный',
     'personalized.custom': 'На заказ',
     'personalized.specific': 'Специфический',
     'personalized.targeted': 'Целевой',
     'personalized.specialized': 'Специализированный',
-    
+
     // Casos section
     'casos.section.badge': 'Проблемы, которые мы решаем',
     'casos.section.title': 'Узнайте, можем ли мы',
@@ -1289,7 +1289,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'casos.section.readMore': 'Читать далее',
     'casos.section.viewAll': 'Посмотреть все случаи',
     'casos.section.findYourCase': 'Найти ваш случай',
-    
+
     // Problems
     'casos.problems.backPain.title': 'Боль в спине и шее',
     'casos.problems.backPain.description': 'Одна из самых частых причин обращения к консультации. Поясничная боль, шейные контрактуры, скованность или ощущение "ношения мира на спине".',

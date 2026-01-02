@@ -63,7 +63,7 @@ export default function Home() {
     }
   ];
 
-  
+
 
   const stats = [
     { number: '1500+', label: t('hero.stats.sessions') },
@@ -82,7 +82,7 @@ export default function Home() {
       <Layout>
         {/* Apple-style Hero Section */}
         <AppleHero />
-        
+
         {/* Stats Section */}
         <section className="py-16 bg-white border-t border-gray-100">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
@@ -122,17 +122,17 @@ export default function Home() {
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
                     {t('elena.greeting')}
                   </h2>
-                  
+
                   <div className="text-lg sm:text-xl text-gray-700 leading-relaxed space-y-4">
                     <p>
                       {t('elena.description1')}
                     </p>
-                    
+
                     <p>
                       {t('elena.description2')}
                     </p>
                   </div>
-                  
+
                   {/* CTA Button */}
                   <div className="pt-4">
                     <Link
@@ -152,18 +152,18 @@ export default function Home() {
         <section className="py-16 sm:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-8">
+              <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-2xl mb-8">
                 <Heart className="w-5 h-5 text-blue-600 mr-2" />
                 <span className="text-blue-700 font-medium">{t('services.ourServices')}</span>
               </div>
-              
+
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6">
                 {t('services.therapiesFor')}{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
                   {t('services.integralWellbeing')}
                 </span>
               </h2>
-              
+
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 {t('services.personalizedTreatments')}
               </p>
@@ -171,7 +171,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {services.map((service) => {
-                
+
                 return (
                   <div
                     key={service.id}
@@ -276,7 +276,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials with Background Image */}
-        <TestimonialSlider 
+        <TestimonialSlider
           backgroundImage="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop"
         />
 
@@ -337,7 +337,7 @@ export default function Home() {
 
         {/* FAQ Section */}
         <FAQ />
-        
+
         {/* Final CTA */}
         <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
@@ -347,7 +347,7 @@ export default function Home() {
             <p className="text-xl mb-8 text-gray-300">
               {t('finalCta.subtitle')}
             </p>
-            
+
             <div className="flex justify-center">
               <button
                 onClick={navigateToBooking}
@@ -359,7 +359,7 @@ export default function Home() {
           </div>
         </section>
 
-        
+
       </Layout>
     </SEOOptimized>
   );

@@ -44,7 +44,7 @@ export default function PricingSection() {
         .select('data')
         .eq('key', 'pricing_plans')
         .single();
-      
+
       if (data) {
         setPlans(data.data as any[]);
       }
@@ -64,18 +64,18 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-6 py-3 bg-yellow-100 rounded-full mb-8">
+          <div className="inline-flex items-center px-6 py-3 bg-yellow-100 rounded-2xl mb-8">
             <Sparkles className="w-5 h-5 text-yellow-600 mr-2" />
             <span className="text-yellow-600 font-medium">Tarifes transparents</span>
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
             Tria el teu{' '}
             <span className="text-yellow-500 font-medium">
               pla de benestar
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
             Packs dissenyats per a cada necessitat, amb la flexibilitat i qualitat que et mereixes
           </p>
@@ -93,17 +93,16 @@ export default function PricingSection() {
             const originalSavings = calculateSavings(plan.price, plan.originalPrice);
             const additionalSavings = selectedDiscount ? plan.price - discountedPrice : 0;
             const totalSavings = originalSavings + (additionalSavings > 0 ? Math.round((additionalSavings / plan.price) * 100) : 0);
-            
+
             return (
               <div
                 key={plan.id}
-                className={`aurora-glass-card relative cursor-pointer transition-all duration-300 ${
-                  plan.popular 
-                    ? 'ring-2 ring-yellow-400/50 transform scale-105' 
+                className={`aurora-glass-card relative cursor-pointer transition-all duration-300 ${plan.popular
+                    ? 'ring-2 ring-yellow-400/50 transform scale-105'
                     : selectedPlan === plan.id
-                    ? 'ring-2 ring-yellow-400/50'
-                    : ''
-                }`}
+                      ? 'ring-2 ring-yellow-400/50'
+                      : ''
+                  }`}
                 onClick={() => setSelectedPlan(selectedPlan === plan.id ? null : plan.id)}
               >
                 {/* Popular Badge */}
@@ -128,11 +127,11 @@ export default function PricingSection() {
                     <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-yellow-600" />
                     </div>
-                    
+
                     <h3 className="text-2xl font-medium text-gray-900 mb-2">
                       {plan.name}
                     </h3>
-                    
+
                     <p className="text-gray-600 text-sm">
                       {plan.description}
                     </p>
@@ -175,11 +174,10 @@ export default function PricingSection() {
                   {/* CTA Button */}
                   <button
                     onClick={navigateToBooking}
-                    className={`w-full py-4 rounded-xl font-medium transition-all duration-200 text-center ${
-                      plan.popular
+                    className={`w-full py-4 rounded-xl font-medium transition-all duration-200 text-center ${plan.popular
                         ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-900 shadow-sm hover:shadow-md'
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                    }`}
+                      }`}
                   >
                     {plan.buttonText}
                   </button>

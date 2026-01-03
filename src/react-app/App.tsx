@@ -4,6 +4,7 @@ import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext.tsx';
 import { Cursor } from './components/MotionPrimitives';
 import ErrorBoundary from './components/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
+import Layout from './components/Layout';
 import { BookingProvider } from './components/BookingProvider';
 import { LanguageProvider } from './contexts/LanguageContext.tsx';
 import { DiscountProvider } from './contexts/DiscountContext.tsx';
@@ -136,7 +137,9 @@ export default function App() {
               <Router>
                 <BookingProvider>
                   <ScrollToTop />
-                  <AppRoutes />
+                  <Layout>
+                    <AppRoutes />
+                  </Layout>
                 </BookingProvider>
               </Router>
             </DiscountProvider>

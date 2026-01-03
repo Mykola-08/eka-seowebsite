@@ -4,10 +4,10 @@ import { Button } from 'keep-react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 const heroImages = [
-  'https://images.pexels.com/photos/3779165/pexels-photo-3779165.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Park Guell View
-  'https://images.pexels.com/photos/6724508/pexels-photo-6724508.jpeg?auto=compress&cs=tinysrgb&w=1920', // Spa/Flowers/Candles
+  'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Skyline
+  'https://images.pexels.com/photos/3951913/pexels-photo-3951913.jpeg?auto=compress&cs=tinysrgb&w=1920', // Massage Therapy
   'https://images.pexels.com/photos/5793649/pexels-photo-5793649.jpeg?auto=compress&cs=tinysrgb&w=1920', // Bodywork/Therapy
-  'https://images.pexels.com/photos/8467963/pexels-photo-8467963.jpeg?auto=compress&cs=tinysrgb&w=1920', // Supplements/Oils
+  'https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1920', // Essential Oils
   'https://images.pexels.com/photos/7176076/pexels-photo-7176076.jpeg?auto=compress&cs=tinysrgb&w=1920', // Counseling/Talking
 ];
 export default function AppleHero() {
@@ -41,7 +41,9 @@ export default function AppleHero() {
       </div>
 
       {/* Main Title */}
-      <h1 className="apple-large-title text-white mb-8 font-black tracking-tight">{t('hero.title')}</h1>
+      <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-black tracking-tighter drop-shadow-2xl">
+        {t('hero.title')}
+      </h1>
 
       {/* Subtitle */}
       <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto">

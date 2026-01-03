@@ -652,3 +652,29 @@ html {
 .card-360-hover {
   @apply transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-2;
 }
+
+/* VIP Gold Shimmer Effect */
+.gold-shimmer {
+  background: linear-gradient(
+    to right,
+    #bf953f 0%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #bf953f 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shine 3s linear infinite;
+  display: inline-block;
+  font-weight: 800;
+}
+
+@keyframes gold-shine {
+  to {
+    background-position: 200% center;
+  }
+}

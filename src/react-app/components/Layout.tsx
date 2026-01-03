@@ -217,9 +217,8 @@ export default function Layout({
                     ) : (
                       <Link
                         to={item.href}
-                        className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${
-                          item.isGold
-                            ? 'text-amber-700 font-bold bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-yellow-200/50 hover:from-yellow-100 hover:via-amber-100 hover:to-yellow-100 hover:text-amber-900 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] hover:border-yellow-400/50'
+                        className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${item.isGold
+                            ? 'gold-shimmer font-black bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-yellow-200/50 hover:from-yellow-100 hover:via-amber-100 hover:to-yellow-100'
                             : isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
                           }`}
                       >
@@ -309,8 +308,7 @@ export default function Layout({
                       <Link
                         to={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${
-                          item.isGold
+                        className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${item.isGold
                             ? 'text-amber-600 bg-amber-50 border border-amber-100 font-bold'
                             : isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'
                           }`}

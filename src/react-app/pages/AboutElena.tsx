@@ -1,6 +1,5 @@
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
@@ -29,7 +28,6 @@ export default function AboutElena() {
   ];
 
   return (
-    <Layout>
       <SEOHead
         title={t('elena.seo.title')}
         description={t('elena.seo.desc')}
@@ -38,7 +36,7 @@ export default function AboutElena() {
       />
 
       <div className="bg-black min-h-screen text-zinc-200 selection:bg-amber-500/30">
-        
+
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden">
           {/* Ambient Background */}
@@ -49,7 +47,7 @@ export default function AboutElena() {
 
           <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 text-center">
             {/* Profile Image with Glow */}
-            <motion.div 
+            <motion.div
               className="relative max-w-xs mx-auto mb-12"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -58,28 +56,28 @@ export default function AboutElena() {
               <div className="relative group">
                 <img
                   src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
-                  alt="Elena Kucherova"
+                  alt="Elena Kuchera"
                   className="relative w-full h-auto rounded-full object-cover aspect-square"
                 />
               </div>
             </motion.div>
 
             {/* Name and Title */}
-            <motion.div 
+            <motion.div
               className="space-y-6 mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 tracking-tight">
-                Elena Kucherova
+                Elena Kuchera
               </h1>
-              
+
               <div className="space-y-4">
                 <p className="text-2xl sm:text-3xl text-amber-400 font-black tracking-wide">
                   {t('elena.greeting')}
                 </p>
-                <p className="text-xl sm:text-2xl text-blue-400 font-bold tracking-wide">
+                <p className="text-xl sm:text-2xl text-blue-400 font-black tracking-wide">
                   {t('elena.role')}
                 </p>
                 <p className="text-lg sm:text-xl text-zinc-400 font-light max-w-2xl mx-auto">
@@ -96,7 +94,7 @@ export default function AboutElena() {
             </motion.div>
 
             {/* Experience Badge */}
-            <motion.div 
+            <motion.div
               className="inline-flex items-center px-8 py-3 bg-white/5 backdrop-blur-md rounded-full border border-amber-500/20 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -111,7 +109,7 @@ export default function AboutElena() {
         {/* About Elena (Approach) */}
         <section className="py-20 relative">
           <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +121,7 @@ export default function AboutElena() {
               </h2>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="prose prose-lg prose-invert max-w-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +138,7 @@ export default function AboutElena() {
         {/* Techniques (Education & Training) */}
         <section className="py-20 bg-zinc-900/30 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +156,7 @@ export default function AboutElena() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {techniques.map((technique, index) => (
                 <Link to={`/technique/${technique.id}`} key={index}>
-                  <motion.div 
+                  <motion.div
                     className="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-amber-500/30 transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -182,7 +180,7 @@ export default function AboutElena() {
         {/* Target Groups (Specializations) */}
         <section className="py-20 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -196,7 +194,7 @@ export default function AboutElena() {
 
             <div className="grid grid-cols-1 gap-6">
               {targetGroups.map((group, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-8 border border-white/10 hover:border-amber-500/40 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
@@ -221,7 +219,7 @@ export default function AboutElena() {
         {/* How to Work with Elena */}
         <section className="py-20 relative">
           <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -289,7 +287,7 @@ export default function AboutElena() {
         {/* Contact Links */}
         <section className="py-20 bg-black border-t border-white/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-light text-amber-100 mb-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -298,8 +296,8 @@ export default function AboutElena() {
             >
               {t('elena.connect.title')}
             </motion.h3>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row justify-center gap-6 mb-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -313,7 +311,7 @@ export default function AboutElena() {
                 <Mail className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" />
                 <span className="text-zinc-300 group-hover:text-amber-100">{t('elena.connect.email')}</span>
               </a>
-              
+
               <a
                 href="https://wa.me/34658867133"
                 target="_blank"
@@ -325,7 +323,7 @@ export default function AboutElena() {
               </a>
             </motion.div>
 
-            <motion.p 
+            <motion.p
               className="text-zinc-500 font-light text-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -339,6 +337,5 @@ export default function AboutElena() {
           </div>
         </section>
       </div>
-    </Layout>
   );
 }

@@ -2,13 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { 
-  Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, 
-  Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond, 
-  User, Calendar 
+import {
+  Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle,
+  Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond,
+  User, Calendar
 } from 'lucide-react';
 
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
@@ -242,18 +241,18 @@ export default function VIPUltraPremium() {
       />
 
       <div className="bg-black min-h-screen text-white selection:bg-amber-500/30">
-        
+
         {/* --- Hero Section --- */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           {/* Background Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-black to-black" />
-            <motion.div 
+            <motion.div
               className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px]"
               animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
               transition={{ duration: 8, repeat: Infinity }}
             />
-            <motion.div 
+            <motion.div
               className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-700/10 rounded-full blur-[100px]"
               animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.2, 1] }}
               transition={{ duration: 10, repeat: Infinity, delay: 2 }}
@@ -312,7 +311,7 @@ export default function VIPUltraPremium() {
                   <ArrowRight className="w-4 h-4" />
                 </span>
               </a>
-              
+
               <a
                 href="tel:+34658867133"
                 className="px-8 py-4 border border-zinc-700 text-zinc-300 rounded-full hover:bg-zinc-900 transition-colors flex items-center gap-2"
@@ -343,7 +342,7 @@ export default function VIPUltraPremium() {
                     </span>
                   </p>
                 </div>
-                
+
                 <div className="flex gap-4">
                   {vipTier !== 'none' ? (
                     <Link
@@ -433,11 +432,9 @@ export default function VIPUltraPremium() {
                     transition={{ delay: index * 0.1 }}
                     onMouseEnter={() => setHoveredPlan(plan.tier)}
                     onMouseLeave={() => setHoveredPlan(null)}
-                    className={`relative rounded-3xl border transition-all duration-500 overflow-hidden ${
-                      plan.popular ? 'lg:-mt-8 lg:mb-8 z-10' : ''
-                    } ${isHovered ? colors.hoverBorder : colors.border} ${colors.bg} ${
-                      plan.tier === 'gold' && isHovered ? 'shadow-[0_0_60px_rgba(245,158,11,0.3)] ring-1 ring-amber-400/50 scale-[1.02]' : ''
-                    }`}
+                    className={`relative rounded-3xl border transition-all duration-500 overflow-hidden ${plan.popular ? 'lg:-mt-8 lg:mb-8 z-10' : ''
+                      } ${isHovered ? colors.hoverBorder : colors.border} ${colors.bg} ${plan.tier === 'gold' && isHovered ? 'shadow-[0_0_60px_rgba(245,158,11,0.3)] ring-1 ring-amber-400/50 scale-[1.02]' : ''
+                      }`}
                   >
                     {plan.tier === 'gold' && (
                       <div className={`absolute inset-0 bg-gradient-to-tr from-amber-500/0 via-amber-500/5 to-amber-500/0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
@@ -475,11 +472,10 @@ export default function VIPUltraPremium() {
                         href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.message', { plan: t(plan.name) }))}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block w-full py-4 rounded-xl text-center font-medium transition-all duration-300 ${
-                          plan.popular 
-                            ? 'bg-amber-500 text-black hover:bg-amber-400' 
+                        className={`block w-full py-4 rounded-xl text-center font-medium transition-all duration-300 ${plan.popular
+                            ? 'bg-amber-500 text-black hover:bg-amber-400'
                             : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-                        }`}
+                          }`}
                       >
                         {t('vip.plans.contact')}
                       </a>
@@ -558,9 +554,8 @@ export default function VIPUltraPremium() {
                         <Star key={i} className="w-4 h-4 text-amber-500 fill-current" />
                       ))}
                     </div>
-                    <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                      testimonial.tier === 'GOLD' ? 'bg-amber-500/20 text-amber-400' : 'bg-zinc-800 text-zinc-400'
-                    }`}>
+                    <span className={`text-xs font-bold px-3 py-1 rounded-full ${testimonial.tier === 'GOLD' ? 'bg-amber-500/20 text-amber-400' : 'bg-zinc-800 text-zinc-400'
+                      }`}>
                       {testimonial.tier}
                     </span>
                   </div>
@@ -580,7 +575,7 @@ export default function VIPUltraPremium() {
         {/* --- Final CTA --- */}
         <section className="py-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-amber-950/10 to-black pointer-events-none" />
-          
+
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-amber-500/30 bg-amber-950/30 backdrop-blur-sm mb-12">
               <Heart className="w-4 h-4 text-amber-400" />
@@ -612,6 +607,6 @@ export default function VIPUltraPremium() {
         </section>
 
       </div>
-    </Layout>
+    </>
   );
 }

@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
@@ -146,7 +145,7 @@ export default function Services() {
 
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('seo.services.title')}
         description={t('seo.services.description')}
@@ -395,6 +394,6 @@ export default function Services() {
       </section>
 
 
-    </Layout>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useDiscount } from '@/react-app/hooks/useDiscount';
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
 import { useState } from 'react';
@@ -19,7 +18,7 @@ export default function Discounts() {
   };
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('discounts.pageTitle')}
         description={t('discounts.pageDescription')}
@@ -253,6 +252,6 @@ export default function Discounts() {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   );
 }

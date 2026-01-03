@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
@@ -31,7 +30,7 @@ export default function KinesiologiaPage() {
   const durations = [60, 90];
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('seo.kinesiology.title')}
         description={t('seo.kinesiology.description')}
@@ -220,6 +219,6 @@ export default function KinesiologiaPage() {
       </section>
 
 
-    </Layout>
+    </>
   );
 }

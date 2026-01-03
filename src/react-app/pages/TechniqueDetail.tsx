@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin } from 'lucide-react';
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
@@ -25,16 +24,14 @@ export default function TechniqueDetail() {
 
   if (!baseKey) {
     return (
-      <Layout>
         <div className="min-h-screen bg-black flex items-center justify-center text-white">
           Technique not found
         </div>
-      </Layout>
     );
   }
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={`${t(`${baseKey}.title`)} - Elena Kucherova`}
         description={t(`${baseKey}.desc`)}

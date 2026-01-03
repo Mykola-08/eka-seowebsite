@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
@@ -42,7 +41,7 @@ export default function NutricioPage() {
   ];
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('seo.nutrition.title')}
         description={t('seo.nutrition.description')}
@@ -233,6 +232,6 @@ export default function NutricioPage() {
       </section>
 
 
-    </Layout>
+    </>
   );
 }

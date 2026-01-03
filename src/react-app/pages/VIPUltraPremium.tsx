@@ -9,7 +9,6 @@ import {
 } from 'lucide-react';
 
 import SEOHead from '@/react-app/components/SEOHead';
-import Layout from '@/react-app/components/Layout';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
@@ -213,7 +212,7 @@ export default function VIPUltraPremium() {
         };
       case 'gold':
         return {
-          border: 'border-amber-400/50',
+          border: 'border-transparent',
           hoverBorder: 'border-amber-300',
           accent: 'text-amber-300',
           bg: 'bg-amber-900/20',
@@ -234,7 +233,7 @@ export default function VIPUltraPremium() {
   };
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('seo.vip.title')}
         description={t('seo.vip.description')}
@@ -438,7 +437,22 @@ export default function VIPUltraPremium() {
                       }`}
                   >
                     {plan.tier === 'gold' && (
-                      <div className={`absolute inset-0 bg-gradient-to-tr from-amber-500/0 via-amber-500/5 to-amber-500/0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+                      <>
+                        <div className={`absolute inset-0 bg-gradient-to-tr from-amber-500/0 via-amber-500/5 to-amber-500/0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+                        <motion.div
+                          className="absolute inset-0 pointer-events-none"
+                          initial={{ x: '-100%' }}
+                          animate={{ x: '200%' }}
+                          transition={{
+                            repeat: Infinity,
+                            repeatDelay: 3,
+                            duration: 2,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-amber-400/10 to-transparent -skew-x-12" />
+                        </motion.div>
+                      </>
                     )}
                     {plan.popular && (
                       <div className="absolute top-0 left-0 w-full py-2 bg-amber-500 text-black text-center text-xs font-bold uppercase tracking-wider">
@@ -608,6 +622,6 @@ export default function VIPUltraPremium() {
         </section>
 
       </div>
-    </Layout>
+    </>
   );
 }

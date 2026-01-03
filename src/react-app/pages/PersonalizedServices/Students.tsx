@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { Link } from 'react-router';
@@ -9,7 +8,7 @@ export default function Students() {
   const { t } = useLanguage();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('students.seo.title')}
         description={t('students.seo.desc')}
@@ -192,6 +191,6 @@ export default function Students() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

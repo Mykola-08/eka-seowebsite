@@ -19,9 +19,23 @@ export default function Services() {
     href: string;
     benefits: string[];
     isExternal?: boolean;
+    fullWidth?: boolean;
   }
 
   const services: ServiceItem[] = [
+    {
+      id: 'consultation',
+      title: t('services.consultation.title'),
+      subtitle: t('services.consultation.feeling'),
+      description: t('services.consultation.description'),
+      icon: Heart,
+      color: 'blue',
+      durations: [15],
+      image: 'https://images.pexels.com/photos/2962135/pexels-photo-2962135.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      href: '/contact',
+      benefits: [t('services.benefits.assessment'), t('services.benefits.recommendations'), t('services.benefits.plan')],
+      fullWidth: true
+    },
     {
       id: 'massatge',
       title: t('services.massage.title'),
@@ -180,21 +194,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Consultation Banner */}
-      <section className="bg-blue-600 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-          <p className="text-white font-medium text-lg">
-            {t('booking.service.consultation')}
-          </p>
-          <Link
-            to="/booking?service=consultation"
-            className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-2 rounded-full transition-colors duration-200 text-sm"
-          >
-            {t('common.bookNow')}
-          </Link>
-        </div>
-      </section>
-
       {/* Services Grid */}
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -205,7 +204,7 @@ export default function Services() {
               return (
                 <div
                   key={service.id}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full flex flex-col"
+                  className={`group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full flex flex-col ${service.fullWidth ? 'lg:col-span-2' : ''}`}
                 >
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden flex-shrink-0">

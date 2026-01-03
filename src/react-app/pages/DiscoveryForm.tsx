@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList } from 'lucide-react';
 import { Link } from 'react-router';
@@ -542,7 +541,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
   if (showRecommendation && recommendation) {
     return (
-      <Layout>
+      <>
         <SEOHead
           title={t('discovery.recommendation.title')}
           description={t('discovery.recommendation.subtitle')}
@@ -761,12 +760,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             </div>
           </div>
         </section>
-      </Layout>
-    );
-  }
+    </>
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title="Descobreix el teu servei ideal - EKA Balance"
         description="Formulari personalitzat per trobar el servei de teràpia holística que millor s'adapti a les teves necessitats específiques."
@@ -1031,6 +1028,6 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

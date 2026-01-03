@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
@@ -31,7 +30,7 @@ export default function MassatgePage() {
   const durations = [60, 90, 120];
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('seo.massage.title')}
         description={t('seo.massage.description')}
@@ -221,6 +220,6 @@ export default function MassatgePage() {
       </section>
 
 
-    </Layout>
+    </>
   );
 }

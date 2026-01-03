@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { Link } from 'react-router';
@@ -10,7 +9,7 @@ export default function OfficeWorkers() {
   const { t } = useLanguage();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('office.seo.title')}
         description={t('office.seo.desc')}
@@ -193,6 +192,6 @@ export default function OfficeWorkers() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

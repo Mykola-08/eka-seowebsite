@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Sparkles, Zap, Shield, Brain } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
@@ -9,7 +8,7 @@ export default function AgenyzPage() {
     const { t } = useLanguage();
 
     return (
-        <Layout>
+        <>
             <SEOHead
                 title="Agenyz - Cellular Nutrition"
                 description="Biohacking and advanced supplements for cellular regeneration."
@@ -143,6 +142,6 @@ export default function AgenyzPage() {
                     </div>
                 </div>
             </section>
-        </Layout>
+        </>
     );
 }

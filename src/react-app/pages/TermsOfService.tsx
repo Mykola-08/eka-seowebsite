@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
@@ -11,7 +10,7 @@ export default function TermsOfService() {
       description="Terms of Service for EKA Balance wellness center"
       url="https://ekabalance.com/terms-of-service"
     >
-      <Layout>
+      
         <div className="min-h-screen bg-gray-50 py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
@@ -468,7 +467,7 @@ export default function TermsOfService() {
             </div>
           </div>
         </div>
-      </Layout>
+      
     </SEOOptimized>
   );
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
@@ -106,7 +105,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
   };
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('booking.title')}
         description={t('booking.description')}
@@ -345,6 +344,6 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </p>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

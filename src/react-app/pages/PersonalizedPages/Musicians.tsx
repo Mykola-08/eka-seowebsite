@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Music, Clock, CheckCircle, ArrowRight } from 'lucide-react';
@@ -33,7 +32,6 @@ export default function MusiciansPersonalized() {
       keywords={t('seo.musicians.keywords')}
       url="https://ekabalance.com/for-musicians"
     >
-      <Layout>
         {/* Hero Section */}
         <section className="py-16 sm:py-24 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-8">
@@ -177,7 +175,6 @@ export default function MusiciansPersonalized() {
             </div>
           </div>
         </section>
-      </Layout>
     </SEOOptimized>
   );
 }

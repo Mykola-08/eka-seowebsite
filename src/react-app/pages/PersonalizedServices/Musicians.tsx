@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
@@ -39,7 +38,7 @@ export default function Musicians() {
   const { t } = useLanguage();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('musicians.seo.title')}
         description={t('musicians.seo.desc')}
@@ -290,6 +289,6 @@ export default function Musicians() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

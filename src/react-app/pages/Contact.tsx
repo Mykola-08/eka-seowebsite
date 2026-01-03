@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import ContactFormOptimized from '@/react-app/components/ContactFormOptimized';
 import { MessageCircle, Phone } from 'lucide-react';
@@ -14,7 +13,6 @@ export default function ContactPage() {
       keywords={t('seo.contact.keywords')}
       url="https://ekabalance.com/contact"
     >
-      <Layout>
         {/* Hero Section */}
         <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 via-white to-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 text-center">
@@ -102,4 +100,3 @@ export default function ContactPage() {
       </Layout>
     </SEOOptimized>
   );
-}

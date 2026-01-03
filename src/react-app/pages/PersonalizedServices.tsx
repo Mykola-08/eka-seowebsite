@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
@@ -34,7 +33,7 @@ export default function PersonalizedServices() {
   const { t } = useLanguage();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('elena.approach.title')}
         description={t('elena.approach.desc')}
@@ -155,6 +154,6 @@ export default function PersonalizedServices() {
       </section>
 
       
-    </Layout>
+    </>
   );
 }

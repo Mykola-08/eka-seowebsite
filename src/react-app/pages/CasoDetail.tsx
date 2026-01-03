@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams, Link } from 'react-router';
 import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
-import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
@@ -47,7 +46,7 @@ export default function CasoDetail() {
 
   if (!config) {
     return (
-      <Layout>
+      
         <div className="py-20 text-center">
           <h1 className="text-2xl font-semibold text-gray-900 mb-4">
             {language === 'ca' ? 'Problema no trobat' :
@@ -59,7 +58,7 @@ export default function CasoDetail() {
             {t('casos.section.viewAll')}
           </Link>
         </div>
-      </Layout>
+      
     );
   }
 
@@ -99,7 +98,7 @@ export default function CasoDetail() {
       keywords={`${title}, EKA Balance`}
       url={`https://ekabalance.com/cases/${id}`}
     >
-      <Layout>
+      
         {/* Back navigation */}
         <div className="py-6 bg-gray-50 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -268,7 +267,7 @@ export default function CasoDetail() {
             </div>
           </div>
         </section>
-      </Layout>
+      
     </SEOOptimized>
   );
 }

@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { ArrowLeft, Users } from 'lucide-react';
@@ -9,7 +8,7 @@ export default function Families() {
   const { t } = useLanguage();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={`${t('elena.target.families.title')} - EKA Balance`}
         description={t('elena.target.families.desc')}
@@ -44,6 +43,6 @@ export default function Families() {
           </motion.div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

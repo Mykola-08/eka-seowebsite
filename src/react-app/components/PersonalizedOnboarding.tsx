@@ -1,20 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { Link } from 'react-router';
-import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle } from 'lucide-react';
+import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 import PriceDisplay from './PriceDisplay';
-
-interface OnboardingData {
-  userType: string;
-  goals: string[];
-  preferredFeeling: string;
-}
+import { OnboardingData } from '@/shared/types';
 
 interface Question {
-  id: string;
+  id: keyof OnboardingData;
   type: 'single' | 'multiple';
   options: Array<{
     id: string;
@@ -92,7 +88,7 @@ export default function PersonalizedOnboarding() {
   const currentQuestion = questions[currentStep];
   const isLastStep = currentStep === questions.length - 1;
 
-  const handleSelection = (questionId: string, optionId: string) => {
+  const handleSelection = (questionId: keyof OnboardingData, optionId: string) => {
     if (questionId === 'goals') {
       setData(prev => ({
         ...prev,
@@ -113,7 +109,7 @@ export default function PersonalizedOnboarding() {
     if (question.id === 'goals') {
       return data.goals.length > 0;
     }
-    return data[question.id as keyof OnboardingData] !== '';
+    return (data[question.id] as string) !== '';
   };
 
   const nextStep = () => {
@@ -303,7 +299,12 @@ export default function PersonalizedOnboarding() {
   // Welcome Screen - Full Page
   if (showWelcome) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4 relative overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4 relative overflow-hidden"
+      >
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#FFB405]/10 rounded-full blur-[100px]" />
@@ -311,31 +312,53 @@ export default function PersonalizedOnboarding() {
         </div>
 
         <div className="text-center max-w-2xl mx-auto relative z-10">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full mb-8 shadow-xl shadow-blue-900/5 ring-4 ring-white">
+          <motion.div 
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full mb-8 shadow-xl shadow-blue-900/5 ring-4 ring-white"
+          >
             <Heart className="w-12 h-12 text-[#FFB405]" />
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
+          </motion.div>
+          <motion.h1 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-4xl sm:text-5xl font-light text-gray-900 mb-8 leading-tight tracking-tight"
+          >
             🌿 {t('onboarding.welcome.title')}
-          </h1>
-          <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-xl mx-auto font-light">
+          </motion.h1>
+          <motion.p 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-xl text-gray-600 mb-12 leading-relaxed max-w-xl mx-auto font-light"
+          >
             {t('onboarding.welcome.description')}
-          </p>
-          <button
+          </motion.p>
+          <motion.button
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
             onClick={startOnboarding}
             className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition-all duration-300 text-lg shadow-lg hover:shadow-[#FFB405]/20 hover:-translate-y-1"
           >
             {t('common.getStarted')}
             <ChevronRight className="w-6 h-6 ml-3" />
-          </button>
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   // Results Screen - Full Page
   if (showResults) {
     return (
-      <div className="min-h-screen bg-white py-8 px-4">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="min-h-screen bg-white py-8 px-4"
+      >
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
@@ -351,8 +374,14 @@ export default function PersonalizedOnboarding() {
 
           <div className="grid gap-6 mb-8">
             {recommendations.map((rec, index) => (
-              <div key={rec.id} className="bg-white rounded-2xl border border-gray-100 p-6">
-                <div className="flex items-start justify-between mb-4">
+              <motion.div 
+                key={rec.id} 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-4">
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       {rec.title}
@@ -361,12 +390,12 @@ export default function PersonalizedOnboarding() {
                       {rec.description}
                     </p>
                   </div>
-                  <div className="text-right ml-4 flex flex-col items-end">
-                    <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-2">
+                  <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-start w-full md:w-auto gap-2">
+                    <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                       #{index + 1} {t('onboarding.results.recommended')}
                     </span>
                     <div className="flex flex-col items-end">
-                      {rec.price && <PriceDisplay basePriceCents={rec.price * 100} size="lg" showCalculation={true} />}
+                      {rec.price !== undefined && <PriceDisplay basePriceCents={rec.price * 100} size="lg" showCalculation={true} />}
                       {rec.duration && (
                         <span className="text-sm text-gray-500 font-medium mt-1">
                           {rec.duration}
@@ -386,7 +415,7 @@ export default function PersonalizedOnboarding() {
                   </div>
                 )}
 
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <Link
                     to={rec.link}
                     className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
@@ -400,7 +429,7 @@ export default function PersonalizedOnboarding() {
                     {t('common.bookNow')}
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -414,7 +443,7 @@ export default function PersonalizedOnboarding() {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
@@ -434,7 +463,12 @@ export default function PersonalizedOnboarding() {
           </p>
           <div className="mt-8">
             <div className="w-64 h-1.5 bg-gray-200 rounded-full mx-auto overflow-hidden">
-              <div className="h-full bg-[#FFB405] rounded-full animate-progress" style={{ width: '75%' }}></div>
+              <motion.div 
+                className="h-full bg-[#FFB405] rounded-full"
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
             </div>
           </div>
         </div>
@@ -461,65 +495,80 @@ export default function PersonalizedOnboarding() {
             </span>
           </div>
           <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-[#FFB405] rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(255,180,5,0.5)]"
-              style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
-            ></div>
+            <motion.div
+              className="h-full bg-[#FFB405] rounded-full shadow-[0_0_10px_rgba(255,180,5,0.5)]"
+              initial={{ width: 0 }}
+              animate={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
+              transition={{ duration: 0.5 }}
+            />
           </div>
         </div>
 
         {/* Question */}
-        <div className="flex-1 flex flex-col justify-center mb-6">
-          <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-10 text-center animate-fade-in tracking-tight">
-            {t(`onboarding.questions.${currentQuestion.id}.title`)}
-          </h2>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentQuestion.id}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="flex-1 flex flex-col justify-center mb-6"
+          >
+            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-10 text-center tracking-tight">
+              {t(`onboarding.questions.${currentQuestion.id}.title`)}
+            </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 animate-fade-in-up">
-            {currentQuestion.options.map((option) => {
-              const isSelected = currentQuestion.id === 'goals'
-                ? data.goals.includes(option.id)
-                : data[currentQuestion.id as keyof OnboardingData] === option.id;
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {currentQuestion.options.map((option) => {
+                const isSelected = currentQuestion.id === 'goals'
+                  ? data.goals.includes(option.id)
+                  : data[currentQuestion.id as keyof OnboardingData] === option.id;
 
-              return (
-                <button
-                  key={option.id}
-                  onClick={() => handleSelection(currentQuestion.id, option.id)}
-                  className={`
-                    group relative p-6 rounded-2xl transition-all duration-300 text-left min-h-[100px] flex items-center
-                    border shadow-sm
-                    ${isSelected
-                      ? 'border-[#FFB405] bg-[#FFB405]/5 ring-1 ring-[#FFB405] shadow-md'
-                      : 'border-white bg-white hover:border-[#FFB405]/50 hover:shadow-lg hover:-translate-y-1'
-                    }
-                  `}
-                >
-                  <div className="flex items-center space-x-4 w-full relative z-10">
-                    {option.icon && (
-                      <div className={`
-                        w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300
-                        ${isSelected
-                          ? 'bg-[#FFB405] text-[#000035] shadow-md transform scale-110'
-                          : 'bg-gray-50 text-gray-400 group-hover:bg-[#FFB405]/10 group-hover:text-[#FFB405]'}
-                      `}>
-                        <option.icon className="w-6 h-6" />
-                      </div>
-                    )}
-                    <span className={`font-medium text-lg leading-tight transition-colors ${isSelected ? 'text-[#000035]' : 'text-gray-600 group-hover:text-gray-900'}`}>
-                      {option.label}
-                    </span>
-                  </div>
-
-                  {/* Selection Indicator */}
-                  {isSelected && (
-                    <div className="absolute top-4 right-4 text-[#FFB405] animate-scale-in">
-                      <CheckCircle className="w-5 h-5 fill-current" />
+                return (
+                  <button
+                    key={option.id}
+                    onClick={() => handleSelection(currentQuestion.id, option.id)}
+                    className={`
+                      group relative p-6 rounded-2xl transition-all duration-300 text-left min-h-[100px] flex items-center
+                      border shadow-sm
+                      ${isSelected
+                        ? 'border-[#FFB405] bg-[#FFB405]/5 ring-1 ring-[#FFB405] shadow-md'
+                        : 'border-white bg-white hover:border-[#FFB405]/50 hover:shadow-lg hover:-translate-y-1'
+                      }
+                    `}
+                  >
+                    <div className="flex items-center space-x-4 w-full relative z-10">
+                      {option.icon && (
+                        <div className={`
+                          w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300
+                          ${isSelected
+                            ? 'bg-[#FFB405] text-[#000035] shadow-md transform scale-110'
+                            : 'bg-gray-50 text-gray-400 group-hover:bg-[#FFB405]/10 group-hover:text-[#FFB405]'}
+                        `}>
+                          <option.icon className="w-6 h-6" />
+                        </div>
+                      )}
+                      <span className={`font-medium text-lg leading-tight transition-colors ${isSelected ? 'text-[#000035]' : 'text-gray-600 group-hover:text-gray-900'}`}>
+                        {option.label}
+                      </span>
                     </div>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+
+                    {/* Selection Indicator */}
+                    {isSelected && (
+                      <motion.div 
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="absolute top-4 right-4 text-[#FFB405]"
+                      >
+                        <CheckCircle className="w-5 h-5 fill-current" />
+                      </motion.div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Fixed Bottom Navigation */}
@@ -533,8 +582,9 @@ export default function PersonalizedOnboarding() {
                 setCurrentStep(prev => prev - 1);
               }
             }}
-            className="px-6 py-3 rounded-full font-semibold transition-colors duration-200 bg-gray-100 hover:bg-gray-200 text-gray-700"
+            className="px-6 py-3 rounded-full font-semibold transition-colors duration-200 bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center"
           >
+            <ArrowLeft className="w-5 h-5 mr-2" />
             {t('common.back')}
           </button>
 

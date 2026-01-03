@@ -1,4 +1,3 @@
-import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock } from 'lucide-react';
 import { Link } from 'react-router';
@@ -9,7 +8,7 @@ export default function Artists() {
   const { t } = useLanguage();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={t('artists.seo.title')}
         description={t('artists.seo.desc')}
@@ -194,6 +193,6 @@ export default function Artists() {
       </section>
 
 
-    </Layout>
+    </>
   );
 }

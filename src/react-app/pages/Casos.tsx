@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
 import { Link } from 'react-router';
-import Layout from '@/react-app/components/Layout';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
@@ -141,7 +140,7 @@ export default function Casos() {
       keywords={t('casos.seo.keywords')}
       url="https://ekabalance.com/cases"
     >
-      <Layout>
+      
         {/* Hero Section */}
         <section className="py-20 sm:py-28 bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -262,7 +261,7 @@ export default function Casos() {
             </div>
           </div>
         </section>
-      </Layout>
+      
     </SEOOptimized>
   );
 }

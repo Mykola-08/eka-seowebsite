@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import SEOHead from '@/react-app/components/SEOHead';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
-import { Mail, MessageCircle, Calendar, Heart, Brain, Sparkles, Star } from 'lucide-react';
+import { Mail, MessageCircle, Calendar, Heart, Sparkles, Star } from 'lucide-react';
 
 export default function AboutElena() {
   const { navigateToBooking } = useBooking();

@@ -104,7 +104,7 @@ export default function PersonalizedServices() {
 
                   <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                     <button
-                      onClick={navigateToBooking}
+                      onClick={() => navigateToBooking()}
                       className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-xl font-medium transition-colors text-sm"
                     >
                       {t('common.reserve')}

@@ -162,7 +162,7 @@ export default function KinesiologiaPage() {
                   className="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold py-3 rounded-full transition-colors duration-200"
                 >
                   {t('common.bookNow')}
-                </button>>
+                </button>
               </div>
             ))}
           </div>

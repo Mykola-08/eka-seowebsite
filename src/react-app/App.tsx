@@ -12,7 +12,7 @@ import { DiscountProvider } from './contexts/DiscountContext.tsx';
 import HomePage from "@/react-app/pages/Home";
 import Services from "@/react-app/pages/Services";
 import Revision360Page from "@/react-app/pages/Revision360Page";
-import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
+// import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
 
 // Individual Service Pages
 import MassatgePage from "@/react-app/pages/MassatgePage";
@@ -72,7 +72,7 @@ function AppRoutes() {
       <Route path="/services/kinesiology" element={<KinesiologiaPage />} />
       <Route path="/services/nutrition" element={<NutricioPage />} />
       <Route path="/agenyz" element={<AgenyzPage />} />
-      <Route path="/vip" element={<VIPUltraPremium />} />
+      {/* <Route path="/vip" element={<VIPUltraPremium />} /> */}
 
       {/* Personal Services */}
       <Route path="/personalized-services" element={<PersonalizedServices />} />

@@ -68,7 +68,16 @@ export default function Layout({
 
 
   // Navigation items
-  const navigation = [
+  interface NavItem {
+    name: string;
+    href: string;
+    hasDropdown?: boolean;
+    dropdownItems?: { name: string; href: string }[];
+    isGold?: boolean;
+    isExternal?: boolean;
+  }
+
+  const navigation: NavItem[] = [
     {
       name: t('nav.services'),
       href: '/services'
@@ -93,11 +102,11 @@ export default function Layout({
       name: t('nav.revision360'),
       href: '/360-revision'
     },
-    {
-      name: t('nav.vip'),
-      href: '/vip',
-      isGold: true
-    }
+    // {
+    //   name: t('nav.vip'),
+    //   href: '/vip',
+    //   isGold: true
+    // }
   ];
 
   const isActivePath = (path: string) => {
@@ -212,7 +221,6 @@ export default function Layout({
                       <Link
                         to={item.href}
                         className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${
-                          // @ts-ignore
                           item.isGold
                             ? 'text-amber-600 font-bold hover:text-amber-700 bg-gradient-to-r from-amber-50 to-yellow-50 border border-yellow-200/50'
                             : isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
@@ -305,7 +313,6 @@ export default function Layout({
                         to={item.href}
                         onClick={() => setIsMenuOpen(false)}
                         className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${
-                          // @ts-ignore
                           item.isGold
                             ? 'text-amber-600 bg-amber-50 border border-amber-100 font-bold'
                             : isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'

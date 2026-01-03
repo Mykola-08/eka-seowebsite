@@ -6,10 +6,9 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 export default function BackButton() {
   const { t } = useLanguage();
   const [showBackButton] = useState(() => {
-    if (typeof window === 'undefined') return false;
-
     // Check if there's a referrer from ekabalance.com (including subdomains)
     const referrer = document.referrer;
+    
     if (referrer) {
       try {
         const referrerUrl = new URL(referrer);
@@ -36,7 +35,7 @@ export default function BackButton() {
         // If we can't process the ref parameter, don't show the button
       }
     }
-
+    
     return false;
   });
 

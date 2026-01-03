@@ -8,7 +8,21 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 export default function Services() {
   const { t } = useLanguage();
 
-  const services = [
+  interface ServiceItem {
+    id: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    icon: React.ElementType;
+    color: string;
+    durations: number[];
+    image: string;
+    href: string;
+    benefits: string[];
+    isExternal?: boolean;
+  }
+
+  const services: ServiceItem[] = [
     {
       id: 'massatge',
       title: t('services.massage.title'),
@@ -56,6 +70,30 @@ export default function Services() {
       image: 'https://images.pexels.com/photos/3759656/pexels-photo-3759656.jpeg?auto=compress&cs=tinysrgb&w=800',
       href: '/360-revision',
       benefits: [t('services.benefits.assessment'), t('services.benefits.plan'), t('services.benefits.recommendations'), t('services.benefits.followup')]
+    },
+    {
+      id: 'suplements',
+      title: t('service.supplements.title'),
+      subtitle: t('nutrition.page.subtitle'),
+      description: t('nutrition.page.description'),
+      icon: Leaf,
+      color: 'green',
+      durations: [],
+      image: 'https://images.pexels.com/photos/8845019/pexels-photo-8845019.jpeg?auto=compress&cs=tinysrgb&w=800',
+      href: '/services/supplements',
+      benefits: [t('services.benefits.vitality'), t('services.benefits.habits'), t('services.benefits.energy'), t('services.benefits.longterm')]
+    },
+    {
+      id: 'sistemica',
+      title: t('service.systemic.title'),
+      subtitle: t('kinesiology.page.subtitle'),
+      description: t('kinesiology.page.description'),
+      icon: Heart,
+      color: 'pink',
+      durations: [],
+      image: 'https://images.pexels.com/photos/7176036/pexels-photo-7176036.jpeg?auto=compress&cs=tinysrgb&w=800',
+      href: '/services/systemic',
+      benefits: [t('services.benefits.blockages'), t('services.benefits.stress'), t('services.benefits.assessment'), t('services.benefits.longterm')]
     }
   ];
 
@@ -92,6 +130,14 @@ export default function Services() {
         iconBg: 'bg-purple-100',
         button: 'bg-purple-500 hover:bg-purple-600',
         text: 'text-purple-600'
+      },
+      pink: {
+        bg: 'bg-pink-50',
+        border: 'border-pink-200',
+        icon: 'text-pink-600',
+        iconBg: 'bg-pink-100',
+        button: 'bg-pink-500 hover:bg-pink-600',
+        text: 'text-pink-600'
       }
     };
     return colors[color as keyof typeof colors] || colors.orange;

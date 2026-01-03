@@ -237,7 +237,7 @@ export default function DiscoveryForm() {
     };
 
     // Scoring System
-    let scores = {
+    const scores = {
       manual: 0,
       emotional: 0,
       integrative: 0,

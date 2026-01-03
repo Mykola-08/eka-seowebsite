@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { servicesTranslations } from './TranslationExtensions';
+import { revision360Translations } from './Revision360Translations';
 
 export type Language = 'ca' | 'en' | 'es' | 'ru';
 
@@ -293,6 +294,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.preferred': 'Mètode de contacte preferit',
     'contact.form.submit': 'Enviar missatge',
     'contact.form.submitting': 'Enviant...',
+    'contact.form.privacy': 'Accepto la política de privacitat',
+    'contact.form.source': 'Com ens has conegut?',
+    'contact.form.source.placeholder': 'Selecciona una opció',
+    'contact.form.source.google': 'Google',
+    'contact.form.source.social': 'Xarxes Socials',
+    'contact.form.source.friend': 'Recomanació d\'un amic',
+    'contact.form.source.other': 'Altres',
     'contact.quick.title': 'O contacta\'ns directament:',
     'contact.quick.call': 'Trucar ara',
     'contact.error': 'Hi ha hagut un error al enviar el missatge. Si us plau, torna-ho a intentar.',
@@ -1563,6 +1571,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.preferred': 'Preferred Contact Method',
     'contact.form.submit': 'Send Message',
     'contact.form.submitting': 'Sending...',
+    'contact.form.privacy': 'I accept the privacy policy',
+    'contact.form.source': 'How did you hear about us?',
+    'contact.form.source.placeholder': 'Select an option',
+    'contact.form.source.google': 'Google',
+    'contact.form.source.social': 'Social Media',
+    'contact.form.source.friend': 'Friend Recommendation',
+    'contact.form.source.other': 'Other',
     'contact.quick.title': 'Or contact us directly:',
     'contact.quick.call': 'Call now',
     'contact.error': 'There was an error sending the message. Please try again.',
@@ -2853,6 +2868,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.preferred': 'Método de contacto preferido',
     'contact.form.submit': 'Enviar mensaje',
     'contact.form.submitting': 'Enviando...',
+    'contact.form.privacy': 'Acepto la política de privacidad',
+    'contact.form.source': '¿Cómo nos has conocido?',
+    'contact.form.source.placeholder': 'Selecciona una opción',
+    'contact.form.source.google': 'Google',
+    'contact.form.source.social': 'Redes Sociales',
+    'contact.form.source.friend': 'Recomendación de un amigo',
+    'contact.form.source.other': 'Otros',
     'contact.quick.title': 'O contáctanos directamente:',
     'contact.quick.call': 'Llamar ahora',
     'contact.error': 'Ha habido un error al enviar el mensaje. Por favor, inténtalo de nuevo.',
@@ -4205,6 +4227,13 @@ ru: {
                                                                                                                                                                                                                                                                                                                                                                                                                                               'contact.form.preferred': 'Предпочтительный способ связи',
                                                                                                                                                                                                                                                                                                                                                                                                                                                 'contact.form.submit': 'Отправить сообщение',
                                                                                                                                                                                                                                                                                                                                                                                                                                                   'contact.form.submitting': 'Отправка...',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.privacy': 'Я принимаю политику конфиденциальности',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.source': 'Как вы узнали о нас?',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.source.placeholder': 'Выберите вариант',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.source.google': 'Google',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.source.social': 'Социальные сети',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.source.friend': 'Рекомендация друга',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  'contact.form.source.other': 'Другое',
                                                                                                                                                                                                                                                                                                                                                                                                                                                     'contact.quick.title': 'Или свяжитесь с нами напрямую:',
                                                                                                                                                                                                                                                                                                                                                                                                                                                       'contact.quick.call': 'Позвонить сейчас',
                                                                                                                                                                                                                                                                                                                                                                                                                                                         'contact.error': 'Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.',
@@ -5339,17 +5368,12 @@ const getInitialLanguage = (): Language => {
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(getInitialLanguage);
   const [showLanguagePopup, setShowLanguagePopup] = useState(false);
-  const [languageConfirmed, setLanguageConfirmed] = useState(false);
-
-  useEffect(() => {
+  const [languageConfirmed, setLanguageConfirmed] = useState(() => {
     if (typeof window !== 'undefined') {
-      const confirmed = localStorage.getItem('eka-language-confirmed') === 'true';
-      setLanguageConfirmed(confirmed);
-
-      // If language not confirmed and first visit, we could show popup, 
-      // but for now we'll wait for manual trigger or ambiguity logic
+      return localStorage.getItem('eka-language-confirmed') === 'true';
     }
-  }, []);
+    return false;
+  });
 
   const confirmLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -5369,8 +5393,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     // First check main translations, then extended translations
     let text = (translations[language] as Record<string, string>)?.[key] ||
       (servicesTranslations[language] as Record<string, string>)?.[key] ||
+      (revision360Translations[language] as Record<string, string>)?.[key] ||
       (translations.en as Record<string, string>)?.[key] ||
       (servicesTranslations.en as Record<string, string>)?.[key] ||
+      (revision360Translations.en as Record<string, string>)?.[key] ||
       key;
 
     if (params) {

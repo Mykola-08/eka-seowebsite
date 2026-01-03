@@ -238,7 +238,7 @@ export default function Revisio360Section() {
               className="inline-flex items-center justify-center px-10 py-5 bg-white/80 backdrop-blur-sm text-gray-900 font-medium rounded-2xl border border-white/20 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
             >
               Reserva la teva Revisió 360°
-            </a>
+            </Link>
           </div>
         </div>
       </div>

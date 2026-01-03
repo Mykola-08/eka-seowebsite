@@ -15,7 +15,20 @@ export default function Home() {
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
 
-  const services = [
+  interface ServiceItem {
+    id: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    icon: React.ElementType;
+    color: string;
+    image: string;
+    href: string;
+    durations: number[];
+    isExternal?: boolean;
+  }
+
+  const services: ServiceItem[] = [
     {
       id: 'Massatge',
       title: t('services.massage.title'),

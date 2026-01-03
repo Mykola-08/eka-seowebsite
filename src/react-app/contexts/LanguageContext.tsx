@@ -4158,7 +4158,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Stats
     'stats.sessions': 'Проведенных сессий',
-    'stats.clients': 'Счастливых клиентов',
+    'stats.clients': 'Истории успеха',
     'stats.experience': 'Лет опыта',
     'stats.rating': 'Средняя оценка',
     'stats.countries': 'Стран изучения',

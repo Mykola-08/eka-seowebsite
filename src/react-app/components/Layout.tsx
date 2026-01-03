@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Menu, X, ChevronDown, Globe, Home } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 
 import SEOHead from '@/react-app/components/SEOHead';
+import Layout from '@/react-app/components/Layout';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
@@ -607,6 +608,6 @@ export default function VIPUltraPremium() {
         </section>
 
       </div>
-    </>
+    </Layout>
   );
 }

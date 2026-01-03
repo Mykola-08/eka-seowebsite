@@ -5,10 +5,9 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 const heroImages = [
   'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Skyline
-  'https://images.pexels.com/photos/3951913/pexels-photo-3951913.jpeg?auto=compress&cs=tinysrgb&w=1920', // Massage Therapy
-  'https://images.pexels.com/photos/5793649/pexels-photo-5793649.jpeg?auto=compress&cs=tinysrgb&w=1920', // Bodywork/Therapy
-  'https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1920', // Essential Oils
-  'https://images.pexels.com/photos/7176076/pexels-photo-7176076.jpeg?auto=compress&cs=tinysrgb&w=1920', // Counseling/Talking
+  'https://images.pexels.com/photos/10521232/pexels-photo-10521232.jpeg?auto=compress&cs=tinysrgb&w=1920', // Wellness Bed / Spa Room
+  'https://images.pexels.com/photos/2962135/pexels-photo-2962135.jpeg?auto=compress&cs=tinysrgb&w=1920', // People Talking / Coaching
+  'https://images.pexels.com/photos/7550397/pexels-photo-7550397.jpeg?auto=compress&cs=tinysrgb&w=1920', // Casual Group Talking
 ];
 export default function AppleHero() {
   const { t } = useLanguage();

@@ -18,13 +18,6 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     timePreference: ''
   });
 
-  useEffect(() => {
-    if (isOpen) {
-      setStep('choice');
-      setFormData(prev => ({ ...prev, service: preselectedService || '' }));
-    }
-  }, [isOpen, preselectedService]);
-
   if (!isOpen) return null;
 
   const handleQuickWhatsApp = () => {

@@ -271,7 +271,7 @@ export default function Home() {
                         </a>
                       ) : (
                         <button
-                          onClick={navigateToBooking}
+                          onClick={() => navigateToBooking()}
                           className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
                         >
                           {t('common.bookNow')}
@@ -382,7 +382,7 @@ export default function Home() {
 
           <div className="flex justify-center">
             <button
-              onClick={navigateToBooking}
+              onClick={() => navigateToBooking()}
               className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
             >
               {t('common.bookNow')}

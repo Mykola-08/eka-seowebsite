@@ -61,7 +61,7 @@ export default function MassatgePage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={navigateToBooking}
+                  onClick={() => navigateToBooking()}
                   className="bg-[#FFB405] hover:bg-[#e8a204] text-[000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                 >
                   {t('common.bookNow')}

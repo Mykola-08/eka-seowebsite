@@ -61,7 +61,7 @@ export default function KinesiologiaPage() {
 
               <div className="flex justify-center">
                 <button
-                  onClick={navigateToBooking}
+                  onClick={() => navigateToBooking()}
                   className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
                 >
                   {t('common.bookNow')}
@@ -102,7 +102,7 @@ export default function KinesiologiaPage() {
 
           <div className="flex justify-center">
             <button
-              onClick={navigateToBooking}
+              onClick={() => navigateToBooking()}
               className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
             >
               {t('common.bookNow')}
@@ -158,11 +158,11 @@ export default function KinesiologiaPage() {
                     t('kinesiology.page.duration90')}
                 </p>
                 <button
-                  onClick={navigateToBooking}
+                  onClick={() => navigateToBooking()}
                   className="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold py-3 rounded-full transition-colors duration-200"
                 >
                   {t('common.bookNow')}
-                </button>
+                </button>>
               </div>
             ))}
           </div>
@@ -210,7 +210,7 @@ export default function KinesiologiaPage() {
 
           <div className="flex justify-center">
             <button
-              onClick={navigateToBooking}
+              onClick={() => navigateToBooking()}
               className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200"
             >
               {t('common.bookNow')}

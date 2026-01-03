@@ -13,7 +13,16 @@ export default defineConfig({
   },
   build: {
     // Increase chunk size warning limit to avoid warnings for large vendor chunks
-    chunkSizeWarningLimit: 5000,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router', 'react-helmet-async'],
+          ui: ['framer-motion', 'lucide-react', 'phosphor-react', 'clsx', 'tailwind-merge'],
+          utils: ['zod'],
+        },
+      },
+    },
   },
   resolve: {
     alias: {

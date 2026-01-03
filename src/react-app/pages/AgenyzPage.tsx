@@ -22,7 +22,7 @@ export default function AgenyzPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="order-2 lg:order-1">
                             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-                                <span className="text-blue-700 font-medium text-sm">Biohacking & Nutrition</span>
+                                <span className="text-blue-700 font-medium text-sm">{t('agenyz.hero.biohacking') || 'Biohacking & Nutrition'}</span>
                             </div>
 
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
@@ -39,7 +39,7 @@ export default function AgenyzPage() {
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
-                                    onClick={navigateToBooking}
+                                    onClick={() => navigateToBooking()}
                                     className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
                                 >
                                     {t('common.bookNow')}
@@ -50,7 +50,7 @@ export default function AgenyzPage() {
                                     rel="noopener noreferrer"
                                     className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 text-center"
                                 >
-                                    Visit Agenyz Store
+                                    {t('agenyz.cta.visitStore') || 'Visit Agenyz Store'}
                                 </a>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ export default function AgenyzPage() {
                                 <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
                                     <div className="flex items-center space-x-2">
                                         <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
-                                        <span className="text-sm font-medium text-gray-700">Available for Order</span>
+                                        <span className="text-sm font-medium text-gray-700">{t('agenyz.hero.available') || 'Available for Order'}</span>
                                     </div>
                                 </div>
                             </div>
@@ -79,10 +79,10 @@ export default function AgenyzPage() {
                 <div className="max-w-6xl mx-auto px-4 sm:px-8">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-                            Why Agenyz?
+                            {t('agenyz.why.title') || 'Why Agenyz?'}
                         </h2>
                         <p className="text-xl text-gray-600">
-                            Science-backed benefits for your body and mind.
+                            {t('agenyz.why.subtitle') || 'Science-backed benefits for your body and mind.'}
                         </p>
                     </div>
 
@@ -93,7 +93,7 @@ export default function AgenyzPage() {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('agenyz.benefits.energy') || 'Infinite Energy'}</h3>
-                                <p className="text-gray-600">Restores mitochondrial function for sustained daily energy.</p>
+                                <p className="text-gray-600">{t('agenyz.benefits.energy.desc') || 'Restores mitochondrial function for sustained daily energy.'}</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl">
@@ -102,7 +102,7 @@ export default function AgenyzPage() {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('agenyz.benefits.immunity') || 'Immune Defense'}</h3>
-                                <p className="text-gray-600">Strengthens your body's natural defense systems.</p>
+                                <p className="text-gray-600">{t('agenyz.benefits.immunity.desc') || 'Strengthens your body\'s natural defense systems.'}</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl">
@@ -111,7 +111,7 @@ export default function AgenyzPage() {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('agenyz.benefits.cell') || 'Cognitive Clarity'}</h3>
-                                <p className="text-gray-600">Enhances focus, memory, and mental performance.</p>
+                                <p className="text-gray-600">{t('agenyz.benefits.cell.desc') || 'Enhances focus, memory, and mental performance.'}</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl">
@@ -120,7 +120,7 @@ export default function AgenyzPage() {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('agenyz.benefits.antiaging') || 'Anti-Aging Effect'}</h3>
-                                <p className="text-gray-600">Combats oxidative stress and slows down aging processes.</p>
+                                <p className="text-gray-600">{t('agenyz.benefits.antiaging.desc') || 'Combats oxidative stress and slows down aging processes.'}</p>
                             </div>
                         </div>
                     </div>
@@ -131,14 +131,14 @@ export default function AgenyzPage() {
             <section className="py-16 bg-gray-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
                     <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-6">
-                        Ready to upgrade your health?
+                        {t('agenyz.cta.title') || 'Ready to upgrade your health?'}
                     </h2>
                     <div className="flex justify-center gap-4">
                         <button
-                            onClick={navigateToBooking}
+                            onClick={() => navigateToBooking()}
                             className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
                         >
-                            Consult with Elena
+                            {t('agenyz.cta.consult') || 'Consult with Elena'}
                         </button>
                     </div>
                 </div>

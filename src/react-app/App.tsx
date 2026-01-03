@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { HelmetProvider } from 'react-helmet-async';
 import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext.tsx';
@@ -10,64 +11,69 @@ import { LanguageProvider } from './contexts/LanguageContext.tsx';
 import { DiscountProvider } from './contexts/DiscountContext.tsx';
 
 // Page Imports
-import HomePage from "@/react-app/pages/Home";
-import Services from "@/react-app/pages/Services";
-import Revision360Page from "@/react-app/pages/Revision360Page";
-import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
+const HomePage = lazy(() => import("@/react-app/pages/Home"));
+const Services = lazy(() => import("@/react-app/pages/Services"));
+const Revision360Page = lazy(() => import("@/react-app/pages/Revision360Page"));
+const VIPUltraPremium = lazy(() => import("@/react-app/pages/VIPUltraPremium"));
 
 // Individual Service Pages
-import MassatgePage from "@/react-app/pages/MassatgePage";
-import KinesiologiaPage from "@/react-app/pages/KinesiologiaPage";
-import NutricioPage from "@/react-app/pages/NutricioPage";
-import AgenyzPage from "@/react-app/pages/AgenyzPage";
+const MassatgePage = lazy(() => import("@/react-app/pages/MassatgePage"));
+const KinesiologiaPage = lazy(() => import("@/react-app/pages/KinesiologiaPage"));
+const NutricioPage = lazy(() => import("@/react-app/pages/NutricioPage"));
+const AgenyzPage = lazy(() => import("@/react-app/pages/AgenyzPage"));
 
 // Personal Services (Landing Pages)
-import PersonalizedServices from "@/react-app/pages/PersonalizedServices";
-import OfficeWorkers from "@/react-app/pages/PersonalizedServices/OfficeWorkers";
-import Musicians from "@/react-app/pages/PersonalizedServices/Musicians";
-import Athletes from "@/react-app/pages/PersonalizedServices/Athletes";
-import Artists from "@/react-app/pages/PersonalizedServices/Artists";
-import Students from "@/react-app/pages/PersonalizedServices/Students";
+const PersonalizedServices = lazy(() => import("@/react-app/pages/PersonalizedServices"));
+const OfficeWorkers = lazy(() => import("@/react-app/pages/PersonalizedServices/OfficeWorkers"));
+const Musicians = lazy(() => import("@/react-app/pages/PersonalizedServices/Musicians"));
+const Athletes = lazy(() => import("@/react-app/pages/PersonalizedServices/Athletes"));
+const Artists = lazy(() => import("@/react-app/pages/PersonalizedServices/Artists"));
+const Students = lazy(() => import("@/react-app/pages/PersonalizedServices/Students"));
 
 // Personalized Pages (Detailed)
-import StudentsPersonalized from "@/react-app/pages/PersonalizedPages/Students";
-import OfficeWorkersPersonalized from "@/react-app/pages/PersonalizedPages/OfficeWorkers";
-import MusiciansPersonalized from "@/react-app/pages/PersonalizedPages/Musicians";
-import AthletesPersonalized from "@/react-app/pages/PersonalizedPages/Athletes";
-import ParentsPersonalized from "@/react-app/pages/PersonalizedPages/Parents";
-import AdultsPersonalized from "@/react-app/pages/PersonalizedPages/Adults";
-import ChildrenPersonalized from "@/react-app/pages/PersonalizedPages/Children";
-import FamiliesPersonalized from "@/react-app/pages/PersonalizedPages/Families";
+const StudentsPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Students"));
+const OfficeWorkersPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/OfficeWorkers"));
+const MusiciansPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Musicians"));
+const AthletesPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Athletes"));
+const ParentsPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Parents"));
+const AdultsPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Adults"));
+const ChildrenPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Children"));
+const FamiliesPersonalized = lazy(() => import("@/react-app/pages/PersonalizedPages/Families"));
 
 // Contact Page
-import ContactPage from "@/react-app/pages/Contact";
+const ContactPage = lazy(() => import("@/react-app/pages/Contact"));
 
 // About Elena Page
-import AboutElena from "@/react-app/pages/AboutElena";
-import TechniqueDetail from "@/react-app/pages/TechniqueDetail";
+const AboutElena = lazy(() => import("@/react-app/pages/AboutElena"));
+const TechniqueDetail = lazy(() => import("@/react-app/pages/TechniqueDetail"));
 
 // Booking Page
-import BookingPage from "@/react-app/pages/BookingPage";
+const BookingPage = lazy(() => import("@/react-app/pages/BookingPage"));
 
 // Discovery Form
-import DiscoveryForm from "@/react-app/pages/DiscoveryForm";
-import FirstTimeVisitor from './pages/FirstTimeVisitor';
+const DiscoveryForm = lazy(() => import("@/react-app/pages/DiscoveryForm"));
+const FirstTimeVisitor = lazy(() => import('./pages/FirstTimeVisitor'));
 
 // Cases Page
-import Casos from './pages/Casos';
-import CasoDetail from './pages/CasoDetail';
+const Casos = lazy(() => import('./pages/Casos'));
+const CasoDetail = lazy(() => import('./pages/CasoDetail'));
 
 // Discounts Page
-import Discounts from "@/react-app/pages/Discounts";
+const Discounts = lazy(() => import("@/react-app/pages/Discounts"));
 
 // Legal Pages
-import PrivacyPolicy from "@/react-app/pages/PrivacyPolicy";
-import CookiePolicy from "@/react-app/pages/CookiePolicy";
-import TermsOfService from "@/react-app/pages/TermsOfService";
+const PrivacyPolicy = lazy(() => import("@/react-app/pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("@/react-app/pages/CookiePolicy"));
+const TermsOfService = lazy(() => import("@/react-app/pages/TermsOfService"));
 
 function AppRoutes() {
   return (
-    <Routes>
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600"></div>
+      </div>
+    }>
+      <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/services" element={<Services />} />
       <Route path="/360-revision" element={<Revision360Page />} />
@@ -122,7 +128,8 @@ function AppRoutes() {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 }
 

@@ -28,6 +28,7 @@ export default function AboutElena() {
   ];
 
   return (
+    <>
       <SEOHead
         title={t('elena.seo.title')}
         description={t('elena.seo.desc')}
@@ -236,7 +237,7 @@ export default function AboutElena() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.button
-                onClick={navigateToBooking}
+                onClick={() => navigateToBooking()}
                 className="group bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-amber-500/30 rounded-2xl p-8 transition-all duration-300 text-left"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -337,5 +338,6 @@ export default function AboutElena() {
           </div>
         </section>
       </div>
+    </>
   );
 }

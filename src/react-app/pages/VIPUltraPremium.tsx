@@ -1,12 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
+import { motion } from 'framer-motion';
+import { 
+  Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, 
+  Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond, 
+  User, Calendar 
+} from 'lucide-react';
+
 import Layout from '@/react-app/components/Layout';
 import SEOHead from '@/react-app/components/SEOHead';
-import { Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle, Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond, User, Calendar } from 'lucide-react';
-import { useState, useEffect } from 'react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
-import { Link } from 'react-router';
+
+// --- Constants & Data ---
 
 const iconMap = {
   Diamond,
@@ -119,6 +127,8 @@ const testimonials = [
   }
 ];
 
+// --- Components ---
+
 export default function VIPUltraPremium() {
   const { t } = useLanguage();
   const { user } = useSupabaseAuth();
@@ -158,8 +168,8 @@ export default function VIPUltraPremium() {
   }, []);
 
   useEffect(() => {
-    if (user) {
-      const fetchTier = async () => {
+    const fetchTier = async () => {
+      if (user) {
         const { data } = await supabase
           .from('user_profiles')
           .select('vip_tier')
@@ -169,12 +179,15 @@ export default function VIPUltraPremium() {
         if (data) {
           setVipTier(data.vip_tier || 'none');
         }
-        setLoadingTier(false);
-      };
+      }
+      setLoadingTier(false);
+    };
+
+    if (user) {
       fetchTier();
     } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setLoadingTier(false);
+      const timer = setTimeout(() => setLoadingTier(false), 0);
+      return () => clearTimeout(timer);
     }
   }, [user]);
 
@@ -182,40 +195,40 @@ export default function VIPUltraPremium() {
     switch (tier) {
       case 'bronze':
         return {
-          border: 'border-amber-500/30',
-          hoverBorder: 'border-amber-400/60',
-          accent: 'text-amber-400',
-          bg: 'bg-amber-900/10',
-          gradient: 'from-amber-600 to-amber-700',
-          shadow: 'shadow-amber-500/10'
+          border: 'border-amber-700/50',
+          hoverBorder: 'border-amber-500',
+          accent: 'text-amber-500',
+          bg: 'bg-amber-950/30',
+          gradient: 'from-amber-700 to-amber-900',
+          shadow: 'shadow-amber-900/20'
         };
       case 'silver':
         return {
-          border: 'border-slate-400/30',
-          hoverBorder: 'border-slate-200/60',
-          accent: 'text-slate-200',
-          bg: 'bg-slate-800/10',
-          gradient: 'from-slate-400 to-slate-600',
-          shadow: 'shadow-slate-400/10'
+          border: 'border-zinc-400/30',
+          hoverBorder: 'border-zinc-200',
+          accent: 'text-zinc-300',
+          bg: 'bg-zinc-800/30',
+          gradient: 'from-zinc-400 to-zinc-600',
+          shadow: 'shadow-zinc-500/10'
         };
       case 'gold':
         return {
-          border: 'border-yellow-500/40',
-          hoverBorder: 'border-yellow-400',
-          accent: 'text-yellow-400',
-          bg: 'bg-yellow-900/20',
-          gradient: 'from-yellow-400 via-yellow-500 to-amber-600',
-          shadow: 'shadow-yellow-500/30',
-          glow: 'shadow-[0_0_30px_rgba(234,179,8,0.2)]'
+          border: 'border-amber-400/50',
+          hoverBorder: 'border-amber-300',
+          accent: 'text-amber-300',
+          bg: 'bg-amber-900/20',
+          gradient: 'from-amber-300 via-amber-500 to-amber-700',
+          shadow: 'shadow-amber-500/30',
+          glow: 'shadow-[0_0_30px_rgba(245,158,11,0.2)]'
         };
       default:
         return {
-          border: 'border-gray-500/30',
-          hoverBorder: 'border-gray-400',
-          accent: 'text-gray-400',
-          bg: 'bg-gray-800/10',
-          gradient: 'from-gray-500 to-gray-600',
-          shadow: 'shadow-gray-500/5'
+          border: 'border-zinc-700',
+          hoverBorder: 'border-zinc-500',
+          accent: 'text-zinc-500',
+          bg: 'bg-zinc-900/50',
+          gradient: 'from-zinc-700 to-zinc-800',
+          shadow: 'shadow-zinc-900/50'
         };
     }
   };
@@ -228,424 +241,372 @@ export default function VIPUltraPremium() {
         keywords={t('seo.vip.keywords')}
       />
 
-      {/* Ultra Premium Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 overflow-hidden">
-        {/* Advanced Background Effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/15 to-purple-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-12"></div>
-        </div>
-
-        {/* Luxury Grid Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 text-center text-white">
-          {/* Ultra Premium Badge */}
-          <div className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-900/40 via-yellow-600/20 to-yellow-900/40 backdrop-blur-xl border border-yellow-500/50 rounded-2xl mb-16 shadow-[0_0_30px_rgba(234,179,8,0.2)]">
-            <Diamond className="mr-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
-            <span className="text-yellow-100 font-bold tracking-[0.2em] text-lg uppercase bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 bg-clip-text text-transparent">{t('vip.hero.badge')}</span>
-            <Diamond className="ml-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
+      <div className="bg-black min-h-screen text-white selection:bg-amber-500/30">
+        
+        {/* --- Hero Section --- */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+          {/* Background Elements */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-black to-black" />
+            <motion.div 
+              className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px]"
+              animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+              transition={{ duration: 8, repeat: Infinity }}
+            />
+            <motion.div 
+              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-700/10 rounded-full blur-[100px]"
+              animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.2, 1] }}
+              transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+            />
           </div>
 
-          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-extralight mb-12 leading-tight tracking-tighter">
-            <span className="block bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(234,179,8,0.3)]">
-              {t('vip.hero.title.beyond')}
-            </span>
-            <span className="block text-5xl sm:text-6xl lg:text-7xl font-light text-gray-300 italic mt-6 tracking-wide">
-              {t('vip.hero.title.wellness')}
-            </span>
-          </h1>
-
-          <p className="text-2xl sm:text-3xl text-white/80 mb-20 max-w-5xl mx-auto font-light leading-relaxed">
-            {t('vip.hero.subtitle')}
-          </p>
-
-          {/* Luxury CTA */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
-            <a
-              href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.messageGeneral'))}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-400/30"
+          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-950/20 backdrop-blur-sm mb-8"
             >
-              <span className="text-xl tracking-wide">{t('vip.hero.cta.join')}</span>
-              <Crown className="ml-4 w-7 h-7 group-hover:animate-bounce" />
-            </a>
+              <Crown className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-200 text-xs font-medium tracking-[0.2em] uppercase">
+                {t('vip.hero.badge')}
+              </span>
+            </motion.div>
 
-            <a
-              href="tel:+34658867133"
-              className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-bold px-12 py-6 rounded-full transition-all duration-300"
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-8"
             >
-              <Phone className="w-6 h-6 mr-4" />
-              <span className="text-xl tracking-wide">658 867 133</span>
-            </a>
-          </div>
+              <span className="block text-white mb-2">{t('vip.hero.title.beyond')}</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 font-medium italic">
+                {t('vip.hero.title.wellness')}
+              </span>
+            </motion.h1>
 
-          {/* Exclusive Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              { val: '< 1%', label: 'vip.stats.clients' },
-              { val: '24/7', label: 'vip.stats.concierge' },
-              { val: '100%', label: 'vip.stats.exclusivity' },
-              { val: '∞', label: 'vip.stats.possibilities' }
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-6 border border-yellow-500/20 bg-yellow-900/5 rounded-2xl backdrop-blur-sm hover:border-yellow-500/40 transition-colors duration-300">
-                <div className="text-4xl font-light text-yellow-400 mb-2 drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]">{stat.val}</div>
-                <div className="text-yellow-100/60 text-xs uppercase tracking-[0.2em]">{t(stat.label)}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed mb-12"
+            >
+              {t('vip.hero.subtitle')}
+            </motion.p>
 
-      {/* Member Dashboard Section (Visible only to logged-in users) */}
-      {user && !loadingTier && (
-        <section className="py-16 bg-gray-900 border-y border-gray-800">
-          <div className="max-w-6xl mx-auto px-4 sm:px-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <User className="w-6 h-6 text-yellow-400" />
-                  <span className="text-yellow-400 font-medium tracking-wider text-sm">{t('vip.dashboard.member')}</span>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            >
+              <a
+                href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.messageGeneral'))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative px-8 py-4 bg-amber-500 text-black font-medium rounded-full overflow-hidden transition-transform hover:scale-105"
+              >
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <span className="relative flex items-center gap-2">
+                  {t('vip.hero.cta.join')}
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </a>
+              
+              <a
+                href="tel:+34658867133"
+                className="px-8 py-4 border border-zinc-700 text-zinc-300 rounded-full hover:bg-zinc-900 transition-colors flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4" />
+                <span>658 867 133</span>
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* --- Member Dashboard (Conditional) --- */}
+        {user && !loadingTier && (
+          <section className="py-12 border-y border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <User className="w-5 h-5 text-amber-400" />
+                    <span className="text-amber-400 text-sm font-medium tracking-wider uppercase">{t('vip.dashboard.member')}</span>
+                  </div>
+                  <h2 className="text-2xl font-light text-white">
+                    {t('vip.dashboard.hello')} <span className="font-medium text-amber-100">{user.email?.split('@')[0]}</span>
+                  </h2>
+                  <p className="text-zinc-400 mt-1">
+                    {t('vip.dashboard.status')} <span className={`font-medium ${vipTier !== 'none' ? 'text-amber-400' : 'text-zinc-500'}`}>
+                      {vipTier === 'none' ? t('vip.tier.standard') : `${vipTier.toUpperCase()} ELITE`}
+                    </span>
+                  </p>
                 </div>
-                <h2 className="text-3xl text-white font-light mb-2">
-                  {t('vip.dashboard.hello')} <span className="font-medium">{user.email?.split('@')[0]}</span>
-                </h2>
-                <p className="text-gray-400">
-                  {t('vip.dashboard.status')} <span className={`font-bold ${vipTier !== 'none' ? 'text-yellow-400' : 'text-gray-300'}`}>{vipTier === 'none' ? t('vip.tier.standard') : `${vipTier.toUpperCase()} ELITE`}</span>
-                </p>
+                
+                <div className="flex gap-4">
+                  {vipTier !== 'none' ? (
+                    <Link
+                      to="/booking"
+                      className="px-6 py-3 bg-amber-500 text-black rounded-full font-medium hover:bg-amber-400 transition-colors flex items-center gap-2"
+                    >
+                      <Calendar className="w-4 h-4" />
+                      {t('vip.dashboard.priorityBooking')}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => document.getElementById('plans-section')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="px-6 py-3 border border-amber-500/30 text-amber-200 rounded-full hover:bg-amber-950/30 transition-colors flex items-center gap-2"
+                    >
+                      <Crown className="w-4 h-4" />
+                      {t('vip.dashboard.viewPlans')}
+                    </button>
+                  )}
+                </div>
               </div>
+            </div>
+          </section>
+        )}
 
-              <div className="flex gap-4">
-                {vipTier !== 'none' ? (
-                  <Link
-                    to="/booking"
-                    className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black px-6 py-3 rounded-full font-bold transition-all shadow-[0_0_15px_rgba(234,179,8,0.4)] hover:shadow-[0_0_25px_rgba(234,179,8,0.6)]"
+        {/* --- Luxury Features --- */}
+        <section className="py-32 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <span className="text-amber-500 text-sm font-medium tracking-[0.2em] uppercase block mb-4">
+                {t('vip.features.badge')}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-light mb-6">{t('vip.features.title')}</h2>
+              <p className="text-zinc-400 max-w-2xl mx-auto font-light text-lg">
+                {t('vip.features.subtitle')}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {luxuryFeatures.map((feature, index) => {
+                const Icon = iconMap[feature.icon as keyof typeof iconMap] || Diamond;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group p-8 rounded-3xl bg-zinc-900/50 border border-zinc-800 hover:border-amber-500/30 transition-all duration-500"
                   >
-                    <Calendar className="w-5 h-5" />
-                    {t('vip.dashboard.priorityBooking')}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={() => document.getElementById('plans-section')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full font-medium transition-colors border border-yellow-500/30 hover:border-yellow-400/60 shadow-[0_0_10px_rgba(234,179,8,0.1)]"
-                  >
-                    <Crown className="w-5 h-5 text-yellow-400" />
-                    {t('vip.dashboard.viewPlans')}
-                  </button>
-                )}
-              </div>
+                    <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <Icon className="w-7 h-7 text-amber-400" />
+                    </div>
+                    <h3 className="text-xl font-medium text-white mb-3 group-hover:text-amber-200 transition-colors">
+                      {t(feature.title)}
+                    </h3>
+                    <p className="text-zinc-400 font-light leading-relaxed">
+                      {t(feature.description)}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
-      )}
 
-      {/* Luxury Features Section */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-6 py-2 bg-yellow-100 rounded-2xl mb-8">
-              <Sparkles className="mr-2 w-5 h-5 text-yellow-600" />
-              <span className="text-yellow-700 font-medium text-sm tracking-wide">{t('vip.features.badge')}</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-6">
-              {t('vip.features.title')}
-            </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
-              {t('vip.features.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-            {luxuryFeatures.map((feature, index) => {
-              const Icon = iconMap[feature.icon as keyof typeof iconMap] || Diamond;
-              return (
-                <div key={index} className="group">
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 shadow-xl hover:shadow-[0_20px_50px_rgba(234,179,8,0.15)] border border-gray-100 hover:border-yellow-400/50 transition-all duration-500 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-100/20 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150"></div>
-                    <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-[0_10px_20px_rgba(234,179,8,0.3)]">
-                      <Icon className="w-10 h-10 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-yellow-700 transition-colors">{t(feature.title)}</h3>
-                    <p className="text-lg text-gray-600 leading-relaxed font-light">{t(feature.description)}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Ultra Premium Plans Section */}
-      <section id="plans-section" className="py-32 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
-        {/* Dynamic Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -rotate-12"></div>
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-6 py-2 bg-yellow-500/10 backdrop-blur-md rounded-2xl mb-8 border border-yellow-400/20">
-              <Crown className="mr-2 w-5 h-5 text-yellow-400" />
-              <span className="text-yellow-200 font-medium text-sm tracking-wide">{t('vip.plans.badge')}</span>
-            </div>
-            <h2 className="text-5xl sm:text-6xl font-light mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent">
-                {t('vip.plans.title')}
+        {/* --- Plans Section --- */}
+        <section id="plans-section" className="py-32 bg-zinc-900/30 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <span className="text-amber-500 text-sm font-medium tracking-[0.2em] uppercase block mb-4">
+                {t('vip.plans.badge')}
               </span>
-            </h2>
-            <p className="text-2xl text-white/80 max-w-4xl mx-auto font-light">
-              {t('vip.plans.subtitle')}
-            </p>
-          </div>
+              <h2 className="text-4xl md:text-5xl font-light mb-6">{t('vip.plans.title')}</h2>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {plans.map((plan) => {
-              const colors = getTierColors(plan.tier);
-              const isHovered = hoveredPlan === plan.tier;
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+              {plans.map((plan, index) => {
+                const colors = getTierColors(plan.tier);
+                const isHovered = hoveredPlan === plan.tier;
 
-              return (
-                <div
-                  key={plan.tier}
-                  onMouseEnter={() => setHoveredPlan(plan.tier)}
-                  onMouseLeave={() => setHoveredPlan(null)}
-                  className={`relative group ${plan.popular ? 'lg:scale-110 lg:-translate-y-8' : ''}`}
-                >
-                  {/* Popular Badge */}
-                  {plan.popular && (
-                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
-                      <div className="bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 px-8 py-3 rounded-full text-sm font-bold shadow-lg">
+                return (
+                  <motion.div
+                    key={plan.tier}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    onMouseEnter={() => setHoveredPlan(plan.tier)}
+                    onMouseLeave={() => setHoveredPlan(null)}
+                    className={`relative rounded-3xl border transition-all duration-500 overflow-hidden ${
+                      plan.popular ? 'lg:-mt-8 lg:mb-8 z-10' : ''
+                    } ${isHovered ? colors.hoverBorder : colors.border} ${colors.bg}`}
+                  >
+                    {plan.popular && (
+                      <div className="absolute top-0 left-0 w-full py-2 bg-amber-500 text-black text-center text-xs font-bold uppercase tracking-wider">
                         {t('vip.plans.popular')}
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {/* Premium Card */}
-                  <div className={`relative h-full backdrop-blur-lg border-2 rounded-3xl overflow-hidden transition-all duration-500 ${isHovered
-                      ? `shadow-2xl ${colors.hoverBorder} transform scale-105 ${colors.glow || ''}`
-                      : `shadow-lg ${colors.border} ${colors.bg}`
-                    }`}>
-                    <div className="p-10">
-                      {/* Header */}
-                      <div className="text-center mb-10">
-                        <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-8 transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3 shadow-lg' : ''}`}>
-                          <Crown className="w-10 h-10 text-white" />
-                        </div>
-                        <h3 className="text-3xl font-light text-white mb-4">
+                    <div className={`p-8 ${plan.popular ? 'pt-12' : ''}`}>
+                      <div className="text-center mb-8">
+                        <h3 className={`text-2xl font-light mb-2 ${colors.accent}`}>
                           {t(plan.name)}
                         </h3>
-                        <p className="text-white/70 mb-8 font-light text-lg">
-                          {t(plan.description)}
-                        </p>
-                        <div className="flex items-baseline justify-center mb-2">
-                          <span className="text-6xl font-light text-white">
-                            {t(plan.price)}
-                          </span>
-                          <span className="text-2xl text-white/60 ml-2">{t('vip.plans.perMonth')}</span>
+                        <div className="flex items-baseline justify-center gap-1 mb-4">
+                          <span className="text-4xl font-medium text-white">{t(plan.price)}</span>
+                          <span className="text-zinc-500 text-sm">{t('vip.plans.perMonth')}</span>
                         </div>
-                        <p className="text-white/50 text-sm">
-                          {plan.sessions} {t('vip.plans.sessions')}
+                        <p className="text-zinc-400 text-sm font-light min-h-[3rem]">
+                          {t(plan.description)}
                         </p>
                       </div>
 
-                      {/* Features */}
-                      <div className="space-y-5 mb-12">
-                        {plan.features.map((feature: string, featureIndex: number) => (
-                          <div
-                            key={featureIndex}
-                            className="flex items-center space-x-4"
-                          >
-                            <div className="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0">
-                              <CheckCircle className="w-4 h-4 text-green-400" />
-                            </div>
-                            <span className="text-white/90 font-light text-lg">{t(feature)}</span>
+                      <div className="space-y-4 mb-8">
+                        {plan.features.map((feature: string, i: number) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <CheckCircle className={`w-5 h-5 flex-shrink-0 ${colors.accent}`} />
+                            <span className="text-zinc-300 text-sm font-light">{t(feature)}</span>
                           </div>
                         ))}
                       </div>
 
-                      {/* CTA Button */}
                       <a
                         href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.message', { plan: t(plan.name) }))}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 ${plan.popular
-                          ? `bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 hover:from-yellow-500 hover:to-amber-600 shadow-xl ${colors.shadow}`
-                          : 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/20'
-                          }`}
+                        className={`block w-full py-4 rounded-xl text-center font-medium transition-all duration-300 ${
+                          plan.popular 
+                            ? 'bg-amber-500 text-black hover:bg-amber-400' 
+                            : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
+                        }`}
                       >
-                        {t('vip.plans.contact')} {t(plan.name)}
+                        {t('vip.plans.contact')}
                       </a>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Premium Benefits Grid */}
-      <section className="py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl sm:text-6xl font-light text-gray-900 mb-6">
-              {t('vip.exclusivePrivileges')}
-            </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
-              {t('vip.features.subtitle')}
-            </p>
-          </div>
+        {/* --- Exclusive Privileges --- */}
+        <section className="py-32">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-light mb-6">{t('vip.exclusivePrivileges')}</h2>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {vipServices.map((service, serviceIndex) => {
-              const Icon = service.icon;
-
-              return (
-                <div
-                  key={serviceIndex}
-                  className="group"
-                >
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 h-full border border-gray-100 hover:border-yellow-200">
-                    <div className="flex items-start space-x-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 shadow-xl rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-8 h-8 text-white" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {vipServices.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="group p-8 rounded-3xl bg-zinc-900/30 border border-zinc-800 hover:border-amber-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                        <Icon className="w-6 h-6 text-amber-400" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
-                          {t(service.title)}
-                        </h3>
-                        <p className="text-gray-600 text-lg mb-6 font-light leading-relaxed">
+                      <div>
+                        <h3 className="text-xl font-medium text-white mb-3">{t(service.title)}</h3>
+                        <p className="text-zinc-400 font-light mb-6 text-sm leading-relaxed">
                           {t(service.description)}
                         </p>
-                        <div className="space-y-3">
-                          {service.features.map((feature, featureIndex) => (
-                            <div
-                              key={featureIndex}
-                              className="flex items-center space-x-3"
-                            >
-                              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                              <span className="text-gray-700 font-light">{t(feature)}</span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {service.features.map((feature, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                              <span className="text-zinc-300 text-xs font-light">{t(feature)}</span>
                             </div>
                           ))}
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials without profile images */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl sm:text-6xl font-light text-gray-900 mb-6">
-              {t('vip.testimonials.title')}
-            </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light">
-              {t('vip.testimonials.subtitle')}
-            </p>
-          </div>
+        {/* --- Testimonials --- */}
+        <section className="py-32 bg-zinc-900/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-light mb-6">{t('vip.testimonials.title')}</h2>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, testimonialIndex) => (
-              <div
-                key={testimonialIndex}
-                className="group"
-              >
-                <div className="bg-white rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 h-full border border-gray-100">
-                  {/* Tier Badge */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="p-8 rounded-3xl bg-black border border-zinc-800"
+                >
                   <div className="flex justify-between items-start mb-8">
-                    <div className="flex">
+                    <div className="flex gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+                        <Star key={i} className="w-4 h-4 text-amber-500 fill-current" />
                       ))}
                     </div>
-                    <div className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider ${testimonial.tier === 'GOLD'
-                      ? 'bg-yellow-400 text-gray-900'
-                      : 'bg-gray-200 text-gray-700'
-                      }`}>
-                      {testimonial.tier} ELITE
-                    </div>
+                    <span className={`text-xs font-bold px-3 py-1 rounded-full ${
+                      testimonial.tier === 'GOLD' ? 'bg-amber-500/20 text-amber-400' : 'bg-zinc-800 text-zinc-400'
+                    }`}>
+                      {testimonial.tier}
+                    </span>
                   </div>
-
-                  {/* Quote */}
-                  <blockquote className="text-gray-700 text-lg mb-10 leading-relaxed font-light">
-                    &quot;{t(testimonial.comment)}&quot;
+                  <blockquote className="text-zinc-300 font-light italic mb-8 leading-relaxed">
+                    "{t(testimonial.comment)}"
                   </blockquote>
-
-                  {/* Author */}
                   <div>
-                    <p className="font-semibold text-gray-900 text-lg">{testimonial.name}</p>
-                    <p className="text-gray-500">{t(testimonial.role)}</p>
+                    <div className="text-white font-medium">{testimonial.name}</div>
+                    <div className="text-zinc-500 text-sm">{t(testimonial.role)}</div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Ultra Luxury Final CTA */}
-      <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
-        {/* Ultra premium background effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/10 to-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        </div>
+        {/* --- Final CTA --- */}
+        <section className="py-32 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-amber-950/10 to-black pointer-events-none" />
+          
+          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-amber-500/30 bg-amber-950/30 backdrop-blur-sm mb-12">
+              <Heart className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-200 text-sm font-medium tracking-wider">{t('vip.cta.badge')}</span>
+            </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 text-center">
-          <div className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-yellow-900/40 via-yellow-600/20 to-yellow-900/40 backdrop-blur-xl border border-yellow-500/50 rounded-full mb-16 shadow-[0_0_20px_rgba(234,179,8,0.2)]">
-            <Heart className="mr-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]" />
-            <span className="text-yellow-100 font-bold tracking-wider text-lg">{t('vip.cta.badge')}</span>
-            <Heart className="ml-4 w-6 h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]" />
+            <h2 className="text-5xl md:text-7xl font-light mb-8">
+              {t('vip.cta.title')}
+              <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500 font-medium italic">
+                {t('vip.hero.title.beyond')}
+              </span>
+            </h2>
+
+            <p className="text-xl text-zinc-400 mb-12 font-light">
+              {t('vip.cta.subtitle')}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <a
+                href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.messageGeneral'))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-5 bg-amber-500 text-black font-medium rounded-full hover:bg-amber-400 transition-all hover:scale-105 shadow-lg shadow-amber-900/20"
+              >
+                {t('vip.hero.cta.join')}
+              </a>
+            </div>
           </div>
+        </section>
 
-          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-light text-white mb-12 leading-tight">
-            {t('vip.cta.title')}<br />
-            <span className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent font-medium italic drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">
-              {t('vip.hero.title.beyond')}
-            </span>
-          </h2>
-
-          <p className="text-2xl text-gray-300 mb-20 max-w-4xl mx-auto font-light leading-relaxed">
-            {t('vip.cta.subtitle')}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
-            <a
-              href={`https://wa.me/34658867133?text=${encodeURIComponent(t('vip.whatsapp.messageGeneral'))}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-yellow-400/30"
-            >
-              <span className="text-xl tracking-wide">{t('vip.hero.cta.join')}</span>
-              <ArrowRight className="ml-4 w-7 h-7 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-
-            <a
-              href="tel:+34658867133"
-              className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-bold px-12 py-6 rounded-full transition-all duration-300"
-            >
-              <Phone className="w-6 h-6 mr-4" />
-              <span className="text-xl tracking-wide">658 867 133</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      </div>
     </Layout>
   );
 }

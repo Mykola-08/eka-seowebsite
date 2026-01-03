@@ -7,9 +7,14 @@ export default function FinalInvitationSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-black via-zinc-900 to-black relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
+      {/* Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-900/10 rounded-full blur-[120px]" />
+      </div>
+
       {/* Animated golden background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <motion.div 
             className="w-[800px] h-[800px] border border-amber-400/10 rounded-full"
@@ -64,7 +69,7 @@ export default function FinalInvitationSection() {
           transition={{ duration: 0.6 }}
         >
           <motion.h2 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 mb-8 tracking-tight leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 mb-8 tracking-tight leading-tight"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

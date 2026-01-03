@@ -91,11 +91,14 @@ export default function BenefitsSection() {
   return (
     <motion.section 
       ref={ref}
-      className="py-24 sm:py-32 bg-zinc-950 relative overflow-hidden"
+      className="py-24 sm:py-32 bg-black relative overflow-hidden"
       style={{ opacity }}
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-zinc-950 to-zinc-950" />
+      {/* Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-amber-900/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-yellow-900/10 rounded-full blur-[100px]" />
+      </div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
@@ -105,7 +108,7 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-200 mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 mb-6 tracking-tight">
             {t('benefits.title')}
           </h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto font-light">
@@ -117,17 +120,17 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="group relative p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-amber-500/30 transition-all duration-500"
+              className="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-amber-500/30 transition-all duration-500"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -5, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
               
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors duration-500">
                   <div className="text-amber-400 group-hover:text-amber-300 transition-colors duration-500">
                     {benefit.icon}
                   </div>
@@ -137,14 +140,14 @@ export default function BenefitsSection() {
                   {benefit.title}
                 </h3>
                 
-                <p className="text-zinc-400 mb-4 leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
+                <p className="text-zinc-400 mb-4 leading-relaxed group-hover:text-zinc-300 transition-colors duration-300 font-light">
                   {benefit.description}
                 </p>
                 
                 {benefit.science && (
-                  <div className="pt-4 border-t border-zinc-800 group-hover:border-amber-500/20 transition-colors duration-500">
+                  <div className="pt-4 border-t border-white/10 group-hover:border-amber-500/20 transition-colors duration-500">
                     <p className="text-xs font-medium text-amber-500/70 uppercase tracking-wider mb-1">Science</p>
-                    <p className="text-sm text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300">
+                    <p className="text-sm text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 font-light">
                       {benefit.science}
                     </p>
                   </div>
@@ -162,8 +165,8 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="p-8 rounded-2xl bg-gradient-to-r from-amber-500/5 via-yellow-500/5 to-amber-500/5 border border-amber-500/10 backdrop-blur-sm">
-            <p className="text-amber-200/80 text-lg italic font-serif leading-relaxed">
+          <div className="p-8 rounded-3xl bg-gradient-to-r from-amber-500/5 via-yellow-500/5 to-amber-500/5 border border-amber-500/10 backdrop-blur-sm">
+            <p className="text-amber-200/80 text-lg italic font-light leading-relaxed">
               "{t('benefits.philosophy')}"
             </p>
           </div>

@@ -7,13 +7,18 @@ export default function Footer() {
   const { t } = useLanguage();
   return (
     <motion.footer 
-      className="bg-gradient-to-t from-black via-zinc-900 to-zinc-800 border-t border-amber-500/20"
+      className="bg-black border-t border-white/10 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      {/* Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-amber-900/5 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand Section */}
           <motion.div 
@@ -45,7 +50,7 @@ export default function Footer() {
               </div>
             </div>
             
-            <p className="text-zinc-300 leading-relaxed">
+            <p className="text-zinc-400 leading-relaxed font-light">
               {t('footer.description')}
             </p>
             

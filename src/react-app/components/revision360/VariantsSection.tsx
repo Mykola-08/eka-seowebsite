@@ -103,17 +103,22 @@ export default function VariantsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-zinc-800 to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 sm:py-32 bg-black relative overflow-hidden">
+      {/* Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-900/5 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.h2 
-            className="text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-300 mb-6"
+            className="text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 mb-6 tracking-tight"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -122,7 +127,7 @@ export default function VariantsSection() {
             {t('variants.title')}
           </motion.h2>
           <motion.p 
-            className="text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed font-light"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -136,7 +141,7 @@ export default function VariantsSection() {
           {variants.map((variant, index) => (
             <motion.div
               key={index}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-800/80 to-zinc-900/60 border border-amber-500/20 cursor-pointer"
+              className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -146,28 +151,30 @@ export default function VariantsSection() {
               }}
               onClick={() => setSelectedVariant(variant)}
               whileHover={{ 
-                borderColor: "rgba(245, 158, 11, 0.5)",
+                borderColor: "rgba(251, 191, 36, 0.4)",
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
                 scale: 1.02,
                 y: -8,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.3 }
               }}
               whileTap={{ scale: 0.98 }}
             >
               {/* Golden frame effect */}
               <motion.div 
-                className="absolute -inset-0.5 bg-gradient-to-r from-amber-500/20 via-yellow-400/20 to-amber-500/20 rounded-2xl blur-sm"
+                className="absolute -inset-0.5 bg-gradient-to-r from-amber-500/0 via-amber-400/10 to-amber-500/0 rounded-3xl blur-md"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               
-              <div className="relative p-6 lg:p-8 h-full flex flex-col">
+              <div className="relative p-8 h-full flex flex-col">
                 <motion.div 
-                  className="text-amber-400 mb-6"
+                  className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-8 text-amber-400"
                   whileHover={{ 
                     scale: 1.1,
+                    backgroundColor: "rgba(245, 158, 11, 0.2)",
                     color: "rgb(252, 211, 77)",
-                    transition: { duration: 0.2 }
+                    transition: { duration: 0.3 }
                   }}
                 >
                   {variant.icon}

@@ -183,7 +183,7 @@ export default function Why360Section() {
               return (
                 <motion.div
                   key={layer.name}
-                  className={`group relative p-6 rounded-xl border transition-all duration-500 cursor-pointer overflow-hidden ${isHovered ? 'bg-zinc-900/80 border-amber-500/30' : 'bg-zinc-900/20 border-white/5 hover:bg-zinc-900/40 hover:border-white/10'}`}
+                  className={`group relative p-6 rounded-2xl border transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-md ${isHovered ? 'bg-white/10 border-amber-500/30' : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}`}
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -195,15 +195,15 @@ export default function Why360Section() {
                   <div className={`absolute inset-0 bg-gradient-to-r ${layer.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                   
                   <div className="relative flex items-start gap-5">
-                    <div className={`mt-1 p-2 rounded-lg bg-zinc-950 border border-white/5 ${isHovered ? 'border-amber-500/20' : ''} transition-colors duration-300`}>
+                    <div className={`mt-1 p-2 rounded-xl bg-black/40 border border-white/10 ${isHovered ? 'border-amber-500/20' : ''} transition-colors duration-300`}>
                       <Layers className={`w-5 h-5 ${layer.iconColor} opacity-80`} />
                     </div>
                     
                     <div>
-                      <h3 className={`text-lg font-medium mb-1 transition-colors duration-300 ${isHovered ? 'text-amber-100' : 'text-zinc-300'}`}>
+                      <h3 className={`text-lg font-medium mb-1 transition-colors duration-300 ${isHovered ? 'text-amber-100' : 'text-zinc-200'}`}>
                         {layer.name}
                       </h3>
-                      <p className="text-sm text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">
+                      <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors duration-300 font-light">
                         {layer.description}
                       </p>
                     </div>

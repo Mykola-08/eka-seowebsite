@@ -78,23 +78,29 @@ export default function ServiceSection() {
   return (
     <motion.section 
       ref={ref}
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-zinc-900 to-zinc-800"
+      className="py-24 sm:py-32 bg-black relative overflow-hidden"
       style={{ opacity, y }}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-amber-900/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-yellow-900/10 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
         >
           <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-300 mb-8 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 mb-8 leading-tight tracking-tight"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.6 }}
           >
             {t('service.title')}
           </motion.h2>

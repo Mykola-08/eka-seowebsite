@@ -6,25 +6,39 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 const personalizedServices = [
   {
-    id: 'adults',
-    title: 'elena.target.adults.title',
-    description: 'elena.target.adults.desc',
-    image: 'https://images.pexels.com/photos/3768593/pexels-photo-3768593.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/services/adults'
+    id: 'office-workers',
+    title: 'personalizedServices.officeWorkers',
+    description: 'personalizedServices.officeWorkers.desc',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop',
+    href: '/services/office-workers'
   },
   {
-    id: 'children',
-    title: 'elena.target.children.title',
-    description: 'elena.target.children.desc',
-    image: 'https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/services/children'
+    id: 'athletes',
+    title: 'personalizedServices.athletes',
+    description: 'personalizedServices.athletes.desc',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1920&h=1080&fit=crop',
+    href: '/services/athletes'
   },
   {
-    id: 'families',
-    title: 'elena.target.families.title',
-    description: 'elena.target.families.desc',
-    image: 'https://images.pexels.com/photos/4472042/pexels-photo-4472042.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/services/families'
+    id: 'artists',
+    title: 'personalizedServices.artists',
+    description: 'personalizedServices.artists.desc',
+    image: 'https://images.unsplash.com/photo-1599447421405-0c325d26d77e?w=1920&h=1080&fit=crop',
+    href: '/services/artists'
+  },
+  {
+    id: 'musicians',
+    title: 'personalizedServices.musicians',
+    description: 'personalizedServices.musicians.desc',
+    image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&h=1080&fit=crop',
+    href: '/services/musicians'
+  },
+  {
+    id: 'students',
+    title: 'personalizedServices.students',
+    description: 'personalizedServices.students.desc',
+    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&h=1080&fit=crop',
+    href: '/services/students'
   }
 ];
 
@@ -35,9 +49,9 @@ export default function PersonalizedServices() {
   return (
     <>
       <SEOHead
-        title={t('elena.approach.title')}
-        description={t('elena.approach.desc')}
-        keywords="Elena Kucherova, approach, adults, children, families, special needs"
+        title={t('personalizedServices.title')}
+        description={t('personalizedServices.subtitle')}
+        keywords="personalized services, office workers, athletes, artists, musicians, students"
       />
       
       {/* Hero Section */}
@@ -51,11 +65,11 @@ export default function PersonalizedServices() {
         
         <div className="relative z-10 apple-container text-center text-white">
           <h1 className="apple-large-title text-white mb-8">
-            {t('elena.approach.title')}
+            {t('personalizedServices.title')}
           </h1>
           
           <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto">
-            {t('elena.approach.desc')}
+            {t('personalizedServices.subtitle')}
           </p>
           
           <Link to="/booking">

@@ -668,9 +668,12 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gold-shine 3s linear infinite;
   display: inline-block;
   font-weight: 800;
+}
+
+.gold-shimmer.shining {
+  animation: gold-shine 3s linear forwards;
 }
 
 @keyframes gold-shine {

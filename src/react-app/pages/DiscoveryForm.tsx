@@ -761,6 +761,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
           </div>
         </section>
     </>
+    );
+  }
 
   return (
     <>

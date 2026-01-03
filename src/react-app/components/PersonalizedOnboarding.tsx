@@ -7,7 +7,7 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 import PriceDisplay from './PriceDisplay';
-import { OnboardingData } from '@/shared/types';
+import { OnboardingData, Recommendation } from '@/shared/types';
 
 interface Question {
   id: keyof OnboardingData;
@@ -31,7 +31,7 @@ export default function PersonalizedOnboarding() {
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [recommendations, setRecommendations] = useState<any[]>([]);
+  const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
 
   const questions: Question[] = [
     {
@@ -133,19 +133,12 @@ export default function PersonalizedOnboarding() {
     // Save to Supabase if user is logged in
     if (user) {
       try {
-        await supabase.from('user_preferences').upsert({
+        await supabase.from('user_onboarding').upsert({
           user_id: user.id,
-          goals: data.goals,
-          preferred_therapy_type: '', // Determined by recommendation
-          preferred_session_duration: 60, // Default
-          metadata: {
-            userType: data.userType,
-            preferredFeeling: data.preferredFeeling,
-            onboardingCompletedAt: new Date().toISOString(),
-            recommendations: recs
-          },
+          data: data as any,
+          recommendations: recs as any,
           updated_at: new Date().toISOString()
-        });
+        }, { onConflict: 'user_id' });
       } catch (error) {
         console.error('Error saving onboarding data:', error);
       }
@@ -155,8 +148,8 @@ export default function PersonalizedOnboarding() {
     setShowResults(true);
   };
 
-  const generateRecommendations = (userData: OnboardingData): any[] => {
-    const recommendations = [];
+  const generateRecommendations = (userData: OnboardingData): Recommendation[] => {
+    const recommendations: Recommendation[] = [];
 
     // Always recommend Massage (Fast Result, Pleasant) 
     recommendations.push({

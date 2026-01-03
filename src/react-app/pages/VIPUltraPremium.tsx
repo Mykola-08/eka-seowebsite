@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import {
   Crown, Home, Clock, Sparkles, ArrowRight, CheckCircle,
   Shield, Star, Heart, Phone, Award, Zap, Globe, Diamond,
-  User, Calendar
+  User, Calendar, Check
 } from 'lucide-react';
 
 import SEOHead from '@/react-app/components/SEOHead';
@@ -126,6 +126,91 @@ const testimonials = [
   }
 ];
 
+const useRandomShine = () => {
+  const [isShining, setIsShining] = useState(false);
+
+  useEffect(() => {
+    const scheduleNextShine = () => {
+      const delay = Math.random() * (45000 - 30000) + 30000; // 30-45s
+      const timer = setTimeout(() => {
+        setIsShining(true);
+        setTimeout(() => {
+          setIsShining(false);
+          scheduleNextShine();
+        }, 3000); // Duration of shine animation
+      }, delay);
+      return timer;
+    };
+
+    const timer = scheduleNextShine();
+    return () => clearTimeout(timer);
+  }, []);
+
+  return isShining;
+};
+
+const ComparativeTable = () => {
+  const { t } = useLanguage();
+  const isShining = useRandomShine();
+
+  const features = [
+    { key: 'sessions', label: 'vip.table.sessions', bronze: '2', silver: '4', gold: '8' },
+    { key: 'priority', label: 'vip.service.priority.title', bronze: false, silver: true, gold: true },
+    { key: 'home', label: 'vip.service.displacements.title', bronze: false, silver: true, gold: true },
+    { key: 'family', label: 'vip.service.family.title', bronze: false, silver: false, gold: true },
+    { key: 'concierge', label: 'vip.stats.concierge', bronze: false, silver: false, gold: true },
+    { key: 'transferable', label: 'vip.benefits.transferable', bronze: true, silver: true, gold: true },
+  ];
+
+  const renderValue = (val: string | boolean) => {
+    if (typeof val === 'boolean') {
+      return val ? <Check className="w-5 h-5 text-amber-500 mx-auto" /> : <div className="w-1.5 h-1.5 bg-zinc-700 rounded-full mx-auto" />;
+    }
+    return <span className="text-zinc-300">{val}</span>;
+  };
+
+  return (
+    <section className="py-20 relative bg-zinc-900/20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
+            <span className={`gold-shimmer ${isShining ? 'shining' : ''}`}>{t('vip.table.title')}</span>
+          </h2>
+        </div>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[600px] border-collapse">
+            <thead>
+              <tr>
+                <th className="p-4 text-left text-zinc-400 font-light w-1/3"></th>
+                <th className="p-4 text-center text-amber-700 font-medium text-lg tracking-wider">BRONZE</th>
+                <th className="p-4 text-center text-zinc-300 font-medium text-lg tracking-wider">SILVER</th>
+                <th className="p-4 text-center font-medium text-lg tracking-wider"><span className={`gold-shimmer ${isShining ? 'shining' : ''}`}>GOLD</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              {features.map((feature) => (
+                <tr key={feature.key} className="border-b border-zinc-800 hover:bg-white/5 transition-colors">
+                  <td className="p-4 text-zinc-300 font-light">{t(feature.label)}</td>
+                  <td className="p-4 text-center">
+                    {renderValue(feature.bronze)}
+                  </td>
+                  <td className="p-4 text-center">
+                    {renderValue(feature.silver)}
+                  </td>
+                  <td className="p-4 text-center">
+                    {renderValue(feature.gold)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- Components ---
 
 export default function VIPUltraPremium() {
@@ -136,6 +221,26 @@ export default function VIPUltraPremium() {
   const [loadingTier, setLoadingTier] = useState(true);
   const [plans, setPlans] = useState<any[]>([]);
   const [luxuryFeatures, setLuxuryFeatures] = useState<any[]>([]);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const scheduleNextShine = () => {
+      const delay = Math.random() * (45000 - 30000) + 30000; // 30-45s
+      const timer = setTimeout(() => {
+        controls.start({
+          x: '200%',
+          transition: { duration: 2, ease: "easeInOut" }
+        }).then(() => {
+          controls.set({ x: '-100%' });
+          scheduleNextShine();
+        });
+      }, delay);
+      return timer;
+    };
+
+    const timer = scheduleNextShine();
+    return () => clearTimeout(timer);
+  }, [controls]);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -190,6 +295,8 @@ export default function VIPUltraPremium() {
     }
   }, [user]);
 
+  const isShining = useRandomShine();
+
   const getTierColors = (tier: string) => {
     switch (tier) {
       case 'bronze':
@@ -214,7 +321,7 @@ export default function VIPUltraPremium() {
         return {
           border: 'border-transparent',
           hoverBorder: 'border-amber-300',
-          accent: 'text-amber-300',
+          accent: 'gold-shimmer',
           bg: 'bg-amber-900/20',
           gradient: 'from-amber-300 via-amber-500 to-amber-700',
           shadow: 'shadow-amber-500/30',
@@ -442,13 +549,7 @@ export default function VIPUltraPremium() {
                         <motion.div
                           className="absolute inset-0 pointer-events-none"
                           initial={{ x: '-100%' }}
-                          animate={{ x: '200%' }}
-                          transition={{
-                            repeat: Infinity,
-                            repeatDelay: 3,
-                            duration: 2,
-                            ease: "easeInOut"
-                          }}
+                          animate={controls}
                         >
                           <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-amber-400/10 to-transparent -skew-x-12" />
                         </motion.div>
@@ -462,7 +563,7 @@ export default function VIPUltraPremium() {
 
                     <div className={`p-8 ${plan.popular ? 'pt-12' : ''}`}>
                       <div className="text-center mb-8">
-                        <h3 className={`text-2xl font-light mb-2 ${colors.accent}`}>
+                        <h3 className={`text-2xl font-light mb-2 ${colors.accent} ${plan.tier === 'gold' && isShining ? 'shining' : ''}`}>
                           {t(plan.name)}
                         </h3>
                         <div className="flex items-baseline justify-center gap-1 mb-4">
@@ -501,6 +602,8 @@ export default function VIPUltraPremium() {
             </div>
           </div>
         </section>
+
+        <ComparativeTable />
 
         {/* --- Exclusive Privileges --- */}
         <section className="py-32">

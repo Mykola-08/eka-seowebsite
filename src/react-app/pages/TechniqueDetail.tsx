@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin } from 'lucide-react';
 import SEOHead from '@/react-app/components/SEOHead';
+import Layout from '@/react-app/components/Layout';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
 export default function TechniqueDetail() {
@@ -38,6 +39,7 @@ export default function TechniqueDetail() {
         url={`https://ekabalance.com/technique/${id}`}
       />
       
+      <Layout>
       <div className="bg-black min-h-screen text-zinc-200 selection:bg-amber-500/30 pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <Link to="/about-elena" className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8 transition-colors">
@@ -68,5 +70,6 @@ export default function TechniqueDetail() {
         </div>
       </div>
     </Layout>
+    </>
   );
 }

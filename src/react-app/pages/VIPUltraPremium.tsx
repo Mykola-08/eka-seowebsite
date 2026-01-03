@@ -435,8 +435,13 @@ export default function VIPUltraPremium() {
                     onMouseLeave={() => setHoveredPlan(null)}
                     className={`relative rounded-3xl border transition-all duration-500 overflow-hidden ${
                       plan.popular ? 'lg:-mt-8 lg:mb-8 z-10' : ''
-                    } ${isHovered ? colors.hoverBorder : colors.border} ${colors.bg}`}
+                    } ${isHovered ? colors.hoverBorder : colors.border} ${colors.bg} ${
+                      plan.tier === 'gold' && isHovered ? 'shadow-[0_0_60px_rgba(245,158,11,0.3)] ring-1 ring-amber-400/50 scale-[1.02]' : ''
+                    }`}
                   >
+                    {plan.tier === 'gold' && (
+                      <div className={`absolute inset-0 bg-gradient-to-tr from-amber-500/0 via-amber-500/5 to-amber-500/0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+                    )}
                     {plan.popular && (
                       <div className="absolute top-0 left-0 w-full py-2 bg-amber-500 text-black text-center text-xs font-bold uppercase tracking-wider">
                         {t('vip.plans.popular')}

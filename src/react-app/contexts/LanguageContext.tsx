@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { servicesTranslations } from './TranslationExtensions';
 import { revision360Translations } from './Revision360Translations';
+import { techniqueTranslations } from './TechniqueTranslations';
 
 export type Language = 'ca' | 'en' | 'es' | 'ru';
 
@@ -30,6 +31,19 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.aboutElena': 'Sobre Elena',
     'nav.casos': 'Casos',
 
+    // Elena Approach & Targets
+    'elena.approach.title': 'El Mètode Elena Kucherova',
+    'elena.approach.desc': 'Al cor del meu treball hi ha la comprensió que cos, ment i emocions formen un sistema unificat. No tracto només símptomes, sinó que busco la causa arrel, ajudant l\'organisme a recuperar la seva capacitat natural d\'autoregulació. El meu mètode integra tècniques avançades de treball corporal i del sistema nerviós: Movement Lesson, JKA (Jeremy Krauss Approach), Child’Space, Feldenkrais i Biodinàmica. És una influència suau però profunda que reeduca el sistema nerviós, allibera tensions antigues i retorna l\'alegria del moviment.',
+    
+    'elena.target.adults.title': 'Adults',
+    'elena.target.adults.desc': 'Per a aquells que senten fatiga crònica, mal d\'esquena o coll, o els efectes de l\'estrès i el trauma. T\'ajudo a restaurar el teu estat de recursos, millorar la postura, alliberar bloquejos psicosomàtics i recuperar la lleugeresa en moure\'t. No és només un massatge o una teràpia; és un reinici del teu sistema nerviós per millorar la teva qualitat de vida.',
+    
+    'elena.target.children.title': 'Nens',
+    'elena.target.children.desc': 'Suport per a un desenvolupament harmoniós des dels primers dies. Treballo amb retards motors, alteracions posturals, hiperactivitat i dificultats d\'aprenentatge. Mitjançant tècniques suaus, ajudo l\'infant a sentir millor el seu cos, desenvolupant coordinació, seguretat i confiança en si mateix.',
+    
+    'elena.target.families.title': 'Famílies amb necessitats especials',
+    'elena.target.families.desc': 'Acompanyament integral per a famílies amb nens amb PC, síndromes genètics o altres necessitats del desenvolupament. Treballo no només amb l\'infant perquè adquireixi noves habilitats de moviment i comunicació, sinó també amb els pares, ensenyant-vos a interactuar amb ell i a cuidar la vostra pròpia energia i benestar.',
+
     // Dropdown items
     'nav.officeWorkers': 'Treballadors d\'oficina',
     'nav.athletes': 'Esportistes',
@@ -38,16 +52,16 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.students': 'Estudiants',
 
     // Hero section
-    'hero.badge': 'Una manera natural de cuidar-te',
+    'hero.badge': 'Salut Holística i Integració Somàtica',
     'hero.title': 'EKA Balance',
-    'hero.subtitle': 'Espai de benestar integral especialitzat en massatge terapèutic, kinesiologia i teràpies personalitzades al cor de Barcelona',
-    'hero.firstTime': 'És la teva primera vegada?',
-    'hero.dontKnowWhatToChoose': 'No saps què triar?',
+    'hero.subtitle': 'Un santuari per a la sanació profunda a Barcelona. On el massatge terapèutic, la kinesiologia avançada i l\'educació somàtica convergeixen per restaurar la saviesa natural del teu cos.',
+    'hero.firstTime': 'Nova a EKA Balance?',
+    'hero.dontKnowWhatToChoose': 'No saps per on començar?',
     'hero.discoverServices': 'Descobreix els nostres serveis',
     'hero.stats.sessions': 'Sessions realitzades',
-    'hero.stats.clients': 'Clients feliços',
-    'hero.stats.experience': 'Anys experiència',
-    'hero.stats.countries': 'Llocs d\'educació',
+    'hero.stats.clients': 'Històries d\'èxit',
+    'hero.stats.experience': 'Anys d\'experiència',
+    'hero.stats.countries': 'Formacions internacionals',
 
     // Footer
     'footer.address': 'Carrer Pelai, 12, Barcelona, Espanya',
@@ -73,20 +87,20 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Services
     'services.massage.title': 'Massatge Terapèutic',
-    'services.massage.subtitle': 'Allibera tensions i descansa de veritat',
-    'services.massage.description': 'Massatge descontracturant i relaxant adaptat a tu per reduir dolor, estrès i rigidesa.',
+    'services.massage.subtitle': 'Més enllà de la relaxació: Restauració profunda',
+    'services.massage.description': 'No és només un massatge, és un reinici terapèutic. Combinem alliberament miofascial i tècniques de teixit profund per dissoldre la tensió crònica, millorar la mobilitat i calmar la ment.',
     'services.kinesiology.title': 'Kinesiologia Holística',
-    'services.kinesiology.subtitle': 'Escolta el cos, troba l\'arrel',
-    'services.kinesiology.description': 'Test neuromuscular i correccions suaus per reequilibrar cos, emocions i hàbits.',
+    'services.kinesiology.subtitle': 'Escolta el teu cos, troba l\'arrel',
+    'services.kinesiology.description': 'La kinesiologia és un diàleg directe amb el teu cos. A través del test muscular, detectem les causes ocultes del desequilibri, ja sigui un trauma físic, estrès emocional o una alteració bioquímica. És una eina precisa que ens indica exactament quin mètode necessita el teu organisme aquí i ara per sanar.',
     'services.nutrition.title': 'Nutrició Conscient',
-    'services.nutrition.subtitle': 'Menjar amb sentit per tenir energia real',
-    'services.nutrition.description': 'Assessorament personalitzat per hàbits clars, digestió i energia.',
+    'services.nutrition.subtitle': 'Alimenta la teva vitalitat, sana des de dins',
+    'services.nutrition.description': 'La nutrició és bioquímica, no només calories. Dissenyem plans personalitzats per optimitzar la teva energia, sanar el teu intestí i donar suport al teu sistema nerviós.',
     'services.revision360.title': 'Revisió 360°',
-    'services.revision360.subtitle': 'Visió completa de cos, moviment i hàbits',
-    'services.revision360.description': 'Avaluació integral amb pla d\'acció clar i següents passos.',
-    'services.therapiesFor': 'Teràpies per al',
+    'services.revision360.subtitle': 'El mapa de la teva salut',
+    'services.revision360.description': 'Una sessió de diagnòstic integral que analitza postura, patrons de moviment i salut metabòlica per crear el teu full de ruta precís cap a la recuperació.',
+    'services.therapiesFor': 'Mètodes per al',
     'services.integralWellbeing': 'benestar integral',
-    'services.personalizedTreatments': 'Descobreix tractaments personalitzats que s\'adapten a les teves necessitats específiques',
+    'services.personalizedTreatments': 'Descobreix mètodes personalitzats que s\'adapten a les teves necessitats específiques',
     'services.consultation.title': 'Consulta Gratuïta 15 min',
     'services.consultation.description': 'No estàs segura? Parlem 15 minuts sense compromís per veure com et puc ajudar.',
     'services.consultation.feeling': 'Claredat sobre el teu camí',
@@ -113,13 +127,16 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.seo.desc': 'Coneix l\'Elena Kucherova, terapeuta especialitzada en massatge, kinesiologia i benestar integral. Més de 10 anys d\'experiència ajudant persones a Barcelona.',
     'elena.seo.keywords': 'Elena Kucherova, terapeuta integradora, kinesiologia Barcelona, sanació somàtica, desenvolupament personal',
     'elena.greeting': 'Hola! Em dic Elena',
+    'elena.role': 'Especialista en Pràctiques Corporals i Sanació Somàtica',
+    'elena.bio': 'L\'Elena ha dedicat la seva vida a la investigació de diverses disciplines terapèutiques, creant un enfocament integrador únic.',
+    'elena.work.title': 'Mètodes d\'Interacció',
     'elena.description1': 'Sóc terapeuta corporal especialitzada en massatge terapèutic, relaxant i descontracturant, kinesiologia i tècniques d\'integració del cos i la ment.',
     'elena.description2': 'El meu objectiu és ajudar-te a alliberar tensions i recuperar el benestar físic i emocional perquè tornis a sentir lleugeresa i energia al teu cos.',
     'elena.knowMore': 'Coneix-me millor',
 
     // Stats
     'stats.sessions': 'Sessions realitzades',
-    'stats.clients': 'Clients feliços',
+    'stats.clients': 'Històries d\'èxit',
     'stats.experience': 'Anys d\'experiència',
     'stats.rating': 'Valoració mitjana',
     'stats.countries': 'Països estudis',
@@ -129,12 +146,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Why choose us
     'whyChoose.title': 'Per què triar EKA Balance?',
     'whyChoose.subtitle': 'Més que un centre de teràpies, som els teus companys en el camí cap al benestar integral',
-    'whyChoose.personalized.title': 'Atenció 100% personalitzada',
-    'whyChoose.personalized.description': 'Cada sessió s\'adapta a les teves necessitats específiques per obtenir els millors resultats possibles.',
-    'whyChoose.holistic.title': 'Enfocament holístic',
-    'whyChoose.holistic.description': 'Cuidem el teu benestar integral: cos, ment i emocions treballen en perfecta harmonia.',
-    'whyChoose.experienced.title': 'Professionals experimentats',
-    'whyChoose.experienced.description': 'Equip amb anys d\'experiència i formació contínua en les millors tècniques terapèutiques.',
+    'whyChoose.personalized.title': 'Plans personalitzats',
+    'whyChoose.personalized.description': 'No hi ha dos cossos iguals. Adaptem cada sessió a la teva fisiologia i història úniques, assegurant resultats més ràpids i sostenibles.',
+    'whyChoose.holistic.title': 'Veritable integració sistèmica',
+    'whyChoose.holistic.description': 'Tractem la persona completa: estructural, química i emocionalment. La veritable sanació passa quan tots els sistemes treballen a l\'uníson.',
+    'whyChoose.experienced.title': 'Atenció experta',
+    'whyChoose.experienced.description': 'Guiats per anys de pràctica professional i estudi continu en modalitats globals com Feldenkrais, Osteopatia i Kinesiologia.',
 
     // Final CTA
     'finalCta.title': 'Preparat per començar el teu camí cap al benestar?',
@@ -144,9 +161,9 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.seo.title': 'Problemes que resolem | Casos reals de teràpia holística | EKA Balance',
     'casos.seo.desc': 'Descobreix com podem ajudar-te amb dolor d\'esquena, estrès, problemes digestius, migranyes i molts altres casos. Casos reals amb resultats comprovats.',
     'casos.seo.keywords': 'dolor esquena, estrès ansietat, problemes digestius, migranyes, fatiga crònica, teràpia holística Barcelona',
-    'casos.title': 'Problemes que resolem',
-    'casos.subtitle': 'Cada cos té la seva història. Descobreix com podem ajudar-te a recuperar l\'equilibri del teu cos, la teva ment i la teva energia.',
-    'casos.description': 'Sovint arribem amb un símptoma aparent —un dolor, una tensió, una fatiga— però darrere hi ha molt més. A EKA Balance hem acompanyat centenars de persones que, com tu, buscaven una solució real i duradora. Aquí trobaràs casos habituals, com els hem treballat i quins resultats hem vist.',
+    'casos.title': 'Camins cap a la Sanació',
+    'casos.subtitle': 'El teu cos explica una història. T\'ajudem a reescriure-la.',
+    'casos.description': 'Símptomes com el dolor, la fatiga o la tensió solen ser només la punta de l\'iceberg: senyals d\'un sistema que busca equilibri. A EKA Balance, no silenciem aquests senyals; els descodifiquem. En abordar la causa arrel, hem ajudat centenars de clients a transformar la seva relació amb el seu cos. Explora aquests casos comuns per veure què és possible per a tu.',
     'casos.frequentCases': 'Els casos més freqüents',
     'casos.frequentCasesSubtitle': 'Problemes habituals que tractem amb èxit cada dia',
     'casos.otherCases': 'Altres casos que també tractem',
@@ -339,6 +356,14 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.additionalProblems.chronicFatigue': 'Fatiga crònica',
     'casos.additionalProblems.socialAnxiety': 'Ansietat social',
     'casos.additionalProblems.concentrationDifficulty': 'Dificultat per concentrar-se',
+    'casos.additionalProblems.headaches': 'Mals de cap i migranyes',
+    'casos.additionalProblems.insomnia': 'Insomni i trastorns del son',
+    'casos.additionalProblems.posture': 'Problemes posturals',
+    'casos.additionalProblems.contractures': 'Contractures musculars',
+    'casos.additionalProblems.emotionalBlock': 'Bloquejos emocionals',
+    'casos.additionalProblems.rsi': 'Lesions per esforç repetitiu',
+    'casos.additionalProblems.carpalTunnel': 'Síndrome del túnel carpià',
+    'casos.additionalProblems.plantarFasciitis': 'Fascitis plantar',
 
     // Testimonials
     'testimonials.title': 'Testimonis dels nostres clients',
@@ -527,14 +552,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'tens',
     'discovery.analysis.want': 'i vols millorar',
     'discovery.analysis.feel': 'per sentir-te',
-    'discovery.diagnosis.title': 'Fitxa de Diagnòstic Avançat',
+    'discovery.diagnosis.title': 'Fitxa de Valoració Avançada',
     'discovery.diagnosis.profile': 'Perfil del Client',
-    'discovery.diagnosis.symptoms': 'Símptomes Identificats',
+    'discovery.diagnosis.symptoms': 'Indicadors Identificats',
     'discovery.diagnosis.rootCause': 'Possibles Causes Arrel',
     'discovery.diagnosis.strategy': 'Estratègia Recomanada',
     'discovery.diagnosis.frequency': 'Freqüència Suggerida',
     'discovery.view.basic': 'Recomanació Simple',
-    'discovery.view.advanced': 'Diagnòstic Complet',
+    'discovery.view.advanced': 'Valoració Completa',
     'discovery.diagnosis.cause.posture': 'Fatiga Postural (Sedentarisme)',
     'discovery.diagnosis.cause.overload': 'Sobrecàrrega Muscular',
     'discovery.diagnosis.cause.stress': 'Tensió Psicosomàtica',
@@ -566,7 +591,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step2.title': 'On sents més tensió?',
     'discovery.step2.subtitle': 'Pots seleccionar múltiples opcions',
     'discovery.step3.title': 'Tens alguna condició especial?',
-    'discovery.step3.subtitle': 'Això ens ajuda a adaptar el tractament',
+    'discovery.step3.subtitle': 'Això ens ajuda a adaptar la sessió',
     'discovery.step4.title': 'Com et sents emocionalment?',
     'discovery.step4.subtitle': 'El benestar emocional és clau per a la salut física',
     'discovery.step5.title': 'Quant temps tens disponible?',
@@ -673,7 +698,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalizedServices.cta': 'Reserva la teva sessió',
     'personalizedServices.difference.title': 'Avantatges dels Atributs Personalitzats',
     'personalizedServices.main.title': 'Serveis Estàndard',
-    'personalizedServices.main.list1': 'Tractament generalitzat',
+    'personalizedServices.main.list1': 'Massatge terapèutic general',
     'personalizedServices.main.list2': 'Sessions estàndard',
     'personalizedServices.main.list3': 'Enfocament en símptomes',
     'personalizedServices.main.list4': 'Resultats progressius',
@@ -791,7 +816,7 @@ const translations: Record<Language, Record<string, string>> = {
     'athletes.hero.subtitle': 'Recuperació muscular, prevenció de lesions i optimització del rendiment esportiu',
     'athletes.challenges.title': 'Problemes comuns',
     'athletes.challenge1.title': 'Recuperació lenta',
-    'athletes.challenge1.desc': 'Les lesions i la fatiga muscular triguen més del necessari a curar-se',
+    'athletes.challenge1.desc': 'Les lesions i la fatiga muscular triguen més del necessari a recuperar-se',
     'athletes.challenge2.title': 'Flexibilitat limitada',
     'athletes.challenge2.desc': 'Rigidesa que redueix el rang de moviment i afecta el rendiment',
     'athletes.challenge3.title': 'Estrès pre-competició',
@@ -1144,7 +1169,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.services.title': 'Sessions dissenyades per a tu',
     'personalized.officeWorkers.services.subtitle': 'Tractaments específics per alleujar les tensions del treball sedentari',
     'personalized.officeWorkers.services.therapeuticMassage.title': 'Massatge terapèutic amb enfoc postural',
-    'personalized.officeWorkers.services.therapeuticMassage.description': 'Tractament especialitzat per alleujar contractures cervicals i millorar la postura davant l\'ordinador.',
+    'personalized.officeWorkers.services.therapeuticMassage.description': 'Sessió especialitzada per alleujar contractures cervicals i millorar la postura davant l\'ordinador.',
     'personalized.officeWorkers.services.feldenkrais.title': 'Feldenkrais per desbloquejar moviments',
     'personalized.officeWorkers.services.feldenkrais.description': 'Tècniques de moviment conscient per trencar patrons de rigidesa i recuperar flexibilitat.',
     'personalized.officeWorkers.testimonial.title': 'Testimoni d\'un professional',
@@ -1331,6 +1356,19 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.aboutElena': 'About Elena',
     'nav.casos': 'Cases',
 
+    // Elena Approach & Targets
+    'elena.approach.title': 'The Elena Kucherova Method',
+    'elena.approach.desc': 'At the heart of my practice is the understanding that body, mind, and emotions form a single, unified system. I don’t just treat symptoms; I look for the root cause, helping your body restore its natural ability to self-regulate. My method blends advanced bodywork and nervous system techniques—Movement Lesson, JKA (Jeremy Krauss Approach), Child’Space, Feldenkrais, and Biodynamics. It’s a gentle yet powerful approach that retrains the nervous system, releases deep-seated tension, and brings back the joy of movement.',
+    
+    'elena.target.adults.title': 'Adults',
+    'elena.target.adults.desc': 'For those experiencing chronic fatigue, back or neck pain, or the lingering effects of stress and trauma. I help you restore your inner resources, improve posture, release psychosomatic blocks, and rediscover the ease of moving freely. This isn’t just massage or therapy—it’s a reset for your nervous system to enhance your quality of life.',
+    
+    'elena.target.children.title': 'Children',
+    'elena.target.children.desc': 'Supporting harmonious development from the very first days. I work with motor delays, postural issues, hyperactivity, and learning challenges. Using gentle techniques, I help children connect better with their bodies, developing coordination, confidence, and a strong foundation for growth.',
+    
+    'elena.target.families.title': 'Families with Special Needs',
+    'elena.target.families.desc': 'Comprehensive support for families raising children with CP, genetic syndromes, or other developmental needs. I work not only with the child—helping them master new movement and communication skills—but also with parents, guiding you on how to support your child’s development while maintaining your own well-being.',
+
     // Dropdown items
     'nav.officeWorkers': 'Office Workers',
     'nav.athletes': 'Athletes',
@@ -1339,16 +1377,16 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.students': 'Students',
 
     // Hero section
-    'hero.badge': 'A Natural Way to Care for Yourself',
+    'hero.badge': 'Holistic Health & Somatic Integration',
     'hero.title': 'EKA Balance',
-    'hero.subtitle': 'Comprehensive wellness space specialized in therapeutic massage, kinesiology, and personalized therapies in the heart of Barcelona',
-    'hero.firstTime': 'First time here?',
-    'hero.dontKnowWhatToChoose': 'Not sure what to choose?',
+    'hero.subtitle': 'A sanctuary for deep healing in Barcelona. Where therapeutic massage, advanced kinesiology, and somatic education converge to restore your body’s natural wisdom.',
+    'hero.firstTime': 'New to EKA Balance?',
+    'hero.dontKnowWhatToChoose': 'Unsure where to start?',
     'hero.discoverServices': 'Discover Our Services',
     'hero.stats.sessions': 'Sessions Completed',
-    'hero.stats.clients': 'Satisfied Clients',
+    'hero.stats.clients': 'Success Stories',
     'hero.stats.experience': 'Years of Experience',
-    'hero.stats.countries': 'Countries of Study',
+    'hero.stats.countries': 'International Trainings',
 
     // Footer
     'footer.address': 'Carrer Pelai, 12, Barcelona, Spain',
@@ -1374,20 +1412,20 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Services
     'services.massage.title': 'Therapeutic Massage',
-    'services.massage.subtitle': 'Release Tension and Truly Relax',
-    'services.massage.description': 'Personalized decontracting and relaxing massage to reduce pain, stress, and stiffness.',
+    'services.massage.subtitle': 'Beyond Relaxation: Deep Tissue Restoration',
+    'services.massage.description': 'Not just a massage, but a therapeutic reset. We combine myofascial release and deep tissue techniques to dissolve chronic tension, improve mobility, and quiet the mind.',
     'services.kinesiology.title': 'Holistic Kinesiology',
-    'services.kinesiology.subtitle': 'Listen to Your Body, Find the Root Cause',
-    'services.kinesiology.description': 'Neuromuscular testing and gentle corrections to rebalance body, emotions, and habits.',
+    'services.kinesiology.subtitle': 'Listen to your body, find the root cause',
+    'services.kinesiology.description': 'Kinesiology is a dialogue with your body. Through precise muscle testing, we uncover the hidden sources of imbalance—whether physical trauma, emotional stress, or biochemical needs. It’s a targeted tool that reveals exactly what your system needs right now to heal and thrive.',
     'services.nutrition.title': 'Conscious Nutrition',
-    'services.nutrition.subtitle': 'Eat with Purpose for Real Energy',
-    'services.nutrition.description': 'Personalized nutritional counseling for healthy habits, better digestion, and sustained energy.',
+    'services.nutrition.subtitle': 'Fuel Your Vitality, Heal from Within',
+    'services.nutrition.description': 'Nutrition is biochemistry, not just calories. We design personalized plans to optimize your energy, heal your gut, and support your nervous system.',
     'services.revision360.title': '360° Review',
-    'services.revision360.subtitle': 'Complete Overview of Body, Movement, and Habits',
-    'services.revision360.description': 'Comprehensive assessment with a clear action plan and next steps.',
-    'services.therapiesFor': 'Therapies for',
+    'services.revision360.subtitle': 'The Blueprint of Your Health',
+    'services.revision360.description': 'A comprehensive diagnostic session analyzing posture, movement patterns, and metabolic health to create your precise roadmap to recovery.',
+    'services.therapiesFor': 'Methods for',
     'services.integralWellbeing': 'Integral Wellbeing',
-    'services.personalizedTreatments': 'Discover personalized treatments tailored to your specific needs',
+    'services.personalizedTreatments': 'Discover personalized methods tailored to your specific needs',
     'services.consultation.title': 'Free 15 min Consultation',
     'services.consultation.description': 'Not sure? Let\'s talk for 15 minutes with no obligation to see how I can help you.',
     'services.consultation.feeling': 'Clarity on your path',
@@ -1408,13 +1446,16 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About Elena
     'elena.greeting': 'Hello! I\'m Elena',
+    'elena.role': 'Specialist in Body Practices and Somatic Healing',
+    'elena.bio': 'Elena has dedicated her life to researching various therapeutic disciplines, creating a unique integrative approach.',
+    'elena.work.title': 'Interaction Methods',
     'elena.description1': 'I\'m a body therapist specialized in therapeutic, relaxing, and decontracting massage, kinesiology, and body-mind integration techniques.',
     'elena.description2': 'My goal is to help you release tension and recover your physical and emotional wellbeing, so you can feel lightness and energy in your body again.',
     'elena.knowMore': 'Learn More About Me',
 
     // Stats
     'stats.sessions': 'Sessions Completed',
-    'stats.clients': 'Satisfied Clients',
+    'stats.clients': 'Success Stories',
     'stats.experience': 'Years of Experience',
     'stats.rating': 'Average Rating',
     'stats.countries': 'Countries of Study',
@@ -1424,21 +1465,21 @@ const translations: Record<Language, Record<string, string>> = {
     // Why choose us
     'whyChoose.title': 'Why Choose EKA Balance?',
     'whyChoose.subtitle': 'More than a therapy center, we are your partners on the path to comprehensive wellbeing',
-    'whyChoose.personalized.title': '100% Personalized Attention',
-    'whyChoose.personalized.description': 'Each session is tailored to your specific needs to achieve the best possible results.',
-    'whyChoose.holistic.title': 'Holistic Approach',
-    'whyChoose.holistic.description': 'We care for your comprehensive wellbeing: body, mind, and emotions work in perfect harmony.',
-    'whyChoose.experienced.title': 'Experienced Professionals',
-    'whyChoose.experienced.description': 'Our team has years of experience and continuous training in the best therapeutic techniques.',
+    'whyChoose.personalized.title': 'Personalized Plans',
+    'whyChoose.personalized.description': 'No two bodies are alike. We tailor every session to your unique physiology and history, ensuring faster, more sustainable results.',
+    'whyChoose.holistic.title': 'True Systemic Integration',
+    'whyChoose.holistic.description': 'We address the whole person—structural, chemical, and emotional. True healing happens when all systems work in unison.',
+    'whyChoose.experienced.title': 'Expert Care',
+    'whyChoose.experienced.description': 'Guided by years of professional practice and continuous study in global modalities like Feldenkrais, Osteopathy, and Kinesiology.',
 
     // Final CTA
     'finalCta.title': 'Ready to Begin Your Wellness Journey?',
     'finalCta.subtitle': 'Contact us to book your session or get answers to any questions',
 
     // Casos page
-    'casos.title': 'Problems We Solve',
-    'casos.subtitle': 'Every body has its own story. Discover how we can help you recover balance in your body, mind, and energy.',
-    'casos.description': 'Often we arrive with an apparent symptom—pain, tension, fatigue—but there\'s much more behind it. At EKA Balance, we\'ve accompanied hundreds of people who, like you, were seeking a real and lasting solution. Here you\'ll find common cases, how we\'ve approached them, and the results we\'ve achieved.',
+    'casos.title': 'Pathways to Healing',
+    'casos.subtitle': 'Your body tells a story. We help you rewrite it.',
+    'casos.description': 'Symptoms like pain, fatigue, or tension are often just the tip of the iceberg—signals from a system seeking balance. At EKA Balance, we don’t just silence these signals; we decode them. By addressing the root cause, we’ve helped hundreds of clients transform their relationship with their bodies. Explore these common journeys to see what’s possible for you.',
     'casos.frequentCases': 'Most frequent cases',
     'casos.frequentCasesSubtitle': 'Common problems we successfully treat every day',
     'casos.otherCases': 'Other cases we also treat',
@@ -1601,7 +1642,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Symptoms, causes, treatment, results labels
     'casos.symptoms': 'Symptoms',
     'casos.causes': 'Causes',
-    'casos.treatment': 'Treatment',
+    'casos.treatment': 'Our Approach',
     'casos.results': 'Results',
 
     // Additional problems list
@@ -1615,6 +1656,14 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.additionalProblems.chronicFatigue': 'Chronic fatigue',
     'casos.additionalProblems.socialAnxiety': 'Social anxiety',
     'casos.additionalProblems.concentrationDifficulty': 'Difficulty concentrating',
+    'casos.additionalProblems.headaches': 'Headaches and migraines',
+    'casos.additionalProblems.insomnia': 'Insomnia and sleep disorders',
+    'casos.additionalProblems.posture': 'Postural problems',
+    'casos.additionalProblems.contractures': 'Muscle contractures',
+    'casos.additionalProblems.emotionalBlock': 'Emotional blockages',
+    'casos.additionalProblems.rsi': 'Repetitive strain injuries',
+    'casos.additionalProblems.carpalTunnel': 'Carpal tunnel syndrome',
+    'casos.additionalProblems.plantarFasciitis': 'Plantar fasciitis',
 
     // Testimonials
     'testimonials.title': 'What our clients say',
@@ -1786,7 +1835,7 @@ const translations: Record<Language, Record<string, string>> = {
     'athletes.hero.subtitle': 'Muscle recovery, injury prevention and sports performance optimization',
     'athletes.challenges.title': 'Common problems',
     'athletes.challenge1.title': 'Slow recovery',
-    'athletes.challenge1.desc': 'Injuries and muscle fatigue take longer than necessary to heal',
+    'athletes.challenge1.desc': 'Injuries and muscle fatigue take longer than necessary to recover',
     'athletes.challenge2.title': 'Limited flexibility',
     'athletes.challenge2.desc': 'Stiffness that reduces range of motion and affects performance',
     'athletes.challenge3.title': 'Pre-competition stress',
@@ -2143,7 +2192,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.services.title': 'Sessions designed for you',
     'personalized.officeWorkers.services.subtitle': 'Specific treatments to relieve sedentary work tensions',
     'personalized.officeWorkers.services.therapeuticMassage.title': 'Therapeutic massage with postural focus',
-    'personalized.officeWorkers.services.therapeuticMassage.description': 'Specialized treatment to relieve cervical contractures and improve computer posture.',
+    'personalized.officeWorkers.services.therapeuticMassage.description': 'Specialized session to relieve cervical contractures and improve computer posture.',
     'personalized.officeWorkers.services.feldenkrais.title': 'Feldenkrais to unlock movements',
     'personalized.officeWorkers.services.feldenkrais.description': 'Conscious movement techniques to break stiffness patterns and recover flexibility.',
     'personalized.officeWorkers.testimonial.title': 'Professional testimonial',
@@ -2407,14 +2456,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'you have',
     'discovery.analysis.want': 'and want to improve',
     'discovery.analysis.feel': 'to feel',
-    'discovery.diagnosis.title': 'Advanced Diagnostic Sheet',
+    'discovery.diagnosis.title': 'Advanced Assessment Sheet',
     'discovery.diagnosis.profile': 'Client Profile',
-    'discovery.diagnosis.symptoms': 'Identified Symptoms',
+    'discovery.diagnosis.symptoms': 'Identified Indicators',
     'discovery.diagnosis.rootCause': 'Potential Root Causes',
     'discovery.diagnosis.strategy': 'Recommended Strategy',
     'discovery.diagnosis.frequency': 'Suggested Frequency',
     'discovery.view.basic': 'Simple Recommendation',
-    'discovery.view.advanced': 'Full Diagnosis',
+    'discovery.view.advanced': 'Full Assessment',
     'discovery.diagnosis.cause.posture': 'Postural Fatigue (Sedentary)',
     'discovery.diagnosis.cause.overload': 'Muscular Overload',
     'discovery.diagnosis.cause.stress': 'Psychosomatic Tension',
@@ -2446,7 +2495,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step2.title': 'Where do you feel most tension?',
     'discovery.step2.subtitle': 'You can select multiple options',
     'discovery.step3.title': 'Do you have any special condition?',
-    'discovery.step3.subtitle': 'This helps us adapt the treatment',
+    'discovery.step3.subtitle': 'This helps us adapt the session',
     'discovery.step4.title': 'How do you feel emotionally?',
     'discovery.step4.subtitle': 'Emotional wellbeing is key to physical health',
     'discovery.step5.title': 'How much time do you have available?',
@@ -2608,7 +2657,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.testimonials.role2': 'Cardiovascular Surgeon',
     'vip.testimonials.role3': 'Entrepreneur',
     'vip.cta.badge': 'Join Us',
-    'vip.cta.title': 'Elevate Your',
+    'vip.cta.title': 'Elevate Your Life',
     'vip.cta.subtitle': 'Your journey to peak performance and profound well-being starts here.',
     'vip.whatsapp.message': 'Hello, I am interested in the {plan} VIP plan. I would like to receive more information.',
     'vip.whatsapp.messageGeneral': 'Hello, I am interested in the VIP Inner Circle plans. I would like to receive more information.',
@@ -2628,6 +2677,19 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.aboutElena': 'Sobre Elena',
     'nav.casos': 'Casos',
 
+    // Elena Approach & Targets
+    'elena.approach.title': 'El Método Elena Kucherova',
+    'elena.approach.desc': 'En el núcleo de mi trabajo yace una profunda comprensión de que el cuerpo, el cerebro y las emociones son un sistema unificado. No trato síntomas, sino que busco su causa raíz, ayudando al organismo a restaurar su capacidad natural de autorregulación. Mi método combina técnicas avanzadas de trabajo con el cuerpo y el sistema nervioso: Movement Lesson, JKA (Jeremy Krauss Approach), Child’Space, Feldenkrais y Biodinámica. Es una influencia suave pero poderosa que reentrena el sistema nervioso, libera tensiones profundas y restaura la facilidad de movimiento y la claridad mental.',
+    
+    'elena.target.adults.title': 'Adultos',
+    'elena.target.adults.desc': 'Para quienes sienten fatiga crónica, dolor de espalda o cuello, o los efectos del estrés y el trauma. Te ayudo a restaurar tu estado de recursos, mejorar la postura, liberar bloqueos psicosomáticos y recuperar la ligereza al moverte. No es solo un masaje o una terapia; es un reinicio de tu sistema nervioso para elevar tu calidad de vida.',
+    
+    'elena.target.children.title': 'Niños',
+    'elena.target.children.desc': 'Apoyo para un desarrollo armonioso desde los primeros días. Trabajo con retrasos motores, alteraciones posturales, hiperactividad y dificultades de aprendizaje. Mediante técnicas suaves, ayudo al niño a sentir mejor su cuerpo, desarrollando coordinación, seguridad y confianza en sí mismo.',
+    
+    'elena.target.families.title': 'Familias con necesidades especiales',
+    'elena.target.families.desc': 'Acompañamiento integral para familias con niños con PC, síndromes genéticos u otras necesidades del desarrollo. Trabajo no solo con el niño para que adquiera nuevas habilidades de movimiento y comunicación, sino también con los padres, enseñándoos a interactuar con él y a cuidar vuestra propia energía y bienestar.',
+
     // Dropdown items
     'nav.officeWorkers': 'Trabajadores de oficina',
     'nav.athletes': 'Deportistas',
@@ -2636,16 +2698,16 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.students': 'Estudiantes',
 
     // Hero section
-    'hero.badge': 'Una forma natural de cuidarte',
+    'hero.badge': 'Salud Holística e Integración Somática',
     'hero.title': 'EKA Balance',
-    'hero.subtitle': 'Espacio de bienestar integral especializado en masaje terapéutico, kinesiología y terapias personalizadas en el corazón de Barcelona',
-    'hero.firstTime': '¿Es tu primera vez?',
-    'hero.dontKnowWhatToChoose': '¿No sabes qué elegir?',
+    'hero.subtitle': 'Un santuario para la sanación profunda en Barcelona. Donde el masaje terapéutico, la kinesiología avanzada y la educación somática convergen para restaurar la sabiduría natural de tu cuerpo.',
+    'hero.firstTime': '¿Nueva en EKA Balance?',
+    'hero.dontKnowWhatToChoose': '¿No sabes por dónde empezar?',
     'hero.discoverServices': 'Descubre nuestros servicios',
     'hero.stats.sessions': 'Sesiones realizadas',
-    'hero.stats.clients': 'Clientes felices',
-    'hero.stats.experience': 'Años experiencia',
-    'hero.stats.countries': 'Lugares de educación',
+    'hero.stats.clients': 'Historias de éxito',
+    'hero.stats.experience': 'Años de experiencia',
+    'hero.stats.countries': 'Formaciones internacionales',
 
     // Footer
     'footer.address': 'Carrer Pelai, 12, Barcelona, España',
@@ -2671,20 +2733,20 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Services
     'services.massage.title': 'Masaje Terapéutico',
-    'services.massage.subtitle': 'Libera tensiones y descansa de verdad',
-    'services.massage.description': 'Masaje descontracturante y relajante adaptado a ti para reducir dolor, estrés y rigidez.',
+    'services.massage.subtitle': 'Más allá de la relajación: Restauración profunda',
+    'services.massage.description': 'No es solo un masaje, es un reinicio terapéutico. Combinamos liberación miofascial y técnicas de tejido profundo para disolver la tensión crónica, mejorar la movilidad y calmar la mente.',
     'services.kinesiology.title': 'Kinesiología Holística',
     'services.kinesiology.subtitle': 'Escucha el cuerpo, encuentra la raíz',
-    'services.kinesiology.description': 'Test neuromuscular y correcciones suaves para reequilibrar cuerpo, emociones y hábitos.',
+    'services.kinesiology.description': 'La kinesiología es un diálogo con tu cuerpo. A través de pruebas musculares, encontramos causas ocultas de desequilibrio, ya sea trauma físico, estrés emocional o alteración bioquímica. Es una herramienta precisa que permite seleccionar exactamente el método que tu organismo necesita aquí y ahora.',
     'services.nutrition.title': 'Nutrición Consciente',
-    'services.nutrition.subtitle': 'Comer con sentido para tener energía real',
-    'services.nutrition.description': 'Asesoramiento personalizado para hábitos claros, digestión y energía.',
+    'services.nutrition.subtitle': 'Alimenta tu vitalidad, sana desde dentro',
+    'services.nutrition.description': 'La nutrición es bioquímica, no solo calorías. Diseñamos planes personalizados para optimizar tu energía, sanar tu intestino y apoyar tu sistema nervioso.',
     'services.revision360.title': 'Revisión 360°',
-    'services.revision360.subtitle': 'Visión completa de cuerpo, movimiento y hábitos',
-    'services.revision360.description': 'Evaluación integral con plan de acción claro y próximos pasos.',
-    'services.therapiesFor': 'Terapias para el',
+    'services.revision360.subtitle': 'El mapa de tu salud',
+    'services.revision360.description': 'Una sesión de diagnóstico integral que analiza postura, patrones de movimiento y salud metabólica para crear tu hoja de ruta precisa hacia la recuperación.',
+    'services.therapiesFor': 'Métodos para el',
     'services.integralWellbeing': 'bienestar integral',
-    'services.personalizedTreatments': 'Descubre tratamientos personalizados que se adaptan a tus necesidades específicas',
+    'services.personalizedTreatments': 'Descubre métodos personalizados que se adaptan a tus necesidades específicas',
     'services.consultation.title': 'Consulta Gratuita 15 min',
     'services.consultation.description': '¿No estás segura? Hablemos 15 minutos sin compromiso para ver cómo te puedo ayudar.',
     'services.consultation.feeling': 'Claridad sobre tu camino',
@@ -2705,13 +2767,16 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About Elena
     'elena.greeting': '¡Hola! Me llamo Elena',
+    'elena.role': 'Especialista en Prácticas Corporales y Sanación Somática',
+    'elena.bio': 'Elena ha dedicado su vida a la investigación de diversas disciplinas terapéuticas, creando un enfoque integrador único.',
+    'elena.work.title': 'Métodos de Interacción',
     'elena.description1': 'Soy terapeuta corporal especializada en masaje terapéutico, relajante y descontracturante, kinesiología y técnicas de integración del cuerpo y la mente.',
     'elena.description2': 'Mi objetivo es ayudarte a liberar tensiones y recuperar el bienestar físico y emocional para que vuelvas a sentir ligereza y energía en tu cuerpo.',
     'elena.knowMore': 'Conóceme mejor',
 
     // Stats
     'stats.sessions': 'Sesiones realizadas',
-    'stats.clients': 'Clientes felices',
+    'stats.clients': 'Historias de éxito',
     'stats.experience': 'Años de experiencia',
     'stats.rating': 'Valoración media',
     'stats.countries': 'Países estudiados',
@@ -2721,21 +2786,21 @@ const translations: Record<Language, Record<string, string>> = {
     // Why choose us
     'whyChoose.title': '¿Por qué elegir EKA Balance?',
     'whyChoose.subtitle': 'Más que un centro de terapias, somos tus compañeros en el camino hacia el bienestar integral',
-    'whyChoose.personalized.title': 'Atención 100% personalizada',
-    'whyChoose.personalized.description': 'Cada sesión se adapta a tus necesidades específicas para obtener los mejores resultados posibles.',
-    'whyChoose.holistic.title': 'Enfoque holístico',
-    'whyChoose.holistic.description': 'Cuidamos tu bienestar integral: cuerpo, mente y emociones trabajan en perfecta armonía.',
-    'whyChoose.experienced.title': 'Profesionales experimentados',
-    'whyChoose.experienced.description': 'Equipo con años de experiencia y formación continua en las mejores técnicas terapéuticas.',
+    'whyChoose.personalized.title': 'Planes personalizados',
+    'whyChoose.personalized.description': 'No hay dos cuerpos iguales. Adaptamos cada sesión a tu fisiología e historia únicas, asegurando resultados más rápidos y sostenibles.',
+    'whyChoose.holistic.title': 'Verdadera integración sistémica',
+    'whyChoose.holistic.description': 'Abordamos a la persona completa: estructural, química y emocionalment. La verdadera sanación ocurre cuando todos los sistemas trabajan al unísono.',
+    'whyChoose.experienced.title': 'Atención experta',
+    'whyChoose.experienced.description': 'Guiados por años de práctica profesional y estudio continuo en modalidades globales como Feldenkrais, Osteopatía y Kinesiología.',
 
     // Final CTA
     'finalCta.title': '¿Listo para comenzar tu camino hacia el bienestar?',
     'finalCta.subtitle': 'Contáctanos para reservar tu sesión o resolver cualquier duda',
 
     // Casos page
-    'casos.title': 'Problemas que resolvemos',
-    'casos.subtitle': 'Cada cuerpo tiene su historia. Descubre cómo podemos ayudarte a recuperar el equilibrio de tu cuerpo, tu mente y tu energía.',
-    'casos.description': 'A menudo llegamos con un síntoma aparente —un dolor, una tensión, una fatiga— pero detrás hay mucho más. En EKA Balance hemos acompañado a cientos de personas que, como tú, buscaban una solución real y duradera. Aquí encontrarás casos habituales, cómo los hemos trabajado y qué resultados hemos visto.',
+    'casos.title': 'Caminos hacia la Sanación',
+    'casos.subtitle': 'Tu cuerpo cuenta una historia. Te ayudamos a reescribirla.',
+    'casos.description': 'Síntomas como el dolor, la fatiga o la tensión suelen ser solo la punta del iceberg: señales de un sistema que busca equilibrio. En EKA Balance, no silenciamos estas señales; las decodificamos. Al abordar la causa raíz, hemos ayudado a cientos de clientes a transformar su relación con su cuerpo. Explora estos casos comunes para ver lo que es posible para ti.',
     'casos.frequentCases': 'Los casos más frecuentes',
     'casos.frequentCasesSubtitle': 'Problemas habituales que tratamos con éxito cada día',
     'casos.otherCases': 'Otros casos que también tratamos',
@@ -2912,6 +2977,14 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.additionalProblems.chronicFatigue': 'Fatiga crónica',
     'casos.additionalProblems.socialAnxiety': 'Ansiedad social',
     'casos.additionalProblems.concentrationDifficulty': 'Dificultad para concentrarse',
+    'casos.additionalProblems.headaches': 'Dolores de cabeza y migrañas',
+    'casos.additionalProblems.insomnia': 'Insomnio y trastornos del sueño',
+    'casos.additionalProblems.posture': 'Problemas posturales',
+    'casos.additionalProblems.contractures': 'Contracturas musculares',
+    'casos.additionalProblems.emotionalBlock': 'Bloqueos emocionales',
+    'casos.additionalProblems.rsi': 'Lesiones por esfuerzo repetitivo',
+    'casos.additionalProblems.carpalTunnel': 'Síndrome del túnel carpiano',
+    'casos.additionalProblems.plantarFasciitis': 'Fascitis plantar',
 
     // Testimonials
     'testimonials.title': 'Lo que dicen nuestros clientes',
@@ -3083,7 +3156,7 @@ const translations: Record<Language, Record<string, string>> = {
     'athletes.hero.subtitle': 'Recuperación muscular, prevención de lesiones y optimización del rendimiento deportivo',
     'athletes.challenges.title': 'Problemas comunes',
     'athletes.challenge1.title': 'Recuperación lenta',
-    'athletes.challenge1.desc': 'Las lesiones y la fatiga muscular tardan más de lo necesario en curarse',
+    'athletes.challenge1.desc': 'Las lesiones y la fatiga muscular tardan más de lo necesario en recuperarse',
     'athletes.challenge2.title': 'Flexibilidad limitada',
     'athletes.challenge2.desc': 'Rigidez que reduce el rango de movimiento y afecta el rendimiento',
     'athletes.challenge3.title': 'Estrés pre-competición',
@@ -3634,14 +3707,14 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'tienes',
     'discovery.analysis.want': 'y quieres mejorar',
     'discovery.analysis.feel': 'para sentirte',
-    'discovery.diagnosis.title': 'Ficha de Diagnóstico Avanzado',
+    'discovery.diagnosis.title': 'Ficha de Valoración Avanzada',
     'discovery.diagnosis.profile': 'Perfil del Cliente',
-    'discovery.diagnosis.symptoms': 'Síntomas Identificados',
+    'discovery.diagnosis.symptoms': 'Indicadores Identificados',
     'discovery.diagnosis.rootCause': 'Posibles Causas Raíz',
     'discovery.diagnosis.strategy': 'Estrategia Recomendada',
     'discovery.diagnosis.frequency': 'Frecuencia Sugerida',
     'discovery.view.basic': 'Recomendación Simple',
-    'discovery.view.advanced': 'Diagnóstico Completo',
+    'discovery.view.advanced': 'Valoración Completa',
     'discovery.diagnosis.cause.posture': 'Fatiga Postural (Sedentarismo)',
     'discovery.diagnosis.cause.overload': 'Sobrecarga Muscular',
     'discovery.diagnosis.cause.stress': 'Tensión Psicosomática',
@@ -3674,7 +3747,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step2.title': '¿Dónde sientes más tensión?',
     'discovery.step2.subtitle': 'Puedes seleccionar varias opciones',
     'discovery.step3.title': '¿Tienes alguna condición especial?',
-    'discovery.step3.subtitle': 'Esto nos ayuda a adaptar el tratamiento',
+    'discovery.step3.subtitle': 'Esto nos ayuda a adaptar la sesión',
     'discovery.step4.title': '¿Cómo te sientes emocionalmente?',
     'discovery.step4.subtitle': 'El bienestar emocional es clave para la salud física',
     'discovery.step5.title': '¿Cuánto tiempo tienes disponible?',
@@ -3802,7 +3875,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.services.title': 'Servicios para ti',
     'personalized.officeWorkers.services.subtitle': 'Soluciones para el entorno de oficina',
     'personalized.officeWorkers.services.therapeuticMassage.title': 'Masaje terapéutico',
-    'personalized.officeWorkers.services.therapeuticMassage.description': 'Tratamiento profundo para contracturas en espalda y cuello.',
+    'personalized.officeWorkers.services.therapeuticMassage.description': 'Sesión profunda para contracturas en espalda y cuello.',
     'personalized.officeWorkers.services.feldenkrais.title': 'Método Feldenkrais',
     'personalized.officeWorkers.services.feldenkrais.description': 'Aprende a sentarte y moverte con mayor facilidad y menos esfuerzo.',
     'personalized.officeWorkers.testimonial.title': 'Testimonio',
@@ -3969,7 +4042,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.testimonials.role2': 'Cirujano Cardiovascular',
     'vip.testimonials.role3': 'Emprendedora',
     'vip.cta.badge': 'Únete a Nosotros',
-    'vip.cta.title': 'Eleva Tu',
+    'vip.cta.title': 'Eleva Tu Vida',
     'vip.cta.subtitle': 'Tu viaje hacia el máximo rendimiento y bienestar profundo comienza aquí.',
     'vip.whatsapp.message': 'Hola, estoy interesado en el plan VIP {plan}. Me gustaría recibir más información.',
     'vip.whatsapp.messageGeneral': 'Hola, estoy interesado en los planes VIP Inner Circle. Me gustaría recibir más información.',
@@ -3990,6 +4063,19 @@ ru: {
                 'nav.aboutElena': 'О Елене',
                   'nav.casos': 'Случаи',
 
+    // Elena Approach & Targets
+    'elena.approach.title': 'Метод Елены Кучеровой',
+    'elena.approach.desc': 'В основе моей работы лежит глубокое понимание того, что тело, мозг и эмоции — это единая система. Я не лечу симптомы, а ищу их первопричину, помогая организму восстановить естественную способность к саморегуляции. Мой метод объединяет передовые техники работы с телом и нервной системой: Movement Lesson, JKA (Jeremy Krauss Approach), Child’Space, Feldenkrais и Биодинамику. Это мягкое, но мощное воздействие, которое переобучает нервную систему, снимает глубинные напряжения и возвращает легкость движения и ясность ума.',
+    
+    'elena.target.adults.title': 'Взрослые',
+    'elena.target.adults.desc': 'Для тех, кто чувствует хроническую усталость, боли в спине и шее, последствия стресса или травм. Я помогаю восстановить ресурсное состояние, улучшить осанку, снять психосоматические блоки и вернуть радость движения. Это не просто массаж или терапия, это перезагрузка вашей нервной системы для более качественной жизни.',
+    
+    'elena.target.children.title': 'Дети',
+    'elena.target.children.desc': 'Поддержка гармоничного развития ребенка с первых дней жизни. Я работаю с задержками моторного развития, нарушениями осанки, гиперактивностью и сложностями в обучении. Мягкие техники помогают ребенку лучше чувствовать свое тело, развивать координацию и уверенность в себе.',
+    
+    'elena.target.families.title': 'Семьи с особенными детьми',
+    'elena.target.families.desc': 'Комплексное сопровождение семей с детьми с ДЦП, генетическими синдромами или другими особенностями развития. Я работаю не только с ребенком, чтобы он осваивал новые навыки движения и коммуникации, но и с родителями, обучая вас взаимодействовать с ним и заботиться о собственной энергии и благополучии.',
+
                     // Dropdown items
                     'nav.officeWorkers': 'Офисные работники',
                       'nav.athletes': 'Спортсмены',
@@ -3997,18 +4083,17 @@ ru: {
                           'nav.musicians': 'Музыканты',
                             'nav.students': 'Студенты',
 
-                              // Hero section
-                              'hero.badge': 'Естественный способ исцеления',
-                                'hero.title': 'EKA Balance',
-                                  'hero.subtitle': 'Оздоровительное пространство, специализирующееся на терапевтическом массаже, кинезиологии и персонализированных терапиях в сердце Барселоны',
-                                    'hero.dontKnowWhatToChoose': 'Не знаете, что выбрать?',
-                                      'hero.firstTime': 'Это ваш первый раз?',
-                                        'hero.discoverServices': 'Откройте наши услуги',
+    // Hero section
+    'hero.badge': 'Холистическое здоровье и соматическая интеграция',
+    'hero.title': 'EKA Balance',
+    'hero.subtitle': 'Святилище глубокого исцеления в Барселоне. Где терапевтический массаж, передовая кинезиология и соматическое обучение объединяются, чтобы восстановить естественную мудрость вашего тела.',
+    'hero.firstTime': 'Впервые в EKA Balance?',
+    'hero.dontKnowWhatToChoose': 'Не знаете, с чего начать?',
+    'hero.discoverServices': 'Откройте наши услуги',
                                           'hero.stats.sessions': 'Проведенных сессий',
-                                            'hero.stats.clients': 'Счастливых клиентов',
-                                              'hero.stats.experience': 'Лет опыта',
-                                                'hero.stats.countries': 'Мест обучения',
-
+    'hero.stats.clients': 'Историй успеха',
+    'hero.stats.experience': 'Лет опыта',
+    'hero.stats.countries': 'Международных обучений',
                                                   // Footer
                                                   'footer.address': 'Carrer Pelai, 12, Barcelona, Spain',
                                                     'footer.email': 'contact@ekabalance.com',
@@ -4028,22 +4113,22 @@ ru: {
                                                                         'discovery.step.location.title': 'Где вы находитесь?',
                                                                           'discovery.step.location.subtitle': 'Чтобы предложить лучший вариант',
 
-                                                                            // Services
-                                                                            'services.massage.title': 'Терапевтический массаж',
-                                                                              'services.massage.subtitle': 'Снимите напряжение и по-настоящему отдохните',
-                                                                                'services.massage.description': 'Расслабляющий массаж, адаптированный для вас, чтобы уменьшить боль, стресс и скованность.',
-                                                                                  'services.kinesiology.title': 'Холистическая кинезиология',
-                                                                                    'services.kinesiology.subtitle': 'Слушайте тело, найдите корень',
-                                                                                      'services.kinesiology.description': 'Нейромышечное тестирование и мягкие коррекции для восстановления баланса тела, эмоций и привычек.',
-                                                                                        'services.nutrition.title': 'Осознанное питание',
-                                                                                          'services.nutrition.subtitle': 'Ешьте осознанно для настоящей энергии',
-                                                                                            'services.nutrition.description': 'Персонализированные консультации для четких привычек, пищеварения и энергии.',
-                                                                                              'services.revision360.title': 'Обзор 360°',
-                                                                                                'services.revision360.subtitle': 'Полная картина тела, движения и привычек',
-                                                                                                  'services.revision360.description': 'Комплексная оценка с четким планом действий и следующими шагами.',
-                                                                                                    'services.therapiesFor': 'Терапии для',
+    // Services
+    'services.massage.title': 'Терапевтический массаж',
+    'services.massage.subtitle': 'Больше, чем расслабление: Глубокое восстановление',
+    'services.massage.description': 'Не просто массаж, а терапевтическая перезагрузка. Мы сочетаем миофасциальный релиз и глубокие техники для растворения хронического напряжения, улучшения подвижности и успокоения ума.',
+    'services.kinesiology.title': 'Холистическая кинезиология',
+    'services.kinesiology.subtitle': 'Слушайте тело, найдите корень',
+    'services.kinesiology.description': 'Кинезиология — это диалог с вашим телом. С помощью мышечного теста мы находим скрытые причины дисбаланса — будь то физическая травма, эмоциональный стресс или биохимическое нарушение. Это точный инструмент, который позволяет подобрать именно тот метод, который нужен вашему организму здесь и сейчас.',
+    'services.nutrition.title': 'Осознанное питание',
+    'services.nutrition.subtitle': 'Питайте свою жизненную силу, исцеляйтесь изнутри',
+    'services.nutrition.description': 'Питание — это биохимия, а не просто калории. Мы разрабатываем персональные планы для оптимизации вашей энергии, оздоровления кишечника и поддержки нервной системы.',
+    'services.revision360.title': 'Обзор 360°',
+    'services.revision360.subtitle': 'Карта вашего здоровья',
+    'services.revision360.description': 'Комплексная диагностическая сессия, анализирующая осанку, паттерны движения и метаболическое здоровье для создания точного маршрута к восстановлению.',
+                                                                                                    'services.therapiesFor': 'Методы для',
                                                                                                       'services.integralWellbeing': 'комплексного благополучия',
-                                                                                                        'services.personalizedTreatments': 'Откройте персонализированные методы лечения, адаптированные к вашим конкретным потребностям',
+                                                                                                        'services.personalizedTreatments': 'Откройте персонализированные методы, адаптированные к вашим конкретным потребностям',
                                                                                                           'services.consultation.title': 'Бесплатная консультация 15 мин',
                                                                                                             'services.consultation.description': 'Не уверены? Поговорим 15 минут без обязательств, чтобы понять, чем я могу вам помочь.',
                                                                                                               'services.consultation.feeling': 'Ясность на вашем пути',
@@ -4064,6 +4149,9 @@ ru: {
 
                                                                                                                                         // About Elena
                                                                                                                                         'elena.greeting': 'Привет! Меня зовут Елена',
+    'elena.role': 'Специалист по телесным практикам и соматическому исцелению',
+    'elena.bio': 'Елена посвятила себя исследованию различных терапевтических дисциплин, создав уникальный интегративный подход.',
+    'elena.work.title': 'Способы Взаимодействия',
                                                                                                                                           'elena.description1': 'Я телесный терапевт, специализирующийся на терапевтическом, расслабляющем массаже, кинезиологии и техниках интеграции тела и разума.',
                                                                                                                                             'elena.description2': 'Моя цель - помочь вам снять напряжение и восстановить физическое и эмоциональное благополучие, чтобы вы снова почувствовали легкость и энергию в своем теле.',
                                                                                                                                               'elena.knowMore': 'Узнать меня лучше',
@@ -4077,24 +4165,24 @@ ru: {
                                                                                                                                                           'stats.cases': 'Решенных случаев',
                                                                                                                                                             'stats.response': 'Ответ в WhatsApp',
 
-                                                                                                                                                              // Why choose us
-                                                                                                                                                              'whyChoose.title': 'Почему выбрать EKA Balance?',
-                                                                                                                                                                'whyChoose.subtitle': 'Больше чем центр терапии, мы ваши спутники на пути к комплексному благополучию',
-                                                                                                                                                                  'whyChoose.personalized.title': 'Персонализированное лечение',
-                                                                                                                                                                    'whyChoose.personalized.description': 'Каждая сессия адаптируется к вашим конкретным потребностям для достижения наилучших возможных результатов.',
-                                                                                                                                                                      'whyChoose.holistic.title': 'Холистический подход',
-                                                                                                                                                                        'whyChoose.holistic.description': 'Мы заботимся о вашем комплексном благополучии: тело, разум и эмоции работают в идеальной гармонии.',
-                                                                                                                                                                          'whyChoose.experienced.title': 'Опытные профессионалы',
-                                                                                                                                                                            'whyChoose.experienced.description': 'Команда с многолетним опытом и непрерывным обучением лучшим терапевтическим техникам.',
+    // Why choose us
+    'whyChoose.title': 'Почему выбирают EKA Balance?',
+    'whyChoose.subtitle': 'Больше, чем терапевтический центр — мы ваши партнеры на пути к целостному благополучию.',
+    'whyChoose.personalized.title': 'Персональные планы',
+    'whyChoose.personalized.description': 'Нет двух одинаковых тел. Мы адаптируем каждую сессию к вашей уникальной физиологии и истории, обеспечивая более быстрые и устойчивые результаты.',
+    'whyChoose.holistic.title': 'Истинная системная интеграция',
+    'whyChoose.holistic.description': 'Мы работаем с человеком целиком: структурно, химически и эмоционально. Настоящее исцеление происходит, когда все системы работают в унисон.',
+    'whyChoose.experienced.title': 'Экспертная помощь',
+    'whyChoose.experienced.description': 'Основано на годах профессиональной практики и непрерывном изучении мировых методик, таких как Фельденкрайз, Остеопатия и Кинезиология.',
 
                                                                                                                                                                               // Final CTA
                                                                                                                                                                               'finalCta.title': 'Готовы начать свой путь к благополучию?',
                                                                                                                                                                                 'finalCta.subtitle': 'Свяжитесь с нами, чтобы забронировать сессию или решить любые вопросы',
 
-                                                                                                                                                                                  // Casos page
-                                                                                                                                                                                  'casos.title': 'Проблемы, которые мы решаем',
-                                                                                                                                                                                    'casos.subtitle': 'У каждого тела своя история. Узнайте, как мы можем помочь вам восстановить баланс тела, разума и энергии.',
-                                                                                                                                                                                      'casos.description': 'Часто мы приходим с видимым симптомом —болью, напряжением, усталостью— но за этим скрывается гораздо больше. В EKA Balance мы сопровождали сотни людей, которые, как и вы, искали реальное и долговременное решение. Здесь вы найдете обычные случаи, как мы с ними работали и какие результаты увидели.',
+    // Casos page
+    'casos.title': 'Пути к Исцелению',
+    'casos.subtitle': 'Ваше тело рассказывает историю. Мы помогаем переписать её.',
+    'casos.description': 'Симптомы, такие как боль, усталость или напряжение, часто являются лишь верхушкой айсберга — сигналами системы, ищущей равновесия. В EKA Balance мы не заглушаем эти сигналы, мы их расшифровываем. Устраняя первопричину, мы помогли сотням клиентов трансформировать свои отношения с телом. Изучите эти истории, чтобы понять, что возможно для вас.',
                                                                                                                                                                                         'casos.frequentCases': 'Самые частые случаи',
                                                                                                                                                                                           'casos.frequentCasesSubtitle': 'Обычные проблемы, которые мы успешно лечим каждый день',
                                                                                                                                                                                             'casos.otherCases': 'Другие случаи, которые мы также лечим',
@@ -4257,7 +4345,7 @@ ru: {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     // Symptoms, causes, treatment, results labels
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     'casos.symptoms': 'Симптомы',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       'casos.causes': 'Причины',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'casos.treatment': 'Лечение',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'casos.treatment': 'Наш подход',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           'casos.results': 'Результаты',
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             // Additional problems list
@@ -4271,6 +4359,14 @@ ru: {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           'casos.additionalProblems.chronicFatigue': 'Хроническая усталость',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             'casos.additionalProblems.socialAnxiety': 'Социальная тревога',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'casos.additionalProblems.concentrationDifficulty': 'Трудности с концентрацией',
+    'casos.additionalProblems.headaches': 'Головные боли и мигрени',
+    'casos.additionalProblems.insomnia': 'Бессонница и нарушения сна',
+    'casos.additionalProblems.posture': 'Проблемы с осанкой',
+    'casos.additionalProblems.contractures': 'Мышечные спазмы',
+    'casos.additionalProblems.emotionalBlock': 'Эмоциональные блоки',
+    'casos.additionalProblems.rsi': 'Травмы от повторяющихся нагрузок',
+    'casos.additionalProblems.carpalTunnel': 'Синдром запястного канала',
+    'casos.additionalProblems.plantarFasciitis': 'Плантарный фасциит',
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // Testimonials
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 'testimonials.title': 'Отзывы наших клиентов',
@@ -4442,7 +4538,7 @@ ru: {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'athletes.hero.subtitle': 'Восстановление мышц, предотвращение травм и оптимизация спортивных результатов',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 'athletes.challenges.title': 'Общие проблемы',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   'athletes.challenge1.title': 'Медленное восстановление',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    'athletes.challenge1.desc': 'Травмы и мышечная усталость заживают дольше, чем необходимо',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    'athletes.challenge1.desc': 'Травмы и мышечная усталость восстанавливаются дольше, чем необходимо',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       'athletes.challenge2.title': 'Ограниченная гибкость',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         'athletes.challenge2.desc': 'Скованность, которая уменьшает диапазон движений и влияет на производительность',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           'athletes.challenge3.title': 'Стресс перед соревнованиями',
@@ -5004,14 +5100,14 @@ ru: {
     'discovery.analysis.have': 'у вас',
     'discovery.analysis.want': 'и вы хотите улучшить',
     'discovery.analysis.feel': 'чтобы чувствовать себя',
-    'discovery.diagnosis.title': 'Расширенная диагностическая карта',
+    'discovery.diagnosis.title': 'Расширенная карта оценки',
     'discovery.diagnosis.profile': 'Профиль клиента',
-    'discovery.diagnosis.symptoms': 'Выявленные симптомы',
+    'discovery.diagnosis.symptoms': 'Выявленные индикаторы',
     'discovery.diagnosis.rootCause': 'Возможные первопричины',
     'discovery.diagnosis.strategy': 'Рекомендуемая стратегия',
     'discovery.diagnosis.frequency': 'Рекомендуемая частота',
     'discovery.view.basic': 'Простая рекомендация',
-    'discovery.view.advanced': 'Полная диагностика',
+    'discovery.view.advanced': 'Полная оценка',
     'discovery.diagnosis.cause.posture': 'Постуральная усталость (сидячий образ жизни)',
     'discovery.diagnosis.cause.overload': 'Мышечная перегрузка',
     'discovery.diagnosis.cause.stress': 'Психосоматическое напряжение',
@@ -5043,7 +5139,7 @@ ru: {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       'discovery.step2.title': 'Где вы чувствуете наибольшее напряжение?',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         'discovery.step2.subtitle': 'Вы можете выбрать несколько вариантов',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           'discovery.step3.title': 'У вас есть какие-либо особые условия?',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            'discovery.step3.subtitle': 'Это помогает нам адаптировать лечение',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            'discovery.step3.subtitle': 'Это помогает нам адаптировать сеанс',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'discovery.step4.title': 'Как вы себя чувствуете эмоционально?',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 'discovery.step4.subtitle': 'Эмоциональное благополучие является ключом к физическому здоровью',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   'discovery.step5.title': 'Сколько времени у вас есть?',
@@ -5171,7 +5267,7 @@ ru: {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         'personalized.officeWorkers.services.title': 'Услуги для вас',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           'personalized.officeWorkers.services.subtitle': 'Решения для офисной среды',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             'personalized.officeWorkers.services.therapeuticMassage.title': 'Терапевтический массаж',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              'personalized.officeWorkers.services.therapeuticMassage.description': 'Глубокое лечение контрактур в спине и шее.',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              'personalized.officeWorkers.services.therapeuticMassage.description': 'Глубокая проработка контрактур в спине и шее.',
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 'personalized.officeWorkers.services.feldenkrais.title': 'Метод Фельденкрайза',
     'personalized.officeWorkers.services.feldenkrais.description': 'Научитесь сидеть и двигаться с большей легкостью и меньшими усилиями.',
     'personalized.officeWorkers.testimonial.title': 'Отзыв',
@@ -5330,7 +5426,7 @@ ru: {
     'vip.testimonials.role2': 'Сердечно-сосудистый хирург',
     'vip.testimonials.role3': 'Предприниматель',
     'vip.cta.badge': 'Присоединяйтесь',
-    'vip.cta.title': 'Поднимите Свое',
+    'vip.cta.title': 'Преобразите Свою Жизнь',
     'vip.cta.subtitle': 'Ваш путь к пиковой производительности и глубокому благополучию начинается здесь.',
     'vip.whatsapp.message': 'Здравствуйте, меня интересует VIP-план {plan}. Я хотел бы получить больше информации.',
     'vip.whatsapp.messageGeneral': 'Здравствуйте, меня интересуют VIP-планы Inner Circle. Я хотел бы получить больше информации.',
@@ -5394,9 +5490,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     let text = (translations[language] as Record<string, string>)?.[key] ||
       (servicesTranslations[language] as Record<string, string>)?.[key] ||
       (revision360Translations[language] as Record<string, string>)?.[key] ||
+      (techniqueTranslations[language] as Record<string, string>)?.[key] ||
       (translations.en as Record<string, string>)?.[key] ||
       (servicesTranslations.en as Record<string, string>)?.[key] ||
       (revision360Translations.en as Record<string, string>)?.[key] ||
+      (techniqueTranslations.en as Record<string, string>)?.[key] ||
       key;
 
     if (params) {

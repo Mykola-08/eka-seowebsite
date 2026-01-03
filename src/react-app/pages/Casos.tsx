@@ -29,6 +29,14 @@ export default function Casos() {
     'casos.additionalProblems.chronicFatigue',
     'casos.additionalProblems.socialAnxiety',
     'casos.additionalProblems.concentrationDifficulty',
+    'casos.additionalProblems.headaches',
+    'casos.additionalProblems.insomnia',
+    'casos.additionalProblems.posture',
+    'casos.additionalProblems.contractures',
+    'casos.additionalProblems.emotionalBlock',
+    'casos.additionalProblems.rsi',
+    'casos.additionalProblems.carpalTunnel',
+    'casos.additionalProblems.plantarFasciitis',
     // Add more as needed...
   ];
 

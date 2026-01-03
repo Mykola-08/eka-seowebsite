@@ -102,11 +102,11 @@ export default function Layout({
       name: t('nav.revision360'),
       href: '/360-revision'
     },
-    // {
-    //   name: t('nav.vip'),
-    //   href: '/vip',
-    //   isGold: true
-    // }
+    {
+      name: t('nav.vip'),
+      href: '/vip',
+      isGold: true
+    }
   ];
 
   const isActivePath = (path: string) => {
@@ -135,10 +135,7 @@ export default function Layout({
                 src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                 alt="EKA Balance Logo"
                 className={`transition-all duration-300 ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'
-                  } object-contain group-hover:opacity-0`}
-              />
-              <Home
-                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#000035] transition-all duration-300 opacity-0 group-hover:opacity-100 ${isScrolled ? 'w-6 h-6' : 'w-8 h-8'}`}
+                  } object-contain`}
               />
             </Link>
 
@@ -222,7 +219,7 @@ export default function Layout({
                         to={item.href}
                         className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${
                           item.isGold
-                            ? 'text-amber-600 font-bold hover:text-amber-700 bg-gradient-to-r from-amber-50 to-yellow-50 border border-yellow-200/50'
+                            ? 'text-amber-700 font-bold bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-yellow-200/50 hover:from-yellow-100 hover:via-amber-100 hover:to-yellow-100 hover:text-amber-900 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] hover:border-yellow-400/50'
                             : isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
                           }`}
                       >
@@ -417,10 +414,7 @@ export default function Layout({
               <img
                 src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                 alt="EKA Balance Logo"
-                className="w-10 h-10 object-contain absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
-              />
-              <Home
-                className="w-8 h-8 text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                className="w-10 h-10 object-contain absolute inset-0 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <span className="text-xl font-medium">EKA Balance</span>

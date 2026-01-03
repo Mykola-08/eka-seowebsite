@@ -12,7 +12,7 @@ import { DiscountProvider } from './contexts/DiscountContext.tsx';
 import HomePage from "@/react-app/pages/Home";
 import Services from "@/react-app/pages/Services";
 import Revision360Page from "@/react-app/pages/Revision360Page";
-// import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
+import VIPUltraPremium from "@/react-app/pages/VIPUltraPremium";
 
 // Individual Service Pages
 import MassatgePage from "@/react-app/pages/MassatgePage";
@@ -34,12 +34,16 @@ import OfficeWorkersPersonalized from "@/react-app/pages/PersonalizedPages/Offic
 import MusiciansPersonalized from "@/react-app/pages/PersonalizedPages/Musicians";
 import AthletesPersonalized from "@/react-app/pages/PersonalizedPages/Athletes";
 import ParentsPersonalized from "@/react-app/pages/PersonalizedPages/Parents";
+import AdultsPersonalized from "@/react-app/pages/PersonalizedPages/Adults";
+import ChildrenPersonalized from "@/react-app/pages/PersonalizedPages/Children";
+import FamiliesPersonalized from "@/react-app/pages/PersonalizedPages/Families";
 
 // Contact Page
 import ContactPage from "@/react-app/pages/Contact";
 
 // About Elena Page
 import AboutElena from "@/react-app/pages/AboutElena";
+import TechniqueDetail from "@/react-app/pages/TechniqueDetail";
 
 // Booking Page
 import BookingPage from "@/react-app/pages/BookingPage";
@@ -72,7 +76,7 @@ function AppRoutes() {
       <Route path="/services/kinesiology" element={<KinesiologiaPage />} />
       <Route path="/services/nutrition" element={<NutricioPage />} />
       <Route path="/agenyz" element={<AgenyzPage />} />
-      {/* <Route path="/vip" element={<VIPUltraPremium />} /> */}
+      <Route path="/vip" element={<VIPUltraPremium />} />
 
       {/* Personal Services */}
       <Route path="/personalized-services" element={<PersonalizedServices />} />
@@ -81,6 +85,9 @@ function AppRoutes() {
       <Route path="/services/athletes" element={<Athletes />} />
       <Route path="/services/artists" element={<Artists />} />
       <Route path="/services/students" element={<Students />} />
+      <Route path="/services/adults" element={<AdultsPersonalized />} />
+      <Route path="/services/children" element={<ChildrenPersonalized />} />
+      <Route path="/services/families" element={<FamiliesPersonalized />} />
 
       {/* Personalized Onboarding Pages */}
       <Route path="/for-students" element={<StudentsPersonalized />} />
@@ -94,6 +101,7 @@ function AppRoutes() {
 
       {/* About Elena */}
       <Route path="/about-elena" element={<AboutElena />} />
+      <Route path="/technique/:id" element={<TechniqueDetail />} />
 
       {/* Booking */}
       <Route path="/booking" element={<BookingPage />} />

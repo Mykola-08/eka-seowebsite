@@ -181,6 +181,21 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Consultation Banner */}
+      <section className="bg-blue-600 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+          <p className="text-white font-medium text-lg">
+            {t('booking.service.consultation')}
+          </p>
+          <Link
+            to="/booking?service=consultation"
+            className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-2 rounded-full transition-colors duration-200 text-sm"
+          >
+            {t('common.bookNow')}
+          </Link>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">

@@ -10,23 +10,22 @@ export default function AboutElena() {
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
 
-  const specializations = [
-    t('elena.specialization.pain'),
-    t('elena.specialization.stress'),
-    t('elena.specialization.nervous'),
-    t('elena.specialization.emotional'),
-    t('elena.specialization.personal'),
-    t('elena.specialization.support')
+  const techniques = [
+    { id: 'movement-lesson', name: t('technique.movement_lesson.title') },
+    { id: 'jka', name: t('technique.jka.title') },
+    { id: 'tmr', name: t('technique.tmr.title') },
+    { id: 'kgh', name: t('technique.kgh.title') },
+    { id: 'ke', name: t('technique.ke.title') },
+    { id: 'kb', name: t('technique.kb.title') },
+    { id: 'osteobalance', name: t('technique.osteobalance.title') },
+    { id: 'sujok', name: t('technique.sujok.title') },
+    { id: 'quiromasaje', name: t('technique.quiromasaje.title') },
   ];
 
-  const qualifications = [
-    t('elena.education.kinesiology'),
-    t('elena.education.feldenkrais'),
-    t('elena.education.nlp'),
-    t('elena.education.psychosomatic'),
-    t('elena.education.massage'),
-    t('elena.education.vibrational'),
-    t('elena.education.transformation')
+  const targetGroups = [
+    { title: t('elena.target.adults.title'), desc: t('elena.target.adults.desc') },
+    { title: t('elena.target.children.title'), desc: t('elena.target.children.desc') },
+    { title: t('elena.target.families.title'), desc: t('elena.target.families.desc') },
   ];
 
   return (
@@ -57,11 +56,10 @@ export default function AboutElena() {
               transition={{ duration: 0.8 }}
             >
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
                 <img
                   src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                   alt="Elena Kucherova"
-                  className="relative w-full h-auto rounded-full object-cover aspect-square shadow-2xl border border-white/10"
+                  className="relative w-full h-auto rounded-full object-cover aspect-square"
                 />
               </div>
             </motion.div>
@@ -73,16 +71,19 @@ export default function AboutElena() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 tracking-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 tracking-tight">
                 Elena Kucherova
               </h1>
               
-              <div className="space-y-3">
-                <p className="text-xl sm:text-2xl text-amber-400/90 font-light tracking-wide">
-                  {t('elena.greeting').replace('Hola! Em dic Elena', '').replace('Hello! My name is Elena', '').replace('¡Hola! Me llamo Elena', '').replace('Привет! Меня зовут Елена', '') || t('elena.subtitle').split('|')[0].trim()}
+              <div className="space-y-4">
+                <p className="text-2xl sm:text-3xl text-amber-400 font-black tracking-wide">
+                  {t('elena.greeting')}
                 </p>
-                <p className="text-lg sm:text-xl text-zinc-400 font-light">
-                  {t('elena.subtitle')}
+                <p className="text-xl sm:text-2xl text-blue-400 font-bold tracking-wide">
+                  {t('elena.role')}
+                </p>
+                <p className="text-lg sm:text-xl text-zinc-400 font-light max-w-2xl mx-auto">
+                  {t('elena.bio')}
                 </p>
               </div>
 
@@ -107,7 +108,7 @@ export default function AboutElena() {
           </div>
         </section>
 
-        {/* About Elena */}
+        {/* About Elena (Approach) */}
         <section className="py-20 relative">
           <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div 
@@ -118,7 +119,7 @@ export default function AboutElena() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl sm:text-4xl font-light text-amber-100 mb-6">
-                {t('elena.about.title')}
+                {t('elena.approach.title')}
               </h2>
             </motion.div>
 
@@ -130,15 +131,13 @@ export default function AboutElena() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="text-lg leading-relaxed space-y-6 text-zinc-300 font-light">
-                <p>{t('elena.about.p1')}</p>
-                <p>{t('elena.about.p2')}</p>
-                <p>{t('elena.about.p3')}</p>
+                <p>{t('elena.approach.desc')}</p>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Education & Training */}
+        {/* Techniques (Education & Training) */}
         <section className="py-20 bg-zinc-900/30 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div 
@@ -148,7 +147,7 @@ export default function AboutElena() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-light text-amber-100 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-amber-100 mb-6">
                 {t('elena.education.title')}
               </h2>
               <p className="text-xl text-zinc-400 max-w-3xl mx-auto font-light">
@@ -156,30 +155,31 @@ export default function AboutElena() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {qualifications.map((qualification, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-amber-500/30 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
-                    <p className="text-zinc-200 font-light leading-relaxed">
-                      {qualification}
-                    </p>
-                  </div>
-                </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {techniques.map((technique, index) => (
+                <Link to={`/technique/${technique.id}`} key={index}>
+                  <motion.div 
+                    className="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-amber-500/30 transition-all duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -5, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="w-2 h-2 bg-amber-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                      <p className="text-zinc-200 font-light leading-relaxed">
+                        {technique.name}
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Specializations */}
+        {/* Target Groups (Specializations) */}
         <section className="py-20 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div 
@@ -194,8 +194,8 @@ export default function AboutElena() {
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {specializations.map((specialization, index) => (
+            <div className="grid grid-cols-1 gap-6">
+              {targetGroups.map((group, index) => (
                 <motion.div 
                   key={index}
                   className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-8 border border-white/10 hover:border-amber-500/40 transition-all duration-300"
@@ -207,51 +207,14 @@ export default function AboutElena() {
                 >
                   <div className="flex items-center space-x-3 mb-4">
                     <Heart className="w-5 h-5 text-amber-500" />
-                    <div className="w-1.5 h-1.5 bg-amber-400 rounded-full"></div>
+                    <h3 className="text-xl font-medium text-amber-100">{group.title}</h3>
                   </div>
                   <p className="text-zinc-300 leading-relaxed font-light group-hover:text-amber-100 transition-colors">
-                    {specialization}
+                    {group.desc}
                   </p>
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Philosophy */}
-        <section className="py-20 relative overflow-hidden">
-          {/* Background Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 via-black to-amber-900/10 pointer-events-none" />
-          
-          <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center px-6 py-2 bg-amber-500/10 rounded-full border border-amber-500/20 mb-8">
-                <Brain className="w-5 h-5 text-amber-400 mr-2" />
-                <span className="text-amber-200 font-medium tracking-wide">{t('elena.philosophy.title')}</span>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              className="bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="text-lg leading-relaxed space-y-6 text-zinc-300 font-light">
-                <p>{t('elena.philosophy.p1')}</p>
-                <p>{t('elena.philosophy.p2')}</p>
-                <p className="text-xl font-normal text-amber-100 border-t border-white/10 pt-6">
-                  {t('elena.philosophy.p3')}
-                </p>
-              </div>
-            </motion.div>
           </div>
         </section>
 
@@ -320,35 +283,6 @@ export default function AboutElena() {
                 </Link>
               </motion.div>
             </div>
-          </div>
-        </section>
-
-        {/* Personal Touch */}
-        <section className="py-20 relative">
-          <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-light text-amber-100 mb-6">
-                {t('elena.personal.title')}
-              </h2>
-            </motion.div>
-
-            <motion.div 
-              className="bg-gradient-to-br from-amber-900/20 to-black rounded-3xl p-8 sm:p-12 border border-amber-500/20 shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="text-lg leading-relaxed text-zinc-300 text-center font-light italic">
-                <p>{t('elena.personal.text')}</p>
-              </div>
-            </motion.div>
           </div>
         </section>
 

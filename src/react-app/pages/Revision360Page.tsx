@@ -6,7 +6,6 @@ import BenefitsSection from '@/react-app/components/revision360/BenefitsSection'
 import FinalInvitationSection from '@/react-app/components/revision360/FinalInvitationSection';
 import Footer from '@/react-app/components/revision360/Footer';
 import BackButton from '@/react-app/components/revision360/BackButton';
-import '@/react-app/components/revision360/revision360.css';
 
 export default function Revision360Page() {
   return (

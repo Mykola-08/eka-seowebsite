@@ -639,3 +639,16 @@ html {
   @apply hover:scale-[1.02] hover:-translate-y-1;
   @apply hover:shadow-lg;
 }
+
+/* Revision 360 specific styles */
+.btn-360-primary {
+  @apply bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-900 font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95;
+}
+
+.btn-360-secondary {
+  @apply bg-gradient-to-r from-zinc-700/50 to-zinc-600/50 border border-amber-500/30 text-amber-200 rounded-lg transition-all duration-300 hover:bg-zinc-700/70 hover:border-amber-500/50 hover:scale-105;
+}
+
+.card-360-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-2;
+}

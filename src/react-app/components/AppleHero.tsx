@@ -3,14 +3,16 @@ import { Link } from 'react-router';
 import { Button } from 'keep-react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 const heroImages = [
   'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Skyline
   'https://images.pexels.com/photos/10521232/pexels-photo-10521232.jpeg?auto=compress&cs=tinysrgb&w=1920', // Wellness Bed / Spa Room
-  'https://images.pexels.com/photos/2962135/pexels-photo-2962135.jpeg?auto=compress&cs=tinysrgb&w=1920', // People Talking / Coaching
-  'https://images.pexels.com/photos/7550397/pexels-photo-7550397.jpeg?auto=compress&cs=tinysrgb&w=1920', // Casual Group Talking
+  'https://images.pexels.com/photos/6628817/pexels-photo-6628817.jpeg?auto=compress&cs=tinysrgb&w=1920', // Women talking in massage room (Candid)
+  'https://images.pexels.com/photos/7176059/pexels-photo-7176059.jpeg?auto=compress&cs=tinysrgb&w=1920', // Consultation with notes (Candid)
 ];
 export default function AppleHero() {
   const { t } = useLanguage();
+  const { logEvent } = useAnalytics();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -51,13 +53,13 @@ export default function AppleHero() {
 
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <Link to="/first-time" className="group">
+        <Link to="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
           <Button size="xl" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-xl">
             {t('hero.firstTime')}
           </Button>
         </Link>
 
-        <Link to="/services" className="group">
+        <Link to="/services" className="group" onClick={() => logEvent('hero_services_click')}>
           <Button size="xl" className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-xl">
             {t('hero.discoverServices')}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

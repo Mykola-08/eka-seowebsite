@@ -2,10 +2,12 @@ import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
 
 export default function Services() {
   const { t } = useLanguage();
+  const { logEvent } = useAnalytics();
 
   interface ServiceItem {
     id: string;
@@ -261,6 +263,7 @@ export default function Services() {
                       ) : (
                         <Link
                           to={service.href}
+                          onClick={() => logEvent('service_more_info_click', { service: service.id })}
                           className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
                         >
                           {t('common.moreInfo')}
@@ -282,6 +285,7 @@ export default function Services() {
                       ) : (
                         <Link
                           to="/booking"
+                          onClick={() => logEvent('service_book_now_click', { service: service.id })}
                           className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
                         >
                           {t('common.bookNow')}

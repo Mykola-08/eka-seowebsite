@@ -13,9 +13,9 @@ export default function GallerySection() {
       caption: 'Tractaments personalitzats'
     },
     {
-      url: 'https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      alt: 'Relaxing atmosphere with lavender',
-      caption: 'Un espai de calma al cor de Barcelona'
+      url: 'https://images.pexels.com/photos/5793683/pexels-photo-5793683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      alt: 'Therapist consulting with client',
+      caption: 'Atenció personalitzada i propera'
     },
     {
       url: 'https://images.pexels.com/photos/3230236/pexels-photo-3230236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
 import { supabase } from '@/react-app/lib/supabase';
 
@@ -17,6 +18,7 @@ interface FormData {
 export default function BookingPage() {
   const { t } = useLanguage();
   const { user } = useSupabaseAuth();
+  const { logEvent } = useAnalytics();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -99,7 +101,12 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
       alert(t('booking.form.validationError'));
       return;
     }
+logEvent('booking_page_submit', {
+        service: formData.service,
+        location: formData.location
+    });
 
+    
     const whatsappUrl = `https://wa.me/34658867133?text=${generateWhatsAppMessage()}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -148,6 +155,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               </p>
               <a
                 href="https://wa.me/34658867133"
+                onClick={() => logEvent('booking_page_whatsapp_click')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-200 w-full"
@@ -167,6 +175,15 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               <p className="text-gray-600 mb-8 text-sm leading-relaxed">
                 {t('booking.form.description')}
               </p>
+              <button
+                onClick={() => {
+                    logEvent('booking_page_toggle_form', { show: !showForm });
+                    setShowForm(!showForm);
+                }}
+                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-200 w-full"
+              >
+                {showForm ? t('booking.form.close') : t('booking.form.button')}
+              </button>
               <button
                 onClick={() => setShowForm(!showForm)}
                 className={`inline-flex items-center justify-center font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full ${

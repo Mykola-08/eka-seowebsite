@@ -4,6 +4,7 @@ import { CheckCircle, Sparkles, Crown, Heart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useDiscount } from '@/react-app/hooks/useDiscount';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { supabase } from '@/react-app/lib/supabase';
 
 const iconMap = {
@@ -35,6 +36,7 @@ export default function PricingSection() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [plans, setPlans] = useState<any[]>([]);
   const { navigateToBooking } = useBooking();
+  const { logEvent } = useAnalytics();
   const { calculateDiscountedPrice, selectedDiscount } = useDiscount();
 
   useEffect(() => {
@@ -173,7 +175,14 @@ export default function PricingSection() {
 
                   {/* CTA Button */}
                   <button
-                    onClick={navigateToBooking}
+                    onClick={() => {
+                      logEvent('select_pricing_plan', { 
+                          plan_id: plan.id, 
+                          plan_name: plan.name,
+                          price: plan.price
+                      });
+                      navigateToBooking(plan.name);
+                    }}
                     className={`w-full py-4 rounded-xl font-medium transition-all duration-200 text-center ${plan.popular
                         ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-900 shadow-sm hover:shadow-md'
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-900'

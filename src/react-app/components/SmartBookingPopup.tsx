@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface SmartBookingPopupProps {
@@ -11,6 +12,7 @@ interface SmartBookingPopupProps {
 
 export default function SmartBookingPopup({ isOpen, onClose, preselectedService }: SmartBookingPopupProps) {
   const { t } = useLanguage();
+  const { logEvent } = useAnalytics();
   const [step, setStep] = useState<'choice' | 'form'>('choice');
   const [formData, setFormData] = useState({
     name: '',
@@ -21,6 +23,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
   if (!isOpen) return null;
 
   const handleQuickWhatsApp = () => {
+    logEvent('booking_whatsapp_click', { type: 'quick' });
     const message = encodeURIComponent(`Hola Elena, me gustaría reservar una cita.`);
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
@@ -28,6 +31,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    logEvent('booking_whatsapp_click', { 
+        type: 'form',
+        service: formData.service 
+    });
     const message = encodeURIComponent(
       `Hola Elena, me gustaría reservar una cita.\n\n` +
       `Nombre: ${formData.name}\n` +

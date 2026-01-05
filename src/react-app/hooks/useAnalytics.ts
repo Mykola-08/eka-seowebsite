@@ -11,6 +11,17 @@ export const useAnalytics = () => {
     metadata: Record<string, any> = {},
     elementText?: string
   ) => {
+    // Google Analytics Tracking
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', interactionType, {
+        event_category: metadata.category || 'interaction',
+        event_label: elementText || metadata.label,
+        value: metadata.value,
+        page_path: window.location.pathname,
+        ...metadata
+      });
+    }
+
     try {
       await supabase.from('user_interactions').insert({
         interaction_type: interactionType,

@@ -16,11 +16,32 @@ export default function CookieBanner() {
         setIsVisible(true);
       }, 1000);
       return () => clearTimeout(timer);
+    } else if (cookieConsent === 'accepted') {
+      // Restore consent if already accepted
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
     }
   }, []);
 
   const acceptCookies = () => {
     localStorage.setItem('ekabalance-cookie-consent', 'accepted');
+    
+    // Update Google Consent Mode
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+    
     setIsVisible(false);
   };
 

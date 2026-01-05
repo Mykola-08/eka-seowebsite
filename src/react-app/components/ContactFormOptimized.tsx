@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from 'lucide-react';
 import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { supabase } from '@/react-app/lib/supabase';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { motion } from 'framer-motion';
 import { z } from 'zod';
 
@@ -26,6 +27,7 @@ type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
 export default function ContactFormOptimized() {
   const { t } = useLanguage();
   const { user } = useSupabaseAuth();
+  const { logEvent } = useAnalytics();
   
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -157,6 +159,11 @@ export default function ContactFormOptimized() {
         },
         body: JSON.stringify(formData),
       });
+
+      logEvent('contact_form_submit', {
+            service: formData.service,
+            source: formData.source
+        });
 
       if (response.ok) {
         setIsSubmitted(true);

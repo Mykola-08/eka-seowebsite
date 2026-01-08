@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import SEOHead from '@/react-app/components/SEOHead';
 import Layout from '@/react-app/components/Layout';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
@@ -25,7 +25,7 @@ export default function TechniqueDetail() {
 
   if (!baseKey) {
     return (
-        <div className="min-h-screen bg-black flex items-center justify-center text-white">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center text-gray-900">
           Technique not found
         </div>
     );
@@ -40,36 +40,38 @@ export default function TechniqueDetail() {
       />
       
       <Layout>
-      <div className="bg-black min-h-screen text-zinc-200 selection:bg-amber-500/30 pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8">
-          <Link to="/about-elena" className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8 transition-colors">
+      <div className="bg-gray-50 min-h-screen text-gray-900 pt-32 pb-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <Link to="/about-elena" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('technique.back')}
           </Link>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 mb-6">
               {t(`${baseKey}.title`)}
             </h1>
-
-            <div className="flex items-center text-zinc-400 mb-8">
-                <MapPin className="w-5 h-5 mr-2 text-amber-500" />
-                <span>{t('technique.location')} <span className="text-zinc-200">{t(`${baseKey}.location`)}</span></span>
-            </div>
-
-            <div className="prose prose-lg prose-invert max-w-none">
-              <p className="text-xl text-zinc-300 font-light leading-relaxed">
+            
+            <div className="prose prose-lg text-gray-600 max-w-none">
+              <p>
                 {t(`${baseKey}.desc`)}
               </p>
+            </div>
+            
+            <div className="mt-12 p-8 bg-white rounded-3xl shadow-sm border border-orange-100">
+               <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('technique.why')}</h3>
+               <p className="text-gray-600">
+                  {t(`${baseKey}.why`)}
+               </p>
             </div>
           </motion.div>
         </div>
       </div>
-    </Layout>
+      </Layout>
     </>
   );
 }

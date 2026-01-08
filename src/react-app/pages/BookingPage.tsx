@@ -101,7 +101,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
       alert(t('booking.form.validationError'));
       return;
     }
-logEvent('booking_page_submit', {
+    logEvent('booking_page_submit', {
         service: formData.service,
         location: formData.location
     });
@@ -119,32 +119,36 @@ logEvent('booking_page_submit', {
         keywords="reservar sessió Barcelona, cita teràpia, massatge Barcelona, kinesiologia reserva"
       />
 
-      {/* Hero Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-8">
-            <Calendar className="w-5 h-5 text-blue-600 mr-2" />
-            <span className="text-blue-700 font-medium">{t('booking.badge')}</span>
+      {/* Hero Section - Unified Design */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-8 text-center">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-blue-100 shadow-sm mb-8 animate-fade-in-up">
+            <Calendar className="w-4 h-4 text-blue-600 mr-2" />
+            <span className="text-sm font-medium text-blue-900 tracking-wide uppercase">{t('booking.badge')}</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-8 leading-tight">
+          <h1 className="text-5xl lg:text-7xl font-light tracking-tight text-gray-900 mb-8 drop-shadow-sm animate-fade-in-up delay-100">
             {t('booking.hero.title').split(' ').slice(0, -1).join(' ')}{' '}
-            <span className="text-blue-600 font-medium">{t('booking.hero.title').split(' ').slice(-1)[0]}</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
+              {t('booking.hero.title').split(' ').slice(-1)[0]}
+            </span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light animate-fade-in-up delay-200">
             {t('booking.hero.subtitle')}
           </p>
         </div>
       </section>
 
       {/* Booking Options Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Option 1: Direct Contact */}
-            <div className="bg-green-50 rounded-2xl p-8 text-center hover:shadow-md transition-all duration-300 border border-green-100 shadow-sm">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-green-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-green-100 shadow-sm group">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <MessageCircle className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-xl font-medium text-gray-900 mb-3">
@@ -158,15 +162,15 @@ logEvent('booking_page_submit', {
                 onClick={() => logEvent('booking_page_whatsapp_click')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md w-full"
+                className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg w-full"
               >
                 {t('booking.direct.button')}
               </a>
             </div>
 
             {/* Option 2: Form */}
-            <div className="bg-blue-50 rounded-2xl p-8 text-center hover:shadow-md transition-all duration-300 border border-blue-100 shadow-sm">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-blue-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-blue-100 shadow-sm group">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Calendar className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-medium text-gray-900 mb-3">
@@ -180,7 +184,7 @@ logEvent('booking_page_submit', {
                     logEvent('booking_page_toggle_form', { show: !showForm });
                     setShowForm(!showForm);
                 }}
-                className={`inline-flex items-center justify-center font-medium px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md w-full ${
+                className={`inline-flex items-center justify-center font-medium px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg w-full ${
                   showForm 
                     ? 'bg-gray-900 text-white hover:bg-gray-800' 
                     : 'bg-blue-600 text-white hover:bg-blue-700'
@@ -193,7 +197,7 @@ logEvent('booking_page_submit', {
 
           {/* Quick Form */}
           {showForm && (
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 md:p-12 animate-fade-in-up">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12 animate-fade-in-up">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-light text-gray-900">
                   {t('booking.form.quickTitle')}
@@ -314,7 +318,7 @@ logEvent('booking_page_submit', {
 
                   <button
                     onClick={handleFormSubmit}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.01] shadow-sm hover:shadow-md"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-4 rounded-xl transition-all duration-300 hover:scale-[1.01] shadow-md hover:shadow-lg"
                   >
                     <MessageCircle className="w-5 h-5 mr-2 inline" />
                     {t('booking.form.submit')}

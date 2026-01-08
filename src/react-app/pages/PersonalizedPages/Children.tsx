@@ -1,8 +1,6 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
-import { ArrowLeft, Baby } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
-import { motion } from 'framer-motion';
 
 export default function Children() {
   const { t } = useLanguage();
@@ -15,34 +13,45 @@ export default function Children() {
         url="https://ekabalance.com/services/children"
       />
       
-      <div className="bg-white min-h-screen pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8">
-          <Link to="/personalized-services" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            {t('common.back')}
-          </Link>
+      {/* Hero Section */}
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+                <span className="text-blue-700 font-medium text-sm">{t('nav.personalizedServices')}</span>
+              </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-                <Baby className="w-8 h-8 text-blue-600" />
-            </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+                {t('elena.target.children.title')}
+              </h1>
 
-            <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-8">
-              {t('elena.target.children.title')}
-            </h1>
-
-            <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {t('elena.target.children.desc')}
               </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/booking"
+                  className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 inline-block text-center"
+                >
+                  {t('common.reserveSession')}
+                </Link>
+              </div>
             </div>
-          </motion.div>
+
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?w=1920&h=1080&fit=crop"
+                  alt={t('elena.target.children.title')}
+                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
-import { Heart, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import { Clock, CheckCircle } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 
@@ -33,35 +33,46 @@ export default function ParentsPersonalized() {
       url="https://ekabalance.com/for-parents"
     >
         {/* Hero Section */}
-        <section className="py-16 sm:py-24 bg-gradient-to-br from-pink-50 to-rose-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-8">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-pink-100 rounded-full mb-8">
-                <Heart className="w-10 h-10 text-pink-600" />
+        <section className="py-12 sm:py-20 bg-gradient-to-br from-white via-pink-50/30 to-rose-50/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="inline-flex items-center px-4 py-2 bg-pink-100 rounded-full mb-6">
+                  <span className="text-pink-700 font-medium text-sm">{t('nav.personalizedServices')}</span>
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+                  {t('personalized.parents.hero.title')}
+                </h1>
+
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  {t('personalized.parents.hero.description')}
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => navigateToBooking()}
+                    className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 inline-block text-center"
+                  >
+                    {t('common.bookNow')}
+                  </button>
+                   <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center text-pink-600 font-semibold px-8 py-4 rounded-full border-2 border-pink-100 hover:border-pink-200 hover:bg-pink-50 transition-all duration-300"
+                  >
+                    {t('common.askQuestions')}
+                  </Link>
+                </div>
               </div>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6">
-                {t('personalized.parents.hero.title')}
-              </h1>
-              
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
-                {t('personalized.parents.hero.description')}
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => navigateToBooking()}
-                  className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 inline-flex items-center"
-                >
-                  {t('common.bookNow')}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
-                <Link
-                  to="/contact"
-                  className="bg-white hover:bg-gray-50 text-gray-700 font-semibold px-8 py-4 rounded-full border-2 border-gray-200 transition-colors duration-200"
-                >
-                  {t('common.askQuestions')}
-                </Link>
+
+              <div className="order-1 lg:order-2">
+                <div className="relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=1920&h=1080&fit=crop"
+                    alt={t('personalized.parents.hero.title')}
+                    className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
+                  />
+                </div>
               </div>
             </div>
           </div>

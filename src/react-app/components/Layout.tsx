@@ -83,6 +83,10 @@ export default function Layout({
       href: '/services'
     },
     {
+      name: 'Agenyz',
+      href: '/agenyz'
+    },
+    {
       name: t('nav.personalizedServices'),
       href: '/personalized-services',
       hasDropdown: true,

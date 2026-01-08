@@ -10,6 +10,6 @@ interface ImportMeta {
 }
 
 interface Window {
-    gtag: (command: string, ...args: any[]) => void;
-    dataLayer: any[];
+    gtag: (command: string, ...args: unknown[]) => void;
+    dataLayer: unknown[];
 }

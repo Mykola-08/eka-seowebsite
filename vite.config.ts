@@ -9,4 +9,40 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('lucide') || id.includes('phosphor') || id.includes('clsx') || id.includes('tailwind-merge')) {
+              return 'ui-vendor';
+            }
+            if (id.includes('framer-motion')) {
+              return 'animation-vendor';
+            }
+            if (id.includes('@vercel')) {
+              return 'analytics';
+            }
+            if (id.includes('@supabase')) {
+              return 'supabase-vendor';
+            }
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router') || id.includes('scheduler')) {
+              return 'react-vendor';
+            }
+          }
+          
+          // Split heavy translation files
+          if (
+            id.includes('/contexts/LanguageContext') || 
+            id.includes('/contexts/TranslationExtensions') ||
+            id.includes('/contexts/Revision360Translations') ||
+            id.includes('/contexts/TechniqueTranslations')
+          ) {
+            return 'translations';
+          }
+        },
+      },
+    },
+  },
 });

@@ -6,96 +6,19 @@ import CasosSection from '@/react-app/components/CasosSection';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
-import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { SERVICES_DATA } from '@/shared/constants';
+import { Button } from 'keep-react';
+
+const iconMap: Record<string, React.ElementType> = {
+  Heart,
+  Brain,
+  Leaf,
+  RotateCcw
+};
 
 export default function Home() {
-  const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
-
-  interface ServiceItem {
-    id: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    icon: React.ElementType;
-    color: string;
-    image: string;
-    href: string;
-    durations: number[];
-    isExternal?: boolean;
-  }
-
-  const services: ServiceItem[] = [
-    {
-      id: 'Massatge',
-      title: t('services.massage.title'),
-      subtitle: t('services.massage.subtitle'),
-      description: t('services.massage.description'),
-      icon: Heart,
-      color: 'from-orange-400 to-orange-600',
-      image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/services/massage',
-      durations: [60, 90, 120]
-    },
-    {
-      id: 'Kinesiologia',
-      title: t('services.kinesiology.title'),
-      subtitle: t('services.kinesiology.subtitle'),
-      description: t('services.kinesiology.description'),
-      icon: Brain,
-      color: 'from-blue-400 to-blue-600',
-      image: 'https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/services/kinesiology',
-      durations: [60, 90]
-    },
-    {
-      id: 'Nutrició conscient',
-      title: t('services.nutrition.title'),
-      subtitle: t('services.nutrition.subtitle'),
-      description: t('services.nutrition.description'),
-      icon: Leaf,
-      color: 'from-green-400 to-green-600',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/services/nutrition',
-      durations: []
-    },
-    {
-      id: 'Revisió 360°',
-      title: t('services.revision360.title'),
-      subtitle: t('services.revision360.subtitle'),
-      description: t('services.revision360.description'),
-      icon: RotateCcw,
-      color: 'from-purple-400 to-purple-600',
-      image: 'https://images.pexels.com/photos/4099304/pexels-photo-4099304.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/360-revision',
-      durations: [60, 90, 120]
-    },
-    {
-      id: 'Suplements',
-      title: t('service.supplements.title'),
-      subtitle: t('nutrition.page.subtitle'),
-      description: t('nutrition.page.description'),
-      icon: Leaf,
-      color: 'from-green-500 to-emerald-600',
-      image: 'https://images.pexels.com/photos/8845019/pexels-photo-8845019.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/services/supplements',
-      durations: []
-    },
-    {
-      id: 'Sistemica',
-      title: t('service.systemic.title'),
-      subtitle: t('kinesiology.page.subtitle'),
-      description: t('kinesiology.page.description'),
-      icon: Heart,
-      color: 'from-pink-400 to-rose-600',
-      image: 'https://images.pexels.com/photos/7176036/pexels-photo-7176036.jpeg?auto=compress&cs=tinysrgb&w=800',
-      href: '/services/systemic',
-      durations: []
-    }
-  ];
-
-
 
   const stats = [
     { number: '1500+', label: t('hero.stats.sessions') },
@@ -112,7 +35,7 @@ export default function Home() {
       url="https://ekabalance.com"
     >
 
-      {/* Apple-style Hero Section */}
+      {/* Hero Section */}
       <AppleHero />
 
       {/* Stats Section */}
@@ -167,11 +90,12 @@ export default function Home() {
 
                 {/* CTA Button */}
                 <div className="pt-4">
-                  <Link
-                    to="/about-elena"
-                    className="inline-block bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-3 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
-                  >
-                    {t('elena.knowMore')}
+                  <Link to="/about-elena">
+                    <Button 
+                      className="inline-block bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-3 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 border-none"
+                    >
+                      {t('elena.knowMore')}
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -200,195 +124,57 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {services.map((service) => {
-
-              return (
-                <div
-                  key={service.id}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100"
-                >
-                  {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                        {service.title}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES_DATA.map((service) => {
+               const Icon = iconMap[service.iconName] || Heart;
+               // Get color class (simple mapping for home page summary)
+               const colorClass = service.color === 'orange' ? 'bg-orange-50 text-orange-600' :
+                                  service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                                  service.color === 'green' ? 'bg-green-50 text-green-600' :
+                                  service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                                  'bg-pink-50 text-pink-600';
+              
+               return (
+                <Link key={service.id} to={service.href} className="group cursor-pointer">
+                  <div className="bg-white rounded-[2rem] p-8 h-full shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden">
+                    <div className="flex items-center mb-6">
+                      <div className={`p-3 rounded-2xl ${colorClass} mr-4 transition-transform group-hover:scale-110`}>
+                        <Icon className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {t(service.titleKey)}
                       </h3>
-                      <p className="text-lg text-gray-700 mb-4">
-                        {service.subtitle}
-                      </p>
-                      <p className="text-gray-800 leading-relaxed">
-                        {service.description}
-                      </p>
                     </div>
-
-                    {/* Actions */}
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      {service.isExternal ? (
-                        <a
-                          href={service.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-900 font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            window.open(service.href, '_blank', 'noopener,noreferrer');
-                          }}
-                        >
-                          {t('common.moreInfo')}
-                        </a>
-                      ) : (
-                        <Link
-                          to={service.href}
-                          className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-900 font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md"
-                        >
-                          {t('common.moreInfo')}
-                        </Link>
-                      )}
-                      {service.isExternal ? (
-                        <a
-                          href={service.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            window.open(service.href, '_blank', 'noopener,noreferrer');
-                          }}
-                        >
-                          {t('common.bookNow')}
-                        </a>
-                      ) : (
-                        <button
-                          onClick={() => navigateToBooking()}
-                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
-                        >
-                          {t('common.bookNow')}
-                        </button>
-                      )}
+                    
+                    <p className="text-gray-600 mb-6 line-clamp-3">
+                      {t(service.descriptionKey)}
+                    </p>
+                    
+                    <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-1 transition-transform">
+                      {t('common.readMore')}
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
                   </div>
-                </div>
-              );
+                </Link>
+               );
             })}
-          </div>
-
-          {/* View All Services */}
-          <div className="text-center mt-12">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                to="/services"
-                className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-4 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
-              >
-                {t('common.discoverServices')}
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium px-6 py-4 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
-              >
-                {t('common.contact')}
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials with Background Image */}
-      <TestimonialSlider
-        backgroundImage="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop"
-      />
-
-      {/* Casos Section */}
+      {/* Casos d'Èxit Section */}
       <CasosSection />
 
-      {/* Why Choose EKA Balance */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              {t('whyChoose.title')}
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              {t('whyChoose.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-10 h-10 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">
-                {t('whyChoose.personalized.title')}
-              </h3>
-              <p className="text-gray-500 leading-relaxed">
-                {t('whyChoose.personalized.description')}
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Brain className="w-10 h-10 text-green-600" />
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">
-                {t('whyChoose.holistic.title')}
-              </h3>
-              <p className="text-gray-500 leading-relaxed">
-                {t('whyChoose.holistic.description')}
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Leaf className="w-10 h-10 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">
-                {t('whyChoose.experienced.title')}
-              </h3>
-              <p className="text-gray-500 leading-relaxed">
-                {t('whyChoose.experienced.description')}
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Testimonials */}
+      <section className="py-24 bg-white overflow-hidden">
+         <TestimonialSlider />
       </section>
 
       {/* FAQ Section */}
       <FAQ />
 
-      {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-light mb-6">
-            {t('finalCta.title')}
-          </h2>
-          <p className="text-xl mb-8 text-gray-200">
-            {t('finalCta.subtitle')}
-          </p>
-
-          <div className="flex justify-center">
-            <button
-              onClick={() => navigateToBooking()}
-              className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              {t('common.bookNow')}
-            </button>
-          </div>
-        </div>
-      </section>
     </SEOOptimized>
   );
 }

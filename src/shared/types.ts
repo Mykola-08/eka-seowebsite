@@ -8,6 +8,28 @@ export const OnboardingDataSchema = z.object({
 
 export type OnboardingData = z.infer<typeof OnboardingDataSchema>;
 
+export interface ServiceItem {
+  id: string;
+  titleKey: string;
+  subtitleKey: string;
+  descriptionKey: string;
+  iconName: string;
+  color: string;
+  durations: number[];
+  image: string;
+  href: string;
+  benefitsKeys?: string[];
+  fullWidth?: boolean;
+}
+
+export interface PersonalizedServiceItem {
+  id: string;
+  titleKey: string;
+  descriptionKey: string;
+  image: string;
+  href: string;
+}
+
 export interface Recommendation {
   id: string;
   title: string;

@@ -1,4 +1,7 @@
-import SEOHead from '@/react-app/components/SEOHead';
+const fs = require('fs');
+const path = require('path');
+
+const content = `import SEOHead from '@/react-app/components/SEOHead';
 import { Clock, Heart, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
@@ -203,3 +206,7 @@ export default function MassatgePage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync(path.join(process.cwd(), 'src/react-app/pages/MassatgePage.tsx'), content);
+console.log('MassatgePage.tsx updated');

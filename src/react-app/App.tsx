@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { HelmetProvider } from 'react-helmet-async';
 import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext.tsx';
@@ -9,12 +9,15 @@ import Layout from './components/Layout';
 import { BookingProvider } from './components/BookingProvider';
 import { LanguageProvider } from './contexts/LanguageContext.tsx';
 import { DiscountProvider } from './contexts/DiscountContext.tsx';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { mountVercelToolbar } from '@vercel/toolbar/vite';
 
 // Page Imports
 const HomePage = lazy(() => import("@/react-app/pages/Home"));
 const Services = lazy(() => import("@/react-app/pages/Services"));
 const Revision360Page = lazy(() => import("@/react-app/pages/Revision360Page"));
-const VIPUltraPremium = lazy(() => import("@/react-app/pages/VIPUltraPremium"));
+// const VIPUltraPremium = lazy(() => import("@/react-app/pages/VIPUltraPremium"));
 
 // Individual Service Pages
 const MassatgePage = lazy(() => import("@/react-app/pages/MassatgePage"));
@@ -83,7 +86,7 @@ function AppRoutes() {
       <Route path="/services/kinesiology" element={<KinesiologiaPage />} />
       <Route path="/services/nutrition" element={<NutricioPage />} />
       <Route path="/agenyz" element={<AgenyzPage />} />
-      <Route path="/vip" element={<VIPUltraPremium />} />
+      {/* <Route path="/vip" element={<VIPUltraPremium />} /> */}
 
       {/* Personal Services */}
       <Route path="/personalized-services" element={<PersonalizedServices />} />
@@ -134,6 +137,12 @@ function AppRoutes() {
 }
 
 export default function App() {
+  useEffect(() => {
+    if (import.meta.env.VITE_VERCEL_ENV !== 'production') {
+      mountVercelToolbar();
+    }
+  }, []);
+
   return (
     <HelmetProvider>
       <ErrorBoundary>
@@ -146,6 +155,8 @@ export default function App() {
                   <ScrollToTop />
                   <Layout>
                     <AppRoutes />
+                    <Analytics />
+                    <SpeedInsights />
                   </Layout>
                 </BookingProvider>
               </Router>

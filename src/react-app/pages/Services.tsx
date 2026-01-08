@@ -188,7 +188,7 @@ export default function Services() {
           <div className="flex justify-center">
             <Link
               to="/booking"
-              className="inline-flex items-center justify-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+              className="inline-flex items-center justify-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-4 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               {t('common.bookNow')}
             </Link>
@@ -206,7 +206,7 @@ export default function Services() {
               return (
                 <div
                   key={service.id}
-                  className={`group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full flex flex-col ${service.fullWidth ? 'lg:col-span-2' : ''}`}
+                  className={`group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 h-full flex flex-col ${service.fullWidth ? 'lg:col-span-2' : ''}`}
                 >
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden flex-shrink-0">
@@ -252,7 +252,7 @@ export default function Services() {
                           href={service.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-900 font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(service.href, '_blank', 'noopener,noreferrer');
@@ -264,7 +264,7 @@ export default function Services() {
                         <Link
                           to={service.href}
                           onClick={() => logEvent('service_more_info_click', { service: service.id })}
-                          className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-900 font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md"
                         >
                           {t('common.moreInfo')}
                         </Link>
@@ -274,7 +274,7 @@ export default function Services() {
                           href={service.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(service.href, '_blank', 'noopener,noreferrer');
@@ -286,7 +286,7 @@ export default function Services() {
                         <Link
                           to="/booking"
                           onClick={() => logEvent('service_book_now_click', { service: service.id })}
-                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
                         >
                           {t('common.bookNow')}
                         </Link>

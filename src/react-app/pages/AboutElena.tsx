@@ -36,14 +36,14 @@ export default function AboutElena() {
         url="https://ekabalance.com/about-elena"
       />
 
-      <div className="bg-black min-h-screen text-zinc-200 selection:bg-amber-500/30">
+      <div className="bg-white min-h-screen text-gray-900 selection:bg-amber-100">
 
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-white via-gray-50/50 to-amber-50/30">
           {/* Ambient Background */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-amber-900/10 rounded-full blur-[120px]" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-yellow-900/5 rounded-full blur-[100px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-amber-100/40 rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-50/40 rounded-full blur-[100px]" />
           </div>
 
           <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 text-center">
@@ -70,25 +70,25 @@ export default function AboutElena() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400 tracking-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-gray-900 tracking-tight">
                 Elena Kuchera
               </h1>
 
               <div className="space-y-4">
-                <p className="text-2xl sm:text-3xl text-amber-400 font-black tracking-wide">
+                <p className="text-2xl sm:text-3xl text-amber-600 font-medium tracking-wide">
                   {t('elena.greeting')}
                 </p>
-                <p className="text-xl sm:text-2xl text-blue-400 font-black tracking-wide">
+                <p className="text-xl sm:text-2xl text-blue-600 font-medium tracking-wide">
                   {t('elena.role')}
                 </p>
-                <p className="text-lg sm:text-xl text-zinc-400 font-light max-w-2xl mx-auto">
+                <p className="text-lg sm:text-xl text-gray-600 font-light max-w-2xl mx-auto">
                   {t('elena.bio')}
                 </p>
               </div>
 
               {/* Quote */}
               <div className="max-w-3xl mx-auto mt-10">
-                <blockquote className="text-xl sm:text-2xl text-zinc-300 italic font-light leading-relaxed border-l-2 border-amber-500/30 pl-6">
+                <blockquote className="text-xl sm:text-2xl text-gray-700 italic font-light leading-relaxed border-l-2 border-amber-500/30 pl-6">
                   "{t('elena.quote')}"
                 </blockquote>
               </div>
@@ -96,19 +96,19 @@ export default function AboutElena() {
 
             {/* Experience Badge */}
             <motion.div
-              className="inline-flex items-center px-8 py-3 bg-white/5 backdrop-blur-md rounded-full border border-amber-500/20 mb-8"
+              className="inline-flex items-center px-8 py-3 bg-white rounded-full border border-amber-100 shadow-sm mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Sparkles className="w-5 h-5 text-amber-400 mr-3" />
-              <span className="text-amber-100 font-medium tracking-wide">{t('elena.experience')}</span>
+              <Sparkles className="w-5 h-5 text-amber-500 mr-3" />
+              <span className="text-gray-700 font-medium tracking-wide">{t('elena.experience')}</span>
             </motion.div>
           </div>
         </section>
 
         {/* About Elena (Approach) */}
-        <section className="py-20 relative">
+        <section className="py-20 relative bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div
               className="text-center mb-12"
@@ -117,19 +117,19 @@ export default function AboutElena() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-light text-amber-100 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-6">
                 {t('elena.approach.title')}
               </h2>
             </motion.div>
 
             <motion.div
-              className="prose prose-lg prose-invert max-w-none"
+              className="prose prose-lg max-w-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="text-lg leading-relaxed space-y-6 text-zinc-300 font-light">
+              <div className="text-lg leading-relaxed space-y-6 text-gray-600 font-light">
                 <p>{t('elena.approach.desc')}</p>
               </div>
             </motion.div>
@@ -137,7 +137,7 @@ export default function AboutElena() {
         </section>
 
         {/* Techniques (Education & Training) */}
-        <section className="py-20 bg-zinc-900/30 relative">
+        <section className="py-20 bg-gray-50 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div
               className="text-center mb-16"
@@ -146,10 +146,10 @@ export default function AboutElena() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-amber-100 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-6">
                 {t('elena.education.title')}
               </h2>
-              <p className="text-xl text-zinc-400 max-w-3xl mx-auto font-light">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
                 {t('elena.education.subtitle')}
               </p>
             </motion.div>
@@ -158,16 +158,16 @@ export default function AboutElena() {
               {techniques.map((technique, index) => (
                 <Link to={`/technique/${technique.id}`} key={index}>
                   <motion.div
-                    className="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-amber-500/30 transition-all duration-300"
+                    className="h-full bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={{ y: -5, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+                    whileHover={{ y: -5 }}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="w-2 h-2 bg-amber-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
-                      <p className="text-zinc-200 font-light leading-relaxed">
+                      <div className="w-2 h-2 bg-amber-500 rounded-full mt-2.5 flex-shrink-0"></div>
+                      <p className="text-gray-700 font-light leading-relaxed">
                         {technique.name}
                       </p>
                     </div>
@@ -179,7 +179,7 @@ export default function AboutElena() {
         </section>
 
         {/* Target Groups (Specializations) */}
-        <section className="py-20 relative">
+        <section className="py-20 relative bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div
               className="text-center mb-16"
@@ -188,7 +188,7 @@ export default function AboutElena() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-light text-amber-100 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-6">
                 {t('elena.specializations.title')}
               </h2>
             </motion.div>
@@ -197,7 +197,7 @@ export default function AboutElena() {
               {targetGroups.map((group, index) => (
                 <motion.div
                   key={index}
-                  className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-8 border border-white/10 hover:border-amber-500/40 transition-all duration-300"
+                  className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -206,9 +206,9 @@ export default function AboutElena() {
                 >
                   <div className="flex items-center space-x-3 mb-4">
                     <Heart className="w-5 h-5 text-amber-500" />
-                    <h3 className="text-xl font-medium text-amber-100">{group.title}</h3>
+                    <h3 className="text-xl font-medium text-gray-900">{group.title}</h3>
                   </div>
-                  <p className="text-zinc-300 leading-relaxed font-light group-hover:text-amber-100 transition-colors">
+                  <p className="text-gray-600 leading-relaxed font-light group-hover:text-gray-900 transition-colors">
                     {group.desc}
                   </p>
                 </motion.div>
@@ -218,7 +218,7 @@ export default function AboutElena() {
         </section>
 
         {/* How to Work with Elena */}
-        <section className="py-20 relative">
+        <section className="py-20 relative bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
             <motion.div
               className="text-center mb-16"
@@ -227,10 +227,10 @@ export default function AboutElena() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-light text-amber-100 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-6">
                 {t('elena.work.title')}
               </h2>
-              <p className="text-xl text-zinc-400 font-light">
+              <p className="text-xl text-gray-600 font-light">
                 {t('elena.work.subtitle')}
               </p>
             </motion.div>
@@ -238,7 +238,7 @@ export default function AboutElena() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.button
                 onClick={() => navigateToBooking()}
-                className="group bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-amber-500/30 rounded-2xl p-8 transition-all duration-300 text-left"
+                className="group bg-white hover:bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md rounded-2xl p-8 transition-all duration-300 text-left"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -246,8 +246,8 @@ export default function AboutElena() {
                 whileHover={{ y: -5 }}
               >
                 <Calendar className="w-10 h-10 mb-6 text-amber-500 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-medium text-amber-100 mb-3">{t('elena.work.book')}</h3>
-                <p className="text-zinc-400 font-light text-sm leading-relaxed">{t('elena.work.bookDesc')}</p>
+                <h3 className="text-xl font-medium text-gray-900 mb-3">{t('elena.work.book')}</h3>
+                <p className="text-gray-600 font-light text-sm leading-relaxed">{t('elena.work.bookDesc')}</p>
               </motion.button>
 
               <motion.div
@@ -258,11 +258,11 @@ export default function AboutElena() {
               >
                 <Link
                   to="/services"
-                  className="block h-full group bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-amber-500/30 rounded-2xl p-8 transition-all duration-300 text-left"
+                  className="block h-full group bg-white hover:bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md rounded-2xl p-8 transition-all duration-300 text-left"
                 >
-                  <Star className="w-10 h-10 mb-6 text-amber-400 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-xl font-medium text-amber-100 mb-3">{t('elena.work.explore')}</h3>
-                  <p className="text-zinc-400 font-light text-sm leading-relaxed">{t('elena.work.exploreDesc')}</p>
+                  <Star className="w-10 h-10 mb-6 text-amber-500 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-medium text-gray-900 mb-3">{t('elena.work.explore')}</h3>
+                  <p className="text-gray-600 font-light text-sm leading-relaxed">{t('elena.work.exploreDesc')}</p>
                 </Link>
               </motion.div>
 
@@ -274,11 +274,11 @@ export default function AboutElena() {
               >
                 <Link
                   to="/contact"
-                  className="block h-full group bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-amber-500/30 rounded-2xl p-8 transition-all duration-300 text-left"
+                  className="block h-full group bg-white hover:bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md rounded-2xl p-8 transition-all duration-300 text-left"
                 >
-                  <Mail className="w-10 h-10 mb-6 text-amber-300 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-xl font-medium text-amber-100 mb-3">{t('elena.work.contact')}</h3>
-                  <p className="text-zinc-400 font-light text-sm leading-relaxed">{t('elena.work.contactDesc')}</p>
+                  <Mail className="w-10 h-10 mb-6 text-amber-500 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-medium text-gray-900 mb-3">{t('elena.work.contact')}</h3>
+                  <p className="text-gray-600 font-light text-sm leading-relaxed">{t('elena.work.contactDesc')}</p>
                 </Link>
               </motion.div>
             </div>
@@ -307,32 +307,32 @@ export default function AboutElena() {
             >
               <a
                 href="mailto:contact@ekabalance.com"
-                className="flex items-center justify-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-500/30 px-8 py-4 rounded-full transition-all duration-300 group"
+                className="flex items-center justify-center space-x-3 bg-white hover:bg-gray-50 border border-gray-200 shadow-sm hover:shadow-md px-8 py-4 rounded-2xl transition-all duration-300 group"
               >
-                <Mail className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" />
-                <span className="text-zinc-300 group-hover:text-amber-100">{t('elena.connect.email')}</span>
+                <Mail className="w-5 h-5 text-amber-500 group-hover:scale-110 transition-transform" />
+                <span className="text-gray-600 group-hover:text-gray-900">{t('elena.connect.email')}</span>
               </a>
 
               <a
                 href="https://wa.me/34658867133"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-500/30 px-8 py-4 rounded-full transition-all duration-300 group"
+                className="flex items-center justify-center space-x-3 bg-white hover:bg-gray-50 border border-gray-200 shadow-sm hover:shadow-md px-8 py-4 rounded-2xl transition-all duration-300 group"
               >
-                <MessageCircle className="w-5 h-5 text-green-400 group-hover:scale-110 transition-transform" />
-                <span className="text-zinc-300 group-hover:text-amber-100">{t('elena.connect.whatsapp')}</span>
+                <MessageCircle className="w-5 h-5 text-green-500 group-hover:scale-110 transition-transform" />
+                <span className="text-gray-600 group-hover:text-gray-900">{t('elena.connect.whatsapp')}</span>
               </a>
             </motion.div>
 
             <motion.p
-              className="text-zinc-500 font-light text-sm"
+              className="text-gray-500 font-light text-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <span className="block sm:inline mb-2 sm:mb-0">📍 {t('footer.address')}</span>
-              <span className="hidden sm:inline mx-3 text-zinc-700">|</span>
+              <span className="hidden sm:inline mx-3 text-gray-300">|</span>
               <span className="block sm:inline">📞 658 867 133</span>
             </motion.p>
           </div>

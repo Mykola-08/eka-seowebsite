@@ -143,11 +143,11 @@ logEvent('booking_page_submit', {
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Option 1: Direct Contact */}
-            <div className="bg-green-50 rounded-3xl p-8 text-center hover:shadow-lg transition-all duration-300 border border-green-100">
+            <div className="bg-green-50 rounded-2xl p-8 text-center hover:shadow-md transition-all duration-300 border border-green-100 shadow-sm">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <MessageCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">
                 {t('booking.direct.title')}
               </h3>
               <p className="text-gray-600 mb-8 text-sm leading-relaxed">
@@ -158,18 +158,18 @@ logEvent('booking_page_submit', {
                 onClick={() => logEvent('booking_page_whatsapp_click')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-200 w-full"
+                className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md w-full"
               >
                 {t('booking.direct.button')}
               </a>
             </div>
 
             {/* Option 2: Form */}
-            <div className="bg-blue-50 rounded-3xl p-8 text-center hover:shadow-lg transition-all duration-300 border border-blue-100">
+            <div className="bg-blue-50 rounded-2xl p-8 text-center hover:shadow-md transition-all duration-300 border border-blue-100 shadow-sm">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">
                 {t('booking.form.title')}
               </h3>
               <p className="text-gray-600 mb-8 text-sm leading-relaxed">
@@ -180,26 +180,20 @@ logEvent('booking_page_submit', {
                     logEvent('booking_page_toggle_form', { show: !showForm });
                     setShowForm(!showForm);
                 }}
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-200 w-full"
-              >
-                {showForm ? t('booking.form.close') : t('booking.form.button')}
-              </button>
-              <button
-                onClick={() => setShowForm(!showForm)}
-                className={`inline-flex items-center justify-center font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full ${
+                className={`inline-flex items-center justify-center font-medium px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md w-full ${
                   showForm 
-                    ? 'bg-gray-900 text-white hover:bg-gray-800 shadow-gray-200' 
-                    : 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200'
+                    ? 'bg-gray-900 text-white hover:bg-gray-800' 
+                    : 'bg-blue-600 text-white hover:bg-blue-700'
                 }`}
               >
-                {showForm ? t('booking.form.hide') : t('booking.form.button')}
+                {showForm ? t('booking.form.close') : t('booking.form.button')}
               </button>
             </div>
           </div>
 
           {/* Quick Form */}
           {showForm && (
-            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 animate-fade-in-up">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 md:p-12 animate-fade-in-up">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-light text-gray-900">
                   {t('booking.form.quickTitle')}
@@ -222,7 +216,7 @@ logEvent('booking_page_submit', {
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleFormChange('name', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
                     placeholder={t('booking.form.namePlaceholder')}
                   />
                 </div>
@@ -235,7 +229,7 @@ logEvent('booking_page_submit', {
                   <select
                     value={formData.service}
                     onChange={(e) => handleFormChange('service', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
                   >
                     <option value="">{t('booking.form.servicePlaceholder')}</option>
                     {services.map((service) => (
@@ -254,7 +248,7 @@ logEvent('booking_page_submit', {
                   <select
                     value={formData.location}
                     onChange={(e) => handleFormChange('location', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
                   >
                     <option value="">{t('booking.form.locationPlaceholder')}</option>
                     {locations.map((location) => (
@@ -273,7 +267,7 @@ logEvent('booking_page_submit', {
                   <select
                     value={formData.timeSlot}
                     onChange={(e) => handleFormChange('timeSlot', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
                   >
                     <option value="">{t('booking.form.timeSlotPlaceholder')}</option>
                     {timeSlots.map((slot) => (
@@ -292,7 +286,7 @@ logEvent('booking_page_submit', {
                   <select
                     value={formData.availability}
                     onChange={(e) => handleFormChange('availability', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
                       >
                         <option value="">{t('booking.form.availabilityPlaceholder')}</option>
                         {availabilityOptions.map((option) => (
@@ -304,7 +298,7 @@ logEvent('booking_page_submit', {
                     </div>
 
                     {/* Objective */}
-                    <div>
+                    <div className="md:col-span-2">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         {t('booking.form.objective')}
                       </label>
@@ -312,7 +306,7 @@ logEvent('booking_page_submit', {
                         type="text"
                         value={formData.objective}
                         onChange={(e) => handleFormChange('objective', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
                         placeholder={t('booking.form.objectivePlaceholder')}
                       />
                     </div>
@@ -320,7 +314,7 @@ logEvent('booking_page_submit', {
 
                   <button
                     onClick={handleFormSubmit}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.01] hover:shadow-lg"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.01] shadow-sm hover:shadow-md"
                   >
                     <MessageCircle className="w-5 h-5 mr-2 inline" />
                     {t('booking.form.submit')}
@@ -338,16 +332,16 @@ logEvent('booking_page_submit', {
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-4">{t('booking.help.contactDirect')}</h4>
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200">
+              <h4 className="font-medium text-gray-900 mb-4">{t('booking.help.contactDirect')}</h4>
               <div className="space-y-2 text-gray-600">
                 <p>{t('booking.help.email')}</p>
                 <p>{t('booking.help.address')}</p>
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-4">{t('booking.help.hours')}</h4>
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200">
+              <h4 className="font-medium text-gray-900 mb-4">{t('booking.help.hours')}</h4>
               <div className="space-y-2 text-gray-600">
                 <p>{t('booking.help.hours.weekdays')}</p>
                 <p>{t('booking.help.hours.saturday')}</p>

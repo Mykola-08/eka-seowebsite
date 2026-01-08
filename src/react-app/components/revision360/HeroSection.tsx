@@ -71,7 +71,7 @@ export default function HeroSection() {
           transition={{ duration: 0.4 }}
         >
           <motion.h1 
-            className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-200 to-amber-400 mb-8 tracking-tight leading-[1.1]"
+            className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-medium text-gold-shine mb-8 tracking-tight leading-[1.1]"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

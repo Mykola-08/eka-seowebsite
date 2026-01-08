@@ -116,17 +116,17 @@ export default function Home() {
       <AppleHero />
 
       {/* Stats Section */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section className="py-16 bg-white border-t border-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="flex items-center justify-center mb-2">
-                  <span className="text-3xl sm:text-4xl font-light text-gray-900">
+                  <span className="text-3xl sm:text-4xl font-medium text-gray-900 tracking-tight">
                     {stat.number}
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm sm:text-base">{stat.label}</p>
+                <p className="text-gray-500 text-sm sm:text-base font-medium">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export default function Home() {
                 <div className="pt-4">
                   <Link
                     to="/about-elena"
-                    className="inline-block bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-3 rounded-full transition-colors duration-200"
+                    className="inline-block bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-3 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
                     {t('elena.knowMore')}
                   </Link>
@@ -184,9 +184,8 @@ export default function Home() {
       <section className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-2xl mb-8">
-              <Heart className="w-5 h-5 text-blue-600 mr-2" />
-              <span className="text-blue-700 font-medium">{t('services.ourServices')}</span>
+            <div className="inline-flex items-center px-6 py-2 bg-blue-50 border border-blue-100 rounded-full mb-8">
+              <span className="text-blue-700 font-medium text-sm uppercase tracking-wide">{t('services.ourServices')}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6">
@@ -207,7 +206,7 @@ export default function Home() {
               return (
                 <div
                   key={service.id}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                  className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100"
                 >
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
@@ -240,7 +239,7 @@ export default function Home() {
                           href={service.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-900 font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(service.href, '_blank', 'noopener,noreferrer');
@@ -251,7 +250,7 @@ export default function Home() {
                       ) : (
                         <Link
                           to={service.href}
-                          className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-900 font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md"
                         >
                           {t('common.moreInfo')}
                         </Link>
@@ -261,7 +260,7 @@ export default function Home() {
                           href={service.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(service.href, '_blank', 'noopener,noreferrer');
@@ -272,7 +271,7 @@ export default function Home() {
                       ) : (
                         <button
                           onClick={() => navigateToBooking()}
-                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
+                          className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-6 py-3 rounded-2xl transition-all duration-200 flex items-center justify-center text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
                         >
                           {t('common.bookNow')}
                         </button>
@@ -289,7 +288,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 to="/services"
-                className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+                className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-4 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
                 {t('common.discoverServices')}
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,7 +297,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-all duration-200"
+                className="inline-flex items-center bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium px-6 py-4 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
                 {t('common.contact')}
               </Link>
@@ -329,37 +328,37 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-100 to-blue-200 rounded-3xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Heart className="w-10 h-10 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-medium text-gray-900 mb-4">
                 {t('whyChoose.personalized.title')}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-500 leading-relaxed">
                 {t('whyChoose.personalized.description')}
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-100 to-green-200 rounded-3xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Brain className="w-10 h-10 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-medium text-gray-900 mb-4">
                 {t('whyChoose.holistic.title')}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-500 leading-relaxed">
                 {t('whyChoose.holistic.description')}
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-100 to-orange-200 rounded-3xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Leaf className="w-10 h-10 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-medium text-gray-900 mb-4">
                 {t('whyChoose.experienced.title')}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-500 leading-relaxed">
                 {t('whyChoose.experienced.description')}
               </p>
             </div>
@@ -383,7 +382,7 @@ export default function Home() {
           <div className="flex justify-center">
             <button
               onClick={() => navigateToBooking()}
-              className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+              className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               {t('common.bookNow')}
             </button>

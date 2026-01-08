@@ -51,7 +51,7 @@ export default function ServiceCategoryPills() {
               <div className="relative z-10 flex flex-col justify-between h-full p-8 text-white">
                 {/* Top content */}
                 <div className="flex justify-between items-start">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} shadow-lg`}>
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} shadow-md`}>
                     <span className="text-2xl font-light">{service.number}</span>
                   </div>
                   
@@ -78,7 +78,7 @@ export default function ServiceCategoryPills() {
         <div className="text-center mt-16">
           <Link
             to="/services"
-            className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-2xl transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
           >
             Veure tots els serveis
             <ArrowRight className="ml-2 w-5 h-5" />

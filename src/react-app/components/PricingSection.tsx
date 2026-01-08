@@ -66,9 +66,8 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-6 py-3 bg-yellow-100 rounded-2xl mb-8">
-            <Sparkles className="w-5 h-5 text-yellow-600 mr-2" />
-            <span className="text-yellow-600 font-medium">Tarifes transparents</span>
+          <div className="inline-flex items-center px-6 py-2 bg-yellow-50 border border-yellow-100 rounded-full mb-8">
+            <span className="text-yellow-700 font-medium text-sm uppercase tracking-wide">Tarifes transparents</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
@@ -110,7 +109,7 @@ export default function PricingSection() {
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-yellow-400 text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium shadow-lg">
+                    <div className="bg-yellow-400 text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
                       Més popular
                     </div>
                   </div>
@@ -183,7 +182,7 @@ export default function PricingSection() {
                       });
                       navigateToBooking(plan.name);
                     }}
-                    className={`w-full py-4 rounded-xl font-medium transition-all duration-200 text-center ${plan.popular
+                    className={`w-full py-4 rounded-2xl font-medium transition-all duration-200 text-center ${plan.popular
                         ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-900 shadow-sm hover:shadow-md'
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
                       }`}

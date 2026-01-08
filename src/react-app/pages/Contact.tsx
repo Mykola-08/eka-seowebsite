@@ -16,9 +16,9 @@ export default function ContactPage() {
     >
       <Layout>
         {/* Hero Section */}
-        <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 via-white to-gray-50">
+        <section className="pt-24 pb-16 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-8">
+            <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full mb-8 border border-blue-100">
               <MessageCircle className="w-5 h-5 text-blue-600 mr-2" />
               <span className="text-blue-700 font-medium">{t('contact.hero.badge')}</span>
             </div>
@@ -38,14 +38,14 @@ export default function ContactPage() {
                 href="https://wa.me/34658867133"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
+                className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 {t('contact.whatsapp')}
               </a>
               <a
                 href="tel:+34658867133"
-                className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
+                className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 {t('contact.callNow')}
@@ -69,30 +69,30 @@ export default function ContactPage() {
             </h2>
             
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.faq.q1.title')}</h3>
-                <p className="text-gray-600">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200">
+                <h3 className="font-medium text-gray-900 mb-2 text-lg">{t('contact.faq.q1.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">
                   {t('contact.faq.q1.answer')}
                 </p>
               </div>
 
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.faq.q2.title')}</h3>
-                <p className="text-gray-600">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200">
+                <h3 className="font-medium text-gray-900 mb-2 text-lg">{t('contact.faq.q2.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">
                   {t('contact.faq.q2.answer')}
                 </p>
               </div>
 
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.faq.q3.title')}</h3>
-                <p className="text-gray-600">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200">
+                <h3 className="font-medium text-gray-900 mb-2 text-lg">{t('contact.faq.q3.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">
                   {t('contact.faq.q3.answer')}
                 </p>
               </div>
 
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.faq.q4.title')}</h3>
-                <p className="text-gray-600">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200">
+                <h3 className="font-medium text-gray-900 mb-2 text-lg">{t('contact.faq.q4.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">
                   {t('contact.faq.q4.answer')}
                 </p>
               </div>

@@ -51,7 +51,7 @@ export default function SuccessStories() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative"
+              className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 relative"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Quote Icon */}
@@ -72,7 +72,7 @@ export default function SuccessStories() {
               </p>
 
               {/* Result Badge */}
-              <div className="inline-flex items-center px-3 py-1 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-sm font-medium mb-6">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-sm font-medium mb-6">
                 {testimonial.result}
               </div>
 

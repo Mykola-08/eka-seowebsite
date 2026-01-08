@@ -37,7 +37,7 @@ const personalizedServices = [
     id: 'students',
     title: 'personalizedServices.students',
     description: 'personalizedServices.students.desc',
-    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop',
     href: '/services/students'
   }
 ];
@@ -55,16 +55,20 @@ export default function PersonalizedServices() {
       />
       
       {/* Hero Section */}
-      <section 
-        className="bg-section-full min-h-screen flex items-center"
-        style={{
-          backgroundImage: `url(https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1920)`
-        }}
-      >
-        <div className="bg-overlay" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-section-full">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url(/images/personalized-bg.jpg)`
+          }}
+        />
+
+        {/* Overlay for text readability */}
+        <div className="bg-overlay-dark" />
         
-        <div className="relative z-10 apple-container text-center text-white">
-          <h1 className="apple-large-title text-white mb-8">
+        <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-black tracking-tighter drop-shadow-2xl">
             {t('personalizedServices.title')}
           </h1>
           
@@ -95,37 +99,35 @@ export default function PersonalizedServices() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {personalizedServices.map((service) => (
-              <div key={service.id} className="squircle-card bg-white overflow-hidden h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
-                <div className="squircle-image aspect-[16/10] overflow-hidden flex-shrink-0">
-                  <img
-                    src={service.image}
-                    alt={t(service.title)}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              <div key={service.id} className="group relative overflow-hidden rounded-[30px] aspect-[4/5] shadow-2xl transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
+                <div className="absolute inset-0">
+                  <img 
+                    src={service.image} 
+                    alt={t(service.title)} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
                 </div>
                 
-                <div className="p-8 flex flex-col flex-1">
-                  <h3 className="apple-title mb-4 text-xl font-semibold">
+                <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 text-white">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 transform transition-transform duration-500 group-hover:-translate-y-2">
                     {t(service.title)}
                   </h3>
-                  
-                  <p className="apple-body mb-6 text-gray-600 flex-grow line-clamp-4">
+                  <p className="text-lg text-gray-200 mb-8 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 delay-100">
                     {t(service.description)}
                   </p>
-
-                  <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                  <div className="flex gap-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 delay-200 transition-all duration-500">
                     <button
                       onClick={() => navigateToBooking()}
-                      className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-xl font-medium transition-colors text-sm"
+                      className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg"
                     >
                       {t('common.reserve')}
                     </button>
                     <Link to={service.href} className="flex-1">
                       <Button 
-                        variant="outline"
-                        className="w-full border-gray-200 text-gray-700 hover:bg-gray-50 px-4 py-3 rounded-xl font-medium text-sm"
+                        className="w-full bg-white/20 backdrop-blur-md hover:bg-white text-white hover:text-black border-none rounded-full px-6 py-3 transition-all duration-300"
                       >
                         {t('common.moreInfo')}
                       </Button>

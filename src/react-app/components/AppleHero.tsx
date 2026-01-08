@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 const heroImages = [
@@ -34,9 +34,8 @@ export default function AppleHero() {
     {/* Content */}
     <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
       {/* Badge - Glassy Style */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg mb-8 animate-fade-in">
-        <Sparkles className="w-4 h-4 text-accent-gold" />
-        <span className="text-sm md:text-base font-medium tracking-wide uppercase text-white/95">
+      <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
+        <span className="text-sm md:text-base font-medium tracking-wide uppercase text-white/90">
           {t('hero.badge')}
         </span>
       </div>

@@ -61,7 +61,7 @@ export default function MassatgePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigateToBooking()}
-                  className="bg-[#FFB405] hover:bg-[#e8a204] text-[000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
+                  className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-4 rounded-2xl transition-all duration-200 flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 >
                   {t('common.bookNow')}
                 </button>
@@ -73,9 +73,9 @@ export default function MassatgePage() {
                 <img
                   src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Sessió de massatge terapèutic professional en ambient relaxant"
-                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"
+                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-xl"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                     <span className="text-sm font-medium text-gray-700">{t('massage.page.availableToday')}</span>

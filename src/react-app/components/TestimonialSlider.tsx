@@ -165,7 +165,7 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
               >
                 {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                    <div className="squircle-card bg-white/95 backdrop-blur-sm p-8 md:p-12 text-center">
+                    <div className="rounded-3xl bg-white/95 backdrop-blur-sm p-8 md:p-12 text-center shadow-sm border border-white/50">
                       {/* Rating */}
                       <div className="flex justify-center mb-6">
                         {[...Array(testimonial.rating)].map((_, i) => (

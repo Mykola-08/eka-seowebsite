@@ -83,9 +83,8 @@ export default function CasosSection() {
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-2xl mb-8">
-            <Heart className="w-5 h-5 text-blue-600 mr-2" />
-            <span className="text-blue-700 font-medium">{t('casos.section.badge')}</span>
+          <div className="inline-flex items-center px-6 py-2 bg-blue-50 border border-blue-100 rounded-full mb-8">
+            <span className="text-blue-700 font-medium text-sm uppercase tracking-wide">{t('casos.section.badge')}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6">

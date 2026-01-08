@@ -102,11 +102,11 @@ export default function Layout({
       name: t('nav.revision360'),
       href: '/360-revision'
     },
-    {
+    /* {
       name: t('nav.vip'),
       href: '/vip',
       isGold: true
-    }
+    } */
   ];
 
   const isActivePath = (path: string) => {

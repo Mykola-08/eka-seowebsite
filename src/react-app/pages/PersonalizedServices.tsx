@@ -3,8 +3,9 @@ import { Link } from 'react-router';
 import { Button } from 'keep-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, UserRound, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LazyImage from '@/react-app/components/LazyImage';
 
 export default function PersonalizedServices() {
   const { t } = useLanguage();
@@ -56,10 +57,10 @@ export default function PersonalizedServices() {
         </div>
       </section>
 
-      {/* Service Cards Grid - Unified Design */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+      {/* Service List - Unified Design with Services.tsx */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+           <div className="text-center mb-24">
             <h2 className="text-4xl font-light text-gray-900 mb-6">
               {t('personalizedServices.choose.title')}
             </h2>
@@ -68,64 +69,80 @@ export default function PersonalizedServices() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PERSONALIZED_SERVICES_DATA.map((service, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                key={service.id}
-                className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={t(service.titleKey)}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-                </div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h3 className="text-2xl font-medium mb-2">
-                    {t(service.titleKey)}
-                  </h3>
-                  <p className="text-white/90 line-clamp-2 mb-6 font-light">
-                    {t(service.descriptionKey)}
-                  </p>
-                  
-                  <Link 
-                    to={service.href} 
-                    className="inline-flex items-center text-white font-medium hover:underline"
-                  >
-                    {t('common.readMore')} <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+           <div className="grid grid-cols-1 gap-12 sm:gap-16 lg:gap-24">
+              {PERSONALIZED_SERVICES_DATA.map((service, index) => {
+                 // Alternate direction for better flow
+                 const isEven = index % 2 === 0;
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-light text-gray-900 mb-8">
-            {t('footer.readyToBegin')}
-          </h2>
-          <div className="justify-center flex">
-             <Link to="/contact">
-                <Button 
-                  size="xl" 
-                  className="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 px-8 py-4 rounded-2xl font-medium transition-all shadow-sm hover:shadow-md"
-                >
-                  {t('nav.contact')}
-                </Button>
-             </Link>
-          </div>
+                 return (
+                  <motion.div 
+                    key={service.id}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                    className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
+                  >
+                      {/* Image Side */}
+                      <div className="w-full lg:w-1/2">
+                          <Link to={service.href} className="block relative rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                            <LazyImage 
+                              src={service.image} 
+                              alt={t(service.titleKey)}
+                              className="w-full h-auto object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-105" 
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent group-hover:from-black/50 transition-colors duration-500"></div>
+                            
+                            {/* Floating Badge */}
+                            <div className="absolute bottom-6 left-6 right-6">
+                                <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-lg">
+                                  <span className="text-gray-900 font-medium">{t(service.titleKey)}</span>
+                                  <ArrowUpRight className="ml-2 w-4 h-4 text-gray-900" />
+                                </div>
+                            </div>
+                          </Link>
+                      </div>
+
+                      {/* Content Side */}
+                      <div className="w-full lg:w-1/2 lg:px-8">
+                          <div className={`inline-flex items-center p-3 rounded-2xl bg-blue-50 mb-6`}>
+                             <UserRound className={`w-8 h-8 text-blue-600`} />
+                          </div>
+
+                          <h3 className="text-3xl font-light text-gray-900 mb-6">
+                            {t(service.titleKey)}
+                          </h3>
+                          
+                          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                            {t(service.descriptionKey)}
+                          </p>
+
+                          <div className="flex flex-col sm:flex-row gap-4">
+                             <Link to={service.href}>
+                                <Button 
+                                  className={`bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl transition-all shadow-md hover:shadow-lg border-none`}
+                                >
+                                  {t('common.readMore')}
+                                </Button>
+                             </Link>
+                             
+                             <Link to="/booking">
+                                <Button 
+                                  variant="outline"
+                                  className="border-gray-300 hover:bg-gray-50 text-gray-700 px-8 py-3 rounded-xl transition-all"
+                                >
+                                  {t('common.bookNow')}
+                                </Button>
+                             </Link>
+                          </div>
+                      </div>
+                  </motion.div>
+                 );
+              })}
+           </div>
         </div>
       </section>
     </>
   );
 }
+

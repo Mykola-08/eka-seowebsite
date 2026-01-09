@@ -5,6 +5,7 @@ import { useLanguage } from '@/react-app/hooks/useLanguage';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
+import LazyImage from '@/react-app/components/LazyImage';
 
 const iconMap: Record<string, React.ElementType> = {
   Heart,
@@ -134,7 +135,7 @@ export default function Services() {
                       {/* Image Side */}
                       <div className="w-full lg:w-1/2">
                           <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                            <img 
+                            <LazyImage 
                               src={service.image} 
                               alt={t(service.titleKey)}
                               className="w-full h-auto object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-105" 

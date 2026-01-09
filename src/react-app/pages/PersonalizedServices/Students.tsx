@@ -3,6 +3,7 @@ import { Clock } from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
 import { useLanguage } from '@/react-app/hooks/useLanguage';
+import LazyImage from '@/react-app/components/LazyImage';
 
 export default function Students() {
   const { t } = useLanguage();
@@ -16,8 +17,9 @@ export default function Students() {
       />
 
       {/* Hero Section */}
-      <section className="py-12 sm:py-20 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
@@ -44,7 +46,7 @@ export default function Students() {
 
             <div className="order-1 lg:order-2">
               <div className="relative">
-                <img
+                <LazyImage
                   src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&h=1080&fit=crop"
                   alt={t('nav.students')}
                   className="w-full h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl"

@@ -9,6 +9,7 @@ import { useLanguage } from '@/react-app/contexts/LanguageContext';
 // import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import LanguagePopup from '@/react-app/components/LanguagePopup';
 import CookieBanner from './CookieBanner';
+import { TDRPresentationMode } from '@/react-app/components/TDRPresentationMode';
 
 import { useClickOutside } from '@/react-app/hooks/useClickOutside';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
@@ -392,6 +393,7 @@ export default function Layout({
       {/* Cookie Banner */}
       <CookieBanner />
       <LanguagePopup />
+      <TDRPresentationMode />
 
 
 

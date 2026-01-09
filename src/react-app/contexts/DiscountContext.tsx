@@ -21,7 +21,7 @@ export interface DiscountContextType {
   isLoading: boolean;
 }
 
-export const DiscountContext = createContext<DiscountContextType | undefined>(undefined);
+const DiscountContext = createContext<DiscountContextType | undefined>(undefined);
 
 export function DiscountProvider({ children }: { children: React.ReactNode }) {
   const [selectedDiscount, setSelectedDiscount] = useState<Discount | null>(null);
@@ -147,3 +147,11 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+
+export const useDiscount = () => {
+  const context = React.useContext(DiscountContext);
+  if (context === undefined) {
+    throw new Error('useDiscount must be used within a DiscountProvider');
+  }
+  return context;
+};

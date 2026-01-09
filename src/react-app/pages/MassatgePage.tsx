@@ -1,7 +1,7 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock, Heart, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 
 export default function MassatgePage() {
@@ -203,3 +203,4 @@ export default function MassatgePage() {
     </div>
   );
 }
+

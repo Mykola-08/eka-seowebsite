@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
-import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { supabase } from '@/react-app/lib/supabase';
 import PriceDisplay from './PriceDisplay';
 import { OnboardingData, Recommendation } from '@/shared/types';
@@ -600,3 +600,5 @@ export default function PersonalizedOnboarding() {
     </div>
   );
 }
+
+

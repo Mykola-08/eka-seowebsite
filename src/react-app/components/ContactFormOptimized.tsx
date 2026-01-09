@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from 'lucide-react';
-import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { supabase } from '@/react-app/lib/supabase';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
@@ -587,3 +587,4 @@ export default function ContactFormOptimized() {
     </div>
   );
 }
+

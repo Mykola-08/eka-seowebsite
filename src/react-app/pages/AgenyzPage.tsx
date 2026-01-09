@@ -2,7 +2,7 @@ import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
 import { Sparkles, Zap, Shield, Brain, ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function AgenyzPage() {
     const { t } = useLanguage();
@@ -145,3 +145,4 @@ export default function AgenyzPage() {
         </>
     );
 }
+

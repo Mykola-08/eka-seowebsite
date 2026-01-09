@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
 import { ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 const heroImages = [
   'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Skyline
@@ -72,3 +72,4 @@ export default function AppleHero() {
 
   </section>;
 }
+

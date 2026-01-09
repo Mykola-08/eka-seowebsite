@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 const testimonials = [
   {
@@ -229,3 +229,4 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
     </section>
   );
 }
+

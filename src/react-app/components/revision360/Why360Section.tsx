@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Modal from './Modal';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Sparkles, Layers } from 'lucide-react';
 
 export default function Why360Section() {
@@ -280,3 +280,4 @@ export default function Why360Section() {
     </motion.section>
   );
 }
+

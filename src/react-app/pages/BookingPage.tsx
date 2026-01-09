@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, MessageCircle, X } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
-import { useSupabaseAuth } from '@/react-app/hooks/useSupabaseAuth';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { supabase } from '@/react-app/lib/supabase';
 
 interface FormData {
@@ -362,3 +362,5 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
     </>
   );
 }
+
+

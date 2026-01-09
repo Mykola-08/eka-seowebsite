@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 interface ServiceStep {
   number: string;
@@ -271,3 +271,4 @@ export default function ServiceSection() {
     </motion.section>
   );
 }
+

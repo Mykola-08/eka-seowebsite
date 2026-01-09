@@ -1,6 +1,6 @@
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import PersonalizedOnboarding from '@/react-app/components/PersonalizedOnboarding';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function FirstTimeVisitor() {
   const { t } = useLanguage();
@@ -16,3 +16,4 @@ export default function FirstTimeVisitor() {
     </SEOOptimized>
   );
 }
+

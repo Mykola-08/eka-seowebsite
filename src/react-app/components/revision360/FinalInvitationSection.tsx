@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function FinalInvitationSection() {
   const [isHovered, setIsHovered] = useState(false);
@@ -270,3 +270,4 @@ export default function FinalInvitationSection() {
     </section>
   );
 }
+

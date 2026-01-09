@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { 
   Brain, 
   Heart, 
@@ -175,3 +175,4 @@ export default function BenefitsSection() {
     </motion.section>
   );
 }
+

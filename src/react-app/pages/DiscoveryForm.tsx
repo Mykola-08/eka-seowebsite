@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SEOHead from '@/react-app/components/SEOHead';
 import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList } from 'lucide-react';
 import { Link } from 'react-router';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 interface FormData {
   location: string;
@@ -1033,3 +1033,4 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
     </>
   );
 }
+

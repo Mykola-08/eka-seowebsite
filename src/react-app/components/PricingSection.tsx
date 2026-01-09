@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { CheckCircle, Sparkles, Crown, Heart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { useBooking } from '@/react-app/hooks/useBooking';
-import { useDiscount } from '@/react-app/hooks/useDiscount';
+import { useDiscount } from '@/react-app/contexts/DiscountContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { supabase } from '@/react-app/lib/supabase';
 
@@ -237,3 +237,4 @@ export default function PricingSection() {
     </section>
   );
 }
+

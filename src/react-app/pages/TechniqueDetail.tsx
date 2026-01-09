@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import SEOHead from '@/react-app/components/SEOHead';
 import Layout from '@/react-app/components/Layout';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function TechniqueDetail() {
   const { id } = useParams();
@@ -75,3 +75,4 @@ export default function TechniqueDetail() {
     </>
   );
 }
+

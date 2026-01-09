@@ -6,7 +6,7 @@ import CasosSection from '@/react-app/components/CasosSection';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { Button } from 'keep-react';
 
@@ -178,3 +178,4 @@ export default function Home() {
     </SEOOptimized>
   );
 }
+

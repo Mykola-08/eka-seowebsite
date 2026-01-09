@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 import SEOHead from '@/react-app/components/SEOHead';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 
 import { Button } from 'keep-react';
@@ -396,3 +396,4 @@ export default function VIPUltraPremium() {
     </div>
   );
 }
+

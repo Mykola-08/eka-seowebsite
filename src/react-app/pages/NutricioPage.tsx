@@ -1,7 +1,7 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Clock, Leaf, ArrowRight, CheckCircle2, Sprout } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 
 export default function NutricioPage() {
@@ -214,3 +214,4 @@ export default function NutricioPage() {
     </div>
   );
 }
+

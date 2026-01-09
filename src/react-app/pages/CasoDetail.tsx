@@ -2,7 +2,7 @@
 import { useParams, Link } from 'react-router';
 import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
 import SEOOptimized from '@/react-app/components/SEOOptimized';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 
 interface ProblemConfig {
@@ -271,3 +271,4 @@ export default function CasoDetail() {
     </SEOOptimized>
   );
 }
+

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Heart, Mail, Phone, MapPin } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 
 export default function Footer() {
@@ -189,3 +189,4 @@ export default function Footer() {
     </motion.footer>
   );
 }
+

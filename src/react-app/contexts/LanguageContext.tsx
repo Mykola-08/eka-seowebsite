@@ -15,7 +15,7 @@ export interface LanguageContextType {
   languageConfirmed: boolean;
 }
 
-export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 // Translation files
 const translations: Record<Language, Record<string, string>> = {
@@ -1506,20 +1506,20 @@ const translations: Record<Language, Record<string, string>> = {
 
     'elena.greeting': 'Hola',
     'elena.role': 'Terapeuta',
-    'elena.bio': 'Bio...',
+    'elena.bio': 'He dedicat la meva vida a explorar les profunditats de les disciplines terapèutiques, creant un enfocament únic i integrador que honora la persona en la seva totalitat.',
     'elena.work.title': 'Treball',
-    'elena.description1': 'Desc 1',
-    'elena.description2': 'Desc 2',
-    'elena.knowMore': 'Més',
+    'elena.description1': 'Sóc terapeuta corporal especialitzada en massatge terapèutic, kinesiologia i integració ment-cos. El meu treball es basa en la creença que la veritable curació prové d\'escoltar el cos.',
+    'elena.description2': 'El meu objectiu és senzill: ajudar-te a alliberar el pes de la tensió i recuperar el teu benestar físic i emocional, perquè puguis moure\'t per la vida amb lleugeresa i energia renovada.',
+    'elena.knowMore': 'Llegeix la meva història completa',
     
-    'whyChoose.title': 'Per què?',
-    'whyChoose.subtitle': 'Subtitle',
-    'whyChoose.personalized.title': 'Person.',
-    'whyChoose.personalized.description': 'Desc.',
-    'whyChoose.holistic.title': 'Holistic',
-    'whyChoose.holistic.description': 'Desc',
-    'whyChoose.experienced.title': 'Exp',
-    'whyChoose.experienced.description': 'Desc',
+    'whyChoose.title': 'Per què triar EKA Balance?',
+    'whyChoose.subtitle': 'Som més que un centre de teràpia; som els teus socis dedicats en el benestar holístic.',
+    'whyChoose.personalized.title': 'Plans Veritablement Personalitzats',
+    'whyChoose.personalized.description': 'El teu cos és únic, i la teva teràpia també ho hauria de ser. Adaptem cada sessió a la teva fisiologia i història específiques per obtenir resultats més ràpids i sostenibles.',
+    'whyChoose.holistic.title': 'Integració Sistèmica',
+    'whyChoose.holistic.description': 'Tractem tot el teu ésser: estructural, químic i emocional. La veritable curació succeeix quan tots els teus sistemes treballen en harmonia.',
+    'whyChoose.experienced.title': 'Guiatge Expert',
+    'whyChoose.experienced.description': 'Beneficia\'t d\'anys de pràctica professional i estudi continu en modalitats globals com Feldenkrais, Osteopatia i Kinesiologia.',
     
     'finalCta.title': 'A punt?',
     'finalCta.subtitle': 'Reserva ja',
@@ -4575,20 +4575,20 @@ const translations: Record<Language, Record<string, string>> = {
 
     'elena.greeting': 'Hola',
     'elena.role': 'Terapeuta',
-    'elena.bio': 'Bio...',
+    'elena.bio': 'He dedicado mi vida a explorar las profundidades de las disciplinas terapéuticas, creando un enfoque único e integrador que honra a la persona en su totalidad.',
     'elena.work.title': 'Trabajo',
-    'elena.description1': 'Desc 1',
-    'elena.description2': 'Desc 2',
-    'elena.knowMore': 'Más',
+    'elena.description1': 'Soy terapeuta corporal especializada en masaje terapéutico, kinesiología e integración mente-cuerpo. Mi trabajo se basa en la creencia de que la verdadera curación proviene de escuchar al cuerpo.',
+    'elena.description2': 'Mi objetivo es simple: ayudarte a liberar el peso de la tensión y recuperar tu bienestar físico y emocional, para que puedas moverte por la vida con ligereza y energía renovada.',
+    'elena.knowMore': 'Lee mi historia completa',
     
-    'whyChoose.title': '¿Por qué?',
-    'whyChoose.subtitle': 'Subtitle',
-    'whyChoose.personalized.title': 'Person.',
-    'whyChoose.personalized.description': 'Desc.',
-    'whyChoose.holistic.title': 'Holistic',
-    'whyChoose.holistic.description': 'Desc',
-    'whyChoose.experienced.title': 'Exp',
-    'whyChoose.experienced.description': 'Desc',
+    'whyChoose.title': '¿Por qué elegir EKA Balance?',
+    'whyChoose.subtitle': 'Somos más que un centro de terapia; somos tus socios dedicados en el bienestar holístico.',
+    'whyChoose.personalized.title': 'Planes Verdaderamente Personalizados',
+    'whyChoose.personalized.description': 'Tu cuerpo es único, y tu terapia también debería serlo. Adaptamos cada sesión a tu fisiología e historia específicas para obtener resultados más rápidos y sostenibles.',
+    'whyChoose.holistic.title': 'Integración Sistémica',
+    'whyChoose.holistic.description': 'Tratamos todo tu ser: estructural, químico y emocional. La verdadera curación ocurre cuando todos tus sistemas trabajan en armonía.',
+    'whyChoose.experienced.title': 'Guía Experta',
+    'whyChoose.experienced.description': 'Benefíciate de años de práctica profesional y estudio continuo en modalidades globales como Feldenkrais, Osteopatía y Kinesiología.',
     
     'finalCta.title': '¿Listo?',
     'finalCta.subtitle': 'Reserva ya',
@@ -6165,20 +6165,20 @@ const translations: Record<Language, Record<string, string>> = {
 
     'elena.greeting': 'Привет',
     'elena.role': 'Терапевт',
-    'elena.bio': 'Био...',
+    'elena.bio': 'Я посвятила свою жизнь изучению терапевтических дисциплин, создавая уникальный, интегративный подход, который уважает целостность человека.',
     'elena.work.title': 'Работа',
-    'elena.description1': 'Опис 1',
-    'elena.description2': 'Опис 2',
-    'elena.knowMore': 'Больше',
+    'elena.description1': 'Я телесный терапевт, специализирующийся на лечебном массаже, кинезиологии и интеграции ума и тела. Моя работа основана на убеждении, что истинное исцеление происходит от умения слушать свое тело.',
+    'elena.description2': 'Моя цель проста: помочь вам освободиться от тяжести напряжения и вернуть физическое и эмоциональное благополучие, чтобы вы могли двигаться по жизни с легкостью и обновленной энергией.',
+    'elena.knowMore': 'Читать мою полную историю',
     
-    'whyChoose.title': 'Почему мы?',
-    'whyChoose.subtitle': 'Subtitle',
-    'whyChoose.personalized.title': 'Персон.',
-    'whyChoose.personalized.description': 'Опис.',
-    'whyChoose.holistic.title': 'Холистик',
-    'whyChoose.holistic.description': 'Опис',
-    'whyChoose.experienced.title': 'Опыт',
-    'whyChoose.experienced.description': 'Опис',
+    'whyChoose.title': 'Почему выбирают EKA Balance?',
+    'whyChoose.subtitle': 'Мы больше, чем терапевтический центр; мы ваши преданные партнеры в целостном благополучии.',
+    'whyChoose.personalized.title': 'Истинно Персонализированные Планы',
+    'whyChoose.personalized.description': 'Ваше тело уникально, и ваша терапия тоже должна быть такой. Мы адаптируем каждую сессию к вашей физиологии и истории для более быстрых и устойчивых результатов.',
+    'whyChoose.holistic.title': 'Системная Интеграция',
+    'whyChoose.holistic.description': 'Мы лечим вас целиком — структурно, химически и эмоционально. Истинное исцеление происходит, когда все ваши системы работают в гармонии.',
+    'whyChoose.experienced.title': 'Экспертное Руководство',
+    'whyChoose.experienced.description': 'Воспользуйтесь годами профессиональной практики и непрерывного обучения мировым методикам, таким как Фельденкрайз, Остеопатия и Кинезиология.',
 
 
   }

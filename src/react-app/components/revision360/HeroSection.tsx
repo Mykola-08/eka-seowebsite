@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function HeroSection() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -152,3 +152,4 @@ export default function HeroSection() {
     </motion.section>
   );
 }
+

@@ -2,7 +2,7 @@ import SEOOptimized from '@/react-app/components/SEOOptimized';
 import Layout from '@/react-app/components/Layout';
 import ContactFormOptimized from '@/react-app/components/ContactFormOptimized';
 import { MessageCircle, Phone } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 
 export default function ContactPage() {
@@ -95,3 +95,4 @@ export default function ContactPage() {
     </SEOOptimized>
   );
 }
+

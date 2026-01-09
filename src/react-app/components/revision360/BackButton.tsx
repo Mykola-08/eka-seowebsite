@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function BackButton() {
   const { t } = useLanguage();
@@ -35,3 +35,4 @@ export default function BackButton() {
     </motion.button>
   );
 }
+

@@ -1,7 +1,7 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Heart, Brain, Leaf, RotateCcw, ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
@@ -204,3 +204,4 @@ export default function Services() {
     </>
   );
 }
+

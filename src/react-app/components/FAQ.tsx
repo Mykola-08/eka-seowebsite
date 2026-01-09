@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 interface FAQItem {
   question: string;
@@ -92,3 +92,4 @@ const FAQ = () => {
 };
 
 export default FAQ;
+

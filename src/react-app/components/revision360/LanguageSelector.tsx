@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Globe } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Language } from '@/react-app/contexts/LanguageContext';
 
 interface LanguageOption {
@@ -82,3 +82,4 @@ export default function LanguageSelector() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Language } from '@/react-app/contexts/LanguageContext';
 import { X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -67,3 +67,4 @@ export default function LanguagePopup() {
         </AnimatePresence>
     );
 }
+

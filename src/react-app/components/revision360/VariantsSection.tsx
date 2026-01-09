@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Modal from './Modal';
 import { RotateCcw, MapPin, Compass, Sparkles } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 interface Variant {
   icon: React.ReactNode;
@@ -313,3 +313,4 @@ export default function VariantsSection() {
     </section>
   );
 }
+

@@ -2,7 +2,7 @@ import SEOOptimized from '@/react-app/components/SEOOptimized';
 import { Link } from 'react-router';
 import { Monitor, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { useBooking } from '@/react-app/hooks/useBooking';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function OfficeWorkersPersonalized() {
   const { navigateToBooking } = useBooking();
@@ -178,3 +178,4 @@ export default function OfficeWorkersPersonalized() {
     </SEOOptimized>
   );
 }
+

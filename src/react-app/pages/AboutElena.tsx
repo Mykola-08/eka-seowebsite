@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
 import SEOHead from '@/react-app/components/SEOHead';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Heart, Star } from 'lucide-react';
 
 export default function AboutElena() {
@@ -158,3 +158,4 @@ export default function AboutElena() {
     </>
   );
 }
+

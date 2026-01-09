@@ -2,7 +2,7 @@
 import { Link } from 'react-router';
 import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield, Search } from 'lucide-react';
 import SEOHead from '@/react-app/components/SEOHead';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 
 interface Problem {
@@ -271,3 +271,4 @@ export default function Casos() {
     </div>
   );
 }
+

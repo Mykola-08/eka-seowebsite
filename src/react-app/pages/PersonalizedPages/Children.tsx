@@ -1,6 +1,6 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function Children() {
   const { t } = useLanguage();
@@ -55,3 +55,4 @@ export default function Children() {
     </>
   );
 }
+

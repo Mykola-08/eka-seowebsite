@@ -1,6 +1,6 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import LazyImage from '@/react-app/components/LazyImage';
 
 const musicianPlans = [
@@ -301,3 +301,4 @@ export default function Musicians() {
     </>
   );
 }
+

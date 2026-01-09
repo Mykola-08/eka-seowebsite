@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
-import { useLanguage } from '@/react-app/hooks/useLanguage';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -206,3 +206,4 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     </div>
   );
 }
+

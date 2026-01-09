@@ -1,5 +1,5 @@
-import { useLanguage } from '@/react-app/hooks/useLanguage';
-import { useDiscount } from '@/react-app/hooks/useDiscount';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import { useDiscount } from '@/react-app/contexts/DiscountContext';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
 import { useState } from 'react';
@@ -255,3 +255,5 @@ export default function Discounts() {
     </>
   );
 }
+
+

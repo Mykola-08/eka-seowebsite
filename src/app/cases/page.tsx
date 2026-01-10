@@ -140,7 +140,7 @@ export default function Casos() {
             <span className="font-medium">{t('casos.hero.badge') || "What brings you here?"}</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 mb-6 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-6 tracking-tight leading-tight">
             {t('casos.title')}
           </h1>
           

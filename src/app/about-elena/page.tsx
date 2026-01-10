@@ -110,16 +110,30 @@ export default function AboutElena() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              className="flex flex-wrap justify-center gap-4"
+            >
               {techniques.map((tech) => (
-                <span 
+                <motion.div 
                   key={tech.id} 
-                  className="px-6 py-3 bg-gray-50 text-gray-700 rounded-2xl border border-gray-100 font-medium hover:bg-blue-50 hover:text-blue-700 hover:border-blue-100 transition-colors cursor-default"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  className="px-8 py-4 bg-white text-gray-700 rounded-2xl border border-gray-100 font-medium shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-700 transition-all cursor-default"
                 >
                   {tech.name}
-                </span>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 

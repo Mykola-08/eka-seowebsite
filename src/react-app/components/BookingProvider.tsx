@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 import { BookingContext } from '@/react-app/contexts/bookingContext';

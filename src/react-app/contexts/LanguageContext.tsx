@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { servicesTranslations } from './TranslationExtensions';
 import { revision360Translations } from './Revision360Translations';

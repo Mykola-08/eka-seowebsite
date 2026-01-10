@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, createContext } from 'react';
 // import { supabase } from '@/react-app/lib/supabase';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';

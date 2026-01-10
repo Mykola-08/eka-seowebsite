@@ -2,9 +2,11 @@
   "dependencies": {
     "@hono/zod-validator": "^0.7.6",
     "clsx": "^2.1.1",
+    "eslint-config-next": "^16.1.1",
     "hono": "^4.11.3",
     "keep-react": "^1.6.1",
     "lucide-react": "^0.562.0",
+    "next": "^16.1.1",
     "phosphor-react": "^1.4.1",
     "react-helmet-async": "^2.0.5",
     "react-markdown": "^10.1.0",
@@ -40,9 +42,10 @@
   },
   "private": true,
   "scripts": {
-    "build": "tsc -b && vite build",
-    "dev": "vite",
-    "lint": "eslint ."
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "type": "module",
   "version": "1.0.0"

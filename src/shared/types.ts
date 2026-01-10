@@ -28,6 +28,10 @@ export interface PersonalizedServiceItem {
   descriptionKey: string;
   image: string;
   href: string;
+  benefitsKeys?: string[];
+  resultKey?: string;
+  price?: number;
+  duration?: string;
 }
 
 export interface Recommendation {

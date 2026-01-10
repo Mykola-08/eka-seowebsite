@@ -46,7 +46,7 @@ export default function AppleHero() {
       <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
         {/* Badge - Glassy Style */}
         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
-          <span className="text-sm md:text-base font-medium tracking-wide uppercase text-white/90">
+          <span className="text-sm md:text-base font-medium tracking-wide text-white/90">
             {t('hero.badge')}
           </span>
         </div>

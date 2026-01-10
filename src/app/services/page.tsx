@@ -7,6 +7,7 @@ import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
 import LazyImage from '@/react-app/components/LazyImage';
+import ServiceCard from '@/app/components/ServiceCard';
 
 const iconMap: Record<string, React.ElementType> = {
   Heart,
@@ -17,52 +18,6 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function Services() {
   const { t } = useLanguage();
-
-  const getColorClasses = (color: string) => {
-    const colors = {
-      orange: {
-        bg: 'bg-orange-50',
-        border: 'border-orange-200',
-        icon: 'text-orange-600',
-        iconBg: 'bg-orange-100',
-        button: 'bg-orange-500 hover:bg-orange-600',
-        text: 'text-orange-600'
-      },
-      blue: {
-        bg: 'bg-blue-50',
-        border: 'border-blue-200',
-        icon: 'text-blue-600',
-        iconBg: 'bg-blue-100',
-        button: 'bg-blue-500 hover:bg-blue-600',
-        text: 'text-blue-600'
-      },
-      green: {
-        bg: 'bg-green-50',
-        border: 'border-green-200',
-        icon: 'text-green-600',
-        iconBg: 'bg-green-100',
-        button: 'bg-green-500 hover:bg-green-600',
-        text: 'text-green-600'
-      },
-      purple: {
-        bg: 'bg-purple-50',
-        border: 'border-purple-200',
-        icon: 'text-purple-600',
-        iconBg: 'bg-purple-100',
-        button: 'bg-purple-500 hover:bg-purple-600',
-        text: 'text-purple-600'
-      },
-      pink: {
-        bg: 'bg-pink-50',
-        border: 'border-pink-200',
-        icon: 'text-pink-600',
-        iconBg: 'bg-pink-100',
-        button: 'bg-pink-500 hover:bg-pink-600',
-        text: 'text-pink-600'
-      }
-    };
-    return colors[color as keyof typeof colors] || colors.orange;
-  };
 
   return (
     <>
@@ -107,82 +62,21 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid (Revised to use Cards) */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-           <div className="grid grid-cols-1 gap-12 sm:gap-16 lg:gap-24">
-              {SERVICES_DATA.map((service, index) => {
-                 const colorClass = getColorClasses(service.color);
-                 const Icon = iconMap[service.iconName] || Heart;
-                 // Alternate direction for better flow
-                 const isEven = index % 2 === 0;
-
-                 return (
-                  <motion.div 
-                    key={service.id}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
-                  >
-                      {/* Image Side */}
-                      <div className="w-full lg:w-1/2">
-                          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                            <LazyImage 
-                              src={service.image} 
-                              alt={t(service.titleKey)}
-                              className="w-full h-auto object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-105" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                          </div>
-                      </div>
-
-                      {/* Content Side */}
-                      <div className="w-full lg:w-1/2 lg:px-8">
-                          <div className={`inline-flex items-center p-3 rounded-2xl ${colorClass.iconBg} mb-6`}>
-                             <Icon className={`w-8 h-8 ${colorClass.icon}`} />
-                          </div>
-                          
-                          <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-                            {t(service.titleKey)}
-                          </h2>
-                          <div className={`h-1 w-20 rounded-full ${colorClass.bg.replace('bg-', 'bg-gradient-to-r from-').replace('-50', '-400')} to-gray-200 mb-6`}></div>
-
-                          <p className="text-xl text-gray-700 mb-8 leading-relaxed font-light">
-                            {t(service.descriptionKey)}
-                          </p>
-                          
-                          {service.benefitsKeys && (
-                            <ul className="mb-8 space-y-3">
-                              {service.benefitsKeys.slice(0, 3).map((benefitKey) => (
-                                <li key={benefitKey} className="flex items-start">
-                                  <div className={`p-1 rounded-full ${colorClass.bg} mr-3 mt-1`}>
-                                     <ArrowRight className={`w-3 h-3 ${colorClass.icon}`} />
-                                  </div>
-                                  <span className="text-gray-600">{t(benefitKey)}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-
-                          <div className="flex flex-wrap gap-4">
-                             <Link href={service.href}>
-                               <Button className={`${colorClass.button} border-none rounded-xl px-6 py-3 transition-transform hover:-translate-y-1`}>
-                                  {t('common.readMore')}
-                               </Button>
-                             </Link>
-                             
-                             <Link href="/booking">
-                                <Button variant="outline" className="rounded-xl px-6 py-3 border-gray-200 hover:bg-gray-50 text-gray-700 transition-transform hover:-translate-y-1">
-                                  {t('common.bookNow')}
-                                </Button>
-                             </Link>
-                          </div>
-                      </div>
-                  </motion.div>
-                 );
-              })}
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {SERVICES_DATA.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <ServiceCard service={service} />
+                </motion.div>
+              ))}
            </div>
         </div>
       </section>

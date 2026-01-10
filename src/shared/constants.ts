@@ -79,37 +79,77 @@ export const SERVICES_DATA: ServiceItem[] = [
 export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
   {
     id: 'office-workers',
-    titleKey: 'personalizedServices.officeWorkers',
+    titleKey: 'personalizedServices.officeWorkers', // Офисные работники
     descriptionKey: 'personalizedServices.officeWorkers.desc',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop',
-    href: '/services/office-workers'
+    href: '/services/office-workers',
+    benefitsKeys: [
+      'personalizedServices.officeWorkers.benefit1', // Relieves neck and back pain
+      'personalizedServices.officeWorkers.benefit2', // Improves computer posture
+      'personalizedServices.officeWorkers.benefit3'  // Reduces work stress
+    ],
+    resultKey: 'personalizedServices.officeWorkers.result', // More energy, less pain...
+    price: 70,
+    duration: '1 h'
   },
   {
     id: 'athletes',
-    titleKey: 'personalizedServices.athletes',
+    titleKey: 'personalizedServices.athletes', // Спортсмены
     descriptionKey: 'personalizedServices.athletes.desc',
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1920&h=1080&fit=crop',
-    href: '/services/athletes'
+    href: '/services/athletes',
+    benefitsKeys: [
+      'personalizedServices.athletes.benefit1', // Muscle recovery
+      'personalizedServices.athletes.benefit2', // Injury prevention
+      'personalizedServices.athletes.benefit3'  // Optimize performance
+    ],
+    resultKey: 'personalizedServices.athletes.result', // Faster recovery...
+    price: 70,
+    duration: '1 h'
   },
   {
     id: 'artists',
     titleKey: 'personalizedServices.artists',
     descriptionKey: 'personalizedServices.artists.desc',
     image: 'https://images.unsplash.com/photo-1599447421405-0c325d26d77e?w=1920&h=1080&fit=crop',
-    href: '/services/artists'
+    href: '/services/artists',
+    benefitsKeys: [
+        'personalizedServices.artists.benefit1',
+        'personalizedServices.artists.benefit2',
+        'personalizedServices.artists.benefit3'
+    ],
+    resultKey: 'personalizedServices.artists.result',
+    price: 70,
+    duration: '1 h'
   },
   {
     id: 'musicians',
     titleKey: 'personalizedServices.musicians',
     descriptionKey: 'personalizedServices.musicians.desc',
     image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&h=1080&fit=crop',
-    href: '/services/musicians'
+    href: '/services/musicians',
+     benefitsKeys: [
+        'personalizedServices.musicians.benefit1',
+        'personalizedServices.musicians.benefit2',
+        'personalizedServices.musicians.benefit3'
+    ],
+    resultKey: 'personalizedServices.musicians.result',
+    price: 70,
+    duration: '1 h'
   },
   {
     id: 'students',
     titleKey: 'personalizedServices.students',
     descriptionKey: 'personalizedServices.students.desc',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop',
-    href: '/services/students'
+    href: '/services/students',
+    benefitsKeys: [
+      'personalizedServices.students.benefit1',
+      'personalizedServices.students.benefit2',
+      'personalizedServices.students.benefit3'
+    ],
+    resultKey: 'personalizedServices.students.result',
+    price: 60,
+    duration: '1 h'
   }
 ];

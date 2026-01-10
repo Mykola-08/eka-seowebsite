@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, Brain, Leaf, RotateCcw } from 'lucide-react';
 import { Button } from 'keep-react';
 
 import AppleHero from '@/app/components/AppleHero';
@@ -11,13 +10,7 @@ import FAQ from '@/react-app/components/FAQ';
 
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
-
-const iconMap: Record<string, React.ElementType> = {
-  Heart,
-  Brain,
-  Leaf,
-  RotateCcw
-};
+import ServiceCard from '@/app/components/ServiceCard';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -121,41 +114,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES_DATA.map((service) => {
-               const Icon = iconMap[service.iconName] || Heart;
-               // Get color class (simple mapping for home page summary)
-               const colorClass = service.color === 'orange' ? 'bg-orange-50 text-orange-600' :
-                                  service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                                  service.color === 'green' ? 'bg-green-50 text-green-600' :
-                                  service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                                  'bg-pink-50 text-pink-600';
-              
-               return (
-                <Link key={service.id} href={service.href} className="group cursor-pointer">
-                  <div className="bg-white rounded-[2rem] p-8 h-full shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden">
-                    <div className="flex items-center mb-6">
-                      <div className={`p-3 rounded-2xl ${colorClass} mr-4 transition-transform group-hover:scale-110`}>
-                        <Icon className="w-8 h-8" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {t(service.titleKey)}
-                      </h3>
-                    </div>
-                    
-                    <p className="text-gray-600 mb-6 line-clamp-3">
-                      {t(service.descriptionKey)}
-                    </p>
-                    
-                    <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-1 transition-transform">
-                      {t('common.readMore')}
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-               );
-            })}
+            {SERVICES_DATA.slice(0, 3).map((service) => (
+               <ServiceCard key={service.id} service={service} />
+            ))}
           </div>
         </div>
       </section>

@@ -52,32 +52,32 @@ export default function ContactFormOptimized() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
 
-  useEffect(() => {
-    if (user) {
-      const fetchProfile = async () => {
-        const { data } = await supabase
-          .from('user_profiles')
-          .select('full_name, email, phone')
-          .eq('user_id', user.id)
-          .single();
+//   useEffect(() => {
+//     if (user) {
+//       const fetchProfile = async () => {
+//         const { data } = await supabase
+//           .from('user_profiles')
+//           .select('full_name, email, phone')
+//           .eq('user_id', user.id)
+//           .single();
         
-        if (data) {
-          setFormData(prev => ({
-            ...prev,
-            name: data.full_name || prev.name,
-            email: data.email || user.email || prev.email,
-            phone: data.phone || prev.phone
-          }));
-        } else if (user.email) {
-          setFormData(prev => ({
-            ...prev,
-            email: user.email || prev.email
-          }));
-        }
-      };
-      fetchProfile();
-    }
-  }, [user]);
+//         if (data) {
+//           setFormData(prev => ({
+//             ...prev,
+//             name: data.full_name || prev.name,
+//             email: data.email || user.email || prev.email,
+//             phone: data.phone || prev.phone
+//           }));
+//         } else if (user.email) {
+//           setFormData(prev => ({
+//             ...prev,
+//             email: user.email || prev.email
+//           }));
+//         }
+//       };
+//       fetchProfile();
+//     }
+//   }, [user]);
 
   const services = [
     t('contact.services.basic'),

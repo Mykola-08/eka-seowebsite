@@ -1,5 +1,6 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
@@ -30,25 +31,27 @@ export default function BookingPage() {
     timeSlot: ''
   });
 
-  // useEffect(() => {
-  //   if (user) {
-  //     const fetchProfile = async () => {
-  //       const { data } = await supabase
-  //         .from('user_profiles')
-  //         .select('full_name')
-  //         .eq('user_id', user.id)
-  //         .single();
+  /*
+  useEffect(() => {
+    if (user) {
+      const fetchProfile = async () => {
+        const { data } = await supabase
+          .from('user_profiles')
+          .select('full_name')
+          .eq('user_id', user.id)
+          .single();
         
-  //       if (data?.full_name) {
-  //         setFormData(prev => ({ ...prev, name: data.full_name }));
-  //       } else if (user.email) {
-  //         // Fallback to email username if no profile name
-  //         setFormData(prev => ({ ...prev, name: user.email!.split('@')[0] }));
-  //       }
-  //     };
-  //     fetchProfile();
-  //   }
-  // }, [user]);
+        if (data?.full_name) {
+          setFormData(prev => ({ ...prev, name: data.full_name }));
+        } else if (user.email) {
+          // Fallback to email username if no profile name
+          setFormData(prev => ({ ...prev, name: user.email!.split('@')[0] }));
+        }
+      };
+      fetchProfile();
+    }
+  }, [user]);
+  */
 
   const services = [
     t('booking.options.service.massage'),
@@ -114,12 +117,6 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
 
   return (
     <>
-      <SEOHead
-        title={t('booking.title')}
-        description={t('booking.description')}
-        keywords="reservar sessió Barcelona, cita teràpia, massatge Barcelona, kinesiologia reserva"
-      />
-
       {/* Hero Section - Unified Design */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
@@ -131,9 +128,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </div>
           
           <h1 className="text-5xl lg:text-7xl font-light tracking-tight text-gray-900 mb-8 drop-shadow-sm animate-fade-in-up delay-100">
-            {t('booking.hero.title').split(' ').slice(0, -1).join(' ')}{' '}
+            {t('booking.hero.title')?.split(' ').slice(0, -1).join(' ')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
-              {t('booking.hero.title').split(' ').slice(-1)[0]}
+              {t('booking.hero.title')?.split(' ').slice(-1)[0]}
             </span>
           </h1>
           
@@ -363,5 +360,3 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
     </>
   );
 }
-
-

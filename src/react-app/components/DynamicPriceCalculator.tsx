@@ -95,11 +95,11 @@ export default function DynamicPriceCalculator({
       const data = await response.json();
       
       // Validate response data
-      if (!data || typeof data.final_price_cents !== 'number') {
+      if (!data || typeof (data as any).final_price_cents !== 'number') {
         throw new Error('Resposta del servidor invàlida');
       }
       
-      setPriceBreakdown(data);
+      setPriceBreakdown(data as PriceBreakdown);
     } catch (err) {
       console.error('Error calculating price:', err);
       if (err instanceof Error) {

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
@@ -414,13 +414,13 @@ export default function PersonalizedOnboarding() {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
-                    to={rec.link}
+                    href={rec.link}
                     className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
                   >
                     {t('common.learnMore')}
                   </Link>
                   <Link
-                    to="/booking"
+                    href="/booking"
                     className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
                     {t('common.bookNow')}
@@ -432,7 +432,7 @@ export default function PersonalizedOnboarding() {
 
           <div className="text-center">
             <Link
-              to="/booking"
+              href="/booking"
               className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               {t('common.bookNow')}

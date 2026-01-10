@@ -1,18 +1,20 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 export default function BackButton() {
   const { t } = useLanguage();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleBack = () => {
     // If there is history, go back. Otherwise go to home.
-    if (window.history.state && window.history.state.idx > 0) {
-      navigate(-1);
+    if (typeof window !== 'undefined' && window.history.length > 2) {
+      router.back();
     } else {
-      navigate('/');
+      router.push('/');
     }
   };
 

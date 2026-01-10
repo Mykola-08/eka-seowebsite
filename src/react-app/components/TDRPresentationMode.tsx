@@ -1,5 +1,7 @@
+'use client';
+
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate, useLocation } from 'react-router';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Presentation, X } from 'lucide-react';
 
@@ -48,14 +50,16 @@ const PRESETS: PresentationStep[] = [
 ];
 
 export const TDRPresentationMode = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  
   // Initialize from URL to avoid setState in useEffect on mount
   const [isActive, setIsActive] = useState(() => {
     // Check if window is defined (for server-side rendering safety, though this is likely client-side)
     if (typeof window !== 'undefined') {
-      const searchParams = new URLSearchParams(window.location.search);
-      return searchParams.get('tdr') === 'true';
+      const sp = new URLSearchParams(window.location.search);
+      return sp.get('tdr') === 'true';
     }
     return false;
   });
@@ -63,8 +67,9 @@ export const TDRPresentationMode = () => {
 
   // Handle URL changes and keyboard shortcut
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    if (searchParams.get('tdr') === 'true' && !isActive) {
+    // In Next.js App Router, searchParams can be null during SSG/SSR but since we are client component it should be fine.
+    // However, explicit useSearchParams() is safer.
+    if (searchParams && searchParams.get('tdr') === 'true' && !isActive) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsActive(true);
     }
@@ -78,9 +83,9 @@ export const TDRPresentationMode = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [location.search, isActive]);
+  }, [searchParams, isActive]);
 
-  const matchingStepIndex = PRESETS.findIndex(step => step.path === location.pathname);
+  const matchingStepIndex = PRESETS.findIndex(step => step.path === pathname);
   // If we are on a known step, use it. Otherwise default to 0 (or previous state if we wanted to be complex, but let's keep it simple)
   // We can track "last known index" if we want to resume, but simply snapping to matching step is safer.
   const currentStepIndex = matchingStepIndex !== -1 ? matchingStepIndex : 0;
@@ -104,16 +109,16 @@ export const TDRPresentationMode = () => {
       e.preventDefault();
       const next = Math.min(currentStepIndex + 1, PRESETS.length - 1);
       if (next !== currentStepIndex) {
-        navigate(PRESETS[next].path);
+        router.push(PRESETS[next].path);
       }
     } else if (isPrev) {
       e.preventDefault();
       const next = Math.max(currentStepIndex - 1, 0);
       if (next !== currentStepIndex) {
-        navigate(PRESETS[next].path);
+        router.push(PRESETS[next].path);
       }
     }
-  }, [isActive, navigate, currentStepIndex]);
+  }, [isActive, router, currentStepIndex]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleNavigation);
@@ -188,7 +193,7 @@ export const TDRPresentationMode = () => {
                 <button
                   onClick={() => {
                     const next = Math.max(currentStepIndex - 1, 0);
-                    navigate(PRESETS[next].path);
+                    router.push(PRESETS[next].path);
                   }}
                   disabled={currentStepIndex === 0}
                   className="flex items-center gap-1 text-sm font-medium text-stone-500 hover:text-stone-900 disabled:opacity-30 disabled:hover:text-stone-500 transition-colors"
@@ -204,8 +209,7 @@ export const TDRPresentationMode = () => {
                 <button
                   onClick={() => {
                     const next = Math.min(currentStepIndex + 1, PRESETS.length - 1);
-                    // setCurrentStepIndex(next); // Removed
-                    navigate(PRESETS[next].path);
+                    router.push(PRESETS[next].path);
                   }}
                   disabled={currentStepIndex === PRESETS.length - 1}
                   className="flex items-center gap-1 text-sm font-medium text-stone-900 hover:text-stone-700 disabled:opacity-30 transition-colors"

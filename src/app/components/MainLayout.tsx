@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
@@ -333,7 +333,9 @@ export default function MainLayout({
       {/* Cookie Banner */}
       <CookieBanner />
       <LanguagePopup />
-      <TDRPresentationMode />
+      <Suspense fallback={null}>
+        <TDRPresentationMode />
+      </Suspense>
 
       {/* Fixed Mobile Bottom CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe">

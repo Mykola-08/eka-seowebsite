@@ -23,19 +23,17 @@ export default function AnimatedCounter({
   triggerOnView = true,
 }: AnimatedCounterProps) {
   const [current, setCurrent] = useState(start);
-  const [hasAnimated, setHasAnimated] = useState(false);
+
   const [elementRef, isInView] = useIntersectionObserver<HTMLSpanElement>({
     triggerOnce: true,
     threshold: 0.3,
   });
 
-  const shouldAnimate = triggerOnView ? isInView && !hasAnimated : !hasAnimated;
+  const shouldAnimate = triggerOnView ? isInView : true;
 
   useEffect(() => {
     if (!shouldAnimate) return;
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setHasAnimated(true);
     const startTime = Date.now();
     const difference = end - start;
 
@@ -68,13 +66,13 @@ export default function AnimatedCounter({
 }
 
 // Specialized counter for currencies
-export function CurrencyCounter({ 
-  amount, 
-  currency = '€', 
-  ...props 
-}: Omit<AnimatedCounterProps, 'end' | 'suffix'> & { 
-  amount: number; 
-  currency?: string; 
+export function CurrencyCounter({
+  amount,
+  currency = '€',
+  ...props
+}: Omit<AnimatedCounterProps, 'end' | 'suffix'> & {
+  amount: number;
+  currency?: string;
 }) {
   return (
     <AnimatedCounter
@@ -87,11 +85,11 @@ export function CurrencyCounter({
 }
 
 // Counter for percentages
-export function PercentageCounter({ 
-  percentage, 
-  ...props 
-}: Omit<AnimatedCounterProps, 'end' | 'suffix'> & { 
-  percentage: number; 
+export function PercentageCounter({
+  percentage,
+  ...props
+}: Omit<AnimatedCounterProps, 'end' | 'suffix'> & {
+  percentage: number;
 }) {
   return (
     <AnimatedCounter

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Hono } from 'hono';
+import { Hono, Context, Next } from 'hono';
 import { handle } from 'hono/vercel';
 import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
@@ -9,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 const app = new Hono();
 
 // Simple auth middleware - checks for Authorization header
-const authMiddleware = async (c: any, next: any) => {
+const authMiddleware = async (c: Context, next: Next) => {
   const auth = c.req.header('Authorization');
   if (!auth) {
     return c.json({ error: 'Unauthorized' }, 401);
@@ -36,7 +35,7 @@ const getSupabase = () => {
 };
 
 // Helper to get user
-function getAuthenticatedUser(c: any) {
+function getAuthenticatedUser(c: Context) {
   return c.get('user');
 }
 
@@ -143,7 +142,19 @@ app.post('/api/recommendations', authMiddleware, zValidator('json', z.object({
     }
 
     const { data: sessionTypes } = await supabase.from('session_types').select('*').eq('is_active', true);
-    const recommendations: any[] = [];
+
+    interface SessionType {
+      id: string;
+      name: string;
+      description?: string;
+      duration_minutes?: number;
+      price_cents?: number;
+      is_active?: boolean;
+      created_at?: string;
+      [key: string]: unknown;
+    }
+
+    const recommendations: SessionType[] = [];
 
     if (!sessionTypes) return c.json({ recommendations: [] });
 
@@ -212,7 +223,14 @@ app.get('/api/pricing/calculate', async (c) => {
     const isSunday = dayOfWeek === 0;
 
     let finalPriceCents = basePriceCents;
-    const modifiers: any[] = [];
+    interface PriceModifier {
+      type: string;
+      label: string;
+      amount_cents: number;
+      percentage: number;
+      icon: string;
+    }
+    const modifiers: PriceModifier[] = [];
 
     if (isSaturday) {
       const surcharge = Math.round(basePriceCents * 0.1);
@@ -253,7 +271,7 @@ app.get('/api/pricing/calculate', async (c) => {
       .select('*', { count: 'exact', head: true })
       .eq('appointment_date', date)
       .not('status', 'in', '("cancelled","no_show")');
-    
+
     const occupancyRate = (bookedSlots || 0) / 8;
     if (occupancyRate > 0.8) {
       const surcharge = Math.round(basePriceCents * 0.15);

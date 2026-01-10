@@ -1,5 +1,5 @@
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
-import { Language } from '@/react-app/contexts/LanguageContext';
+import { Language } from '@/react-app/contexts/LanguageTypes';
 import { X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

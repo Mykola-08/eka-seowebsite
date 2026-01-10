@@ -1,11 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/react-app/lib/supabase';
 
+interface ServiceCategory {
+  id: string;
+  href: string;
+  image: string;
+  color: string;
+  number: string;
+  name: string;
+  description: string;
+}
+
 export default function ServiceCategoryPills() {
-  const [serviceCategories, setServiceCategories] = useState<any[]>([]);
+  const [serviceCategories, setServiceCategories] = useState<ServiceCategory[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,9 +24,9 @@ export default function ServiceCategoryPills() {
         .select('data')
         .eq('key', 'service_categories')
         .single();
-      
+
       if (data) {
-        setServiceCategories(data.data as any[]);
+        setServiceCategories(data.data as unknown as ServiceCategory[]);
       }
     };
     fetchData();
@@ -31,11 +41,11 @@ export default function ServiceCategoryPills() {
             Els nostres serveis
           </h2>
           <p className="apple-subtitle max-w-3xl mx-auto">
-            Descobreix la nostra gamma completa de teràpies personalitzades 
+            Descobreix la nostra gamma completa de teràpies personalitzades
             per restaurar l'equilibri i promoure el teu benestar integral
           </p>
         </div>
-        
+
         {/* Service Pills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
           {serviceCategories.map((service) => (
@@ -54,12 +64,12 @@ export default function ServiceCategoryPills() {
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} shadow-md`}>
                     <span className="text-2xl font-light">{service.number}</span>
                   </div>
-                  
+
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ArrowRight className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                
+
                 {/* Bottom content */}
                 <div className="mt-auto">
                   <h3 className="text-2xl font-semibold mb-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -73,7 +83,7 @@ export default function ServiceCategoryPills() {
             </Link>
           ))}
         </div>
-        
+
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <Link

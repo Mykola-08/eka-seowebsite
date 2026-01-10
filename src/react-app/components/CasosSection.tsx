@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Link } from 'react-router';
 import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
@@ -7,7 +7,7 @@ interface Problem {
   id: string;
   titleKey: string;
   descriptionKey: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   href: string;
 }

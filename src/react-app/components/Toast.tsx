@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useState, useEffect, useCallback } from 'react';
 import { Alert } from 'keep-react';
 
@@ -61,15 +61,15 @@ function ToastComponent({ toast, onClose }: ToastProps) {
       className={`
         relative overflow-hidden max-w-md w-full
         transition-all duration-200 ease-out transform
-        ${isVisible && !isExiting 
-          ? 'translate-x-0 opacity-100 scale-100' 
-          : isExiting 
+        ${isVisible && !isExiting
+          ? 'translate-x-0 opacity-100 scale-100'
+          : isExiting
             ? 'translate-x-full opacity-0 scale-95'
             : 'translate-x-full opacity-0 scale-95'
         }
       `}
     >
-      <Alert 
+      <Alert
         color={getKeepColor()}
         withBg
         className="shadow-lg backdrop-blur-sm relative"
@@ -102,13 +102,13 @@ function ToastComponent({ toast, onClose }: ToastProps) {
             ×
           </button>
         </div>
-        
+
         {/* Progress bar for duration */}
         {toast.duration && toast.duration > 0 && (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10">
-            <div 
+            <div
               className="h-full bg-current opacity-30 transition-all ease-linear"
-              style={{ 
+              style={{
                 animation: `shrink ${toast.duration}ms linear forwards`,
                 width: '100%'
               }}
@@ -116,7 +116,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
           </div>
         )}
       </Alert>
-      
+
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes shrink {
@@ -146,16 +146,28 @@ export default function ToastContainer() {
     setToasts(prev => prev.filter(toast => toast.id !== id));
   };
 
+
+  declare global {
+    interface Window {
+      toast: {
+        success: (title: string, message?: string, options?: Partial<Toast>) => void;
+        error: (title: string, message?: string, options?: Partial<Toast>) => void;
+        info: (title: string, message?: string, options?: Partial<Toast>) => void;
+        warning: (title: string, message?: string, options?: Partial<Toast>) => void;
+      };
+    }
+  }
+
   // Global toast function
   useEffect(() => {
-    (window as any).toast = {
-      success: (title: string, message?: string, options?: Partial<Toast>) => 
+    window.toast = {
+      success: (title: string, message?: string, options?: Partial<Toast>) =>
         addToast({ type: 'success', title, message, ...options }),
-      error: (title: string, message?: string, options?: Partial<Toast>) => 
+      error: (title: string, message?: string, options?: Partial<Toast>) =>
         addToast({ type: 'error', title, message, ...options }),
-      info: (title: string, message?: string, options?: Partial<Toast>) => 
+      info: (title: string, message?: string, options?: Partial<Toast>) =>
         addToast({ type: 'info', title, message, ...options }),
-      warning: (title: string, message?: string, options?: Partial<Toast>) => 
+      warning: (title: string, message?: string, options?: Partial<Toast>) =>
         addToast({ type: 'warning', title, message, ...options }),
     };
   }, []);

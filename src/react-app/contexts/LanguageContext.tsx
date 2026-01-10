@@ -3,17 +3,10 @@ import { servicesTranslations } from './TranslationExtensions';
 import { revision360Translations } from './Revision360Translations';
 import { techniqueTranslations } from './TechniqueTranslations';
 
-export type Language = 'ca' | 'en' | 'es' | 'ru';
+import { Language, LanguageContextType } from './LanguageTypes';
 
-export interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string, params?: Record<string, string | number>) => string;
-  showLanguagePopup: boolean;
-  setShowLanguagePopup: (show: boolean) => void;
-  confirmLanguage: (lang: Language) => void;
-  languageConfirmed: boolean;
-}
+// Types are imported for internal use, but not re-exported to avoid HMR issues.
+// Import types directly from './LanguageTypes'.
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
@@ -1301,13 +1294,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.discoverServices': 'Descobreix els serveis',
     'hero.stats.sessions': 'Sessions realitzades',
     'hero.stats.countries': 'Països impactats',
-    
+
     'footer.address': 'Carrer de Pelai',
     'footer.email': 'info@ekabalance.com',
     'footer.copyright': '© 2024 EKA Balance. Tots els drets reservats.',
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': 'Descomptes d\'estiu',
-    
+
     'language.popup.title': 'Benvingut a EKA Balance',
     'language.popup.subtitle': 'Si us plau, selecciona el teu idioma preferit',
     'cookies.wrongLanguage': 'Sembla que estàs en un idioma diferent del teu navegador.',
@@ -1387,19 +1380,19 @@ const translations: Record<Language, Record<string, string>> = {
     'students.plan3.desc': 'Transformació',
     'students.plan3.result': 'Èxit',
     'students.plan.cta': 'Tria pla',
-    'students.plan1.benefit1': 'Relax', 
-    'students.plan1.benefit2': 'Focus', 
-    'students.plan1.benefit3': 'Tips', 
+    'students.plan1.benefit1': 'Relax',
+    'students.plan1.benefit2': 'Focus',
+    'students.plan1.benefit3': 'Tips',
     'students.plan1.benefit4': 'Suport',
-    'students.plan2.benefit1': '3 Sessions', 
-    'students.plan2.benefit2': 'Seguiment', 
-    'students.plan2.benefit3': 'Prioritat', 
+    'students.plan2.benefit1': '3 Sessions',
+    'students.plan2.benefit2': 'Seguiment',
+    'students.plan2.benefit3': 'Prioritat',
     'students.plan2.benefit4': 'Descompte',
-    'students.plan3.benefit1': '5 Sessions', 
-    'students.plan3.benefit2': 'Coaching', 
-    'students.plan3.benefit3': 'WhatsApp', 
+    'students.plan3.benefit1': '5 Sessions',
+    'students.plan3.benefit2': 'Coaching',
+    'students.plan3.benefit3': 'WhatsApp',
     'students.plan3.benefit4': 'Material',
-    
+
     // Office
     'office.hero.badge': 'Empreses',
     'office.hero.title': 'Benestar Corporatiu',
@@ -1439,17 +1432,17 @@ const translations: Record<Language, Record<string, string>> = {
     'office.plan3.desc': 'Grans equips',
     'office.plan3.result': 'Cultura',
     'office.plan.cta': 'Contactar',
-    'office.plan1.benefit1': 'Anàlisi', 
-    'office.plan1.benefit2': 'Tractament', 
-    'office.plan1.benefit3': 'Informe', 
+    'office.plan1.benefit1': 'Anàlisi',
+    'office.plan1.benefit2': 'Tractament',
+    'office.plan1.benefit3': 'Informe',
     'office.plan1.benefit4': 'Seguiment',
-    'office.plan2.benefit1': 'Tallers', 
-    'office.plan2.benefit2': 'Grup', 
-    'office.plan2.benefit3': 'Material', 
+    'office.plan2.benefit1': 'Tallers',
+    'office.plan2.benefit2': 'Grup',
+    'office.plan2.benefit3': 'Material',
     'office.plan2.benefit4': 'Deal',
-    'office.plan3.benefit1': 'Anual', 
-    'office.plan3.benefit2': 'In-house', 
-    'office.plan3.benefit3': 'Events', 
+    'office.plan3.benefit1': 'Anual',
+    'office.plan3.benefit2': 'In-house',
+    'office.plan3.benefit3': 'Events',
     'office.plan3.benefit4': 'Dades',
 
     // Discovery & Other
@@ -1461,7 +1454,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step.description.title': 'Descripció',
     'discovery.step.description.subtitle': 'Què et passa?',
     'discovery.step.description.placeholder': 'Explica\'ns...',
-    
+
     'common.moreInfo': 'Més info',
     'common.bookNow': 'Reservar',
     'common.contact': 'Contacte',
@@ -1477,7 +1470,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.price': 'Preu',
     'common.duration': 'Duració',
     'common.benefits': 'Beneficis',
-    
+
     'services.therapiesFor': 'Teràpies per',
     'services.integralWellbeing': 'Benestar Integral',
     'services.personalizedTreatments': 'Personalitzat',
@@ -1511,7 +1504,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.description1': 'Sóc terapeuta corporal especialitzada en massatge terapèutic, kinesiologia i integració ment-cos. El meu treball es basa en la creença que la veritable curació prové d\'escoltar el cos.',
     'elena.description2': 'El meu objectiu és senzill: ajudar-te a alliberar el pes de la tensió i recuperar el teu benestar físic i emocional, perquè puguis moure\'t per la vida amb lleugeresa i energia renovada.',
     'elena.knowMore': 'Llegeix la meva història completa',
-    
+
     'whyChoose.title': 'Per què triar EKA Balance?',
     'whyChoose.subtitle': 'Som més que un centre de teràpia; som els teus socis dedicats en el benestar holístic.',
     'whyChoose.personalized.title': 'Plans Veritablement Personalitzats',
@@ -1520,7 +1513,7 @@ const translations: Record<Language, Record<string, string>> = {
     'whyChoose.holistic.description': 'Tractem tot el teu ésser: estructural, químic i emocional. La veritable curació succeeix quan tots els teus sistemes treballen en harmonia.',
     'whyChoose.experienced.title': 'Guiatge Expert',
     'whyChoose.experienced.description': 'Beneficia\'t d\'anys de pràctica professional i estudi continu en modalitats globals com Feldenkrais, Osteopatia i Kinesiologia.',
-    
+
     'finalCta.title': 'A punt?',
     'finalCta.subtitle': 'Reserva ja',
 
@@ -4378,13 +4371,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.discoverServices': 'Descubre los servicios',
     'hero.stats.sessions': 'Sesiones realizadas',
     'hero.stats.countries': 'Países impactados',
-    
+
     'footer.address': 'Calle de Pelai',
     'footer.email': 'info@ekabalance.com',
     'footer.copyright': '© 2024 EKA Balance. Todos los derechos reservados.',
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': 'Descuentos de verano',
-    
+
     'language.popup.title': 'Bienvenido a EKA Balance',
     'language.popup.subtitle': 'Por favor, selecciona tu idioma preferido',
     'cookies.wrongLanguage': 'Parece que estás en un idioma diferente al de tu navegador.',
@@ -4464,19 +4457,19 @@ const translations: Record<Language, Record<string, string>> = {
     'students.plan3.desc': 'Transformación',
     'students.plan3.result': 'Éxito',
     'students.plan.cta': 'Elige plan',
-    'students.plan1.benefit1': 'Relax', 
-    'students.plan1.benefit2': 'Foco', 
-    'students.plan1.benefit3': 'Tips', 
+    'students.plan1.benefit1': 'Relax',
+    'students.plan1.benefit2': 'Foco',
+    'students.plan1.benefit3': 'Tips',
     'students.plan1.benefit4': 'Soporte',
-    'students.plan2.benefit1': '3 Sesiones', 
-    'students.plan2.benefit2': 'Seguimiento', 
-    'students.plan2.benefit3': 'Prioridad', 
+    'students.plan2.benefit1': '3 Sesiones',
+    'students.plan2.benefit2': 'Seguimiento',
+    'students.plan2.benefit3': 'Prioridad',
     'students.plan2.benefit4': 'Descuento',
-    'students.plan3.benefit1': '5 Sesiones', 
-    'students.plan3.benefit2': 'Coaching', 
-    'students.plan3.benefit3': 'WhatsApp', 
+    'students.plan3.benefit1': '5 Sesiones',
+    'students.plan3.benefit2': 'Coaching',
+    'students.plan3.benefit3': 'WhatsApp',
     'students.plan3.benefit4': 'Material',
-    
+
     // Office
     'office.hero.badge': 'Empresas',
     'office.hero.title': 'Bienestar Corporativo',
@@ -4516,17 +4509,17 @@ const translations: Record<Language, Record<string, string>> = {
     'office.plan3.desc': 'Grandes equipos',
     'office.plan3.result': 'Cultura',
     'office.plan.cta': 'Contactar',
-    'office.plan1.benefit1': 'Análisis', 
-    'office.plan1.benefit2': 'Tratamiento', 
-    'office.plan1.benefit3': 'Informe', 
+    'office.plan1.benefit1': 'Análisis',
+    'office.plan1.benefit2': 'Tratamiento',
+    'office.plan1.benefit3': 'Informe',
     'office.plan1.benefit4': 'Seguimiento',
-    'office.plan2.benefit1': 'Talleres', 
-    'office.plan2.benefit2': 'Grupo', 
-    'office.plan2.benefit3': 'Material', 
+    'office.plan2.benefit1': 'Talleres',
+    'office.plan2.benefit2': 'Grupo',
+    'office.plan2.benefit3': 'Material',
     'office.plan2.benefit4': 'Deal',
-    'office.plan3.benefit1': 'Anual', 
-    'office.plan3.benefit2': 'In-house', 
-    'office.plan3.benefit3': 'Eventos', 
+    'office.plan3.benefit1': 'Anual',
+    'office.plan3.benefit2': 'In-house',
+    'office.plan3.benefit3': 'Eventos',
     'office.plan3.benefit4': 'Datos',
 
     // Discovery & Other
@@ -4538,7 +4531,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step.description.title': 'Descripción',
     'discovery.step.description.subtitle': '¿Qué te pasa?',
     'discovery.step.description.placeholder': 'Cuéntanos...',
-    
+
     'common.moreInfo': 'Más info',
     'common.bookNow': 'Reservar',
     'common.contact': 'Contacto',
@@ -4551,7 +4544,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.reserveSession': 'Reserva Sesión',
     'common.seeOtherServices': 'Otros servicios',
     'common.getStarted': 'Comenzar',
-    
+
     'services.therapiesFor': 'Terapias para',
     'services.integralWellbeing': 'Bienestar Integral',
     'services.personalizedTreatments': 'Personalizado',
@@ -4580,7 +4573,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.description1': 'Soy terapeuta corporal especializada en masaje terapéutico, kinesiología e integración mente-cuerpo. Mi trabajo se basa en la creencia de que la verdadera curación proviene de escuchar al cuerpo.',
     'elena.description2': 'Mi objetivo es simple: ayudarte a liberar el peso de la tensión y recuperar tu bienestar físico y emocional, para que puedas moverte por la vida con ligereza y energía renovada.',
     'elena.knowMore': 'Lee mi historia completa',
-    
+
     'whyChoose.title': '¿Por qué elegir EKA Balance?',
     'whyChoose.subtitle': 'Somos más que un centro de terapia; somos tus socios dedicados en el bienestar holístico.',
     'whyChoose.personalized.title': 'Planes Verdaderamente Personalizados',
@@ -4589,7 +4582,7 @@ const translations: Record<Language, Record<string, string>> = {
     'whyChoose.holistic.description': 'Tratamos todo tu ser: estructural, químico y emocional. La verdadera curación ocurre cuando todos tus sistemas trabajan en armonía.',
     'whyChoose.experienced.title': 'Guía Experta',
     'whyChoose.experienced.description': 'Benefíciate de años de práctica profesional y estudio continuo en modalidades globales como Feldenkrais, Osteopatía y Kinesiología.',
-    
+
     'finalCta.title': '¿Listo?',
     'finalCta.subtitle': 'Reserva ya',
 
@@ -4803,7 +4796,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.sleep.description': 'Разум не останавливается, тело тоже. Отдых необходим для восстановления и поддержания физического и психического здоровья.',
     'casos.problems.recovery.title': 'Восстановление после травмы',
     'casos.problems.recovery.description': 'После падения, операции или несчастного случая тело может остаться со скованностью или страхом движения.',
-    
+
     // Casos Problems Details
     // Back Pain
     'casos.problems.backPain.symptom1': 'Острая боль, скованность или постоянное напряжение в пояснице, грудном отделе или шее.',
@@ -6098,19 +6091,19 @@ const translations: Record<Language, Record<string, string>> = {
     'students.plan3.desc': 'Трансформация',
     'students.plan3.result': 'Успех',
     'students.plan.cta': 'Выбрать план',
-    'students.plan1.benefit1': 'Релакс', 
-    'students.plan1.benefit2': 'Фокус', 
-    'students.plan1.benefit3': 'Советы', 
+    'students.plan1.benefit1': 'Релакс',
+    'students.plan1.benefit2': 'Фокус',
+    'students.plan1.benefit3': 'Советы',
     'students.plan1.benefit4': 'Поддержка',
-    'students.plan2.benefit1': '3 Сессии', 
-    'students.plan2.benefit2': 'Контроль', 
-    'students.plan2.benefit3': 'Приоритет', 
+    'students.plan2.benefit1': '3 Сессии',
+    'students.plan2.benefit2': 'Контроль',
+    'students.plan2.benefit3': 'Приоритет',
     'students.plan2.benefit4': 'Скидка',
-    'students.plan3.benefit1': '5 Сессий', 
-    'students.plan3.benefit2': 'Коучинг', 
-    'students.plan3.benefit3': 'WhatsApp', 
+    'students.plan3.benefit1': '5 Сессий',
+    'students.plan3.benefit2': 'Коучинг',
+    'students.plan3.benefit3': 'WhatsApp',
     'students.plan3.benefit4': 'Материалы',
-    
+
     // Office
     'office.hero.badge': 'Для компаний',
     'office.hero.title': 'Корпоративное здоровье',
@@ -6150,17 +6143,17 @@ const translations: Record<Language, Record<string, string>> = {
     'office.plan3.desc': 'Большие команды',
     'office.plan3.result': 'Культура',
     'office.plan.cta': 'Связаться',
-    'office.plan1.benefit1': 'Анализ', 
-    'office.plan1.benefit2': 'Лечение', 
-    'office.plan1.benefit3': 'Отчет', 
+    'office.plan1.benefit1': 'Анализ',
+    'office.plan1.benefit2': 'Лечение',
+    'office.plan1.benefit3': 'Отчет',
     'office.plan1.benefit4': 'Контроль',
-    'office.plan2.benefit1': 'Воркшопы', 
-    'office.plan2.benefit2': 'Группа', 
-    'office.plan2.benefit3': 'Материалы', 
+    'office.plan2.benefit1': 'Воркшопы',
+    'office.plan2.benefit2': 'Группа',
+    'office.plan2.benefit3': 'Материалы',
     'office.plan2.benefit4': 'Сделка',
-    'office.plan3.benefit1': 'Годовой', 
-    'office.plan3.benefit2': 'В офисе', 
-    'office.plan3.benefit3': 'Ивенты', 
+    'office.plan3.benefit1': 'Годовой',
+    'office.plan3.benefit2': 'В офисе',
+    'office.plan3.benefit3': 'Ивенты',
     'office.plan3.benefit4': 'Данные',
 
     'elena.greeting': 'Привет',
@@ -6170,7 +6163,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.description1': 'Я телесный терапевт, специализирующийся на лечебном массаже, кинезиологии и интеграции ума и тела. Моя работа основана на убеждении, что истинное исцеление происходит от умения слушать свое тело.',
     'elena.description2': 'Моя цель проста: помочь вам освободиться от тяжести напряжения и вернуть физическое и эмоциональное благополучие, чтобы вы могли двигаться по жизни с легкостью и обновленной энергией.',
     'elena.knowMore': 'Читать мою полную историю',
-    
+
     'whyChoose.title': 'Почему выбирают EKA Balance?',
     'whyChoose.subtitle': 'Мы больше, чем терапевтический центр; мы ваши преданные партнеры в целостном благополучии.',
     'whyChoose.personalized.title': 'Истинно Персонализированные Планы',
@@ -6274,7 +6267,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export const useLanguage = () => {
+// eslint-disable-next-line react-refresh/only-export-components
+export function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {
     throw new Error('useLanguage must be used within a LanguageProvider');

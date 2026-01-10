@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
@@ -15,7 +15,7 @@ interface Question {
   options: Array<{
     id: string;
     label: string;
-    icon?: React.ComponentType<any>;
+    icon?: React.ComponentType<{ className?: string }>;
   }>;
 }
 
@@ -135,7 +135,9 @@ export default function PersonalizedOnboarding() {
       try {
         await supabase.from('user_onboarding').upsert({
           user_id: user.id,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           data: data as any,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           recommendations: recs as any,
           updated_at: new Date().toISOString()
         }, { onConflict: 'user_id' });
@@ -292,7 +294,7 @@ export default function PersonalizedOnboarding() {
   // Welcome Screen - Full Page
   if (showWelcome) {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -305,7 +307,7 @@ export default function PersonalizedOnboarding() {
         </div>
 
         <div className="text-center max-w-2xl mx-auto relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -313,7 +315,7 @@ export default function PersonalizedOnboarding() {
           >
             <Heart className="w-12 h-12 text-[#FFB405]" />
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -321,7 +323,7 @@ export default function PersonalizedOnboarding() {
           >
             🌿 {t('onboarding.welcome.title')}
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -347,7 +349,7 @@ export default function PersonalizedOnboarding() {
   // Results Screen - Full Page
   if (showResults) {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="min-h-screen bg-white py-8 px-4"
@@ -367,8 +369,8 @@ export default function PersonalizedOnboarding() {
 
           <div className="grid gap-6 mb-8">
             {recommendations.map((rec, index) => (
-              <motion.div 
-                key={rec.id} 
+              <motion.div
+                key={rec.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -456,7 +458,7 @@ export default function PersonalizedOnboarding() {
           </p>
           <div className="mt-8">
             <div className="w-64 h-1.5 bg-gray-200 rounded-full mx-auto overflow-hidden">
-              <motion.div 
+              <motion.div
                 className="h-full bg-[#FFB405] rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
@@ -548,7 +550,7 @@ export default function PersonalizedOnboarding() {
 
                     {/* Selection Indicator */}
                     {isSelected && (
-                      <motion.div 
+                      <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         className="absolute top-4 right-4 text-[#FFB405]"

@@ -2,24 +2,10 @@ import React, { useState, useEffect, createContext } from 'react';
 import { supabase } from '@/react-app/lib/supabase';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
-export interface Discount {
-  id: string;
-  name: string;
-  percentage: number;
-  code: string;
-  description?: string;
-  isActive: boolean;
-}
+import { Discount, DiscountContextType } from './DiscountTypes';
 
-export interface DiscountContextType {
-  selectedDiscount: Discount | null;
-  availableDiscounts: Discount[];
-  applyDiscount: (code: string) => Promise<boolean>;
-  removeDiscount: () => void;
-  calculateDiscountedPrice: (originalPrice: number) => number;
-  getDiscountAmount: (originalPrice: number) => number;
-  isLoading: boolean;
-}
+// Types are imported for internal use, but not re-exported to avoid HMR issues.
+// Import types directly from './DiscountTypes'.
 
 const DiscountContext = createContext<DiscountContextType | undefined>(undefined);
 
@@ -91,7 +77,7 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
     const discount = availableDiscounts.find(
       d => d.code.toLowerCase() === code.toLowerCase()
     );
-    
+
     if (discount) {
       setSelectedDiscount(discount);
       localStorage.setItem('eka-applied-discount', discount.code);
@@ -106,7 +92,7 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
 
       return true;
     }
-    
+
     // Log failed attempt
     logEvent('apply_discount_failed', {
       success: false,
@@ -148,7 +134,8 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
 }
 
 
-export const useDiscount = () => {
+// eslint-disable-next-line react-refresh/only-export-components
+export function useDiscount() {
   const context = React.useContext(DiscountContext);
   if (context === undefined) {
     throw new Error('useDiscount must be used within a DiscountProvider');

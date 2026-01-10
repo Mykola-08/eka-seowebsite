@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { supabase } from '@/react-app/lib/supabase';
+// import { supabase } from '@/react-app/lib/supabase';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
 
 import { Discount, DiscountContextType } from './DiscountTypes';
@@ -18,56 +18,25 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
   // Load discounts from Supabase
   useEffect(() => {
     const fetchDiscounts = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('discounts')
-          .select('*')
-          .eq('is_active', true);
-
-        if (error) throw error;
-
-        if (data) {
-          const mappedDiscounts: Discount[] = data.map(d => ({
-            id: d.id,
-            name: d.name,
-            percentage: d.percentage,
-            code: d.code,
-            description: d.description || undefined,
-            isActive: d.is_active || false
-          }));
-          setAvailableDiscounts(mappedDiscounts);
-
-          // Check for saved discount
-          const savedDiscountCode = localStorage.getItem('eka-applied-discount');
-          if (savedDiscountCode) {
-            const discount = mappedDiscounts.find(d => d.code === savedDiscountCode);
-            if (discount) {
-              setSelectedDiscount(discount);
-            } else {
-              localStorage.removeItem('eka-applied-discount');
-            }
-          }
+      // Fallback discounts (Supabase removed)
+      const fallbackDiscounts: Discount[] = [
+        { id: '1', name: 'Amic Mykola', percentage: 20, code: 'MYKOLA20', description: 'Descompte especial del 20% per a amics de Mykola', isActive: true },
+        { id: '2', name: 'Conegut Mykola', percentage: 10, code: 'MYKOLA10', description: 'Descompte del 10% per a coneguts de Mykola', isActive: true },
+        { id: '3', name: 'Benvinguda', percentage: 20, code: 'WELCOME20', description: 'Descompte de benvinguda', isActive: true }
+      ];
+      setAvailableDiscounts(fallbackDiscounts);
+      
+      // Check for saved discount
+      const savedDiscountCode = localStorage.getItem('eka-applied-discount');
+      if (savedDiscountCode) {
+        const discount = fallbackDiscounts.find(d => d.code === savedDiscountCode);
+        if (discount) {
+          setSelectedDiscount(discount);
         } else {
-          // Fallback discounts if Supabase returns no data
-          const fallbackDiscounts: Discount[] = [
-            { id: '1', name: 'Amic Mykola', percentage: 20, code: 'MYKOLA20', description: 'Descompte especial del 20% per a amics de Mykola', isActive: true },
-            { id: '2', name: 'Conegut Mykola', percentage: 10, code: 'MYKOLA10', description: 'Descompte del 10% per a coneguts de Mykola', isActive: true },
-            { id: '3', name: 'Benvinguda', percentage: 20, code: 'WELCOME20', description: 'Descompte de benvinguda', isActive: true }
-          ];
-          setAvailableDiscounts(fallbackDiscounts);
+          localStorage.removeItem('eka-applied-discount');
         }
-      } catch (error) {
-        console.error('Error fetching discounts:', error);
-        // Fallback discounts on error
-        const fallbackDiscounts: Discount[] = [
-          { id: '1', name: 'Amic Mykola', percentage: 20, code: 'MYKOLA20', description: 'Descompte especial del 20% per a amics de Mykola', isActive: true },
-          { id: '2', name: 'Conegut Mykola', percentage: 10, code: 'MYKOLA10', description: 'Descompte del 10% per a coneguts de Mykola', isActive: true },
-          { id: '3', name: 'Benvinguda', percentage: 20, code: 'WELCOME20', description: 'Descompte de benvinguda', isActive: true }
-        ];
-        setAvailableDiscounts(fallbackDiscounts);
-      } finally {
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
 
     fetchDiscounts();

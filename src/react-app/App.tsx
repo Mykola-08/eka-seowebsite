@@ -1,7 +1,7 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { HelmetProvider } from 'react-helmet-async';
-import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext.tsx';
+// import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext.tsx';
 import { Cursor } from './components/MotionPrimitives';
 import ErrorBoundary from './components/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
@@ -9,9 +9,9 @@ import Layout from './components/Layout';
 import { BookingProvider } from './components/BookingProvider';
 import { LanguageProvider } from './contexts/LanguageContext.tsx';
 import { DiscountProvider } from './contexts/DiscountContext.tsx';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
-import { mountVercelToolbar } from '@vercel/toolbar/vite';
+// import { Analytics } from '@vercel/analytics/react';
+// import { SpeedInsights } from '@vercel/speed-insights/react';
+// import { mountVercelToolbar } from '@vercel/toolbar/vite';
 
 // Page Imports
 const HomePage = lazy(() => import("@/react-app/pages/Home"));
@@ -137,16 +137,18 @@ function AppRoutes() {
 }
 
 export default function App() {
+  /*
   useEffect(() => {
     if (import.meta.env.VITE_VERCEL_ENV !== 'production') {
       mountVercelToolbar();
     }
   }, []);
+  */
 
   return (
     <HelmetProvider>
       <ErrorBoundary>
-        <SupabaseAuthProvider>
+        
           <LanguageProvider>
             <DiscountProvider>
               <Cursor className="bg-blue-500" />
@@ -155,14 +157,14 @@ export default function App() {
                   <ScrollToTop />
                   <Layout>
                     <AppRoutes />
-                    <Analytics />
-                    <SpeedInsights />
+                    
+                    
                   </Layout>
                 </BookingProvider>
               </Router>
             </DiscountProvider>
           </LanguageProvider>
-        </SupabaseAuthProvider>
+        
       </ErrorBoundary>
     </HelmetProvider>
   );

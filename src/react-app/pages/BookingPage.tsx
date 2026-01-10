@@ -3,8 +3,8 @@ import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
-import { supabase } from '@/react-app/lib/supabase';
+// import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+// import { supabase } from '@/react-app/lib/supabase';
 
 interface FormData {
   name: string;
@@ -17,7 +17,8 @@ interface FormData {
 
 export default function BookingPage() {
   const { t } = useLanguage();
-  const { user } = useSupabaseAuth();
+  // const { user } = useSupabaseAuth();
+  const user = null;
   const { logEvent } = useAnalytics();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<FormData>({

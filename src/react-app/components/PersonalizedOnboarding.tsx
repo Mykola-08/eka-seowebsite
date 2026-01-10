@@ -4,8 +4,8 @@ import { Link } from 'react-router';
 import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
-import { supabase } from '@/react-app/lib/supabase';
+// import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+// import { supabase } from '@/react-app/lib/supabase';
 import PriceDisplay from './PriceDisplay';
 import { OnboardingData, Recommendation } from '@/shared/types';
 
@@ -21,7 +21,8 @@ interface Question {
 
 export default function PersonalizedOnboarding() {
   const { t } = useLanguage();
-  const { user } = useSupabaseAuth();
+  // const { user } = useSupabaseAuth();
+  const user = null;
   const [showWelcome, setShowWelcome] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState<OnboardingData>({
@@ -130,6 +131,7 @@ export default function PersonalizedOnboarding() {
     const recs = generateRecommendations(data);
     setRecommendations(recs);
 
+    /*
     // Save to Supabase if user is logged in
     if (user) {
       try {
@@ -145,7 +147,7 @@ export default function PersonalizedOnboarding() {
         console.error('Error saving onboarding data:', error);
       }
     }
-
+    */
     setIsProcessing(false);
     setShowResults(true);
   };

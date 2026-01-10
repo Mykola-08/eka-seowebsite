@@ -2,7 +2,9 @@
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { supabase } from '@/react-app/lib/supabase';
+// import { supabase } from '@/react-app/lib/supabase';
+import { SERVICES_DATA } from '@/shared/constants';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 
 interface ServiceCategory {
   id: string;
@@ -16,21 +18,33 @@ interface ServiceCategory {
 
 export default function ServiceCategoryPills() {
   const [serviceCategories, setServiceCategories] = useState<ServiceCategory[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
+       /*
       const { data } = await supabase
         .from('content_blocks')
         .select('data')
         .eq('key', 'service_categories')
         .single();
-
-      if (data) {
-        setServiceCategories(data.data as unknown as ServiceCategory[]);
-      }
+      */
+      
+      const mappedServices: ServiceCategory[] = SERVICES_DATA.slice(0, 3).map((s, index) => ({
+        id: s.id,
+        href: s.href,
+        image: s.image || '',
+        color: s.color === 'orange' ? 'from-orange-400 to-pink-500' : 
+               s.color === 'blue' ? 'from-blue-400 to-indigo-500' : 
+               s.color === 'green' ? 'from-green-400 to-teal-500' : 'from-purple-400 to-pink-500',
+        number: `0${index + 1}`,
+        name: t(s.titleKey),
+        description: t(s.descriptionKey).substring(0, 50) + '...'
+      }));
+      setServiceCategories(mappedServices);
     };
     fetchData();
-  }, []);
+  }, [t]);
 
   return (
     <section className="apple-section bg-white">

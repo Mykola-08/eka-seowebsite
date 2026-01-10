@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useDiscount } from '@/react-app/contexts/DiscountContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
-import { supabase } from '@/react-app/lib/supabase';
+// import { supabase } from '@/react-app/lib/supabase';
 
 const iconMap = {
   Heart,
@@ -40,6 +40,7 @@ export default function PricingSection() {
   const { calculateDiscountedPrice, selectedDiscount } = useDiscount();
 
   useEffect(() => {
+    /*
     const fetchData = async () => {
       const { data } = await supabase
         .from('content_blocks')
@@ -52,6 +53,40 @@ export default function PricingSection() {
       }
     };
     fetchData();
+    */
+    const staticPlans = [
+      {
+        id: 'basic',
+        name: 'Sessió Individual',
+        price: 60,
+        originalPrice: null,
+        description: 'Una sessió completa de 60 minuts',
+        features: ['Massatge Terapèutic', 'Kinesiologia', 'Osteopatia Suau'],
+        icon: 'Heart',
+        popular: false
+      },
+      {
+        id: 'pack3',
+        name: 'Pack Benestar (3)',
+        price: 165,
+        originalPrice: 180,
+        description: 'Pack de 3 sessions per un seguiment continu',
+        features: ['Estalvia 15€', 'Vàlid per 3 mesos', 'Transferible'],
+        icon: 'Sparkles',
+        popular: true
+      },
+      {
+        id: 'pack5',
+        name: 'Pack Transformació (5)',
+        price: 275,
+        originalPrice: 300,
+        description: 'Tractament integral per canvis profunds',
+        features: ['Estalvia 25€', 'Vàlid per 6 mesos', 'Prioritat de reserva'],
+        icon: 'Crown',
+        popular: false
+      }
+    ];
+    setPlans(staticPlans);
   }, []);
 
   const formatPrice = (price: number) => `${price}€`;

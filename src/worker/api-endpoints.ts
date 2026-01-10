@@ -3,7 +3,7 @@
 import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import { uploadTestBlob } from './blob';
+// import { uploadTestBlob } from './blob';
 
 // Define bindings for environment variables and services
 type Bindings = {
@@ -12,7 +12,6 @@ type Bindings = {
   PERPLEXITY_API_KEY: string;
   STRIPE_SECRET_KEY: string;
   STRIPE_PUBLISHABLE_KEY: string;
-  BLOB_READ_WRITE_TOKEN: string;
 };
 
 type Variables = {
@@ -34,12 +33,14 @@ const authMiddleware = async (c: any, next: any) => {
 
 export function addDashboardEndpoints(app: Hono<{ Bindings: Bindings; Variables: Variables }>) {
   
+  /*
   // Test Blob Upload Endpoint
   // Used to verify Vercel Blob configuration
   app.post('/api/test-blob', async (c) => {
     const result = await uploadTestBlob(c.env.BLOB_READ_WRITE_TOKEN);
     return c.json(result);
   });
+  */
 
   // Get user profile with enhanced data
   // Fetches user data from the users service and combines it with local profile data

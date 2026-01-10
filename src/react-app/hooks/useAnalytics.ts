@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback } from 'react';
-import { supabase } from '@/react-app/lib/supabase';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+// import { supabase } from '@/react-app/lib/supabase';
+// import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 
 export const useAnalytics = () => {
-  const { user } = useSupabaseAuth();
+  // const { user } = useSupabaseAuth();
+  const user = null;
 
   const logEvent = useCallback(async (
     interactionType: string,
@@ -22,6 +23,7 @@ export const useAnalytics = () => {
       });
     }
 
+    /*
     try {
       await supabase.from('user_interactions').insert({
         interaction_type: interactionType,
@@ -40,6 +42,7 @@ export const useAnalytics = () => {
     } catch (error) {
       console.error('Error logging analytics event:', error);
     }
+    */
   }, [user]);
 
   const logPageView = useCallback((path: string) => {

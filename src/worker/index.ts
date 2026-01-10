@@ -12,7 +12,6 @@ type Bindings = {
   PERPLEXITY_API_KEY: string;
   STRIPE_SECRET_KEY: string;
   STRIPE_PUBLISHABLE_KEY: string;
-  BLOB_READ_WRITE_TOKEN: string;
 };
 
 type Variables = {
@@ -114,19 +113,6 @@ async function initializeSessionTypes(db: D1Database) {
 
 app.post('/api/health', async (c) => {
   return c.json({ success: true }, 200);
-});
-
-// Test Vercel Blob
-import { uploadTestBlob } from './blob';
-
-app.post('/api/blob-test', async (c) => {
-  const token = (c.env as any).BLOB_READ_WRITE_TOKEN || process.env.BLOB_READ_WRITE_TOKEN;
-  if (!token) {
-    return c.json({ error: 'Missing BLOB_READ_WRITE_TOKEN' }, 500);
-  }
-
-  const result = await uploadTestBlob(token);
-  return c.json(result);
 });
 
 // Basic health check

@@ -6,7 +6,6 @@ import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
 import { Language } from '@/react-app/contexts/LanguageTypes';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
-// import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import LanguagePopup from '@/react-app/components/LanguagePopup';
 import CookieBanner from './CookieBanner';
 import { TDRPresentationMode } from '@/react-app/components/TDRPresentationMode';
@@ -21,7 +20,6 @@ export default function Layout({
 }) {
   const location = useLocation();
   const { t, language, setLanguage } = useLanguage();
-  // const { user, signInWithGoogle, signOut } = useSupabaseAuth();
   const { logPageView } = useAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

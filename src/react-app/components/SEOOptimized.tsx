@@ -34,9 +34,10 @@ export default function SEOOptimized({
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+34-933-123-456",
+          "telephone": "+34-658-867-133",
+          "email": "contact@ekabalance.com",
           "contactType": "customer service",
-          "availableLanguage": ["Catalan", "Spanish"]
+          "availableLanguage": ["Catalan", "Spanish", "English", "Russian"]
         },
         "address": {
           "@type": "PostalAddress",

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
+import AnimateIn from './AnimateIn';
 
 interface Problem {
   id: string;
@@ -101,13 +102,13 @@ export default function CasosSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {featuredProblems.map((problem) => {
+          {featuredProblems.map((problem, index) => {
             const ProblemIcon = problem.icon;
             return (
+              <AnimateIn key={problem.id} delay={index * 0.1}>
               <Link
-                key={problem.id}
                 href={problem.href}
-                className="group bg-white rounded-[24px] p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300"
+                className="group bg-white rounded-[24px] p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 block"
               >
                 <div className={`w-14 h-14 rounded-xl ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border`}>
                   <ProblemIcon className="w-7 h-7" />
@@ -126,6 +127,7 @@ export default function CasosSection() {
                   <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>
               </Link>
+              </AnimateIn>
             );
           })}
         </div>

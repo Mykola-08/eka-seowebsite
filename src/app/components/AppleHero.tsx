@@ -6,6 +6,7 @@ import { Button } from 'keep-react';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
+import AnimateIn from './AnimateIn';
 
 const heroImages = [
   'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Skyline
@@ -45,23 +46,30 @@ export default function AppleHero() {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
         {/* Badge - Glassy Style */}
+        <AnimateIn delay={0.2} from="top">
         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
           <span className="text-sm md:text-base font-medium tracking-wide text-white/90">
             {t('hero.badge')}
           </span>
         </div>
+        </AnimateIn>
 
         {/* Main Title */}
+        <AnimateIn delay={0.4} duration={0.8}>
         <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-black tracking-tighter drop-shadow-2xl">
           {t('hero.title')}
         </h1>
+        </AnimateIn>
 
         {/* Subtitle */}
+        <AnimateIn delay={0.6}>
         <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto">
           {t('hero.subtitle')}
         </p>
+        </AnimateIn>
 
         {/* CTA Buttons */}
+        <AnimateIn delay={0.8}>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
             <Button size="xl" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-xl">
@@ -76,6 +84,7 @@ export default function AppleHero() {
             </Button>
           </Link>
         </div>
+        </AnimateIn>
       </div>
     </section>
   );

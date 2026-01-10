@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import { LanguageProvider } from '@/react-app/contexts/LanguageContext';
 import { DiscountProvider } from "@/react-app/contexts/DiscountContext";
 import { BookingProvider } from '@/react-app/components/BookingProvider';
+import SmoothScrolling from "@/app/components/SmoothScrolling";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,15 +29,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LanguageProvider>
-           <DiscountProvider>
-              <BookingProvider>
-                <MainLayout>
-                  {children}
-                </MainLayout>
-              </BookingProvider>
-            </DiscountProvider>
-        </LanguageProvider>
+        <SmoothScrolling>
+          <LanguageProvider>
+             <DiscountProvider>
+                <BookingProvider>
+                  <MainLayout>
+                    {children}
+                  </MainLayout>
+                </BookingProvider>
+              </DiscountProvider>
+          </LanguageProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );

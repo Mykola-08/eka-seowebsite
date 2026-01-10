@@ -13,6 +13,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "EKA Balance - Teràpies Integratives",
   description: "Serveis premium de benestar amb teràpies integratives.",
+  icons: {
+    icon: '/images/eka_logo.png',
+    apple: '/images/eka_logo.png',
+  }
 };
 
 export const viewport: Viewport = {

@@ -2,6 +2,17 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Alert } from 'keep-react';
 
+declare global {
+  interface Window {
+    toast: {
+      success: (title: string, message?: string, options?: Partial<Toast>) => void;
+      error: (title: string, message?: string, options?: Partial<Toast>) => void;
+      info: (title: string, message?: string, options?: Partial<Toast>) => void;
+      warning: (title: string, message?: string, options?: Partial<Toast>) => void;
+    };
+  }
+}
+
 export interface Toast {
   id: string;
   type: 'success' | 'error' | 'info' | 'warning';
@@ -147,16 +158,7 @@ export default function ToastContainer() {
   };
 
 
-  declare global {
-    interface Window {
-      toast: {
-        success: (title: string, message?: string, options?: Partial<Toast>) => void;
-        error: (title: string, message?: string, options?: Partial<Toast>) => void;
-        info: (title: string, message?: string, options?: Partial<Toast>) => void;
-        warning: (title: string, message?: string, options?: Partial<Toast>) => void;
-      };
-    }
-  }
+
 
   // Global toast function
   useEffect(() => {

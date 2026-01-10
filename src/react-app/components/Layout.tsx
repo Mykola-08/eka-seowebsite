@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 
 import ToastContainer from './Toast';
 import { OfflineIndicator } from './OfflineIndicator';
-import { Language } from '@/react-app/contexts/LanguageContext';
+import { Language } from '@/react-app/contexts/LanguageTypes';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 // import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import LanguagePopup from '@/react-app/components/LanguagePopup';

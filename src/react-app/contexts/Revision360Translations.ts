@@ -1,4 +1,4 @@
-import { Language } from './LanguageContext';
+import { Language } from './LanguageTypes';
 
 export interface Translations {
   [key: string]: {

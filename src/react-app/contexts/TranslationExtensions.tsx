@@ -1,4 +1,4 @@
-import { Language } from './LanguageContext';
+import { Language } from './LanguageTypes';
 
 // Extended translations for services and specialized content
 export const servicesTranslations: Record<Language, Record<string, string>> = {

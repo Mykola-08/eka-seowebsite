@@ -20,10 +20,10 @@ export default function HeroSection() {
         
         {/* Animated glowing orbs */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px]"
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/30 rounded-full blur-[100px]"
           animate={{ 
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
+            opacity: [0.6, 0.9, 0.6],
             x: [0, 50, 0],
             y: [0, -30, 0]
           }}
@@ -34,10 +34,10 @@ export default function HeroSection() {
           }}
         />
         <motion.div 
-          className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-yellow-600/10 rounded-full blur-[120px]"
+          className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-yellow-600/30 rounded-full blur-[120px]"
           animate={{ 
             scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.5, 0.8, 0.5],
             x: [0, -40, 0],
             y: [0, 40, 0]
           }}

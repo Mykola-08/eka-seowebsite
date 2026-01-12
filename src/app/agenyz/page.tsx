@@ -353,7 +353,7 @@ export default function AgenyzPage() {
                                         : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                                 }`}
                             >
-                                {category}
+                                {t(`agenyz.category.${category}`) || category}
                             </button>
                         ))}
                     </div>
@@ -376,7 +376,7 @@ export default function AgenyzPage() {
                                 >
                                     <div className="mb-6 flex items-start justify-between">
                                         <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full uppercase tracking-wide">
-                                            {product.category}
+                                            {t(`agenyz.category.${product.category}`) || product.category}
                                         </span>
                                         {/* Placeholder for Product Icon/Image */}
                                         <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
@@ -385,16 +385,19 @@ export default function AgenyzPage() {
                                     </div>
 
                                     <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
-                                        {product.name}
+                                        {t(`agenyz.product.${product.id}.name`) || product.name}
                                     </h3>
                                     
                                     <p className="text-gray-600 mb-6 flex-grow leading-relaxed font-light">
-                                        {product.description}
+                                        {t(`agenyz.product.${product.id}.desc`) || product.description}
                                     </p>
 
                                     {product.features && (
                                         <ul className="space-y-2 mb-8">
-                                            {product.features.map((feature, idx) => (
+                                            {(t(`agenyz.product.${product.id}.features`) 
+                                                ? t(`agenyz.product.${product.id}.features`).split(',').map(f => f.trim()) 
+                                                : product.features
+                                            ).map((feature, idx) => (
                                                 <li key={idx} className="flex items-center text-sm text-gray-500">
                                                     <CheckCircle2 className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                                                     {feature}

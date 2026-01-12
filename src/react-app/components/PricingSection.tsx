@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { useBooking } from '@/react-app/hooks/useBooking';
 import { useDiscount } from '@/react-app/contexts/DiscountContext';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
+import { useLanguage } from '@/react-app/contexts/LanguageContext';
 // import { supabase } from '@/react-app/lib/supabase';
 
 const iconMap = {
@@ -15,53 +16,54 @@ const iconMap = {
 
 const features = [
   {
-    title: 'Sense compromisos',
-    description: 'Cancel·la o canvia la teva cita fins 24h abans sense cost'
+    title: 'pricing.guarantee.nocommitment.title',
+    description: 'pricing.guarantee.nocommitment.desc'
   },
   {
-    title: 'Garantia de satisfacció',
-    description: 'Si no estàs satisfet amb la primera sessió, te la reemborsen'
+    title: 'pricing.guarantee.satisfaction.title',
+    description: 'pricing.guarantee.satisfaction.desc'
   },
   {
-    title: 'Professionals certificats',
-    description: 'Tots els nostres terapeutes tenen certificacions oficials'
+    title: 'pricing.guarantee.certified.title',
+    description: 'pricing.guarantee.certified.desc'
   },
   {
-    title: 'Equip professional',
-    description: 'Utilitzem només equip i productes de màxima qualitat'
+    title: 'pricing.guarantee.equipment.title',
+    description: 'pricing.guarantee.equipment.desc'
   }
 ];
 
 export default function PricingSection() {
+  const { t } = useLanguage();
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [plans, setPlans] = useState<any[]>([
       {
         id: 'basic',
-        name: 'Sessió Individual',
+        name: 'pricing.plan.basic.name',
         price: 60,
         originalPrice: null,
-        description: 'Una sessió completa de 60 minuts',
-        features: ['Massatge Terapèutic', 'Kinesiologia', 'Osteopatia Suau'],
+        description: 'pricing.plan.basic.desc',
+        features: ['pricing.feature.massage', 'pricing.feature.kinesiology', 'pricing.feature.osteopathy'],
         icon: 'Heart',
         popular: false
       },
       {
         id: 'pack3',
-        name: 'Pack Benestar (3)',
+        name: 'pricing.plan.pack3.name',
         price: 165,
         originalPrice: 180,
-        description: 'Pack de 3 sessions per un seguiment continu',
-        features: ['Estalvia 15€', 'Vàlid per 3 mesos', 'Transferible'],
+        description: 'pricing.plan.pack3.desc',
+        features: ['pricing.feature.save15', 'pricing.feature.valid3months', 'pricing.feature.transferable'],
         icon: 'Sparkles',
         popular: true
       },
       {
         id: 'pack5',
-        name: 'Pack Transformació (5)',
+        name: 'pricing.plan.pack5.name',
         price: 275,
         originalPrice: 300,
-        description: 'Tractament integral per canvis profunds',
-        features: ['Estalvia 25€', 'Vàlid per 6 mesos', 'Prioritat de reserva'],
+        description: 'pricing.plan.pack5.desc',
+        features: ['pricing.feature.save25', 'pricing.feature.valid6months', 'pricing.feature.priority'],
         icon: 'Crown',
         popular: false
       }
@@ -133,18 +135,18 @@ export default function PricingSection() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-6 py-2 bg-yellow-50 border border-yellow-100 rounded-full mb-8">
-            <span className="text-yellow-700 font-medium text-sm uppercase tracking-wide">Tarifes transparents</span>
+            <span className="text-yellow-700 font-medium text-sm uppercase tracking-wide">{t('pricing.badge')}</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
-            Tria el teu{' '}
+            {t('pricing.title.part1')}{' '}
             <span className="text-yellow-500 font-medium">
-              pla de benestar
+              {t('pricing.title.part2')}
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Packs dissenyats per a cada necessitat, amb la flexibilitat i qualitat que et mereixes
+            {t('pricing.subtitle')}
           </p>
         </div>
 
@@ -176,7 +178,7 @@ export default function PricingSection() {
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="bg-yellow-400 text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
-                      Més popular
+                      {t('pricing.popular')}
                     </div>
                   </div>
                 )}
@@ -184,7 +186,7 @@ export default function PricingSection() {
                 {/* Savings Badge */}
                 {(originalSavings > 0 || selectedDiscount) && (
                   <div className="absolute top-6 right-6 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
-                    Estalvia {totalSavings}%
+                    {t('pricing.save', { percent: totalSavings })}
                   </div>
                 )}
 
@@ -196,11 +198,11 @@ export default function PricingSection() {
                     </div>
 
                     <h3 className="text-2xl font-medium text-gray-900 mb-2">
-                      {plan.name}
+                      {t(plan.name)}
                     </h3>
 
                     <p className="text-gray-600 text-sm">
-                      {plan.description}
+                      {t(plan.description)}
                     </p>
                   </div>
 
@@ -218,12 +220,9 @@ export default function PricingSection() {
                     </div>
                     {selectedDiscount && (
                       <div className="text-sm text-green-600 font-medium mb-2">
-                        {selectedDiscount.name} aplicat (-{selectedDiscount.percentage}%)
+                        {selectedDiscount.name} {t('pricing.discount_applied')} (-{selectedDiscount.percentage}%)
                       </div>
                     )}
-                    <div className="text-sm text-gray-500">
-                      {plan.sessions} sessió{plan.sessions > 1 ? 's' : ''} · Validesa {plan.validityMonths} mes{plan.validityMonths > 1 ? 'os' : ''}
-                    </div>
                   </div>
 
                   {/* Features */}
@@ -232,7 +231,7 @@ export default function PricingSection() {
                       <li key={featureIndex} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-gray-600">
-                          {feature}
+                          {t(feature)}
                         </span>
                       </li>
                     ))}
@@ -253,13 +252,14 @@ export default function PricingSection() {
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
                       }`}
                   >
-                    {plan.buttonText}
+                    {t('pricing.plan.select')}
                   </button>
                 </div>
               </div>
             );
           })}
         </div>
+
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -272,10 +272,10 @@ export default function PricingSection() {
                 <CheckCircle className="w-6 h-6 text-yellow-600" />
               </div>
               <h4 className="font-medium text-gray-900 mb-2">
-                {feature.title}
+                {t(feature.title)}
               </h4>
               <p className="text-sm text-gray-600">
-                {feature.description}
+                {t(feature.description)}
               </p>
             </div>
           ))}
@@ -285,16 +285,16 @@ export default function PricingSection() {
         <div className="text-center">
           <div className="bg-gray-50 rounded-2xl p-8">
             <h3 className="text-2xl font-medium text-gray-900 mb-4">
-              No estàs segur quin pla triar?
+              {t('pricing.cta.unsure.title')}
             </h3>
             <p className="text-gray-600 mb-6">
-              Fes la nostra avaluació gratuïta i descobreix quin tractament s'adapta millor a les teves necessitats
+              {t('pricing.cta.unsure.subtitle')}
             </p>
             <Link
               to="/services"
               className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-medium transition-colors group"
             >
-              Descobrir els nostres serveis
+              {t('pricing.cta.unsure.button')}
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

@@ -80,22 +80,22 @@ export default function ContactFormOptimized() {
 //   }, [user]);
 
   const services = [
-    t('contact.services.basic'),
-    t('contact.services.complete'),
-    t('contact.services.premium'),
-    t('contact.services.kinesiology'),
-    t('contact.services.nutrition'),
-    t('contact.services.review'),
-    t('contact.services.vip'),
-    t('contact.services.other')
+    t('contact.service.massageBasic'),
+    t('contact.service.massageComplete'),
+    t('contact.service.massagePremium'),
+    t('contact.service.kinesiology'),
+    t('contact.service.nutrition'),
+    t('contact.service.revision360'),
+    t('contact.service.vip'),
+    t('contact.service.other')
   ];
 
   const timeSlots = [
-    t('contact.timeSlots.morning'),
-    t('contact.timeSlots.noon'),
-    t('contact.timeSlots.afternoon'),
-    t('contact.timeSlots.evening'),
-    t('contact.timeSlots.noPreference')
+    t('contact.time.morning'),
+    t('contact.time.noon'),
+    t('contact.time.afternoon'),
+    t('contact.time.evening'),
+    t('contact.time.any')
   ];
 
   const sources = [

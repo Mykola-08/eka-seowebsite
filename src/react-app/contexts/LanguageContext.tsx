@@ -4,6 +4,7 @@ import React, { useState, useEffect, createContext, useContext } from 'react';
 import { servicesTranslations } from './TranslationExtensions';
 import { revision360Translations } from './Revision360Translations';
 import { techniqueTranslations } from './TechniqueTranslations';
+import { agenyzTranslations } from './AgenyzTranslations';
 
 import { Language, LanguageContextType } from './LanguageTypes';
 
@@ -1519,6 +1520,66 @@ const translations: Record<Language, Record<string, string>> = {
     'finalCta.title': 'A punt?',
     'finalCta.subtitle': 'Reserva ja',
 
+    // Pricing Section
+    'pricing.badge': 'Tarifes transparents',
+    'pricing.title.part1': 'Tria el teu',
+    'pricing.title.part2': 'pla de benestar',
+    'pricing.subtitle': 'Packs dissenyats per a cada necessitat, amb la flexibilitat i qualitat que et mereixes',
+    'pricing.popular': 'Més popular',
+    'pricing.save': 'Estalvia {percent}%',
+    'pricing.discount_applied': 'aplicat',
+    'pricing.plan.select': 'Seleccionar',
+    
+    'pricing.plan.basic.name': 'Sessió Individual',
+    'pricing.plan.basic.desc': 'Una sessió completa de 60 minuts',
+    'pricing.plan.pack3.name': 'Pack Benestar (3)',
+    'pricing.plan.pack3.desc': 'Pack de 3 sessions per un seguiment continu',
+    'pricing.plan.pack5.name': 'Pack Transformació (5)',
+    'pricing.plan.pack5.desc': 'Tractament integral per canvis profunds',
+
+    'pricing.feature.massage': 'Massatge Terapèutic',
+    'pricing.feature.kinesiology': 'Kinesiologia',
+    'pricing.feature.osteopathy': 'Osteopatia Suau',
+    'pricing.feature.save15': 'Estalvia 15€',
+    'pricing.feature.valid3months': 'Vàlid per 3 mesos',
+    'pricing.feature.transferable': 'Transferible',
+    'pricing.feature.save25': 'Estalvia 25€',
+    'pricing.feature.valid6months': 'Vàlid per 6 mesos',
+    'pricing.feature.priority': 'Prioritat de reserva',
+
+    'pricing.guarantee.nocommitment.title': 'Sense compromisos',
+    'pricing.guarantee.nocommitment.desc': 'Cancel·la o canvia la teva cita fins 24h abans sense cost',
+    'pricing.guarantee.satisfaction.title': 'Garantia de satisfacció',
+    'pricing.guarantee.satisfaction.desc': 'Si no estàs satisfet amb la primera sessió, te la reemborsen',
+    'pricing.guarantee.certified.title': 'Professionals certificats',
+    'pricing.guarantee.certified.desc': 'Tots els nostres terapeutes tenen certificacions oficials',
+    'pricing.guarantee.equipment.title': 'Equip professional',
+    'pricing.guarantee.equipment.desc': 'Utilitzem només equip i productes de màxima qualitat',
+
+    'pricing.cta.unsure.title': 'No estàs segur quin pla triar?',
+    'pricing.cta.unsure.subtitle': 'Fes la nostra avaluació gratuïta i descobreix quin tractament s\'adapta millor a les teves necessitats',
+    'pricing.cta.unsure.button': 'Descobrir els nostres serveis',
+
+    // Booking Popup
+    'booking.smart.service.placeholder': 'Selecciona un servei...',
+    'booking.smart.time.placeholder': 'Ex: Matins, Divendres...',
+    'booking.whatsapp.greeting': 'Hola Elena, m\'agradaria reservar una cita.',
+    'booking.whatsapp.name': 'Nom',
+    'booking.whatsapp.service': 'Servei',
+    'booking.whatsapp.preference': 'Preferència horària',
+    'booking.service.other': 'Altre',
+    'booking.service.consultation': 'Consulta Inicial',
+    'booking.smart.quick': 'Reserva Ràpida',
+    'booking.smart.quickDesc': 'Contacta per WhatsApp directament.',
+    'booking.smart.form': 'Formulari',
+    'booking.smart.formDesc': 'Omple els detalls primer.',
+    'booking.smart.name': 'El teu nom',
+    'booking.smart.service': 'Servei',
+    'booking.smart.time': 'Horari preferit',
+    'booking.smart.send': 'Enviar per WhatsApp',
+    'booking.smart.title': 'Reserva la teva cita',
+    'booking.smart.subtitle': 'Tria com vols contactar',
+
   },
 
   en: {
@@ -3023,6 +3084,66 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.feature.kit': 'Premium Kit',
     'vip.feature.concierge': 'Personal Wellness Manager',
     'vip.feature.retreat': 'Retreat Discount',
+
+    // Pricing Section
+    'pricing.badge': 'Transparent Pricing',
+    'pricing.title.part1': 'Choose your',
+    'pricing.title.part2': 'wellness plan',
+    'pricing.subtitle': 'Packs designed for every need, with the flexibility and quality you deserve',
+    'pricing.popular': 'Most Popular',
+    'pricing.save': 'Save {percent}%',
+    'pricing.discount_applied': 'applied',
+    'pricing.plan.select': 'Select',
+
+    'pricing.plan.basic.name': 'Single Session',
+    'pricing.plan.basic.desc': 'A complete 60-minute session',
+    'pricing.plan.pack3.name': 'Wellness Pack (3)',
+    'pricing.plan.pack3.desc': 'Pack of 3 sessions for continuous follow-up',
+    'pricing.plan.pack5.name': 'Transformation Pack (5)',
+    'pricing.plan.pack5.desc': 'Comprehensive treatment for deep changes',
+
+    'pricing.feature.massage': 'Therapeutic Massage',
+    'pricing.feature.kinesiology': 'Kinesiology',
+    'pricing.feature.osteopathy': 'Gentle Osteopathy',
+    'pricing.feature.save15': 'Save 15€',
+    'pricing.feature.valid3months': 'Valid for 3 months',
+    'pricing.feature.transferable': 'Transferable',
+    'pricing.feature.save25': 'Save 25€',
+    'pricing.feature.valid6months': 'Valid for 6 months',
+    'pricing.feature.priority': 'Priority booking',
+
+    'pricing.guarantee.nocommitment.title': 'No commitments',
+    'pricing.guarantee.nocommitment.desc': 'Cancel or reschedule up to 24h before without cost',
+    'pricing.guarantee.satisfaction.title': 'Satisfaction Guarantee',
+    'pricing.guarantee.satisfaction.desc': 'If you are not satisfied with the first session, we refund you',
+    'pricing.guarantee.certified.title': 'Certified Professionals',
+    'pricing.guarantee.certified.desc': 'All our therapists have official certifications',
+    'pricing.guarantee.equipment.title': 'Professional Equipment',
+    'pricing.guarantee.equipment.desc': 'We use only top quality equipment and products',
+
+    'pricing.cta.unsure.title': 'Not sure which plan to choose?',
+    'pricing.cta.unsure.subtitle': 'Take our free assessment and discover which treatment best fits your needs',
+    'pricing.cta.unsure.button': 'Discover our services',
+
+    // Booking Popup
+    'booking.smart.service.placeholder': 'Select a service...',
+    'booking.smart.time.placeholder': 'Ex: Mornings, Next week...',
+    'booking.whatsapp.greeting': 'Hi Elena, I would like to book an appointment.',
+    'booking.whatsapp.name': 'Name',
+    'booking.whatsapp.service': 'Service',
+    'booking.whatsapp.preference': 'Time preference',
+    'booking.service.other': 'Other',
+    'booking.service.consultation': 'Initial Consultation',
+    'booking.smart.quick': 'Quick Booking',
+    'booking.smart.quickDesc': 'Contact via WhatsApp directly.',
+    'booking.smart.form': 'Form',
+    'booking.smart.formDesc': 'Fill in details first.',
+    'booking.smart.name': 'Your Name',
+    'booking.smart.service': 'Service',
+    'booking.smart.time': 'Preferred Time',
+    'booking.smart.send': 'Send via WhatsApp',
+    'booking.smart.title': 'Book your appointment',
+    'booking.smart.subtitle': 'Choose how you want to contact',
 
   },
   es: {
@@ -4588,6 +4709,65 @@ const translations: Record<Language, Record<string, string>> = {
     'finalCta.title': '¿Listo?',
     'finalCta.subtitle': 'Reserva ya',
 
+    // Pricing Section
+    'pricing.badge': 'Tarifas transparentes',
+    'pricing.title.part1': 'Elige tu',
+    'pricing.title.part2': 'plan de bienestar',
+    'pricing.subtitle': 'Packs diseñados para cada necesidad, con la flexibilidad y calidad que te mereces',
+    'pricing.popular': 'Más popular',
+    'pricing.save': 'Ahorra {percent}%',
+    'pricing.discount_applied': 'aplicado',
+    'pricing.plan.select': 'Seleccionar',
+
+    'pricing.plan.basic.name': 'Sesión Individual',
+    'pricing.plan.basic.desc': 'Una sesión completa de 60 minutos',
+    'pricing.plan.pack3.name': 'Pack Bienestar (3)',
+    'pricing.plan.pack3.desc': 'Pack de 3 sesiones para un seguimiento continuo',
+    'pricing.plan.pack5.name': 'Pack Transformación (5)',
+    'pricing.plan.pack5.desc': 'Tratamiento integral para cambios profundos',
+
+    'pricing.feature.massage': 'Masaje Terapéutico',
+    'pricing.feature.kinesiology': 'Kinesiología',
+    'pricing.feature.osteopathy': 'Osteopatía Suave',
+    'pricing.feature.save15': 'Ahorra 15€',
+    'pricing.feature.valid3months': 'Válido por 3 meses',
+    'pricing.feature.transferable': 'Transferible',
+    'pricing.feature.save25': 'Ahorra 25€',
+    'pricing.feature.valid6months': 'Válido por 6 meses',
+    'pricing.feature.priority': 'Prioridad de reserva',
+
+    'pricing.guarantee.nocommitment.title': 'Sin compromisos',
+    'pricing.guarantee.nocommitment.desc': 'Cancela o cambia tu cita hasta 24h antes sin coste',
+    'pricing.guarantee.satisfaction.title': 'Garantía de satisfacción',
+    'pricing.guarantee.satisfaction.desc': 'Si no estás satisfecho con la primera sesión, te la reembolsamos',
+    'pricing.guarantee.certified.title': 'Profesionales certificados',
+    'pricing.guarantee.certified.desc': 'Todos nuestros terapeutas tienen certificaciones oficiales',
+    'pricing.guarantee.equipment.title': 'Equipo profesional',
+    'pricing.guarantee.equipment.desc': 'Utilizamos solo equipo y productos de máxima calidad',
+
+    'pricing.cta.unsure.title': '¿No estás seguro de qué plan elegir?',
+    'pricing.cta.unsure.subtitle': 'Haz nuestra evaluación gratuita y descubre qué tratamiento se adapta mejor a tus necesidades',
+    'pricing.cta.unsure.button': 'Descubrir nuestros servicios',
+
+    // Booking Popup
+    'booking.smart.service.placeholder': 'Selecciona un servicio...',
+    'booking.smart.time.placeholder': 'Ej: Mañanas, Próxima semana...',
+    'booking.whatsapp.greeting': 'Hola Elena, me gustaría reservar una cita.',
+    'booking.whatsapp.name': 'Nombre',
+    'booking.whatsapp.service': 'Servicio',
+    'booking.whatsapp.preference': 'Preferencia horaria',
+    'booking.service.other': 'Otro',
+    'booking.service.consultation': 'Consulta Inicial',
+    'booking.smart.quick': 'Reserva Rápida',
+    'booking.smart.quickDesc': 'Contactar por WhatsApp directamente.',
+    'booking.smart.form': 'Formulario',
+    'booking.smart.formDesc': 'Rellenar detalles primero.',
+    'booking.smart.name': 'Tu Nombre',
+    'booking.smart.service': 'Servicio',
+    'booking.smart.time': 'Horario preferido',
+    'booking.smart.send': 'Enviar por WhatsApp',
+    'booking.smart.title': 'Reserva tu cita',
+    'booking.smart.subtitle': 'Elige cómo quieres contactar',
 
   },
 
@@ -6175,6 +6355,65 @@ const translations: Record<Language, Record<string, string>> = {
     'whyChoose.experienced.title': 'Экспертное Руководство',
     'whyChoose.experienced.description': 'Воспользуйтесь годами профессиональной практики и непрерывного обучения мировым методикам, таким как Фельденкрайз, Остеопатия и Кинезиология.',
 
+    // Pricing Section
+    'pricing.badge': 'Прозрачные тарифы',
+    'pricing.title.part1': 'Выберите свой',
+    'pricing.title.part2': 'план благополучия',
+    'pricing.subtitle': 'Пакеты, разработанные для любых нужд, с гибкостью и качеством, которых вы заслуживаете',
+    'pricing.popular': 'Самый популярный',
+    'pricing.save': 'Экономия {percent}%',
+    'pricing.discount_applied': 'применено',
+    'pricing.plan.select': 'Выбрать',
+
+    'pricing.plan.basic.name': 'Индивидуальная сессия',
+    'pricing.plan.basic.desc': 'Полная сессия 60 минут',
+    'pricing.plan.pack3.name': 'Пакет Благополучие (3)',
+    'pricing.plan.pack3.desc': 'Пакет из 3 сессий для непрерывного отслеживания',
+    'pricing.plan.pack5.name': 'Пакет Трансформация (5)',
+    'pricing.plan.pack5.desc': 'Комплексное лечение для глубоких изменений',
+
+    'pricing.feature.massage': 'Терапевтический массаж',
+    'pricing.feature.kinesiology': 'Кинезиология',
+    'pricing.feature.osteopathy': 'Мягкая остеопатия',
+    'pricing.feature.save15': 'Экономия 15€',
+    'pricing.feature.valid3months': 'Действителен 3 месяца',
+    'pricing.feature.transferable': 'Можно передавать',
+    'pricing.feature.save25': 'Экономия 25€',
+    'pricing.feature.valid6months': 'Действителен 6 месяцев',
+    'pricing.feature.priority': 'Приоритет бронирования',
+
+    'pricing.guarantee.nocommitment.title': 'Без обязательств',
+    'pricing.guarantee.nocommitment.desc': 'Отмена или перенос записи за 24 часа без оплаты',
+    'pricing.guarantee.satisfaction.title': 'Гарантия удовлетворенности',
+    'pricing.guarantee.satisfaction.desc': 'Если вы не удовлетворены первой сессией, мы вернем вам деньги',
+    'pricing.guarantee.certified.title': 'Сертифицированные профессионалы',
+    'pricing.guarantee.certified.desc': 'Все наши терапевты имеют официальные сертификаты',
+    'pricing.guarantee.equipment.title': 'Профессиональное оборудование',
+    'pricing.guarantee.equipment.desc': 'Мы используем только оборудование и продукты высшего качества',
+
+    'pricing.cta.unsure.title': 'Не уверены, какой план выбрать?',
+    'pricing.cta.unsure.subtitle': 'Пройдите нашу бесплатную оценку и узнайте, какое лечение лучше всего подходит для ваших нужд',
+    'pricing.cta.unsure.button': 'Узнать о наших услугах',
+
+    // Booking Popup
+    'booking.smart.service.placeholder': 'Выберите услугу...',
+    'booking.smart.time.placeholder': 'Например: Утром, На следующей неделе...',
+    'booking.whatsapp.greeting': 'Здравствуйте, Елена, я хотел бы записаться на прием.',
+    'booking.whatsapp.name': 'Имя',
+    'booking.whatsapp.service': 'Услуга',
+    'booking.whatsapp.preference': 'Предпочтительное время',
+    'booking.service.other': 'Другое',
+    'booking.service.consultation': 'Первичная Консультация',
+    'booking.smart.quick': 'Быстрая Запись',
+    'booking.smart.quickDesc': 'Связаться через WhatsApp напрямую.',
+    'booking.smart.form': 'Форма',
+    'booking.smart.formDesc': 'Заполнить детали.',
+    'booking.smart.name': 'Ваше Имя',
+    'booking.smart.service': 'Услуга',
+    'booking.smart.time': 'Предпочтительное время',
+    'booking.smart.send': 'Отправить в WhatsApp',
+    'booking.smart.title': 'Забронируйте сеанс',
+    'booking.smart.subtitle': 'Выберите способ связи',
 
   }
 };
@@ -6234,10 +6473,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       (servicesTranslations[language] as Record<string, string>)?.[key] ||
       (revision360Translations[language] as Record<string, string>)?.[key] ||
       (techniqueTranslations[language] as Record<string, string>)?.[key] ||
+      (agenyzTranslations[language] as Record<string, string>)?.[key] ||
       (translations.en as Record<string, string>)?.[key] ||
       (servicesTranslations.en as Record<string, string>)?.[key] ||
       (revision360Translations.en as Record<string, string>)?.[key] ||
       (techniqueTranslations.en as Record<string, string>)?.[key] ||
+      (agenyzTranslations.en as Record<string, string>)?.[key] ||
       key;
 
     if (params) {

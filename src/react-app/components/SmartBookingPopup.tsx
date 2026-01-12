@@ -26,7 +26,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
   const handleQuickWhatsApp = () => {
     logEvent('booking_whatsapp_click', { type: 'quick' });
-    const message = encodeURIComponent(`Hola Elena, me gustaría reservar una cita.`);
+    const message = encodeURIComponent(t('booking.whatsapp.greeting'));
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
   };
@@ -38,10 +38,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         service: formData.service 
     });
     const message = encodeURIComponent(
-      `Hola Elena, me gustaría reservar una cita.\n\n` +
-      `Nombre: ${formData.name}\n` +
-      `Servicio: ${formData.service}\n` +
-      `Preferencia horaria: ${formData.timePreference}`
+      t('booking.whatsapp.greeting') + '\n\n' +
+      t('booking.whatsapp.name') + `: ${formData.name}\n` +
+      t('booking.whatsapp.service') + `: ${formData.service}\n` +
+      t('booking.whatsapp.preference') + `: ${formData.timePreference}`
     );
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
@@ -56,7 +56,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     t('technique.movement_lesson.title'),
     t('technique.jka.title'),
     t('technique.osteobalance.title'),
-    'Other'
+    t('booking.service.other')
   ];
 
   return (
@@ -172,7 +172,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
                     >
-                      <option value="">Select a service...</option>
+                      <option value="">{t('booking.smart.service.placeholder')}</option>
                       {services.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
@@ -185,7 +185,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                     </label>
                     <input
                       type="text"
-                      placeholder="Ex: Mornings, Next week..."
+                      placeholder={t('booking.smart.time.placeholder')}
                       value={formData.timePreference}
                       onChange={(e) => setFormData({ ...formData, timePreference: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-none transition-all"

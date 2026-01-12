@@ -34,7 +34,7 @@ export default function AnimateIn({
       transition: {
         duration: duration,
         delay: delay,
-        ease: "easeOut" as const
+        ease: [0.25, 0.46, 0.45, 0.94] // ease-out-quad
       }
     }
   };

@@ -108,13 +108,13 @@ export default function CasosSection() {
               <AnimateIn key={problem.id} delay={index * 0.1}>
               <Link
                 href={problem.href}
-                className="group bg-white rounded-[24px] p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 block"
+                className="group bg-white rounded-[24px] p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ease-out-quart block"
               >
-                <div className={`w-14 h-14 rounded-xl ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border`}>
+                <div className={`w-14 h-14 rounded-xl ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ease-out-quart border`}>
                   <ProblemIcon className="w-7 h-7" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 ease-out-quart">
                   {t(problem.titleKey)}
                 </h3>
 
@@ -124,7 +124,7 @@ export default function CasosSection() {
 
                 <div className="flex items-center text-blue-600 font-medium">
                   {t('casos.section.readMore')}
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
                 </div>
               </Link>
               </AnimateIn>
@@ -144,7 +144,7 @@ export default function CasosSection() {
               'casos.other.work',
               'casos.other.trauma'
             ].map((key) => (
-              <span key={key} className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-600 transition-all duration-200 cursor-default">
+              <span key={key} className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-600 transition-all duration-200 ease-out-quart cursor-default">
                 {t(key)}
               </span>
             ))}
@@ -156,14 +156,14 @@ export default function CasosSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/cases"
-              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
+              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-all duration-200 ease-out-quart shadow-sm hover:shadow-md"
             >
               {t('casos.section.viewAll')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <Link
               href="/first-time"
-              className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-all duration-200"
+              className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition-all duration-200 ease-out-quart"
             >
               {t('casos.section.findYourCase')}
             </Link>

@@ -14,12 +14,12 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 ease-out-quart h-full flex flex-col">
        <div className="relative h-48 sm:h-56 overflow-hidden">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out-quart hover:scale-105"
           />
         </div>
       <div className="p-6 flex flex-col flex-grow">
@@ -56,14 +56,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
              <Link href={service.href} className="flex-1">
             <Button 
                 variant="outline"
-                className="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 border-gray-200 text-sm py-2.5 rounded-xl transition-colors"
+                className="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 border-gray-200 text-sm py-2.5 rounded-xl transition-colors duration-200 ease-out-quart"
                 >
                 {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
              <Button 
-                className="w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] text-sm py-2.5 rounded-xl font-medium transition-colors border-none"
+                className="w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] text-sm py-2.5 rounded-xl font-medium transition-colors duration-200 ease-out-quart border-none"
              >
               {t('nav.bookNow')}
             </Button>

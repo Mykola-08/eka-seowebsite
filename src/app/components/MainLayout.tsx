@@ -127,18 +127,18 @@ export default function MainLayout({
       <OfflineIndicator />
 
       {/* Navigation with scroll effect */}
-      <nav className={`sticky top-0 z-50 transition-all duration-300`} style={{
+      <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out-quart`} style={{
         backgroundColor: isScrolled ? 'rgba(245, 245, 247, 0.9)' : '#F5F5F7'
       }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14' : 'h-16'
+          <div className={`flex items-center justify-between transition-all duration-500 ease-in-out-quart ${isScrolled ? 'h-14' : 'h-16'
             }`}>
             {/* Logo Only - Left Side */}
             <Link href="/" className="flex items-center flex-shrink-0 group relative">
               <img
                 src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                 alt="EKA Balance Logo"
-                className={`transition-all duration-300 ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'
+                className={`transition-all duration-500 ease-in-out-quart ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'
                   } object-contain`}
               />
             </Link>
@@ -153,7 +153,7 @@ export default function MainLayout({
                       <>
                         <Link
                           href={item.href}
-                          className={`nav-trigger font-medium transition-all duration-200 flex items-center px-5 py-3 rounded-[20px] hover:bg-white/60 ${isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
+                          className={`nav-trigger font-medium transition-all duration-200 ease-out-quart flex items-center px-5 py-3 rounded-[20px] hover:bg-white/60 ${isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
                             }`}
                           onMouseEnter={openDropdown}
                           onMouseLeave={scheduleHide}
@@ -195,7 +195,7 @@ export default function MainLayout({
                               key={dropdownItem.name}
                               href={dropdownItem.href}
                               onClick={() => setShowPersonalServices(false)}
-                              className="flex items-center justify-center h-12 text-sm font-medium transition-colors duration-200 text-[#000035] hover:text-[#FFB405]"
+                              className="flex items-center justify-center h-12 text-sm font-medium transition-colors duration-200 ease-out-quart text-[#000035] hover:text-[#FFB405]"
                               style={{
                                 marginBottom: index < item.dropdownItems!.length - 1 ? '8px' : '0'
                               }}
@@ -221,7 +221,7 @@ export default function MainLayout({
                     ) : (
                       <Link
                         href={item.href}
-                        className={`font-medium transition-all duration-200 px-5 py-3 rounded-[20px] hover:bg-white/60 ${item.isGold
+                        className={`font-medium transition-all duration-200 ease-out-quart px-5 py-3 rounded-[20px] hover:bg-white/60 ${item.isGold
                             ? 'gold-shimmer font-black bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-yellow-200/50 hover:from-yellow-100 hover:via-amber-100 hover:to-yellow-100'
                             : isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
                           }`}
@@ -240,7 +240,7 @@ export default function MainLayout({
               {/* Reserva Button */}
               <Link
                 href="/booking"
-                className="hidden sm:inline-flex bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200"
+                className="hidden sm:inline-flex bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 ease-out-quart"
               >
                 {t('nav.bookNow')}
               </Link>
@@ -354,7 +354,7 @@ export default function MainLayout({
               <img
                 src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                 alt="EKA Balance Logo"
-                className="w-10 h-10 object-contain absolute inset-0 transition-transform duration-300 group-hover:scale-105"
+                className="w-10 h-10 object-contain absolute inset-0 transition-transform duration-300 ease-out-quart group-hover:scale-105"
               />
             </div>
             <span className="text-xl font-medium">EKA Balance</span>
@@ -428,7 +428,7 @@ export default function MainLayout({
             </p>
             <button 
               onClick={() => setIsOpen(true)}
-              className="text-xs text-gray-600 hover:text-yellow-500 transition-colors uppercase tracking-widest opacity-50 hover:opacity-100"
+              className="text-xs text-gray-600 hover:text-yellow-500 transition-colors duration-200 ease-out-quart uppercase tracking-widest opacity-50 hover:opacity-100"
             >
               TDR Presentation Mode
             </button>

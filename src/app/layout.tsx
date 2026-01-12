@@ -7,6 +7,8 @@ import { LanguageProvider } from '@/react-app/contexts/LanguageContext';
 import { DiscountProvider } from "@/react-app/contexts/DiscountContext";
 import { BookingProvider } from '@/react-app/components/BookingProvider';
 import SmoothScrolling from "@/app/components/SmoothScrolling";
+import TDRPresentation from "@/app/components/TDRPresentation";
+import { TDRProvider } from "@/app/components/TDRContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,9 +39,12 @@ export default function RootLayout({
           <LanguageProvider>
              <DiscountProvider>
                 <BookingProvider>
-                  <MainLayout>
-                    {children}
-                  </MainLayout>
+                  <TDRProvider>
+                    <MainLayout>
+                      {children}
+                      <TDRPresentation />
+                    </MainLayout>
+                  </TDRProvider>
                 </BookingProvider>
               </DiscountProvider>
           </LanguageProvider>

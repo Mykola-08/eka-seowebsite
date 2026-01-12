@@ -11,7 +11,7 @@ import { Language } from '@/react-app/contexts/LanguageTypes';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import LanguagePopup from '@/react-app/components/LanguagePopup';
 import CookieBanner from './CookieBanner';
-import { TDRPresentationMode } from '@/react-app/components/TDRPresentationMode';
+import { useTDR } from './TDRContext';
 
 import { useClickOutside } from '@/react-app/hooks/useClickOutside';
 import { useAnalytics } from '@/react-app/hooks/useAnalytics';
@@ -25,6 +25,7 @@ export default function MainLayout({
 }) {
   const pathname = usePathname();
   const { t, language, setLanguage } = useLanguage();
+  const { setIsOpen } = useTDR();
   const { logPageView } = useAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -333,9 +334,6 @@ export default function MainLayout({
       {/* Cookie Banner */}
       <CookieBanner />
       <LanguagePopup />
-      <Suspense fallback={null}>
-        <TDRPresentationMode />
-      </Suspense>
 
       {/* Fixed Mobile Bottom CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe">
@@ -424,10 +422,16 @@ export default function MainLayout({
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-gray-800 pt-8">
+          <div className="border-t border-gray-800 pt-8 flex flex-col items-center gap-4">
             <p className="text-sm text-gray-400">
               {t('footer.copyright')}
             </p>
+            <button 
+              onClick={() => setIsOpen(true)}
+              className="text-xs text-gray-600 hover:text-yellow-500 transition-colors uppercase tracking-widest opacity-50 hover:opacity-100"
+            >
+              TDR Presentation Mode
+            </button>
           </div>
         </div>
       </footer>

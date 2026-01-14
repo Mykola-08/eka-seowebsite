@@ -1744,7 +1744,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Casos section
     'casos.section.badge': 'Real problems, effective solutions',
     'casos.section.title': 'Problems we',
-    'casos.section.titleHighlight': 'solve every day',
+    'casos.section.titleHighlight': 'Solve every day',
     'casos.section.subtitle': 'Hundreds of people have reclaimed their well-being with us. Discover how we can help you too.',
     'casos.section.readMore': 'Read more',
     'casos.section.viewAll': 'View all cases',

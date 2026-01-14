@@ -204,14 +204,25 @@ export default function AgenyzPage() {
                                         transition={{ duration: 0.3 }}
                                         className="bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full group"
                                     >
-                                        <div className="mb-6 flex items-start justify-between">
+                                        <div className="mb-4 flex items-start justify-between">
                                             <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full uppercase tracking-wide">
                                                 {t(`agenyz.category.${product.category}`) || product.category}
                                             </span>
-                                            {/* Placeholder for Product Icon/Image */}
-                                            <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
-                                                <Sparkles className="w-6 h-6" />
-                                            </div>
+                                        </div>
+
+                                        <div className="relative w-full h-56 mb-6 bg-white rounded-2xl overflow-hidden flex items-center justify-center p-4">
+                                            {product.image ? (
+                                                <img 
+                                                    src={product.image} 
+                                                    alt={product.name}
+                                                    className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                                                    loading="lazy"
+                                                />
+                                            ) : (
+                                                <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-300">
+                                                    <Sparkles className="w-8 h-8" />
+                                                </div>
+                                            )}
                                         </div>
 
                                         <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">

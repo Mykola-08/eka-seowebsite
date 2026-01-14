@@ -101,7 +101,7 @@ export default function HomeContent() {
                 <Link href="/about-elena">
                   <Button 
                     size="xl"
-                    className="bg-[#000035] hover:bg-[#1a1a4b] text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[200px]"
+                    className="bg-[#000035] hover:bg-[#1a1a4b] text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group min-w-[200px] normal-case"
                   >
                     {t('elena.knowMore')}
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -149,7 +149,7 @@ export default function HomeContent() {
 
           <div className="mt-16 text-center">
              <Link href="/services">
-                <Button variant="outline" className="border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-200 px-8 py-3 rounded-xl bg-gray-50">
+                <Button variant="outline" className="border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-200 px-8 py-3 rounded-xl bg-gray-50 normal-case">
                    {t('home.viewAllServices')}
                 </Button>
              </Link>

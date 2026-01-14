@@ -38,7 +38,7 @@ export default function ContactContent() {
               >
                   <Button 
                     size="xl"
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-xl border-none"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-xl border-none normal-case"
                   >
                     <MessageCircle className="w-6 h-6 mr-2" />
                     {t('contact.whatsapp')}
@@ -47,7 +47,7 @@ export default function ContactContent() {
               <a href="tel:+34658867133">
                  <Button 
                     size="xl"
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-xl border-none"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-xl border-none normal-case"
                  >
                     <Phone className="w-6 h-6 mr-2" />
                     {t('contact.callNow')}

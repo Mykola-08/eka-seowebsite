@@ -145,7 +145,7 @@ export default function AboutElenaContent() {
                  <Link href="/booking">
                     <Button 
                       size="xl" 
-                      className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] px-10 py-4 rounded-2xl font-medium shadow-lg hover:translate-y-[-2px] transition-all border-none"
+                      className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] px-10 py-4 rounded-2xl font-medium shadow-lg hover:translate-y-[-2px] transition-all border-none normal-case"
                     >
                       {t('common.bookNow')}
                     </Button>
@@ -154,7 +154,7 @@ export default function AboutElenaContent() {
                     <Button 
                       size="xl" 
                       variant="outline"
-                      className="bg-white text-gray-900 border-gray-200 px-10 py-4 rounded-2xl font-medium hover:bg-gray-100"
+                      className="bg-white text-gray-900 border-gray-200 px-10 py-4 rounded-2xl font-medium hover:bg-gray-100 normal-case"
                     >
                       {t('nav.contact')}
                     </Button>

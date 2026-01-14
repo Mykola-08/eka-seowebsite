@@ -37,7 +37,7 @@ export default function LoadingButton({
       color={color}
       variant={variant}
       size={size}
-      className={`${loading ? 'cursor-wait' : ''} ${className}`}
+      className={`${loading ? 'cursor-wait' : ''} normal-case ${className}`}
     >
       {loading && (
         <CircleNotch className="w-4 h-4 mr-2 animate-spin" />

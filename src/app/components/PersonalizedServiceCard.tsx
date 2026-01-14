@@ -74,7 +74,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         <div className="flex gap-4">
           <Link href="/booking" className="flex-1">
              <Button 
-                className="w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] py-3 rounded-xl font-bold transition-colors border-none shadow-md hover:shadow-lg"
+                className="w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] py-3 rounded-xl font-bold transition-colors border-none shadow-md hover:shadow-lg normal-case"
              >
                {t('nav.bookNow')}
             </Button>
@@ -82,7 +82,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <Link href={service.href} className="flex-1">
              <Button 
                 variant="outline"
-                className="w-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 py-3 rounded-xl font-medium transition-colors"
+                className="w-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 py-3 rounded-xl font-medium transition-colors normal-case"
                 >
                {t('common.readMore') || 'Read More'}
             </Button>

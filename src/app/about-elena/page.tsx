@@ -42,7 +42,7 @@ export default function AboutElena() {
                 <img
                   src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                   alt="Elena Kuchera"
-                  className="relative w-full h-auto rounded-full object-cover aspect-square shadow-2xl border-4 border-white"
+                  className="relative w-full h-auto rounded-full object-cover aspect-square shadow-2xl"
                 />
               </div>
             </motion.div>

@@ -2,11 +2,16 @@ import { useState, useEffect } from 'react';
 import { useToast } from '@/react-app/hooks/useToast';
 
 export function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [isOnline, setIsOnline] = useState(true);
   const [wasOffline, setWasOffline] = useState(false);
   const toast = useToast();
 
   useEffect(() => {
+    // Check initial status on mount
+    if (typeof navigator !== 'undefined') {
+      setIsOnline(navigator.onLine); 
+    }
+
     const handleOnline = () => {
       setIsOnline(true);
       if (wasOffline) {

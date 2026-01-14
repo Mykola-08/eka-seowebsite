@@ -38,16 +38,16 @@ const rawTranslations: Translations = {
 
   // Hero Section
   'hero.title': {
-    ca: 'Revisió Corporal 360°',
-    en: '360° Body Review',
-    es: 'Revisión Corporal 360°',
-    ru: 'Телесный Обзор 360°'
+    ca: 'Revisió corporal 360°',
+    en: '360° body review',
+    es: 'Revisión corporal 360°',
+    ru: 'Телесный обзор 360°'
   },
   'hero.byEka': {
-    ca: 'per EKA Balance',
-    en: 'by EKA Balance',
-    es: 'por EKA Balance',
-    ru: 'от EKA Balance'
+    ca: 'Per EKA Balance',
+    en: 'By EKA Balance',
+    es: 'Por EKA Balance',
+    ru: 'От EKA Balance'
   },
   'hero.subtitle': {
     ca: 'Un viatge complet i holístic a través del teu cos — físic, emocional, estructural i energètic.',
@@ -62,10 +62,10 @@ const rawTranslations: Translations = {
     ru: 'Начать вашу сессию 360°'
   },
   'hero.quote': {
-    ca: 'Sanar no és afegir el que falta. És recordar el que sempre hi va ser.',
+    ca: 'Sanar no és afegir el que falta. és recordar el que sempre hi va ser.',
     en: 'Healing is not adding what is missing. It is remembering what was always there.',
     es: 'Sanar no es agregar lo que falta. Es recordar lo que siempre estuvo ahí.',
-    ru: 'Исцеление — это не добавление того, чего не хватает. Это вспоминание того, что всегда было там.'
+    ru: 'Исцеление — это не добавление того, чего не хватает. это вспоминание того, что всегда было там.'
   },
   'hero.tooltip': {
     ca: 'On comença la teva història de transformació',
@@ -78,38 +78,38 @@ const rawTranslations: Translations = {
   'why360.title': {
     ca: 'Per què 360°?',
     en: 'Why 360°?',
-    es: '¿Por qué 360°?',
+    es: '¿por qué 360°?',
     ru: 'Почему 360°?'
   },
   'why360.modal.title': {
-    ca: 'La Filosofia 360°',
-    en: 'The 360° Philosophy',
-    es: 'La Filosofía 360°',
+    ca: 'La filosofia 360°',
+    en: 'The 360° philosophy',
+    es: 'La filosofía 360°',
     ru: 'Философия 360°'
   },
   'why360.modal.intro': {
     ca: 'El teu cos és una simfonia. La nostra feina és escoltar els instruments que no pots sentir.',
     en: 'Your body is a symphony. Our job is to listen to the instruments you cannot hear.',
     es: 'Tu cuerpo es una sinfonía. Nuestro trabajo es escuchar los instrumentos que no puedes oír.',
-    ru: 'Ваше тело — это симфония. Наша работа — слушать инструменты, которые вы не можете услышать.'
+    ru: 'Ваше тело — это симфония. наша работа — слушать инструменты, которые вы не можете услышать.'
   },
   'why360.modal.integration.title': {
-    ca: 'Integració Completa',
-    en: 'Complete Integration',
-    es: 'Integración Completa',
-    ru: 'Полная Интеграция'
+    ca: 'Integració completa',
+    en: 'Complete integration',
+    es: 'Integración completa',
+    ru: 'Полная интеграция'
   },
   'why360.modal.integration.description': {
     ca: 'Els enfocaments tradicionals sovint es centren en símptomes aïllats o sistemes únics. El mètode 360° reconeix que el teu cos opera com un tot interconnectat — on els patrons emocionals creen tensió física, els desequilibris estructurals afecten el flux d\'energia, i els bloquejos energètics es manifesten com a dolor físic.',
     en: 'Traditional approaches often focus on isolated symptoms or single systems. The 360° method recognizes that your body operates as an interconnected whole — where emotional patterns create physical tension, structural imbalances affect energy flow, and energetic blockages manifest as physical pain.',
     es: 'Los enfoques tradicionales a menudo se centran en síntomas aislados o sistemas únicos. El método 360° reconoce que tu cuerpo opera como un todo interconectado — donde los patrones emocionales crean tensión física, los desequilibrios estructurales afectan el flujo de energía, y los bloqueos energéticos se manifiestan como dolor físico.',
-    ru: 'Традиционные подходы часто сосредотачиваются на изолированных симптомах или отдельных системах. Метод 360° признает, что ваше тело функционирует как взаимосвязанное целое — где эмоциональные паттерны создают физическое напряжение, структурные дисбалансы влияют на энергетический поток, а энергетические блоки проявляются как физическая боль.'
+    ru: 'Традиционные подходы часто сосредотачиваются на изолированных симптомах или отдельных системах. метод 360° признает, что ваше тело функционирует как взаимосвязанное целое — где эмоциональные паттерны создают физическое напряжение, структурные дисбалансы влияют на энергетический поток, а энергетические блоки проявляются как физическая боль.'
   },
   'why360.modal.dimensions.title': {
-    ca: 'Les Quatre Dimensions',
-    en: 'The Four Dimensions',
-    es: 'Las Cuatro Dimensiones',
-    ru: 'Четыре Измерения'
+    ca: 'Les quatre dimensions',
+    en: 'The four dimensions',
+    es: 'Las cuatro dimensiones',
+    ru: 'Четыре измерения'
   },
   'why360.modal.importance.title': {
     ca: 'Per què això importa',
@@ -119,15 +119,15 @@ const rawTranslations: Translations = {
   },
   'why360.modal.importance.description': {
     ca: 'Quan veiem el panorama complet, la sanació deixa de ser reparar el que està trencat, i es converteix en restaurar el flux natural i l\'equilibri que sempre havia d\'estar-hi. Per això els nostres clients sovint experimenten canvis profunds que van molt més enllà de les seves preocupacions originals.',
-    en: 'When we see the complete picture, healing stops being about fixing what is broken, and becomes about restoring the natural flow and balance that was always meant to be there. This is why our clients often experience profound changes that go far beyond their original concerns.',
+    en: 'When we see the complete picture, healing stops being about fixing what is broken, and becomes about restoring the natural flow and Balance that was always meant to be there. This is why our clients often experience profound changes that go far beyond their original concerns.',
     es: 'Cuando vemos el panorama completo, la sanación deja de ser reparar lo que está roto, y se convierte en restaurar el flujo natural y el equilibrio que siempre debía estar ahí. Por eso nuestros clientes a menudo experimentan cambios profundos que van mucho más allá de sus preocupaciones originales.',
-    ru: 'Когда мы видим полную картину, исцеление перестает быть о исправлении того, что сломано, и становится о восстановлении естественного потока и баланса, который всегда должен был быть там. Поэтому наши клиенты часто испытывают глубокие изменения, которые выходят далеко за рамки их первоначальных забот.'
+    ru: 'Когда мы видим полную картину, исцеление перестает быть о исправлении того, что сломано, и становится о восстановлении естественного потока и баланса, который всегда должен был быть там. поэтому наши клиенты часто испытывают глубокие изменения, которые выходят далеко за рамки их первоначальных забот.'
   },
   'why360.subtitle': {
     ca: '360° significa completesa. No tractem parts. Llegim tota la història.',
     en: '360° means completeness. We don\'t treat parts. We read the whole story.',
     es: '360° significa completitud. No tratamos partes. Leemos toda la historia.',
-    ru: '360° означает полноту. Мы не лечим части. Мы читаем всю историю.'
+    ru: '360° означает полноту. мы не лечим части. мы читаем всю историю.'
   },
   'why360.layers.physical': {
     ca: 'Físic',
@@ -202,22 +202,22 @@ const rawTranslations: Translations = {
   'whatsapp.booking': {
     ca: 'Hola, m\'agradaria reservar una sessió 360°. Podríem parlar?',
     en: 'Hello, I would like to book a 360° session. Could we talk?',
-    es: 'Hola, me gustaría reservar una sesión 360°. ¿Podríamos hablar?',
-    ru: 'Привет, я хотел бы забронировать сессию 360°. Можем ли мы поговорить?'
+    es: 'Hola, me gustaría reservar una sesión 360°. ¿podríamos hablar?',
+    ru: 'Привет, я хотел бы забронировать сессию 360°. можем ли мы поговорить?'
   },
   'whatsapp.consultation': {
     ca: 'Hola, voldria fer una consulta sobre el vostre mètode de treball. Gràcies!',
     en: 'Hello, I would like to make a consultation about your work method. Thank you!',
-    es: 'Hola, me gustaría hacer una consulta sobre su método de trabajo. ¡Gracias!',
-    ru: 'Привет, я хотел бы проконсультироваться о вашем методе работы. Спасибо!'
+    es: 'Hola, me gustaría hacer una consulta sobre su método de trabajo. ¡gracias!',
+    ru: 'Привет, я хотел бы проконсультироваться о вашем методе работы. спасибо!'
   },
 
   // Service Section
   'service.title': {
-    ca: 'Revisió Corporal 360°',
-    en: '360° Body Review',
-    es: 'Revisión Corporal 360°',
-    ru: 'Телесный Обзор 360°'
+    ca: 'Revisió corporal 360°',
+    en: '360° body review',
+    es: 'Revisión corporal 360°',
+    ru: 'Телесный обзор 360°'
   },
   'service.subtitle': {
     ca: 'Un viatge terapèutic complet que honora cada aspecte del teu ser.',
@@ -226,10 +226,10 @@ const rawTranslations: Translations = {
     ru: 'Полное терапевтическое путешествие, которое уважает каждый аспект вашего существа.'
   },
   'service.step1.title': {
-    ca: 'Consulta Profunda',
-    en: 'Deep Consultation',
-    es: 'Consulta Profunda',
-    ru: 'Глубокая Консультация'
+    ca: 'Consulta profunda',
+    en: 'Deep consultation',
+    es: 'Consulta profunda',
+    ru: 'Глубокая консультация'
   },
   'service.step1.description': {
     ca: 'Comencem escoltant la història del teu cos — tant el que pots dir-nos com el que ell ens diu.',
@@ -238,10 +238,10 @@ const rawTranslations: Translations = {
     ru: 'Мы начинаем с выслушивания истории вашего тела — как того, что вы можете нам рассказать, так и того, что оно нам говорит.'
   },
   'service.step2.title': {
-    ca: 'Mapeig Corporal 360°',
-    en: '360° Body Mapping',
-    es: 'Mapeo Corporal 360°',
-    ru: 'Телесное Картирование 360°'
+    ca: 'Mapeig corporal 360°',
+    en: '360° body mapping',
+    es: 'Mapeo corporal 360°',
+    ru: 'Телесное картирование 360°'
   },
   'service.step2.description': {
     ca: 'Una avaluació completa a través de les quatre dimensions del teu ser.',
@@ -250,10 +250,10 @@ const rawTranslations: Translations = {
     ru: 'Комплексная оценка по четырем измерениям вашего существа.'
   },
   'service.step3.title': {
-    ca: 'Sessió Integrada',
-    en: 'Integrated Session',
-    es: 'Sesión Integrada',
-    ru: 'Интегрированная Сессия'
+    ca: 'Sessió integrada',
+    en: 'Integrated session',
+    es: 'Sesión integrada',
+    ru: 'Интегрированная сессия'
   },
   'service.step3.description': {
     ca: 'Treball manual que aborda totes les dimensions simultàniament.',
@@ -263,9 +263,9 @@ const rawTranslations: Translations = {
   },
   'service.step4.title': {
     ca: 'Pla d\'Integració',
-    en: 'Integration Plan',
-    es: 'Plan de Integración',
-    ru: 'План Интеграции'
+    en: 'Integration plan',
+    es: 'Plan de integración',
+    ru: 'План интеграции'
   },
   'service.step4.description': {
     ca: 'Una fulla de ruta personalitzada per continuar la teva transformació a casa.',
@@ -274,16 +274,16 @@ const rawTranslations: Translations = {
     ru: 'Персонализированная дорожная карта для продолжения вашей трансформации дома.'
   },
   'service.total.title': {
-    ca: 'Sessió 360° Completa',
-    en: 'Complete 360° Session',
-    es: 'Sesión 360° Completa',
-    ru: 'Полная Сессия 360°'
+    ca: 'Sessió 360° completa',
+    en: 'Complete 360° session',
+    es: 'Sesión 360° completa',
+    ru: 'Полная сессия 360°'
   },
   'service.total.duration': {
-    ca: '4.5 Hores Total',
-    en: '4.5 Hours Total',
-    es: '4.5 Horas Total',
-    ru: '4.5 Часа Всего'
+    ca: '4.5 hores total',
+    en: '4.5 hours total',
+    es: '4.5 horas total',
+    ru: '4.5 часа всего'
   },
   'service.total.note': {
     ca: 'Normalment completada en 2-3 cites segons les teves necessitats i horari',
@@ -313,7 +313,7 @@ const rawTranslations: Translations = {
   },
   'emotional.philosophy': {
     ca: 'Filosofia EKA Balance',
-    en: 'EKA Balance Philosophy',
+    en: 'EKA Balance philosophy',
     es: 'Filosofía EKA Balance',
     ru: 'Философия EKA Balance'
   },
@@ -350,10 +350,10 @@ const rawTranslations: Translations = {
 
   // Benefits Section
   'benefits.title': {
-    ca: 'Què Pots Esperar',
-    en: 'What You Can Expect',
-    es: 'Qué Puedes Esperar',
-    ru: 'Чего Вы Можете Ожидать'
+    ca: 'Què pots esperar',
+    en: 'What you can expect',
+    es: 'Qué puedes esperar',
+    ru: 'Чего вы можете ожидать'
   },
   'benefits.subtitle': {
     ca: 'Resultats reals que van més enllà de l\'alleujament de símptomes per crear transformació duradora.',
@@ -364,10 +364,10 @@ const rawTranslations: Translations = {
 
   // Final Invitation
   'final.title': {
-    ca: 'Entra al Cercle.',
-    en: 'Enter the Circle.',
-    es: 'Entra al Círculo.',
-    ru: 'Войти в Круг.'
+    ca: 'Entra al cercle.',
+    en: 'Enter the circle.',
+    es: 'Entra al círculo.',
+    ru: 'Войти в круг.'
   },
   'final.subtitle': {
     ca: 'El viatge 360° no és una sessió — és un punt d\'inflexió.',
@@ -440,16 +440,16 @@ const rawTranslations: Translations = {
   'whatsapp.discoveryCall': {
     ca: 'Hola, m\'agradaria programar una trucada de descobriment. Podríem parlar?',
     en: 'Hello, I would like to schedule a discovery call. Could we talk?',
-    es: 'Hola, me gustaría programar una llamada de descubrimiento. ¿Podríamos hablar?',
-    ru: 'Привет, я хотел бы запланировать ознакомительный звонок. Можем ли мы поговорить?'
+    es: 'Hola, me gustaría programar una llamada de descubrimiento. ¿podríamos hablar?',
+    ru: 'Привет, я хотел бы запланировать ознакомительный звонок. можем ли мы поговорить?'
   },
 
   // Testimonials Section
   'testimonials.title': {
-    ca: 'Històries de Transformació',
-    en: 'Transformation Stories',
-    es: 'Historias de Transformación',
-    ru: 'Истории Трансформации'
+    ca: 'Històries de transformació',
+    en: 'Transformation stories',
+    es: 'Historias de transformación',
+    ru: 'Истории трансформации'
   },
   'testimonials.subtitle': {
     ca: 'Persones reals, resultats reals, canvi durador real.',
@@ -460,16 +460,16 @@ const rawTranslations: Translations = {
 
   // Variants Section
   'variants.title': {
-    ca: 'Tria el Teu Camí',
-    en: 'Choose Your Path',
-    es: 'Elige Tu Camino',
-    ru: 'Выберите Свой Путь'
+    ca: 'Tria el teu camí',
+    en: 'Choose your path',
+    es: 'Elige tu camino',
+    ru: 'Выберите свой путь'
   },
   'variants.subtitle': {
     ca: 'Cada camí comença amb 360°. Selecciona l\'enfocament que ressoni amb les teves necessitats actuals.',
     en: 'Every path begins with 360°. Select the approach that resonates with your current needs.',
     es: 'Cada camino comienza con 360°. Selecciona el enfoque que resuene con tus necesidades actuales.',
-    ru: 'Каждый путь начинается с 360°. Выберите подход, который резонирует с вашими текущими потребностями.'
+    ru: 'Каждый путь начинается с 360°. выберите подход, который резонирует с вашими текущими потребностями.'
   },
   'variants.idealFor': {
     ca: 'Ideal per a',
@@ -484,10 +484,10 @@ const rawTranslations: Translations = {
     ru: 'Что включает'
   },
   'variants.sessionDuration': {
-    ca: 'Durada de la Sessió',
-    en: 'Session Duration',
-    es: 'Duración de la Sesión',
-    ru: 'Продолжительность Сессии'
+    ca: 'Durada de la sessió',
+    en: 'Session duration',
+    es: 'Duración de la sesión',
+    ru: 'Продолжительность сессии'
   },
   'variants.investment': {
     ca: 'Inversió',
@@ -524,7 +524,7 @@ const rawTranslations: Translations = {
     ca: 'Un reinici integral per quan la vida se sent estancada o aclaparadora. Perfecte per a transicions importants, estrès crònic, o quan necessites començar de nou.',
     en: 'A comprehensive reset for when life feels stuck or overwhelming. Perfect for major transitions, chronic stress, or when you need to start fresh.',
     es: 'Un reinicio integral para cuando la vida se siente estancada o abrumadora. Perfecto para transiciones importantes, estrés crónico, o cuando necesitas empezar de nuevo.',
-    ru: 'Комплексная перезагрузка для случаев, когда жизнь ощущается застойной или подавляющей. Идеально для важных переходов, хронического стресса или когда вам нужно начать заново.'
+    ru: 'Комплексная перезагрузка для случаев, когда жизнь ощущается застойной или подавляющей. идеально для важных переходов, хронического стресса или когда вам нужно начать заново.'
   },
   'variants.reset.idealFor.1': {
     ca: 'Estrès crònic i esgotament',
@@ -597,7 +597,7 @@ const rawTranslations: Translations = {
     ca: 'Una exploració i anàlisi profunda dels patrons del teu cos. Ideal per entendre problemes crònics o preparar-se per un treball de sanació important.',
     en: 'A deep exploration and analysis of your body\'s patterns. Ideal for understanding chronic issues or preparing for major healing work.',
     es: 'Una exploración y análisis profundo de los patrones de tu cuerpo. Ideal para entender problemas crónicos o prepararse para un trabajo de sanación importante.',
-    ru: 'Глубокое исследование и анализ паттернов вашего тела. Идеально для понимания хронических проблем или подготовки к важной целительной работе.'
+    ru: 'Глубокое исследование и анализ паттернов вашего тела. идеально для понимания хронических проблем или подготовки к важной целительной работе.'
   },
   'variants.mapping.idealFor.1': {
     ca: 'Dolor o disfunció crònica',
@@ -668,9 +668,9 @@ const rawTranslations: Translations = {
   },
   'variants.alignment.description': {
     ca: 'Enfocat en l\'equilibri estructural i patrons de moviment òptims. Perfecte per abordar problemes posturals i ineficiències del moviment.',
-    en: 'Focused on structural balance and optimal movement patterns. Perfect for addressing postural issues and movement inefficiencies.',
+    en: 'Focused on structural Balance and optimal movement patterns. Perfect for addressing postural issues and movement inefficiencies.',
     es: 'Enfocado en el equilibrio estructural y patrones de movimiento óptimos. Perfecto para abordar problemas posturales e ineficiencias del movimiento.',
-    ru: 'Сосредоточен на структурном балансе и оптимальных двигательных паттернах. Идеально для решения постуральных проблем и неэффективности движений.'
+    ru: 'Сосредоточен на структурном балансе и оптимальных двигательных паттернах. идеально для решения постуральных проблем и неэффективности движений.'
   },
   'variants.alignment.idealFor.1': {
     ca: 'Desequilibris posturals',
@@ -743,7 +743,7 @@ const rawTranslations: Translations = {
     ca: 'L\'experiència completa combinant totes les nostres modalitats. Per a aquells preparats per a una transformació profunda i duradora a través de totes les dimensions de l\'ésser.',
     en: 'The complete experience combining all our modalities. For those ready for deep and lasting transformation across all dimensions of being.',
     es: 'La experiencia completa combinando todas nuestras modalidades. Para aquellos listos para una transformación profunda y duradera a través de todas las dimensiones del ser.',
-    ru: 'Полный опыт, объединяющий все наши модальности. Для тех, кто готов к глубокой и длительной трансформации через все измерения бытия.'
+    ru: 'Полный опыт, объединяющий все наши модальности. для тех, кто готов к глубокой и длительной трансформации через все измерения бытия.'
   },
   'variants.integral.idealFor.1': {
     ca: 'Transformació integral',
@@ -776,10 +776,10 @@ const rawTranslations: Translations = {
     ru: '5 часов'
   },
   'variants.integral.includes.1': {
-    ca: 'Revisió Corporal 360° completa',
-    en: 'Complete 360° Body Review',
-    es: 'Revisión Corporal 360° completa',
-    ru: 'Полный Телесный Обзор 360°'
+    ca: 'Revisió corporal 360° completa',
+    en: 'Complete 360° body review',
+    es: 'Revisión corporal 360° completa',
+    ru: 'Полный телесный обзор 360°'
   },
   'variants.integral.includes.2': {
     ca: 'Múltiples modalitats terapèutiques',
@@ -809,9 +809,9 @@ const rawTranslations: Translations = {
   },
   'prompt.subtitle': {
     ca: 'Treballo amb una visió global: cos, ment, emocions i energia. La meva tasca és ajudar-te a reconnectar amb el teu eix intern perquè el cos recuperi equilibri, força i claredat.',
-    en: 'I work with a global vision: body, mind, emotions and energy. My task is to help you reconnect with your inner axis so that the body recovers balance, strength and clarity.',
+    en: 'I work with a global vision: body, mind, emotions and energy. My task is to help you reconnect with your inner axis so that the body recovers Balance, strength and clarity.',
     es: 'Trabajo con una visión global: cuerpo, mente, emociones y energía. Mi tarea es ayudarte a reconectar con tu eje interno para que el cuerpo recupere equilibrio, fuerza y claridad.',
-    ru: 'Я работаю с глобальным видением: тело, разум, эмоции и энергия. Моя задача — помочь вам восстановить связь с вашей внутренней осью, чтобы тело восстановило равновесие, силу и ясность.'
+    ru: 'Я работаю с глобальным видением: тело, разум, эмоции и энергия. моя задача — помочь вам восстановить связь с вашей внутренней осью, чтобы тело восстановило равновесие, силу и ясность.'
   },
   'prompt.whatWework': {
     ca: 'Què treballem',
@@ -826,10 +826,10 @@ const rawTranslations: Translations = {
     ru: 'Тело (физическое)'
   },
   'prompt.bodyDesc': {
-    ca: 'dolors recurrents, tensió muscular, postura, respiració, fatiga',
-    en: 'recurring pain, muscle tension, posture, breathing, fatigue',
-    es: 'dolores recurrentes, tensión muscular, postura, respiración, fatiga',
-    ru: 'повторяющиеся боли, мышечное напряжение, осанка, дыхание, усталость'
+    ca: 'Dolors recurrents, tensió muscular, postura, respiració, fatiga',
+    en: 'Recurring pain, muscle tension, posture, breathing, fatigue',
+    es: 'Dolores recurrentes, tensión muscular, postura, respiración, fatiga',
+    ru: 'Повторяющиеся боли, мышечное напряжение, осанка, дыхание, усталость'
   },
   'prompt.emotions': {
     ca: 'Emocions',
@@ -838,10 +838,10 @@ const rawTranslations: Translations = {
     ru: 'Эмоции'
   },
   'prompt.emotionsDesc': {
-    ca: 'estrès, ansietat, bloquejos, patrons que es repeteixen, regulació emocional',
-    en: 'stress, anxiety, blockages, repetitive patterns, emotional regulation',
-    es: 'estrés, ansiedad, bloqueos, patrones repetitivos, regulación emocional',
-    ru: 'стресс, тревога, блокировки, повторяющиеся паттерны, эмоциональная регуляция'
+    ca: 'Estrès, ansietat, bloquejos, patrons que es repeteixen, regulació emocional',
+    en: 'Stress, anxiety, blockages, repetitive patterns, emotional regulation',
+    es: 'Estrés, ansiedad, bloqueos, patrones repetitivos, regulación emocional',
+    ru: 'Стресс, тревога, блокировки, повторяющиеся паттерны, эмоциональная регуляция'
   },
   'prompt.mind': {
     ca: 'Ment',
@@ -850,10 +850,10 @@ const rawTranslations: Translations = {
     ru: 'Разум'
   },
   'prompt.mindDesc': {
-    ca: 'excés de pensament, desgast mental, falta de focus, decisions difícils',
-    en: 'overthinking, mental fatigue, lack of focus, difficult decisions',
-    es: 'exceso de pensamiento, desgaste mental, falta de enfoque, decisiones difíciles',
-    ru: 'избыточное мышление, умственная усталость, недостаток фокуса, трудные решения'
+    ca: 'Excés de pensament, desgast mental, falta de focus, decisions difícils',
+    en: 'Overthinking, mental fatigue, lack of focus, difficult decisions',
+    es: 'Exceso de pensamiento, desgaste mental, falta de enfoque, decisiones difíciles',
+    ru: 'Избыточное мышление, умственная усталость, недостаток фокуса, трудные решения'
   },
   'prompt.energy': {
     ca: 'Energia',
@@ -862,10 +862,10 @@ const rawTranslations: Translations = {
     ru: 'Энергия'
   },
   'prompt.energyDesc': {
-    ca: 'recuperació, qualitat del son, ritmes interns, vitalitat',
-    en: 'recovery, sleep quality, internal rhythms, vitality',
-    es: 'recuperación, calidad del sueño, ritmos internos, vitalidad',
-    ru: 'восстановление, качество сна, внутренние ритмы, жизненность'
+    ca: 'Recuperació, qualitat del son, ritmes interns, vitalitat',
+    en: 'Recovery, sleep quality, internal rhythms, vitality',
+    es: 'Recuperación, calidad del sueño, ritmos internos, vitalidad',
+    ru: 'Восстановление, качество сна, внутренние ритмы, жизненность'
   },
   'prompt.expectedResult': {
     ca: 'Resultat esperat',
@@ -880,16 +880,16 @@ const rawTranslations: Translations = {
     ru: 'Больше пространства в теле, ментальный покой, стабильная энергия и ясное ощущение'
   },
   'prompt.selfDirection': {
-    ca: 'autodirecció',
-    en: 'self-direction',
-    es: 'autodirección',
-    ru: 'самонаправленности'
+    ca: 'Autodirecció',
+    en: 'Self-direction',
+    es: 'Autodirección',
+    ru: 'Самонаправленности'
   },
   'prompt.systemChoice': {
-    ca: 'el teu sistema comença a triar el que li fa bé, de forma natural',
-    en: 'your system begins to choose what is good for it, naturally',
-    es: 'tu sistema comienza a elegir lo que le hace bien, de forma natural',
-    ru: 'ваша система начинает естественно выбирать то, что ей полезно'
+    ca: 'El teu sistema comença a triar el que li fa bé, de forma natural',
+    en: 'Your system begins to choose what is good for it, naturally',
+    es: 'Tu sistema comienza a elegir lo que le hace bien, de forma natural',
+    ru: 'Ваша система начинает естественно выбирать то, что ей полезно'
   },
   'prompt.howIwork': {
     ca: 'Com treballo',
@@ -904,10 +904,10 @@ const rawTranslations: Translations = {
     ru: 'Мягкая и точная диагностика'
   },
   'prompt.diagnosisDesc': {
-    ca: 'escoltant el cos amb les mans i amb preguntes curtes',
-    en: 'listening to the body with hands and short questions',
-    es: 'escuchando el cuerpo con las manos y preguntas cortas',
-    ru: 'слушая тело руками и короткими вопросами'
+    ca: 'Escoltant el cos amb les mans i amb preguntes curtes',
+    en: 'Listening to the body with hands and short questions',
+    es: 'Escuchando el cuerpo con las manos y preguntas cortas',
+    ru: 'Слушая тело руками и короткими вопросами'
   },
   'prompt.integrativeTechniques': {
     ca: 'Tècniques integratives',
@@ -916,10 +916,10 @@ const rawTranslations: Translations = {
     ru: 'Интегративные техники'
   },
   'prompt.techniquesDesc': {
-    ca: 'massatge terapèutic, kinesiologia, osteobalance, moviment conscient (Feldenkrais), respiració i regulació del sistema nerviós',
-    en: 'therapeutic massage, kinesiology, osteobalance, conscious movement (Feldenkrais), breathing and nervous system regulation',
-    es: 'masaje terapéutico, kinesiología, osteobalance, movimiento consciente (Feldenkrais), respiración y regulación del sistema nervioso',
-    ru: 'терапевтический массаж, кинезиология, остеобаланс, осознанное движение (Фельденкрайз), дыхание и регуляция нервной системы'
+    ca: 'Massatge terapèutic, kinesiologia, Osteobalance, moviment conscient (Feldenkrais), respiració i regulació del sistema nerviós',
+    en: 'Therapeutic massage, kinesiology, Osteobalance, conscious movement (Feldenkrais), breathing and nervous system regulation',
+    es: 'Masaje terapéutico, kinesiología, Osteobalance, movimiento consciente (Feldenkrais), respiración y regulación del sistema nervioso',
+    ru: 'Терапевтический массаж, кинезиология, остеобаланс, осознанное движение (фельденкрайз), дыхание и регуляция нервной системы'
   },
   'prompt.layeredProcesses': {
     ca: 'Processos en capes',
@@ -928,10 +928,10 @@ const rawTranslations: Translations = {
     ru: 'Многослойные процессы'
   },
   'prompt.layeredDesc': {
-    ca: 'alliberar tensió, reordenar patrons i consolidar nous hàbits corporals i emocionals',
-    en: 'release tension, reorder patterns and consolidate new bodily and emotional habits',
-    es: 'liberar tensión, reordenar patrones y consolidar nuevos hábitos corporales y emocionales',
-    ru: 'освобождение напряжения, переупорядочивание паттернов и укрепление новых телесных и эмоциональных привычек'
+    ca: 'Alliberar tensió, reordenar patrons i consolidar nous hàbits corporals i emocionals',
+    en: 'Release tension, reorder patterns and consolidate new bodily and emotional habits',
+    es: 'Liberar tensión, reordenar patrones y consolidar nuevos hábitos corporales y emocionales',
+    ru: 'Освобождение напряжения, переупорядочивание паттернов и укрепление новых телесных и эмоциональных привычек'
   },
   'prompt.session': {
     ca: 'Sessió',
@@ -941,15 +941,15 @@ const rawTranslations: Translations = {
   },
   'prompt.firstVisit': {
     ca: 'Primera visita amb diagnosi i treball suau. A partir d\'aquí, traço el',
-    en: 'First visit with diagnosis and gentle work. From here, I outline the',
+    en: 'First visit with diagnosis and gentle work. From here, i outline the',
     es: 'Primera visita con diagnóstico y trabajo suave. A partir de aquí, trazo el',
-    ru: 'Первый визит с диагностикой и мягкой работой. Отсюда я намечаю'
+    ru: 'Первый визит с диагностикой и мягкой работой. отсюда я намечаю'
   },
   'prompt.personalPlan': {
-    ca: 'pla personal',
-    en: 'personal plan',
-    es: 'plan personal',
-    ru: 'персональный план'
+    ca: 'Pla personal',
+    en: 'Personal plan',
+    es: 'Plan personal',
+    ru: 'Персональный план'
   },
   'prompt.sessionsRange': {
     ca: '(normalment 3–6 sessions) per anar capa per capa',
@@ -967,7 +967,7 @@ const rawTranslations: Translations = {
     ca: 'Per a persones que volen canvis reals i consistents, no solucions ràpides. Si estàs preparada per escoltar-te i comprometre\'t amb el teu benestar, aquest treball és per a tu.',
     en: 'For people who want real and consistent changes, not quick solutions. If you are ready to listen to yourself and commit to your well-being, this work is for you.',
     es: 'Para personas que quieren cambios reales y consistentes, no soluciones rápidas. Si estás preparada para escucharte y comprometerte con tu bienestar, este trabajo es para ti.',
-    ru: 'Для людей, которые хотят настоящих и последовательных изменений, а не быстрых решений. Если вы готовы слушать себя и посвятить себя своему благополучию, эта работа для вас.'
+    ru: 'Для людей, которые хотят настоящих и последовательных изменений, а не быстрых решений. если вы готовы слушать себя и посвятить себя своему благополучию, эта работа для вас.'
   },
   'prompt.booking': {
     ca: 'Reserva',
@@ -991,7 +991,7 @@ const rawTranslations: Translations = {
     ca: '— Elena Kucherova',
     en: '— Elena Kucherova',
     es: '— Elena Kucherova',
-    ru: '— Елена Кучерова'
+    ru: '— елена кучерова'
   },
   'common.ekaBalance': {
     ca: 'EKA Balance',
@@ -1008,10 +1008,10 @@ const rawTranslations: Translations = {
 
   // Benefits Section - Individual Benefits
   'benefits.benefit1.title': {
-    ca: 'Claredat Mental',
-    en: 'Mental Clarity',
-    es: 'Claridad Mental',
-    ru: 'Ментальная Ясность'
+    ca: 'Claredat mental',
+    en: 'Mental clarity',
+    es: 'Claridad mental',
+    ru: 'Ментальная ясность'
   },
   'benefits.benefit1.description': {
     ca: 'Enfocament millorat i funció cognitiva',
@@ -1026,10 +1026,10 @@ const rawTranslations: Translations = {
     ru: 'Интегративная работа с телом стимулирует блуждающий нерв, улучшая связь мозг-тело и исполнительную функцию.'
   },
   'benefits.benefit2.title': {
-    ca: 'Equilibri Emocional',
+    ca: 'Equilibri emocional',
     en: 'Emotional Balance',
-    es: 'Equilibrio Emocional',
-    ru: 'Эмоциональный Баланс'
+    es: 'Equilibrio emocional',
+    ru: 'Эмоциональный баланс'
   },
   'benefits.benefit2.description': {
     ca: 'Major resistència emocional i regulació',
@@ -1044,10 +1044,10 @@ const rawTranslations: Translations = {
     ru: 'Соматические техники помогают обработать накопленную травму и регулировать паттерны стрессовой реакции нервной системы.'
   },
   'benefits.benefit3.title': {
-    ca: 'Energia Sostinguda',
-    en: 'Sustained Energy',
-    es: 'Energía Sostenida',
-    ru: 'Устойчивая Энергия'
+    ca: 'Energia sostinguda',
+    en: 'Sustained energy',
+    es: 'Energía sostenida',
+    ru: 'Устойчивая энергия'
   },
   'benefits.benefit3.description': {
     ca: 'Vitalitat natural sense estimulació artificial',
@@ -1062,10 +1062,10 @@ const rawTranslations: Translations = {
     ru: 'Устранение фасциальных ограничений и постуральных дисбалансов снижает метаболическое расточительство энергии, увеличивая естественную жизненность.'
   },
   'benefits.benefit4.title': {
-    ca: 'Alleujament del Dolor',
-    en: 'Pain Relief',
-    es: 'Alivio del Dolor',
-    ru: 'Облегчение Боли'
+    ca: 'Alleujament del dolor',
+    en: 'Pain relief',
+    es: 'Alivio del dolor',
+    ru: 'Облегчение боли'
   },
   'benefits.benefit4.description': {
     ca: 'Alleujament durador de patrons de dolor crònic',
@@ -1080,10 +1080,10 @@ const rawTranslations: Translations = {
     ru: '360° подход обращается к корневым причинам, а не к симптомам, создавая длительные нейропластические изменения в восприятии боли.'
   },
   'benefits.benefit5.title': {
-    ca: 'Millor Son',
-    en: 'Better Sleep',
-    es: 'Mejor Sueño',
-    ru: 'Лучший Сон'
+    ca: 'Millor son',
+    en: 'Better sleep',
+    es: 'Mejor sueño',
+    ru: 'Лучший сон'
   },
   'benefits.benefit5.description': {
     ca: 'Cicles de son més profunds i reparadors',
@@ -1099,8 +1099,8 @@ const rawTranslations: Translations = {
   },
   'benefits.benefit6.title': {
     ca: 'Resistència a l\'Estrès',
-    en: 'Stress Resilience',
-    es: 'Resistencia al Estrés',
+    en: 'Stress resilience',
+    es: 'Resistencia al estrés',
     ru: 'Стрессоустойчивость'
   },
   'benefits.benefit6.description': {
@@ -1116,10 +1116,10 @@ const rawTranslations: Translations = {
     ru: 'Построение парасимпатического тонуса через работу с телом увеличивает стрессоустойчивость и способность к восстановлению.'
   },
   'benefits.benefit7.title': {
-    ca: 'Llibertat de Moviment',
-    en: 'Movement Freedom',
-    es: 'Libertad de Movimiento',
-    ru: 'Свобода Движения'
+    ca: 'Llibertat de moviment',
+    en: 'Movement freedom',
+    es: 'Libertad de movimiento',
+    ru: 'Свобода движения'
   },
   'benefits.benefit7.description': {
     ca: 'Millor mobilitat i consciència corporal',
@@ -1134,10 +1134,10 @@ const rawTranslations: Translations = {
     ru: 'Фасциальное освобождение и переобучение движению восстанавливают естественные двигательные паттерны и проприоцептивное осознание.'
   },
   'benefits.benefit8.title': {
-    ca: 'Brúixola Interior',
-    en: 'Inner Compass',
-    es: 'Brújula Interior',
-    ru: 'Внутренний Компас'
+    ca: 'Brúixola interior',
+    en: 'Inner compass',
+    es: 'Brújula interior',
+    ru: 'Внутренний компас'
   },
   'benefits.benefit8.description': {
     ca: 'Connexió més forta amb la intuïció i saviesa interior',
@@ -1170,9 +1170,9 @@ const rawTranslations: Translations = {
     ru: 'Устранение энергетических блоков и восстановление потока создает измеримые улучшения в жизненной силе и присутствии.'
   },
   'benefits.science': {
-    ca: 'La Ciència',
-    en: 'The Science',
-    es: 'La Ciencia',
+    ca: 'La ciència',
+    en: 'The science',
+    es: 'La ciencia',
     ru: 'Наука'
   },
   'benefits.philosophy': {
@@ -1295,9 +1295,9 @@ const rawTranslations: Translations = {
   },
   'testimonials.maria.quote': {
     ca: 'Després de 15 anys de dolor, finalment em sento com jo mateixa un altre cop. L\'enfocament 360° no només va arreglar el meu coll — em va tornar la meva confiança.',
-    en: 'After 15 years of pain, I finally feel like myself again. The 360° approach didn\'t just fix my neck — it gave me back my confidence.',
+    en: 'After 15 years of pain, i finally feel like myself again. The 360° approach didn\'t just fix my neck — it gave me back my confidence.',
     es: 'Después de 15 años de dolor, finalmente me siento como yo misma otra vez. El enfoque 360° no solo arregló mi cuello — me devolvió mi confianza.',
-    ru: 'После 15 лет боли я наконец снова чувствую себя собой. Подход 360° не только исправил мою шею — он вернул мне уверенность.'
+    ru: 'После 15 лет боли я наконец снова чувствую себя собой. подход 360° не только исправил мою шею — он вернул мне уверенность.'
   },
   'testimonials.maria.result': {
     ca: 'Dolor reduït de 8/10 a 1/10, nivells d\'estrès dramàticament millorats',
@@ -1337,9 +1337,9 @@ const rawTranslations: Translations = {
   },
   'testimonials.david.quote': {
     ca: 'Pensava que coneixia el meu cos com a atleta. El mapeig 360° va revelar patrons que mai vaig saber que existien. El meu rendiment i recuperació han assolit nous nivells.',
-    en: 'I thought I knew my body as an athlete. The 360° mapping revealed patterns I never knew existed. My performance and recovery have reached new levels.',
+    en: 'I thought i knew my body as an athlete. The 360° mapping revealed patterns i never knew existed. My performance and recovery have reached new levels.',
     es: 'Pensaba que conocía mi cuerpo como atleta. El mapeo 360° reveló patrones que nunca supe que existían. Mi rendimiento y recuperación han alcanzado nuevos niveles.',
-    ru: 'Я думал, что знаю свое тело как спортсмен. Картирование 360° выявило паттерны, о которых я никогда не знал. Мои показатели и восстановление достигли нового уровня.'
+    ru: 'Я думал, что знаю свое тело как спортсмен. картирование 360° выявило паттерны, о которых я никогда не знал. мои показатели и восстановление достигли нового уровня.'
   },
   'testimonials.david.result': {
     ca: '25% de millora en temps de recuperació, va eliminar lesions recurrents',
@@ -1379,9 +1379,9 @@ const rawTranslations: Translations = {
   },
   'testimonials.jennifer.quote': {
     ca: 'Després de la meva cirurgia, em sentia desconnectada del meu cos. La sanació aquí va ser més enllà del físic — vaig aprendre a confiar en el meu cos un altre cop.',
-    en: 'After my surgery, I felt disconnected from my body. The healing here went beyond physical — I learned to trust my body again.',
+    en: 'After my surgery, i felt disconnected from my body. The healing here went beyond physical — i learned to trust my body again.',
     es: 'Después de mi cirugía, me sentía desconectada de mi cuerpo. La sanación aquí fue más allá de lo físico — aprendí a confiar en mi cuerpo otra vez.',
-    ru: 'После операции я чувствовала себя отключенной от своего тела. Исцеление здесь вышло за рамки физического — я научилась снова доверять своему телу.'
+    ru: 'После операции я чувствовала себя отключенной от своего тела. исцеление здесь вышло за рамки физического — я научилась снова доверять своему телу.'
   },
   'testimonials.jennifer.result': {
     ca: 'Mobilitat completa restaurada, confiança en el moviment retornada',
@@ -1423,7 +1423,7 @@ const rawTranslations: Translations = {
     ca: 'Vaig venir per ansietat, sense esperar que el treball corporal ajudés. Però quan van explicar com el meu sistema nerviós estava encallat, tot va tenir sentit. Em sento calm al meu cos per primera vegada en anys.',
     en: 'I came for anxiety, not expecting bodywork to help. But when they explained how my nervous system was stuck, it all made sense. I feel calm in my body for the first time in years.',
     es: 'Vine por ansiedad, sin esperar que el trabajo corporal ayudara. Pero cuando explicaron cómo mi sistema nervioso estaba atascado, todo tuvo sentido. Me siento calmado en mi cuerpo por primera vez en años.',
-    ru: 'Я пришел с тревогой, не ожидая, что работа с телом поможет. Но когда они объяснили, как моя нервная система застряла, все обрело смысл. Я чувствую спокойствие в своем теле впервые за годы.'
+    ru: 'Я пришел с тревогой, не ожидая, что работа с телом поможет. но когда они объяснили, как моя нервная система застряла, все обрело смысл. я чувствую спокойствие в своем теле впервые за годы.'
   },
   'testimonials.alex.result': {
     ca: 'Ansietat reduïda en 80%, qualitat del son dramàticament millorada',
@@ -1500,10 +1500,10 @@ const rawTranslations: Translations = {
     ru: 'История'
   },
   'testimonials.keyInsights': {
-    ca: 'Perspectives Clau de',
-    en: 'Key Insights from',
-    es: 'Perspectivas Clave de',
-    ru: 'Ключевые Выводы от'
+    ca: 'Perspectives clau de',
+    en: 'Key insights from',
+    es: 'Perspectivas clave de',
+    ru: 'Ключевые выводы от'
   },
   'testimonials.keyInsight1': {
     ca: 'Com l\'enfocament 360° va abordar les causes arrel, no només els símptomes',
@@ -1544,60 +1544,60 @@ const rawTranslations: Translations = {
 
   // Story modal content
   'story.title': {
-    ca: 'Un Viatge de Sanació',
-    en: 'A Healing Journey',
-    es: 'Un Viaje de Sanación',
-    ru: 'Путешествие Исцеления'
+    ca: 'Un viatge de sanació',
+    en: 'A healing journey',
+    es: 'Un viaje de sanación',
+    ru: 'Путешествие исцеления'
   },
   'story.intro': {
-    ca: 'La Sarah va arribar a nosaltres carregant el pes de deu anys...',
+    ca: 'La sarah va arribar a nosaltres carregant el pes de deu anys...',
     en: 'Sarah came to us carrying the weight of ten years...',
     es: 'Sarah llegó a nosotros cargando el peso de diez años...',
     ru: 'Сара пришла к нам, неся груз десяти лет...'
   },
   'story.paragraph1': {
-    ca: 'Les espatlles de la Sarah van parlar abans que ella. Corbades cap endins com un closca protector, guardaven la història d\'innombrables nits sense dormir, de correus respostos a mitjanit, d\'una promoció que va venir amb un preu que el seu cos encara estava pagant.',
+    ca: 'Les espatlles de la sarah van parlar abans que ella. Corbades cap endins com un closca protector, guardaven la història d\'innombrables nits sense dormir, de correus respostos a mitjanit, d\'una promoció que va venir amb un preu que el seu cos encara estava pagant.',
     en: 'Sarah\'s shoulders spoke before she did. Curved inward like a protective shell, they held the story of countless sleepless nights, of emails answered at midnight, of a promotion that came with a price her body was still paying.',
-    es: 'Los hombros de Sarah hablaron antes que ella. Curvados hacia adentro como un caparazón protector, guardaban la historia de incontables noches sin dormir, de correos respondidos a medianoche, de una promoción que vino con un precio que su cuerpo aún estaba pagando.',
-    ru: 'Плечи Сары заговорили раньше неё. Согнутые внутрь, как защитная оболочка, они хранили историю бесчисленных бессонных ночей, писем, отвеченных в полночь, повышения, которое пришло с ценой, которую её тело всё ещё платило.'
+    es: 'Los hombros de sarah hablaron antes que ella. Curvados hacia adentro como un caparazón protector, guardaban la historia de incontables noches sin dormir, de correos respondidos a medianoche, de una promoción que vino con un precio que su cuerpo aún estaba pagando.',
+    ru: 'Плечи сары заговорили раньше неё. согнутые внутрь, как защитная оболочка, они хранили историю бесчисленных бессонных ночей, писем, отвеченных в полночь, повышения, которое пришло с ценой, которую её тело всё ещё платило.'
   },
   'story.paragraph2': {
-    ca: '"Només vull que el meu coll deixi de doler," va dir durant la nostra primera sessió. Però el seu cos murmurava veritats més profundes — sobre la por allotjada al seu pit, l\'ansietat que havia pres residència a la seva mandíbula, l\'esgotament que vivia als seus mateixos ossos.',
-    en: '"I just want my neck to stop hurting," she said during our first session. But her body whispered deeper truths — about the fear lodged in her chest, the anxiety that had taken residence in her jaw, the exhaustion that lived in her very bones.',
-    es: '"Solo quiero que mi cuello deje de doler," dijo durante nuestra primera sesión. Pero su cuerpo susurraba verdades más profundas — sobre el miedo alojado en su pecho, la ansiedad que había tomado residencia en su mandíbula, el agotamiento que vivía en sus propios huesos.',
-    ru: '"Я просто хочу, чтобы моя шея перестала болеть," — сказала она во время нашей первой сессии. Но её тело шептало более глубокие истины — о страхе, поселившемся в её груди, о тревоге, которая обосновалась в её челюсти, об истощении, которое жило в её костях.'
+    ca: '"només vull que el meu coll deixi de doler," va dir durant la nostra primera sessió. Però el seu cos murmurava veritats més profundes — sobre la por allotjada al seu pit, l\'ansietat que havia pres residència a la seva mandíbula, l\'esgotament que vivia als seus mateixos ossos.',
+    en: '"i just want my neck to stop hurting," she said during our first session. But her body whispered deeper truths — about the fear lodged in her chest, the anxiety that had taken residence in her jaw, the exhaustion that lived in her very bones.',
+    es: '"solo quiero que mi cuello deje de doler," dijo durante nuestra primera sesión. Pero su cuerpo susurraba verdades más profundas — sobre el miedo alojado en su pecho, la ansiedad que había tomado residencia en su mandíbula, el agotamiento que vivía en sus propios huesos.',
+    ru: '"я просто хочу, чтобы моя шея перестала болеть," — сказала она во время нашей первой сессии. но её тело шептало более глубокие истины — о страхе, поселившемся в её груди, о тревоге, которая обосновалась в её челюсти, об истощении, которое жило в её костях.'
   },
   'story.paragraph3': {
     ca: 'L\'enfocament 360° no només va abordar el seu coll. Vam treballar amb els patrons emocionals que van crear la tensió, els desequilibris estructurals que la mantenien, i els bloquejos energètics que impedien la sanació. Vam escoltar el que el seu cos necessitava per tornar a sentir-se segur.',
     en: 'The 360° approach didn\'t just address her neck. We worked with the emotional patterns that created the tension, the structural imbalances that maintained it, and the energetic blockages that prevented healing. We listened to what her body needed to feel safe again.',
     es: 'El enfoque 360° no solo abordó su cuello. Trabajamos con los patrones emocionales que crearon la tensión, los desequilibrios estructurales que la mantenían, y los bloqueos energéticos que impedían la sanación. Escuchamos lo que su cuerpo necesitaba para sentirse seguro otra vez.',
-    ru: 'Подход 360° затронул не только её шею. Мы работали с эмоциональными паттернами, которые создавали напряжение, структурными дисбалансами, которые его поддерживали, и энергетическими блоками, которые препятствовали исцелению. Мы слушали, что нужно её телу, чтобы снова чувствовать себя в безопасности.'
+    ru: 'Подход 360° затронул не только её шею. мы работали с эмоциональными паттернами, которые создавали напряжение, структурными дисбалансами, которые его поддерживали, и энергетическими блоками, которые препятствовали исцелению. мы слушали, что нужно её телу, чтобы снова чувствовать себя в безопасности.'
   },
   'story.paragraph4': {
-    ca: 'Tres mesos després, la Sarah es posava diferent. No només més dreta — es posava com algú que va recordar que tenia permís per ocupar espai. El seu dolor de coll s\'havia convertit en una porta per reclamar parts de si mateixa que havia oblidat que existien.',
-    en: 'Three months later, Sarah carried herself differently. Not just straighter — she carried herself like someone who remembered she had permission to take up space. Her neck pain had become a doorway to reclaiming parts of herself she had forgotten existed.',
-    es: 'Tres meses después, Sarah se llevaba a sí misma de manera diferente. No solo más derecha — se llevaba como alguien que recordó que tenía permiso para ocupar espacio. Su dolor de cuello se había convertido en una puerta para reclamar partes de sí misma que había olvidado que existían.',
-    ru: 'Три месяца спустя Сара держалась по-другому. Не просто прямее — она держалась как кто-то, кто вспомнил, что имеет право занимать пространство. Её боль в шее стала дверью к возвращению частей себя, о существовании которых она забыла.'
+    ca: 'Tres mesos després, la sarah es posava diferent. No només més dreta — es posava com algú que va recordar que tenia permís per ocupar espai. El seu dolor de coll s\'havia convertit en una porta per reclamar parts de si mateixa que havia oblidat que existien.',
+    en: 'Three months later, sarah carried herself differently. Not just straighter — she carried herself like someone who remembered she had permission to take up space. Her neck pain had become a doorway to reclaiming parts of herself she had forgotten existed.',
+    es: 'Tres meses después, sarah se llevaba a sí misma de manera diferente. No solo más derecha — se llevaba como alguien que recordó que tenía permiso para ocupar espacio. Su dolor de cuello se había convertido en una puerta para reclamar partes de sí misma que había olvidado que existían.',
+    ru: 'Три месяца спустя сара держалась по-другому. не просто прямее — она держалась как кто-то, кто вспомнил, что имеет право занимать пространство. её боль в шее стала дверью к возвращению частей себя, о существовании которых она забыла.'
   },
   'story.paragraph5': {
-    ca: '"No només vaig recuperar el meu cos," ens va dir. "Vaig recuperar la meva vida."',
-    en: '"I didn\'t just get my body back," she told us. "I got my life back."',
-    es: '"No solo recuperé mi cuerpo," nos dijo. "Recuperé mi vida."',
-    ru: '"Я не просто вернула своё тело," — сказала она нам. "Я вернула свою жизнь."'
+    ca: '"no només vaig recuperar el meu cos," ens va dir. "vaig recuperar la meva vida."',
+    en: '"i didn\'t just get my body back," she told us. "I got my life back."',
+    es: '"no solo recuperé mi cuerpo," nos dijo. "recuperé mi vida."',
+    ru: '"я не просто вернула своё тело," — сказала она нам. "я вернула свою жизнь."'
   },
   'story.philosophy': {
     ca: 'Cada cos té una història. Cada història mereix ser escoltada amb la plenitud que conté — no només els símptomes, sinó tota l\'experiència humana que hi ha sota d\'ells.',
     en: 'Every body has a story. Every story deserves to be heard in its fullness — not just the symptoms, but the whole human experience beneath them.',
     es: 'Cada cuerpo tiene una historia. Cada historia merece ser escuchada en su plenitud — no solo los síntomas, sino toda la experiencia humana que hay debajo de ellos.',
-    ru: 'У каждого тела есть история. Каждая история заслуживает того, чтобы быть услышанной в полноте — не только симптомы, но и весь человеческий опыт под ними.'
+    ru: 'У каждого тела есть история. каждая история заслуживает того, чтобы быть услышанной в полноте — не только симптомы, но и весь человеческий опыт под ними.'
   },
 
   // Additional Russian services texts
   'services.completeReview': {
-    ca: 'Revisió Corporal 360° Completa',
-    en: 'Complete 360° Body Review',
-    es: 'Revisión Corporal 360° Completa',
-    ru: 'Полный Телесный Обзор 360°'
+    ca: 'Revisió corporal 360° completa',
+    en: 'Complete 360° body review',
+    es: 'Revisión corporal 360° completa',
+    ru: 'Полный телесный обзор 360°'
   },
   'services.reset360': {
     ca: 'Reinici 360°',
@@ -1606,10 +1606,10 @@ const rawTranslations: Translations = {
     ru: 'Перезагрузка 360°'
   },
   'services.mapping360': {
-    ca: 'Mapeig Corporal 360°',
-    en: '360° Body Mapping',
-    es: 'Mapeo Corporal 360°',
-    ru: 'Телесное Картирование 360°'
+    ca: 'Mapeig corporal 360°',
+    en: '360° body mapping',
+    es: 'Mapeo corporal 360°',
+    ru: 'Телесное картирование 360°'
   },
   'services.alignment360': {
     ca: 'Alineació 360°',
@@ -1618,10 +1618,10 @@ const rawTranslations: Translations = {
     ru: 'Выравнивание 360°'
   },
   'services.followUpConsultations': {
-    ca: 'Consultes de Seguiment',
-    en: 'Follow-up Consultations',
-    es: 'Consultas de Seguimiento',
-    ru: 'Консультации по Наблюдению'
+    ca: 'Consultes de seguiment',
+    en: 'Follow-up consultations',
+    es: 'Consultas de seguimiento',
+    ru: 'Консультации по наблюдению'
   },
 
   // Additional CTA texts
@@ -1664,32 +1664,32 @@ const rawTranslations: Translations = {
     ru: 'Очные консультации'
   },
   'labels.onlineSessionsAvailable': {
-    ca: 'i sessions online disponibles',
-    en: 'and online sessions available',
-    es: 'y sesiones online disponibles',
-    ru: 'и онлайн-сессии доступны'
+    ca: 'I sessions online disponibles',
+    en: 'And online sessions available',
+    es: 'Y sesiones online disponibles',
+    ru: 'И онлайн-сессии доступны'
   },
 
   // Alt texts and accessibility
   'alt.ekaLogo': {
     ca: 'Logo EKA Balance',
-    en: 'EKA Balance Logo',
+    en: 'EKA Balance logo',
     es: 'Logo EKA Balance',
     ru: 'Логотип EKA Balance'
   },
 
   // Footer
   'footer.brand': {
-    ca: 'Sanació Integral 360°',
-    en: 'Integral Healing 360°',
-    es: 'Sanación Integral 360°',
-    ru: 'Интегральное Исцеление 360°'
+    ca: 'Sanació integral 360°',
+    en: 'Integral healing 360°',
+    es: 'Sanación integral 360°',
+    ru: 'Интегральное исцеление 360°'
   },
   'footer.description': {
     ca: 'Transformant vides a través de la sanació integral del cos, ment i esperit. El teu viatge cap al benestar complet comença aquí.',
     en: 'Transforming lives through integral healing of body, mind and spirit. Your journey to complete wellness begins here.',
     es: 'Transformando vidas a través de la sanación integral del cuerpo, mente y espíritu. Tu viaje hacia el bienestar completo comienza aquí.',
-    ru: 'Трансформируем жизни через интегральное исцеление тела, разума и духа. Ваше путешествие к полному благополучию начинается здесь.'
+    ru: 'Трансформируем жизни через интегральное исцеление тела, разума и духа. ваше путешествие к полному благополучию начинается здесь.'
   },
   'footer.healingWithIntention': {
     ca: 'Sanant amb intenció',
@@ -1713,7 +1713,7 @@ const rawTranslations: Translations = {
     ca: '© 2024 EKA Balance. Tots els drets reservats.',
     en: '© 2024 EKA Balance. All rights reserved.',
     es: '© 2024 EKA Balance. Todos los derechos reservados.',
-    ru: '© 2024 EKA Balance. Все права защищены.'
+    ru: '© 2024 EKA Balance. все права защищены.'
   },
   'footer.madeWith': {
     ca: 'Fet amb',
@@ -1722,10 +1722,10 @@ const rawTranslations: Translations = {
     ru: 'Сделано с'
   },
   'footer.forHealing': {
-    ca: 'per a la sanació',
-    en: 'for healing',
-    es: 'para la sanación',
-    ru: 'для исцеления'
+    ca: 'Per a la sanació',
+    en: 'For healing',
+    es: 'Para la sanación',
+    ru: 'Для исцеления'
   }
 };
 

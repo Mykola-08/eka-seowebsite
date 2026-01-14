@@ -9,177 +9,7 @@ import FloatingBiomedSymbols from '@/app/components/FloatingBiomedSymbols';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type Product = {
-    id: string;
-    name: string;
-    category: string;
-    description: string;
-    features?: string[];
-    price?: string;
-};
-
-const products: Product[] = [
-    // Cell Elixir
-    {
-        id: 'cellgenetix',
-        name: 'CellGenetiX',
-        category: 'Cell Elixir',
-        description: 'An advanced antioxidant complex with Polyprenols and Astaxanthin - perfect for those who want to preserve youth and vitality.',
-        features: ['Active Cell Regeneration', 'Telomere Protection', 'DNA Repair'],
-    },
-    {
-        id: '3d-matrix',
-        name: '3D-Matrix',
-        category: 'Cell Elixir',
-        description: 'The synergy of chondroprotectors, amino acids and antioxidants promotes the restoration of joint cartilage and collagen production.',
-        features: ['Joint Health', 'Skin Elasticity', 'Connective Tissue Support'],
-    },
-    {
-        id: 'alpha-omega-q10',
-        name: 'AlphaOmega-Q10',
-        category: 'Cell Elixir',
-        description: 'Complex of antioxidants, coenzyme Q10, betulin and omega-3 fatty acids for heart, brain and beauty.',
-        features: ['Heart Health', 'Brain Function', 'Anti-aging'],
-    },
-    {
-        id: 'hepaart',
-        name: 'HepaArt',
-        category: 'Cell Elixir',
-        description: 'A unique complex of plant extracts for liver protection and detoxification.',
-        features: ['Liver Support', 'Detoxification', 'Cholesterol Balance'],
-    },
-    {
-        id: 'ursus',
-        name: 'Ursus',
-        category: 'Cell Elixir',
-        description: 'Complex of plant extracts and microelements for kidneys and urinary tract health.',
-        features: ['Kidney Health', 'Urinary Tract Support', 'Mild Diuretic'],
-    },
-    {
-        id: 'slim-hit',
-        name: 'Slim Hit',
-        category: 'Cell Elixir',
-        description: 'Complex to block the absorption of excess fats and carbohydrates and reduce appetite.',
-        features: ['Weight Management', 'Appetite Control', 'Metabolism Boost'],
-    },
-     {
-        id: 'k2d3-boost',
-        name: 'K2D3-Boost',
-        category: 'Cell Elixir',
-        description: 'A unique complex of fat-soluble vitamins and microelements for calcium metabolism.',
-        features: ['Bone Strength', 'Immune Support', 'Calcium Absorption'],
-    },
-
-    // 3D Guard
-    {
-        id: 'cellguard',
-        name: 'CellGuard',
-        category: '3D Guard',
-        description: 'A complex of the strongest natural immunomodulators aimed at protecting cells from viruses and damage.',
-        features: ['Immune Defense', 'Antiviral', 'Cell Protection'],
-    },
-    {
-        id: 'candidel',
-        name: 'Candidel',
-        category: '3D Guard',
-        description: 'Natural complex of active plant components for protection against fungal infections (Candida).',
-        features: ['Anti-fungal', 'Microbiome Balance', 'Detox'],
-    },
-    {
-        id: 'infladel',
-        name: 'Infladel',
-        category: '3D Guard',
-        description: 'Complex of active natural components aimed at reducing inflammatory processes.',
-        features: ['Anti-inflammatory', 'Pain Relief', 'Recovery'],
-    },
-
-    // Beauty Drone
-    {
-        id: 'serum-progressive-anti-age',
-        name: 'Serum Progressive Anti-Age',
-        category: 'Beauty Drone',
-        description: 'A premium, highly effective serum for deep skin rejuvenation and wrinkle reduction.',
-        features: ['Lifting Effect', 'Wrinkle Reduction', 'Deep Hydration'],
-    },
-    {
-        id: 'eye-lifting-cream',
-        name: 'Anti-Age Eye Lifting Cream',
-        category: 'Beauty Drone',
-        description: 'Intensive anti-aging lifting cream for the delicate eye area.',
-        features: ['Dark Circles Reduction', 'Lifting', 'Puffiness Reduction'],
-    },
-    {
-        id: 'hyaluronic-aqua-cream',
-        name: 'Hyaluronic Aqua Cream',
-        category: 'Beauty Drone',
-        description: 'Multi-molecular hyaluronic aqua cream for intensive moisturizing.',
-        features: ['Deep Moisture', 'Skin Barrier', 'Radiance'],
-    },
-
-    // Functional Food
-    {
-        id: 'iq-mct-powder',
-        name: 'IQ-MCT Powder',
-        category: 'Functional Food',
-        description: 'A high-quality source of pure energy for the heart, brain, and skeletal muscles. Keto-friendly.',
-        features: ['Instant Energy', 'Brain Clarity', 'Keto Support'],
-    },
-    {
-        id: 'alpha-shake-mct',
-        name: 'Alpha Shake + MCT',
-        category: 'Functional Food',
-        description: 'Protein cocktail enriched with MCT oil for saturation and energy.',
-        features: ['Muscle Recovery', 'Satiety', 'Metabolism'],
-    },
-    {
-        id: 'chocolate-iq-shock',
-        name: 'Chocolate iQ-Shock',
-        category: 'Functional Food',
-        description: 'Dark chocolate with no added sugar, aimed at mental clarity and brain concentration.',
-        features: ['Focus', 'Mood Elevation', 'No Sugar'],
-    },
-    {
-        id: 'black-gold-hot',
-        name: 'Black Gold & Hot',
-        category: 'Functional Food',
-        description: 'Hot drink made from Chaga, Ginger and Lemon for immunity.',
-        features: ['Immunity Warming', 'Antioxidant', 'Digestive Aid'],
-    },
-
-    // True Aqua
-    {
-        id: 'ph-balance-cell',
-        name: 'pH Balance Cell',
-        category: 'True Aqua',
-        description: 'Balanced complex of minerals from Lithothamnia seaweed to regulate acid-base balance.',
-        features: ['Alkalizing', 'Mineral Replenishment', 'Detox'],
-    },
-    {
-        id: 'immune-cell',
-        name: 'Immune Cell',
-        category: 'True Aqua',
-        description: 'Drink with vitamins, iodine and extracts for comprehensive immune support.',
-        features: ['Daily Immunity', 'Energy', 'Vitality'],
-    },
-    {
-        id: 'sorbio-detox-cell',
-        name: 'Sorbio Detox Cell',
-        category: 'True Aqua',
-        description: 'Drink for effective detoxification and cleansing of the body.',
-        features: ['Deep Detox', 'Gut Health', 'Heavy Metal Removal'],
-    },
-
-    // KidYZ
-    {
-        id: 'gummyz-kidyz',
-        name: 'Gummyz KidYZ Calcium',
-        category: 'KidYZ',
-        description: 'Delicious vitamins for children with Calcium, Vitamin K2 and D3.',
-        features: ['Strong Bones', 'Growth Support', 'Tasty & Healthy'],
-    }
-];
-
-const categories = ['All', ...Array.from(new Set(products.map(p => p.category)))];
+import { products, categories } from './products';
 
 export default function AgenyzPage() {
     const { t } = useLanguage();
@@ -365,56 +195,55 @@ export default function AgenyzPage() {
                     >
                         <AnimatePresence>
                             {filteredProducts.map((product) => (
-                                <motion.div
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                    key={product.id}
-                                    className="bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full group"
-                                >
-                                    <div className="mb-6 flex items-start justify-between">
-                                        <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full uppercase tracking-wide">
-                                            {t(`agenyz.category.${product.category}`) || product.category}
-                                        </span>
-                                        {/* Placeholder for Product Icon/Image */}
-                                        <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
-                                            <Sparkles className="w-6 h-6" />
+                                <Link href={`/agenyz/${product.id}`} key={product.id} className="h-full block">
+                                    <motion.div
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full group"
+                                    >
+                                        <div className="mb-6 flex items-start justify-between">
+                                            <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full uppercase tracking-wide">
+                                                {t(`agenyz.category.${product.category}`) || product.category}
+                                            </span>
+                                            {/* Placeholder for Product Icon/Image */}
+                                            <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
+                                                <Sparkles className="w-6 h-6" />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
-                                        {t(`agenyz.product.${product.id}.name`) || product.name}
-                                    </h3>
-                                    
-                                    <p className="text-gray-600 mb-6 flex-grow leading-relaxed font-light">
-                                        {t(`agenyz.product.${product.id}.desc`) || product.description}
-                                    </p>
+                                        <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
+                                            {t(`agenyz.product.${product.id.toLowerCase()}.name`) || product.name}
+                                        </h3>
+                                        
+                                        <p className="text-gray-600 mb-6 flex-grow leading-relaxed font-light line-clamp-3">
+                                            {t(`agenyz.product.${product.id.toLowerCase()}.desc`) || product.description}
+                                        </p>
 
-                                    {product.features && (
-                                        <ul className="space-y-2 mb-8">
-                                            {(t(`agenyz.product.${product.id}.features`) 
-                                                ? t(`agenyz.product.${product.id}.features`).split(',').map(f => f.trim()) 
-                                                : product.features
-                                            ).map((feature, idx) => (
-                                                <li key={idx} className="flex items-center text-sm text-gray-500">
-                                                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                                                    {feature}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
+                                        {product.features && (
+                                            <ul className="space-y-2 mb-8">
+                                                {(t(`agenyz.product.${product.id}.features`) 
+                                                    ? t(`agenyz.product.${product.id}.features`).split(',').map(f => f.trim()) 
+                                                    : product.features.slice(0, 3)
+                                                ).map((feature, idx) => (
+                                                    <li key={idx} className="flex items-center text-sm text-gray-500">
+                                                        <CheckCircle2 className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
 
-                                    <div className="pt-6 border-t border-gray-100 flex items-center justify-between mt-auto">
-                                        <span className="text-sm font-medium text-gray-400">Available via Consult</span>
-                                        <Link href="/booking">
-                                            <Button size="sm" className="bg-transparent hover:bg-blue-50 text-blue-600 border border-blue-200">
-                                                Inquire <ArrowRight className="ml-2 w-4 h-4" />
+                                        <div className="pt-6 border-t border-gray-100 flex items-center justify-between mt-auto">
+                                            <span className="text-sm font-medium text-gray-400">{t('agenyz.viewDetails') || 'View details'}</span>
+                                            <Button size="sm" className="bg-transparent hover:bg-blue-50 text-blue-600 border border-blue-200 pointer-events-none">
+                                                <ArrowRight className="w-4 h-4" />
                                             </Button>
-                                        </Link>
-                                    </div>
-                                </motion.div>
+                                        </div>
+                                    </motion.div>
+                                </Link>
                             ))}
                         </AnimatePresence>
                     </motion.div>

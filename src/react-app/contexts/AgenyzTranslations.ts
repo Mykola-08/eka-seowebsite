@@ -1,4 +1,4 @@
-import { Language } from './LanguageContext';
+import { Language } from './LanguageTypes';
 
 export const agenyzTranslations: Record<Language, Record<string, string>> = {
   ca: {

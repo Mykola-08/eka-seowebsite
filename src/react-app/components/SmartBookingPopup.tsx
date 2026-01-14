@@ -26,7 +26,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
   const handleQuickWhatsApp = () => {
     logEvent('booking_whatsapp_click', { type: 'quick' });
-    const message = encodeURIComponent(t('booking.whatsapp.greeting'));
+    const message = encodeURIComponent(t('booking.whatsapp.greetingGeneric'));
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
   };
@@ -38,9 +38,9 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         service: formData.service 
     });
     const message = encodeURIComponent(
-      t('booking.whatsapp.greeting') + '\n\n' +
+      t('booking.whatsapp.greetingGeneric') + '\n\n' +
       t('booking.whatsapp.name') + `: ${formData.name}\n` +
-      t('booking.whatsapp.service') + `: ${formData.service}\n` +
+      t('booking.whatsapp.serviceLabel') + `: ${formData.service}\n` +
       t('booking.whatsapp.preference') + `: ${formData.timePreference}`
     );
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');

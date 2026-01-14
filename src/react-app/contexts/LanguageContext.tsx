@@ -41,7 +41,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.target.families.desc': 'Acompanyament integral per a famílies amb nens amb pc, síndromes genètics o altres necessitats del desenvolupament. Treballo no només amb l\'infant perquè adquireixi noves habilitats de moviment i comunicació, sinó també amb els pares, ensenyant-vos a interactuar amb ell i a cuidar la vostra pròpia energia i benestar.',
 
     // Dropdown items
-    'nav.officeWorkers': 'Professionals d\'Oficina',
+    'nav.officeWorkers': 'Professionals d\'oficina',
     'nav.athletes': 'Esportistes',
     'nav.artists': 'Artistes',
     'nav.musicians': 'Músics',
@@ -60,7 +60,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.secondary': 'Descobreix el teu camí',
     'hero.badge': 'Excel·lència en salut integrativa',
     'hero.stats.clients': 'Clients satisfets',
-    'hero.stats.experience': 'Anys d\'Experiència',
+    'hero.stats.experience': 'Anys d\'experiència',
     'hero.stats.rating': 'Valoració 5 estrelles',
 
     // About Section
@@ -73,7 +73,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Services Section
     'services.badge': 'Excel·lència terapèutica',
-    'services.title': 'Intervencions d\'Alt Impacte',
+    'services.title': 'Intervencions d\'alt impacte',
     'services.subtitle': 'Protocols avançats que integren manipulació estructural, reequilibri neurològic i optimització metabòlica.',
     'services.cta': 'Explorar protocols',
 

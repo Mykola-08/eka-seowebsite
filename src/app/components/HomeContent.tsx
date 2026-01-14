@@ -68,7 +68,7 @@ export default function HomeContent() {
               className="lg:col-span-5 relative order-first flex justify-center"
             >
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                <div className="relative rounded-full overflow-hidden shadow-xl aspect-square w-full h-full border-4 border-white">
+                <div className="relative rounded-full overflow-hidden aspect-square w-full h-full">
                   <img
                     src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                     alt={t('home.elenaAlt')}

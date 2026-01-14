@@ -13,6 +13,7 @@ import { TDRProvider } from "@/app/components/TDRContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ekabalance.com'),
   title: "EKA Balance - Teràpies Integratives",
   description: "Serveis premium de benestar amb teràpies integratives.",
   icons: {

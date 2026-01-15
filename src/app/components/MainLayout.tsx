@@ -159,6 +159,7 @@ export default function MainLayout({
                           onMouseLeave={scheduleHide}
                           onFocus={openDropdown}
                           onBlur={scheduleHide}
+                          suppressHydrationWarning
                         >
                           {item.name}
                           <ChevronDown className="ml-1 w-4 h-4" />
@@ -200,6 +201,7 @@ export default function MainLayout({
                                 marginBottom: index < item.dropdownItems!.length - 1 ? '8px' : '0'
                               }}
                               role="menuitem"
+                              suppressHydrationWarning
                             >
                               {dropdownItem.name}
                             </Link>
@@ -215,6 +217,7 @@ export default function MainLayout({
                           e.preventDefault();
                           window.open(item.href, '_blank', 'noopener,noreferrer');
                         }}
+                        suppressHydrationWarning
                       >
                         {item.name}
                       </a>
@@ -225,6 +228,7 @@ export default function MainLayout({
                             ? 'gold-shimmer font-black bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-yellow-200/50 hover:from-yellow-100 hover:via-amber-100 hover:to-yellow-100'
                             : isActivePath(item.href) ? 'text-[#FFB405]' : 'text-[#000035] hover:text-[#FFB405]'
                           }`}
+                        suppressHydrationWarning
                       >
                         {item.name}
                       </Link>
@@ -241,6 +245,7 @@ export default function MainLayout({
               <Link
                 href="/booking"
                 className="hidden sm:inline-flex bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-6 py-3 rounded-full transition-colors duration-200 ease-out-quart"
+                suppressHydrationWarning
               >
                 {t('nav.bookNow')}
               </Link>

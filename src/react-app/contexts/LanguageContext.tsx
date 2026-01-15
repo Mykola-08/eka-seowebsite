@@ -27,6 +27,16 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.aboutElena': 'Sobre Elena',
     'nav.casos': 'Casos reals',
 
+    // Elena Section (Profile)
+    'elena.greeting': "Hola, sóc l'Elena",
+    'elena.name': 'Elena Kucherova',
+    'elena.role': 'Especialista en integració somàtica i kinesiologia',
+    'elena.bio': "La meva passió és ajudar les persones a recuperar la seva vitalitat natural a través de la connexió profunda amb el seu cos.",
+    'elena.quote': "El cos té la capacitat innata de sanar-se; la meva feina és recordar-li com fer-ho.",
+    'elena.description1': "Explora un enfocament únic que uneix la ciència moderna amb la saviesa somàtica ancestral.",
+    'elena.description2': "Junts, crearem un camí personalitzat per alliberar tensions, restaurar l'equilibri i despertar el teu potencial de sanació.",
+    'elena.knowMore': "Més sobre mi",
+
     // Elena Approach & Targets
     'elena.approach.title': 'El mètode Elena Kucherova',
     'elena.approach.desc': 'Al nucli del meu treball hi ha una profunda comprensió que el cos, el cervell i les emocions són un sistema unificat. No tracto símptomes, sinó que busco la seva causa arrel, ajudant l\'organisme a restaurar la seva capacitat natural d\'autoregulació. El meu mètode combina tècniques avançades de treball amb el cos i el sistema nerviós: Movement Lesson, JKA (Jeremy Krauss Approach), Child’Space, Feldenkrais i Biodinàmica. És una influència suau però poderosa que reentrena el sistema nerviós, allibera tensions profundes i restaura la facilitat de moviment i la claredat mental.',
@@ -1322,6 +1332,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.response': 'Resposta ràpida',
 
     // Casos & Problems
+    'casos.hero.badge': 'Històries reals',
     'casos.title': 'Casos reals',
     'casos.subtitle': 'Històries d\'èxit',
     'casos.description': 'Descobreix com hem ajudat altres persones.',
@@ -1506,14 +1517,6 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.seo.title': 'Casos èxit',
     'casos.seo.desc': 'Recuperació real',
     'casos.seo.keywords': 'Casos, salut, resultats',
-
-    'elena.greeting': 'Hola',
-    'elena.role': 'Terapeuta',
-    'elena.bio': 'He dedicat la meva vida a explorar les profunditats de les disciplines terapèutiques, creant un enfocament únic i integrador que honora la persona en la seva totalitat.',
-    'elena.work.title': 'Treball',
-    'elena.description1': 'Sóc terapeuta corporal especialitzada en massatge terapèutic, kinesiologia i integració ment-cos. El meu treball es basa en la creença que la veritable curació prové d\'escoltar el cos.',
-    'elena.description2': 'El meu objectiu és senzill: ajudar-te a alliberar el pes de la tensió i recuperar el teu benestar físic i emocional, perquè puguis moure\'t per la vida amb lleugeresa i energia renovada.',
-    'elena.knowMore': 'Llegeix la meva història completa',
 
     'whyChoose.title': 'Per què triar EKA Balance?',
     'whyChoose.subtitle': 'Som més que un centre de teràpia; som els teus socis dedicats en el benestar holístic.',
@@ -1703,6 +1706,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.description1': 'I am a body therapist specializing in therapeutic massage, kinesiology, and mind-body integration. My work is grounded in the belief that True healing comes from listening to the body.',
     'elena.description2': 'My goal is simple: to help you release the weight of tension and reclaim your physical and emotional well-being, so you can move through life with lightness and renewed energy.',
     'elena.knowMore': 'Read my full story',
+    'elena.quote': "The body has the innate capability to heal itself; my job is to remind it how to do so.",
 
     // Stats
     'stats.sessions': 'Sessions given',
@@ -1728,6 +1732,7 @@ const translations: Record<Language, Record<string, string>> = {
     'finalCta.subtitle': 'Reach out today to book your session or ask any questions. Your journey to wellness starts here.',
 
     // Casos page
+    'casos.hero.badge': 'Success stories',
     'casos.title': 'Pathways to healing',
     'casos.subtitle': 'Your body is speaking. We help you listen.',
     'casos.description': 'Symptoms like pain, fatigue, or tension are often just the tip of the iceberg—signals from a system seeking Balance. At EKA Balance, we don’t just silence these signals; we decode them. By addressing the root cause, we’ve helped hundreds of clients transform their relationship with their bodies. Explore these common journeys to see what’s possible for you.',
@@ -3209,12 +3214,14 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.stats.rating': 'Excelencia terapéutica',
 
     // About Section
-    'about.badge': 'Dirección clínica',
-    'about.title': 'Elena Kucherova',
-    'about.role': 'Especialista en terapia somática y neuroregulación',
-    'about.description1': 'Con más de 15 años de práctica clínica, mi enfoque integra la biomecánica avanzada con la neurociencia aplicada. No tratamos síntomas aislados; restauramos la capacidad inherente del cuerpo para la autorregulación y la sanación.',
-    'about.description2': 'Cada sesión es una intervención precisa basada en el diagnóstico kinesiológico y la terapia manual avanzada, diseñada para desactivar patrones de dolor crónico y optimizar el rendimiento funcional.',
-    'about.cta': 'Ver perfil profesional',
+    'elena.greeting': "Hola, soy Elena",
+    'elena.role': 'Terapeuta corporal',
+    'elena.bio': 'He dedicado mi vida a explorar las profundidades de las disciplinas terapéuticas, creando un enfoque único e integrador que honra a la persona en su totalidad.',
+    'elena.work.title': 'Trabajo',
+    'elena.description1': 'Soy terapeuta corporal especializada en masaje terapéutico, kinesiología e integración mente-cuerpo. Mi trabajo se basa en la creencia de que la verdadera curación proviene de escuchar al cuerpo.',
+    'elena.description2': 'Mi objetivo es simple: ayudarte a liberar el peso de la tensión y recuperar tu bienestar físico y emocional, para que puedas moverte por la vida con ligereza y energía renovada.',
+    'elena.knowMore': 'Lee mi historia completa',
+    'elena.quote': "El cuerpo tiene la capacidad innata de sanarse; mi trabajo es recordarle cómo hacerlo.",
 
     // Services Section
     'services.badge': 'Protocolos clínicos',
@@ -4533,6 +4540,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.response': 'Respuesta rápida',
 
     // Casos & Problems
+    'casos.hero.badge': 'Historias reales',
     'casos.title': 'Casos reales',
     'casos.subtitle': 'Historias de éxito',
     'casos.description': 'Descubre cómo hemos ayudado a otros.',
@@ -4707,16 +4715,6 @@ const translations: Record<Language, Record<string, string>> = {
     'services.consultation.title': 'Consulta',
     'services.consultation.description': 'Hablamos 15 min',
     'services.consultation.feeling': 'Claridad',
-
-
-
-    'elena.greeting': 'Hola',
-    'elena.role': 'Terapeuta',
-    'elena.bio': 'He dedicado mi vida a explorar las profundidades de las disciplinas terapéuticas, creando un enfoque único e integrador que honra a la persona en su totalidad.',
-    'elena.work.title': 'Trabajo',
-    'elena.description1': 'Soy terapeuta corporal especializada en masaje terapéutico, kinesiología e integración mente-cuerpo. Mi trabajo se basa en la creencia de que la verdadera curación proviene de escuchar al cuerpo.',
-    'elena.description2': 'Mi objetivo es simple: ayudarte a liberar el peso de la tensión y recuperar tu bienestar físico y emocional, para que puedas moverte por la vida con ligereza y energía renovada.',
-    'elena.knowMore': 'Lee mi historia completa',
 
     'whyChoose.title': '¿Por qué elegir EKA Balance?',
     'whyChoose.subtitle': 'Somos más que un centro de terapia; somos tus socios dedicados en el bienestar holístico.',
@@ -4896,12 +4894,14 @@ const translations: Record<Language, Record<string, string>> = {
     'common.getStarted': 'Начать',
 
     // About Section
-    'about.badge': 'Мой путь',
-    'about.title': 'Елена кучерова',
-    'about.role': 'Специалист по соматической интеграции и кинезиологии',
-    'about.description1': 'За более чем 15 лет клинической практики я усовершенствовала метод, выходящий за рамки традиционного лечения. Моя миссия — расшифровать язык вашего тела, чтобы разблокировать его врожденную способность к регенерации.',
-    'about.description2': 'Я объединяю точность прикладной нейробиологии с глубиной мануальных терапий. Каждая сессия — это стратегическое вмешательство в вашу нервную систему для деактивации болевых паттернов и восстановления жизненного баланса.',
-    'about.cta': 'Узнать о методе',
+    'elena.greeting': 'Здравствуйте, я Елена',
+    'elena.role': 'Телесный терапевт',
+    'elena.bio': 'Я посвятила свою жизнь изучению глубин терапевтических дисциплин, создавая уникальный, интегративный подход, который чтит человека как единое целое.',
+    'elena.work.title': 'Мой подход',
+    'elena.description1': 'Я телесный терапевт, специализирующийся на лечебном массаже, кинезиологии и интеграции ума и тела. Моя работа основана на убеждении, что истинное исцеление приходит через умение слушать свое тело.',
+    'elena.description2': 'Моя цель проста: помочь вам сбросить груз напряжения и восстановить физическое и эмоциональное благополучие, чтобы вы могли идти по жизни с легкостью и обновленной энергией.',
+    'elena.knowMore': 'Читать мою полную историю',
+    'elena.quote': "Тело обладает врожденной способностью исцелять себя; моя задача — напомнить ему, как это делать.",
 
     // Services Section
     'services.badge': 'Терапевтическое совершенство',
@@ -4967,6 +4967,7 @@ const translations: Record<Language, Record<string, string>> = {
     'finalCta.subtitle': 'Свяжитесь с нами, чтобы забронировать сессию или решить любые вопросы',
 
     // Casos page
+    'casos.hero.badge': 'Реальные истории',
     'casos.title': 'Пути к исцелению',
     'casos.subtitle': 'Ваше тело рассказывает историю. Мы помогаем переписать её.',
     'casos.description': 'Симптомы, такие как боль, усталость или напряжение, часто являются лишь верхушкой айсберга — сигналами системы, ищущей равновесия. В EKA Balance мы не заглушаем эти сигналы, мы их расшифровываем. Устраняя первопричину, мы помогли сотням клиентов трансформировать свои отношения с телом. Изучите эти истории, чтобы понять, что возможно для вас.',
@@ -6367,14 +6368,6 @@ const translations: Record<Language, Record<string, string>> = {
     'office.plan3.benefit3': 'Ивенты',
     'office.plan3.benefit4': 'Данные',
 
-    'elena.greeting': 'Привет',
-    'elena.role': 'Терапевт',
-    'elena.bio': 'Я посвятила свою жизнь изучению терапевтических дисциплин, создавая уникальный, интегративный подход, который уважает целостность человека.',
-    'elena.work.title': 'Работа',
-    'elena.description1': 'Я телесный терапевт, специализирующийся на лечебном массаже, кинезиологии и интеграции ума и тела. Моя работа основана на убеждении, что истинное исцеление происходит от умения слушать свое тело.',
-    'elena.description2': 'Моя цель проста: помочь вам освободиться от тяжести напряжения и вернуть физическое и эмоциональное благополучие, чтобы вы могли двигаться по жизни с легкостью и обновленной энергией.',
-    'elena.knowMore': 'Читать мою полную историю',
-
     'whyChoose.title': 'Почему выбирают EKA Balance?',
     'whyChoose.subtitle': 'Мы больше, чем терапевтический центр; мы ваши преданные партнеры в целостном благополучии.',
     'whyChoose.personalized.title': 'Истинно персонализированные планы',
@@ -6470,16 +6463,24 @@ const getInitialLanguage = (): Language => {
   }
   return 'en';
 };
-
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+  // Always initialize with 'en' to match server rendering and avoid hydration mismatch
+  const [language, setLanguageState] = useState<Language>('en');
   const [showLanguagePopup, setShowLanguagePopup] = useState(false);
-  const [languageConfirmed, setLanguageConfirmed] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('eka-language-confirmed') === 'true';
+  const [languageConfirmed, setLanguageConfirmed] = useState(false);
+
+  useEffect(() => {
+    // Determine language after mount (client-only)
+    const initial = getInitialLanguage();
+    if (initial !== 'en') {
+      setLanguageState(initial);
     }
-    return false;
-  });
+    
+    // Check local storage for confirmation status
+    if (localStorage.getItem('eka-language-confirmed') === 'true') {
+      setLanguageConfirmed(true);
+    }
+  }, []);
 
   const confirmLanguage = (lang: Language) => {
     setLanguage(lang);

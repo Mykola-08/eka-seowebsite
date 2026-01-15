@@ -25,8 +25,8 @@ export default function AboutElenaContent() {
     <>
       <div className="bg-white min-h-screen text-gray-900 selection:bg-blue-100">
 
-        {/* Hero Section - Unified Gradient */}
-        <section className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        {/* Hero Section - Unified Design */}
+        <section className="relative pt-32 pb-24 overflow-hidden bg-white">
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
           
           <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 text-center">
@@ -38,7 +38,7 @@ export default function AboutElenaContent() {
               transition={{ duration: 0.8 }}
             >
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-200 to-purple-200 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                 <img
                   src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
@@ -54,13 +54,13 @@ export default function AboutElenaContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-gray-900 tracking-tight leading-tight">
-                Elena Kucherova
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-[#000035] tracking-tight leading-tight">
+                {t('elena.greeting')}
               </h1>
 
               <div className="space-y-4">
-                <p className="text-2xl sm:text-3xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium tracking-wide">
-                  {t('elena.greeting')}
+                <p className="text-2xl sm:text-3xl text-gray-700 font-normal tracking-wide">
+                  {t('elena.name')}
                 </p>
                 <p className="text-xl sm:text-2xl text-gray-500 font-light tracking-wide">
                   {t('elena.role')}
@@ -68,6 +68,27 @@ export default function AboutElenaContent() {
                 <p className="text-lg sm:text-xl text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
                   {t('elena.bio')}
                 </p>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                 <Link href="/booking">
+                    <Button 
+                      size="xl" 
+                      className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] px-10 py-4 rounded-2xl font-medium shadow-lg hover:translate-y-[-2px] transition-all border-none normal-case"
+                    >
+                      {t('common.bookNow')}
+                    </Button>
+                 </Link>
+                 <Link href="/contact">
+                    <Button 
+                      size="xl" 
+                      variant="outline"
+                      className="bg-white text-[#000035] border-gray-200 px-10 py-4 rounded-2xl font-medium hover:bg-gray-50 normal-case"
+                    >
+                      {t('nav.contact')}
+                    </Button>
+                 </Link>
               </div>
 
               {/* Quote */}

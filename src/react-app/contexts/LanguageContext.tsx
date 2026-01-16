@@ -64,7 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     'home.viewAllServices': 'Veure tots els serveis',
     'home.elenaName': 'Elena Kucherova',
     'hero.title.part1': 'Restaura la teva',
-    'hero.title.part2': 'Vitalitat sistèmica',
+    'hero.title.part2': 'vitalitat sistèmica',
     'hero.subtitle': 'Restaura la teva vitalitat sistèmica. Centre de referència en teràpies somàtiques i regulació del sistema nerviós a Barcelona. Integració clínica i benestar profund.',
     'hero.cta.primary': 'Reserva la teva sessió',
     'hero.cta.secondary': 'Descobreix el teu camí',
@@ -590,7 +590,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Contact Page
     'contact.hero.badge': 'Estem aquí per tu',
     'contact.hero.title': 'Contacta amb',
-    'contact.hero.titleHighlight': 'Nosaltres',
+    'contact.hero.titleHighlight': 'nosaltres',
     'contact.hero.description': 'Estem aquí per ajudar-te en el teu camí cap al benestar. Contacta\'ns per reserves, consultes o qualsevol dubte sobre els nostres serveis.',
     'contact.whatsapp': 'WhatsApp 658 867 133',
     'contact.callNow': 'Trucar ara',
@@ -1347,7 +1347,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.seeDetails': 'Veure detalls',
     'casos.section.badge': 'Casos clínics',
     'casos.section.title': 'Identificació de patologies',
-    'casos.section.titleHighlight': 'I solucions',
+    'casos.section.titleHighlight': 'i solucions',
     'casos.section.subtitle': 'Resolució de problemes complexos',
     'casos.section.readMore': 'Llegir més',
     'casos.section.viewAll': 'Veure tots',
@@ -1533,7 +1533,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing Section
     'pricing.badge': 'Tarifes transparents',
     'pricing.title.part1': 'Tria el teu',
-    'pricing.title.part2': 'Pla de benestar',
+    'pricing.title.part2': 'pla de benestar',
     'pricing.subtitle': 'Packs dissenyats per a cada necessitat, amb la flexibilitat i qualitat que et mereixes',
     'pricing.popular': 'Més popular',
     'pricing.save': 'Estalvia {percent}%',
@@ -1749,7 +1749,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Casos section
     'casos.section.badge': 'Real problems, effective solutions',
     'casos.section.title': 'Problems we',
-    'casos.section.titleHighlight': 'Solve every day',
+    'casos.section.titleHighlight': 'solve every day',
     'casos.section.subtitle': 'Hundreds of people have reclaimed their well-being with us. Discover how we can help you too.',
     'casos.section.readMore': 'Read more',
     'casos.section.viewAll': 'View all cases',
@@ -2885,7 +2885,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Contact Page
     'contact.hero.badge': 'We are here for you',
     'contact.hero.title': 'Contact',
-    'contact.hero.titleHighlight': 'Us',
+    'contact.hero.titleHighlight': 'us',
     'contact.hero.description': 'We are here to help you on your path to wellbeing. Contact us for bookings, inquiries or any questions about our services.',
     'contact.whatsapp': 'WhatsApp 658 867 133',
     'contact.callNow': 'Call now',
@@ -3005,7 +3005,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero Split
     'hero.title.part1': 'Restore your',
-    'hero.title.part2': 'Systemic vitality',
+    'hero.title.part2': 'systemic vitality',
     'hero.cta.primary': 'Book your session',
     'hero.cta.secondary': 'Discover your path',
     'hero.stats.rating': '5 star rating',
@@ -3107,7 +3107,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing Section
     'pricing.badge': 'Transparent pricing',
     'pricing.title.part1': 'Choose your',
-    'pricing.title.part2': 'Wellness plan',
+    'pricing.title.part2': 'wellness plan',
     'pricing.subtitle': 'Packs designed for every need, with the flexibility and quality you deserve',
     'pricing.popular': 'Most popular',
     'pricing.save': 'Save {percent}%',
@@ -3204,7 +3204,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'EKA Balance',
     'hero.title.part1': 'Restaura tu',
-    'hero.title.part2': 'Vitalidad sistémica',
+    'hero.title.part2': 'vitalidad sistémica',
     'hero.subtitle': 'Restaura tu vitalidad sistémica. Centro de referencia en terapias somáticas y regulación del sistema nervioso en Barcelona. Integración clínica y bienestar profundo.',
     'hero.cta.primary': 'Reserva tu sesión',
     'hero.cta.secondary': 'Descubre tu camino',
@@ -4146,7 +4146,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Contact Page
     'contact.hero.badge': 'Estamos aquí para ti',
     'contact.hero.title': 'Contacta',
-    'contact.hero.titleHighlight': 'Con nosotros',
+    'contact.hero.titleHighlight': 'con nosotros',
     'contact.hero.description': 'Estamos aquí para ayudarte en tu camino hacia el bienestar. Contáctanos para reservas, consultas o cualquier duda sobre nuestros servicios.',
     'contact.whatsapp': 'WhatsApp 658 867 133',
     'contact.callNow': 'Llamar ahora',
@@ -4555,7 +4555,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.seeDetails': 'Ver detalles',
     'casos.section.badge': 'Casos clínicos',
     'casos.section.title': 'Identificación de patologías',
-    'casos.section.titleHighlight': 'Y soluciones',
+    'casos.section.titleHighlight': 'y soluciones',
     'casos.section.subtitle': 'Resolución de problemas complejos',
     'casos.section.readMore': 'Leer más',
     'casos.section.viewAll': 'Ver todos',
@@ -4731,7 +4731,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing Section
     'pricing.badge': 'Tarifas transparentes',
     'pricing.title.part1': 'Elige tu',
-    'pricing.title.part2': 'Plan de bienestar',
+    'pricing.title.part2': 'plan de bienestar',
     'pricing.subtitle': 'Packs diseñados para cada necesidad, con la flexibilidad y calidad que te mereces',
     'pricing.popular': 'Más popular',
     'pricing.save': 'Ahorra {percent}%',
@@ -4984,7 +4984,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Casos section
     'casos.section.badge': 'Реальные проблемы, эффективные решения',
     'casos.section.title': 'Проблемы, которые мы',
-    'casos.section.titleHighlight': 'Решаем каждый день',
+    'casos.section.titleHighlight': 'решаем каждый день',
     'casos.section.subtitle': 'Сотни людей восстановили свое благополучие с нами. Узнайте, как мы можем помочь вам.',
     'casos.section.readMore': 'Читать больше',
     'casos.section.viewAll': 'Посмотреть все случаи',
@@ -6129,7 +6129,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Contact Page
     'contact.hero.badge': 'Мы здесь для вас',
     'contact.hero.title': 'Свяжитесь',
-    'contact.hero.titleHighlight': 'С нами',
+    'contact.hero.titleHighlight': 'с нами',
     'contact.hero.description': 'Мы здесь, чтобы помочь вам на пути к благополучию. Свяжитесь с нами для бронирования, запросов или любых вопросов о наших услугах.',
     'contact.whatsapp': 'WhatsApp 658 867 133',
     'contact.callNow': 'Позвонить сейчас',
@@ -6242,7 +6242,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero Missing
     'hero.title.part1': 'Восстановите',
-    'hero.title.part2': 'Системную витальность',
+    'hero.title.part2': 'системную витальность',
     'hero.cta.primary': 'Записаться на сеанс',
     'hero.cta.secondary': 'Узнать свой путь',
     'hero.stats.rating': 'Рейтинг 5 звезд',
@@ -6380,7 +6380,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing Section
     'pricing.badge': 'Прозрачные тарифы',
     'pricing.title.part1': 'Выберите свой',
-    'pricing.title.part2': 'План благополучия',
+    'pricing.title.part2': 'план благополучия',
     'pricing.subtitle': 'Пакеты, разработанные для любых нужд, с гибкостью и качеством, которых вы заслуживаете',
     'pricing.popular': 'Самый популярный',
     'pricing.save': 'Экономия {percent}%',

@@ -14,14 +14,16 @@ import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/app/components/ServiceCard';
 
+import AnimatedCounter from '@/react-app/components/AnimatedCounter';
+
 export default function HomeContent() {
   const { t } = useLanguage();
 
   const stats = [
-    { number: '1500+', label: t('hero.stats.sessions'), icon: Users },
-    { number: '10+', label: t('hero.stats.experience'), icon: Clock },
-    { number: '96%', label: t('hero.stats.clients'), icon: Star },
-    { number: '9', label: t('hero.stats.countries'), icon: Globe }
+    { value: 1500, suffix: '+', label: t('hero.stats.sessions'), icon: Users },
+    { value: 10, suffix: '+', label: t('hero.stats.experience'), icon: Clock },
+    { value: 96, suffix: '%', label: t('hero.stats.clients'), icon: Star },
+    { value: 9, suffix: '', label: t('hero.stats.countries'), icon: Globe }
   ];
 
   return (
@@ -31,22 +33,24 @@ export default function HomeContent() {
 
       {/* Stats Section with floating effect */}
       <section className="relative z-20 -mt-10 mb-10 px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="bg-white/80 backdrop-blur-md rounded-[2.5rem] shadow-2xl shadow-blue-900/5 border border-white p-10 grid grid-cols-2 lg:grid-cols-4 gap-12"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center text-center space-y-2">
-                <div className="p-3 bg-blue-50 rounded-full text-blue-600 mb-1">
-                  <stat.icon size={24} />
+              <div key={index} className="group flex flex-col items-center text-center space-y-4">
+                <div className="p-4 bg-gradient-to-br from-blue-50 to-white rounded-2xl text-blue-600 shadow-sm group-hover:scale-110 transition-transform duration-300 border border-blue-50">
+                  <stat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <span className="text-3xl font-light text-gray-900 tracking-tight">
-                  {stat.number}
-                </span>
-                <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</p>
+                <div>
+                    <div className="text-4xl lg:text-5xl font-light text-slate-800 tracking-tight mb-1 flex justify-center font-mono">
+                      <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2500} />
+                    </div>
+                    <p className="text-xs font-semibold text-blue-900/60 uppercase tracking-[0.2em]">{stat.label}</p>
+                </div>
               </div>
             ))}
           </motion.div>

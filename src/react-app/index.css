@@ -657,6 +657,16 @@ html {
   animation: parallax-float 6s ease-in-out infinite;
 }
 
+/* Floating animation for Agenyz product cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 /* Enhanced hover effects for interactive elements */
 .interactive-hover {
   @apply transition-all duration-300 ease-out;

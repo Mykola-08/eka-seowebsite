@@ -38,18 +38,29 @@ export default function Home() {
       {/* Hero Section */}
       <AppleHero />
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white border-t border-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Stats Section - Clean Minimal Design */}
+      <section className="py-16 sm:py-20 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <span className="text-3xl sm:text-4xl font-medium text-gray-900 tracking-tight">
+              <div
+                key={index}
+                className="text-center group"
+              >
+                {/* Number with gradient accent */}
+                <div className="mb-2">
+                  <span className="text-4xl sm:text-5xl lg:text-6xl font-semibold bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent tracking-tight">
                     {stat.number}
                   </span>
                 </div>
-                <p className="text-gray-500 text-sm sm:text-base font-medium">{stat.label}</p>
+
+                {/* Label */}
+                <p className="text-gray-600 text-sm sm:text-base font-medium tracking-wide">
+                  {stat.label}
+                </p>
+
+                {/* Subtle decorative accent */}
+                <div className="mt-3 mx-auto w-8 h-0.5 rounded-full bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
           </div>
@@ -91,7 +102,7 @@ export default function Home() {
                 {/* CTA Button */}
                 <div className="pt-4">
                   <Link to="/about-elena">
-                    <Button 
+                    <Button
                       className="inline-block bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-medium px-8 py-3 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 border-none"
                     >
                       {t('elena.knowMore')}
@@ -126,15 +137,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES_DATA.map((service) => {
-               const Icon = iconMap[service.iconName] || Heart;
-               // Get color class (simple mapping for home page summary)
-               const colorClass = service.color === 'orange' ? 'bg-orange-50 text-orange-600' :
-                                  service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                                  service.color === 'green' ? 'bg-green-50 text-green-600' :
-                                  service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                                  'bg-pink-50 text-pink-600';
-              
-               return (
+              const Icon = iconMap[service.iconName] || Heart;
+              // Get color class (simple mapping for home page summary)
+              const colorClass = service.color === 'orange' ? 'bg-orange-50 text-orange-600' :
+                service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                  service.color === 'green' ? 'bg-green-50 text-green-600' :
+                    service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                      'bg-pink-50 text-pink-600';
+
+              return (
                 <Link key={service.id} to={service.href} className="group cursor-pointer">
                   <div className="bg-white rounded-[2rem] p-8 h-full shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden">
                     <div className="flex items-center mb-6">
@@ -145,11 +156,11 @@ export default function Home() {
                         {t(service.titleKey)}
                       </h3>
                     </div>
-                    
+
                     <p className="text-gray-600 mb-6 line-clamp-3">
                       {t(service.descriptionKey)}
                     </p>
-                    
+
                     <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-1 transition-transform">
                       {t('common.readMore')}
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +169,7 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
-               );
+              );
             })}
           </div>
         </div>
@@ -169,7 +180,7 @@ export default function Home() {
 
       {/* Testimonials */}
       <section className="py-24 bg-white overflow-hidden">
-         <TestimonialSlider />
+        <TestimonialSlider />
       </section>
 
       {/* FAQ Section */}

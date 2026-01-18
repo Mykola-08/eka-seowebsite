@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useDiscount } from '@/react-app/contexts/DiscountContext';
 import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
@@ -57,7 +58,7 @@ export default function DiscountsContent() {
               <div className="flex items-center space-x-3">
                 <Check className="w-5 h-5" />
                 <span className="font-medium">
-                  {selectedDiscount.name} {t('discounts.active', 'Active').replace('{percentage}', String(selectedDiscount.percentage))}
+                  {selectedDiscount.name} {t('discounts.active', { percentage: selectedDiscount.percentage })}
                 </span>
               </div>
               <button

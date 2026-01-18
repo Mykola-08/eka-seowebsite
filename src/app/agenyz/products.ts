@@ -245,7 +245,7 @@ export const products: Product[] = [
             { en: 'Siberian Fir Polyprenols', es: 'Poliprenoles de Abeto Siberiano', ru: 'Полипренолы Сибирской Пихты', ca: 'Poliprenols d\'Avet Siberià' },
             { en: 'Astaxanthin (Haematococcus pluvialis)', es: 'Astaxantina', ru: 'Астаксантин', ca: 'Astaxantina' },
             { en: 'Black Cumin Seed Oil', es: 'Aceite de Semilla de Comino Negro', ru: 'Масло Черного Тмина', ca: 'Oli de Llavor de Comí Negre' },
-            { en: 'Betulin', es: 'Betulina', ru: 'Бетулин', ca: 'Бетулин', ca: 'Betulina' },
+            { en: 'Betulin', es: 'Betulina', ru: 'Бетулин', ca: 'Betulina' },
             { en: 'Vitamin E', es: 'Vitamina E', ru: 'Витамин E', ca: 'Vitamina E' }
         ],
         image: 'https://front.agenyz.eu/resize/w1413/f9/yh/CellGenetiX_1.j72oivd3g9kk048ocww0kc.jpg'

@@ -1,0 +1,114 @@
+/* Design System & Unified Styles */
+
+:root {
+  --color-primary: #2563EB;
+  --color-primary-dark: #1E40AF;
+  --color-accent: #FFB405;
+  --color-accent-hover: #e8a204;
+  --color-dark: #000035;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    border-radius: var(--radius-lg);
+  }
+
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow-md active:scale-95;
+  }
+
+  .btn-accent {
+    @apply btn text-[#000035] shadow-md hover:shadow-lg active:scale-95 hover:-translate-y-0.5;
+    background-color: var(--color-accent);
+  }
+  
+  .btn-accent:hover {
+    background-color: var(--color-accent-hover);
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-gray-200 bg-transparent text-gray-700 hover:bg-gray-50 hover:text-gray-900;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .btn-md {
+    @apply px-4 py-2 text-base;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
+
+  .btn-xl {
+    @apply px-8 py-4 text-xl;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Typography */
+  .heading-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900;
+  }
+
+  .heading-2 {
+    @apply text-3xl sm:text-4xl font-bold tracking-tight text-gray-900;
+  }
+
+  .heading-3 {
+    @apply text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900;
+  }
+
+  .text-body {
+    @apply text-base text-gray-600 leading-relaxed;
+  }
+
+  .text-body-lg {
+    @apply text-lg text-gray-600 leading-relaxed;
+  }
+
+  /* Input Fields */
+  .input-field {
+    @apply w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-200 bg-gray-50 focus:bg-white;
+  }
+
+  .label-text {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  /* Layout/Sections */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-24;
+  }
+  
+  /* Utilities */
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+}

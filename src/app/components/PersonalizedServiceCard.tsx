@@ -15,8 +15,8 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   return (
-    <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-       <div className="relative h-64 overflow-hidden rounded-t-3xl">
+    <div className="card h-full flex flex-col hover:shadow-xl transition-all duration-300">
+       <div className="relative h-64 overflow-hidden rounded-t-2xl">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}
@@ -25,11 +25,11 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         </div>
         
       <div className="p-8 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold text-gray-900 mb-3">
+        <h3 className="heading-3 mb-3">
           {t(service.titleKey)}
         </h3>
         
-        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+        <p className="text-body text-sm mb-6">
           {t(service.descriptionKey)}
         </p>
 
@@ -38,7 +38,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <ul className="space-y-3 mb-8">
             {service.benefitsKeys.map((key, i) => (
               <li key={i} className="flex items-start text-sm text-gray-700">
-                <span className="w-2 h-2 rounded-full bg-orange-400 mt-1.5 mr-3 flex-shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-accent mt-1.5 mr-3 flex-shrink-0" />
                 {t(key)}
               </li>
             ))}
@@ -47,9 +47,9 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
 
         {/* Expected Result Box */}
         {service.resultKey && (
-             <div className="bg-yellow-50 rounded-xl p-4 mb-6">
+             <div className="bg-accent-light/30 rounded-xl p-4 mb-6 border border-accent/20">
                 <div className="flex flex-col gap-1">
-                     <span className="text-xs font-bold text-yellow-800 uppercase tracking-wide opacity-80">
+                     <span className="text-xs font-bold text-accent-dark uppercase tracking-wide opacity-80">
                          {t('common.expectedResult') || 'Expected Result:'}
                      </span>
                      <p className="text-sm font-medium text-gray-900">
@@ -70,11 +70,11 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
             </span>
         </div>
 
-        {/* Buttons - Note order reversed from typical: Book first (Orange), Learn More second (Outline) */}
+        {/* Buttons */}
         <div className="flex gap-4">
           <Link href="/booking" className="flex-1">
              <Button 
-                className="w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] py-3 rounded-xl font-bold transition-colors border-none shadow-md hover:shadow-lg normal-case"
+                className="w-full btn btn-accent py-3 rounded-xl shadow-md border-none normal-case"
              >
                {t('nav.bookNow')}
             </Button>
@@ -82,7 +82,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <Link href={service.href} className="flex-1">
              <Button 
                 variant="outline"
-                className="w-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 py-3 rounded-xl font-medium transition-colors normal-case"
+                className="w-full btn btn-outline py-3 rounded-xl normal-case"
                 >
                {t('common.readMore') || 'Read More'}
             </Button>

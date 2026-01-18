@@ -1,473 +1,386 @@
+
+export type LocalizedString = string | { en: string; es: string; ru: string; ca: string; };
+
 export type Product = {
     id: string;
     slug?: string;
-    name: string;
+    name: LocalizedString;
     category: string;
-    description: string;
-    shortDescription?: string;
-    longDescription?: string;
-    features?: string[];
-    benefits?: string[];
-    ingredients?: string[];
-    usage?: string;
+    description: LocalizedString;
+    shortDescription?: LocalizedString;
+    longDescription?: LocalizedString;
+    features?: LocalizedString[];
+    benefits?: LocalizedString[];
+    ingredients?: LocalizedString[];
+    usage?: LocalizedString;
     price?: string;
     image?: string;
 };
 
+export function getLocalized(content: LocalizedString | undefined, lang: string): string {
+    if (!content) return '';
+    if (typeof content === 'string') return content;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    return content[lang] || content['en'] || '';
+}
+
 export const products: Product[] = [
-    // --- CELL ELIXIR ---
+    // --- XBi-A SERIES ---
     {
-        id: 'CellGenetiX',
-        slug: 'cellgenetix',
-        name: 'CellGenetiX',
-        category: 'Cell Elixir',
-        description: 'Active cell regeneration and telomere protection.',
-        longDescription: 'CellGenetiX is a masterpiece of molecular biology, designed to protect the very essence of your youth�your telomeres. By preventing the shortening of these DNA protective caps, it slows down the biological clock. Enriched with Polyprenols from Siberian Fir and the mighty antioxidant Astaxanthin, it repairs cell membranes and shields genetic material from damage.',
+        id: 'Vitamin-D3-XBi-A',
+        slug: 'vitamin-d3-xbi-a',
+        name: {
+            en: 'Vitamin D3 + XBi-A',
+            es: 'Vitamina D3 + XBi-A',
+            ru: 'Витамин D3 + XBi-A',
+            ca: 'Vitamina D3 + XBi-A'
+        },
+        category: 'XBi-A Series',
+        description: {
+            en: 'Vegan sun vitamin with bioavailability booster. 2000 IU + XBi-A.',
+            es: 'Vitamina solar vegana con potenciador de biodisponibilidad. 2000 UI + XBi-A.',
+            ru: 'Веганский солнечный витамин с усилителем биодоступности. 2000 МЕ + XBi-A.',
+            ca: 'Vitamina solar vegana amb potenciador de biodisponibilitat. 2000 UI + XBi-A.'
+        },
+        longDescription: {
+            en: 'Vitamin D3 + XBi-A uses microencapsulated cholecalciferol from Reindeer Lichen (100% vegan) enhanced with the patented XBi-A® complex. This combination increases absorption by up to 60%. Essential for immune health, bone density, and hormonal balance.',
+            es: 'Vitamin D3 + XBi-A utiliza colecalciferol microencapsulado de Liquen de Reno (100% vegano) mejorado con el complejo patentado XBi-A®. Esta combinación aumenta la absorción hasta en un 60%. Esencial para la salud inmunológica, la densidad ósea y el equilibrio hormonal.',
+            ru: 'Vitamin D3 + XBi-A использует микрокапсулированный холекальциферол из оленьего мха (100% веганский), усиленный запатентованным комплексом XBi-A®. Эта комбинация увеличивает усвоение до 60%. Необходим для иммунитета, плотности костей и гормонального баланса.',
+            ca: 'Vitamin D3 + XBi-A utilitza colecalciferol microencapsulat de Liquen de Ren (100% vegà) millorat amb el complex patentat XBi-A®. Aquesta combinació augmenta l\'absorció fins a un 60%. Essencial per a la salut immunitària, la densitat òssia i l\'equilibri hormonal.'
+        },
         benefits: [
-            'Protects telomeres and extends cell lifespan.',
-            'Regenerates damaged cell membranes.',
-            'Powerful antioxidant defense (DNA protection).',
-            'Supports liver detoxification.',
-            'Reverses signs of premature aging.'
+            { en: 'Supports normal immune system function.', es: 'Apoya la función normal del sistema inmunológico.', ru: 'Поддерживает нормальную функцию иммунной системы.', ca: 'Suporta la funció normal del sistema immunitari.' },
+            { en: 'Maintains normal bones and muscle function.', es: 'Mantiene los huesos y la función muscular normales.', ru: 'Поддерживает нормальное состояние костей и мышц.', ca: 'Manté els ossos i la funció muscular normals.' },
+            { en: '100% Vegan (Lichen source).', es: '100% Vegano (fuente de liquen).', ru: '100% Веганский (из лишайника).', ca: '100% Vegà (font de liquen).' },
+            { en: '60% higher absorption due to XBi-A.', es: '60% mayor absorción gracias a XBi-A.', ru: 'Усвоение выше на 60% благодаря XBi-A.', ca: '60% major absorció gràcies a XBi-A.' }
         ],
-        ingredients: ['Polyprenols (Siberian Fir)', 'Astaxanthin', 'Black Cumin Seed Extract', 'Betulin'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/4v/uc/mock_up_cellgenetix_180_eng_500.7eabyuxn.jpg'
+        ingredients: [
+            { en: 'Vitamin D3 (Cholecalciferol from Reindeer Lichen) - 2000 IU', es: 'Vitamina D3 (Colecalciferol de Liquen de Reno) - 2000 UI', ru: 'Витамин D3 (Холекальциферол из Оленьего мха) - 2000 МЕ', ca: 'Vitamina D3 (Colecalciferol de Liquen de Ren) - 2000 UI' },
+            { en: 'MCT Oil (Medium Chain Triglycerides)', es: 'Aceite MCT (Triglicéridos de Cadena Media)', ru: 'Масло МСТ (Среднецепочечные триглицериды)', ca: 'Oli MCT (Triglicèrids de Cadena Mitjana)' },
+            { en: 'XBi-A Complex (Ginger, Black Pepper, Amla, Shilajit)', es: 'Complejo XBi-A (Jengibre, Pimienta Negra, Amla, Shilajit)', ru: 'Комплекс XBi-A (Имбирь, Черный перец, Амла, Мумие)', ca: 'Complex XBi-A (Gingebre, Pebre Negre, Amla, Shilajit)' }
+        ],
+        usage: {
+            en: '1 capsule daily with a fatty meal.',
+            es: '1 cápsula al día con una comida grasa.',
+            ru: '1 капсула в день во время еды (желательно с жирами).',
+            ca: '1 càpsula al dia amb un àpat gras.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/VitaminD3_1.72cbzz0zfx80c69v1cwvdl.jpg'
+    },
+    {
+        id: 'Octomagnesium-XBi-A',
+        slug: 'octomagnesium-xbi-a',
+        name: {
+            en: 'OctoMagnesium + XBi-A',
+            es: 'OctoMagnesio + XBi-A',
+            ru: 'ОктоМагний + XBi-A',
+            ca: 'OctoMagnesi + XBi-A'
+        },
+        category: 'XBi-A Series',
+        description: {
+            en: 'World\'s first 8-form magnesium complex for total relaxation.',
+            es: 'El primer complejo de magnesio de 8 formas del mundo para una relajación total.',
+            ru: 'Первый в мире комплекс из 8 форм магния для полной релаксации.',
+            ca: 'El primer complex de magnesi de 8 formes del món per a una relaxació total.'
+        },
+        longDescription: {
+            en: 'OctoMagnesium is a revolutionary formula combining 8 distinct forms of magnesium to target every system in the body. By using specialized chelates like Bisglycinate (sleep), Malate (energy), and Taurate (heart), it ensures maximum absorption without the digestive issues of standard magnesium.',
+            es: 'OctoMagnesio es una fórmula revolucionaria que combina 8 formas distintas de magnesio para enfocarse en cada sistema del cuerpo. Al usar quelatos especializados como Bisglicinato (sueño), Malato (energía) y Taurato (corazón), asegura la máxima absorción sin los problemas digestivos del magnesio estándar.',
+            ru: 'ОктоМагний — это революционная формула, объединяющая 8 различных форм магния для воздействия на каждую систему организма. Используя специализированные хелаты, такие как бисглицинат (сон), малат (энергия) и таурат (сердце), он обеспечивает максимальное усвоение без проблем с пищеварением, характерных для обычного магния.',
+            ca: 'OctoMagnesi és una fórmula revolucionària que combina 8 formes distintes de magnesi per enfocar-se en cada sistema del cos. En utilitzar quelats especialitzats com Bisglicinat (son), Malat (energia) i Taurat (cor), assegura la màxima absorció sense els problemes digestius del magnesi estàndard.'
+        },
+        benefits: [
+            { en: 'Magnesium Bisglycinate: Anxiety relief & sleep support.', es: 'Bisglicinato de Magnesio: Alivio de ansiedad y apoyo al sueño.', ru: 'Бисглицинат магния: Снятие тревоги и поддержка сна.', ca: 'Bisglicinat de Magnesi: Alleugeriment de l\'ansietat i suport al son.' },
+            { en: 'Magnesium Malate: Energy enhancement (Krebs cycle).', es: 'Malato de Magnesio: Aumento de energía (ciclo de Krebs).', ru: 'Малат магния: Повышение энергии (цикл Кребса).', ca: 'Malat de Magnesi: Augment d\'energia (cicle de Krebs).' },
+            { en: 'Magnesium Taurate: Cardiovascular health & rhythm.', es: 'Taurato de Magnesio: Salud cardiovascular y ritmo.', ru: 'Таурат магния: Здоровье сердца и ритм.', ca: 'Taurat de Magnesi: Salut cardiovascular i ritme.' },
+            { en: 'Magnesium Citrate: Digestion & rapid absorption.', es: 'Citrato de Magnesio: Digestión y absorción rápida.', ru: 'Цитрат магния: Пищеварение и быстрое усвоение.', ca: 'Citrat de Magnesi: Digestió i absorció ràpida.' }
+        ],
+        ingredients: [
+            { en: '1. Magnesium Bisglycinate (Chelate)', es: '1. Bisglicinato de Magnesio (Quelato)', ru: '1. Бисглицинат магния (Хелат)', ca: '1. Bisglicinat de Magnesi (Quelat)' },
+            { en: '2. Magnesium Citrate (Organic Salt)', es: '2. Citrato de Magnesio (Sal Orgánica)', ru: '2. Цитрат магния (Органическая соль)', ca: '2. Citrat de Magnesi (Sal Orgànica)' },
+            { en: '3. Magnesium Malate (Acid Salt)', es: '3. Malato de Magnesio (Sal Ácida)', ru: '3. Малат магния (Соль кислоты)', ca: '3. Malat de Magnesi (Sal Àcida)' },
+            { en: '4. Magnesium Taurate (Amino Acid Chelate)', es: '4. Taurato de Magnesio (Quelato aminoácido)', ru: '4. Таурат магния (Аминокислотный хелат)', ca: '4. Taurat de Magnesi (Quelat aminoàcid)' },
+            { en: '5. Magnesium Acetate', es: '5. Acetato de Magnesio', ru: '5. Ацетат магния', ca: '5. Acetat de Magnesi' },
+            { en: '6. Magnesium Pidolate', es: '6. Pidolato de Magnesio', ru: '6. Пидолат магния', ca: '6. Pidolat de Magnesi' },
+            { en: '7. Magnesium Orotate', es: '7. Orotato de Magnesio', ru: '7. Оротат магния', ca: '7. Orotat de Magnesi' },
+            { en: '8. Magnesium Salicylate', es: '8. Salicilato de Magnesio', ru: '8. Салицилат магния', ca: '8. Salicilat de Magnesi' },
+            { en: 'Vitamin B6 (P5P Active Form)', es: 'Vitamina B6 (Forma Activa P5P)', ru: 'Витамин B6 (Активная форма P5P)', ca: 'Vitamina B6 (Forma Activa P5P)' }
+        ],
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/OctoMagnesium_1.lgj8791u36o04wc8kc4ock.jpg'
     },
     {
         id: '3D-Matrix',
         slug: '3d-matrix',
-        name: '3D-Matrix',
+        name: {
+            en: '3D-Matrix + XBi-A',
+            es: '3D-Matrix + XBi-A',
+            ru: '3D-Matrix + XBi-A',
+            ca: '3D-Matrix + XBi-A'
+        },
         category: 'Cell Elixir',
-        description: 'Multi-layered support for joints, skin, and vessels.',
-        longDescription: '3D-Matrix uses a unique multi-layer technology to deliver building blocks exactly where your connective tissues need them. It acts as a \\'frame\\' for your body, strengthening bones, joints, and blood vessels while restoring the youthful elasticity of your skin. This is not just collagen; it is a matrix reconstruction system.',
+        description: {
+            en: 'Triple-action connective tissue builder: Joints, Skin, and Vessels.',
+            es: 'Constructor de tejido conectivo de triple acción: Articulaciones, Piel y Vasos.',
+            ru: 'Тройное действие на соединительную ткань: Суставы, Кожа и Сосуды.',
+            ca: 'Constructor de teixit connectiu de triple acció: Articulacions, Pell i Vasos.'
+        },
+        longDescription: {
+            en: '3D-Matrix is a unique biological constructor providing the structural blocks for the body\'s connective tissues. It works in three dimensions: strengthening joints (Chondroitin/Glucosamine), rejuvenating skin (Collagen/Hyaluronic Acid), and fortifying blood vessels (Bioflavonoids/Vitamin C).',
+            es: '3D-Matrix es un constructor biológico único que proporciona los bloques estructurales para los tejidos conectivos del cuerpo. Funciona en tres dimensiones: fortalecimiento de articulaciones (Condroitina/Glucosamina), rejuvenecimiento de la piel (Colágeno/Ácido Hialurónico) y fortalecimiento de vasos sanguíneos (Bioflavonoides/Vitamina C).',
+            ru: '3D-Matrix — это уникальный биоконструктор, обеспечивающий структурные блоки для соединительной ткани организма. Он работает в трех измерениях: укрепление суставов (Хондроитин/Глюкозамин), омоложение кожи (Коллаген/Гиалуроновая кислота) и укрепление сосудов (Биофлавоноиды/Витамин C).',
+            ca: '3D-Matrix és un constructor biològic únic que proporciona els blocs estructurals per als teixits connectius del cos. Funciona en tres dimensions: enfortiment d\'articulacions (Condroitina/Glucosamina), rejoveniment de la pell (Col·lagen/Àcid Hialurònic) i enfortiment de vasos (Bioflavonoides/Vitamina C).'
+        },
         benefits: [
-            'Strengthens joints and connective tissue.',
-            'Improves skin elasticity and reduces wrinkles.',
-            'Reinforces blood vessel walls.',
-            'Promotes natural collagen synthesis.'
+            { en: 'Osteo Complex: Strengthens bones and joints.', es: 'Complejo Osteo: Fortalece huesos y articulaciones.', ru: 'Остео Комплекс: Укрепляет кости и суставы.', ca: 'Complex Osteo: Enforteix ossos i articulacions.' },
+            { en: 'Dermal Complex: Increases skin elasticity.', es: 'Complejo Dérmico: Aumenta la elasticidad de la piel.', ru: 'Дермал Комплекс: Повышает эластичность кожи.', ca: 'Complex Dèrmic: Augmenta l\'elasticitat de la pell.' },
+            { en: 'Cardio Complex: Fortifies blood vessel walls.', es: 'Complejo Cardio: Fortalece las paredes de los vasos sanguíneos.', ru: 'Кардио Комплекс: Укрепляет стенки сосудов.', ca: 'Complex Cardio: Enforteix les parets dels vasos sanguinis.' }
         ],
-        ingredients: ['Glucosamine', 'Chondroitin', 'Osteol', 'Resveratrol', 'Calcium', 'Vitamins B6, C, H (Biotin)'],
-        usage: '2-3 dragees daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/vt/3d/2025_12_02_AgenyzEU_3DMatrix_Mockup_2500x2500.jv54rcvxr7m1y7vv51dvwiy0uea5.png'
+        ingredients: [
+            { en: 'Glucosamine Sulfate & Chondroitin Sulfate', es: 'Sulfato de Glucosamina y Sulfato de Condroitina', ru: 'Глюкозамин сульфат и Хондроитин сульфат', ca: 'Sulfat de Glucosamina i Sulfat de Condroitina' },
+            { en: 'Calcium Citrate & Hydroxyapatite', es: 'Citrato de Calcio e Hidroxiapatita', ru: 'Цитрат кальция и Гидроксиапатит', ca: 'Citrat de Calci i Hidroxiapatita' },
+            { en: 'Resveratrol & Dihydroquercetin', es: 'Resveratrol y Dihidroquercetina', ru: 'Ресвератрол и Дигидрокверцетин', ca: 'Resveratrol i Dihidroquercetina' },
+            { en: 'Vitamin C & Hesperidin', es: 'Vitamina C y Hesperidina', ru: 'Витамин C и Гесперидин', ca: 'Vitamina C i Hesperidina' },
+            { en: 'Ginkgo Biloba Extract', es: 'Extracto de Ginkgo Biloba', ru: 'Экстракт Гинкго Билоба', ca: 'Extracte de Ginkgo Biloba' }
+        ],
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/3DMatrix_1.j72oivd3g9kk048ocww0kc.jpg'
     },
     {
-        id: 'GepaArt',
-        slug: 'gepaart',
-        name: 'GepaArt',
+        id: 'FungoMax-XBi-A',
+        slug: 'fungomax-xbi-a',
+        name: {
+            en: 'FungoMax + XBi-A',
+            es: 'FungoMax + XBi-A',
+            ru: 'ФунгоМакс + XBi-A',
+            ca: 'FungoMax + XBi-A'
+        },
+        category: 'XBi-A Series',
+        description: {
+            en: 'The power of 6 medicinal mushrooms for ultimate immune defense.',
+            es: 'El poder de 6 hongos medicinales para la defensa inmunológica definitiva.',
+            ru: 'Сила 6 целебных грибов для максимальной иммунной защиты.',
+            ca: 'El poder de 6 bolets medicinals per a la defensa immunitària definitiva.'
+        },
+        longDescription: {
+            en: 'FungoMax combines the ancient wisdom of medicinal mushrooms with modern bioavailability technology. Featuring high-potency extracts of Reishi, Chaga, Cordyceps, Lion\'s Mane, Maitake, and Agaricus, it is designed to modulate the immune system, boost energy, and protect cellular health.',
+            es: 'FungoMax combina la sabiduría antigua de los hongos medicinales con la tecnología moderna de biodisponibilidad. Con extractos de alta potencia de Reishi, Chaga, Cordyceps, Melena de León, Maitake y Agaricus, está diseñado para modular el sistema inmunológico, aumentar la energía y proteger la salud celular.',
+            ru: 'ФункгоМакс объединяет древнюю мудрость целебных грибов с современными технологиями. Содержа экстракты высокой активности Рейши, Чаги, Кордицепса, Ежевика гребенчатого, Мейтаке и Агарика, он создан для модуляции иммунной системы, повышения энергии и защиты здоровья клеток.',
+            ca: 'FungoMax combina la saviesa antiga dels bolets medicinals amb la tecnologia moderna de biodisponibilitat. Amb extractes d\'alta potència de Reishi, Chaga, Cordyceps, Cabellera de Lleó, Maitake i Agaricus, està dissenyat per modular el sistema immunitari, augmentar l\'energia i protegir la salut cel·lular.'
+        },
+        ingredients: [
+            { en: 'Reishi (Ganoderma lucidum)', es: 'Reishi (Ganoderma lucidum)', ru: 'Рейши (Ganoderma lucidum)', ca: 'Reishi (Ganoderma lucidum)' },
+            { en: 'Chaga (Inonotus obliquus)', es: 'Chaga (Inonotus obliquus)', ru: 'Чага (Inonotus obliquus)', ca: 'Chaga (Inonotus obliquus)' },
+            { en: 'Cordyceps (Cordyceps sinensis)', es: 'Cordyceps (Cordyceps sinensis)', ru: 'Кордицепс (Cordyceps sinensis)', ca: 'Cordyceps (Cordyceps sinensis)' },
+            { en: 'Lion\'s Mane (Hericium erinaceus)', es: 'Melena de León (Hericium erinaceus)', ru: 'Ежевик гребенчатый (Hericium erinaceus)', ca: 'Cabellera de Lleó (Hericium erinaceus)' },
+            { en: 'Maitake (Grifola frondosa)', es: 'Maitake (Grifola frondosa)', ru: 'Мейтаке (Grifola frondosa)', ca: 'Maitake (Grifola frondosa)' },
+            { en: 'Agaricus (Agaricus blazei)', es: 'Agaricus (Agaricus blazei)', ru: 'Агарик (Agaricus blazei)', ca: 'Agaricus (Agaricus blazei)' }
+        ],
+        benefits: [
+            { en: 'Immune Modulation: "Trains" immune cells.', es: 'Modulación inmunológica: "Entrena" las células inmunes.', ru: 'Иммуномодуляция: "Тренирует" иммунные клетки.', ca: 'Modulació immunitària: "Entrena" les cèl·lules immunes.' },
+            { en: 'Adaptogenic: Helps body resist stress.', es: 'Adaptogénico: Ayuda al cuerpo a resistir el estrés.', ru: 'Адаптоген: Помогает организму противостоять стрессу.', ca: 'Adaptogènic: Ajuda el cos a resistir l\'estrès.' },
+            { en: 'Antioxidant: Neutralizes free radicals.', es: 'Antioxidante: Neutraliza radicales libres.', ru: 'Антиоксидант: Нейтрализует свободные радикалы.', ca: 'Antioxidant: Neutralitza radicals lliures.' }
+        ],
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/FungoMax_1.m7879r29h3koooogcg0wc4.jpg'
+    },
+    {
+        id: 'FerBoost-XBi-A',
+        slug: 'ferboost-xbi-a',
+        name: {
+            en: 'FerBoost + XBi-A',
+            es: 'FerBoost + XBi-A',
+            ru: 'ФерБуст + XBi-A',
+            ca: 'FerBoost + XBi-A'
+        },
+        category: 'XBi-A Series',
+        description: {
+            en: '4-Source smart iron complex for anemia and energy.',
+            es: 'Complejo de hierro inteligente de 4 fuentes para anemia y energía.',
+            ru: 'Умный комплекс железа из 4 источников от анемии и для энергии.',
+            ca: 'Complex de ferro intel·ligent de 4 fonts per a anèmia i energia.'
+        },
+        longDescription: {
+            en: 'FerBoost solves the problem of iron malabsorption and side effects. It uses 4 highly bioavailable forms of iron (Bisglycinate, Fe-Liposome, Fumarate, Chelate) combined with absorption cofactors like Vitamin C, Folate, and B12. Gentle on the stomach, tough on anemia.',
+            es: 'FerBoost resuelve el problema de la mala absorción de hierro y efectos secundarios. Utiliza 4 formas de hierro altamente biodisponibles (Bisglicinato, Fe-Liposoma, Fumarato, Quelato) combinadas con cofactores de absorción como Vitamina C, Folato y B12. Suave con el estómago, duro contra la anemia.',
+            ru: 'ФерБуст решает проблему плохого усвоения железа и побочных эффектов. Использует 4 высокобиодоступные формы железа (Бисглицинат, Fe-Липосома, Фумарат, Хелат) в сочетании с кофакторами, такими как Витамин C, Фолат и B12. Мягкий для желудка, мощный против анемии.',
+            ca: 'FerBoost resol el problema de la mala absorció de ferro i efectes secundaris. Utilitza 4 formes de ferro altament biodisponibles (Bisglicinat, Fe-Liposoma, Fumarat, Quelat) combinades amb cofactors d\'absorció com Vitamina C, Folat i B12. Suau amb l\'estómac, dur contra l\'anèmia.'
+        },
+        ingredients: [
+            { en: '1. Iron Bisglycinate (Gentle Chelate)', es: '1. Bisglicinato de Hierro (Quelato Suave)', ru: '1. Бисглицинат железа (Мягкий хелат)', ca: '1. Bisglicinat de Ferro (Quelat Suau)' },
+            { en: '2. Liposomal Iron (Cell Membrane Mimic)', es: '2. Hierro Liposomal (Imita Membrana Celular)', ru: '2. Липосомальное железо (Имитация клеточной мембраны)', ca: '2. Ferro Liposomal (Imita Membrana Cel·lular)' },
+            { en: '3. Iron Fumarate (Standard Organic)', es: '3. Fumarato de Hierro (Orgánico Estándar)', ru: '3. Фумарат железа (Стандарт органический)', ca: '3. Fumarat de Ferro (Orgànic Estàndard)' },
+            { en: '4. Iron Amino Acid Chelate', es: '4. Quelato de Aminoácidos de Hierro', ru: '4. Аминокислотный хелат железа', ca: '4. Quelat d\'Aminoàcids de Ferro' },
+            { en: 'Cofactors: Vitamin C, B9 (Folate), B12', es: 'Cofactores: Vitamina C, B9 (Folato), B12', ru: 'Кофакторы: Витамин C, B9 (Фолат), B12', ca: 'Cofactors: Vitamina C, B9 (Folat), B12' }
+        ],
+        benefits: [
+            { en: 'Eliminates anemia symptoms (Fatigue, Pale Skin).', es: 'Elimina síntomas de anemia (Fatiga, Piel pálida).', ru: 'Устраняет симптомы анемии (Усталость, Бледность).', ca: 'Elimina símptomes d\'anèmia (Fatiga, Pell pàl·lida).' },
+            { en: 'No constipation or nausea (Bisglycinate form).', es: 'Sin estreñimiento ni náuseas (forma Bisglicinato).', ru: 'Без запоров и тошноты (форма бисглицинат).', ca: 'Sense restrenyiment ni nàusees (forma Bisglicinat).' },
+            { en: 'Fast ferritin restoration.', es: 'Restauración rápida de ferritina.', ru: 'Быстрое восстановление ферритина.', ca: 'Restauració ràpida de ferritina.' }
+        ],
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/FerBoost_1.m7879r29h3koooogcg0wc4.jpg'
+    },
+    // --- CELL ELIXIR SERIES ---
+    {
+        id: 'CellGenetiX',
+        slug: 'cellgenetix',
+        name: { en: 'CellGenetiX', es: 'CellGenetiX', ru: 'CellGenetiX', ca: 'CellGenetiX' },
         category: 'Cell Elixir',
-        description: 'Complete liver detox and cholesterol balance.',
-        longDescription: 'A vegan guardian for your liver. GepaArt targets heavy metals, toxins, and excess cholesterol, helping your main filter organ run smoothly. It supports bile production and protects hepatocytes from damage, ensuring clear skin and better digestion.',
+        description: {
+            en: 'Genetic potential activator with Polyprenols & Astaxanthin.',
+            es: 'Activador del potencial genético con Poliprenoles y Astaxantina.',
+            ru: 'Активатор генетического потенциала с Полипренолами и Астаксантином.',
+            ca: 'Activador del potencial genètic amb Poliprenols i Astaxantina.'
+        },
+        longDescription: {
+            en: 'CellGenetiX is the flagship anti-aging formula focusing on telomere protection and mitochondrial health. It features rare Siberian Polyprenols (cell regeneration), Astaxanthin (super-antioxidant), and Black Cumin Seed Oil to protect DNA and extend cellular youth.',
+            es: 'CellGenetiX es la fórmula antienvejecimiento insignia que se enfoca en la protección de los telómeros y la salud mitocondrial. Contiene raros Poliprenoles Siberianos (regeneración celular), Astaxantina (super-antioxidante) y Aceite de Comino Negro para proteger el ADN y extender la juventud celular.',
+            ru: 'CellGenetiX — флагманская антивозрастная формула, направленная на защиту телемер и здоровье митохондрий. Содержит редкие сибирские полипренолы (клеточная регенерация), астаксантин (супер-антиоксидант) и масло черного тмина для защиты ДНК и продления молодости клеток.',
+            ca: 'CellGenetiX és la fórmula antienvelliment insígnia que s\'enfoca en la protecció dels telòmers i la salut mitocondrial. Conté rars Poliprenols Siberians (regeneració cel·lular), Astaxantina (super-antioxidant) i Oli de Comí Negre per protegir l\'ADN i estendre la joventut cel·lular.'
+        },
         benefits: [
-            'Detoxifies the liver at a cellular level.',
-            'Normalizes cholesterol profile.',
-            'Improves bile flow and digestion.',
-            'Protects against alcohol and dietary toxins.'
+            { en: 'Protects telomeres and DNA.', es: 'Protege telómeros y ADN.', ru: 'Защищает телемеры и ДНК.', ca: 'Protegeix telòmers i ADN.' },
+            { en: 'Powerful anti-inflammatory action.', es: 'Poderosa acción antiinflamatoria.', ru: 'Мощное противовоспалительное действие.', ca: 'Poderosa acció antiinflamatòria.' },
+            { en: 'Regenerates liver cells.', es: 'Regenera células hepáticas.', ru: 'Регенерирует клетки печени.', ca: 'Regenera cèl·lules hepàtiques.' }
         ],
-        ingredients: ['Milk Thistle', 'Artichoke', 'Dihydroquercetin', 'Corn Silk', 'Fennel'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/hz/ph/gepa_art_oculyz_mockups_14_07_2025_4_site.fsxe8gwu1ixnz4jq43a8.png'
+        ingredients: [
+            { en: 'Siberian Fir Polyprenols', es: 'Poliprenoles de Abeto Siberiano', ru: 'Полипренолы Сибирской Пихты', ca: 'Poliprenols d\'Avet Siberià' },
+            { en: 'Astaxanthin (Haematococcus pluvialis)', es: 'Astaxantina', ru: 'Астаксантин', ca: 'Astaxantina' },
+            { en: 'Black Cumin Seed Oil', es: 'Aceite de Semilla de Comino Negro', ru: 'Масло Черного Тмина', ca: 'Oli de Llavor de Comí Negre' },
+            { en: 'Betulin', es: 'Betulina', ru: 'Бетулин', ca: 'Бетулин', ca: 'Betulina' },
+            { en: 'Vitamin E', es: 'Vitamina E', ru: 'Витамин E', ca: 'Vitamina E' }
+        ],
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/CellGenetiX_1.j72oivd3g9kk048ocww0kc.jpg'
     },
+    // --- ADDITIONAL PRODUCTS (Summary Data) ---
     {
-        id: 'AlfaOmega-Q10',
-        slug: 'alfaomega-q10',
-        name: 'AlfaOmega-Q10',
-        category: 'Cell Elixir',
-        description: 'Heart, Brain & Beauty Complex.',
-        longDescription: 'The ultimate shield for your heart and brain. AlfaOmega-Q10 combines high-quality Omega-3 fatty acids, Coenzyme Q10, and Betulin to support cardiovascular health, cognitive function, and youthful skin. Essential for anyone leading an active, high-performance life.',
-        benefits: [
-            'Supports heart rhythm and vascular health.',
-            'Boosts brain function and memory.',
-            'Energizes cells with CoQ10.',
-            'Improves skin hydration and elasticity.'
-        ],
-        ingredients: ['Omega-3 (EPA/DHA)', 'Coenzyme Q10', 'Betulin', 'Vitamin E'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/alfaomega-q10_image.jpg'
-    },
+        id: 'ParaDetox',
+        slug: 'paradetox',
+        name: { en: 'ParaDetox + XBi-A', es: 'ParaDetox + XBi-A', ru: 'ПараДетокс + XBi-A', ca: 'ParaDetox + XBi-A' },
+        category: 'Additional',
+        description: {
+            en: 'Natural parasite cleanse and digestive support.',
+            es: 'Limpieza natural de parásitos y apoyo digestivo.',
+            ru: 'Натуральное очищение от паразитов и поддержка пищеварения.',
+            ca: 'Neteja natural de paràsits i suport digestiu.'
+        },
+        ingredients: [
+            { en: 'Wormwood Extract', es: 'Extracto de Ajenjo', ru: 'Экстракт Полыни', ca: 'Extracte de Donzell' },
+            { en: 'Black Walnut Hull', es: 'Cáscara de Nogal Negro', ru: 'Кожура Черного Ореха', ca: 'Closca de Noguera Negra' },
+            { en: 'Clove', es: 'Clavo', ru: 'Гвоздика', ca: 'Clau' }
+        ]
+    }, {
+        id: 'PHT-SustaHelp',
+        slug: 'sustahelp',
+        name: { en: 'SustaHelp', es: 'SustaHelp', ru: 'СустаХелп', ca: 'SustaHelp' },
+        category: 'Additional',
+        description: {
+            en: 'Advanced joint support formula.',
+            es: 'Fórmula avanzada de apoyo articular.',
+            ru: 'Продвинутая формула для поддержки суставов.',
+             ca: 'Fórmula avançada de suport articular.'
+        },
+        ingredients: [
+            { en: 'Glucosamine', es: 'Glucosamina', ru: 'Глюкозамин', ca: 'Glucosamina' },
+            { en: 'Chondroitin', es: 'Condroitina', ru: 'Хондроитин', ca: 'Condroitina' },
+            { en: 'MSM', es: 'MSM', ru: 'МСМ', ca: 'MSM' }
+        ]    },
     {
-        id: 'Slim-Hit',
-        slug: 'slim-hit',
-        name: 'Slim Hit',
-        category: 'Cell Elixir',
-        description: 'Metabolic activator and fat blocker.',
-        longDescription: 'Slim Hit is designed to help you manage weight intelligently. It blocks the absorption of excess fats and carbohydrates while activating your metabolism to burn stored energy. Includes Chitosan and Garcinia Cambogia for natural appetite control.',
-        benefits: [
-            'Blocks excess calorie absorption.',
-            'Controls appetite and sugar cravings.',
-            'Accelerates fat metabolism.',
-            'Supports healthy detox.'
-        ],
-        ingredients: ['Chitosan', 'Garcinia Cambogia', 'Gymnema Sylvestre', 'Bromelain'],
-        usage: '1 capsule before meals.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/slim-hit.jpg'
-    },
-
-    // --- 3D GUARD ---
-    {
-        id: 'CellGuard',
-        slug: 'cellguard',
-        name: 'CellGuard',
-        category: '3dGuard',
-        description: 'Ultimate immune shield and detox.',
-        longDescription: 'CellGuard is your body\\'s fortress against environmental aggression. Using the power of Curcumin and Cat\\'s Claw, it detoxifies cells from radiation, heavy metals, and viruses while modulating the immune response to prevent overreaction (inflammation).',
-        benefits: [
-            'Protects against radiation and chemical toxins.',
-            'Reducing chronic inflammation.',
-            'Strengthens antiviral immunity.',
-            'Supports cellular DNA repair.'
-        ],
-        ingredients: ['Curcumin', 'Cat\\'s Claw', 'Reishi', 'Selenium'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/85/c0/cellguard.ny6j7.png'
-    },
-    {
-        id: 'Infladel',
-        slug: 'infladel',
-        name: 'Infladel',
-        category: '3dGuard',
-        description: 'Natural anti-inflammatory complex.',
-        longDescription: 'Inflamaging (inflammation + aging) is the silent killer. Infladel stops it. With a potent blend of antimicrobial and anti-inflammatory plant extracts, it acts as a natural antibiotic without the side effects, protecting you from bacteria, viruses, and chronic pain.',
-        benefits: [
-            'Reduces systemic inflammation.',
-            'Natural antimicrobial action.',
-            'Boosts immunity during flu season.',
-            'Supports respiratory health.'
-        ],
-        ingredients: ['Andrographis', 'Echinacea', 'Willow Bark (Natural Aspirin)', 'Colostrum', 'Lysozyme'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/5f/nw/infladel.lsaf.png'
-    },
-    {
-        id: 'CandiDel',
-        slug: 'candidel',
-        name: 'CandiDel',
-        category: '3dGuard',
-        description: 'Fungal defense and yeast balance.',
-        longDescription: 'A balanced microbiome starts with controlling fungi. CandiDel targets Candida overgrowth, which causes sugar cravings, fatigue, and bloating. Its natural fungicidal oils cleanse the system without harming beneficial bacteria.',
-        benefits: [
-            'Eliminates pathogenic fungi (Candida).',
-            'Reduces sugar and carb cravings.',
-            'Clears skin from fungal-related acne.',
-            'Supports healthy digestion.'
-        ],
-        ingredients: ['Black Cumin Seed Oil', 'Oregano Oil', 'Magnesium Caprylate', 'Grapefruit Seed Extract'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/vy/h0/candidel_eng_500.k750wzr27qisakjrj3.jpg'
-    },
-
-    // --- FUNCTIONAL DRINKS (TRUE AQUA) ---
-    {
-        id: 'PH-Balance',
-        slug: 'ph-balance',
-        name: 'pH Balance',
-        category: 'Functional Drinks',
-        description: 'Alkalizing marine minerals for hydration.',
-        longDescription: 'Acidosis is the root of many modern ailments. pH Balance restores your body\\'s alkaline state using Aquamin��calcium and magnesium sourced from pristine marine algae. It hydrates, energizes, and prevents minerals from being leached from your bones.',
-        benefits: [
-            'Instantly alkalizes the body.',
-            'Prevents calcium loss from bones.',
-            'Relieves lactic acid burn after sports.',
-            'Improves hydration and stamina.'
-        ],
-        ingredients: ['Aquamin (Seaweed Calcium)', 'Potassium', 'Magnesium'],
-        usage: '1 sachet in 500ml water daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/l5/i4/mockup_phbalance_eu_02_09_2025_v1_4_site.2vmtdd09gyags.png'
-    },
-    {
-        id: 'Immune-Cell',
-        slug: 'immune-cell',
-        name: 'Immune Cell',
-        category: 'Functional Drinks',
-        description: 'Liposomal immunity boost.',
-        longDescription: 'A tasty, powerful drink that feeds your immunity. Immune Cell uses liposomal technology to deliver vitamins and probiotics (peptide ultralysates) directly to your cells, bypassing digestion destruction. It balances the microbiome and charges you with energy.',
-        benefits: [
-            'Rapid immune system activation.',
-            'Supports gut microbiome health.',
-            'Increases energy and vitality.',
-            'High bioavailability of vitamins.'
-        ],
-        ingredients: ['Liposomal Vitamins (C, D3, E, B-Complex)', 'Bifidobacteria Lysates', 'Chaga', 'Green Tea'],
-        usage: '1 sachet in water daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/we/zx/immune_eng_500.ymlnrn8mt8hm.jpg'
-    },
-    {
-        id: 'Alfamind',
-        slug: 'alfamind',
-        name: 'AlfaMind',
-        category: 'Functional Drinks',
-        description: 'Focus, calm, and mental clarity.',
-        longDescription: 'Unlock the \\'Flow State\\'. AlfaMind is a natural nootropic that helps you focus without the jitters of coffee. It calms the nervous system while sharpening concentration, making it perfect for high-pressure work or study.',
-        benefits: [
-            'Improves concentration and memory.',
-            'Reduces stress and anxiety.',
-            'Protects brain cells from aging.',
-            'Balances mood.'
-        ],
-        ingredients: ['Glycine', 'Theanine', 'Ginkgo Biloba', 'Vitamin B-Complex', 'Magnesium'],
-        usage: '1 sachet in water when focus is needed.',
-        image: 'https://front.agenyz.eu/resize/w1413/functional-drinks/alfamind.jpg'
-    },
-    {
-        id: 'Black-Gold-Hot',
-        slug: 'black-gold-hot',
-        name: 'Black Gold & Hot',
-        category: 'Functional Drinks',
-        description: 'Chaga mushroom elixir for vitality.',
-        longDescription: 'An ancient Siberian secret for longevity. Black Gold & Hot is a warming drink based on Chaga mushroom, known as the \\'King of Herbs\\'. It boosts immunity, improves digestion, and provides a powerful dose of antioxidants.',
-        benefits: [
-            'Powerful immune modulator.',
-            'Supports digestive health.',
-            'Anti-inflammatory and warming.',
-            'Natural energy source.'
-        ],
-        ingredients: ['Chaga Mushroom Extract', 'Ginger', 'Lemon'],
-        usage: 'Mix with hot water for a tea-like experience.',
-        image: 'https://front.agenyz.eu/resize/w1413/functional-drinks/black-gold.jpg'
-    },
-
-    // --- FOOD SUPPLEMENTS (XBi-A) ---
-    {
-        id: 'Octomagnesium-XBi-A',
-        slug: 'octomagnesium-xbi-a',
-        name: 'OctoMagnesium + XBi-A',
-        category: 'Food Supplements',
-        description: '8 forms of Magnesium for total relaxation.',
-        longDescription: 'Magnesium deficiency causes stress, cramps, and poor sleep. OctoMagnesium solves this with a cascade of 8 different magnesium forms (Chelate, Citrate, Malate, etc.) plus Vitamin B6 and XBi-A booster. It absorbs rapidly and works long-term.',
-        benefits: [
-            'Deep muscle relaxation and cramp relief.',
-            'Calms the nervous system.',
-            'Improves sleep quality.',
-            'Supports heart and brain health.'
-        ],
-        ingredients: ['8 Magnesium Forms (Bisglycinate, Citrate, Malate...)', 'Vitamin B6', 'XBi-A Booster'],
-        usage: '2 capsules in the evening.',
-        image: 'https://front.agenyz.eu/resize/w1413/2a/7f/octomg_eu_mockup_15_10_2025_v1.1uxly2u6iv4zobzrpu78m585dlm.png'
-    },
-    {
-        id: 'Vitamin-D3-XBi-A',
-        slug: 'vitamin-d3-xbi-a',
-        name: 'Vitamin D3 + XBi-A',
-        category: 'Food Supplements',
-        description: 'Vegan sun vitamin with bioavailability booster.',
-        longDescription: 'Vitamin D is crucial for immunity and bones, but often poorly absorbed. Ours comes from a vegan source (Reindeer Lichen) and is supercharged with XBi-A technology for maximum uptake.',
-        benefits: [
-            'Strengthens immune defense.',
-            'Vital for bone density.',
-            'Mood regulation (anti-depression).',
-            '100% Vegan.'
-        ],
-        ingredients: ['Vitamin D3 (Lichen origin)', 'XBi-A Complex'],
-        usage: '1 capsule daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/VitaminD3_1.72cbzz0zfx80c69v1cwvdl.jpg'
-    },
-    {
-        id: 'Vitamin-C-XBi-A',
-        slug: 'vitamin-c-xbi-a',
-        name: 'Vitamin C + XBi-A',
-        category: 'Food Supplements',
-        description: 'Natural C from Rosehip.',
-        longDescription: 'Synthetic Vitamin C can irritate. Ours is pure Rosehip extract, gentle on the stomach and enhanced with XBi-A. Essential for collagen production and fighting off colds.',
-        benefits: [
-            'Boosts collagen production for skin.',
-            'Strengthens immunity.',
-            'Potent antioxidant.',
-            'Gentle on the stomach.'
-        ],
-        ingredients: ['Rosehip Extract (Vitamin C)', 'XBi-A Complex'],
-        usage: '1-2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/vitamin-c-xbi-a.jpg'
+        id: 'Cats-Claw-XBi-A',
+        slug: 'cats-claw-xbi-a',
+        name: { en: 'Cat\'s Claw + XBi-A', es: 'Uña de Gato + XBi-A', ru: 'Кошачий коготь + XBi-A', ca: 'Urpa de Gat + XBi-A' },
+        category: 'Additional',
+        description: {
+            en: 'Immune modulator and viral defense.',
+            es: 'Modulador inmunológico y defensa viral.',
+            ru: 'Иммуномодулятор и защита от вирусов.',
+            ca: 'Modulador immunitari i defensa viral.'
+        },
+        ingredients: [
+            { en: 'Cat\'s Claw Extract', es: 'Extracto de Uña de Gato', ru: 'Экстракт кошачьего когтя', ca: 'Extracte d\'Urpa de Gat' }
+        ]
     },
     {
         id: 'Oculyz-XBi-A',
         slug: 'oculyz-xbi-a',
-        name: 'Oculyz + XBi-A',
-        category: 'Food Supplements',
-        description: 'Complete synthesis for vision protection.',
-        longDescription: 'In the digital age, our eyes are under constant attack. Oculyz provides the pigments (Lutein, Zeaxanthin) needed to filter blue light and protect the retina, enhanced with berry extracts for vascular support.',
-        benefits: [
-            'Protects eyes from blue light damage (screens).',
-            'Reduces eye fatigue and dryness.',
-            'Supports retinal health.',
-            'Improves night vision.'
-        ],
-        ingredients: ['Lutein', 'Zeaxanthin', 'Blueberry Extract', 'Beta-carotene', 'XBi-A'],
-        usage: '1 capsule daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/oculyz.jpg'
+        name: { en: 'Oculyz + XBi-A', es: 'Oculyz + XBi-A', ru: 'Окулиз + XBi-A', ca: 'Oculyz + XBi-A' },
+        category: 'Additional',
+        description: {
+            en: 'Complete eye health protection.',
+            es: 'Protección completa para la salud ocular.',
+            ru: 'Полная защита здоровья глаз.',
+            ca: 'Protecció completa per a la salut ocular.'
+        },
+        ingredients: [
+            { en: 'Lutein & Zeaxanthin', es: 'Luteína y Zeaxantina', ru: 'Лютеин и Зеаксантин', ca: 'Luteïna i Zeaxantina' },
+            { en: 'Bilberry Extract', es: 'Extracto de Arándano', ru: 'Экстракт Черники', ca: 'Extracte de Nabiu' },
+            { en: 'Beta-carotene', es: 'Betacaroteno', ru: 'Бета-каротин', ca: 'Betacarotè' }
+        ]
     },
     {
-        id: 'FerBoost',
-        slug: 'ferboost',
-        name: 'FerBoost',
-        category: 'Food Supplements',
-        description: 'Smart Iron for fatigue reduction.',
-        longDescription: 'Iron that doesn\\'t hurt your stomach. FerBoost uses liposomal and chelated iron with co-factors like Folate and B12 to ensure it goes into your blood, not your gut. Say goodbye to anemia-related fatigue.',
-        benefits: [
-            'Rapidly raises Iron and Ferritin levels.',
-            'Eliminates chronic fatigue.',
-            'No nausea or stomach irritation.',
-            'Supports oxygen transport.'
-        ],
-        ingredients: ['Liposomal Iron', 'Folate', 'Vitamin B12', 'Vitamin C'],
-        usage: '1 capsule daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/ferboost-d3.jpg'
+        id: 'VenoBalance',
+        slug: 'venobalance',
+        name: { en: 'VenoBalance', es: 'VenoBalance', ru: 'ВеноБаланс', ca: 'VenoBalance' },
+        category: 'Additional',
+        description: {
+            en: 'Vein health and circulation support.',
+            es: 'Salud venosa y apoyo a la circulación.',
+            ru: 'Здоровье вен и поддержка кровообращения.',
+            ca: 'Salut venosa i suport a la circulació.'
+        },
+        ingredients: [
+            { en: 'Diosmin & Hesperidin', es: 'Diosmina y Hesperidina', ru: 'Диосмин и Гесперидин', ca: 'Diosmina i Hesperidina' },
+            { en: 'Horse Chestnut', es: 'Castaño de Indias', ru: 'Конский Каштан', ca: 'Castanyer d\'Índies' }
+        ]
     },
     {
-        id: 'ParaDetox',
-        slug: 'paradetox',
-        name: 'ParaDetox + XBi-A',
-        category: 'Food Supplements',
-        description: 'Deep anti-parasitic cleanse.',
-        longDescription: 'A clean body starts with a clean gut. ParaDetox is a comprehensive herbal formula designed to expel parasites and maintain a healthy intestinal environment without harsh chemicals.',
-        benefits: [
-            'Expels intestinal parasites gently.',
-            'Detoxifies parasite byproducts.',
-            'Improves digestion.',
-            'Reduces skin rashes related to toxins.'
-        ],
-        ingredients: ['Clove', 'Walnut Leaf', 'Tansy', 'Grapefruit Seed', 'XBi-A'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/paradetox-xbi-a.jpg'
+        id: 'Slim-MCT',
+        slug: 'slim-mct',
+        name: { en: 'Slim MCT', es: 'Slim MCT', ru: 'Slim MCT', ca: 'Slim MCT' },
+        category: 'G-Keto',
+        description: {
+            en: 'MCT Oil for keto energy and metabolism.',
+            es: 'Aceite MCT para energía keto y metabolismo.',
+            ru: 'Масло МСТ для кето-энергии и метаболизма.',
+            ca: 'Oli MCT per a energia keto i metabolisme.'
+        },
+        ingredients: [
+            { en: 'MCT Oil (C8/C10)', es: 'Aceite MCT (C8/C10)', ru: 'Масло МСТ (C8/C10)', ca: 'Oli MCT (C8/C10)' }
+        ]
     },
     {
-        id: 'UriPurin',
-        slug: 'uripurin',
-        name: 'UriPurin',
-        category: 'Food Supplements',
-        description: 'Uric acid control for joint comfort.',
-        longDescription: 'High uric acid leads to painful crystals in joints (Gout). UriPurin helps your kidneys flush it out efficiently while calming inflammation in the joints with Devil\\'s Claw and Boswellia.',
-        benefits: [
-            'Lowers uric acid levels.',
-            'Relieves joint pain and swelling.',
-            'Supports kidney filtration.',
-            'Improves mobility.'
-        ],
-        ingredients: ['Devil\\'s Claw', 'Boswellia', 'Cherry Extract', 'UDex Complex'],
-        usage: '2 capsules daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/sh/ve/uripurin_eu_mockup_02_09_2025_v1_4_site.u9p7qhae5jevi6ctq.png'
-    },
-    // --- FOOD (Shakes / Oils) ---
-    {
-        id: 'Alfa-Shake-MCT',
-        slug: 'alfa-shake-mct',
-        name: 'Alfa Shake + MCT',
-        category: 'Food',
-        description: 'Perfect protein meal with MCT energy.',
-        longDescription: 'More than just protein. This is fuel. AlfaShake combines easily digestible whey protein with MCT oil (Medium Chain Triglycerides) which the liver converts directly into ketone energy for the brain. Perfect for keto diets and sustained energy.',
-        benefits: [
-            'Sustained energy without sugar spikes.',
-            'Supports muscle tone and recovery.',
-            'Brain fuel (Ketones).',
-            'Controls appetite.'
-        ],
-        ingredients: ['Whey Protein', 'MCT Oil', 'BCAAs', 'Vitamin Complex'],
-        usage: 'Mix 1 scoop with water or nut milk.',
-        image: 'https://front.agenyz.eu/resize/w1413/b2/bu/alfashake_new_mockup_dark_bottle.yxfbdcbmjzdr50tm4d22y.png'
+        id: 'Skin-Elixir',
+        slug: 'skin-elixir',
+        name: { en: 'Skin Elixir', es: 'Skin Elixir', ru: 'Skin Elixir', ca: 'Skin Elixir' },
+        category: 'Beauty',
+        description: {
+            en: 'Facial cream for hydration and repair.',
+            es: 'Crema facial para hidratación y reparación.',
+            ru: 'Крем для лица для увлажнения и восстановления.',
+            ca: 'Crema facial per a hidratació i reparació.'
+        },
+        ingredients: [
+            { en: 'Peptides & Hyaluronic Acid', es: 'Péptidos y Ácido Hialurónico', ru: 'Пептиды и Гиалуроновая кислота', ca: 'Pèptids i Àcid Hialurònic' }
+        ]
     },
     {
-        id: 'IQ-MCT-Powder',
-        slug: 'iq-mct-powder',
-        name: 'IQ-MCT Powder',
-        category: 'Food',
-        description: 'Pure brain fuel with metabiotics.',
-        longDescription: 'Upgrade your coffee or smoothie. IQ-MCT is pure caprylic/capric acid powder that turns into brain energy instantly. Enriched with metabiotics to support the gut-brain axis.',
-        benefits: [
-            'Instant mental clarity and focus.',
-            'Kickstarts Ketosis.',
-            'Supports healthy gut bacteria.',
-            'Tasteless - add to any drink.'
-        ],
-        ingredients: ['MCT Oil Powder (C8/C10)', 'Metabiotics (Acacia fiber)'],
-        usage: 'Add to coffee, tea, or shakes.',
-        image: 'https://front.agenyz.eu/resize/w1413/g-keto-d2/iq-mst-powder.jpg'
-    },
-    {
-        id: 'Collagen-Blend',
-        slug: 'collagen-blend',
-        name: 'Collagen Blend',
-        category: 'Food Supplements',
-        description: '5 sources of Collagen for total beauty.',
-        longDescription: 'Don\\'t settle for one type of collagen. Our blend includes 5 different sources (marine, bovine, chicken, etc.) to target skin, joints, bones, and gut lining simultaneously. Enriched with Hyaluronic acid and Vitamin C.',
-        benefits: [
-            'Systemic collagen restoration.',
-            'Plumps skin and reduces fine lines.',
-            'Strengthens hair and nails.',
-            'Repairs gut lining.'
-        ],
-        ingredients: ['Peptides of 5 Collagen Types', 'Vitamin C', 'Hyaluronic Acid', 'Biotin'],
-        usage: '1 scoop daily in drink.',
-        image: 'https://front.agenyz.eu/resize/w1413/g4/ag/2025_11_11_Collagen_Blend_Biotin_MOCKUP_2000x2000.5vscizg6691gv26az.png'
-    },
-
-    // --- KIDS ---
-    {
-        id: 'Immune-Kidyz',
-        slug: 'immune-kidyz',
-        name: 'Immune KidYZ',
-        category: 'Kids',
-        description: 'Delicious vitamins for growing heroes.',
-        longDescription: 'Kids hate pills, but they love this. A balanced vitamin and mineral complex in tasty form, designed to support rapid growth and a strong immune system during school years.',
-        benefits: [
-            'Supports physical growth and development.',
-            'Strengthens immunity naturally.',
-            'Supports cognitive development.',
-            'Great taste.'
-        ],
-        ingredients: ['Vitamins A, C, E, D3', 'Zinc', 'Iodine', 'B-Group Vitamins'],
-        usage: '1-2 tablets daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/immune-kidyz.jpg'
-    },
-    {
-        id: 'Gummyz-Kidyz',
-        slug: 'gummyz-kidyz',
-        name: 'Gummyz KidYZ (Ca + D3)',
-        category: 'Kids',
-        description: 'Strong bones for active kids.',
-        longDescription: 'Calcium is useless without D3 and K2. Gummyz KidYZ provides the perfect trio to ensure calcium actually goes into the bones and teeth, supporting strong skeletal growth.',
-        benefits: [
-            'Promotes strong bones and teeth.',
-            'Ensures proper calcium absorption.',
-            'Supports muscle function.',
-            'Sugar-free, natural styling.'
-        ],
-        ingredients: ['Calcium', 'Vitamin D3', 'Vitamin K2'],
-        usage: '1-2 gummies daily.',
-        image: 'https://front.agenyz.eu/resize/w1413/food-supplements/gummyz-kidyz-calcium-k2-d3.jpg'
-    },
-     // --- TEAS ---
-    {
-        id: 'Tea-Indigo',
-        slug: 'tea-indigo',
-        name: '5.5 teArt Indigo',
-        category: 'Functional Drinks',
-        description: 'Relaxing blue tea for peace.',
-        longDescription: 'A mesmerizing blue tea (Butterfly Pea Flower) that calms the mind. Caffeine-free and full of antioxidants, it is the perfect ritual for evening relaxation.',
-        benefits: [
-            'Relieves stress and tension.',
-            'Rich in antioxidants (Anthocyanins).',
-            'Improves sleep rituals.',
-            'Beautiful blue color.'
-        ],
-        ingredients: ['Butterfly Pea Flower', 'Lemon Grass', 'Mint'],
-        usage: 'Brew 1 sachet in hot water.',
-        image: 'https://front.agenyz.eu/resize/w1413/functional-drinks/55-teart-herbal-tea-indigo.jpg'
-    },
-    {
-        id: 'Tea-Digestion',
-        slug: 'tea-digestion',
-        name: '5.5 teArt Digestion',
-        category: 'Functional Drinks',
-        description: 'Herbal comfort after meals.',
-        longDescription: 'Heavy lunch? This blend of digestive herbs helps break down food, reduce bloating, and soothe the stomach.',
-        benefits: [
-            'Alleviates bloating and gas.',
-            'Stimulates healthy digestion.',
-            'Fresh, cleansing taste.'
-        ],
-        ingredients: ['Fennel', 'Chamomile', 'Anise', 'Cumin'],
-        usage: 'Brew 1 sachet after meals.',
-        image: 'https://front.agenyz.eu/resize/w1413/functional-drinks/55-teart-digestion-tea-with-herbs-fruits.jpg'
-    }
+        id: 'Youth-Secret',
+        slug: 'youth-secret',
+        name: { en: 'Youth Secret', es: 'Youth Secret', ru: 'Youth Secret', ca: 'Youth Secret' },
+        category: 'Beauty',
+        description: {
+            en: 'Anti-aging cream for visible rejuvenation.',
+            es: 'Crema antienvejecimiento para rejuvenecimiento visible.',
+            ru: 'Антивозрастной крем для видимого омоложения.',
+            ca: 'Crema antienvelliment per a rejoveniment visible.'
+        },
+        ingredients: [
+            { en: 'Retinol Alternative & Antioxidants', es: 'Alternativa al Retinol y Antioxidantes', ru: 'Альтернатива ретинолу и Антиоксиданты', ca: 'Alternativa al Retinol i Antioxidants' }
+        ]    }
 ];
 
-export const categories = ['All', 'Cell Elixir', '3dGuard', 'Functional Drinks', 'Food Supplements', 'Food', 'Kids'];
+export const categories = ['All', 'XBi-A Series', 'Cell Elixir', 'G-Keto', 'Beauty', 'Additional'];
+
+// Add helper specifically for getting ingredients list in ID layout component
+export const getIngredients = (prod: Product, lang: string): string[] => {
+    if (!prod.ingredients) return [];
+    return prod.ingredients.map(i => getLocalized(i, lang));
+};

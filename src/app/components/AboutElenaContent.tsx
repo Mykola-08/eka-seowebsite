@@ -75,7 +75,7 @@ export default function AboutElenaContent() {
                  <Link href="/booking">
                     <Button 
                       size="xl" 
-                      className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] px-10 py-4 rounded-2xl font-medium shadow-lg hover:translate-y-[-2px] transition-all border-none normal-case"
+                      className="btn btn-accent px-10 py-4 normal-case border-none"
                     >
                       {t('common.bookNow')}
                     </Button>
@@ -84,7 +84,7 @@ export default function AboutElenaContent() {
                     <Button 
                       size="xl" 
                       variant="outline"
-                      className="bg-white text-[#000035] border-gray-200 px-10 py-4 rounded-2xl font-medium hover:bg-gray-50 normal-case"
+                      className="btn btn-outline border-2 px-10 py-4 normal-case bg-white border-gray-200"
                     >
                       {t('nav.contact')}
                     </Button>
@@ -123,7 +123,7 @@ export default function AboutElenaContent() {
         <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 text-center">
             <div className="mb-16">
-              <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-[#000035] mb-6">
                 {t('elena.approach.title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
@@ -161,7 +161,7 @@ export default function AboutElenaContent() {
         {/* Contact CTA */}
         <section className="py-20 bg-gray-50">
            <div className="max-w-4xl mx-auto px-4 text-center">
-              <h2 className="text-3xl font-light text-gray-900 mb-8">{t('footer.readyToBegin')}</h2>
+              <h2 className="text-3xl font-light text-[#000035] mb-8">{t('footer.readyToBegin')}</h2>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                  <Link href="/booking">
                     <Button 

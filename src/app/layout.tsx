@@ -1,6 +1,7 @@
 
 import type { Metadata, Viewport } from "next";
 import "@/react-app/index.css";
+import "@/app/styles/design-system.css";
 import MainLayout from "@/app/components/MainLayout";
 import { Inter } from "next/font/google";
 import { LanguageProvider } from '@/react-app/contexts/LanguageContext';

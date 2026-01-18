@@ -14,7 +14,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 ease-out-quart h-full flex flex-col">
+    <div className="card h-full flex flex-col hover:shadow-xl transition-all duration-300 ease-out-quart">
        <div className="relative h-48 sm:h-56 overflow-hidden">
           <LazyImage
             src={service.image}
@@ -23,7 +23,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           />
         </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
+        <h3 className="text-xl font-bold text-gray-900 mb-2 heading-3">
           {t(service.titleKey)}
         </h3>
         {/* Helper text/subtitle in orange/color */}
@@ -31,7 +31,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           {t(service.subtitleKey)}
         </p>
         
-        <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
+        <p className="text-body text-sm mb-6 line-clamp-3">
           {t(service.descriptionKey)}
         </p>
 
@@ -56,14 +56,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
              <Link href={service.href} className="flex-1">
             <Button 
                 variant="outline"
-                className="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 border-gray-200 text-sm py-2.5 rounded-xl transition-colors duration-200 ease-out-quart normal-case"
+                className="w-full btn btn-sm btn-outline rounded-xl p-2.5 normal-case"
                 >
                 {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
              <Button 
-                className="w-full bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] text-sm py-2.5 rounded-xl font-medium transition-colors duration-200 ease-out-quart border-none normal-case"
+                className="w-full btn btn-sm btn-accent rounded-xl p-2.5 normal-case border-none"
              >
               {t('nav.bookNow')}
             </Button>

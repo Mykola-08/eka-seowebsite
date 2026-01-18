@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams, notFound } from 'next/navigation';
-import { products } from '../products';
+import { products, getLocalized } from '../products';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ import { ArrowLeft, ExternalLink, Check, ShoppingBag, MessageCircle, Leaf, Clock
 
 export default function ProductPage() {
     const params = useParams();
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
     
     // params.id can be string or array. Safely handle it.
     const id = Array.isArray(params.id) ? params.id[0] : params.id;
@@ -21,17 +21,18 @@ export default function ProductPage() {
         return notFound();
     }
 
-    // Dynamic keys for translation fallback
-    const titleKey = genyz.product..name;
-    const descKey = genyz.product..desc;
-    const longDescKey = genyz.product..longDesc;
-    
-    const translatedName = t(titleKey) || product.name;
-    // Prefer long description if available, else short
-    const translatedDesc = t(longDescKey) || product.longDescription || t(descKey) || product.description;
+    // Localized Content
+    const translatedName = getLocalized(product.name, language);
+    // Prefer long description if available, else short/regular
+    const translatedDesc = getLocalized(product.longDescription || product.description, language);
+    const translatedUsage = getLocalized(product.usage, language);
     
     // Handle benefits/features
-    const displayBenefits = product.benefits && product.benefits.length > 0 ? product.benefits : (product.features || []);
+    const rawBenefits = product.benefits && product.benefits.length > 0 ? product.benefits : (product.features || []);
+    const translatedBenefits = rawBenefits.map(b => getLocalized(b, language));
+    
+    // Handle ingredients
+    const translatedIngredients = (product.ingredients || []).map(i => getLocalized(i, language));
 
     // Construct image URL (mock or real if available)
     const imageUrl = product.image || 'https://images.pexels.com/photos/3618606/pexels-photo-3618606.jpeg?auto=compress&cs=tinysrgb&w=1200';
@@ -61,7 +62,7 @@ export default function ProductPage() {
                         </div>
                         <div className='absolute bottom-6 left-6'>
                             <span className='px-4 py-2 bg-blue-600/90 backdrop-blur-sm text-white text-sm font-medium rounded-full uppercase tracking-wide shadow-lg'>
-                                {t(genyz.category.) || product.category}
+                                {product.category}
                             </span>
                         </div>
                     </div>
@@ -79,31 +80,33 @@ export default function ProductPage() {
                         {/* Tabs / Sections */}
                         <div className='space-y-8'>
                             {/* Benefits */}
-                            <div className='bg-blue-50/50 p-8 rounded-3xl border border-blue-100 hover:border-blue-200 transition-colors'>
-                                <h3 className='text-xl font-medium text-gray-900 mb-6 flex items-center'>
-                                    <Check className='w-5 h-5 text-blue-600 mr-2' />
-                                    {t('agenyz.benefits') || 'Key Benefits'}
-                                </h3>
-                                <ul className='space-y-4'>
-                                    {displayBenefits.map((benefit, idx) => (
-                                        <li key={idx} className='flex items-start text-gray-700 group'>
-                                            <div className='w-1.5 h-1.5 rounded-full bg-blue-400 mt-2.5 mr-3 group-hover:bg-blue-600 transition-colors' />
-                                            <span className='leading-relaxed'>{benefit}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            {translatedBenefits.length > 0 && (
+                                <div className='bg-blue-50/50 p-8 rounded-3xl border border-blue-100 hover:border-blue-200 transition-colors'>
+                                    <h3 className='text-xl font-medium text-gray-900 mb-6 flex items-center'>
+                                        <Check className='w-5 h-5 text-blue-600 mr-2' />
+                                        {t('agenyz.benefits') || 'Key Benefits'}
+                                    </h3>
+                                    <ul className='space-y-4'>
+                                        {translatedBenefits.map((benefit, idx) => (
+                                            <li key={idx} className='flex items-start text-gray-700 group'>
+                                                <div className='w-1.5 h-1.5 rounded-full bg-blue-400 mt-2.5 mr-3 group-hover:bg-blue-600 transition-colors' />
+                                                <span className='leading-relaxed'>{benefit}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
 
                             {/* Ingredients & Usage Grid */}
                             <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
-                                {product.ingredients && product.ingredients.length > 0 && (
+                                {translatedIngredients.length > 0 && (
                                     <div className='bg-green-50/50 p-6 rounded-3xl border border-green-100 hover:border-green-200 transition-colors'>
                                         <h3 className='text-lg font-medium text-gray-900 mb-4 flex items-center'>
                                             <Leaf className='w-5 h-5 text-green-600 mr-2' />
                                             {t('agenyz.ingredients') || 'Active Ingredients'}
                                         </h3>
                                         <ul className='space-y-2'>
-                                            {product.ingredients.map((item, idx) => (
+                                            {translatedIngredients.map((item, idx) => (
                                                 <li key={idx} className='text-sm text-gray-600 flex items-center'>
                                                     <span className='w-1 h-1 rounded-full bg-green-400 mr-2' />
                                                     {item}
@@ -113,14 +116,14 @@ export default function ProductPage() {
                                     </div>
                                 )}
 
-                                {product.usage && (
+                                {translatedUsage && (
                                     <div className='bg-purple-50/50 p-6 rounded-3xl border border-purple-100 hover:border-purple-200 transition-colors'>
                                         <h3 className='text-lg font-medium text-gray-900 mb-4 flex items-center'>
                                             <Clock className='w-5 h-5 text-purple-600 mr-2' />
                                             {t('agenyz.usage') || 'Recommended Usage'}
                                         </h3>
                                         <p className='text-gray-600 text-sm leading-relaxed'>
-                                            {product.usage}
+                                            {translatedUsage}
                                         </p>
                                     </div>
                                 )}

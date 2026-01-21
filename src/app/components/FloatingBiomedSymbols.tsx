@@ -32,12 +32,25 @@ const formulas = [
   'CH₃COOH', 'NH₃', 'Fe²⁺', 'CO₂'
 ];
 
+type FloatingElement = {
+  id: string;
+  type: string;
+  Icon?: React.ComponentType<{ size?: number }>;
+  text?: string;
+  x: number;
+  y: number;
+  size: number;
+  color: string;
+  duration: number;
+  delay: number;
+};
+
 export default function FloatingBiomedSymbols() {
-  const [elements, setElements] = useState<any[]>([]);
+  const [elements, setElements] = useState<FloatingElement[]>([]);
 
   useEffect(() => {
     // Generate random elements on client side only to avoid hydration mismatch
-    const newElements = [];
+    const newElements: FloatingElement[] = [];
     // Generate icons
     for (let i = 0; i < 15; i++) {
         newElements.push({
@@ -86,6 +99,7 @@ export default function FloatingBiomedSymbols() {
         });
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setElements(newElements);
   }, []);
 
@@ -113,7 +127,7 @@ export default function FloatingBiomedSymbols() {
                 ease: "linear"
             }}
         >
-            {el.type === 'icon' ? <el.Icon size={el.size} /> : <span className="font-mono font-bold">{el.text}</span>}
+            {el.type === 'icon' && el.Icon ? <el.Icon size={el.size} /> : <span className="font-mono font-bold">{el.text}</span>}
         </motion.div>
       ))}
     </div>

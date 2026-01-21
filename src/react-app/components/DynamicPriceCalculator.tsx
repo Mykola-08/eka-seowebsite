@@ -92,13 +92,13 @@ export default function DynamicPriceCalculator({
         }
       }
       
-      const data = await response.json();
-      
+      const data = await response.json() as Partial<PriceBreakdown>;
+
       // Validate response data
-      if (!data || typeof (data as any).final_price_cents !== 'number') {
+      if (!data || typeof data.final_price_cents !== 'number') {
         throw new Error('Resposta del servidor invàlida');
       }
-      
+
       setPriceBreakdown(data as PriceBreakdown);
     } catch (err) {
       console.error('Error calculating price:', err);

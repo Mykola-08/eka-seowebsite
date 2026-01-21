@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SEOHead from '@/react-app/components/SEOHead';
 import { Calendar, MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
@@ -18,7 +18,6 @@ interface FormData {
 export default function BookingPage() {
   const { t } = useLanguage();
   // const { user } = useSupabaseAuth();
-  const user = null;
   const { logEvent } = useAnalytics();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<FormData>({

@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import TechniqueDetailContent from '@/app/components/TechniqueDetailContent';
-import MainLayout from '@/app/components/MainLayout';
 
 const techniqueMap: Record<string, string> = {
   'myofascial': 'Detailed technique description',

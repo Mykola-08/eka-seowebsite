@@ -132,7 +132,7 @@ export default function HomeContent() {
                  viewport={{ once: true }}
                  transition={{ delay: index * 0.1 }}
                >
-                 <ServiceCard service={service} compact />
+                 <ServiceCard service={service} />
                </motion.div>
             ))}
           </div>

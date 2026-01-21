@@ -22,7 +22,6 @@ interface Question {
 export default function PersonalizedOnboarding() {
   const { t } = useLanguage();
   // const { user } = useSupabaseAuth();
-  const user = null;
   const [showWelcome, setShowWelcome] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState<OnboardingData>({

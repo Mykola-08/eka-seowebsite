@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, Brain, Leaf, RotateCcw, ArrowRight } from 'lucide-react';
+import { Heart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';

@@ -14,7 +14,7 @@ export default function ContactContent() {
     <PageLayout
       hero={{
         title: t('contact.hero.title') || "Contacta amb nosaltres",
-        subtitle: t('contact.hero.description') || "Estem aquí per ajudar-te. Envia'ns un missatge i et respondrem el més aviat possible.",
+        subtitle: t('contact.hero.description') || "Estem aquÃ­ per ajudar-te. Envia'ns un missatge i et respondrem el mÃ©s aviat possible.",
         badge: t('contact.hero.badge') || "Contacte",
         icon: <MessageCircle className="w-4 h-4" />
       }}
@@ -70,17 +70,17 @@ export default function ContactContent() {
             
             <div className="space-y-6">
               {[1, 2, 3, 4].map((i) => (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    key={i} 
+                    key={i}
                     className="card p-8 hover:shadow-md"
                    >
-                    <h3 className="font-semibold text-gray-900 mb-3 text-lg">{t(contact.faq.q.title)}</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3 text-lg">{t(`contact.faq.q${i}.title`)}</h3>
                     <p className="text-body">
-                      {t(contact.faq.q.answer)}
+                      {t(`contact.faq.q${i}.answer`)}
                     </p>
                   </motion.div>
               ))}

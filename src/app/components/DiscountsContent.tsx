@@ -167,7 +167,7 @@ export default function DiscountsContent() {
                 ].map((step, idx) => (
                   <div key={idx} className="text-center p-6">
                      <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-                        {React.cloneElement(step.icon as React.ReactElement, { className: "w-6 h-6" })}
+                        {React.cloneElement(step.icon as React.ReactElement<{ className?: string }>, { className: "w-6 h-6" })}
                      </div>
                      <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
                      <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>

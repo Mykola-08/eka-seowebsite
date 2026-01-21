@@ -3,7 +3,7 @@ import ChildrenContent from '@/app/components/ChildrenContent';
 
 export const metadata: Metadata = {
   title: 'Terapias Infantiles | EKA Balance',
-  description: 'Kinesiología y apoyo al desarrollo para niños.',
+  description: 'KinesiologÃ­a y apoyo al desarrollo para niÃ±os.',
 };
 
 export default function ChildrenPage() {

@@ -26,7 +26,6 @@ type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
 export default function ContactFormOptimized() {
   const { t } = useLanguage();
   // const { user } = useSupabaseAuth();
-  const user = null;
   const { logEvent } = useAnalytics();
   
   const [formData, setFormData] = useState<ContactFormData>({

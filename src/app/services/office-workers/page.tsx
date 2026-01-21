@@ -3,7 +3,7 @@ import ForOfficeWorkersContent from '@/app/components/ForOfficeWorkersContent';
 
 export const metadata: Metadata = {
   title: 'Bienestar en la Oficina | EKA Balance',
-  description: 'Ergonomía, gestión del estrés y bienestar para trabajadores de oficina.',
+  description: 'ErgonomÃ­a, gestiÃ³n del estrÃ©s y bienestar para trabajadores de oficina.',
 };
 
 export default function OfficeWorkersPage() {

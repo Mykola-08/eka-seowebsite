@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Revision360Content from '@/app/components/Revision360Content';
 
 export const metadata: Metadata = {
-  title: 'Revisión 360º | EKA Balance',
-  description: 'Un análisis completo de tu bienestar físico y emocional.',
+  title: 'RevisiÃ³n 360Â° | EKA Balance',
+  description: 'Un anÃ¡lisis completo de tu bienestar fÃ­sico y emocional.',
 };
 
 export default function Revision360Page() {

@@ -33,10 +33,21 @@ const features = [
   }
 ];
 
+type PricingPlan = {
+  id: string;
+  name: string;
+  price: number;
+  originalPrice: number | null;
+  description: string;
+  features: string[];
+  icon: string;
+  popular: boolean;
+};
+
 export default function PricingSection() {
   const { t } = useLanguage();
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const [plans, setPlans] = useState<any[]>([
+  const [plans] = useState<PricingPlan[]>([
       {
         id: 'basic',
         name: 'pricing.plan.basic.name',
@@ -82,12 +93,13 @@ export default function PricingSection() {
         .single();
 
       if (data) {
-        setPlans(data.data as any[]);
+        // setPlans(data.data as PricingPlan[]);
       }
     };
     fetchData();
     */
-    const staticPlans = [
+    // Plans are now statically defined in the state initialization
+    /* const staticPlans = [
       {
         id: 'basic',
         name: 'Sessió Individual',
@@ -120,6 +132,7 @@ export default function PricingSection() {
       }
     ];
     // setPlans(staticPlans);
+    */
   }, []);
 
   const formatPrice = (price: number) => `${price}€`;

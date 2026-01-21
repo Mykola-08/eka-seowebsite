@@ -17,7 +17,7 @@ export default function CasoDetailPage() {
   const params = useParams();
   const id = typeof params?.id === 'string' ? params.id : '';
 
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   // Helper to get array from translations (handling 1-based index keys like .symptom1, .symptom2)
   const getArray = (baseKey: string) => {

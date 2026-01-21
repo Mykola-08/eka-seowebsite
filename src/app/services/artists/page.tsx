@@ -3,7 +3,7 @@ import ArtistsContent from '@/app/components/ArtistsContent';
 
 export const metadata: Metadata = {
   title: 'Bienestar para Artistas | EKA Balance',
-  description: 'Mejora tu rendimiento artístico y gestiona el estrés escénico.',
+  description: 'Mejora tu rendimiento artÃ­stico y gestiona el estrÃ©s escÃ©nico.',
 };
 
 export default function ArtistsPage() {

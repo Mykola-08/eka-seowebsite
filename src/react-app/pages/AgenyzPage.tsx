@@ -1,7 +1,7 @@
 import SEOHead from '@/react-app/components/SEOHead';
 import { Link } from 'react-router';
 import { Button } from 'keep-react';
-import { Sparkles, Zap, Shield, Brain, ArrowRight, Heart, Leaf, Droplets, Baby, FlaskConical, ExternalLink } from 'lucide-react';
+import { Sparkles, Zap, Shield, Brain, Heart, Leaf, Droplets, Baby, FlaskConical, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { useState } from 'react';
 

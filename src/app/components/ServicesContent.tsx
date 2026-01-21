@@ -1,20 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, Brain, Leaf, RotateCcw, ArrowRight } from 'lucide-react';
+import { Heart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
 import ServiceCard from '@/app/components/ServiceCard';
 import PageLayout from './PageLayout';
-
-const iconMap: Record<string, React.ElementType> = {
-  Heart,
-  Brain,
-  Leaf,
-  RotateCcw
-};
 
 export default function ServicesContent() {
   const { t } = useLanguage();

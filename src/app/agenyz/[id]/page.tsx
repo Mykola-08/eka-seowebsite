@@ -5,7 +5,7 @@ import { products, getLocalized } from '../products';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck } from 'lucide-react';
 
 export default function ProductPage() {
     const params = useParams();

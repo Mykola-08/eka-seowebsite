@@ -6473,9 +6473,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     // Determine language after mount (client-only)
     const initial = getInitialLanguage();
     if (initial !== 'en') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguageState(initial);
     }
-    
+
     // Check local storage for confirmation status
     if (localStorage.getItem('eka-language-confirmed') === 'true') {
       setLanguageConfirmed(true);

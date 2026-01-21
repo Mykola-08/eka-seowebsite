@@ -3,7 +3,7 @@ import CasosContent from '@/app/components/CasosContent';
 
 export const metadata: Metadata = {
     title: 'Casos Frecuentes | EKA Balance',
-    description: 'Descubre cÛmo ayudamos a resolver problemas comunes como dolor de espalda, estrÈs, ansiedad, migraÒas y m·s.',
+    description: 'Descubre c√≥mo ayudamos a resolver problemas comunes como dolor de espalda, estr√©s, ansiedad, migra√±as y m√°s.',
 };
 
 export default function CasosPage() {

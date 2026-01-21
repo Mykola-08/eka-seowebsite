@@ -3,7 +3,7 @@ import ForStudentsContent from '@/app/components/ForStudentsContent';
 
 export const metadata: Metadata = {
   title: 'Focus y Calma para Estudiantes | EKA Balance',
-  description: 'Mejora tu concentraciÛn, reduce la ansiedad antes de ex·menes y estudia mejor.',
+  description: 'Mejora tu concentraci√≥n, reduce la ansiedad antes de ex√°menes y estudia mejor.',
 };
 
 export default function StudentsPage() {

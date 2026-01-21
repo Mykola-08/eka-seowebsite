@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import DiscoveryContent from '@/app/components/DiscoveryContent';
-import MainLayout from '@/app/components/MainLayout';
 
 export const metadata: Metadata = {
   title: 'Descobreix el teu servei ideal - EKA Balance',

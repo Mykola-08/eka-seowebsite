@@ -9,7 +9,8 @@ export function useOnlineStatus() {
   useEffect(() => {
     // Check initial status on mount
     if (typeof navigator !== 'undefined') {
-      setIsOnline(navigator.onLine); 
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsOnline(navigator.onLine);
     }
 
     const handleOnline = () => {

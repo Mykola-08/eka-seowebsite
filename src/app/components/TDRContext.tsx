@@ -3,14 +3,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 
-interface Step {
-  id: string;
-  title: string;
-  description: string;
-  path: string;
-  stats: any[];
-}
-
 interface TDRContextType {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;

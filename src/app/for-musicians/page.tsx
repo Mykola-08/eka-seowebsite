@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import ForMusiciansContent from '@/app/components/ForMusiciansContent';
 
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
   title: 'Salud y Rendimiento para Músicos | EKA Balance',
   description: 'Prevención de lesiones, posturología y mejora del rendimiento escénico para músicos.',

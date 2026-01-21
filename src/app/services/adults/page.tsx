@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import AdultsContent from '@/app/components/AdultsContent';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Terapias para Adultos | EKA Balance',
   description: 'Gestión del estrés, ansiedad y problemas digestivos para adultos.',

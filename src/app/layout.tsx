@@ -3,15 +3,12 @@ import type { Metadata, Viewport } from "next";
 import "@/react-app/index.css";
 import "@/app/styles/design-system.css";
 import MainLayout from "@/app/components/MainLayout";
-import { Inter } from "next/font/google";
 import { LanguageProvider } from '@/react-app/contexts/LanguageContext';
 import { DiscountProvider } from "@/react-app/contexts/DiscountContext";
 import { BookingProvider } from '@/react-app/components/BookingProvider';
 import SmoothScrolling from "@/app/components/SmoothScrolling";
 import TDRPresentation from "@/app/components/TDRPresentation";
 import { TDRProvider } from "@/app/components/TDRContext";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ekabalance.com'),
@@ -36,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-sans">
         <SmoothScrolling>
           <LanguageProvider>
              <DiscountProvider>

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import ServicesContent from '@/app/components/ServicesContent';
+export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = {
   title: "Serveis i Teràpies Somàtiques | EKA Balance",

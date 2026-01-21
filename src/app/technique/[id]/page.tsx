@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import TechniqueDetailContent from '@/app/components/TechniqueDetailContent';
 
+export const dynamic = 'force-dynamic';
+
+
 const techniqueMap: Record<string, string> = {
   'myofascial': 'Detailed technique description',
   'kinesio': 'Kinesiology and movement',

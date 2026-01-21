@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import CookiePolicyContent from '@/app/components/CookiePolicyContent';
 
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
   title: 'Cookie Policy | EKA Balance',
   description: 'Information about how EKA Balance uses cookies and similar technologies.',

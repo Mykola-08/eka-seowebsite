@@ -1,3 +1,5 @@
+"use client";
+
 // Enhanced Motion Components using Framer Motion
 import { motion, useInView, useAnimation, Transition } from 'framer-motion';
 import { useRef, useEffect, ReactNode } from 'react';

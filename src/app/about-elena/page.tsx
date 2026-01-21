@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import AboutElenaContent from '@/app/components/AboutElenaContent';
 
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
   title: "Sobre Elena Kucherova | EKA Balance",
   description: "Descobreix la trajectòria d'Elena Kucherova, especialista en integració somàtica, rehabilitació neuro-motora i teràpies naturals.",

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import ChildrenContent from '@/app/components/ChildrenContent';
+export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = {
   title: 'Terapias Infantiles | EKA Balance',

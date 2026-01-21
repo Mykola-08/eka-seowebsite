@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import ArtistsContent from '@/app/components/ArtistsContent';
+export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = {
   title: 'Bienestar para Artistas | EKA Balance',

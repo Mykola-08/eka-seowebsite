@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import NutritionContent from '@/app/components/NutritionContent';
 
 export const metadata: Metadata = {
-  title: 'Nutrición y Dietética | EKA Balance',
+  title: 'NutriciÃ³n y DietÃ©tica | EKA Balance',
   description: 'Planes nutricionales personalizados para mejorar tu salud y bienestar.',
 };
 

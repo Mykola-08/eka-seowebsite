@@ -14,7 +14,7 @@ export default function ContactContent() {
     <PageLayout
       hero={{
         title: t('contact.hero.title') || "Contacta amb nosaltres",
-        subtitle: t('contact.hero.description') || "Estem aquí per ajudar-te. Envia'ns un missatge i et respondrem el més aviat possible.",
+        subtitle: t('contact.hero.description') || "Estem aquÃ­ per ajudar-te. Envia'ns un missatge i et respondrem el mÃ©s aviat possible.",
         badge: t('contact.hero.badge') || "Contacte",
         icon: <MessageCircle className="w-4 h-4" />
       }}

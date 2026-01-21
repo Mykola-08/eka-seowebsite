@@ -2,19 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Play, 
-  Pause, 
-  ChevronRight, 
-  ChevronLeft, 
-  X, 
-  Code, 
-  Cpu, 
-  Layers, 
-  Zap, 
-  Globe, 
-  Database,
-  BarChart3
+import {
+  Play,
+  Pause,
+  ChevronRight,
+  ChevronLeft,
+  X,
+  Code,
+  Cpu,
+  Layers,
+  Zap,
+  Globe,
+  Database
 } from 'lucide-react';
 import { useTDR } from './TDRContext';
 import { useRouter, usePathname } from 'next/navigation';
@@ -97,6 +96,15 @@ export default function TDRPresentation() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Handle navigation when step changes
+  const handleStepChange = (index: number) => {
+    setCurrentStep(index);
+    const step = presentationSteps[index];
+    if (step.path !== pathname) {
+      router.push(step.path);
+    }
+  };
+
   // Auto-play logic
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -112,16 +120,7 @@ export default function TDRPresentation() {
     }
 
     return () => clearInterval(interval);
-  }, [isPlaying, isOpen, currentStep]);
-
-  // Handle navigation when step changes
-  const handleStepChange = (index: number) => {
-    setCurrentStep(index);
-    const step = presentationSteps[index];
-    if (step.path !== pathname) {
-      router.push(step.path);
-    }
-  };
+  }, [isPlaying, isOpen, currentStep, handleStepChange, pathname, router]);
 
   if (!isOpen) return null;
 

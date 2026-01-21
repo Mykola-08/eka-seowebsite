@@ -3,7 +3,7 @@ import FirstTimeContent from '@/app/components/FirstTimeContent';
 
 export const metadata: Metadata = {
   title: 'Primera Visita - Descubre tu Plan Ideal | EKA Balance',
-  description: 'Responde unas preguntas r·pidas y obtÈn tu plan personalizado de bienestar.',
+  description: 'Responde unas preguntas r√°pidas y obt√©n tu plan personalizado de bienestar.',
 };
 
 export default function FirstTimePage() {

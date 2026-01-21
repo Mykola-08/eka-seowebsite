@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import ForMusiciansContent from '@/app/components/ForMusiciansContent';
 
 export const metadata: Metadata = {
-  title: 'Salud y Rendimiento para Músicos | EKA Balance',
-  description: 'Prevención de lesiones, posturología y mejora del rendimiento escénico para músicos.',
+  title: 'Salud y Rendimiento para MÃºsicos | EKA Balance',
+  description: 'PrevenciÃ³n de lesiones, posturologÃ­a y mejora del rendimiento escÃ©nico para mÃºsicos.',
 };
 
 export default function MusiciansPage() {

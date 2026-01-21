@@ -3,7 +3,7 @@ import PersonalizedServicesContent from '@/app/components/PersonalizedServicesCo
 
 export const metadata: Metadata = {
   title: "Plans Personalitzats i Serveis VIP | EKA Balance",
-  description: "Descobreix els nostres plans personalitzats per a oficinistes, atletes, músics i més.",
+  description: "Descobreix els nostres plans personalitzats per a oficinistes, atletes, mÃºsics i mÃ©s.",
 };
 
 export default function PersonalizedServicesPage() {

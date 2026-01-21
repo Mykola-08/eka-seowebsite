@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from 'lucide-react';
+import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from 'lucide-react';
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 import PageLayout from '@/app/components/PageLayout';

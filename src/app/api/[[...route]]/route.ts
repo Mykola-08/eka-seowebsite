@@ -45,26 +45,7 @@ function getAuthenticatedUser(c: Context) {
 // It only checked for existence of header. 
 // If you need real auth, you should use supabase.auth.getUser(token)
 
-// Initialize session types
-async function initializeSessionTypes() {
-  const supabase = getSupabase();
-  const { count } = await supabase.from('session_types').select('*', { count: 'exact', head: true });
-
-  if (count === 0) {
-    const sessionTypes = [
-      {
-        name: 'Massatge Bàsic (1h)',
-        description: 'Sessió de massatge terapèutic d\'una hora per alleujar tensions quotidianes i millorar el benestar general',
-        base_price_cents: 6000,
-        features: ['Alleujar tensions musculars', 'Millorar circulació', 'Reduir estrès', 'Relaxació profunda'],
-        category: 'Massatge',
-        is_active: true
-      },
-      // ... (other types omitted for brevity, logic is same)
-    ];
-     // Insert logic would go here if needed, but avoiding auto-insert on every request is better
-  }
-}
+// Initialize session types - function removed as it was unused
 
 
 /**
@@ -140,7 +121,7 @@ app.post('/recommendations', authMiddleware, zValidator('json', z.object({
     const { data: sessionTypes } = await supabase.from('session_types').select('*').eq('is_active', true);
 
     // Filter logic...
-    const recommendations: any[] = [];
+    const recommendations: Array<Record<string, unknown>> = [];
     if (sessionTypes) {
         // Simple logic for now matching original
          if (data.discomfort_areas.includes('neck_shoulders') ||

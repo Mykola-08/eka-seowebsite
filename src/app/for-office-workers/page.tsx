@@ -3,7 +3,7 @@ import ForOfficeWorkersContent from '@/app/components/ForOfficeWorkersContent';
 
 export const metadata: Metadata = {
   title: 'Bienestar para Oficinistas | EKA Balance',
-  description: 'Soluciones personalizadas para aliviar el dolor de espalda, reducir el estrés y mejorar la postura en el trabajo.',
+  description: 'Soluciones personalizadas para aliviar el dolor de espalda, reducir el estrÃ©s y mejorar la postura en el trabajo.',
 };
 
 export default function OfficeWorkersPage() {

@@ -9,13 +9,6 @@ import { Button } from 'keep-react';
 import ServiceCard from '@/app/components/ServiceCard';
 import PageLayout from './PageLayout';
 
-const iconMap: Record<string, React.ElementType> = {
-  Heart,
-  Brain,
-  Leaf,
-  RotateCcw
-};
-
 export default function ServicesContent() {
   const { t } = useLanguage();
 

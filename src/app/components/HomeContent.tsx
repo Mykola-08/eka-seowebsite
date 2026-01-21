@@ -3,11 +3,10 @@
 import Link from 'next/link';
 import { Button } from 'keep-react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Globe, Users, Clock } from 'lucide-react';
+import { Star, Globe, Users, Clock } from 'lucide-react';
 
 import AppleHero from '@/app/components/AppleHero';
 import CasosSection from '@/app/components/CasosSection';
-import TestimonialSlider from '@/react-app/components/TestimonialSlider';
 import FAQ from '@/react-app/components/FAQ';
 
 import { useLanguage } from '@/react-app/contexts/LanguageContext';

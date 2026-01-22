@@ -1,3 +1,5 @@
+"use client";
+
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';

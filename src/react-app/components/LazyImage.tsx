@@ -1,3 +1,4 @@
+"use client";
 
 import { useState } from 'react';
 import { useLazyImage } from '@/react-app/hooks/useIntersectionObserver';

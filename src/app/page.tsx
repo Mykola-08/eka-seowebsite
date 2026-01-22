@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import HomeContent from '@/app/components/HomeContent';
 
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
   title: "EKA Balance | Elena Kucherova - Teràpies Somàtiques a Barcelona",
   description: "Restaura la teva vitalitat sistèmica amb Elena Kucherova. Especialista en integració somàtica, kinesiologia i regulació del sistema nerviós a Barcelona.",

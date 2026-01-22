@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';

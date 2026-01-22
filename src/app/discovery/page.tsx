@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import DiscoveryContent from '@/app/components/DiscoveryContent';
 
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
   title: 'Descobreix el teu servei ideal - EKA Balance',
   description: "Formulari personalitzat per trobar el servei de teràpia holística que millor s'adapti a les teves necessitats específiques.",

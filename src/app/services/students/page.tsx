@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import ForStudentsContent from '@/app/components/ForStudentsContent';
+export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = {
   title: 'Focus y Calma para Estudiantes | EKA Balance',

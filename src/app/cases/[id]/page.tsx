@@ -6,6 +6,9 @@ import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, 
 import { useLanguage } from '@/react-app/contexts/LanguageContext';
 import { Button } from 'keep-react';
 
+export const dynamic = 'force-dynamic';
+
+
 interface ProblemConfig {
   icon: React.ComponentType<any>;
   color: string;

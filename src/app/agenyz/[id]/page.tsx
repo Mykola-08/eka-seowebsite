@@ -7,6 +7,9 @@ import { Button } from 'keep-react';
 import Link from 'next/link';
 import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
+
 export default function ProductPage() {
     const params = useParams();
     const { language, t } = useLanguage();

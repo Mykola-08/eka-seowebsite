@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import CasosContent from '@/app/components/CasosContent';
 
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
     title: 'Casos Frecuentes | EKA Balance',
     description: 'Descubre cómo ayudamos a resolver problemas comunes como dolor de espalda, estrés, ansiedad, migrañas y más.',

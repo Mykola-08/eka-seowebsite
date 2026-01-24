@@ -1,14 +1,13 @@
 
 import type { Metadata, Viewport } from "next";
-import "@/react-app/index.css";
-import "@/app/styles/design-system.css";
-import MainLayout from "@/app/components/MainLayout";
-import { LanguageProvider } from '@/react-app/contexts/LanguageContext';
-import { DiscountProvider } from "@/react-app/contexts/DiscountContext";
-import { BookingProvider } from '@/react-app/components/BookingProvider';
-import SmoothScrolling from "@/app/components/SmoothScrolling";
-import TDRPresentation from "@/app/components/TDRPresentation";
-import { TDRProvider } from "@/app/components/TDRContext";
+import "./globals.css";
+import MainLayout from "@/components/MainLayout";
+import { LanguageProvider } from '@/contexts/LanguageContext';
+import { DiscountProvider } from "@/contexts/DiscountContext";
+import { BookingProvider } from '@/components/BookingProvider';
+import SmoothScrolling from "@/components/SmoothScrolling";
+import TDRPresentation from "@/components/TDRPresentation";
+import { TDRProvider } from "@/components/TDRContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ekabalance.com'),
@@ -36,16 +35,16 @@ export default function RootLayout({
       <body className="font-sans">
         <SmoothScrolling>
           <LanguageProvider>
-             <DiscountProvider>
-                <BookingProvider>
-                  <TDRProvider>
-                    <MainLayout>
-                      {children}
-                      <TDRPresentation />
-                    </MainLayout>
-                  </TDRProvider>
-                </BookingProvider>
-              </DiscountProvider>
+            <DiscountProvider>
+              <BookingProvider>
+                <TDRProvider>
+                  <MainLayout>
+                    {children}
+                    <TDRPresentation />
+                  </MainLayout>
+                </TDRProvider>
+              </BookingProvider>
+            </DiscountProvider>
           </LanguageProvider>
         </SmoothScrolling>
       </body>

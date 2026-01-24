@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import DiscoveryContent from '@/app/components/DiscoveryContent';
+import DiscoveryContent from '@/components/DiscoveryContent';
 
 export const dynamic = 'force-dynamic';
 

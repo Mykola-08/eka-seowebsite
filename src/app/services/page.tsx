@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ServicesContent from '@/app/components/ServicesContent';
+import ServicesContent from '@/components/ServicesContent';
 export const dynamic = 'force-dynamic';
 
 

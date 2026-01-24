@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ForOfficeWorkersContent from '@/app/components/ForOfficeWorkersContent';
+import ForOfficeWorkersContent from '@/components/ForOfficeWorkersContent';
 
 export const dynamic = 'force-dynamic';
 

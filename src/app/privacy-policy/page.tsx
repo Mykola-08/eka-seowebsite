@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import PrivacyPolicyContent from '@/app/components/PrivacyPolicyContent';
+import PrivacyPolicyContent from '@/components/PrivacyPolicyContent';
 
 export const dynamic = 'force-dynamic';
 

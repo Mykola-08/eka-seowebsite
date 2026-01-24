@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import AboutElenaContent from '@/app/components/AboutElenaContent';
+import AboutElenaContent from '@/components/AboutElenaContent';
 
 export const dynamic = 'force-dynamic';
 

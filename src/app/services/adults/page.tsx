@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import AdultsContent from '@/app/components/AdultsContent';
+import AdultsContent from '@/components/AdultsContent';
 
 export const dynamic = 'force-dynamic';
 

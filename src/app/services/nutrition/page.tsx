@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import NutritionContent from '@/app/components/NutritionContent';
+import NutritionContent from '@/components/NutritionContent';
 export const dynamic = 'force-dynamic';
 
 

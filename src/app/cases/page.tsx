@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import CasosContent from '@/app/components/CasosContent';
+import CasosContent from '@/components/CasosContent';
 
 export const dynamic = 'force-dynamic';
 

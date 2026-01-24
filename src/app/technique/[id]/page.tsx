@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import TechniqueDetailContent from '@/app/components/TechniqueDetailContent';
+import TechniqueDetailContent from '@/components/TechniqueDetailContent';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,8 +19,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const id = params.id;
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
   // Note: True localization for metadata requires server-side translation logic or mapped static strings.
   // For now using a generic title format.
   return {
@@ -29,8 +29,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function TechniquePage({ params }: { params: { id: string } }) {
+export default async function TechniquePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   return (
-    <TechniqueDetailContent id={params.id} />
+    <TechniqueDetailContent id={id} />
   );
 }

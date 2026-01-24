@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import KinesiologiaContent from '@/app/components/KinesiologyContent';
+import KinesiologiaContent from '@/components/KinesiologyContent';
 export const dynamic = 'force-dynamic';
 
 

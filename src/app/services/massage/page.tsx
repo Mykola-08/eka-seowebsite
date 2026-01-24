@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import MassageContent from '@/app/components/MassageContent';
+import MassageContent from '@/components/MassageContent';
 export const dynamic = 'force-dynamic';
 
 

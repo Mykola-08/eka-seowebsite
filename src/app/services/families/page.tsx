@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import FamiliesContent from '@/app/components/FamiliesContent';
+import FamiliesContent from '@/components/FamiliesContent';
 export const dynamic = 'force-dynamic';
 
 

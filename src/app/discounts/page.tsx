@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import DiscountsContent from '@/app/components/DiscountsContent';
+import DiscountsContent from '@/components/DiscountsContent';
 
 export const dynamic = 'force-dynamic';
 

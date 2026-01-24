@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import PersonalizedServicesContent from '@/app/components/PersonalizedServicesContent';
+import PersonalizedServicesContent from '@/components/PersonalizedServicesContent';
 
 export const dynamic = 'force-dynamic';
 

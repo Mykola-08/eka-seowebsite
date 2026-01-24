@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import AgenyzContent from '@/app/components/AgenyzContent';
+import AgenyzContent from '@/components/AgenyzContent';
 
 export const dynamic = 'force-dynamic';
 

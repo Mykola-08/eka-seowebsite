@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import VIPContent from '@/app/components/VIPContent';
+import VIPContent from '@/components/VIPContent';
 
 export const dynamic = 'force-dynamic';
 

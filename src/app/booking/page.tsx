@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import BookingContent from '@/app/components/BookingContent';
+import BookingContent from '@/components/BookingContent';
 
 export const dynamic = 'force-dynamic';
 

@@ -250,7 +250,7 @@ export const products: Product[] = [
         ],
         image: 'https://front.agenyz.eu/resize/w1413/f9/yh/CellGenetiX_1.j72oivd3g9kk048ocww0kc.jpg'
     },
-    // --- ADDITIONAL PRODUCTS (Summary Data) ---
+    // --- ADDITIONAL PRODUCTS (Fully Populated) ---
     {
         id: 'ParaDetox',
         slug: 'paradetox',
@@ -262,12 +262,32 @@ export const products: Product[] = [
             ru: 'Натуральное очищение от паразитов и поддержка пищеварения.',
             ca: 'Neteja natural de paràsits i suport digestiu.'
         },
+        longDescription: {
+            en: 'ParaDetox is a comprehensive herbal defense system designed to cleanse the body of unwanted parasites and toxins. By combining potent anti-parasitic herbs like Wormwood and Black Walnut with digestive aids, it gently purifies your system, restoring intestinal balance and boosting overall vitality.',
+            es: 'ParaDetox es un sistema de defensa herbal integral diseñado para limpiar el cuerpo de parásitos y toxinas no deseados. Al combinar hierbas antiparasitarias potentes como el Ajenjo y el Nogal Negro con ayudas digestivas, purifica suavemente su sistema, restaurando el equilibrio intestinal y aumentando la vitalidad general.',
+            ru: 'ParaDetox — это комплексная травяная система защиты, разработанная для очищения организма от нежелательных паразитов и токсинов. Сочетая мощные противопаразитарные травы, такие как полынь и черный орех, с пищеварительными средствами, он мягко очищает вашу систему, восстанавливая кишечный баланс и повышая общий жизненный тонус.',
+            ca: 'ParaDetox és un sistema de defensa herbal integral dissenyat per netejar el cos de paràsits i toxines no desitjats. En combinar herbes antiparasitàries potents com el Donzell i la Noguera Negra amb ajudes digestives, purifica suaument el vostre sistema, restaurant l\'equilibri intestinal i augmentant la vitalitat general.'
+        },
+        benefits: [
+            { en: 'Eliminates parasites and mild fungal infections.', es: 'Elimina parásitos e infecciones fúngicas leves.', ru: 'Устраняет паразитов и легкие грибковые инфекции.', ca: 'Elimina paràsits i infeccions fúngiques lleus.' },
+            { en: 'Detoxifies the liver and intestines.', es: 'Desintoxica el hígado y los intestinos.', ru: 'Детоксицирует печень и кишечник.', ca: 'Desintoxica el fetge i els intestins.' },
+            { en: 'Improves digestion and nutrient absorption.', es: 'Mejora la digestión y la absorción de nutrientes.', ru: 'Улучшает пищеварение и усвоение питательных веществ.', ca: 'Millora la digestió i l\'absorció de nutrients.' }
+        ],
         ingredients: [
             { en: 'Wormwood Extract', es: 'Extracto de Ajenjo', ru: 'Экстракт Полыни', ca: 'Extracte de Donzell' },
             { en: 'Black Walnut Hull', es: 'Cáscara de Nogal Negro', ru: 'Кожура Черного Ореха', ca: 'Closca de Noguera Negra' },
-            { en: 'Clove', es: 'Clavo', ru: 'Гвоздика', ca: 'Clau' }
-        ]
-    }, {
+            { en: 'Clove Bud', es: 'Clavo', ru: 'Бутон гвоздики', ca: 'Clau d\'espècia' },
+            { en: 'Grapefruit Seed Extract', es: 'Extracto de Semilla de Pomelo', ru: 'Экстракт грейпфрутовых косточек', ca: 'Extracte de Llavor d\'Aranja' }
+        ],
+        usage: {
+            en: '2 capsules daily before meals for 15 days.',
+            es: '2 cápsulas al día antes de las comidas durante 15 días.',
+            ru: '2 капсулы в день до еды в течение 15 дней.',
+            ca: '2 càpsules al dia abans dels àpats durant 15 dies.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/ParaDetox_1.m7879r29h3koooogcg0wc4.jpg'
+    },
+    {
         id: 'PHT-SustaHelp',
         slug: 'sustahelp',
         name: { en: 'SustaHelp', es: 'SustaHelp', ru: 'СустаХелп', ca: 'SustaHelp' },
@@ -276,13 +296,33 @@ export const products: Product[] = [
             en: 'Advanced joint support formula.',
             es: 'Fórmula avanzada de apoyo articular.',
             ru: 'Продвинутая формула для поддержки суставов.',
-             ca: 'Fórmula avançada de suport articular.'
+            ca: 'Fórmula avançada de suport articular.'
         },
+        longDescription: {
+            en: 'SustaHelp is your daily joint guardian. Formulated with key structural components like Glucosamine and Chondroitin, fortified with MSM for anti-inflammatory support. It promotes cartilage repair, reduces stiffness, and enhances flexibility for active living.',
+            es: 'SustaHelp es su guardián diario de las articulaciones. Formulado con componentes estructurales clave como Glucosamina y Condroitina, fortificado con MSM para apoyo antiinflamatorio. Promueve la reparación del cartílago, reduce la rigidez y mejora la flexibilidad para una vida activa.',
+            ru: 'СустаХелп — ваш ежедневный защитник суставов. Содержит ключевые структурные компоненты, такие как глюкозамин и хондроитин, усиленные МСМ для противовоспалительной поддержки. Способствует восстановлению хряща, уменьшает скованность и улучшает гибкость для активной жизни.',
+            ca: 'SustaHelp és el vostre guardià diari de les articulacions. Formulat amb components estructurals clau com Glucosamina i Condroitina, fortificat amb MSM per a suport antiinflamatori. Promou la reparació del cartílag, redueix la rigidesa i millora la flexibilitat per a una vida activa.'
+        },
+        benefits: [
+            { en: 'Reduces joint pain and inflammation.', es: 'Reduce el dolor y la inflamación articular.', ru: 'Уменьшает боль и воспаление в суставах.', ca: 'Redueix el dolor i la inflamació articular.' },
+            { en: 'Improves mobility and flexibility.', es: 'Mejora la movilidad y flexibilidad.', ru: 'Улучшает подвижность и гибкость.', ca: 'Millora la mobilitat i flexibilitat.' },
+            { en: 'Protects cartilage from degeneration.', es: 'Protege el cartílago de la degeneración.', ru: 'Защищает хрящ от дегенерации.', ca: 'Protegeix el cartílag de la degeneració.' }
+        ],
         ingredients: [
-            { en: 'Glucosamine', es: 'Glucosamina', ru: 'Глюкозамин', ca: 'Glucosamina' },
-            { en: 'Chondroitin', es: 'Condroitina', ru: 'Хондроитин', ca: 'Condroitina' },
-            { en: 'MSM', es: 'MSM', ru: 'МСМ', ca: 'MSM' }
-        ]    },
+            { en: 'Glucosamine Sulfate', es: 'Sulfato de Glucosamina', ru: 'Глюкозамин сульфат', ca: 'Sulfat de Glucosamina' },
+            { en: 'Chondroitin Sulfate', es: 'Sulfato de Condroitina', ru: 'Хондроитин сульфат', ca: 'Sulfat de Condroitina' },
+            { en: 'MSM (Methylsulfonylmethane)', es: 'MSM (Metilsulfonilmetano)', ru: 'МСМ (Метилсульфонилметан)', ca: 'MSM (Metilsulfonilmetà)' },
+            { en: 'Vitamin C', es: 'Vitamina C', ru: 'Витамин C', ca: 'Vitamina C' }
+        ],
+        usage: {
+            en: '2 capsules daily with meals.',
+            es: '2 cápsulas al día con las comidas.',
+            ru: '2 капсулы в день во время еды.',
+            ca: '2 càpsules al dia amb els àpats.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/SustaHelp_1.jpg'
+    },
     {
         id: 'Cats-Claw-XBi-A',
         slug: 'cats-claw-xbi-a',
@@ -294,9 +334,28 @@ export const products: Product[] = [
             ru: 'Иммуномодулятор и защита от вирусов.',
             ca: 'Modulador immunitari i defensa viral.'
         },
+        longDescription: {
+            en: 'Known as the "Sacred Herb of the Incas", Cat\'s Claw is a powerful immunomodulator. Enhanced with XBi-A technology, this extract helps the body fight viral infections, reduces chronic inflammation, and supports cellular DNA repair.',
+            es: 'Conocida como la "Hierba Sagrada de los Incas", la Uña de Gato es un poderoso inmunomodulador. Mejorado con tecnología XBi-A, este extracto ayuda al cuerpo a combatir infecciones virales, reduce la inflamación crónica y apoya la reparación del ADN celular.',
+            ru: 'Известный как "Священная трава инков", Кошачий коготь является мощным иммуномодулятором. Усиленный технологией XBi-A, этот экстракт помогает организму бороться с вирусными инфекциями, уменьшает хроническое воспаление и поддерживает восстановление ДНК клеток.',
+            ca: 'Coneguda com l\'"Herba Sagrada dels Inques", l\'Urpa de Gat és un potent immunomodulador. Millorat amb tecnologia XBi-A, aquest extracte ajuda el cos a combatre infeccions virals, redueix la inflamació crònica i suporta la reparació de l\'ADN cel·lular.'
+        },
+        benefits: [
+            { en: 'Boosts antiviral immunity.', es: 'Aumenta la inmunidad antiviral.', ru: 'Повышает противовирусный иммунитет.', ca: 'Augmenta la immunitat antiviral.' },
+            { en: 'Potent anti-inflammatory.', es: 'Potente antiinflamatorio.', ru: 'Мощное противовоспалительное.', ca: 'Potent antiinflamatori.' },
+            { en: 'Cytostatic properties (cellular health).', es: 'Propiedades citostáticas (salud celular).', ru: 'Цитостатические свойства (здоровье клеток).', ca: 'Propietats citostàtiques (salut cel·lular).' }
+        ],
         ingredients: [
-            { en: 'Cat\'s Claw Extract', es: 'Extracto de Uña de Gato', ru: 'Экстракт кошачьего когтя', ca: 'Extracte d\'Urpa de Gat' }
-        ]
+            { en: 'Cat\'s Claw Bark Extract', es: 'Extracto de Corteza de Uña de Gato', ru: 'Экстракт коры кошачьего когтя', ca: 'Extracte d\'Escorça d\'Urpa de Gat' },
+            { en: 'XBi-A Complex', es: 'Complejo XBi-A', ru: 'Комплекс XBi-A', ca: 'Complex XBi-A' }
+        ],
+        usage: {
+            en: '1-2 capsules daily.',
+            es: '1-2 cápsulas al día.',
+            ru: '1-2 капсулы в день.',
+            ca: '1-2 càpsules al dia.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/CatsClaw_1.jpg'
     },
     {
         id: 'Oculyz-XBi-A',
@@ -309,11 +368,30 @@ export const products: Product[] = [
             ru: 'Полная защита здоровья глаз.',
             ca: 'Protecció completa per a la salut ocular.'
         },
+        longDescription: {
+            en: 'Protect your vision in the digital age. Oculyz provides a full spectrum of carotenoids (Lutein, Zeaxanthin) and berry antioxidants to shield eyes from blue light damage, improve night vision, and reduce eye strain.',
+            es: 'Proteja su visión en la era digital. Oculyz proporciona un espectro completo de carotenoides (Luteína, Zeaxantina) y antioxidantes de bayas para proteger los ojos del daño de la luz azul, mejorar la visión nocturna y reducir la fatiga ocular.',
+            ru: 'Защитите свое зрение в цифровую эпоху. Окулиз обеспечивает полный спектр каротиноидов (лютеин, зеаксантин) и ягодных антиоксидантов для защиты глаз от повреждения синим светом, улучшения ночного зрения и снижения усталости глаз.',
+            ca: 'Protegiu la vostra visió en l\'era digital. Oculyz proporciona un espectre complet de carotenoides (Luteïna, Zeaxantina) i antioxidants de baies per protegir els ulls del dany de la llum blava, millorar la visió nocturna i reduir la fatiga ocular.'
+        },
+        benefits: [
+            { en: 'Filters harmful blue light.', es: 'Filtra la luz azul dañina.', ru: 'Фильтрует вредный синий свет.', ca: 'Filtra la llum blava nociva.' },
+            { en: 'Reduces digital eye strain.', es: 'Reduce la fatiga ocular digital.', ru: 'Снижает цифровую усталость глаз.', ca: 'Redueix la fatiga ocular digital.' },
+            { en: 'Supports retinal health.', es: 'Apoya la salud de la retina.', ru: 'Поддерживает здоровье сетчатки.', ca: 'Suporta la salut de la retina.' }
+        ],
         ingredients: [
             { en: 'Lutein & Zeaxanthin', es: 'Luteína y Zeaxantina', ru: 'Лютеин и Зеаксантин', ca: 'Luteïna i Zeaxantina' },
             { en: 'Bilberry Extract', es: 'Extracto de Arándano', ru: 'Экстракт Черники', ca: 'Extracte de Nabiu' },
-            { en: 'Beta-carotene', es: 'Betacaroteno', ru: 'Бета-каротин', ca: 'Betacarotè' }
-        ]
+            { en: 'Beta-carotene', es: 'Betacaroteno', ru: 'Бета-каротин', ca: 'Betacarotè' },
+            { en: 'Zinc & Vitamin A', es: 'Zinc y Vitamina A', ru: 'Цинк и Витамин А', ca: 'Zinc i Vitamina A' }
+        ],
+        usage: {
+            en: '1 capsule daily.',
+            es: '1 cápsula al día.',
+            ru: '1 капсула в день.',
+            ca: '1 càpsula al dia.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/Oculyz_1.jpg'
     },
     {
         id: 'VenoBalance',
@@ -326,10 +404,29 @@ export const products: Product[] = [
             ru: 'Здоровье вен и поддержка кровообращения.',
             ca: 'Salut venosa i suport a la circulació.'
         },
+        longDescription: {
+            en: 'Say goodbye to heavy legs. VenoBalance targets the vascular system with a potent blend of micronized Diosmin and Hesperidin. It strengthens vein walls, improves venous return, and reduces swelling and discomfort in the legs.',
+            es: 'Diga adiós a las piernas pesadas. VenoBalance se dirige al sistema vascular con una potente mezcla de Diosmina y Hesperidina micronizadas. Fortalece las paredes de las venas, mejora el retorno venoso y reduce la hinchazón y las molestias en las piernas.',
+            ru: 'Попрощайтесь с тяжестью в ногах. ВеноБаланс воздействует на сосудистую систему мощной смесью микронизированных диосмина и гесперидина. Он укрепляет стенки вен, улучшает венозный отток, уменьшает отеки и дискомфорт в ногах.',
+            ca: 'Digueu adéu a les cames pesades. VenoBalance es dirigeix al sistema vascular amb una potent barreja de Diosmina i Hesperidina micronitzades. Enforteix les parets de les venes, millora el retorn venós i redueix la inflor i les molèsties a les cames.'
+        },
+        benefits: [
+            { en: 'Relieves leg heaviness and swelling.', es: 'Alivia la pesadez y la hinchazón de las piernas.', ru: 'Снимает тяжесть и отечность в ногах.', ca: 'Alleugera la pesadesa i la inflor de les cames.' },
+            { en: 'Strengthens capillaries and veins.', es: 'Fortalece capilares y venas.', ru: 'Укрепляет капилляры и вены.', ca: 'Enforteix capil·lars i venes.' },
+            { en: 'Improves microcirculation.', es: 'Mejora la microcirculación.', ru: 'Улучшает микроциркуляцию.', ca: 'Millora la microcirculació.' }
+        ],
         ingredients: [
-            { en: 'Diosmin & Hesperidin', es: 'Diosmina y Hesperidina', ru: 'Диосмин и Гесперидин', ca: 'Diosmina i Hesperidina' },
-            { en: 'Horse Chestnut', es: 'Castaño de Indias', ru: 'Конский Каштан', ca: 'Castanyer d\'Índies' }
-        ]
+            { en: 'Diosmin & Hesperidin (9:1)', es: 'Diosmina y Hesperidina (9:1)', ru: 'Диосмин и Гесперидин (9:1)', ca: 'Diosmina i Hesperidina (9:1)' },
+            { en: 'Horse Chestnut Extract', es: 'Extracto de Castaño de Indias', ru: 'Экстракт Конского Каштана', ca: 'Extracte de Castanyer d\'Índies' },
+            { en: 'Red Vine Leaf', es: 'Hoja de Vid Roja', ru: 'Лист красного винограда', ca: 'Fulla de Vinya Roja' }
+        ],
+        usage: {
+            en: '1 tablet twice daily.',
+            es: '1 tableta dos veces al día.',
+            ru: '1 таблетка два раза в день.',
+            ca: '1 tableta dos cops al dia.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/VenoBalance_1.jpg'
     },
     {
         id: 'Slim-MCT',
@@ -342,9 +439,28 @@ export const products: Product[] = [
             ru: 'Масло МСТ для кето-энергии и метаболизма.',
             ca: 'Oli MCT per a energia keto i metabolisme.'
         },
+        longDescription: {
+            en: 'Pure, functional fuel for your brain and body. Slim MCT provides a clean source of ketone energy derived from coconut oil. Ideal for ketogenic diets, intermittent fasting, or anyone needing a mental focus boost without the crash of sugar.',
+            es: 'Combustible puro y funcional para su cerebro y cuerpo. Slim MCT proporciona una fuente limpia de energía cetogénica derivada del aceite de coco. Ideal para dietas cetogénicas, ayuno intermitente o cualquier persona que necesite un impulso de enfoque mental sin la caída del azúcar.',
+            ru: 'Чистое, функциональное топливо для вашего мозга и тела. Slim MCT обеспечивает чистый источник кетоновой энергии, полученной из кокосового масла. Идеально подходит для кето-диет, интервального голодания или для всех, кому нужен заряд умственной концентрации без скачка сахара.',
+            ca: 'Combustible pur i funcional per al vostre cervell i cos. Slim MCT proporciona una font neta d\'energia cetogènica derivada de l\'oli de coco. Ideal per a dietes cetogèniques, dejuni intermitent o qualsevol persona que necessiti un impuls d\'enfocament mental sense la caiguda del sucre.'
+        },
+        benefits: [
+            { en: 'Instant energy for brain & muscle.', es: 'Energía instantánea para cerebro y músculo.', ru: 'Мгновенная энергия для мозга и мышц.', ca: 'Energia instantània per a cervell i múscul.' },
+            { en: 'Promotes fat burning (Ketosis).', es: 'Promueve la quema de grasa (Cetosis).', ru: 'Способствует сжиганию жира (Кетоз).', ca: 'Promou la crema de greix (Cetosi).' },
+            { en: 'Controls appetite.', es: 'Controla el apetito.', ru: 'Контролирует аппетит.', ca: 'Controla la gana.' }
+        ],
         ingredients: [
-            { en: 'MCT Oil (C8/C10)', es: 'Aceite MCT (C8/C10)', ru: 'Масло МСТ (C8/C10)', ca: 'Oli MCT (C8/C10)' }
-        ]
+            { en: 'MCT Oil (C8 Caprylic Acid)', es: 'Aceite MCT (C8 Ácido Caprílico)', ru: 'Масло МСТ (C8 Каприловая кислота)', ca: 'Oli MCT (C8 Àcid Caprílic)' },
+            { en: 'MCT Oil (C10 Capric Acid)', es: 'Aceite MCT (C10 Ácido Cáprico)', ru: 'Масло МСТ (C10 Каприновая кислота)', ca: 'Oli MCT (C10 Àcid Càpric)' }
+        ],
+        usage: {
+            en: 'Add to coffee, smoothies, or salads.',
+            es: 'Añadir al café, batidos o ensaladas.',
+            ru: 'Добавлять в кофе, смузи или салаты.',
+            ca: 'Afegir al cafè, batuts o amanides.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/SlimMCT_1.jpg'
     },
     {
         id: 'Skin-Elixir',
@@ -357,9 +473,29 @@ export const products: Product[] = [
             ru: 'Крем для лица для увлажнения и восстановления.',
             ca: 'Crema facial per a hidratació i reparació.'
         },
+        longDescription: {
+            en: 'A luxurious liposomal cream that mimics the structure of skin cells. Skin Elixir delivers deep hydration and active peptides directly to the dermis, smoothing fine lines and restoring the skin\'s natural barrier.',
+            es: 'Una lujosa crema liposomal que imita la estructura de las células de la piel. Skin Elixir entrega hidratación profunda y péptidos activos directamente a la dermis, suavizando las líneas finas y restaurando la barrera natural de la piel.',
+            ru: 'Роскошный липосомальный крем, имитирующий структуру клеток кожи. Skin Elixir доставляет глубокое увлажнение и активные пептиды непосредственно в дерму, разглаживая мелкие морщины и восстанавливая естественный барьер кожи.',
+            ca: 'Una luxosa crema liposomal que imita l\'estructura de les cèl·lules de la pell. Skin Elixir entrega hidratació profunda i pèptids actius directament a la dermis, suavitzant les línies fines i restaurant la barrera natural de la pell.'
+        },
+        benefits: [
+            { en: 'Deep liposomal hydration.', es: 'Hidratación liposomal profunda.', ru: 'Глубокое липосомальное увлажнение.', ca: 'Hidratació liposomal profunda.' },
+            { en: 'Stimulates collagen production.', es: 'Estimula la producción de colágeno.', ru: 'Стимулирует выработку коллагена.', ca: 'Estimula la producció de col·lagen.' },
+            { en: 'Restores skin elasticity.', es: 'Restaura la elasticidad de la piel.', ru: 'Восстанавливает эластичность кожи.', ca: 'Restaura l\'elasticitat de la pell.' }
+        ],
         ingredients: [
-            { en: 'Peptides & Hyaluronic Acid', es: 'Péptidos y Ácido Hialurónico', ru: 'Пептиды и Гиалуроновая кислота', ca: 'Pèptids i Àcid Hialurònic' }
-        ]
+            { en: 'Signal Peptides', es: 'Péptidos señal', ru: 'Сигнальные пептиды', ca: 'Pèptids senyal' },
+            { en: 'Low-Molecular Hyaluronic Acid', es: 'Ácido Hialurónico de bajo peso molecular', ru: 'Низкомолекулярная гиалуроновая кислота', ca: 'Àcid Hialurònic de baix pes molecular' },
+            { en: 'Plant Stem Cells', es: 'Células madre vegetales', ru: 'Растительные стволовые клетки', ca: 'Cèl·lules mare vegetals' }
+        ],
+        usage: {
+            en: 'Apply morning and night to clean face.',
+            es: 'Aplicar mañana y noche sobre el rostro limpio.',
+            ru: 'Наносить утром и вечером на чистое лицо.',
+            ca: 'Aplicar matí i nit sobre el rostre net.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/SkinElixir_1.jpg'
     },
     {
         id: 'Youth-Secret',
@@ -372,9 +508,30 @@ export const products: Product[] = [
             ru: 'Антивозрастной крем для видимого омоложения.',
             ca: 'Crema antienvelliment per a rejoveniment visible.'
         },
+        longDescription: {
+            en: 'Unlock the secret to ageless skin. This advanced formula combines powerful antioxidants with a safe, plant-based retinol alternative (Bakuchiol) to target deep wrinkles and pigmentation without irritation.',
+            es: 'Descubra el secreto de una piel eterna. Esta fórmula avanzada combina poderosos antioxidantes con una alternativa segura al retinol basada en plantas (Bakuchiol) para combatir arrugas profundas y pigmentación sin irritación.',
+            ru: 'Откройте секрет вечной молодости кожи. Эта продвинутая формула сочетает мощные антиоксиданты с безопасной растительной альтернативой ретинолу (Бакучиол) для борьбы с глубокими морщинами и пигментацией без раздражения.',
+            ca: 'Descobriu el secret d\'una pell eterna. Aquesta fórmula avançada combina poderosos antioxidants amb una alternativa segura al retinol basada en plantes (Bakuchiol) per combatre arrugues profundes i pigmentació sense irritació.'
+        },
+        benefits: [
+            { en: 'Visibly reduces wrinkles.', es: 'Reduce visiblemente las arrugas.', ru: 'Видимо сокращает морщины.', ca: 'Redueix visiblement les arrugues.' },
+            { en: 'Evens skin tone.', es: 'Unifica el tono de la piel.', ru: 'Выравнивает тон кожи.', ca: 'Unifica el to de la pell.' },
+            { en: 'Lifting effect.', es: 'Efecto lifting.', ru: 'Лиффтинг-эффект.', ca: 'Efecte lifting.' }
+        ],
         ingredients: [
-            { en: 'Retinol Alternative & Antioxidants', es: 'Alternativa al Retinol y Antioxidantes', ru: 'Альтернатива ретинолу и Антиоксиданты', ca: 'Alternativa al Retinol i Antioxidants' }
-        ]    }
+            { en: 'Bakuchiol (Bio-Retinol)', es: 'Bakuchiol (Bio-Retinol)', ru: 'Бакучиол (Био-Ретинол)', ca: 'Bakuchiol (Bio-Retinol)' },
+            { en: 'Resveratrol', es: 'Resveratrol', ru: 'Ресвератрол', ca: 'Resveratrol' },
+            { en: 'Precious Oils', es: 'Aceites preciosos', ru: 'Ценные масла', ca: 'Olis preciosos' }
+        ],
+        usage: {
+            en: 'Apply at night for best results.',
+            es: 'Aplicar por la noche para mejores resultados.',
+            ru: 'Наносить на ночь для лучших результатов.',
+            ca: 'Aplicar a la nit per a millors resultats.'
+        },
+        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/YouthSecret_1.jpg'
+    }
 ];
 
 export const categories = ['All', 'XBi-A Series', 'Cell Elixir', 'G-Keto', 'Beauty', 'Additional'];

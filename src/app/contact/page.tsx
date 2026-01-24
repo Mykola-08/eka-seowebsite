@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ContactContent from '@/app/components/ContactContent';
+import ContactContent from '@/components/ContactContent';
 
 export const dynamic = 'force-dynamic';
 

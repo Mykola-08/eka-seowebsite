@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Revision360Content from '@/app/components/Revision360Content';
+import Revision360Content from '@/components/Revision360Content';
 
 export const dynamic = 'force-dynamic';
 

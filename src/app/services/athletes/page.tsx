@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ForAthletesContent from '@/app/components/ForAthletesContent';
+import ForAthletesContent from '@/components/ForAthletesContent';
 export const dynamic = 'force-dynamic';
 
 

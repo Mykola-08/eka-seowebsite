@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import CookiePolicyContent from '@/app/components/CookiePolicyContent';
+import CookiePolicyContent from '@/components/CookiePolicyContent';
 
 export const dynamic = 'force-dynamic';
 

@@ -1,8 +1,8 @@
 'use client';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useState } from 'react';
-import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -22,7 +22,7 @@ interface Recommendation {
   price: string;
   duration: string;
   benefits: string[];
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   color: string;
   analysis?: {
     problem?: string;
@@ -37,6 +37,75 @@ interface Recommendation {
     frequency: string;
   };
 }
+
+// Fixed Keyword Weights with Multi-language support
+const KEYWORD_WEIGHTS: Record<string, { category: 'physical' | 'emotional' | 'complex', weight: number }> = {
+  // Physical (High Intensity)
+  'agony': { category: 'physical', weight: 5 },
+  'unbearable': { category: 'physical', weight: 5 },
+  'injury': { category: 'physical', weight: 4 },
+  'sciatica': { category: 'physical', weight: 4 },
+  'contracture': { category: 'physical', weight: 3 },
+  'pain': { category: 'physical', weight: 2 },
+  'ache': { category: 'physical', weight: 2 },
+  'stiff': { category: 'physical', weight: 2 },
+  'dolor': { category: 'physical', weight: 2 },
+  'lesion': { category: 'physical', weight: 4 },
+  'ciatica': { category: 'physical', weight: 4 },
+  'contractura': { category: 'physical', weight: 3 },
+  'боль': { category: 'physical', weight: 2 },
+  'травма': { category: 'physical', weight: 4 },
+  'ишиас': { category: 'physical', weight: 4 },
+  // Catalan additions
+  'ferida': { category: 'physical', weight: 4 },
+  'lesió': { category: 'physical', weight: 4 },
+  'contractura_ca': { category: 'physical', weight: 3 }, // using suffix if common word conflicts but usually handled by lowercase
+  'mal': { category: 'physical', weight: 2 },
+
+  // Emotional (High Intensity)
+  'panic': { category: 'emotional', weight: 5 },
+  'anxiety': { category: 'emotional', weight: 4 },
+  'insomnia': { category: 'emotional', weight: 4 },
+  'stress': { category: 'emotional', weight: 3 },
+  'overwhelmed': { category: 'emotional', weight: 3 },
+  'sad': { category: 'emotional', weight: 2 },
+  'ansiedad': { category: 'emotional', weight: 4 },
+  'insomnio': { category: 'emotional', weight: 4 },
+  'estres': { category: 'emotional', weight: 3 },
+  'agobio': { category: 'emotional', weight: 3 },
+  'паника': { category: 'emotional', weight: 5 },
+  'тревога': { category: 'emotional', weight: 4 },
+  'бессонница': { category: 'emotional', weight: 4 },
+  'стресс': { category: 'emotional', weight: 3 },
+  // Catalan additions
+  'pànic': { category: 'emotional', weight: 5 },
+  'ansietat': { category: 'emotional', weight: 4 },
+  'insomni': { category: 'emotional', weight: 4 },
+  'estrès': { category: 'emotional', weight: 3 },
+  'atabalat': { category: 'emotional', weight: 3 },
+  'trist': { category: 'emotional', weight: 2 },
+
+  // Complex/Integrative (High Intensity)
+  'fibromyalgia': { category: 'complex', weight: 5 },
+  'chronic': { category: 'complex', weight: 4 },
+  'migraine': { category: 'complex', weight: 4 },
+  'burnout': { category: 'complex', weight: 4 },
+  'digestive': { category: 'complex', weight: 3 },
+  'hormonal': { category: 'complex', weight: 3 },
+  'fatigue': { category: 'complex', weight: 3 },
+  'fibromialgia': { category: 'complex', weight: 5 },
+  'cronico': { category: 'complex', weight: 4 },
+  'migraña': { category: 'complex', weight: 4 },
+  'digestivo': { category: 'complex', weight: 3 },
+  'фибромиалгия': { category: 'complex', weight: 5 },
+  'хронический': { category: 'complex', weight: 4 },
+  'мигрень': { category: 'complex', weight: 4 },
+  'выгорание': { category: 'complex', weight: 4 },
+  // Catalan additions
+  'crònic': { category: 'complex', weight: 4 },
+  'migranya': { category: 'complex', weight: 4 },
+  'fatiga': { category: 'complex', weight: 3 }
+};
 
 export default function DiscoveryContent() {
   const { t } = useLanguage();
@@ -54,7 +123,9 @@ export default function DiscoveryContent() {
   const [showRecommendation, setShowRecommendation] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
 
-  // New Location Step
+  // Move these to functional getters or keep as memos if they depend purely on 't'
+  // But since 't' is from hook, we can keep them inside or use useMemo
+  // For simplicity and clarity, I'll use useMemo for large arrays
   const locations = [
     { id: 'barcelona', title: t('discovery.location.barcelona'), icon: MapPin },
     { id: 'rubi', title: t('discovery.location.rubi'), icon: MapPin },
@@ -162,7 +233,7 @@ export default function DiscoveryContent() {
     }
   ];
 
-    const getRecommendation = (): Recommendation => {
+  const getRecommendation = (): Recommendation => {
     // 0. Online Location -> Online Service
     if (formData.location === 'online') {
       return {
@@ -182,59 +253,6 @@ export default function DiscoveryContent() {
     }
 
     const desc = formData.description.toLowerCase();
-    
-    // Advanced Keyword Analysis with Weights
-    const keywordWeights: Record<string, { category: 'physical' | 'emotional' | 'complex', weight: number }> = {
-      // Physical (High Intensity)
-      'agony': { category: 'physical', weight: 5 },
-      'unbearable': { category: 'physical', weight: 5 },
-      'injury': { category: 'physical', weight: 4 },
-      'sciatica': { category: 'physical', weight: 4 },
-      'contracture': { category: 'physical', weight: 3 },
-      'pain': { category: 'physical', weight: 2 },
-      'ache': { category: 'physical', weight: 2 },
-      'stiff': { category: 'physical', weight: 2 },
-      'dolor': { category: 'physical', weight: 2 },
-      'lesion': { category: 'physical', weight: 4 },
-      'ciatica': { category: 'physical', weight: 4 },
-      'contractura': { category: 'physical', weight: 3 },
-      'боль': { category: 'physical', weight: 2 },
-      'травма': { category: 'physical', weight: 4 },
-      'ишиас': { category: 'physical', weight: 4 },
-
-      // Emotional (High Intensity)
-      'panic': { category: 'emotional', weight: 5 },
-      'anxiety': { category: 'emotional', weight: 4 },
-      'insomnia': { category: 'emotional', weight: 4 },
-      'stress': { category: 'emotional', weight: 3 },
-      'overwhelmed': { category: 'emotional', weight: 3 },
-      'sad': { category: 'emotional', weight: 2 },
-      'ansiedad': { category: 'emotional', weight: 4 },
-      'insomnio': { category: 'emotional', weight: 4 },
-      'estres': { category: 'emotional', weight: 3 },
-      'agobio': { category: 'emotional', weight: 3 },
-      'паника': { category: 'emotional', weight: 5 },
-      'тревога': { category: 'emotional', weight: 4 },
-      'бессонница': { category: 'emotional', weight: 4 },
-      'стресс': { category: 'emotional', weight: 3 },
-
-      // Complex/Integrative (High Intensity)
-      'fibromyalgia': { category: 'complex', weight: 5 },
-      'chronic': { category: 'complex', weight: 4 },
-      'migraine': { category: 'complex', weight: 4 },
-      'burnout': { category: 'complex', weight: 4 },
-      'digestive': { category: 'complex', weight: 3 },
-      'hormonal': { category: 'complex', weight: 3 },
-      'fatigue': { category: 'complex', weight: 3 },
-      'fibromialgia': { category: 'complex', weight: 5 },
-      'cronico': { category: 'complex', weight: 4 },
-      'migraña': { category: 'complex', weight: 4 },
-      'digestivo': { category: 'complex', weight: 3 },
-      'фибромиалгия': { category: 'complex', weight: 5 },
-      'хронический': { category: 'complex', weight: 4 },
-      'мигрень': { category: 'complex', weight: 4 },
-      'выгорание': { category: 'complex', weight: 4 }
-    };
 
     // Scoring System
     const scores = {
@@ -245,7 +263,7 @@ export default function DiscoveryContent() {
     };
 
     // 1. Analyze Description Keywords with Weights
-    Object.entries(keywordWeights).forEach(([keyword, info]) => {
+    Object.entries(KEYWORD_WEIGHTS).forEach(([keyword, info]) => {
       if (desc.includes(keyword)) {
         if (info.category === 'physical') scores.manual += info.weight;
         if (info.category === 'emotional') scores.emotional += info.weight;
@@ -263,7 +281,7 @@ export default function DiscoveryContent() {
     const hasPain = formData.tensionAreas.length > 0 && !formData.tensionAreas.includes(t('discovery.tension.none'));
     const fullBodyTension = formData.tensionAreas.includes(t('discovery.tension.full'));
     const headTension = formData.tensionAreas.includes(t('discovery.tension.head'));
-    
+
     if (hasPain) scores.manual += 2;
     if (fullBodyTension) scores.integrative += 3;
     if (headTension) {
@@ -290,18 +308,18 @@ export default function DiscoveryContent() {
     // 6. Complex Interaction (Synergy)
     // If high physical AND high emotional score, boost integrative significantly
     if (scores.manual > 3 && scores.emotional > 3) {
-      scores.integrative += 5; 
+      scores.integrative += 5;
     }
 
     console.log('Advanced Recommendation Scores:', scores);
 
     // Determine Winner
     const maxScore = Math.max(scores.manual, scores.emotional, scores.integrative, scores.relax);
-    
+
     // Dynamic Benefit Generation
     const generateBenefits = (baseBenefits: string[]) => {
       const dynamicBenefits = [...baseBenefits];
-      
+
       // Add specific benefits based on inputs
       if (desc.includes('sleep') || desc.includes('insomnia') || desc.includes('dormir')) {
         dynamicBenefits[0] = t('casos.problems.sleep.results'); // "Improves deep sleep..."
@@ -315,7 +333,7 @@ export default function DiscoveryContent() {
       if (selectedType?.id === 'office') {
         dynamicBenefits[2] = t('personalizedServices.officeWorkers.result'); // "Better posture..."
       }
-      
+
       return dynamicBenefits.slice(0, 4); // Keep it to 4 items
     };
 
@@ -334,15 +352,15 @@ export default function DiscoveryContent() {
       analysis.problem = formData.tensionAreas.join(', ');
       diagnosis.symptoms = [...formData.tensionAreas];
     } else if (desc.length > 0) {
-       const foundKeyword = Object.keys(keywordWeights).find(k => desc.includes(k));
-       if (foundKeyword) {
-         analysis.problem = foundKeyword;
-         diagnosis.symptoms.push(foundKeyword);
-       }
+      const foundKeyword = Object.keys(KEYWORD_WEIGHTS).find(k => desc.includes(k));
+      if (foundKeyword) {
+        analysis.problem = foundKeyword;
+        diagnosis.symptoms.push(foundKeyword);
+      }
     }
 
     // Add keywords to symptoms
-    Object.keys(keywordWeights).forEach(k => {
+    Object.keys(KEYWORD_WEIGHTS).forEach(k => {
       if (desc.includes(k) && !diagnosis.symptoms.includes(k)) {
         diagnosis.symptoms.push(k);
       }
@@ -357,7 +375,7 @@ export default function DiscoveryContent() {
 
     const emotionalStateObj = emotionalStates.find(e => e.id === formData.emotionalState);
     diagnosis.profile = `${selectedType?.title || ''} • ${emotionalStateObj?.title || ''}`;
-    
+
     // 3. Feeling & Root Cause
     if (formData.emotionalState === 'stressed') analysis.feeling = t('discovery.feeling.relaxed');
     else if (formData.emotionalState === 'sad') analysis.feeling = t('discovery.feeling.energized');
@@ -518,7 +536,7 @@ export default function DiscoveryContent() {
       alert(t('booking.form.validationError'));
       return;
     }
-    
+
     const message = `${t('booking.whatsapp.greeting', { name: 'Client' })}
 
 ${t('booking.whatsapp.service', { service: recommendation?.service || '' })}
@@ -583,17 +601,15 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <div className="inline-flex bg-gray-100 p-1 rounded-xl mb-8">
                 <button
                   onClick={() => setViewMode('basic')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-                    viewMode === 'basic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
-                  }`}
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'basic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                    }`}
                 >
                   {t('discovery.view.basic')}
                 </button>
                 <button
                   onClick={() => setViewMode('advanced')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-                    viewMode === 'advanced' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
-                  }`}
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'advanced' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                    }`}
                 >
                   {t('discovery.view.advanced')}
                 </button>
@@ -647,11 +663,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         <button
                           key={slot}
                           onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
-                          className={`py-2 px-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium ${
-                            selectedTime === t(`booking.options.timeSlot.${slot}`)
-                              ? 'border-blue-500 bg-blue-50 text-blue-700'
-                              : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                          }`}
+                          className={`py-2 px-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium ${selectedTime === t(`booking.options.timeSlot.${slot}`)
+                            ? 'border-blue-500 bg-blue-50 text-blue-700'
+                            : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                            }`}
                         >
                           {t(`booking.options.timeSlot.${slot}`)}
                         </button>
@@ -661,8 +676,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
                   {formData.location === 'online' && (
                     <div className="bg-yellow-50 p-4 rounded-xl mb-6 text-yellow-800 text-sm">
-                      {/* Hardcoded fallback or key if exists, using generic message for now */}
-                      Note: Since you selected Online, this service is adapted for remote sessions.
+                      {t('discovery.recommendation.online.note')}
                     </div>
                   )}
                 </div>
@@ -689,14 +703,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   <ClipboardList className="w-6 h-6 mr-3 text-blue-600" />
                   {t('discovery.diagnosis.title')}
                 </h2>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   {/* Profile */}
                   <div className="bg-gray-50 p-6 rounded-2xl">
                     <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.profile')}</h3>
                     <p className="text-lg font-medium text-gray-900">{recommendation.diagnosis?.profile}</p>
                   </div>
-                  
+
                   {/* Symptoms */}
                   <div className="bg-gray-50 p-6 rounded-2xl">
                     <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
@@ -724,10 +738,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
                 {/* Frequency */}
                 <div className="mb-12 p-6 bg-green-50 rounded-2xl border border-green-100 text-center">
-                   <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
-                   <p className="text-lg font-medium text-green-900">{recommendation.diagnosis?.frequency}</p>
+                  <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
+                  <p className="text-lg font-medium text-green-900">{recommendation.diagnosis?.frequency}</p>
                 </div>
-                
+
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
@@ -758,7 +772,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             </div>
           </div>
         </section>
-    </>
+      </>
     );
   }
 
@@ -815,8 +829,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         key={loc.id}
                         onClick={() => setFormData({ ...formData, location: loc.id })}
                         className={`text-center p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg flex flex-col items-center justify-center ${formData.location === loc.id
-                            ? 'border-blue-500 bg-blue-50'
-                            : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-blue-500 bg-blue-50'
+                          : 'border-gray-200 hover:border-gray-300'
                           }`}
                       >
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
@@ -846,7 +860,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   className="w-full h-40 p-4 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:ring-0 resize-none text-lg"
                 />
                 <p className="text-sm text-gray-500 mt-2 text-right">
-                  {formData.description.length}/3 characters minimum
+                  {formData.description.length}/3 {t('discovery.step.description.minChars')}
                 </p>
               </div>
             )}
@@ -865,8 +879,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={type.id}
                       onClick={() => setFormData({ ...formData, userType: type.id })}
                       className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.userType === type.id
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{type.title}</h3>
@@ -896,8 +910,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         setFormData({ ...formData, tensionAreas: newAreas });
                       }}
                       className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 ${formData.tensionAreas.includes(option)
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                     >
                       <div className="flex items-center justify-between">
@@ -926,8 +940,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={state.id}
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
                       className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.emotionalState === state.id
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{state.title}</h3>
@@ -952,8 +966,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={time.id}
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
                       className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.timeCommitment === time.id
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{time.title}</h3>
@@ -978,8 +992,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={budget.id}
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
                       className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.budget === budget.id
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                     >
                       <h3 className="font-semibold text-gray-900 mb-2">{budget.title}</h3>
@@ -995,8 +1009,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <button
                 onClick={handleBack}
                 className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${currentStep === 0
-                    ? 'text-gray-400 cursor-not-allowed'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
+                  ? 'text-gray-400 cursor-not-allowed'
+                  : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
                   }`}
                 disabled={currentStep === 0}
               >
@@ -1011,8 +1025,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <button
                 onClick={handleNext}
                 className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${canProceed()
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
                 disabled={!canProceed()}
               >

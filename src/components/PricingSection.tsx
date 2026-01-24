@@ -148,13 +148,13 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-6 py-2 bg-yellow-50 border border-yellow-100 rounded-full mb-8">
-            <span className="text-yellow-700 font-medium text-sm uppercase tracking-wide">{t('pricing.badge')}</span>
+          <div className="inline-flex items-center px-6 py-2 bg-accent-light/20 border border-accent-light/30 rounded-full mb-8">
+            <span className="text-accent-dark font-medium text-sm uppercase tracking-wide">{t('pricing.badge')}</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
+          <h2 className="text-4xl md:text-5xl font-light text-eka-dark mb-8">
             {t('pricing.title.part1')}{' '}
-            <span className="text-yellow-500 font-medium">
+            <span className="text-accent font-medium">
               {t('pricing.title.part2')}
             </span>
           </h2>
@@ -180,10 +180,10 @@ export default function PricingSection() {
             return (
               <div
                 key={plan.id}
-                className={`aurora-glass-card relative cursor-pointer transition-all duration-300 ${plan.popular
-                  ? 'ring-2 ring-yellow-400/50 transform scale-105'
+                className={`aurora-glass-card squircle-large relative cursor-pointer transition-all duration-300 ${plan.popular
+                  ? 'ring-2 ring-accent/50 transform scale-105'
                   : selectedPlan === plan.id
-                    ? 'ring-2 ring-yellow-400/50'
+                    ? 'ring-2 ring-accent/50'
                     : ''
                   }`}
                 onClick={() => setSelectedPlan(selectedPlan === plan.id ? null : plan.id)}
@@ -191,7 +191,7 @@ export default function PricingSection() {
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-yellow-400 text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
+                    <div className="bg-accent text-eka-dark px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
                       {t('pricing.popular')}
                     </div>
                   </div>
@@ -207,11 +207,11 @@ export default function PricingSection() {
                 <div className="p-8">
                   {/* Icon & Title */}
                   <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Icon className="w-8 h-8 text-yellow-600" />
+                    <div className="w-16 h-16 bg-accent/10 squircle flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-8 h-8 text-accent" />
                     </div>
 
-                    <h3 className="text-2xl font-medium text-gray-900 mb-2">
+                    <h3 className="text-2xl font-medium text-eka-dark mb-2">
                       {t(plan.name)}
                     </h3>
 
@@ -223,7 +223,7 @@ export default function PricingSection() {
                   {/* Pricing */}
                   <div className="text-center mb-8">
                     <div className="mb-2">
-                      <span className="text-4xl font-light text-gray-900">
+                      <span className="text-4xl font-light text-eka-dark">
                         {formatPrice(Math.round(discountedPrice))}
                       </span>
                       {(plan.originalPrice || selectedDiscount) && (
@@ -261,9 +261,9 @@ export default function PricingSection() {
                       });
                       navigateToBooking(plan.name);
                     }}
-                    className={`w-full py-4 rounded-2xl font-medium transition-all duration-200 text-center ${plan.popular
-                      ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-900 shadow-sm hover:shadow-md'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                    className={`w-full py-4 rounded-apple font-medium transition-all duration-200 text-center ${plan.popular
+                      ? 'bg-accent hover:bg-accent-dark text-eka-dark shadow-sm hover:shadow-md'
+                      : 'bg-gray-100 hover:bg-gray-200 text-eka-dark'
                       }`}
                   >
                     {t('pricing.plan.select')}
@@ -280,12 +280,12 @@ export default function PricingSection() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-gray-50 rounded-2xl p-6 text-center"
+              className="bg-gray-50 squircle p-6 text-center"
             >
-              <div className="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-6 h-6 text-yellow-600" />
+              <div className="w-12 h-12 bg-accent/10 squircle flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-6 h-6 text-accent" />
               </div>
-              <h4 className="font-medium text-gray-900 mb-2">
+              <h4 className="font-medium text-eka-dark mb-2">
                 {t(feature.title)}
               </h4>
               <p className="text-sm text-gray-600">
@@ -297,8 +297,8 @@ export default function PricingSection() {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-medium text-gray-900 mb-4">
+          <div className="bg-gray-50 rounded-apple-xl p-8 border border-gray-100">
+            <h3 className="text-2xl font-medium text-eka-dark mb-4">
               {t('pricing.cta.unsure.title')}
             </h3>
             <p className="text-gray-600 mb-6">
@@ -306,7 +306,7 @@ export default function PricingSection() {
             </p>
             <Link
               href="/services"
-              className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-medium transition-colors group"
+              className="inline-flex items-center text-accent hover:text-accent-dark font-medium transition-colors group"
             >
               {t('pricing.cta.unsure.button')}
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

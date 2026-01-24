@@ -202,6 +202,10 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.lowEnergy.treatment': 'Revitalització integral: kinesiologia per detectar fugues d\'energia, suport nutricional, i treball corporal per reactivar el flux vital.',
     'casos.problems.lowEnergy.results': 'Recuperació de la vitalitat i l\'entusiasme. Ment clara i desperta. Capacitat per afrontar el dia a dia amb energia i alegria.',
 
+    // Discovery New Keys
+    'discovery.step.description.minChars': 'caràcters mínim',
+    'discovery.recommendation.online.note': 'Nota: Com que has seleccionat Online, aquest servei s\'adapta per a sessions remotes.',
+
     // Sleep
     'casos.problems.sleep.symptom1': 'Insomni de conciliació: donar voltes al llit sense poder adormir-se.',
     'casos.problems.sleep.symptom2': 'Despertars nocturns freqüents o despertar-se massa d\'hora.',
@@ -1539,7 +1543,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.save': 'Estalvia {percent}%',
     'pricing.discount_applied': 'Aplicat',
     'pricing.plan.select': 'Seleccionar',
-    
+
     'pricing.plan.basic.name': 'Sessió individual',
     'pricing.plan.basic.desc': 'Una sessió completa de 60 minuts',
     'pricing.plan.pack3.name': 'Pack benestar (3)',
@@ -1622,7 +1626,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.artists': 'Artists & creatives',
     'nav.musicians': 'Musicians',
     'nav.students': 'Students',
-    
+
     'home.founder': 'Founder & CEO',
     'home.elenaAlt': 'Elena, EKA Balance body therapist',
     'home.viewAllServices': 'View all services',
@@ -4820,7 +4824,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.artists': 'Артисты',
     'nav.musicians': 'Музыканты',
     'nav.students': 'Студенты',
-    
+
     'home.founder': 'Основатель и CEO',
     'home.elenaAlt': 'Елена, телесный терапевт EKA Balance',
     'home.viewAllServices': 'Посмотреть все услуги',
@@ -5067,7 +5071,11 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.lowEnergy.cause3': 'Дисфункция гормональной оси (усталость надпочечников, щитовидная железа).',
     'casos.problems.lowEnergy.cause4': 'Эмоциональные блоки или потеря жизненной цели, истощающие энергию.',
     'casos.problems.lowEnergy.treatment': 'Комплексная ревитализация: кинезиология для обнаружения утечек энергии, нутрициологическая поддержка и работа с телом для реактивации жизненного потока.',
-    'casos.problems.lowEnergy.results': 'Восстановление жизненной силы и энтузиазма. Ясный и бодрый ум. Способность встречать каждый день с энергией и радостью.',
+    'casos.problems.lowEnergy.results': 'Возвращение жизненных сил и энтузиазма. Ясный и бодрый ум. Способность справляться с повседневными делами с энергией и радостью.',
+
+    // Discovery New Keys
+    'discovery.step.description.minChars': 'символов минимум',
+    'discovery.recommendation.online.note': 'Примечание: Поскольку вы выбрали Онлайн, эта услуга адаптирована для дистанционных сеансов.',
 
     // Sleep
     'casos.problems.sleep.symptom1': 'Инсомния засыпания: ворочание в постели без возможности уснуть.',
@@ -6540,11 +6548,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useLanguage() {
+export function useLanguage(): LanguageContextType {
   const context = useContext(LanguageContext);
   if (context === undefined) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
-};
-
+}

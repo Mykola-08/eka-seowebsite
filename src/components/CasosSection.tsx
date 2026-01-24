@@ -85,11 +85,11 @@ export default function CasosSection() {
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-2 bg-blue-50 border border-blue-100 rounded-full mb-8">
-            <span className="text-blue-700 font-medium text-sm uppercase tracking-wide">{t('casos.section.badge')}</span>
+          <div className="inline-flex items-center px-6 py-2 bg-primary-50 border border-primary-100 rounded-full mb-8">
+            <span className="text-primary-700 font-medium text-sm uppercase tracking-wide">{t('casos.section.badge')}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-eka-dark mb-6">
             {t('casos.section.title')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
               {t('casos.section.titleHighlight')}
@@ -106,27 +106,27 @@ export default function CasosSection() {
             const ProblemIcon = problem.icon;
             return (
               <AnimateIn key={problem.id} delay={index * 0.1}>
-              <Link
-                href={problem.href}
-                className="group bg-white rounded-[24px] p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ease-out-quart block"
-              >
-                <div className={`w-14 h-14 rounded-xl ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ease-out-quart border`}>
-                  <ProblemIcon className="w-7 h-7" />
-                </div>
+                <Link
+                  href={problem.href}
+                  className="group bg-white squircle-card p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ease-out-quart block"
+                >
+                  <div className={`w-14 h-14 squircle ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ease-out-quart border shadow-sm`}>
+                    <ProblemIcon className="w-7 h-7" />
+                  </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 ease-out-quart">
-                  {t(problem.titleKey)}
-                </h3>
+                  <h3 className="text-xl font-semibold text-eka-dark mb-3 group-hover:text-primary-600 transition-colors duration-200 ease-out-quart">
+                    {t(problem.titleKey)}
+                  </h3>
 
-                <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
-                  {t(problem.descriptionKey)}
-                </p>
+                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                    {t(problem.descriptionKey)}
+                  </p>
 
-                <div className="flex items-center text-blue-600 font-medium">
-                  {t('casos.section.readMore')}
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
-                </div>
-              </Link>
+                  <div className="flex items-center text-primary-600 font-medium">
+                    {t('casos.section.readMore')}
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
+                  </div>
+                </Link>
               </AnimateIn>
             );
           })}
@@ -134,7 +134,7 @@ export default function CasosSection() {
 
         {/* Other Cases List */}
         <div className="max-w-4xl mx-auto mb-16 text-center">
-          <h3 className="text-2xl font-light text-gray-800 mb-8">{t('casos.other.title')}</h3>
+          <h3 className="text-2xl font-light text-eka-dark mb-8">{t('casos.other.title')}</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
               'casos.other.money',
@@ -144,7 +144,7 @@ export default function CasosSection() {
               'casos.other.work',
               'casos.other.trauma'
             ].map((key) => (
-              <span key={key} className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-600 transition-all duration-200 ease-out-quart cursor-default">
+              <span key={key} className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 shadow-sm hover:shadow-md hover:border-primary-200 hover:text-primary-600 transition-all duration-200 ease-out-quart cursor-default">
                 {t(key)}
               </span>
             ))}
@@ -156,7 +156,7 @@ export default function CasosSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/cases"
-              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-all duration-200 ease-out-quart shadow-sm hover:shadow-md"
+              className="inline-flex items-center bg-accent hover:bg-accent-dark text-eka-dark font-semibold px-8 py-4 rounded-full transition-all duration-200 ease-out-quart shadow-lg hover:shadow-xl hover:scale-[1.02]"
             >
               {t('casos.section.viewAll')}
               <ArrowRight className="w-5 h-5 ml-2" />

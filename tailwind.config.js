@@ -2,8 +2,6 @@ import { keepTheme } from 'keep-react/keepTheme'
 
 const config = {
   content: [
-    "./index.html",
-    "./src/react-app/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/contexts/**/*.{js,ts,jsx,tsx}",
@@ -11,8 +9,8 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
-        'display': ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        'sans': ['SF Pro Text', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        'display': ['SF Pro Display', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -37,33 +35,22 @@ const config = {
         'eka-dark': '#000035',
         gray: {
           50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
+          100: '#f5f5f7', // Apple Gray
+          200: '#e5e5e7',
+          300: '#d2d2d7',
+          400: '#a1a1a6',
+          500: '#86868b',
+          600: '#6e6e73',
+          700: '#424245',
+          800: '#1d1d1f', // Apple Gray Dark
           900: '#171717',
-          950: '#0a0a0a',
+          950: '#000000',
         },
-        yellow: {
-          50: '#fefce8',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-        },
-        blue: {
-          500: '#3b82f6',
-          600: '#2563eb',
-        }
+      },
+      borderRadius: {
+        'apple': '20px',
+        'apple-lg': '28px',
+        'apple-xl': '40px',
       },
       spacing: {
         '18': '4.5rem',

@@ -13,8 +13,10 @@
   --apple-border-radius: 20px;
   --apple-border-radius-small: 12px;
   --apple-border-radius-large: 28px;
+  --apple-border-radius-xl: 40px;
   --apple-squircle-radius: 24px;
   --apple-squircle-radius-large: 40px;
+  --apple-squircle-radius-xl: 60px;
   --apple-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --apple-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
   --apple-shadow-large: 0 20px 60px rgba(0, 0, 0, 0.08);
@@ -56,51 +58,86 @@
     font-weight: 400;
     letter-spacing: -0.003em;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    @apply text-eka-dark;
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.1;
   }
-  
+
   p {
     font-weight: 400;
     line-height: 1.5;
     color: #374151;
   }
-  
+
   * {
     @apply border-gray-200/30;
   }
 }
 
 @layer components {
-  /* Apple-style Squircle Components */
+
+  /* True Curvature Squircles (Superellipses) */
+  /* A true squircle has G2 continuity (curvature continuity) */
   .squircle {
+    @apply relative overflow-hidden;
     border-radius: var(--apple-squircle-radius);
-    overflow: hidden;
+    /* Improved curvature using SVG masking for truer smoothness */
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
   }
-  
+
   .squircle-large {
+    @apply relative overflow-hidden;
     border-radius: var(--apple-squircle-radius-large);
-    overflow: hidden;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
   }
-  
+
+  .squircle-xl {
+    @apply relative overflow-hidden;
+    border-radius: var(--apple-squircle-radius-xl);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+  }
+
   .squircle-image {
     @apply overflow-hidden transition-all duration-500 ease-out;
     border-radius: var(--apple-squircle-radius);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
   }
-  
+
   .squircle-card {
-    @apply bg-white shadow-lg transition-all duration-500 ease-out;
+    @apply bg-white transition-all duration-500 ease-out;
     border-radius: var(--apple-squircle-radius);
     box-shadow: var(--apple-shadow);
+    /* Cards don't get full mask-image to avoid shadow clipping, 
+       but we use border-radius as a close approximation for the container */
   }
-  
-  .squircle-card:hover {
-    box-shadow: var(--apple-shadow-hover);
-    transform: translateY(-2px) scale(1.005);
+
+  /* Content inside cards that should follow truer squircle curves */
+  .squircle-content {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
   }
 
   /* Full-Width Background Image Sections */
@@ -110,17 +147,17 @@
     background-position: center;
     background-attachment: fixed;
   }
-  
+
   .bg-overlay {
     @apply absolute inset-0 bg-black;
     opacity: 0.4;
   }
-  
+
   .bg-overlay-dark {
     @apply absolute inset-0 bg-black;
     opacity: 0.5;
   }
-  
+
   .bg-overlay-light {
     @apply absolute inset-0 bg-black;
     opacity: 0.3;
@@ -135,13 +172,13 @@
     background-position: center;
     min-height: 320px;
   }
-  
+
   .service-pill::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60;
     transition: all 0.5s ease;
   }
-  
+
   .service-pill:hover::before {
     @apply from-black/30 via-black/40 to-black/70;
   }
@@ -159,14 +196,14 @@
     min-height: 44px;
     /* text-transform removed to preserve original text casing */
   }
-  
+
   @media (min-width: 640px) {
     .btn-primary {
       font-size: 16px;
       min-height: 48px;
     }
   }
-  
+
   .btn-secondary {
     @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
     @apply bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700;
@@ -180,14 +217,14 @@
     min-height: 44px;
     /* text-transform removed to preserve original text casing */
   }
-  
+
   @media (min-width: 640px) {
     .btn-secondary {
       font-size: 16px;
       min-height: 48px;
     }
   }
-  
+
   .btn-ghost {
     @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
     @apply text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300;
@@ -200,7 +237,7 @@
     min-height: 40px;
     /* text-transform removed to preserve original text casing */
   }
-  
+
   /* Apple-style cards */
   .apple-card {
     @apply bg-white dark:bg-gray-900;
@@ -209,17 +246,17 @@
     border-radius: var(--apple-squircle-radius);
     box-shadow: var(--apple-shadow);
   }
-  
+
   @media (min-width: 768px) {
     .apple-card {
       @apply hover:scale-[1.005] hover:-translate-y-0.5;
     }
   }
-  
+
   .apple-card:hover {
     box-shadow: var(--apple-shadow-hover);
   }
-  
+
   .apple-card-flat {
     @apply bg-white dark:bg-gray-900;
     @apply border border-gray-200/30 dark:border-gray-800/30;
@@ -227,7 +264,7 @@
     border-radius: var(--apple-squircle-radius);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   }
-  
+
   .apple-card-glass {
     @apply bg-white/80 dark:bg-gray-900/80;
     @apply border border-white/20 dark:border-gray-800/20;
@@ -236,32 +273,32 @@
     border-radius: var(--apple-squircle-radius);
     box-shadow: var(--apple-shadow);
   }
-  
+
   /* Apple-style sections */
   .apple-section {
     @apply py-12 sm:py-20 md:py-32 px-4 sm:px-6;
   }
-  
+
   .apple-section-sm {
     @apply py-8 sm:py-16 md:py-24 px-4 sm:px-6;
   }
-  
+
   .apple-section-lg {
     @apply py-16 sm:py-32 md:py-48 px-4 sm:px-6;
   }
-  
+
   .apple-container {
     @apply max-w-7xl mx-auto;
   }
-  
+
   .apple-container-sm {
     @apply max-w-4xl mx-auto;
   }
-  
+
   .apple-container-lg {
     @apply max-w-8xl mx-auto;
   }
-  
+
   /* Typography */
   .apple-headline {
     font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -270,7 +307,7 @@
     letter-spacing: -0.025em;
     line-height: 0.95;
   }
-  
+
   .apple-title {
     font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     @apply text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 dark:text-white;
@@ -278,27 +315,27 @@
     letter-spacing: -0.020em;
     line-height: 1.15;
   }
-  
+
   .apple-subtitle {
     @apply text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 font-normal;
     font-weight: 400;
     letter-spacing: -0.012em;
     line-height: 1.5;
   }
-  
+
   .apple-body {
     @apply text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 font-normal;
     font-weight: 400;
     letter-spacing: -0.006em;
     line-height: 1.6;
   }
-  
+
   .apple-caption {
     @apply text-sm text-gray-500 dark:text-gray-500 font-medium;
     font-weight: 500;
     letter-spacing: -0.008em;
   }
-  
+
   .apple-large-title {
     font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     @apply text-6xl md:text-7xl lg:text-8xl font-light text-gray-900 dark:text-white;
@@ -306,7 +343,7 @@
     letter-spacing: -0.035em;
     line-height: 0.9;
   }
-  
+
   /* Form elements */
   .apple-input {
     @apply w-full px-4 py-4 text-lg;
@@ -318,7 +355,7 @@
     font-weight: 400;
     letter-spacing: -0.003em;
   }
-  
+
   .apple-select {
     @apply w-full px-4 py-4 text-lg;
     @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
@@ -328,7 +365,7 @@
     font-weight: 400;
     letter-spacing: -0.003em;
   }
-  
+
   /* Navigation */
   .apple-nav {
     @apply bg-white/80 dark:bg-gray-950/80 backdrop-blur-2xl;
@@ -389,20 +426,20 @@
   .testimonial-slider {
     @apply relative overflow-hidden;
   }
-  
+
   .testimonial-slide {
     @apply transition-transform duration-500 ease-in-out;
   }
-  
+
   .testimonial-indicators {
     @apply flex justify-center space-x-2 mt-8;
   }
-  
+
   .testimonial-dot {
     @apply w-2 h-2 rounded-full transition-all duration-300;
     @apply bg-gray-300 hover:bg-gray-400;
   }
-  
+
   .testimonial-dot.active {
     @apply bg-gray-900 w-6;
   }
@@ -411,18 +448,18 @@
   .faq-accordion {
     @apply space-y-4;
   }
-  
+
   .faq-item {
     @apply border border-gray-200/50 overflow-hidden transition-all duration-300;
     border-radius: var(--apple-border-radius);
   }
-  
+
   .faq-question {
     @apply w-full text-left px-6 py-4 font-medium text-gray-900;
     @apply hover:bg-gray-50 transition-colors duration-200;
     @apply focus:outline-none focus:bg-gray-50;
   }
-  
+
   .faq-answer {
     @apply px-6 pb-4 text-gray-600 leading-relaxed;
   }
@@ -431,15 +468,15 @@
   .apple-spacing-sm {
     @apply py-16;
   }
-  
+
   .apple-spacing-md {
     @apply py-24;
   }
-  
+
   .apple-spacing-lg {
     @apply py-32;
   }
-  
+
   .apple-spacing-xl {
     @apply py-40;
   }
@@ -451,6 +488,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -458,8 +496,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -467,6 +510,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -486,16 +530,33 @@
 }
 
 /* Stagger animations */
-.stagger-children > * {
+.stagger-children>* {
   animation: fadeInUp 0.6s ease-out both;
 }
 
-.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children>*:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-children>*:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-children>*:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stagger-children>*:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.stagger-children>*:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.stagger-children>*:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 /* Smooth Scrolling */
 html {
@@ -545,6 +606,7 @@ html {
     opacity: 0;
     transform: translateY(2rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -552,37 +614,51 @@ html {
 }
 
 /* Stagger section animations */
-.stagger-sections > section:nth-child(1) { animation-delay: 0.1s; }
-.stagger-sections > section:nth-child(2) { animation-delay: 0.2s; }
-.stagger-sections > section:nth-child(3) { animation-delay: 0.3s; }
-.stagger-sections > section:nth-child(4) { animation-delay: 0.4s; }
-.stagger-sections > section:nth-child(5) { animation-delay: 0.5s; }
-
-/* Navigation Dropdown - CSS-first solution for stable hover */
-.nav-item { 
-  position: relative; 
+.stagger-sections>section:nth-child(1) {
+  animation-delay: 0.1s;
 }
 
-.nav-trigger { 
-  /* your styles - handled by Tailwind classes */ 
+.stagger-sections>section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-sections>section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stagger-sections>section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.stagger-sections>section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Navigation Dropdown - CSS-first solution for stable hover */
+.nav-item {
+  position: relative;
+}
+
+.nav-trigger {
+  /* your styles - handled by Tailwind classes */
 }
 
 .nav-dropdown {
-  position: absolute; 
-  top: 100%; 
+  position: absolute;
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
-  background: #F5F5F7; 
+  background: #F5F5F7;
   border-radius: 0 0 16px 16px;
-  min-width: 320px; 
-  max-width: 480px; 
+  min-width: 320px;
+  max-width: 480px;
   padding: 22px;
-  opacity: 0; 
-  visibility: hidden; 
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition:
     transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
-    opacity 0.22s, 
+    opacity 0.22s,
     visibility 0s 0.22s;
   z-index: 50;
 }
@@ -593,23 +669,23 @@ html {
 .nav-item:has(.nav-dropdown:focus-within) .nav-dropdown,
 .nav-item:has(.nav-trigger:focus-visible) .nav-dropdown {
   transform: translateX(-50%) translateY(0);
-  opacity: 1; 
-  visibility: visible; 
-  pointer-events: auto; 
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transition-delay: 0s;
 }
 
 /* Hover bridge for better UX when :has() not available */
 .hover-bridge {
-  position: absolute; 
-  left: 50%; 
+  position: absolute;
+  left: 50%;
   transform: translateX(-50%);
-  top: 100%; 
-  height: 12px; 
+  top: 100%;
+  height: 12px;
   width: 100%;
-  min-width: 320px; 
+  min-width: 320px;
   max-width: 480px;
-  pointer-events: auto; 
+  pointer-events: auto;
   background: transparent;
   z-index: 49;
 }
@@ -617,9 +693,9 @@ html {
 /* Fallback for older browsers without :has() support */
 .nav-item.is-open .nav-dropdown {
   transform: translateX(-50%) translateY(0);
-  opacity: 1; 
-  visibility: visible; 
-  pointer-events: auto; 
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transition-delay: 0s;
 }
 
@@ -629,6 +705,7 @@ html {
     opacity: 0;
     transform: translateX(-50%) translateY(-6px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0px);
@@ -641,6 +718,7 @@ html {
     opacity: 0;
     transform: translateX(-50%) translateY(-6px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0px);
@@ -649,8 +727,15 @@ html {
 
 /* Parallax effect for background elements */
 @keyframes parallax-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .parallax-float {
@@ -659,8 +744,15 @@ html {
 
 /* Floating animation for Agenyz product cards */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .animate-float {
@@ -689,14 +781,12 @@ html {
 
 /* VIP Gold Shimmer Effect */
 .gold-shimmer {
-  background: linear-gradient(
-    to right,
-    #bf953f 0%,
-    #fcf6ba 25%,
-    #b38728 50%,
-    #fbf5b7 75%,
-    #bf953f 100%
-  );
+  background: linear-gradient(to right,
+      #bf953f 0%,
+      #fcf6ba 25%,
+      #b38728 50%,
+      #fbf5b7 75%,
+      #bf953f 100%);
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
@@ -754,6 +844,7 @@ html {
 }
 
 @layer components {
+
   /* Buttons from Design System */
   .btn {
     @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
@@ -767,7 +858,7 @@ html {
     @apply btn text-[#000035] shadow-md hover:shadow-lg active:scale-95 hover:-translate-y-0.5;
     background-color: var(--color-accent);
   }
-  
+
   .btn-accent:hover {
     background-color: var(--color-accent-hover);
   }
@@ -823,7 +914,7 @@ html {
   .section-padding {
     @apply py-16 sm:py-24;
   }
-  
+
   /* Utilities */
   .glass-panel {
     @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;

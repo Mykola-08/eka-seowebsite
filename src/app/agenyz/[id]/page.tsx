@@ -89,8 +89,8 @@ export default function ProductPage() {
                                         <Leaf className='w-6 h-6' />
                                     </div>
                                     <div>
-                                        <p className='text-xs text-gray-400 font-bold uppercase tracking-wider'>Type</p>
-                                        <p className='text-sm font-semibold text-gray-800'>Bio-Active</p>
+                                        <p className='text-xs text-gray-400 font-bold uppercase tracking-wider'>{t('agenyz.label.type') || 'Type'}</p>
+                                        <p className='text-sm font-semibold text-gray-800'>{t('agenyz.label.bioactive') || 'Bio-Active'}</p>
                                     </div>
                                 </motion.div>
                             </div>
@@ -104,7 +104,7 @@ export default function ProductPage() {
                                 className='inline-flex items-center px-3 py-1 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-xs font-bold uppercase tracking-widest mb-6'
                             >
                                 <Zap className='w-3 h-3 mr-2' />
-                                {product.category} Series
+                                {t(`agenyz.category.${product.category}`) || product.category} {t('agenyz.label.series') || 'Series'}
                             </motion.div>
 
                             <motion.h1
@@ -134,15 +134,15 @@ export default function ProductPage() {
                             >
                                 <div className='flex items-center gap-2'>
                                     <ShieldCheck className='w-5 h-5 text-blue-500' />
-                                    <span className='text-sm font-medium text-gray-600'>DNA Protection</span>
+                                    <span className='text-sm font-medium text-gray-600'>{t('agenyz.label.dnaProtection') || 'DNA Protection'}</span>
                                 </div>
                                 <div className='flex items-center gap-2'>
                                     <Microscope className='w-5 h-5 text-purple-500' />
-                                    <span className='text-sm font-medium text-gray-600'>Lab Tested</span>
+                                    <span className='text-sm font-medium text-gray-600'>{t('agenyz.label.labTested') || 'Lab Tested'}</span>
                                 </div>
                                 <div className='flex items-center gap-2'>
                                     <Zap className='w-5 h-5 text-yellow-500' />
-                                    <span className='text-sm font-medium text-gray-600'>High Bioavailability</span>
+                                    <span className='text-sm font-medium text-gray-600'>{t('agenyz.label.highBioavailability') || 'High Bioavailability'}</span>
                                 </div>
                             </motion.div>
 
@@ -161,7 +161,7 @@ export default function ProductPage() {
                                 <Link href='/contact' className='flex-1 sm:flex-none'>
                                     <Button size='xl' variant='outline' className='w-full sm:w-auto border-gray-200 hover:bg-gray-50 text-gray-700 px-8 py-4 rounded-xl'>
                                         <MessageCircle className='mr-2 w-5 h-5' />
-                                        {t('agenyz.askExpert')}
+                                        {t('agenyz.askExpert') || 'Ask an Expert'}
                                     </Button>
                                 </Link>
                             </motion.div>
@@ -248,13 +248,13 @@ export default function ProductPage() {
                                     <div className='mx-auto w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mb-2 text-gray-400'>
                                         <ShieldCheck className='w-5 h-5' />
                                     </div>
-                                    <p className='text-xs font-semibold text-gray-500 uppercase'>Quality</p>
+                                    <p className='text-xs font-semibold text-gray-500 uppercase'>{t('agenyz.label.quality') || 'Quality'}</p>
                                 </div>
                                 <div className='text-center p-2'>
                                     <div className='mx-auto w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mb-2 text-gray-400'>
                                         <Leaf className='w-5 h-5' />
                                     </div>
-                                    <p className='text-xs font-semibold text-gray-500 uppercase'>Natural</p>
+                                    <p className='text-xs font-semibold text-gray-500 uppercase'>{t('agenyz.label.natural') || 'Natural'}</p>
                                 </div>
                             </div>
                         </div>

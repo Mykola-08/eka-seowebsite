@@ -32,10 +32,10 @@ export default function AppleHero() {
       {/* Background Image with smooth transitions */}
       <div className="absolute inset-0 transition-opacity duration-1000">
         {heroImages.map((image, index) => (
-          <div 
-            key={image} 
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`} 
-            style={{ backgroundImage: `url(${image})` }} 
+          <div
+            key={image}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+            style={{ backgroundImage: `url(${image})` }}
           />
         ))}
       </div>
@@ -47,43 +47,43 @@ export default function AppleHero() {
       <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
         {/* Badge - Glassy Style */}
         <AnimateIn delay={0.2} from="top">
-        <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
-          <span className="text-sm md:text-base font-medium tracking-wide text-white/90">
-            {t('hero.badge')}
-          </span>
-        </div>
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
+            <span className="text-sm md:text-base font-medium tracking-wide text-white/90">
+              {t('hero.badge')}
+            </span>
+          </div>
         </AnimateIn>
 
         {/* Main Title */}
         <AnimateIn delay={0.4} duration={0.8}>
-        <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-black tracking-tighter drop-shadow-2xl">
-          {t('hero.title')}
-        </h1>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-black tracking-tighter drop-shadow-2xl">
+            {t('hero.title')}
+          </h1>
         </AnimateIn>
 
         {/* Subtitle */}
         <AnimateIn delay={0.6}>
-        <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto">
-          {t('hero.subtitle')}
-        </p>
+          <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto">
+            {t('hero.subtitle')}
+          </p>
         </AnimateIn>
 
         {/* CTA Buttons */}
         <AnimateIn delay={0.8}>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
-            <Button size="xl" className="btn btn-primary px-8 py-4 rounded-2xl shadow-xl normal-case">
-              {t('hero.firstTime')}
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
+              <Button size="xl" className="btn btn-primary px-8 py-4 rounded-apple shadow-xl normal-case">
+                {t('hero.firstTime')}
+              </Button>
+            </Link>
 
-          <Link href="/services" className="group" onClick={() => logEvent('hero_services_click')}>
-            <Button size="xl" className="btn btn-accent px-8 py-4 rounded-2xl shadow-xl normal-case">
-              {t('hero.discoverServices')}
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
-            </Button>
-          </Link>
-        </div>
+            <Link href="/services" className="group" onClick={() => logEvent('hero_services_click')}>
+              <Button size="xl" className="btn btn-accent px-8 py-4 rounded-apple shadow-xl normal-case font-semibold">
+                {t('hero.discoverServices')}
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
+              </Button>
+            </Link>
+          </div>
         </AnimateIn>
       </div>
     </section>

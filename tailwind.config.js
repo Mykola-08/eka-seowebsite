@@ -5,6 +5,8 @@ const config = {
     "./index.html",
     "./src/react-app/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/contexts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {

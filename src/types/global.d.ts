@@ -5,7 +5,7 @@ declare global {
         gtag: (
             command: 'config' | 'event' | 'consent',
             targetId: string,
-            config?: Record<string, any>
+            config?: Record<string, unknown>
         ) => void;
     }
 }

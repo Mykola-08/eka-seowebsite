@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Play,
@@ -97,13 +97,13 @@ export default function TDRPresentation() {
   const pathname = usePathname();
 
   // Handle navigation when step changes
-  const handleStepChange = (index: number) => {
+  const handleStepChange = useCallback((index: number) => {
     setCurrentStep(index);
     const step = presentationSteps[index];
     if (step.path !== pathname) {
       router.push(step.path);
     }
-  };
+  }, [pathname, router]);
 
   // Auto-play logic
   useEffect(() => {

@@ -5,7 +5,6 @@ import { useCallback } from 'react';
 
 export const useAnalytics = () => {
   // const { user } = useSupabaseAuth();
-  const user = null;
 
   const logEvent = useCallback(async (
     interactionType: string,
@@ -43,7 +42,7 @@ export const useAnalytics = () => {
       console.error('Error logging analytics event:', error);
     }
     */
-  }, [user]);
+  }, []);
 
   const logPageView = useCallback((path: string) => {
     logEvent('page_view', { path });

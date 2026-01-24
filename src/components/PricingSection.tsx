@@ -1,6 +1,5 @@
 "use client";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { CheckCircle, Sparkles, Crown, Heart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';

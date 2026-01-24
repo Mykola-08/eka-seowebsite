@@ -5,7 +5,7 @@ import { products, getLocalized } from '@/app/agenyz/products';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from 'keep-react';
 import Link from 'next/link';
-import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck, Zap, Microscope, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck, Zap, Microscope } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const dynamic = 'force-dynamic';

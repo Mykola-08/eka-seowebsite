@@ -14,9 +14,6 @@
   --apple-border-radius-small: 12px;
   --apple-border-radius-large: 28px;
   --apple-border-radius-xl: 40px;
-  --apple-squircle-radius: 24px;
-  --apple-squircle-radius-large: 40px;
-  --apple-squircle-radius-xl: 60px;
   --apple-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --apple-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
   --apple-shadow-large: 0 20px 60px rgba(0, 0, 0, 0.08);
@@ -85,40 +82,6 @@
 
 @layer components {
 
-  /* True Curvature Squircles (Superellipses) */
-  /* Simplified for better compatibility */
-  .squircle {
-    @apply relative overflow-hidden;
-    border-radius: var(--apple-squircle-radius);
-  }
-
-  .squircle-large {
-    @apply relative overflow-hidden;
-    border-radius: var(--apple-squircle-radius-large);
-  }
-
-  .squircle-xl {
-    @apply relative overflow-hidden;
-    border-radius: var(--apple-squircle-radius-xl);
-  }
-
-  .squircle-image {
-    @apply overflow-hidden transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
-  }
-
-  .squircle-card {
-    @apply bg-white transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
-    box-shadow: var(--apple-shadow);
-  }
-
-  /* Content inside cards */
-  .squircle-content {
-    @apply overflow-hidden;
-    border-radius: var(--apple-squircle-radius);
-  }
-
   /* Full-Width Background Image Sections */
   .bg-section-full {
     @apply relative overflow-hidden;
@@ -146,7 +109,7 @@
   .service-pill {
     @apply relative overflow-hidden transition-all duration-500 ease-out;
     @apply hover:scale-105 hover:shadow-2xl;
-    border-radius: var(--apple-squircle-radius-large);
+    border-radius: var(--apple-border-radius-large);
     background-size: cover;
     background-position: center;
     min-height: 320px;
@@ -222,7 +185,7 @@
     @apply bg-white dark:bg-gray-900;
     @apply border border-gray-200/50 dark:border-gray-800/50;
     @apply transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
+    border-radius: var(--apple-border-radius);
     box-shadow: var(--apple-shadow);
   }
 
@@ -240,7 +203,7 @@
     @apply bg-white dark:bg-gray-900;
     @apply border border-gray-200/30 dark:border-gray-800/30;
     @apply transition-all duration-300 ease-out;
-    border-radius: var(--apple-squircle-radius);
+    border-radius: var(--apple-border-radius);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   }
 
@@ -249,7 +212,7 @@
     @apply border border-white/20 dark:border-gray-800/20;
     @apply backdrop-blur-xl;
     @apply transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
+    border-radius: var(--apple-border-radius);
     box-shadow: var(--apple-shadow);
   }
 

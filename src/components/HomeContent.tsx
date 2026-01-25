@@ -37,11 +37,11 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-panel squircle-xl p-10 grid grid-cols-2 lg:grid-cols-4 gap-12"
+            className="glass-panel rounded-3xl p-10 grid grid-cols-2 lg:grid-cols-4 gap-12"
           >
             {stats.map((stat, index) => (
               <div key={index} className="group flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-primary-50/50 squircle text-primary-900 shadow-sm group-hover:scale-110 transition-transform duration-300 border border-primary-100/50">
+                <div className="p-4 bg-primary-50/50 rounded-2xl text-primary-900 shadow-sm group-hover:scale-110 transition-transform duration-300 border border-primary-100/50">
                   <stat.icon size={28} strokeWidth={1.5} />
                 </div>
                 <div>
@@ -106,7 +106,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block">
-                <Button variant="outline" className="btn btn-secondary border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-apple normal-case">
+                <Button variant="outline" className="btn btn-secondary border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-xl normal-case">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -139,7 +139,7 @@ export default function HomeContent() {
 
           <div className="mt-12 text-center">
             <Link href="/services">
-              <Button className="btn btn-primary px-8 py-3 rounded-apple normal-case">
+              <Button className="btn btn-primary px-8 py-3 rounded-xl normal-case">
                 {t('services.viewAll')}
               </Button>
             </Link>

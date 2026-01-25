@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Button } from 'keep-react';
 import { ArrowRight, CheckCircle2, Dna, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import FloatingBiomedSymbols from '@/components/FloatingBiomedSymbols';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageLayout from '@/components/PageLayout';
@@ -20,9 +19,7 @@ export default function AgenyzContent() {
 
     const Hero = (
         <section className='relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden'>
-            <FloatingBiomedSymbols />
-            {/* Grid overlay handled by PageLayout, but we can add more if needed */}
-
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
             <div className='max-w-7xl mx-auto px-4 sm:px-8 relative z-10'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
                     <div className='order-2 lg:order-1 text-center lg:text-left'>
@@ -47,7 +44,7 @@ export default function AgenyzContent() {
                             <Link href='/booking'>
                                 <Button
                                     size='xl'
-                                    className='btn btn-primary rounded-apple px-8'
+                                    className='btn btn-primary rounded-xl px-8'
                                 >
                                     {t('common.bookNow')}
                                 </Button>
@@ -59,7 +56,7 @@ export default function AgenyzContent() {
                             >
                                 <Button
                                     size='xl'
-                                    className='btn btn-secondary bg-primary-600 border-none text-white hover:bg-primary-700 rounded-apple px-8'
+                                    className='btn btn-secondary bg-primary-600 border-none text-white hover:bg-primary-700 rounded-xl px-8'
                                 >
                                     {t('agenyz.cta.visitStore') || 'Visit Agenyz Store'}
                                     <ArrowRight className='ml-2 w-5 h-5' />
@@ -70,13 +67,13 @@ export default function AgenyzContent() {
 
                     <div className='order-1 lg:order-2'>
                         <div className='relative group'>
-                            <div className='absolute inset-0 bg-gradient-to-tr from-primary-200 to-indigo-200 rounded-apple-xl blur-xl opacity-30 group-hover:opacity-50 transition-duration-500' />
+                            <div className='absolute inset-0 bg-gradient-to-tr from-primary-200 to-indigo-200 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-duration-500' />
                             <img
                                 src='https://images.pexels.com/photos/17483868/pexels-photo-17483868/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-visualises-how-ai-agents-can-collaborate-to-solve-diverse-tasks-it-was-created-by-nidia-dias-as-part-of-the-visualising.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
                                 alt='Cellular Bio-Innovation'
-                                className='relative w-full h-auto aspect-[4/3] object-cover squircle-large shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]'
+                                className='relative w-full h-auto aspect-[4/3] object-cover rounded-3xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]'
                             />
-                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md squircle p-4 shadow-xl border border-white/20'>
+                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20'>
                                 <div className='flex items-center space-x-3'>
                                     <span className='relative flex h-3 w-3'>
                                         <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75'></span>
@@ -138,7 +135,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className='bg-white squircle-card p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group'
+                                        className='bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group'
                                     >
                                         <div className='mb-4 flex items-start justify-between'>
                                             <span className='px-3 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full uppercase tracking-wide'>
@@ -146,7 +143,7 @@ export default function AgenyzContent() {
                                             </span>
                                         </div>
 
-                                        <div className='relative w-full h-56 mb-6 bg-white squircle flex items-center justify-center p-4'>
+                                        <div className='relative w-full h-56 mb-6 bg-white rounded-2xl flex items-center justify-center p-4'>
                                             {product.image ? (
                                                 <img
                                                     src={product.image}
@@ -182,7 +179,7 @@ export default function AgenyzContent() {
 
                                         <div className='pt-6 border-t border-gray-100 flex items-center justify-between mt-auto'>
                                             <span className='text-sm font-medium text-gray-400'>{t('agenyz.viewDetails') || 'View details'}</span>
-                                            <Button size='sm' className='btn btn-outline border-primary-200 text-primary-600 hover:bg-primary-50 pointer-events-none rounded-apple'>
+                                            <Button size='sm' className='btn btn-outline border-primary-200 text-primary-600 hover:bg-primary-50 pointer-events-none rounded-xl'>
                                                 <ArrowRight className='w-4 h-4' />
                                             </Button>
                                         </div>

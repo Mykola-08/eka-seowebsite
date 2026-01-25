@@ -64,7 +64,7 @@ export default function ForParentsContent() {
                   <img
                     src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=1920&h=1080&fit=crop"
                     alt={t('personalized.parents.hero.title')}
-                    className="w-full h-[400px] sm:h-[500px] object-cover rounded-[2.5rem] shadow-2xl"
+                    className="w-full h-[400px] sm:h-[500px] object-cover rounded-apple-xl shadow-2xl"
                   />
                 </div>
               </div>

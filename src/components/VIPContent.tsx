@@ -274,7 +274,7 @@ export default function VIPContent() {
 
             <div className="grid lg:grid-cols-2 gap-12">
                {vipServices.map((service, idx) => (
-                 <div key={idx} className="bg-white rounded-[2rem] p-10 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                 <div key={idx} className="bg-white rounded-apple-xl p-10 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                     <div className="flex items-start gap-6">
                        <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center flex-shrink-0">
                           <service.icon className="w-8 h-8 text-amber-600" />
@@ -310,7 +310,7 @@ export default function VIPContent() {
              {defaultPlans.map((plan) => (
                <div 
                  key={plan.tier}
-                 className={`relative bg-white rounded-[2.5rem] p-8 border ${plan.popular ? 'border-amber-400 shadow-2xl shadow-amber-100' : 'border-gray-200 shadow-lg'}`}
+                 className={`relative bg-white rounded-apple-xl p-8 border ${plan.popular ? 'border-amber-400 shadow-2xl shadow-amber-100' : 'border-gray-200 shadow-lg'}`}
                >
                  {plan.popular && (
                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide shadow-md">

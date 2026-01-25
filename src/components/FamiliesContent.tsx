@@ -42,7 +42,7 @@ export default function FamiliesContent() {
                 <img
                   src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1920&h=1080&fit=crop"
                   alt={t('elena.target.families.title')}
-                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-[2.5rem] shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-apple-xl shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
                 />
               </div>
             </div>

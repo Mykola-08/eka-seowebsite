@@ -42,7 +42,7 @@ export default function ArtistsContent() {
                 <LazyImage
                   src="https://images.unsplash.com/photo-1599447421405-0c325d26d77e?w=1920&h=1080&fit=crop"
                   alt={t('nav.artists')}
-                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-[2.5rem] shadow-2xl"
+                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-apple-xl shadow-2xl"
                 />
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function ArtistsContent() {
       {/* Results */}
       <section className="py-24 bg-yellow-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
-          <div className="bg-white p-12 rounded-[3rem] shadow-xl">
+          <div className="bg-white p-12 rounded-apple-xl shadow-xl">
             <h2 className="text-3xl font-light mb-6 text-yellow-600">
               {t('artists.result.title')}
             </h2>
@@ -154,8 +154,8 @@ export default function ArtistsContent() {
       {/* Service Card */}
       <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 rounded-[3rem] p-4 lg:p-8 overflow-hidden border border-gray-100">
-            <div className="relative h-64 lg:h-96 rounded-[2.5rem] overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 rounded-apple-xl p-4 lg:p-8 overflow-hidden border border-gray-100">
+            <div className="relative h-64 lg:h-96 rounded-apple-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1544367563-121542f85488?w=800&auto=format&fit=crop"
                 alt="Sessió de teràpia per a artistes"

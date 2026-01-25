@@ -1,4 +1,4 @@
-﻿@import 'keep-react/css';
+@import 'keep-react/css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
@@ -14,15 +14,11 @@
   --apple-border-radius-small: 12px;
   --apple-border-radius-large: 28px;
   --apple-border-radius-xl: 40px;
-  --apple-squircle-radius: 24px;
-  --apple-squircle-radius-large: 40px;
-  --apple-squircle-radius-xl: 60px;
   --apple-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --apple-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
   --apple-shadow-large: 0 20px 60px rgba(0, 0, 0, 0.08);
 
   /* Animation Easings */
-  /* ease-out (Entering/Exiting) */
   --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
   --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -30,7 +26,6 @@
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
   --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  /* ease-in-out (Moving within screen) */
   --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
   --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
@@ -38,7 +33,6 @@
   --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
   --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
-  /* ease-in (Avoid generally) */
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
@@ -85,61 +79,6 @@
 
 @layer components {
 
-  /* True Curvature Squircles (Superellipses) */
-  /* A true squircle has G2 continuity (curvature continuity) */
-  .squircle {
-    @apply relative overflow-hidden;
-    border-radius: var(--apple-squircle-radius);
-    /* Improved curvature using SVG masking for truer smoothness */
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
-  }
-
-  .squircle-large {
-    @apply relative overflow-hidden;
-    border-radius: var(--apple-squircle-radius-large);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
-  }
-
-  .squircle-xl {
-    @apply relative overflow-hidden;
-    border-radius: var(--apple-squircle-radius-xl);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
-  }
-
-  .squircle-image {
-    @apply overflow-hidden transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
-  }
-
-  .squircle-card {
-    @apply bg-white transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
-    box-shadow: var(--apple-shadow);
-    /* Cards don't get full mask-image to avoid shadow clipping, 
-       but we use border-radius as a close approximation for the container */
-  }
-
-  /* Content inside cards that should follow truer squircle curves */
-  .squircle-content {
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
-  }
-
   /* Full-Width Background Image Sections */
   .bg-section-full {
     @apply relative overflow-hidden;
@@ -167,7 +106,7 @@
   .service-pill {
     @apply relative overflow-hidden transition-all duration-500 ease-out;
     @apply hover:scale-105 hover:shadow-2xl;
-    border-radius: var(--apple-squircle-radius-large);
+    border-radius: var(--apple-border-radius-large);
     background-size: cover;
     background-position: center;
     min-height: 320px;
@@ -183,77 +122,73 @@
     @apply from-black/30 via-black/40 to-black/70;
   }
 
-  /* Apple-style buttons */
-  .btn-primary {
+  /* UNIFIED BUTTON SYSTEM */
+  .btn {
     @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
-    @apply bg-blue-600 hover:bg-blue-700 text-white;
     @apply px-6 py-3 sm:px-8 sm:py-4;
-    @apply shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99];
+    @apply hover:scale-[1.01] active:scale-[0.99];
     border-radius: var(--apple-border-radius);
     font-size: 14px;
-    font-weight: 500;
     letter-spacing: -0.016em;
     min-height: 44px;
-    /* text-transform removed to preserve original text casing */
   }
 
   @media (min-width: 640px) {
-    .btn-primary {
+    .btn {
       font-size: 16px;
       min-height: 48px;
     }
+  }
+
+  .btn-primary {
+    @apply btn;
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
+    @apply shadow-lg hover:shadow-xl;
+  }
+
+  .btn-accent {
+    @apply btn;
+    @apply text-[#000035] shadow-lg hover:shadow-xl;
+    background-color: #FFB405; /* EKA Gold */
+  }
+
+  .btn-accent:hover {
+    background-color: #e8a204;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
+    @apply btn;
     @apply bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700;
     @apply text-gray-900 dark:text-gray-100;
-    @apply px-6 py-3 sm:px-8 sm:py-4;
-    @apply hover:scale-[1.01] active:scale-[0.99];
-    border-radius: var(--apple-border-radius);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.016em;
-    min-height: 44px;
-    /* text-transform removed to preserve original text casing */
-  }
-
-  @media (min-width: 640px) {
-    .btn-secondary {
-      font-size: 16px;
-      min-height: 48px;
-    }
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
+    @apply btn;
     @apply text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300;
-    @apply px-6 py-3 hover:bg-blue-50 dark:hover:bg-blue-900/20;
-    @apply hover:scale-[1.01] active:scale-[0.99];
-    border-radius: var(--apple-border-radius);
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.016em;
-    min-height: 40px;
-    /* text-transform removed to preserve original text casing */
+    @apply hover:bg-blue-50 dark:hover:bg-blue-900/20;
   }
 
-  /* Apple-style cards */
-  .apple-card {
+  .btn-outline {
+    @apply btn;
+    @apply border-2 border-gray-200 bg-transparent text-gray-700 hover:bg-gray-50 hover:text-gray-900;
+  }
+
+  /* UNIFIED CARD SYSTEM */
+  .card, .apple-card {
     @apply bg-white dark:bg-gray-900;
     @apply border border-gray-200/50 dark:border-gray-800/50;
     @apply transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
+    border-radius: var(--apple-border-radius);
     box-shadow: var(--apple-shadow);
   }
 
   @media (min-width: 768px) {
-    .apple-card {
+    .card, .apple-card {
       @apply hover:scale-[1.005] hover:-translate-y-0.5;
     }
   }
 
-  .apple-card:hover {
+  .card:hover, .apple-card:hover {
     box-shadow: var(--apple-shadow-hover);
   }
 
@@ -261,7 +196,7 @@
     @apply bg-white dark:bg-gray-900;
     @apply border border-gray-200/30 dark:border-gray-800/30;
     @apply transition-all duration-300 ease-out;
-    border-radius: var(--apple-squircle-radius);
+    border-radius: var(--apple-border-radius);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   }
 
@@ -270,8 +205,12 @@
     @apply border border-white/20 dark:border-gray-800/20;
     @apply backdrop-blur-xl;
     @apply transition-all duration-500 ease-out;
-    border-radius: var(--apple-squircle-radius);
+    border-radius: var(--apple-border-radius);
     box-shadow: var(--apple-shadow);
+  }
+
+  .card-hover {
+    @apply hover:shadow-xl hover:-translate-y-1;
   }
 
   /* Apple-style sections */
@@ -300,7 +239,7 @@
   }
 
   /* Typography */
-  .apple-headline {
+  .apple-headline, .heading-1 {
     font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white;
     font-weight: 300;
@@ -308,7 +247,7 @@
     line-height: 0.95;
   }
 
-  .apple-title {
+  .apple-title, .heading-2 {
     font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     @apply text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 dark:text-white;
     font-weight: 500;
@@ -316,14 +255,14 @@
     line-height: 1.15;
   }
 
-  .apple-subtitle {
+  .apple-subtitle, .heading-3 {
     @apply text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 font-normal;
     font-weight: 400;
     letter-spacing: -0.012em;
     line-height: 1.5;
   }
 
-  .apple-body {
+  .apple-body, .text-body {
     @apply text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 font-normal;
     font-weight: 400;
     letter-spacing: -0.006em;
@@ -345,7 +284,7 @@
   }
 
   /* Form elements */
-  .apple-input {
+  .apple-input, .input-field {
     @apply w-full px-4 py-4 text-lg;
     @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
     border-radius: var(--apple-border-radius);
@@ -364,6 +303,10 @@
     @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
     font-weight: 400;
     letter-spacing: -0.003em;
+  }
+
+  .label-text {
+    @apply block text-sm font-medium text-gray-700 mb-1;
   }
 
   /* Navigation */
@@ -479,6 +422,11 @@
 
   .apple-spacing-xl {
     @apply py-40;
+  }
+
+  /* Utilities */
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
   }
 }
 
@@ -822,101 +770,5 @@ html {
 @keyframes shine {
   to {
     background-position: 200% center;
-  }
-}
-
-
-/* --- Merged from design-system.css --- */
-
-:root {
-  --color-primary: #2563EB;
-  --color-primary-dark: #1E40AF;
-  --color-accent: #FFB405;
-  --color-accent-hover: #e8a204;
-  --color-dark: #000035;
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
-@layer components {
-
-  /* Buttons from Design System */
-  .btn {
-    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
-    border-radius: var(--radius-lg);
-  }
-
-  /* Note: btn-primary and btn-secondary are already defined in index.css with Apple styles. 
-     Keeping those. Adding missing ones. */
-
-  .btn-accent {
-    @apply btn text-[#000035] shadow-md hover:shadow-lg active:scale-95 hover:-translate-y-0.5;
-    background-color: var(--color-accent);
-  }
-
-  .btn-accent:hover {
-    background-color: var(--color-accent-hover);
-  }
-
-  .btn-outline {
-    @apply btn border-2 border-gray-200 bg-transparent text-gray-700 hover:bg-gray-50 hover:text-gray-900;
-  }
-
-  /* Cards */
-  .card {
-    @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300;
-  }
-
-  .card-hover {
-    @apply hover:shadow-xl hover:-translate-y-1;
-  }
-
-  /* Typography */
-  .heading-1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900;
-  }
-
-  .heading-2 {
-    @apply text-3xl sm:text-4xl font-bold tracking-tight text-gray-900;
-  }
-
-  .heading-3 {
-    @apply text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900;
-  }
-
-  .text-body {
-    @apply text-base text-gray-600 leading-relaxed;
-  }
-
-  .text-body-lg {
-    @apply text-lg text-gray-600 leading-relaxed;
-  }
-
-  /* Input Fields */
-  .input-field {
-    @apply w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-200 bg-gray-50 focus:bg-white;
-  }
-
-  .label-text {
-    @apply block text-sm font-medium text-gray-700 mb-1;
-  }
-
-  /* Layout/Sections */
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .section-padding {
-    @apply py-16 sm:py-24;
-  }
-
-  /* Utilities */
-  .glass-panel {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
   }
 }

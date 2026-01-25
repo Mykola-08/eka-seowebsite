@@ -108,9 +108,9 @@ export default function CasosSection() {
               <AnimateIn key={problem.id} delay={index * 0.1}>
                 <Link
                   href={problem.href}
-                  className="group bg-white squircle-card p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ease-out-quart block"
+                  className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ease-out-quart block"
                 >
-                  <div className={`w-14 h-14 squircle ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ease-out-quart border shadow-sm`}>
+                  <div className={`w-14 h-14 rounded-2xl ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ease-out-quart border shadow-sm`}>
                     <ProblemIcon className="w-7 h-7" />
                   </div>
 

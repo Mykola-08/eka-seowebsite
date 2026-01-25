@@ -48,9 +48,9 @@ const config = {
         },
       },
       borderRadius: {
-        'apple': '20px',
-        'apple-lg': '28px',
-        'apple-xl': '40px',
+        'apple': 'var(--apple-border-radius)',
+        'apple-lg': 'var(--apple-border-radius-large)',
+        'apple-xl': 'var(--apple-border-radius-xl)',
       },
       spacing: {
         '18': '4.5rem',

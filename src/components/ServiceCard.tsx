@@ -14,8 +14,8 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
 
   return (
-    <div className="squircle-card h-full flex flex-col hover:shadow-xl transition-all duration-300 ease-out-quart">
-      <div className="relative h-48 sm:h-56 squircle">
+    <div className="bg-white rounded-2xl shadow-sm h-full flex flex-col hover:shadow-xl transition-all duration-300 ease-out-quart">
+      <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden">
         <LazyImage
           src={service.image}
           alt={t(service.titleKey)}
@@ -56,14 +56,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           <Link href={service.href} className="flex-1">
             <Button
               variant="outline"
-              className="w-full btn btn-sm btn-secondary border-primary-200 text-primary-700 hover:bg-primary-50 rounded-apple p-2.5 normal-case"
+              className="w-full btn btn-sm btn-secondary border-primary-200 text-primary-700 hover:bg-primary-50 rounded-xl p-2.5 normal-case"
             >
               {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
             <Button
-              className="w-full btn btn-sm btn-accent rounded-apple p-2.5 normal-case border-none font-semibold"
+              className="w-full btn btn-sm btn-accent rounded-xl p-2.5 normal-case border-none font-semibold"
             >
               {t('nav.bookNow')}
             </Button>

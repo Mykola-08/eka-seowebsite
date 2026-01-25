@@ -144,7 +144,7 @@ export default function PricingSection() {
   };
 
   return (
-    <section className="py-24 aurora-bg-subtle relative">
+    <section className="py-24 bg-gray-50 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
@@ -164,10 +164,6 @@ export default function PricingSection() {
           </p>
         </div>
 
-        {/* Aurora Orbs */}
-        <div className="aurora-orb aurora-orb-medium absolute top-32 right-10 opacity-40"></div>
-        <div className="aurora-orb aurora-orb-small absolute bottom-32 left-10 opacity-50"></div>
-
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32">
           {plans.map((plan) => {
@@ -180,7 +176,7 @@ export default function PricingSection() {
             return (
               <div
                 key={plan.id}
-                className={`aurora-glass-card squircle-large relative cursor-pointer transition-all duration-300 ${plan.popular
+                className={`glass-panel rounded-3xl relative cursor-pointer transition-all duration-300 ${plan.popular
                   ? 'ring-2 ring-accent/50 transform scale-105'
                   : selectedPlan === plan.id
                     ? 'ring-2 ring-accent/50'
@@ -207,7 +203,7 @@ export default function PricingSection() {
                 <div className="p-8">
                   {/* Icon & Title */}
                   <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-accent/10 squircle flex items-center justify-center mx-auto mb-6">
+                    <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-accent" />
                     </div>
 
@@ -280,9 +276,9 @@ export default function PricingSection() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-gray-50 squircle p-6 text-center"
+              className="bg-gray-50 rounded-2xl p-6 text-center"
             >
-              <div className="w-12 h-12 bg-accent/10 squircle flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-6 h-6 text-accent" />
               </div>
               <h4 className="font-medium text-eka-dark mb-2">

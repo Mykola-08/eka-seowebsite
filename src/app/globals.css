@@ -86,58 +86,37 @@
 @layer components {
 
   /* True Curvature Squircles (Superellipses) */
-  /* A true squircle has G2 continuity (curvature continuity) */
+  /* Simplified for better compatibility */
   .squircle {
     @apply relative overflow-hidden;
     border-radius: var(--apple-squircle-radius);
-    /* Improved curvature using SVG masking for truer smoothness */
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
   }
 
   .squircle-large {
     @apply relative overflow-hidden;
     border-radius: var(--apple-squircle-radius-large);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
   }
 
   .squircle-xl {
     @apply relative overflow-hidden;
     border-radius: var(--apple-squircle-radius-xl);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
   }
 
   .squircle-image {
     @apply overflow-hidden transition-all duration-500 ease-out;
     border-radius: var(--apple-squircle-radius);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
   }
 
   .squircle-card {
     @apply bg-white transition-all duration-500 ease-out;
     border-radius: var(--apple-squircle-radius);
     box-shadow: var(--apple-shadow);
-    /* Cards don't get full mask-image to avoid shadow clipping, 
-       but we use border-radius as a close approximation for the container */
   }
 
-  /* Content inside cards that should follow truer squircle curves */
+  /* Content inside cards */
   .squircle-content {
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,50 C 0,5.7 5.7,0 50,0 C 94.3,0 100,5.7 100,50 C 100,94.3 94.3,100 50,100 C 5.7,100 0,94.3 0,50 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
+    @apply overflow-hidden;
+    border-radius: var(--apple-squircle-radius);
   }
 
   /* Full-Width Background Image Sections */

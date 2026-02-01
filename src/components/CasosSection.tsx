@@ -89,9 +89,9 @@ export default function CasosSection() {
             <span className="text-primary-700 font-medium text-sm uppercase tracking-wide">{t('casos.section.badge')}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-eka-dark mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-eka-dark mb-6">
             {t('casos.section.title')}{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t('casos.section.titleHighlight')}
             </span>
           </h2>

@@ -29,7 +29,7 @@ export default function ContactContent() {
               >
                   <Button 
                     size="xl"
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-xl border-none normal-case glass-panel"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-apple shadow-xl border-none normal-case"
                   >
                     <MessageCircle className="w-6 h-6 mr-2" />
                     {t('contact.whatsapp')}
@@ -38,7 +38,7 @@ export default function ContactContent() {
               <a href="tel:+34658867133">
                  <Button 
                     size="xl"
-                    className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 shadow-xl border-none normal-case glass-panel"
+                    className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-8 py-4 rounded-apple shadow-xl border-none normal-case"
                  >
                     <Phone className="w-6 h-6 mr-2" />
                     {t('contact.callNow')}
@@ -50,7 +50,7 @@ export default function ContactContent() {
         {/* Contact Form Section */}
         <section className="pb-24 bg-transparent relative">
           <div className="section-container">
-            <div className="card bg-white p-2 sm:p-8 shadow-2xl border-gray-100/50">
+            <div className="card max-w-2xl mx-auto bg-white p-6 sm:p-10 shadow-2xl border-gray-100/50 rounded-apple-lg">
                <ContactFormOptimized />
             </div>
           </div>

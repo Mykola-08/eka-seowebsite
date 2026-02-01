@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Clock, Leaf, Sprout } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -74,11 +75,13 @@ export default function NutritionContent() {
           </div>
 
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-               <img
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video">
+               <Image
                   src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Nutrició i dietètica"
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                  fill
+                  className="object-cover transform hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
             </div>
             {/* Floating Card */}

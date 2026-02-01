@@ -1,11 +1,11 @@
 'use client';
 
 import { Clock, CheckCircle2, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
-import LazyImage from '@/components/LazyImage';
 
 export default function ArtistsContent() {
   const { t } = useLanguage();
@@ -20,17 +20,17 @@ export default function ArtistsContent() {
                 <span className="text-blue-700 font-medium text-sm">{t('nav.personalizedServices')}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark mb-6 leading-tight">
                 {t('nav.artists')}
               </h1>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {t('artists.hero.subtitle')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                    <Button size="xl" className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035]">
+                    <Button size="xl" className="btn btn-accent">
                       {t('common.reserveSession')}
                     </Button>
                 </Link>
@@ -38,11 +38,13 @@ export default function ArtistsContent() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="relative">
-                <LazyImage
+              <div className="relative w-full h-[400px] sm:h-[500px] rounded-apple-xl overflow-hidden shadow-2xl">
+                <Image
                   src="https://images.unsplash.com/photo-1599447421405-0c325d26d77e?w=1920&h=1080&fit=crop"
                   alt={t('nav.artists')}
-                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-apple-xl shadow-2xl"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>
@@ -61,7 +63,7 @@ export default function ArtistsContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Problems */}
             <div>
-              <h2 className="text-3xl font-light mb-8 text-red-600">
+              <h2 className="text-3xl font-bold text-eka-dark mb-8">
                 {t('artists.challenges.title')}
               </h2>
               <div className="space-y-6">
@@ -69,21 +71,21 @@ export default function ArtistsContent() {
                   <AlertCircle className="w-6 h-6 text-red-500 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">{t('artists.challenge1.title')}</h3>
-                    <p className="text-gray-600 font-light">{t('artists.challenge1.desc')}</p>
+                    <p className="text-gray-600">{t('artists.challenge1.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start bg-red-50 p-6 rounded-2xl">
                   <AlertCircle className="w-6 h-6 text-red-500 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">{t('artists.challenge2.title')}</h3>
-                    <p className="text-gray-600 font-light">{t('artists.challenge2.desc')}</p>
+                    <p className="text-gray-600">{t('artists.challenge2.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start bg-red-50 p-6 rounded-2xl">
                    <AlertCircle className="w-6 h-6 text-red-500 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">{t('artists.challenge3.title')}</h3>
-                    <p className="text-gray-600 font-light">{t('artists.challenge3.desc')}</p>
+                    <p className="text-gray-600">{t('artists.challenge3.desc')}</p>
                   </div>
                 </div>
               </div>
@@ -91,7 +93,7 @@ export default function ArtistsContent() {
 
             {/* Benefits */}
             <div>
-              <h2 className="text-3xl font-light mb-8 text-green-600">
+              <h2 className="text-3xl font-bold text-eka-dark mb-8">
                 {t('artists.help.title')}
               </h2>
               <div className="space-y-6">
@@ -156,10 +158,12 @@ export default function ArtistsContent() {
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 rounded-apple-xl p-4 lg:p-8 overflow-hidden border border-gray-100">
             <div className="relative h-64 lg:h-96 rounded-apple-xl overflow-hidden">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1544367563-121542f85488?w=800&auto=format&fit=crop"
                 alt="Sessió de teràpia per a artistes"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -37,13 +38,18 @@ export default function AboutElenaContent() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="relative group">
+              <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-                <img
-                  src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
-                  alt={t('home.elenaAlt')}
-                  className="relative w-full h-auto rounded-full object-cover aspect-square shadow-2xl"
-                />
+                <div className="relative rounded-full overflow-hidden w-full h-full shadow-2xl">
+                  <Image
+                    src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
+                    alt={t('home.elenaAlt')}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 256px, 320px"
+                    priority
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -54,7 +60,7 @@ export default function AboutElenaContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-[#000035] tracking-tight leading-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-eka-dark tracking-tight leading-tight">
                 {t('elena.greeting')}
               </h1>
 
@@ -94,7 +100,7 @@ export default function AboutElenaContent() {
               {/* Quote */}
               <div className="max-w-3xl mx-auto mt-12">
                 <blockquote className="text-xl sm:text-2xl text-gray-700 italic font-light leading-relaxed relative">
-                  <span className="text-6xl text-blue-100 absolute -top-8 -left-4 font-serif">"</span>
+                  <span className="text-6xl text-primary-200 absolute -top-8 -left-4 font-serif">"</span>
                   <span className="relative z-10">{t('elena.quote')}</span>
                 </blockquote>
               </div>

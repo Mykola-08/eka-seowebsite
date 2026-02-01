@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ArrowRight, Brain, CheckCircle2, Clock, Zap } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -63,11 +64,13 @@ export default function KinesiologiaContent() {
           </div>
 
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-               <img
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video">
+               <Image
                   src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt={t('kinesiology.page.imageAlt') || "Kinesiologia Session"}
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                  fill
+                  className="object-cover transform hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
             </div>
             {/* Floating Card */}

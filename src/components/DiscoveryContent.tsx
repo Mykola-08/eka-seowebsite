@@ -311,8 +311,6 @@ export default function DiscoveryContent() {
       scores.integrative += 5;
     }
 
-    console.log('Advanced Recommendation Scores:', scores);
-
     // Determine Winner
     const maxScore = Math.max(scores.manual, scores.emotional, scores.integrative, scores.relax);
 

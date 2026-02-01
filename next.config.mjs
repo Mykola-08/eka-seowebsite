@@ -13,9 +13,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
   // output: 'export', // Uncomment for static export if needed, but not for API routes
 };
 

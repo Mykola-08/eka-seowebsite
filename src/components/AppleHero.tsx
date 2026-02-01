@@ -56,7 +56,7 @@ export default function AppleHero() {
 
         {/* Main Title */}
         <AnimateIn delay={0.4} duration={0.8}>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-black tracking-tighter drop-shadow-2xl">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-bold tracking-tight drop-shadow-2xl">
             {t('hero.title')}
           </h1>
         </AnimateIn>

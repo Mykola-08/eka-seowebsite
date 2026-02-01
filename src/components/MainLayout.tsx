@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import ToastContainer from '@/components/Toast';
 import { OfflineIndicator } from '@/components/OfflineIndicator';
@@ -133,12 +135,15 @@ export default function MainLayout({
               }`}>
               {/* Logo Only - Left Side */}
               <Link href="/" className="flex items-center flex-shrink-0 group relative">
-                <img
-                  src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
-                  alt="EKA Balance Logo"
-                  className={`transition-all duration-500 ease-in-out-quart ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'
-                    } object-contain`}
-                />
+                <div className={`relative transition-all duration-500 ease-in-out-quart ${isScrolled ? 'w-8 h-8' : 'w-10 h-10'}`}>
+                  <Image
+                    src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
+                    alt="EKA Balance Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </Link>
 
               {/* Desktop Navigation - Centered */}
@@ -258,66 +263,74 @@ export default function MainLayout({
             </div>
 
             {/* Mobile Navigation */}
-            {isMenuOpen && (
-              <div className="md:hidden border-t border-gray-100 py-3">
-                <div className="space-y-1">
-                  {navigation.map(item => (
-                    <div key={item.name}>
-                      {item.isExternal ? (
-                        <a
-                          href={item.href}
-                          rel="noopener noreferrer"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setIsMenuOpen(false);
-                            window.open(item.href, '_blank', 'noopener,noreferrer');
-                          }}
-                          className="block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 text-gray-700 hover:bg-gray-50"
-                        >
-                          {item.name}
-                        </a>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${item.isGold
-                            ? 'text-amber-600 bg-amber-50 border border-amber-100 font-bold'
-                            : isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'
-                            }`}
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                      {item.hasDropdown && (
-                        <div className="ml-4 space-y-1 mt-2">
-                          {item.dropdownItems?.map(dropdownItem => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg"
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+            <AnimatePresence>
+              {isMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl overflow-hidden"
+                >
+                  <div className="py-4 px-4 space-y-2 max-h-[80vh] overflow-y-auto">
+                    {navigation.map(item => (
+                      <div key={item.name}>
+                        {item.isExternal ? (
+                          <a
+                            href={item.href}
+                            rel="noopener noreferrer"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setIsMenuOpen(false);
+                              window.open(item.href, '_blank', 'noopener,noreferrer');
+                            }}
+                            className="block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 text-gray-700 hover:bg-gray-50"
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className={`block px-4 py-3 rounded-xl font-medium text-base transition-colors duration-200 ${item.isGold
+                              ? 'text-amber-600 bg-amber-50 border border-amber-100 font-bold'
+                              : isActivePath(item.href) ? 'text-[#FFB405] bg-[#FFB405]/10' : 'text-gray-700 hover:bg-gray-50'
+                              }`}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                        {item.hasDropdown && (
+                          <div className="ml-4 space-y-1 mt-2 border-l-2 border-gray-100 pl-2">
+                            {item.dropdownItems?.map(dropdownItem => (
+                              <Link
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="block px-4 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                    
+                    {/* Mobile Reserva */}
+                    <div className="pt-2 border-t border-gray-100 mt-2 space-y-2">
+                      <Link
+                        href="/booking"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block w-full bg-accent hover:bg-accent-dark text-eka-dark font-semibold px-4 py-3 rounded-apple text-center transition-colors duration-200"
+                      >
+                        {t('nav.bookNow')}
+                      </Link>
                     </div>
-                  ))}
-
-                  {/* Mobile Reserva */}
-                  <div className="pt-2 border-t border-gray-100 mt-2 space-y-2">
-                    <Link
-                      href="/booking"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block w-full bg-accent hover:bg-accent-dark text-eka-dark font-semibold px-4 py-3 rounded-apple text-center transition-colors duration-200"
-                    >
-                      {t('nav.bookNow')}
-                    </Link>
                   </div>
-                </div>
-              </div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </nav>
 
@@ -349,10 +362,12 @@ export default function MainLayout({
             {/* Logo */}
             <Link href="/" className="flex items-center justify-center space-x-3 mb-8 group w-fit mx-auto">
               <div className="relative w-10 h-10">
-                <img
+                <Image
                   src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                   alt="EKA Balance Logo"
-                  className="w-10 h-10 object-contain absolute inset-0 transition-transform duration-300 ease-out-quart group-hover:scale-105"
+                  fill
+                  className="object-contain transition-transform duration-300 ease-out-quart group-hover:scale-105"
+                  sizes="40px"
                 />
               </div>
               <span className="text-xl font-medium">EKA Balance</span>

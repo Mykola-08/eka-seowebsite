@@ -3,6 +3,7 @@
 import { ArrowRight, HeartPulse, Salad } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
+import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
 
@@ -31,22 +32,24 @@ export default function AdultsContent() {
       <section className="py-16 bg-white relative z-10 -mt-10 rounded-t-[3rem] shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
-              <h2 className="heading-2 mb-4 text-gray-900">
-                Servicios Recomendados
+              <h2 className="heading-2 mb-4 text-gray-900 font-bold">
+                {t('adult.recommended')}
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-                Descubre cómo podemos ayudarte a recuperar tu vitalidad y equilibrio.
+                {t('adult.recommended.desc')}
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                {/* Kinesiology */}
                <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden">
-                     <img 
-                        src="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop" 
+                  <div className="aspect-video w-full overflow-hidden relative">
+                     <Image
+                        src="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop"
                         alt="Kinesiología"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                      />
                   </div>
                   <div className="p-8">
@@ -70,11 +73,13 @@ export default function AdultsContent() {
 
                {/* Nutrition */}
                <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-green-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden">
-                     <img 
-                        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop" 
+                  <div className="aspect-video w-full overflow-hidden relative">
+                     <Image
+                        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop"
                         alt="Nutrición"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                      />
                   </div>
                   <div className="p-8">
@@ -102,12 +107,12 @@ export default function AdultsContent() {
       {/* CTA Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="heading-2 mb-6">¿Listo para mejorar tu bienestar?</h2>
+            <h2 className="heading-2 mb-6 font-bold">{t('adult.cta.title')}</h2>
             <p className="text-xl text-gray-600 mb-8 font-light">
-                Reserva tu primera cita y comencemos a trabajar en tu salud.
+                {t('adult.cta.desc')}
             </p>
             <Link href="/booking">
-                <Button size="xl" className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] shadow-lg shadow-amber-200/50">
+                <Button size="xl" className="btn btn-accent">
                     {t('common.bookNow')}
                 </Button>
             </Link>

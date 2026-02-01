@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from 'keep-react';
 import { ArrowRight, CheckCircle2, Dna, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -23,12 +24,12 @@ export default function AgenyzContent() {
             <div className='max-w-7xl mx-auto px-4 sm:px-8 relative z-10'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
                     <div className='order-2 lg:order-1 text-center lg:text-left'>
-                        <div className='inline-flex items-center px-4 py-2 bg-primary-100/50 rounded-full mb-8 border border-primary-100'>
+                        <div className='inline-flex items-center py-2 bg-primary-100/50 rounded-full mb-8 border border-primary-100'>
                             <Dna className='w-4 h-4 text-primary-600 mr-2' />
                             <span className='text-primary-700 font-medium text-sm tracking-wide uppercase'>{t('agenyz.hero.biohacking') || 'Bio-Innovation'}</span>
                         </div>
 
-                        <h1 className='text-5xl sm:text-6xl font-light text-eka-dark mb-6 leading-tight tracking-tight'>
+                        <h1 className='text-5xl sm:text-6xl font-bold text-eka-dark mb-6 leading-tight tracking-tight'>
                             {t('agenyz.page.title') || 'Unlock Your Cellular Potential'}
                         </h1>
 
@@ -68,12 +69,16 @@ export default function AgenyzContent() {
                     <div className='order-1 lg:order-2'>
                         <div className='relative group'>
                             <div className='absolute inset-0 bg-gradient-to-tr from-primary-200 to-indigo-200 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-duration-500' />
-                            <img
-                                src='https://images.pexels.com/photos/17483868/pexels-photo-17483868/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-visualises-how-ai-agents-can-collaborate-to-solve-diverse-tasks-it-was-created-by-nidia-dias-as-part-of-the-visualising.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-                                alt='Cellular Bio-Innovation'
-                                className='relative w-full h-auto aspect-[4/3] object-cover rounded-3xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]'
-                            />
-                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20'>
+                            <div className='relative aspect-[4/3]'>
+                              <Image
+                                  src='https://images.pexels.com/photos/17483868/pexels-photo-17483868/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-visualises-how-ai-agents-can-collaborate-to-solve-diverse-tasks-it-was-created-by-nidia-dias-as-part-of-the-visualising.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                                  alt='Cellular Bio-Innovation'
+                                  fill
+                                  className='object-cover shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]'
+                                  sizes="(max-width: 1024px) 100vw, 50vw"
+                              />
+                            </div>
+                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20 z-10'>
                                 <div className='flex items-center space-x-3'>
                                     <span className='relative flex h-3 w-3'>
                                         <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75'></span>
@@ -145,12 +150,15 @@ export default function AgenyzContent() {
 
                                         <div className='relative w-full h-56 mb-6 bg-white rounded-2xl flex items-center justify-center p-4'>
                                             {product.image ? (
-                                                <img
-                                                    src={product.image}
-                                                    alt={getLocalized(product.name, language)}
-                                                    className='w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500 will-change-transform'
-                                                    loading='lazy'
-                                                />
+                                                <div className='relative w-full h-full'>
+                                                    <Image
+                                                        src={product.image}
+                                                        alt={getLocalized(product.name, language)}
+                                                        fill
+                                                        className='object-contain transform group-hover:scale-105 transition-transform duration-500 will-change-transform'
+                                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                                    />
+                                                </div>
                                             ) : (
                                                 <div className='w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-300'>
                                                     <Sparkles className='w-8 h-8' />

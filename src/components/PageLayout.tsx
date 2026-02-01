@@ -51,7 +51,7 @@ export default function PageLayout({ children, hero, className = '' }: PageLayou
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark mb-6 tracking-tight"
             >
               {heroData.title}
             </motion.h1>

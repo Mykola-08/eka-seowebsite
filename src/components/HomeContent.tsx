@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from 'keep-react';
 import { motion } from 'framer-motion';
 import { Star, Globe, Users, Clock } from 'lucide-react';
@@ -45,7 +46,7 @@ export default function HomeContent() {
                   <stat.icon size={28} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-4xl lg:text-5xl font-light text-primary-900 tracking-tight mb-1 flex justify-center font-mono">
+                  <div className="text-4xl lg:text-5xl font-bold text-eka-dark tracking-tight mb-1 flex justify-center">
                     <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2500} />
                   </div>
                   <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.15em]">{stat.label}</p>
@@ -73,10 +74,12 @@ export default function HomeContent() {
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                 <div className="relative rounded-full overflow-hidden aspect-square w-full h-full shadow-2xl">
-                  <img
+                  <Image
                     src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                     alt={t('home.elenaAlt')}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
                   />
                 </div>
               </div>
@@ -91,7 +94,7 @@ export default function HomeContent() {
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-                <h2 className="heading-1 font-light text-eka-dark">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark tracking-tight leading-tight">
                   {t('elena.greeting')}
                 </h2>
               </div>
@@ -119,8 +122,12 @@ export default function HomeContent() {
       <section className="py-24 bg-gray-50">
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-2 mb-6">{t('services.featuredTitle')}</h2>
-            <p className="text-body-lg">{t('services.featuredSubtitle')}</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-eka-dark mb-6 tracking-tight">
+              {t('services.featuredTitle')}
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              {t('services.featuredSubtitle')}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

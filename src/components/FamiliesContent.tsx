@@ -3,6 +3,7 @@
 import { ArrowRight, HeartPulse, Salad } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
+import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
 
@@ -20,7 +21,7 @@ export default function FamiliesContent() {
                 <span className="text-green-700 font-medium text-sm">{t('nav.personalizedServices')}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark mb-6 leading-tight">
                 {t('elena.target.families.title')}
               </h1>
 
@@ -30,7 +31,7 @@ export default function FamiliesContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                   <Button size="xl" className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035]">
+                   <Button size="xl" className="btn btn-accent px-8 py-4 normal-case">
                       {t('common.reserveSession')}
                    </Button>
                 </Link>
@@ -38,16 +39,19 @@ export default function FamiliesContent() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="relative">
-                <img
+              <div className="relative w-full h-[400px] sm:h-[500px]">
+                <Image
                   src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1920&h=1080&fit=crop"
                   alt={t('elena.target.families.title')}
-                  className="w-full h-[400px] sm:h-[500px] object-cover rounded-apple-xl shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-apple-xl shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>
           </div>
         </div>
+
       </section>
   );
 
@@ -70,11 +74,13 @@ export default function FamiliesContent() {
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                {/* Kinesiology */}
                <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-green-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden">
-                     <img 
-                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop" 
+                  <div className="aspect-video w-full overflow-hidden relative">
+                     <Image
+                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
                         alt="Kinesiología"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                      />
                   </div>
                   <div className="p-8">
@@ -98,11 +104,13 @@ export default function FamiliesContent() {
 
                {/* Nutrition */}
                <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-green-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden">
-                     <img 
-                        src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop" 
+                  <div className="aspect-video w-full overflow-hidden relative">
+                     <Image
+                        src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop"
                         alt="Nutrición"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                      />
                   </div>
                   <div className="p-8">

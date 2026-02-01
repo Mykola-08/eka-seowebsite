@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
@@ -30,11 +31,11 @@ export default function ForParentsContent() {
                   <span className="text-pink-700 font-medium text-sm">{t('nav.personalizedServices')}</span>
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark mb-6 leading-tight">
                   {t('personalized.parents.hero.title')}
                 </h1>
 
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                   {t('personalized.parents.hero.description')}
                 </p>
 
@@ -42,7 +43,7 @@ export default function ForParentsContent() {
                   <Button
                     onClick={() => navigateToBooking()}
                     size="xl"
-                    className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035]"
+                    className="btn btn-accent"
                   >
                     {t('common.bookNow')}
                   </Button>
@@ -60,11 +61,13 @@ export default function ForParentsContent() {
               </div>
 
               <div className="order-1 lg:order-2">
-                <div className="relative">
-                  <img
+                <div className="relative w-full h-[400px] sm:h-[500px] rounded-apple-xl overflow-hidden shadow-2xl">
+                  <Image
                     src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=1920&h=1080&fit=crop"
                     alt={t('personalized.parents.hero.title')}
-                    className="w-full h-[400px] sm:h-[500px] object-cover rounded-apple-xl shadow-2xl"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>
@@ -80,10 +83,10 @@ export default function ForParentsContent() {
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
             <div className="card bg-pink-50/50 border-pink-100 p-8 sm:p-12">
-              <h2 className="heading-2 mb-6">
+              <h2 className="heading-2 mb-6 font-bold text-eka-dark">
                 {t('personalized.parents.understanding.title')}
               </h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed text-lg font-light">
+              <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
                 <p>{t('personalized.parents.understanding.description1')}</p>
                 <p>{t('personalized.parents.understanding.description2')}</p>
                 <p className="font-medium text-pink-900">

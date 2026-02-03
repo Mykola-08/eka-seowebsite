@@ -68,7 +68,7 @@ export default function AnimatedCounter({
   const displayValue = current.toFixed(decimals);
 
   return (
-    <span ref={elementRef} className={className}>
+    <span ref={elementRef} className={`tabular-nums ${className}`}>
       {prefix}{displayValue}{suffix}
     </span>
   );

@@ -37,7 +37,7 @@ export default function PriceDisplay({
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
       {/* Main Price */}
-      <div className={`font-light text-gray-900 dark:text-white ${sizeClasses[size]}`}>
+      <div className={`font-light text-gray-900 dark:text-white tabular-nums ${sizeClasses[size]}`}>
         {formatPrice(actualFinalPrice)}
       </div>
 

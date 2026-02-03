@@ -110,6 +110,15 @@
     opacity: 0.3;
   }
 
+  /* Utility Classes */
+  .rounded-apple {
+    border-radius: var(--apple-border-radius);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
   /* Service Category Pills */
   .service-pill {
     @apply relative overflow-hidden transition-all duration-500 ease-out;

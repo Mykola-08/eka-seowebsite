@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 // import { supabase } from '@/lib/supabase';
@@ -29,6 +29,7 @@ export default function ContactFormOptimized() {
   const { t } = useLanguage();
   // const { user } = useSupabaseAuth();
   const { logEvent } = useAnalytics();
+  const schema = useMemo(() => createContactSchema(t), [t]);
   
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -107,7 +108,6 @@ export default function ContactFormOptimized() {
   ];
 
   const validateField = (name: keyof ContactFormData, value: unknown) => {
-    const schema = createContactSchema(t);
     try {
       const fieldSchema = schema.shape[name];
       if (fieldSchema) {
@@ -136,7 +136,6 @@ export default function ContactFormOptimized() {
     setIsSubmitting(true);
     setServerError('');
 
-    const schema = createContactSchema(t);
     const result = schema.safeParse(formData);
 
     if (!result.success) {
@@ -588,4 +587,3 @@ export default function ContactFormOptimized() {
     </div>
   );
 }
-

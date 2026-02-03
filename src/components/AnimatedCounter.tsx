@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 interface AnimatedCounterProps {
@@ -25,6 +25,7 @@ export default function AnimatedCounter({
   triggerOnView = true,
 }: AnimatedCounterProps) {
   const [current, setCurrent] = useState(start);
+  const animationFrameRef = useRef<number | null>(null);
 
   const [elementRef, isInView] = useIntersectionObserver<HTMLSpanElement>({
     triggerOnce: true,
@@ -51,11 +52,17 @@ export default function AnimatedCounter({
       setCurrent(currentValue);
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationFrameRef.current = requestAnimationFrame(animate);
       }
     };
 
-    requestAnimationFrame(animate);
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, [shouldAnimate, start, end, duration]);
 
   const displayValue = current.toFixed(decimals);

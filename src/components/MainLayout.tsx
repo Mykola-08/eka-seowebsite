@@ -43,7 +43,7 @@ export default function MainLayout({
   const personalServicesRef = useClickOutside<HTMLDivElement>(() => setShowPersonalServices(false));
 
   // Hover intent management for dropdown
-  const [hideTimeout, setHideTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [hideTimeout, setHideTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
   const openDropdown = () => {
     if (hideTimeout) {
@@ -70,9 +70,17 @@ export default function MainLayout({
       setIsScrolled(scrollTop > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+      }
+    };
+  }, [hideTimeout]);
 
   // Navigation items
   interface NavItem {
@@ -452,4 +460,3 @@ export default function MainLayout({
     </HelmetProvider>
   );
 }
-

@@ -114,6 +114,12 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
   const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const previousLabel = t('testimonials.previous');
+  const nextLabel = t('testimonials.next');
+  const resolvedPreviousLabel =
+    previousLabel === 'testimonials.previous' ? 'Previous testimonial' : previousLabel;
+  const resolvedNextLabel =
+    nextLabel === 'testimonials.next' ? 'Next testimonial' : nextLabel;
 
   // Auto-play functionality
   useEffect(() => {
@@ -142,6 +148,9 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
     <section
       className="bg-section-full relative"
       style={{ backgroundImage: `url(${backgroundImage})` }}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={t('testimonials.sliderTitle')}
     >
       <div className="bg-overlay-dark" />
 
@@ -158,7 +167,7 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
           </div>
 
           {/* Slider Container */}
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative max-w-4xl mx-auto" aria-live="polite">
             {/* Testimonial Cards */}
             <div className="overflow-hidden">
               <div
@@ -201,7 +210,9 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
             {/* Navigation Buttons */}
             <div className="flex justify-center items-center mt-8 space-x-4">
               <button
+                type="button"
                 onClick={prevSlide}
+                aria-label={resolvedPreviousLabel}
                 className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
               >
                 <div className="w-3 h-3 border-l-2 border-t-2 border-white transform -rotate-45"></div>
@@ -218,7 +229,9 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
               </div>
 
               <button
+                type="button"
                 onClick={nextSlide}
+                aria-label={resolvedNextLabel}
                 className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
               >
                 <div className="w-3 h-3 border-r-2 border-t-2 border-white transform rotate-45"></div>
@@ -230,4 +243,3 @@ export default function TestimonialSlider({ backgroundImage = 'https://images.pe
     </section>
   );
 }
-

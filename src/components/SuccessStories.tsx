@@ -32,8 +32,10 @@ export default function SuccessStories() {
   return (
     <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 opacity-50"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 opacity-50"></div>
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 opacity-50"
+        aria-hidden="true"
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -81,6 +83,7 @@ export default function SuccessStories() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
+                  loading="lazy"
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>

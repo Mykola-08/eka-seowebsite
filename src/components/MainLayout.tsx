@@ -13,7 +13,6 @@ import { Language } from '@/contexts/LanguageTypes';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguagePopup from '@/components/LanguagePopup';
 import CookieBanner from './CookieBanner';
-import { useTDR } from './TDRContext';
 
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
@@ -27,7 +26,6 @@ export default function MainLayout({
 }) {
   const pathname = usePathname();
   const { t, language, setLanguage } = useLanguage();
-  const { setIsOpen } = useTDR();
   const { logPageView } = useAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -447,12 +445,6 @@ export default function MainLayout({
               <p className="text-sm text-gray-400">
                 {t('footer.copyright')}
               </p>
-              <button
-                onClick={() => setIsOpen(true)}
-                className="text-xs text-gray-600 hover:text-yellow-500 transition-colors duration-200 ease-out-quart uppercase tracking-widest opacity-50 hover:opacity-100"
-              >
-                TDR Presentation Mode
-              </button>
             </div>
           </div>
         </footer>

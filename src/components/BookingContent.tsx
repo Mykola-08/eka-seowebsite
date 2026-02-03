@@ -88,7 +88,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
 
     
     const whatsappUrl = `https://wa.me/34658867133?text=${generateWhatsAppMessage()}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -179,6 +179,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 <button
                   onClick={() => setShowForm(false)}
                   className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100"
+                  aria-label={t('booking.form.close')}
                 >
                   <X className="w-6 h-6" />
                 </button>

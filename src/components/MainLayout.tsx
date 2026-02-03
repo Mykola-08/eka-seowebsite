@@ -17,8 +17,6 @@ import CookieBanner from './CookieBanner';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
-import { HelmetProvider } from 'react-helmet-async';
-
 export default function MainLayout({
   children
 }: {
@@ -130,11 +128,10 @@ export default function MainLayout({
   };
 
   return (
-    <HelmetProvider>
-      <div className="min-h-screen bg-white">
-        <OfflineIndicator />
+    <div className="min-h-screen bg-white">
+      <OfflineIndicator />
 
-        {/* Navigation with scroll effect */}
+      {/* Navigation with scroll effect */}
         <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out-quart ${isScrolled ? 'bg-gray-100/90 backdrop-blur-xl shadow-apple' : 'bg-gray-100'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className={`flex items-center justify-between transition-all duration-500 ease-in-out-quart ${isScrolled ? 'h-14' : 'h-16'
@@ -449,6 +446,5 @@ export default function MainLayout({
           </div>
         </footer>
       </div>
-    </HelmetProvider>
   );
 }

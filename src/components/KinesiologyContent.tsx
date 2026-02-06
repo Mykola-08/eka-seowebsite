@@ -95,7 +95,7 @@ export default function KinesiologiaContent() {
     <>
       <SEOUpdater 
         titleKey="seo.kinesiology.title"
-        descKey="seo.kinesiology.description"
+        descriptionKey="seo.kinesiology.description"
         keywordsKey="seo.kinesiology.keywords"
       />
       <PageLayout>

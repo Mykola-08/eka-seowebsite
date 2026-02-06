@@ -31,7 +31,7 @@ export default function HomeContent() {
     <>
       <SEOUpdater 
         titleKey="seo.home.title"
-        descKey="seo.home.description"
+        descriptionKey="seo.home.description"
         keywordsKey="seo.home.keywords"
       />
       {/* Hero Section */}

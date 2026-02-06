@@ -5,11 +5,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SEOUpdaterProps {
   titleKey: string;
-  descKey: string;
+  descriptionKey: string;
   keywordsKey?: string;
 }
 
-export default function SEOUpdater({ titleKey, descKey, keywordsKey }: SEOUpdaterProps) {
+export default function SEOUpdater({ titleKey, descriptionKey, keywordsKey }: SEOUpdaterProps) {
   const { t, language } = useLanguage();
 
   useEffect(() => {
@@ -20,8 +20,8 @@ export default function SEOUpdater({ titleKey, descKey, keywordsKey }: SEOUpdate
     }
 
     // Update Meta Description
-    const desc = t(descKey);
-    if (desc && desc !== descKey) {
+    const desc = t(descriptionKey);
+    if (desc && desc !== descriptionKey) {
       let metaDesc = document.querySelector('meta[name="description"]');
       if (!metaDesc) {
         metaDesc = document.createElement('meta');
@@ -50,7 +50,7 @@ export default function SEOUpdater({ titleKey, descKey, keywordsKey }: SEOUpdate
         metaKeywords.setAttribute('content', keywords);
       }
     }
-  }, [titleKey, descKey, keywordsKey, t, language]);
+  }, [titleKey, descriptionKey, keywordsKey, t, language]);
 
   return null;
 }

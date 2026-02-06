@@ -17,7 +17,7 @@ export default function ServicesContent() {
     <>
       <SEOUpdater 
         titleKey="seo.services.title"
-        descKey="seo.services.description"
+        descriptionKey="seo.services.description"
         keywordsKey="seo.services.keywords"
       />
       <PageLayout

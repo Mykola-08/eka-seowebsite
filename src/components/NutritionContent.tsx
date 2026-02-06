@@ -106,7 +106,7 @@ export default function NutritionContent() {
     <>
       <SEOUpdater 
         titleKey="seo.nutrition.title"
-        descKey="seo.nutrition.description"
+        descriptionKey="seo.nutrition.description"
         keywordsKey="seo.nutrition.keywords"
       />
       <PageLayout>

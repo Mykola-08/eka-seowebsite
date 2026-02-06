@@ -95,7 +95,7 @@ export default function MassageContent() {
     <>
       <SEOUpdater 
         titleKey="seo.massage.title"
-        descKey="seo.massage.description"
+        descriptionKey="seo.massage.description"
         keywordsKey="seo.massage.keywords"
       />
       <PageLayout>

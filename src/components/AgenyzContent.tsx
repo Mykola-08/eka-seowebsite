@@ -97,9 +97,9 @@ export default function AgenyzContent() {
 
     return (
       <>
-        <SEOUpdater 
+        <SEOUpdater
             titleKey="agenyz.seo.title"
-            descKey="agenyz.seo.description"
+            descriptionKey="agenyz.seo.description"
             keywordsKey="agenyz.seo.keywords"
         />
         <PageLayout hero={Hero}>

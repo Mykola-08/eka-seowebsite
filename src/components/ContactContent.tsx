@@ -15,7 +15,7 @@ export default function ContactContent() {
     <>
       <SEOUpdater 
         titleKey="seo.contact.title"
-        descKey="seo.contact.description"
+        descriptionKey="seo.contact.description"
         keywordsKey="seo.contact.keywords"
       />
       <PageLayout

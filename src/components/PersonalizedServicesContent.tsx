@@ -18,7 +18,7 @@ export default function PersonalizedServicesContent() {
     <>
       <SEOUpdater 
         titleKey="seo.personalized.title"
-        descKey="seo.personalized.description"
+        descriptionKey="seo.personalized.description"
         keywordsKey="seo.personalized.keywords"
       />
       <PageLayout

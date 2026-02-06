@@ -13,7 +13,7 @@ export default function Revision360Content() {
     <div className="min-h-screen bg-[#07090f] text-white">
       <SEOUpdater 
         titleKey="revision360.seo.title"
-        descKey="revision360.seo.description"
+        descriptionKey="revision360.seo.description"
         keywordsKey="revision360.seo.keywords"
       />
       <HeroSection />

@@ -157,7 +157,7 @@ export default function CasosContent() {
     <>
       <SEOUpdater 
         titleKey="casos.seo.title"
-        descKey="casos.seo.desc"
+        descriptionKey="casos.seo.desc"
         keywordsKey="casos.seo.keywords"
       />
       <PageLayout hero={Hero}>

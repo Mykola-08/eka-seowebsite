@@ -210,7 +210,7 @@ export default function VIPContent() {
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-amber-100 selection:text-amber-900">
       <SEOUpdater 
         titleKey="seo.vip.title"
-        descKey="seo.vip.description"
+        descriptionKey="seo.vip.description"
         keywordsKey="seo.vip.keywords"
       />
       

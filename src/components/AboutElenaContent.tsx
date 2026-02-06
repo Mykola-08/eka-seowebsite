@@ -27,7 +27,7 @@ export default function AboutElenaContent() {
     <>
       <SEOUpdater 
         titleKey="elena.seo.title"
-        descKey="elena.seo.desc"
+        descriptionKey="elena.seo.desc"
         keywordsKey="elena.seo.keywords"
       />
       <div className="bg-white min-h-screen text-gray-900 selection:bg-blue-100">

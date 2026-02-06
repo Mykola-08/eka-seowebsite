@@ -2,7 +2,7 @@ import { Language } from './LanguageTypes';
 
 export const agenyzTranslations: Record<Language, Record<string, string>> = {
   ca: {
-    'agenyz.hero.biohacking': 'Biohacking i nutricio',
+    'agenyz.hero.biohacking': 'Biohacking i nutrició',
     'agenyz.page.title': 'Nutrició cel·lular Agenyz',
     'agenyz.page.subtitle': 'Suplements avançats per a la regeneració cel·lular profunda i la vitalitat.',
     'agenyz.page.description': 'Descobreix el poder del biohacking amb Agenyz. Aquests suplements estan dissenyats per treballar a nivell cel·lular, restaurant l\'energia, la immunitat i la joventut des de l\'interior.',

@@ -36,6 +36,26 @@ const rawTranslations: Translations = {
     ru: 'Русский'
   },
 
+  // SEO
+  'revision360.seo.title': {
+    ca: 'Revisió integral 360° | EKA Balance',
+    en: '360° Comprehensive Review | EKA Balance',
+    es: 'Revisión integral 360° | EKA Balance',
+    ru: 'Обзор 360° | EKA Balance'
+  },
+  'revision360.seo.description': {
+    ca: 'Avaluació completa de biomecànica, postura i estat metabòlic. Informe clínic detallat i full de ruta terapèutic personalitzat.',
+    en: 'Complete assessment of biomechanics, posture, and metabolic status. Detailed clinical report and personalized therapeutic roadmap.',
+    es: 'Evaluación completa de biomecánica, postura y estado metabólico. Informe clínico detallado y hoja de ruta terapéutica personalizada.',
+    ru: 'Полная оценка биомеханики, осанки и метаболического статуса. Подробный клинический отчет и персональная терапевтическая карта.'
+  },
+  'revision360.seo.keywords': {
+    ca: 'revisió 360, avaluació biomecànica, diagnòstic funcional, salut integral',
+    en: '360 review, biomechanical assessment, functional diagnosis, integral health',
+    es: 'revisión 360, evaluación biomecánica, diagnóstico funcional, salud integral',
+    ru: 'обзор 360, биомеханическая оценка, функциональная диагностика, целостное здоровье'
+  },
+
   // Hero Section
   'hero.title': {
     ca: 'Revisió corporal 360°',

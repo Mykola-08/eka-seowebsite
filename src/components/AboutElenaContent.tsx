@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import SEOUpdater from '@/components/SEOUpdater';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
@@ -24,6 +25,11 @@ export default function AboutElenaContent() {
 
   return (
     <>
+      <SEOUpdater 
+        titleKey="elena.seo.title"
+        descKey="elena.seo.desc"
+        keywordsKey="elena.seo.keywords"
+      />
       <div className="bg-white min-h-screen text-gray-900 selection:bg-blue-100">
 
         {/* Hero Section - Unified Design */}

@@ -8,6 +8,7 @@ import {
   Shield, Star, Award, Zap, Globe, Diamond
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import SEOUpdater from '@/components/SEOUpdater';
 
 // --- Constants & Data ---
 
@@ -207,6 +208,11 @@ export default function VIPContent() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-amber-100 selection:text-amber-900">
+      <SEOUpdater 
+        titleKey="seo.vip.title"
+        descKey="seo.vip.description"
+        keywordsKey="seo.vip.keywords"
+      />
       
       {/* Hero Section */}
       <div className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-amber-50/30">

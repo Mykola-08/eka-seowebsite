@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function ArtistsContent() {
   const { t } = useLanguage();
@@ -54,7 +55,13 @@ export default function ArtistsContent() {
   );
 
   return (
-    <PageLayout>
+    <>
+      <SEOUpdater
+        titleKey="seo.artists.title"
+        descriptionKey="seo.artists.description"
+        keywordsKey="seo.artists.keywords"
+      />
+      <PageLayout>
       {Hero}
 
       {/* Problems & Benefits */}
@@ -202,5 +209,6 @@ export default function ArtistsContent() {
         </div>
       </section>
     </PageLayout>
+    </>
   );
 }

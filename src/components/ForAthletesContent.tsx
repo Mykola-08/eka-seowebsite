@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function ForAthletesContent() {
   const { navigateToBooking } = useBooking();
@@ -53,7 +54,13 @@ export default function ForAthletesContent() {
   );
 
   return (
-    <PageLayout hero={Hero}>
+    <>
+      <SEOUpdater
+        titleKey="seo.athletes.title"
+        descriptionKey="seo.athletes.description"
+        keywordsKey="seo.athletes.keywords"
+      />
+      <PageLayout hero={Hero}>
         {/* Understanding Section */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
@@ -120,6 +127,7 @@ export default function ForAthletesContent() {
           </div>
         </section>
     </PageLayout>
+    </>
   );
 }
 

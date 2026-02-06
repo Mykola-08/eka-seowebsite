@@ -6,6 +6,7 @@ import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function KinesiologiaContent() {
   const { navigateToBooking } = useBooking();
@@ -91,7 +92,13 @@ export default function KinesiologiaContent() {
   );
 
   return (
-    <PageLayout>
+    <>
+      <SEOUpdater 
+        titleKey="seo.kinesiology.title"
+        descKey="seo.kinesiology.description"
+        keywordsKey="seo.kinesiology.keywords"
+      />
+      <PageLayout>
       {Hero}
 
       {/* Benefits Section */}
@@ -201,5 +208,6 @@ export default function KinesiologiaContent() {
         </div>
       </section>
     </PageLayout>
+    </>
   );
 }

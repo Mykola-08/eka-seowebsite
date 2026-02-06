@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function ForParentsContent() {
   const { navigateToBooking } = useBooking();
@@ -65,7 +66,13 @@ export default function ForParentsContent() {
   );
 
   return (
-    <PageLayout hero={Hero}>
+    <>
+      <SEOUpdater
+        titleKey="seo.parents.title"
+        descriptionKey="seo.parents.description"
+        keywordsKey="seo.parents.keywords"
+      />
+      <PageLayout hero={Hero}>
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           <div className="card bg-pink-50/50 border-pink-100 p-8 sm:p-12">
@@ -128,5 +135,6 @@ export default function ForParentsContent() {
         </div>
       </section>
     </PageLayout>
+    </>
   );
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function ChildrenContent() {
   const { t } = useLanguage();
@@ -56,7 +57,13 @@ export default function ChildrenContent() {
   );
 
   return (
-    <PageLayout>
+    <>
+      <SEOUpdater
+        titleKey="seo.children.title"
+        descriptionKey="seo.children.description"
+        keywordsKey="seo.children.keywords"
+      />
+      <PageLayout>
       {Hero}
       
       {/* Recommended Services */}
@@ -135,5 +142,6 @@ export default function ChildrenContent() {
         </div>
       </section>
     </PageLayout>
+    </>
   );
 }

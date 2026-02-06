@@ -8,6 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageLayout from '@/components/PageLayout';
+import SEOUpdater from '@/components/SEOUpdater';
 import { products, categories, getLocalized } from '@/app/agenyz/products';
 
 export default function AgenyzContent() {
@@ -95,6 +96,12 @@ export default function AgenyzContent() {
     );
 
     return (
+      <>
+        <SEOUpdater 
+            titleKey="agenyz.seo.title"
+            descKey="agenyz.seo.description"
+            keywordsKey="agenyz.seo.keywords"
+        />
         <PageLayout hero={Hero}>
             <section className='py-24' id='catalogue'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-8'>
@@ -199,5 +206,6 @@ export default function AgenyzContent() {
                 </div>
             </section>
         </PageLayout>
+      </>
     );
 }

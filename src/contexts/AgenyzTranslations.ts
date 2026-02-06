@@ -2,6 +2,9 @@ import { Language } from './LanguageTypes';
 
 export const agenyzTranslations: Record<Language, Record<string, string>> = {
   ca: {
+    'agenyz.seo.title': 'Agenyz - Nutrició Cel·lular i Biohacking | EKA Balance',
+    'agenyz.seo.description': 'Suplements de biohacking Agenyz per a la regeneració cel·lular. Energia, immunitat i benestar sistèmic.',
+    'agenyz.seo.keywords': 'agenyz, biohacking, suplements, nutrició cel·lular, regeneració, energia',
     'agenyz.hero.biohacking': 'Biohacking i nutrició',
     'agenyz.page.title': 'Nutrició cel·lular Agenyz',
     'agenyz.page.subtitle': 'Suplements avançats per a la regeneració cel·lular profunda i la vitalitat.',
@@ -142,8 +145,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredSubtitle': 'Descobreix les nostres ofertes més populars',
     'services.viewAll': 'Veure Tots els Serveis',
   },
-  en: {
-    'agenyz.hero.biohacking': 'Biohacking & nutrition',
+  en: {    'agenyz.seo.title': 'Agenyz - Cellular Nutrition & Biohacking | EKA Balance',
+    'agenyz.seo.description': 'Agenyz biohacking supplements for cellular regeneration. Energy, immunity, and systemic wellness.',
+    'agenyz.seo.keywords': 'agenyz, biohacking, supplements, cellular nutrition, regeneration, energy',    'agenyz.hero.biohacking': 'Biohacking & nutrition',
     'agenyz.page.title': 'Agenyz cellular nutrition',
     'agenyz.page.subtitle': 'Advanced supplements for deep cellular regeneration and vitality.',
     'agenyz.page.description': 'Discover the power of biohacking with Agenyz. These supplements are designed to work at the cellular level, restoring energy, immunity, and youthfulness from the inside out.',
@@ -290,6 +294,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.viewAll': 'View All Services',
   },
   es: {
+    'agenyz.seo.title': 'Agenyz - Nutrición Celular y Biohacking | EKA Balance',
+    'agenyz.seo.description': 'Suplementos de biohacking Agenyz para la regeneración celular. Energía, inmunidad y bienestar sistémico.',
+    'agenyz.seo.keywords': 'agenyz, biohacking, suplementos, nutrición celular, regeneración, energía',
     'agenyz.hero.biohacking': 'Biohacking y nutrición',
     'agenyz.page.title': 'Nutrición celular Agenyz',
     'agenyz.page.subtitle': 'Suplementos avanzados para la regeneración celular profunda y vitalidad.',
@@ -437,6 +444,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.viewAll': 'Ver Todos los Servicios',
   },
   ru: {
+    'agenyz.seo.title': 'Agenyz - Клеточное питание и биохакинг | EKA Balance',
+    'agenyz.seo.description': 'Добавки для биохакинга Agenyz для клеточной регенерации. Энергия, иммунитет и системное благополучие.',
+    'agenyz.seo.keywords': 'agenyz, биохакинг, добавки, клеточное питание, регенерация, энергия',
     'agenyz.hero.biohacking': 'Биохакинг и питание',
     'agenyz.page.title': 'Клеточное питание Agenyz',
     'agenyz.page.subtitle': 'Передовые добавки для глубокой клеточной регенерации и жизненной силы.',

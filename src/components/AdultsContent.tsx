@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function AdultsContent() {
   const { t } = useLanguage();
@@ -26,7 +27,13 @@ export default function AdultsContent() {
   );
 
   return (
-    <PageLayout>
+    <>
+      <SEOUpdater
+        titleKey="seo.adults.title"
+        descriptionKey="seo.adults.description"
+        keywordsKey="seo.adults.keywords"
+      />
+      <PageLayout>
       {HeroCustom}
       
       <section className="py-16 bg-white relative z-10 -mt-10 rounded-t-[3rem] shadow-xl">
@@ -119,5 +126,6 @@ export default function AdultsContent() {
         </div>
       </section>
     </PageLayout>
+    </>
   );
 }

@@ -9,14 +9,21 @@ import { motion } from 'framer-motion';
 
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
 import PageLayout from './PageLayout';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function PersonalizedServicesContent() {
   const { t } = useLanguage();
 
   return (
-    <PageLayout
-      hero={{
-        badge: t('personalizedServices.title'),
+    <>
+      <SEOUpdater 
+        titleKey="seo.personalized.title"
+        descKey="seo.personalized.description"
+        keywordsKey="seo.personalized.keywords"
+      />
+      <PageLayout
+        hero={{
+          badge: t('personalizedServices.title'),
         subtitle: t('personalizedServices.subtitle'),
         title: t('services.therapiesFor'),
         icon: <Star className="w-4 h-4" />
@@ -69,5 +76,5 @@ export default function PersonalizedServicesContent() {
         </div>
       </section>
     </PageLayout>
-  );
+    </>
 }

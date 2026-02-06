@@ -5,6 +5,7 @@ import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Sea
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from 'keep-react';
 import PageLayout from '@/components/PageLayout';
+import SEOUpdater from '@/components/SEOUpdater';
 
 interface Problem {
   id: string;
@@ -153,7 +154,13 @@ export default function CasosContent() {
   );
 
   return (
-    <PageLayout hero={Hero}>
+    <>
+      <SEOUpdater 
+        titleKey="casos.seo.title"
+        descKey="casos.seo.desc"
+        keywordsKey="casos.seo.keywords"
+      />
+      <PageLayout hero={Hero}>
       {/* Main Problems Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-24">
         <div className="text-center mb-16">
@@ -257,5 +264,6 @@ export default function CasosContent() {
         </div>
       </div>
     </PageLayout>
+    </>
   );
 }

@@ -6,6 +6,7 @@ import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function NutritionContent() {
   const { navigateToBooking } = useBooking();
@@ -102,7 +103,13 @@ export default function NutritionContent() {
   );
 
   return (
-    <PageLayout>
+    <>
+      <SEOUpdater 
+        titleKey="seo.nutrition.title"
+        descKey="seo.nutrition.description"
+        keywordsKey="seo.nutrition.keywords"
+      />
+      <PageLayout>
       {Hero}
 
       {/* Benefits Section */}
@@ -213,5 +220,6 @@ export default function NutritionContent() {
         </div>
       </section>
     </PageLayout>
+    </>
   );
 }

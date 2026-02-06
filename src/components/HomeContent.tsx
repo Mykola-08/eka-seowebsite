@@ -15,6 +15,7 @@ import { SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/components/ServiceCard';
 
 import AnimatedCounter from '@/components/AnimatedCounter';
+import SEOUpdater from '@/components/SEOUpdater';
 
 export default function HomeContent() {
   const { t } = useLanguage();
@@ -28,6 +29,11 @@ export default function HomeContent() {
 
   return (
     <>
+      <SEOUpdater 
+        titleKey="seo.home.title"
+        descKey="seo.home.description"
+        keywordsKey="seo.home.keywords"
+      />
       {/* Hero Section */}
       <AppleHero />
 

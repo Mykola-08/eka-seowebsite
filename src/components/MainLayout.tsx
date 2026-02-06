@@ -128,11 +128,11 @@ export default function MainLayout({
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <OfflineIndicator />
 
       {/* Navigation with scroll effect */}
-        <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out-quart ${isScrolled ? 'bg-gray-100/90 backdrop-blur-xl shadow-apple' : 'bg-gray-100'}`}>
+        <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out-quart border-b border-gray-200/50 ${isScrolled ? 'bg-white/85 backdrop-blur-xl shadow-sm' : 'bg-white/70 backdrop-blur-md'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className={`flex items-center justify-between transition-all duration-500 ease-in-out-quart ${isScrolled ? 'h-14' : 'h-16'
               }`}>
@@ -197,7 +197,7 @@ export default function MainLayout({
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
                                 onClick={() => setShowPersonalServices(false)}
-                                className="flex items-center justify-center h-12 text-sm font-medium transition-colors duration-200 ease-out-quart text-eka-dark hover:text-accent"
+                              className="flex items-center justify-center h-12 text-sm font-medium transition-colors duration-200 ease-out-quart text-eka-dark hover:text-accent rounded-xl hover:bg-white/70"
                                 style={{
                                   marginBottom: index < item.dropdownItems!.length - 1 ? '8px' : '0'
                                 }}
@@ -360,7 +360,7 @@ export default function MainLayout({
         </div>
 
         {/* Footer */}
-        <footer className="py-12 sm:py-16 bg-gray-900 text-white mb-24 md:mb-0">
+        <footer className="py-12 sm:py-16 bg-gray-900 text-white mb-24 md:mb-0 border-t border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
             {/* Logo */}
             <Link href="/" className="flex items-center justify-center space-x-3 mb-8 group w-fit mx-auto">
@@ -428,10 +428,10 @@ export default function MainLayout({
                       : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                       }`}
                   >
-                    {lang === 'ca' && 'Català'}
+                    {lang === 'ca' && 'Catalan'}
                     {lang === 'en' && 'English'}
-                    {lang === 'es' && 'Español'}
-                    {lang === 'ru' && 'Русский'}
+                    {lang === 'es' && 'Spanish'}
+                    {lang === 'ru' && 'Russian'}
                   </button>
                 ))}
               </div>
@@ -448,3 +448,4 @@ export default function MainLayout({
       </div>
   );
 }
+

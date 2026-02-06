@@ -87,7 +87,7 @@ export default function ForStudentsContent() {
 
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Kinesiology Card */}
-                <div className="card p-8 group hover:border-blue-200 transition-colors">
+                <div className="card card-interactive p-8 group">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
                         {t('personalized.students.services.kinesiologyStress.title')}
                     </h3>
@@ -103,7 +103,7 @@ export default function ForStudentsContent() {
                 </div>
 
                 {/* Relaxing Massage Card */}
-                <div className="card p-8 group hover:border-blue-200 transition-colors">
+                <div className="card card-interactive p-8 group">
                     <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
                         {t('personalized.students.services.relaxingMassage.title')}
                     </h3>
@@ -123,3 +123,4 @@ export default function ForStudentsContent() {
     </PageLayout>
   );
 }
+

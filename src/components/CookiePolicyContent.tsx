@@ -33,6 +33,18 @@ export default function CookiePolicyContent() {
                   </p>
                 </div>
 
+                {/* Complementary Methods Disclaimer */}
+                <div className="mb-12">
+                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
+                    Complementary Services Notice
+                  </h2>
+                  <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
+                    <p className="text-gray-700 leading-relaxed">
+                      The EKA Balance website presents complementary wellness services. Website content is informational and is not medical advice, diagnosis, or treatment. For medical concerns, consult a licensed healthcare professional.
+                    </p>
+                  </div>
+                </div>
+
                 {/* Footer */}
                 <div className="border-t border-gray-100 pt-8 mt-12">
                   <p className="text-center text-gray-400 text-sm">

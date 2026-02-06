@@ -30,7 +30,7 @@ export default function Footer() {
           >
             <div className="flex items-center space-x-3">
               <motion.img 
-                src="/eka_logo.png"
+                src="/images/eka_logo.png"
                 alt={t('alt.ekaLogo')}
                 className="w-12 h-12 object-contain opacity-80"
                 whileHover={{ 
@@ -151,7 +151,7 @@ export default function Footer() {
                   }}
                   viewport={{ once: true }}
                 >
-                  • {service}
+                  - {service}
                 </motion.p>
               ))}
             </div>
@@ -189,4 +189,3 @@ export default function Footer() {
     </motion.footer>
   );
 }
-

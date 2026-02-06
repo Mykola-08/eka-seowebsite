@@ -86,7 +86,7 @@ export default function ForMusiciansContent() {
 
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Feldenkrais Card */}
-                <div className="card p-8 group hover:border-purple-200 transition-colors">
+                <div className="card card-interactive p-8 group">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">
                          {t('personalized.musicians.services.feldenkraisExpression.title')}
                     </h3>
@@ -102,7 +102,7 @@ export default function ForMusiciansContent() {
                 </div>
 
                 {/* Kinesiology Card */}
-                <div className="card p-8 group hover:border-purple-200 transition-colors">
+                <div className="card card-interactive p-8 group">
                     <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">
                         {t('personalized.musicians.services.kinesiologyPerformance.title')}
                     </h3>
@@ -122,3 +122,4 @@ export default function ForMusiciansContent() {
     </PageLayout>
   );
 }
+

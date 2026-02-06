@@ -15,7 +15,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   return (
-    <div className="card h-full flex flex-col hover:shadow-xl transition-all duration-300">
+    <div className="card card-interactive h-full flex flex-col">
        <div className="relative h-64 overflow-hidden rounded-t-2xl">
           <LazyImage
             src={service.image}
@@ -66,7 +66,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
                 <span>{service.duration || '1 h'}</span>
             </div>
              <span className="text-xl font-medium text-gray-900">
-                {service.price ? `${service.price} €` : 'Ask price'}
+                {service.price ? `${service.price} EUR` : 'Ask price'}
             </span>
         </div>
 
@@ -92,3 +92,4 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
     </div>
   );
 }
+

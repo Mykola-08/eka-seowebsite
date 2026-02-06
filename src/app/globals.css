@@ -23,6 +23,11 @@
   --apple-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --apple-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
   --apple-shadow-large: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --surface-primary: #ffffff;
+  --surface-muted: #f8fafc;
+  --surface-elevated: #f1f5f9;
+  --border-subtle: rgba(148, 163, 184, 0.24);
+  --border-strong: rgba(148, 163, 184, 0.44);
 
   /* Animation Easings */
   --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -54,9 +59,14 @@
 
 @layer base {
   body {
-    @apply bg-white text-gray-900 leading-relaxed;
+    @apply text-gray-900 leading-relaxed;
     font-weight: 400;
     letter-spacing: -0.003em;
+    background:
+      radial-gradient(1200px 560px at -8% -10%, rgba(56, 189, 248, 0.10), transparent 60%),
+      radial-gradient(900px 420px at 105% 0%, rgba(251, 191, 36, 0.10), transparent 60%),
+      linear-gradient(180deg, #f8fafc 0%, #f9fafb 35%, #ffffff 70%, #ffffff 100%);
+    min-height: 100vh;
   }
 
   h1,
@@ -85,6 +95,13 @@
 }
 
 @layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-body-lg {
+    @apply text-base sm:text-lg text-gray-600 leading-relaxed;
+  }
 
   /* Full-Width Background Image Sections */
   .bg-section-full {
@@ -192,9 +209,10 @@
   /* UNIFIED CARD SYSTEM */
   .card, .apple-card {
     @apply bg-white dark:bg-gray-900;
-    @apply border border-gray-200/50 dark:border-gray-800/50;
+    @apply border dark:border-gray-800/50;
     @apply transition-all duration-500 ease-out;
     border-radius: var(--apple-border-radius);
+    border-color: var(--border-subtle);
     box-shadow: var(--apple-shadow);
   }
 
@@ -205,6 +223,16 @@
   }
 
   .card:hover, .apple-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--apple-shadow-hover);
+  }
+
+  .card-interactive {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-interactive:hover {
+    @apply -translate-y-1;
     box-shadow: var(--apple-shadow-hover);
   }
 

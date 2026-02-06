@@ -12,9 +12,19 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
+  const colorStyles: Record<string, { text: string; dot: string }> = {
+    blue: { text: 'text-blue-600', dot: 'bg-blue-500' },
+    purple: { text: 'text-purple-600', dot: 'bg-purple-500' },
+    green: { text: 'text-green-600', dot: 'bg-green-500' },
+    orange: { text: 'text-orange-600', dot: 'bg-orange-500' },
+    indigo: { text: 'text-indigo-600', dot: 'bg-indigo-500' },
+    pink: { text: 'text-pink-600', dot: 'bg-pink-500' },
+    red: { text: 'text-red-600', dot: 'bg-red-500' },
+  };
+  const palette = colorStyles[service.color] ?? colorStyles.blue;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm h-full flex flex-col hover:shadow-xl transition-all duration-300 ease-out-quart">
+    <div className="card card-interactive h-full flex flex-col">
       <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden">
         <LazyImage
           src={service.image}
@@ -27,7 +37,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           {t(service.titleKey)}
         </h3>
         {/* Helper text/subtitle in orange/color */}
-        <p className={`text-sm font-medium mb-3 text-${service.color}-600`}>
+        <p className={`text-sm font-medium mb-3 ${palette.text}`}>
           {t(service.subtitleKey)}
         </p>
 
@@ -44,7 +54,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             <ul className="space-y-2">
               {service.benefitsKeys.slice(0, 4).map((key, i) => (
                 <li key={i} className="flex items-start text-sm text-gray-600">
-                  <span className={`w-1.5 h-1.5 rounded-full bg-${service.color}-500 mt-1.5 mr-2 flex-shrink-0`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${palette.dot} mt-1.5 mr-2 flex-shrink-0`} />
                   {t(key)}
                 </li>
               ))}

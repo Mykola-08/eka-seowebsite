@@ -86,7 +86,7 @@ export default function ForAthletesContent() {
 
             <div className="grid md:grid-cols-2 gap-8">
                  {/* Sports Massage Card */}
-                 <div className="card p-8 group hover:border-orange-200 transition-colors">
+                 <div className="card card-interactive p-8 group">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors">
                          {t('personalized.athletes.services.sportsMassage.title')}
                     </h3>
@@ -102,7 +102,7 @@ export default function ForAthletesContent() {
                 </div>
 
                 {/* Osteobalance Card */}
-                <div className="card p-8 group hover:border-orange-200 transition-colors">
+                <div className="card card-interactive p-8 group">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors">
                         {t('personalized.athletes.services.osteobalance.title')}
                     </h3>
@@ -122,3 +122,4 @@ export default function ForAthletesContent() {
     </PageLayout>
   );
 }
+

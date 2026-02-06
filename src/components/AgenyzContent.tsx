@@ -38,7 +38,7 @@ export default function AgenyzContent() {
                         </p>
 
                         <p className='text-lg text-gray-700 mb-10 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0'>
-                            {t('agenyz.page.description') || 'True health isn\'t just about what you eat—it\'s about what your cells absorb. Agenyz represents the next generation of Smart Cell Food, combining rare natural extracts with cutting-edge delivery technologies.'}
+                            {t('agenyz.page.description') || 'True health is not just about what you eat - it\'s about what your cells absorb. Agenyz represents the next generation of Smart Cell Food, combining rare natural extracts with cutting-edge delivery technologies.'}
                         </p>
 
                         <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
@@ -71,7 +71,7 @@ export default function AgenyzContent() {
                             <div className='absolute inset-0 bg-gradient-to-tr from-primary-200 to-indigo-200 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-duration-500' />
                             <div className='relative aspect-[4/3]'>
                               <Image
-                                  src='https://images.pexels.com/photos/17483868/pexels-photo-17483868/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-visualises-how-ai-agents-can-collaborate-to-solve-diverse-tasks-it-was-created-by-nidia-dias-as-part-of-the-visualising.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                                  src='/agenyz-products.png'
                                   alt='Cellular Bio-Innovation'
                                   fill
                                   className='object-cover shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]'
@@ -140,7 +140,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className='bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group'
+                                        className='card card-interactive rounded-2xl p-8 flex flex-col h-full group'
                                     >
                                         <div className='mb-4 flex items-start justify-between'>
                                             <span className='px-3 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full uppercase tracking-wide'>

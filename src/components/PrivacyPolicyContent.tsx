@@ -23,6 +23,23 @@ export default function PrivacyPolicyContent() {
                   </p>
                 </div>
 
+                {/* Complementary Methods Disclaimer */}
+                <div className="mb-12">
+                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
+                    Complementary Methods Disclaimer
+                  </h2>
+                  <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      EKA Balance services are complementary wellness services. They are not medical diagnosis or treatment and do not replace care from licensed medical or mental-health professionals.
+                    </p>
+                    <ul className="space-y-2 text-gray-700 list-disc ml-5">
+                      <li>Do not stop prescribed medication or clinical care based on website content.</li>
+                      <li>Consult your physician for medical decisions, symptoms, or health emergencies.</li>
+                      <li>If you are in immediate danger, call emergency services right away.</li>
+                    </ul>
+                  </div>
+                </div>
+
                 {/* Data Controller */}
                 <div className="mb-12">
                   <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">

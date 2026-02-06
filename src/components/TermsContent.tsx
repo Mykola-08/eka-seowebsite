@@ -70,19 +70,35 @@ export default function TermsContent() {
                     3. Nature of Services
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    EKA Balance provides wellness and kinesiology services. Our services are:
+                    EKA Balance provides complementary wellness and bodywork services. Our services are:
                   </p>
                   <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
-                    <li>Informational and educational in nature</li>
-                    <li>Not intended as medical diagnosis or treatment</li>
-                    <li>Not a substitute for professional medical advice</li>
-                    <li>Provided as complementary wellness support</li>
+                    <li>Educational and supportive in nature</li>
+                    <li>Complementary and non-medical</li>
+                    <li>Not intended to diagnose, treat, cure, or prevent disease</li>
+                    <li>Not a substitute for licensed medical or mental-health care</li>
                   </ul>
                   <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
                     <p className="text-gray-700">
-                      <strong>Important:</strong> You acknowledge that all decisions based on information from EKA Balance are made at your own risk.
+                      <strong>Important:</strong> Keep following your physician or licensed clinician recommendations. If you have urgent symptoms, contact emergency services immediately.
                     </p>
                   </div>
+                </div>
+
+                {/* Complementary Methods Disclaimer */}
+                <div className="mb-12">
+                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
+                    4. Complementary Methods Disclaimer
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Our approach is complementary. We support wellbeing through somatic education, movement, touch-based techniques, and lifestyle guidance.
+                  </p>
+                  <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
+                    <li>We do not provide medical diagnosis, prescriptions, or medical treatment.</li>
+                    <li>We do not advise stopping prescribed medication or clinical care.</li>
+                    <li>Outcomes vary by person, context, and consistency of practice.</li>
+                    <li>For physical or psychological emergencies, seek immediate licensed medical care.</li>
+                  </ul>
                 </div>
 
                 {/* Contact Information */}

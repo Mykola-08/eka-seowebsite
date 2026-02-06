@@ -56,14 +56,14 @@ export default function AppleHero() {
 
         {/* Main Title */}
         <AnimateIn delay={0.4} duration={0.8}>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl text-white mb-8 font-bold tracking-tight drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-white mb-6 md:mb-8 font-bold tracking-tight drop-shadow-2xl">
             {t('hero.title')}
           </h1>
         </AnimateIn>
 
         {/* Subtitle */}
         <AnimateIn delay={0.6}>
-          <p className="apple-subtitle text-white/90 mb-12 max-w-3xl mx-auto text-balance">
+          <p className="apple-subtitle text-white/90 mb-8 md:mb-12 max-w-3xl mx-auto text-balance">
             {t('hero.subtitle')}
           </p>
         </AnimateIn>
@@ -72,13 +72,13 @@ export default function AppleHero() {
         <AnimateIn delay={0.8}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
-              <Button size="xl" className="btn btn-primary px-8 py-4 rounded-apple shadow-xl normal-case">
+              <Button size="xl" className="btn btn-primary px-6 py-3 md:px-8 md:py-4 rounded-apple shadow-xl normal-case text-lg">
                 {t('hero.firstTime')}
               </Button>
             </Link>
 
             <Link href="/services" className="group" onClick={() => logEvent('hero_services_click')}>
-              <Button size="xl" className="btn btn-accent px-8 py-4 rounded-apple shadow-xl normal-case font-semibold">
+              <Button size="xl" className="btn btn-accent px-6 py-3 md:px-8 md:py-4 rounded-apple shadow-xl normal-case font-semibold text-lg">
                 {t('hero.discoverServices')}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
               </Button>

@@ -55,7 +55,7 @@ export default function Why360Section() {
             {layers.map((layer) => (
               <article
                 key={layer.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 backdrop-blur-sm"
+                className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-amber-500/30 hover:-translate-y-1"
               >
                 <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-amber-400/15 text-amber-200">
                   <Layers className="h-4.5 w-4.5" />

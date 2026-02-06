@@ -82,7 +82,7 @@ export default function ServiceSection() {
           {steps.map((step, index) => (
             <motion.article
               key={step.number}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7 backdrop-blur-sm"
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7 backdrop-blur-sm transition-all duration-300 hover:border-amber-500/40 hover:bg-white/10 hover:shadow-lg hover:shadow-amber-500/5"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

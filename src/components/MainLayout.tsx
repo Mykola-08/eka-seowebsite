@@ -36,6 +36,7 @@ export default function MainLayout({
 
   const [showPersonalServices, setShowPersonalServices] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showMobileCTA, setShowMobileCTA] = useState(false);
   const personalServicesRef = useClickOutside<HTMLDivElement>(() => setShowPersonalServices(false));
 
   // Hover intent management for dropdown
@@ -59,11 +60,16 @@ export default function MainLayout({
     setHideTimeout(timeout);
   };
 
-  // Handle scroll effect for header
+  // Handle scroll effect for header and mobile CTA
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      const scrollPercent = scrollTop / (docHeight - winHeight);
+
       setIsScrolled(scrollTop > 20);
+      setShowMobileCTA(scrollPercent > 0.7);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -310,7 +316,7 @@ export default function MainLayout({
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
                                 onClick={() => setIsMenuOpen(false)}
-                                className="block px-4 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                                className="block px-4 py-3 text-[15px] font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -350,14 +356,24 @@ export default function MainLayout({
         <LanguagePopup />
 
         {/* Fixed Mobile Bottom CTA */}
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe">
-          <Link
-            href="/booking"
-            className="block w-full bg-accent hover:bg-accent-dark text-eka-dark font-bold text-center py-4 rounded-apple shadow-lg transition-transform active:scale-[0.98]"
-          >
-            {t('nav.bookNow')}
-          </Link>
-        </div>
+        <AnimatePresence>
+          {showMobileCTA && (
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe"
+            >
+              <Link
+                href="/booking"
+                className="block w-full bg-accent hover:bg-accent-dark text-eka-dark font-bold text-center py-4 rounded-apple shadow-lg transition-transform active:scale-[0.98]"
+              >
+                {t('nav.bookNow')}
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Footer */}
         <footer className="py-12 sm:py-16 bg-gray-900 text-white mb-24 md:mb-0 border-t border-gray-800">

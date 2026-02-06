@@ -44,7 +44,7 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-panel rounded-3xl p-10 grid grid-cols-2 lg:grid-cols-4 gap-12"
+            className="glass-panel rounded-3xl p-6 md:p-10 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
               <div key={index} className="group flex flex-col items-center text-center space-y-4">
@@ -64,7 +64,7 @@ export default function HomeContent() {
       </section>
 
       {/* Elena Introduction Section - REDESIGNED */}
-      <section className="py-24 lg:py-32 relative overflow-hidden bg-white">
+      <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden bg-white">
 
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
@@ -77,7 +77,7 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
+              <div className="relative w-56 h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                 <div className="relative rounded-full overflow-hidden aspect-square w-full h-full shadow-2xl">
                   <Image

@@ -122,21 +122,21 @@ export default function VariantsSection() {
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="text-left rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:bg-white/[0.08] hover:border-amber-200/35"
+              className="group text-left rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.08] hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.08 }}
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-300/15 text-amber-100">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-600/10 text-amber-200 group-hover:scale-110 transition-transform duration-300 shadow-inner border border-amber-500/10">
                 {variant.icon}
               </span>
-              <h3 className="mt-4 text-xl font-semibold text-white">{variant.title}</h3>
-              <p className="mt-1 text-sm text-amber-200/90">{variant.subtitle}</p>
-              <p className="mt-3 text-sm text-zinc-300 leading-relaxed">{variant.description}</p>
-              <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
-                <span className="text-xs uppercase tracking-[0.1em] text-zinc-300/90">{variant.duration}</span>
-                <span className="text-lg font-semibold text-amber-100">{variant.price}</span>
+              <h3 className="mt-5 text-xl font-bold text-white group-hover:text-amber-100 transition-colors">{variant.title}</h3>
+              <p className="mt-1 text-sm text-amber-200/80 font-medium uppercase tracking-wide">{variant.subtitle}</p>
+              <p className="mt-4 text-sm text-zinc-300 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">{variant.description}</p>
+              <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 group-hover:border-amber-500/30 transition-colors">
+                <span className="text-xs uppercase tracking-[0.1em] text-zinc-400 group-hover:text-amber-200/70">{variant.duration}</span>
+                <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-400">{variant.price}</span>
               </div>
             </motion.button>
           ))}

@@ -82,7 +82,7 @@ const rawTranslations: Translations = {
     ru: 'Начать вашу сессию 360°'
   },
   'hero.quote': {
-    ca: 'Sanar no és afegir el que falta. és recordar el que sempre hi va ser.',
+    ca: 'Sanar no és afegir el que falta. És recordar el que sempre hi va ser.',
     en: 'Healing is not adding what is missing. It is remembering what was always there.',
     es: 'Sanar no es agregar lo que falta. Es recordar lo que siempre estuvo ahí.',
     ru: 'Исцеление — это не добавление того, чего не хватает. это вспоминание того, что всегда было там.'

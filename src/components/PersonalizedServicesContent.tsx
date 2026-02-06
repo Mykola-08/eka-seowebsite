@@ -75,6 +75,7 @@ export default function PersonalizedServicesContent() {
            </div>
         </div>
       </section>
-    </PageLayout>
+      </PageLayout>
     </>
+  );
 }

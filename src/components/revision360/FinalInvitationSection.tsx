@@ -27,7 +27,7 @@ export default function FinalInvitationSection() {
               href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-360-primary px-7 py-3.5 text-base inline-flex items-center gap-2"
+              className="btn-360-primary px-7 py-3.5 text-base inline-flex items-center gap-2 transition-transform hover:scale-105 duration-300 shadow-lg shadow-amber-500/20"
             >
               <CalendarCheck2 className="h-4.5 w-4.5" />
               {t('final.cta')}
@@ -36,7 +36,7 @@ export default function FinalInvitationSection() {
               href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-360-secondary px-7 py-3.5 text-base inline-flex items-center gap-2"
+              className="btn-360-secondary px-7 py-3.5 text-base inline-flex items-center gap-2 hover:bg-white/10 transition-colors"
             >
               <MessageCircle className="h-4.5 w-4.5" />
               {t('cta.scheduleDiscoveryCall')}

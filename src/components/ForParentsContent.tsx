@@ -135,13 +135,11 @@ export default function ForParentsContent() {
             </div>
           </div>
         </div>
-                </div>
-            </div>
-          </div>
-        </section>
+      </section>
 
-        <FAQ />
-        <CTASection />
-    </>
+      <FAQ />
+      <CTASection />
+    </PageLayout>
+  </>
   );
 }

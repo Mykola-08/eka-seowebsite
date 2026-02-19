@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from 'keep-react';
 import { motion } from 'framer-motion';
-import { Star, Globe, Users, Clock } from 'lucide-react';
 
 import AppleHero from '@/components/AppleHero';
 import CasosSection from '@/components/CasosSection';
@@ -22,10 +21,10 @@ export default function HomeContent() {
   const { t } = useLanguage();
 
   const stats = [
-    { value: 1500, suffix: '+', label: t('hero.stats.sessions'), icon: Users },
-    { value: 10, suffix: '+', label: t('hero.stats.experience'), icon: Clock },
-    { value: 96, suffix: '%', label: t('hero.stats.clients'), icon: Star },
-    { value: 9, suffix: '', label: t('hero.stats.countries'), icon: Globe }
+    { value: 1500, suffix: '+', label: t('hero.stats.sessions') },
+    { value: 10, suffix: '+', label: t('hero.stats.experience') },
+    { value: 96, suffix: '%', label: t('hero.stats.clients') },
+    { value: 9, suffix: '', label: t('hero.stats.countries') }
   ];
 
   return (
@@ -38,26 +37,21 @@ export default function HomeContent() {
       {/* Hero Section */}
       <AppleHero />
 
-      {/* Stats Section with floating effect */}
-      <section className="relative z-20 -mt-10 mb-10 px-4">
-        <div className="max-w-7xl mx-auto">
+      {/* Stats Section - Minimalist Redesign */}
+      <section className="py-24 bg-white">
+        <div className="section-container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-panel rounded-3xl p-6 md:p-10 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="group flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-primary-50/50 rounded-2xl text-primary-900 shadow-sm group-hover:scale-110 transition-transform duration-300 border border-primary-100/50">
-                  <stat.icon size={28} strokeWidth={1.5} />
+              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gray-50/50 hover:bg-gray-50 transition-colors duration-300">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2500} />
                 </div>
-                <div>
-                  <div className="text-4xl lg:text-5xl font-bold text-eka-dark tracking-tight mb-1 flex justify-center">
-                    <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2500} />
-                  </div>
-                  <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.15em]">{stat.label}</p>
-                </div>
+                <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -65,8 +59,7 @@ export default function HomeContent() {
       </section>
 
       {/* Elena Introduction Section - REDESIGNED */}
-      <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden bg-white">
-
+      <section className="py-24 relative overflow-hidden bg-white">
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
@@ -78,15 +71,15 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-56 h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-                <div className="relative rounded-full overflow-hidden aspect-square w-full h-full shadow-2xl">
+              <div className="relative w-64 h-64 sm:w-96 sm:h-96 group">
+                <div className="absolute inset-0 bg-blue-100/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl scale-110" />
+                <div className="relative rounded-[2rem] overflow-hidden aspect-square w-full h-full shadow-2xl shadow-gray-200/50 rotate-3 transition-transform duration-700 group-hover:rotate-0">
                   <Image
                     src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                     alt={t('home.elenaAlt')}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 384px, 500px"
                   />
                 </div>
               </div>
@@ -101,7 +94,10 @@ export default function HomeContent() {
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark tracking-tight leading-tight">
+                <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wider">
+                  {t('elena.role') || 'Lead Therapist'}
+                </span>
+                <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 tracking-tight leading-tight">
                   {t('elena.greeting')}
                 </h2>
               </div>
@@ -116,7 +112,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block">
-                <Button variant="outline" className="btn btn-secondary border-primary-200 text-primary-700 hover:bg-primary-50 px-8 py-3 rounded-xl normal-case">
+                <Button variant="outline" className="btn btn-secondary border-gray-200 text-gray-900 bg-white hover:bg-gray-50 px-8 py-3 rounded-full normal-case transition-all duration-300 hover:shadow-lg">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -125,11 +121,11 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Featured Services */}
+      {/* Featured Services Section */}
       <section className="py-24 bg-gray-50">
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-eka-dark mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">
               {t('services.featuredTitle')}
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
@@ -145,6 +141,7 @@ export default function HomeContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                className="h-full"
               >
                 <ServiceCard service={service} />
               </motion.div>
@@ -153,7 +150,7 @@ export default function HomeContent() {
 
           <div className="mt-12 text-center">
             <Link href="/services">
-              <Button className="btn btn-primary px-8 py-3 rounded-xl normal-case">
+              <Button className="btn btn-primary px-8 py-3 rounded-xl normal-case transition-all hover:scale-105">
                 {t('services.viewAll')}
               </Button>
             </Link>

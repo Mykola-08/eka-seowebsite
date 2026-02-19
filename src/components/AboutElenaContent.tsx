@@ -133,13 +133,13 @@ export default function AboutElenaContent() {
         </section>
 
         {/* Techniques Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-8 text-center">
-            <div className="mb-16">
-              <h2 className="text-3xl sm:text-4xl font-light text-[#000035] mb-6">
+        <section className="py-24 bg-white">
+          <div className="section-container relative z-10 text-center">
+            <div className="mb-20">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-eka-dark mb-6 tracking-tight">
                 {t('elena.approach.title')}
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+              <p className="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
                 {t('elena.approach.desc')}
               </p>
             </div>

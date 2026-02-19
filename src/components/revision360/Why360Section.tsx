@@ -16,7 +16,7 @@ export default function Why360Section() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24">
+    <section className="relative py-20 sm:py-24 bg-gray-50">
       <div className="section-container">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-start">
           <motion.div
@@ -26,20 +26,20 @@ export default function Why360Section() {
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.12em] text-amber-100">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs uppercase tracking-[0.12em] text-amber-700 font-bold">
               <Sparkles className="h-3.5 w-3.5" />
               360 Framework
             </span>
-            <h2 className="mt-4 text-3xl sm:text-5xl font-semibold text-white">
+            <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">
               {t('why360.title')}
             </h2>
-            <p className="mt-5 text-zinc-300 text-base sm:text-lg leading-relaxed">
+            <p className="mt-5 text-gray-600 text-base sm:text-lg leading-relaxed">
               {t('why360.subtitle')}
             </p>
             <button
               type="button"
               onClick={() => setShowModal(true)}
-              className="mt-8 btn-360-secondary px-6 py-3"
+              className="mt-8 btn bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 hover:border-gray-300 shadow-sm transition-all px-6 py-3 rounded-full font-medium"
             >
               {t('why360.philosophy')}
             </button>
@@ -55,13 +55,13 @@ export default function Why360Section() {
             {layers.map((layer) => (
               <article
                 key={layer.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-amber-500/30 hover:-translate-y-1"
+                className="rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:-translate-y-1"
               >
-                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-amber-400/15 text-amber-200">
-                  <Layers className="h-4.5 w-4.5" />
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-orange-50 text-amber-600">
+                  <Layers className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">{layer.name}</h3>
-                <p className="mt-2 text-sm sm:text-base text-zinc-300 leading-relaxed">
+                <h3 className="text-lg font-bold text-gray-900">{layer.name}</h3>
+                <p className="mt-2 text-sm sm:text-base text-gray-500 leading-relaxed">
                   {layer.description}
                 </p>
               </article>
@@ -71,26 +71,26 @@ export default function Why360Section() {
       </div>
 
       <Modal isOpen={showModal} onClose={() => setShowModal(false)} title={t('why360.modal.title')} size="lg">
-        <div className="space-y-6 text-zinc-200">
-          <p className="leading-relaxed">{t('why360.modal.intro')}</p>
+        <div className="space-y-8 text-gray-600">
+          <p className="leading-relaxed text-lg">{t('why360.modal.intro')}</p>
           <div>
-            <h3 className="text-lg font-semibold text-amber-200">{t('why360.modal.integration.title')}</h3>
-            <p className="mt-2 leading-relaxed">{t('why360.modal.integration.description')}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('why360.modal.integration.title')}</h3>
+            <p className="leading-relaxed">{t('why360.modal.integration.description')}</p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-amber-200">{t('why360.modal.dimensions.title')}</h3>
-            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">{t('why360.modal.dimensions.title')}</h3>
+            <div className="grid gap-4 sm:grid-cols-2">
               {layers.map((layer) => (
-                <div key={layer.name} className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  <p className="font-medium text-white">{layer.name}</p>
-                  <p className="mt-1 text-sm text-zinc-300">{layer.description}</p>
+                <div key={layer.name} className="rounded-xl border border-gray-100 bg-gray-50 p-5 hover:bg-white hover:shadow-sm transition-all">
+                  <p className="font-bold text-gray-900 mb-1">{layer.name}</p>
+                  <p className="text-sm text-gray-500">{layer.description}</p>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-amber-200">{t('why360.modal.importance.title')}</h3>
-            <p className="mt-2 leading-relaxed">{t('why360.modal.importance.description')}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('why360.modal.importance.title')}</h3>
+            <p className="leading-relaxed">{t('why360.modal.importance.description')}</p>
           </div>
         </div>
       </Modal>

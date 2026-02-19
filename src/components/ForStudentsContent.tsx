@@ -132,3 +132,7 @@ export default function ForStudentsContent() {
 
         <FAQ />
         <CTASection />
+      </PageLayout>
+    </>
+  );
+}

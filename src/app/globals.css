@@ -16,18 +16,18 @@
   --apple-gray-dark: #1d1d1f;
   --apple-blue: #007aff;
   --apple-purple: #5856d6;
-  --apple-border-radius: 20px;
-  --apple-border-radius-small: 12px;
-  --apple-border-radius-large: 28px;
-  --apple-border-radius-xl: 40px;
-  --apple-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --apple-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --apple-shadow-large: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --apple-border-radius: 32px;
+  --apple-border-radius-small: 9999px;
+  --apple-border-radius-large: 48px;
+  --apple-border-radius-xl: 64px;
+  --apple-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --apple-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --apple-shadow-large: 0 16px 48px rgba(0, 0, 0, 0.05);
   --surface-primary: #ffffff;
   --surface-muted: #f8fafc;
   --surface-elevated: #f1f5f9;
-  --border-subtle: rgba(148, 163, 184, 0.24);
-  --border-strong: rgba(148, 163, 184, 0.44);
+  --border-subtle: rgba(148, 163, 184, 0.12);
+  --border-strong: rgba(148, 163, 184, 0.25);
 
   /* Animation Easings */
   --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -62,11 +62,7 @@
     @apply text-gray-900 leading-relaxed;
     font-weight: 400;
     letter-spacing: -0.003em;
-    background:
-      radial-gradient(1200px 560px at -8% -10%, rgba(56, 189, 248, 0.15), transparent 60%),
-      radial-gradient(900px 420px at 105% 0%, rgba(251, 191, 36, 0.15), transparent 60%),
-      radial-gradient(800px 400px at 50% 100%, rgba(168, 85, 247, 0.10), transparent 60%),
-      linear-gradient(180deg, #f8fafc 0%, #f1f5f9 35%, #ffffff 70%, #ffffff 100%);
+    background-color: #ffffff;
     min-height: 100vh;
   }
 
@@ -161,11 +157,11 @@
     @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
     @apply px-6 py-3 sm:px-8 sm:py-4;
     @apply hover:scale-[1.02] active:scale-[0.98];
-    border-radius: var(--apple-border-radius-small);
+    border-radius: 9999px;
     font-size: 15px;
     letter-spacing: -0.01em;
     min-height: 48px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   }
 
   @media (min-width: 640px) {
@@ -178,25 +174,25 @@
   .btn-primary {
     @apply btn;
     @apply text-white;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+    background: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
+    background: #2563eb;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
   }
 
   .btn-accent {
     @apply btn;
     @apply text-[#000035];
-    background: linear-gradient(135deg, #FFC837 0%, #FF8008 100%);
-    box-shadow: 0 4px 14px 0 rgba(255, 180, 5, 0.39);
+    background: #ffb405;
+    box-shadow: 0 4px 12px rgba(255, 180, 5, 0.25);
   }
 
   .btn-accent:hover {
-    background: linear-gradient(135deg, #FFD15C 0%, #FF9A33 100%);
-    box-shadow: 0 6px 20px rgba(255, 180, 5, 0.23);
+    background: #eab308;
+    box-shadow: 0 6px 16px rgba(255, 180, 5, 0.3);
   }
 
   .btn-secondary {

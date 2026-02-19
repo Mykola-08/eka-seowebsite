@@ -14,18 +14,18 @@ const config = {
       },
       colors: {
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
-          DEFAULT: '#2563EB',
+          50: '#f5f5f7', // Apple Gray Light
+          100: '#e5e5e7',
+          200: '#d2d2d7',
+          300: '#a1a1a6',
+          400: '#6e6e73',
+          500: '#0071e3', // Apple Blue
+          600: '#0077ED',
+          700: '#006edb',
+          800: '#1d1d1f', // Apple Dark Gray
+          900: '#1d1d1f',
+          950: '#000000',
+          DEFAULT: '#0071e3',
         },
         accent: {
           light: '#FDE68A',

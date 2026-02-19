@@ -36,8 +36,6 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
     }
   }, [isOpen, onClose]);
 
-  
-
   const sizeClasses = {
     sm: 'max-w-sm sm:max-w-md',
     md: 'max-w-lg sm:max-w-xl lg:max-w-2xl',
@@ -50,7 +48,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
       {isOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
           <motion.div 
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -59,11 +57,11 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
           />
           <div className="flex min-h-full items-center justify-center p-4 sm:p-6 lg:p-8">
             <motion.div 
-              className={`relative w-full ${sizeClasses[size]} transform rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 border border-amber-500/20 shadow-2xl shadow-amber-500/10`}
+              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-2xl bg-white border border-gray-200 shadow-2xl shadow-gray-200/50`}
               initial={{ 
                 opacity: 0, 
-                scale: 0.8,
-                y: 50
+                scale: 0.95,
+                y: 20
               }}
               animate={{ 
                 opacity: 1, 
@@ -72,8 +70,8 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
               }}
               exit={{ 
                 opacity: 0, 
-                scale: 0.8,
-                y: 50
+                scale: 0.95,
+                y: 20
               }}
               transition={{ 
                 type: "spring",
@@ -83,45 +81,34 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
               }}
               onClick={(e) => e.stopPropagation()}
             >
-          {/* Golden glow effect */}
-          <motion.div 
-            className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 via-yellow-300/20 to-amber-400/20 rounded-2xl blur-sm"
-            animate={{ 
-              opacity: [0.5, 0.8, 0.5]
-            }}
-            transition={{ 
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          
-          <div className="relative p-6 sm:p-8 lg:p-10">
-            {title && (
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-serif text-amber-100">{title}</h3>
-                <button
-                  onClick={onClose}
-                  className="p-2 rounded-full hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+              <div className="relative p-6 sm:p-8 lg:p-10">
+                {title && (
+                  <div className="mb-6 flex items-center justify-between">
+                    <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                      {title}
+                    </h3>
+                    <button
+                      onClick={onClose}
+                      className="rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                )}
+                
+                <div className="text-gray-600">
+                  {children}
+                </div>
+                
+                {!title && (
+                  <button
+                    onClick={onClose}
+                    className="absolute right-6 top-6 rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                )}
               </div>
-            )}
-            
-            {!title && (
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 p-2 rounded-full hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 transition-colors z-10"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            )}
-
-            <div className="text-zinc-300">
-              {children}
-            </div>
-          </div>
             </motion.div>
           </div>
         </div>

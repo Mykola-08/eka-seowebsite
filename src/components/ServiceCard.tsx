@@ -12,28 +12,21 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
-  const colorStyles: Record<string, { text: string; dot: string }> = {
-    blue: { text: 'text-blue-600', dot: 'bg-blue-500' },
-    purple: { text: 'text-purple-600', dot: 'bg-purple-500' },
-    green: { text: 'text-green-600', dot: 'bg-green-500' },
-    orange: { text: 'text-orange-600', dot: 'bg-orange-500' },
-    indigo: { text: 'text-indigo-600', dot: 'bg-indigo-500' },
-    pink: { text: 'text-pink-600', dot: 'bg-pink-500' },
-    red: { text: 'text-red-600', dot: 'bg-red-500' },
-  };
-  const palette = colorStyles[service.color] ?? colorStyles.blue;
+  
+  // Minimalist palette - replacing multi-color system with unified EKA accents
+  const palette = { text: 'text-primary-700', dot: 'bg-primary-500' };
 
   return (
-    <div className="card card-interactive h-full flex flex-col">
-      <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden">
+    <div className="group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 hover:border-gray-200 hover:shadow-lg hover:shadow-gray-100/50">
+      <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
         <LazyImage
           src={service.image}
           alt={t(service.titleKey)}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out-quart hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-105"
         />
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-eka-dark mb-2 heading-3">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2 heading-3">
           {t(service.titleKey)}
         </h3>
         {/* Helper text/subtitle in orange/color */}
@@ -41,20 +34,20 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           {t(service.subtitleKey)}
         </p>
 
-        <p className="text-body text-sm mb-6 line-clamp-3">
+        <p className="text-body text-sm mb-6 line-clamp-3 text-gray-500">
           {t(service.descriptionKey)}
         </p>
 
         {/* Benefits List */}
         {service.benefitsKeys && service.benefitsKeys.length > 0 && (
           <div className="mb-6">
-            <h4 className="text-xs font-bold text-eka-dark uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
               {t('services.mainBenefits') || 'Key Benefits'}
             </h4>
             <ul className="space-y-2">
               {service.benefitsKeys.slice(0, 4).map((key, i) => (
                 <li key={i} className="flex items-start text-sm text-gray-600">
-                  <span className={`w-1.5 h-1.5 rounded-full ${palette.dot} mt-1.5 mr-2 flex-shrink-0`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${palette.dot} mt-2 mr-2 flex-shrink-0 opacity-60`} />
                   {t(key)}
                 </li>
               ))}
@@ -62,18 +55,18 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           </div>
         )}
 
-        <div className="mt-auto flex gap-3 pt-4 border-t border-gray-100">
+        <div className="mt-auto flex gap-3 pt-4">
           <Link href={service.href} className="flex-1">
             <Button
               variant="outline"
-              className="w-full btn btn-sm btn-outline rounded-xl p-2.5 normal-case"
+              className="w-full btn btn-sm rounded-full p-2.5 normal-case border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900 bg-transparent"
             >
               {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
             <Button
-              className="w-full btn btn-sm btn-accent rounded-xl p-2.5 normal-case border-none font-semibold"
+              className="w-full btn btn-sm rounded-full p-2.5 normal-case border-none font-medium bg-gray-900 text-white hover:bg-gray-800 shadow-none"
             >
               {t('nav.bookNow')}
             </Button>

@@ -27,55 +27,63 @@ export default function ContactContent() {
         }}
       >
           {/* Quick buttons overlay */}
-          <div className="relative -mt-8 mb-16 z-20">
-               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="relative -mt-10 mb-20 z-20">
+               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <a
                   href="https://wa.me/34658867133"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="group"
                 >
                     <Button 
                       size="xl"
-                      className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-apple shadow-xl border-none normal-case"
+                      className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-full shadow-lg shadow-green-500/20 hover:shadow-green-500/30 border-none normal-case flex items-center gap-3 transition-all duration-300 hover:scale-105"
                     >
-                      <MessageCircle className="w-6 h-6 mr-2" />
-                      {t('contact.whatsapp')}
+                      <MessageCircle className="w-6 h-6" />
+                      <span className="text-lg">{t('contact.whatsapp')}</span>
                     </Button>
                 </a>
-                <a href="tel:+34658867133">
+                <a href="tel:+34658867133" className="group">
                    <Button 
                       size="xl"
-                      className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-8 py-4 rounded-apple shadow-xl border-none normal-case"
+                      className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl border-none normal-case flex items-center gap-3 transition-all duration-300 hover:scale-105"
                    >
-                      <Phone className="w-6 h-6 mr-2" />
-                      {t('contact.callNow')}
+                      <Phone className="w-6 h-6" />
+                      <span className="text-lg">{t('contact.callNow')}</span>
                    </Button>
                 </a>
               </div>
           </div>
 
           {/* Contact Form Section */}
-          <section className="pb-24 bg-transparent relative">
+          <section className="bg-transparent relative pb-24">
             <div className="section-container">
-              <div className="card max-w-2xl mx-auto bg-white p-6 sm:p-10 shadow-2xl border-gray-100/50 rounded-apple-lg">
+              <div className="max-w-3xl mx-auto bg-white p-8 sm:p-12 shadow-2xl shadow-gray-200/50 border border-gray-100/50 rounded-[2.5rem]">
+                 <div className="text-center mb-10">
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">{t('contact.form.title') || 'Send us a message'}</h2>
+                    <p className="text-gray-500 font-light">{t('contact.form.subtitle') || 'We normally respond within 24 hours'}</p>
+                 </div>
                  <ContactFormOptimized />
               </div>
             </div>
           </section>
 
           {/* FAQ Section */}
-          <section className="py-24 bg-gray-50 border-t border-gray-200">
-            <div className="max-w-4xl mx-auto px-4 sm:px-8">
-              <div className="text-center mb-12">
-                 <div className="inline-flex items-center justify-center p-3 bg-blue-100 rounded-full mb-4 text-primary-600">
-                   <HelpCircle className="w-6 h-6" />
-                 </div>
-                 <h2 className="heading-2">
+          <section className="py-24 bg-gray-50/50">
+            <div className="section-container max-w-4xl mx-auto">
+              <div className="text-center mb-16">
+                 <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-6">
+                   FAQ
+                 </span>
+                 <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-6">
                    {t('contact.faq.title')}
                  </h2>
+                 <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+                   {t('contact.faq.subtitle') || 'Everything you need to know about contacting us'}
+                 </p>
               </div>
               
-              <div className="space-y-6">
+              <div className="grid gap-6">
                 {[1, 2, 3, 4].map((i) => (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -83,10 +91,10 @@ export default function ContactContent() {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
                       key={i}
-                      className="card p-8 hover:shadow-md"
+                      className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
                      >
-                      <h3 className="font-semibold text-gray-900 mb-3 text-lg">{t(`contact.faq.q${i}.title`)}</h3>
-                      <p className="text-body">
+                      <h3 className="font-semibold text-gray-900 mb-3 text-lg tracking-tight">{t(`contact.faq.q${i}.title`)}</h3>
+                      <p className="text-gray-600 leading-relaxed font-light">
                         {t(`contact.faq.q${i}.answer`)}
                       </p>
                     </motion.div>

@@ -25,7 +25,7 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24">
+    <section className="relative py-20 sm:py-24 bg-white">
       <div className="section-container">
         <motion.div
           className="max-w-3xl"
@@ -34,29 +34,32 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <h2 className="text-3xl sm:text-5xl font-semibold text-white">{t('benefits.title')}</h2>
-          <p className="mt-4 text-zinc-300 text-base sm:text-lg leading-relaxed">{t('benefits.subtitle')}</p>
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full">
+            Benefits
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('benefits.title')}</h2>
+          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('benefits.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-amber-500/30"
+              className="rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amber-200 shadow-sm"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-amber-300/15 text-amber-100">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
                 {benefit.icon}
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-white">{benefit.title}</h3>
-              <p className="mt-2 text-sm sm:text-base text-zinc-300 leading-relaxed">{benefit.description}</p>
+              <h3 className="mt-4 text-lg font-bold text-gray-900">{benefit.title}</h3>
+              <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
               {benefit.science && (
-                <div className="mt-4 border-t border-white/10 pt-3">
-                  <p className="text-xs uppercase tracking-[0.12em] text-amber-200/85">Science</p>
-                  <p className="mt-2 text-sm text-zinc-300">{benefit.science}</p>
+                <div className="mt-4 border-t border-gray-100 pt-3">
+                  <p className="text-xs uppercase tracking-[0.12em] text-amber-700 font-semibold">Science</p>
+                  <p className="mt-2 text-sm text-gray-500 italic">{benefit.science}</p>
                 </div>
               )}
             </motion.article>
@@ -64,13 +67,13 @@ export default function BenefitsSection() {
         </div>
 
         <motion.div
-          className="mt-8 rounded-2xl border border-amber-300/25 bg-amber-300/10 p-6 sm:p-7"
+          className="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.35 }}
         >
-          <p className="text-zinc-100 italic text-base sm:text-lg">
+          <p className="text-gray-600 italic text-lg sm:text-xl font-serif">
             "{t('benefits.philosophy')}"
           </p>
         </motion.div>

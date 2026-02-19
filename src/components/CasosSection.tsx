@@ -68,63 +68,47 @@ export default function CasosSection() {
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colors = {
-      blue: 'bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100',
-      purple: 'bg-purple-50 border-purple-200 text-purple-700 hover:bg-purple-100',
-      green: 'bg-green-50 border-green-200 text-green-700 hover:bg-green-100',
-      orange: 'bg-orange-50 border-orange-200 text-orange-700 hover:bg-orange-100',
-      indigo: 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100',
-      pink: 'bg-pink-50 border-pink-200 text-pink-700 hover:bg-pink-100',
-      red: 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100'
-    };
-    return colors[color as keyof typeof colors] || colors.blue;
-  };
-
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-2 bg-primary-50 border border-primary-100 rounded-full mb-8">
-            <span className="text-primary-700 font-medium text-sm uppercase tracking-wide">{t('casos.section.badge')}</span>
-          </div>
+        <div className="text-center mb-20">
+          <span className="inline-block py-1 px-3 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-6">
+            {t('casos.section.badge')}
+          </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-eka-dark mb-6">
-            {t('casos.section.title')}{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {t('casos.section.titleHighlight')}
-            </span>
+          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">
+            {t('casos.section.title')}
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
             {t('casos.section.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {featuredProblems.map((problem, index) => {
             const ProblemIcon = problem.icon;
             return (
-              <AnimateIn key={problem.id} delay={index * 0.1}>
+              <AnimateIn key={problem.id} delay={index * 0.05}>
                 <Link
                   href={problem.href}
-                  className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ease-out-quart block"
+                  className="group block h-full bg-gray-50/50 rounded-2xl p-8 transition-all duration-300 hover:bg-white hover:shadow-xl hover:scale-[1.01]"
                 >
-                  <div className={`w-14 h-14 rounded-2xl ${getColorClasses(problem.color)} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ease-out-quart border shadow-sm`}>
-                    <ProblemIcon className="w-7 h-7" />
+                  <div className="w-12 h-12 rounded-full bg-white text-gray-900 flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-50 group-hover:text-primary-600 transition-colors duration-300">
+                    <ProblemIcon className="w-6 h-6 stroke-[1.5px]" />
                   </div>
 
-                  <h3 className="text-xl font-semibold text-eka-dark mb-3 group-hover:text-primary-600 transition-colors duration-200 ease-out-quart">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {t(problem.titleKey)}
                   </h3>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-gray-500 mb-6 leading-relaxed line-clamp-3 font-light text-base">
                     {t(problem.descriptionKey)}
                   </p>
 
-                  <div className="flex items-center text-primary-600 font-medium">
+                  <div className="flex items-center text-primary-600 font-medium text-sm">
                     {t('casos.section.readMore')}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
+                    <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
                   </div>
                 </Link>
               </AnimateIn>

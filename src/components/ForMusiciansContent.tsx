@@ -131,3 +131,7 @@ export default function ForMusiciansContent() {
 
         <FAQ />
         <CTASection />
+      </PageLayout>
+    </>
+  );
+}

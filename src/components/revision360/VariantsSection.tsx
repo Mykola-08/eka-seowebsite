@@ -103,7 +103,7 @@ export default function VariantsSection() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24">
+    <section className="relative py-20 sm:py-24 bg-gray-50">
       <div className="section-container">
         <motion.div
           className="max-w-3xl"
@@ -112,31 +112,34 @@ export default function VariantsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <h2 className="text-3xl sm:text-5xl font-semibold text-white">{t('variants.title')}</h2>
-          <p className="mt-4 text-zinc-300 text-base sm:text-lg leading-relaxed">{t('variants.subtitle')}</p>
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full">
+            Options
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('variants.title')}</h2>
+          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('variants.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {variants.map((variant, index) => (
             <motion.button
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="group text-left rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.08] hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1"
+              className="group text-left rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-100 hover:-translate-y-1"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.08 }}
             >
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-600/10 text-amber-200 group-hover:scale-110 transition-transform duration-300 shadow-inner border border-amber-500/10">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-orange-50 text-amber-600 group-hover:scale-110 transition-transform duration-300 shadow-inner">
                 {variant.icon}
               </span>
-              <h3 className="mt-5 text-xl font-bold text-white group-hover:text-amber-100 transition-colors">{variant.title}</h3>
-              <p className="mt-1 text-sm text-amber-200/80 font-medium uppercase tracking-wide">{variant.subtitle}</p>
-              <p className="mt-4 text-sm text-zinc-300 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">{variant.description}</p>
-              <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 group-hover:border-amber-500/30 transition-colors">
-                <span className="text-xs uppercase tracking-[0.1em] text-zinc-400 group-hover:text-amber-200/70">{variant.duration}</span>
-                <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-400">{variant.price}</span>
+              <h3 className="mt-6 text-xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{variant.title}</h3>
+              <p className="mt-1 text-sm text-amber-600 font-medium uppercase tracking-wide">{variant.subtitle}</p>
+              <p className="mt-4 text-sm text-gray-500 leading-relaxed group-hover:text-gray-700 transition-opacity min-h-[5em]">{variant.description}</p>
+              <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4 group-hover:border-amber-100 transition-colors">
+                <span className="text-xs uppercase tracking-[0.1em] text-gray-400 group-hover:text-amber-600/70">{variant.duration}</span>
+                <span className="text-xl font-bold text-amber-600">{variant.price}</span>
               </div>
             </motion.button>
           ))}
@@ -150,40 +153,40 @@ export default function VariantsSection() {
           title={selectedVariant.title}
           size="lg"
         >
-          <div className="space-y-6">
-            <p className="text-zinc-200">{selectedVariant.description}</p>
-            <div className="grid gap-6 sm:grid-cols-2">
+          <div className="space-y-8">
+            <p className="text-gray-700 text-lg leading-relaxed">{selectedVariant.description}</p>
+            <div className="grid gap-8 sm:grid-cols-2">
               <div>
-                <p className="text-sm uppercase tracking-[0.1em] text-amber-200">{t('variants.idealFor')}</p>
-                <ul className="mt-3 space-y-2">
+                <p className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-3">{t('variants.idealFor')}</p>
+                <ul className="space-y-2.5">
                   {selectedVariant.idealFor.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-zinc-200">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-300 shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-gray-600">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p className="text-sm uppercase tracking-[0.1em] text-amber-200">{t('variants.includes')}</p>
-                <ul className="mt-3 space-y-2">
+                <p className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-3">{t('variants.includes')}</p>
+                <ul className="space-y-2.5">
                   {selectedVariant.includes.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-zinc-200">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-300 shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-gray-600">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-            <div className="rounded-xl border border-amber-300/30 bg-amber-300/10 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="rounded-2xl border border-amber-100 bg-amber-50 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.1em] text-amber-200">{t('variants.sessionDuration')}</p>
-                <p className="text-lg font-semibold text-white mt-1">{selectedVariant.duration}</p>
+                <p className="text-xs uppercase tracking-[0.1em] text-amber-800 font-bold">{t('variants.sessionDuration')}</p>
+                <p className="text-xl font-bold text-gray-900 mt-1">{selectedVariant.duration}</p>
               </div>
               <div className="sm:text-right">
-                <p className="text-xs uppercase tracking-[0.1em] text-amber-200">{t('variants.investment')}</p>
-                <p className="text-2xl font-semibold text-white mt-1">{selectedVariant.price}</p>
+                <p className="text-xs uppercase tracking-[0.1em] text-amber-800 font-bold">{t('variants.investment')}</p>
+                <p className="text-3xl font-bold text-gray-900 mt-1">{selectedVariant.price}</p>
               </div>
             </div>
           </div>

@@ -146,4 +146,7 @@ export default function FamiliesContent() {
 
       <FAQ />
       <CTASection />
+      </PageLayout>
+    </>
+  );
 }

@@ -146,4 +146,7 @@ export default function ChildrenContent() {
 
       <FAQ />
       <CTASection />
+      </PageLayout>
+    </>
+  );
 }

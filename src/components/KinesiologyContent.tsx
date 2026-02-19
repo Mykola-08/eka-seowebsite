@@ -37,56 +37,59 @@ export default function KinesiologiaContent() {
   const durations = [60, 90];
 
   const Hero = (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-32 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+    <section className="relative pt-32 pb-24 overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         
-        <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-blue-100 text-sm text-blue-600 mb-8 shadow-sm">
-              <Brain className="w-4 h-4" />
-              <span className="font-medium">{t('kinesiology.hero.badge')}</span>
-            </div>
-            
-            <h1 className="heading-1 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900">
-              {t('kinesiology.page.title')}
-            </h1>
-            
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-lg font-light">
-              {t('kinesiology.page.description')}
-            </p>
+        <div className="section-container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-sm text-blue-700 mb-8 shadow-sm">
+                <Brain className="w-4 h-4" />
+                <span className="font-medium tracking-wide">{t('kinesiology.hero.badge')}</span>
+              </div>
+              
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-gray-900 mb-8 tracking-tight leading-tight">
+                {t('kinesiology.page.title')}
+              </h1>
+              
+              <p className="text-xl text-gray-500 mb-10 leading-relaxed font-light">
+                {t('kinesiology.page.description')}
+              </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                onClick={() => navigateToBooking()}
-                className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] border-none rounded-2xl px-8 h-14 text-lg font-semibold shadow-lg shadow-amber-200/50"
-              >
-                {t('common.bookNow')}
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <div className="flex flex-wrap gap-4">
+                <Button 
+                  onClick={() => navigateToBooking()}
+                  size="xl"
+                  className="bg-primary-600 hover:bg-primary-700 text-white border-none rounded-full px-10 py-4 text-lg font-medium shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
+                >
+                  {t('common.bookNow')}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </div>
             </div>
-          </div>
 
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video">
-               <Image
-                  src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt={t('kinesiology.page.imageAlt') || "Kinesiologia Session"}
-                  fill
-                  className="object-cover transform hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-            </div>
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 max-w-xs">
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">{t('kinesiology.page.availableToday')}</p>
-                    <p className="text-xs text-gray-500">{t('kinesiology.page.bookSession')}</p>
-                  </div>
-               </div>
+            <div className="relative">
+              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-gray-100 aspect-[4/3] rotate-2 transition-transform duration-700 hover:rotate-0">
+                 <Image
+                    src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt={t('kinesiology.page.imageAlt') || "Kinesiologia Session"}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+              </div>
+              {/* Floating Card */}
+              <div className="absolute -bottom-8 -left-8 bg-white/90 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-gray-100 max-w-xs animate-gentle-float">
+                 <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
+                      <Zap className="w-6 h-6 stroke-[1.5px]" />
+                    </div>
+                    <div>
+                      <p className="text-base font-semibold text-gray-900">{t('kinesiology.page.availableToday')}</p>
+                      <p className="text-sm text-gray-500 font-light">{t('kinesiology.page.bookSession')}</p>
+                    </div>
+                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -104,20 +107,24 @@ export default function KinesiologiaContent() {
       {Hero}
 
       {/* Benefits Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-24 bg-gray-50/50">
+        <div className="section-container max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">{t('kinesiology.page.benefitsTitle')}</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">{t('kinesiology.page.benefitsSubtitle')}</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
+              {t('kinesiology.page.benefitsTitle')}
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+              {t('kinesiology.page.benefitsSubtitle')}
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex gap-4 p-6 bg-blue-50/50 rounded-2xl border border-blue-100 hover:border-blue-200 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600" />
+              <div key={index} className="flex gap-6 p-8 bg-white rounded-3xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600">
+                  <CheckCircle2 className="w-6 h-6 stroke-[1.5px]" />
                 </div>
-                <span className="text-lg text-gray-700 font-medium pt-2">{benefit}</span>
+                <span className="text-lg text-gray-700 font-light pt-2 leading-relaxed">{benefit}</span>
               </div>
             ))}
           </div>
@@ -125,24 +132,27 @@ export default function KinesiologiaContent() {
       </section>
 
       {/* Duration & Pricing */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-24 bg-white">
+        <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">{t('kinesiology.page.durationsTitle')}</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">{t('kinesiology.page.durationsSubtitle')}</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
+              {t('kinesiology.page.durationsTitle')}
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+              {t('kinesiology.page.durationsSubtitle')}
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {durations.map((duration) => (
-              <div key={duration} className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              <div key={duration} className="bg-gray-50 rounded-[2.5rem] p-10 hover:bg-white border border-gray-100 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 group text-center">
                 
-                <div className="flex items-center justify-center mb-6 w-16 h-16 rounded-2xl bg-blue-50 mx-auto group-hover:bg-blue-100 transition-colors">
-                  <Clock className="w-8 h-8 text-blue-600" />
+                <div className="flex items-center justify-center mb-8 w-20 h-20 rounded-full bg-white shadow-sm mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="w-10 h-10 text-primary-600 stroke-[1.5px]" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">
-                  {duration} {t('common.minutes') || 'min'}
+                <h3 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight tabular-nums">
+                  {duration} <span className="text-lg font-medium text-gray-400 align-top ml-1">{t('common.minutes') || 'min'}</span>
                 </h3>
                 
                 <p className="text-gray-600 mb-8 text-center min-h-[3rem]">

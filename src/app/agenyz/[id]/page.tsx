@@ -3,7 +3,7 @@
 import { useParams, notFound } from 'next/navigation';
 import { products, getLocalized } from '@/app/agenyz/products';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck, Zap, Microscope } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -43,7 +43,7 @@ export default function ProductPage() {
             {/* Sticky Mobile CTA */}
             <div className='fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-lg border-t border-gray-100 z-50 md:hidden'>
                 <a href='https://agenyz.eu/catalog' target='_blank' rel='noopener noreferrer' className='block w-full'>
-                    <Button size='lg' className='w-full btn btn-primary rounded-xl shadow-lg'>
+                    <Button size='lg' className='w-full shadow-lg'>
                         {t('agenyz.buyNow') || 'Buy Now'}
                     </Button>
                 </a>
@@ -153,14 +153,14 @@ export default function ProductPage() {
                                 className='flex flex-col sm:flex-row gap-4'
                             >
                                 <a href='https://agenyz.eu/catalog' target='_blank' rel='noopener noreferrer' className='flex-1 sm:flex-none'>
-                                    <Button size='xl' className='w-full sm:w-auto btn btn-primary text-lg px-8 py-4 rounded-xl shadow-lg shadow-blue-500/20'>
-                                        <ShoppingBag className='mr-2 w-5 h-5' />
+                                    <Button size='xl' className='w-full sm:w-auto shadow-lg'>
+                                        <ShoppingBag className='w-5 h-5' />
                                         {t('agenyz.buyNow') || 'Order Now'}
                                     </Button>
                                 </a>
                                 <Link href='/contact' className='flex-1 sm:flex-none'>
-                                    <Button size='xl' variant='outline' className='w-full sm:w-auto border-gray-200 hover:bg-gray-50 text-gray-700 px-8 py-4 rounded-xl'>
-                                        <MessageCircle className='mr-2 w-5 h-5' />
+                                    <Button variant='outline' size='xl' className='w-full sm:w-auto'>
+                                        <MessageCircle className='w-5 h-5' />
                                         {t('agenyz.askExpert') || 'Ask an Expert'}
                                     </Button>
                                 </Link>

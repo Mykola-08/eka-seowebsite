@@ -10,6 +10,7 @@ import {
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOUpdater from '@/components/SEOUpdater';
 import CTASection from '@/components/CTASection';
+import { Button } from '@/components/ui/button';
 
 // --- Constants & Data ---
 
@@ -161,7 +162,7 @@ const ComparativeTable = () => {
   };
 
   return (
-    <section className="py-24 relative bg-gray-50 border-t border-gray-200">
+    <section className="py-12 sm:py-16 md:py-24 relative bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
@@ -240,19 +241,21 @@ export default function VIPContent() {
               {t('vip.hero.subtitle')}
             </p>
 
-            <Link href="#pricing">
-              <button 
-                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium shadow-lg hover:shadow-amber-200/50 transition-all duration-300"
+            <Link href="/booking">
+              <Button 
+                variant="accent"
+                size="xl"
+                className="shadow-lg"
               >
                 {t('vip.cta.apply')}
-              </button>
+              </Button>
             </Link>
           </motion.div>
         </div>
       </div>
 
       {/* Luxury Features Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {defaultLuxuryFeatures.map((feature, idx) => {
@@ -272,7 +275,7 @@ export default function VIPContent() {
       </section>
 
       {/* Services Detail */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
                <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">{t('vip.services.title')}</h2>
@@ -306,7 +309,7 @@ export default function VIPContent() {
       </section>
 
       {/* Pricing / Tiers */}
-      <section id="pricing" className="py-24 bg-white">
+      <section id="pricing" className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
            <div className="text-center mb-20">
              <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">{t('vip.pricing.title')}</h2>
@@ -344,9 +347,9 @@ export default function VIPContent() {
                  </div>
 
                  <button 
-                   className={`w-full h-14 rounded-2xl text-lg font-bold border-none transition-all ${
+                   className={`w-full h-14 rounded-full text-lg font-bold border-none transition-all ${
                      plan.popular 
-                       ? 'bg-amber-500 hover:bg-amber-600 text-white' 
+                       ? 'bg-[#0071e3] hover:bg-[#0077ed] text-white' 
                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
                    }`}
                  >
@@ -361,7 +364,7 @@ export default function VIPContent() {
       <ComparativeTable />
 
       {/* Testimonials */}
-      <section className="py-24 bg-gray-900 text-white overflow-hidden relative">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-900 text-white overflow-hidden relative">
          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-16">

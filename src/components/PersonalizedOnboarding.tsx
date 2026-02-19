@@ -339,7 +339,7 @@ export default function PersonalizedOnboarding() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
             onClick={startOnboarding}
-            className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition-all duration-300 text-lg shadow-lg hover:shadow-[#FFB405]/20 hover:-translate-y-1"
+            className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition-all duration-300 text-lg shadow-lg hover:shadow-[#FFB405]/20"
           >
             {t('common.getStarted')}
             <ChevronRight className="w-6 h-6 ml-3" />
@@ -422,7 +422,7 @@ export default function PersonalizedOnboarding() {
                   </Link>
                   <Link
                     href="/booking"
-                    className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="flex-1 bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm shadow-md hover:shadow-lg"
                   >
                     {t('common.bookNow')}
                   </Link>
@@ -434,7 +434,7 @@ export default function PersonalizedOnboarding() {
           <div className="text-center">
             <Link
               href="/booking"
-              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-8 py-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               {t('common.bookNow')}
               <ChevronRight className="w-5 h-5 ml-2" />
@@ -531,7 +531,7 @@ export default function PersonalizedOnboarding() {
                       border shadow-sm
                       ${isSelected
                         ? 'border-[#FFB405] bg-[#FFB405]/5 ring-1 ring-[#FFB405] shadow-md'
-                        : 'border-white bg-white hover:border-[#FFB405]/50 hover:shadow-lg hover:-translate-y-1'
+                        : 'border-white bg-white hover:border-[#FFB405]/50 hover:shadow-lg'
                       }
                     `}
                   >
@@ -592,7 +592,7 @@ export default function PersonalizedOnboarding() {
             className={`
               px-8 py-3 rounded-full font-semibold transition-all duration-200 flex items-center
               ${canProceed()
-                ? 'bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
+                ? 'bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] shadow-lg hover:shadow-xl'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }
             `}

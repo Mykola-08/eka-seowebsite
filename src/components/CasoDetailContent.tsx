@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 
 interface ProblemConfig {
@@ -54,7 +54,7 @@ export default function CasoDetailContent() {
           <div className="py-20 text-center">
               <h1 className="text-2xl font-bold mb-4">{t('common.notFound') || 'Case not found'}</h1>
               <Link href="/cases">
-                  <Button variant="outline" className="btn btn-outline">
+                  <Button variant="outline">
                       <ArrowLeft className="mr-2 h-4 w-4" />
                       {t('common.back') || 'Back'}
                   </Button>
@@ -177,10 +177,10 @@ export default function CasoDetailContent() {
                 <Link href={config.href}>
                     <Button 
                         size="xl"
-                        className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035]"
+                        variant="accent"
                     >
                         {t('common.bookNow')}
-                        <ArrowRight className="w-5 h-5 ml-2" />
+                        <ArrowRight className="w-5 h-5" />
                     </Button>
                 </Link>
             </div>

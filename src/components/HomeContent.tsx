@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
 import AppleHero from '@/components/AppleHero';
@@ -13,7 +13,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/components/ServiceCard';
 
-import AnimatedCounter from '@/components/AnimatedCounter';
 import SEOUpdater from '@/components/SEOUpdater';
 import CTASection from '@/components/CTASection';
 
@@ -38,20 +37,20 @@ export default function HomeContent() {
       <AppleHero />
 
       {/* Stats Section - Minimalist Redesign */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-12"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gray-50/50 hover:bg-gray-50 transition-colors duration-300">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2500} />
+              <div key={index} className="flex flex-col items-center justify-center text-center p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gray-50/50">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-2 sm:mb-3 tabular-nums">
+                  {stat.value}{stat.suffix}
                 </div>
-                <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</span>
+                <span className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -59,7 +58,7 @@ export default function HomeContent() {
       </section>
 
       {/* Elena Introduction Section - REDESIGNED */}
-      <section className="py-24 relative overflow-hidden bg-white">
+      <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden bg-white">
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
@@ -71,9 +70,8 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-64 h-64 sm:w-96 sm:h-96 group">
-                <div className="absolute inset-0 bg-blue-100/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl scale-110" />
-                <div className="relative rounded-[2rem] overflow-hidden aspect-square w-full h-full shadow-2xl shadow-gray-200/50 rotate-3 transition-transform duration-700 group-hover:rotate-0">
+              <div className="relative w-64 h-64 sm:w-96 sm:h-96">
+                <div className="relative rounded-[2rem] overflow-hidden aspect-square w-full h-full shadow-2xl shadow-gray-200/50">
                   <Image
                     src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                     alt={t('home.elenaAlt')}
@@ -112,7 +110,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block">
-                <Button variant="outline" className="btn btn-secondary border-gray-200 text-gray-900 bg-white hover:bg-gray-50 px-8 py-3 rounded-full normal-case transition-all duration-300 hover:shadow-lg">
+                <Button variant="secondary" size="lg">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -122,18 +120,18 @@ export default function HomeContent() {
       </section>
 
       {/* Featured Services Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
         <div className="section-container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-900 mb-4 sm:mb-6 tracking-tight">
               {t('services.featuredTitle')}
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               {t('services.featuredSubtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
             {SERVICES_DATA.slice(0, 3).map((service, index) => (
               <motion.div
                 key={service.id}
@@ -148,9 +146,9 @@ export default function HomeContent() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-8 sm:mt-12 text-center">
             <Link href="/services">
-              <Button className="btn btn-primary px-8 py-3 rounded-xl normal-case transition-all hover:scale-105">
+              <Button size="lg">
                 {t('services.viewAll')}
               </Button>
             </Link>

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
 import LazyImage from '@/components/LazyImage';
@@ -15,12 +15,12 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   return (
-    <div className="card card-interactive h-full flex flex-col">
+    <div className="card h-full flex flex-col">
        <div className="relative h-64 overflow-hidden rounded-t-2xl">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover"
           />
         </div>
         
@@ -73,17 +73,12 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         {/* Buttons */}
         <div className="flex gap-4">
           <Link href="/booking" className="flex-1">
-             <Button 
-                className="w-full btn btn-accent py-3 rounded-xl shadow-md border-none normal-case"
-             >
+             <Button variant="accent" size="lg" className="w-full">
                {t('nav.bookNow')}
             </Button>
           </Link>
           <Link href={service.href} className="flex-1">
-             <Button 
-                variant="outline"
-                className="w-full btn btn-outline py-3 rounded-xl normal-case"
-                >
+             <Button variant="outline" size="lg" className="w-full">
                {t('common.readMore') || 'Read More'}
             </Button>
           </Link>

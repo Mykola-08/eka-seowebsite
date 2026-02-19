@@ -5,6 +5,7 @@ import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 interface SmartBookingPopupProps {
   isOpen: boolean;
@@ -192,13 +193,14 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                     />
                   </div>
 
-                  <button
+                  <Button
                     type="submit"
-                    className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium shadow-lg shadow-green-600/20 transition-all hover:scale-[1.02] flex items-center justify-center"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white shadow-lg"
+                    size="lg"
                   >
-                    <MessageCircle className="w-5 h-5 mr-2" />
+                    <MessageCircle className="w-5 h-5" />
                     {t('booking.smart.send')}
-                  </button>
+                  </Button>
                 </form>
               </motion.div>
             )}

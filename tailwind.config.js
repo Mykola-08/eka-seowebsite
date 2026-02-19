@@ -1,5 +1,4 @@
-import { keepTheme } from 'keep-react/keepTheme'
-
+/** @type {import('tailwindcss').Config} */
 const config = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -9,8 +8,8 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['SF Pro Text', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
-        'display': ['SF Pro Display', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        'display': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -120,4 +119,4 @@ const config = {
   plugins: [],
 }
 
-export default keepTheme(config)
+export default config

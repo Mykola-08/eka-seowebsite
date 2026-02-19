@@ -56,6 +56,32 @@ const rawTranslations: Translations = {
     ru: 'обзор 360, биомеханическая оценка, функциональная диагностика, целостное здоровье'
   },
 
+  // Labels
+  'labels.framework': {
+    ca: 'Marc 360',
+    en: '360 Framework',
+    es: 'Marco 360',
+    ru: '360 Рамка'
+  },
+  'labels.process': {
+    ca: 'El procés',
+    en: 'The Process',
+    es: 'El proceso',
+    ru: 'Процесс'
+  },
+  'labels.benefits': {
+    ca: 'Beneficis',
+    en: 'Benefits',
+    es: 'Beneficios',
+    ru: 'Преимущества'
+  },
+  'labels.options': {
+    ca: 'Opcions',
+    en: 'Options',
+    es: 'Opciones',
+    ru: 'Варианты'
+  },
+  
   // Hero Section
   'hero.title': {
     ca: 'Revisió corporal 360°',

@@ -74,64 +74,55 @@ export default function ServiceSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full">
-            The Process
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#0071e3] uppercase bg-blue-50 rounded-full border border-blue-100">
+            {t('labels.process')}
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('service.title')}</h2>
           <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('service.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+
+        <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {steps.map((step, index) => (
-            <motion.article
+            <motion.div
               key={step.number}
-              className="group rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-amber-200"
-              initial={{ opacity: 0, y: 18 }}
+              className="group relative flex flex-col p-8 rounded-2xl bg-gray-50/50 border border-gray-100/80 hover:bg-white hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50/50 transition-all duration-300"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.08 }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-amber-600 font-bold">Step {step.number}</p>
-                  <h3 className="mt-2 text-2xl font-bold text-gray-900">{step.title}</h3>
-                  <p className="mt-3 text-gray-600 leading-relaxed">{step.description}</p>
-                </div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 whitespace-nowrap group-hover:bg-amber-50 group-hover:text-amber-700 transition-colors">
-                  <Clock3 className="h-3.5 w-3.5" />
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight">{step.title}</h3>
+                <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[#0071e3] border border-blue-100">
                   {step.duration}
-                </div>
+                </span>
               </div>
-
-              <div className="mt-6 border-t border-gray-100 pt-6">
-                <p className="text-sm font-semibold text-gray-900">{t('service.expect')}</p>
-                <ul className="mt-4 space-y-3">
-                  {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start gap-3 text-sm sm:text-base text-gray-600">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+              <p className="text-base text-gray-500 leading-relaxed mb-6">{step.description}</p>
+              <div className="grid gap-3 sm:grid-cols-2 mt-auto pt-6 border-t border-gray-100 group-hover:border-blue-50 transition-colors">
+                {step.details.map((detail, detailIndex) => (
+                  <div key={detailIndex} className="flex items-center gap-2.5 text-sm text-gray-500 group-hover:text-gray-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0071e3]/60 group-hover:bg-[#0071e3] transition-colors shrink-0" />
+                    <span>{detail}</span>
+                  </div>
+                ))}
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-8 rounded-2xl border border-amber-100 bg-amber-50 p-6 sm:p-8"
+          className="mt-12 rounded-2xl border border-blue-100 bg-blue-50/50 p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.35 }}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.11em] text-amber-800 font-bold">{t('service.total.title')}</p>
-              <p className="mt-1 text-3xl font-bold text-gray-900">{t('service.total.duration')}</p>
-            </div>
-            <p className="text-gray-600 max-w-xl">{t('service.total.note')}</p>
+          <div>
+            <p className="text-xs uppercase tracking-[0.12em] text-[#0071e3] font-bold mb-2">{t('service.total.title')}</p>
+            <p className="text-3xl font-bold text-gray-900 tracking-tight">{t('service.total.duration')}</p>
           </div>
+          <p className="text-gray-600 max-w-xl text-lg font-medium">{t('service.total.note')}</p>
         </motion.div>
       </div>
     </section>

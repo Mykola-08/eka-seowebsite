@@ -2,7 +2,8 @@
 
 
 import { useState, useEffect, useCallback } from 'react';
-import { Alert } from 'keep-react';
+import { cn } from '@/lib/utils';
+import { CheckCircle2, XCircle, AlertTriangle, Info, X } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -54,46 +55,41 @@ function ToastComponent({ toast, onClose }: ToastProps) {
     }
   }, [toast.duration, handleClose]);
 
-  const getKeepColor = () => {
+  const getIcon = () => {
     switch (toast.type) {
-      case 'success':
-        return 'success';
-      case 'error':
-        return 'error';
-      case 'warning':
-        return 'warning';
-      case 'info':
-        return 'primary';
-      default:
-        return 'primary';
+      case 'success': return <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />;
+      case 'error': return <XCircle className="w-5 h-5 text-red-500 flex-shrink-0" />;
+      case 'warning': return <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0" />;
+      case 'info': return <Info className="w-5 h-5 text-blue-500 flex-shrink-0" />;
+      default: return <Info className="w-5 h-5 text-blue-500 flex-shrink-0" />;
     }
   };
 
+  const bgClass = {
+    success: 'bg-green-50 border-green-200',
+    error: 'bg-red-50 border-red-200',
+    warning: 'bg-amber-50 border-amber-200',
+    info: 'bg-blue-50 border-blue-200',
+  }[toast.type];
+
   return (
     <div
-      className={`
-        relative overflow-hidden max-w-md w-full
-        transition-all duration-200 ease-out transform
-        ${isVisible && !isExiting
+      className={cn(
+        "relative overflow-hidden max-w-md w-full transition-all duration-200 ease-out transform",
+        isVisible && !isExiting
           ? 'translate-x-0 opacity-100 scale-100'
-          : isExiting
-            ? 'translate-x-full opacity-0 scale-95'
-            : 'translate-x-full opacity-0 scale-95'
-        }
-      `}
+          : 'translate-x-full opacity-0 scale-95'
+      )}
     >
-      <Alert
-        color={getKeepColor()}
-        withBg
-        className="shadow-lg backdrop-blur-sm relative"
-      >
-        <div className="flex items-start justify-between">
+      <div className={cn("rounded-2xl border shadow-lg backdrop-blur-sm p-4", bgClass)}>
+        <div className="flex items-start gap-3">
+          {getIcon()}
           <div className="flex-1 min-w-0">
-            <h3 className="text-sm font-medium">
+            <h3 className="text-sm font-medium text-gray-900">
               {toast.title}
             </h3>
             {toast.message && (
-              <p className="mt-1 text-sm opacity-90">
+              <p className="mt-1 text-sm text-gray-600">
                 {toast.message}
               </p>
             )}
@@ -101,7 +97,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
               <div className="mt-3">
                 <button
                   onClick={toast.action.onClick}
-                  className="text-sm font-medium underline hover:no-underline transition-all"
+                  className="text-sm font-medium text-gray-900 underline hover:no-underline transition-all"
                 >
                   {toast.action.label}
                 </button>
@@ -110,17 +106,17 @@ function ToastComponent({ toast, onClose }: ToastProps) {
           </div>
           <button
             onClick={handleClose}
-            className="ml-4 text-xl leading-none hover:opacity-70 transition-opacity"
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
-            ×
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Progress bar for duration */}
         {toast.duration && toast.duration > 0 && (
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10">
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/5 rounded-b-2xl overflow-hidden">
             <div
-              className="h-full bg-current opacity-30 transition-all ease-linear"
+              className="h-full bg-current opacity-20 transition-all ease-linear"
               style={{
                 animation: `shrink ${toast.duration}ms linear forwards`,
                 width: '100%'
@@ -128,7 +124,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
             />
           </div>
         )}
-      </Alert>
+      </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `

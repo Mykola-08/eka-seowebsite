@@ -112,8 +112,8 @@ export default function VariantsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full">
-            Options
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#0071e3] uppercase bg-blue-50 rounded-full border border-blue-100">
+            {t('labels.options')}
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('variants.title')}</h2>
           <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('variants.subtitle')}</p>
@@ -125,21 +125,26 @@ export default function VariantsSection() {
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="group text-left rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-100 hover:-translate-y-1"
+              className="group text-left rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50/50 hover:-translate-y-1 relative overflow-hidden"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.08 }}
             >
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-orange-50 text-amber-600 group-hover:scale-110 transition-transform duration-300 shadow-inner">
-                {variant.icon}
-              </span>
-              <h3 className="mt-6 text-xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{variant.title}</h3>
-              <p className="mt-1 text-sm text-amber-600 font-medium uppercase tracking-wide">{variant.subtitle}</p>
-              <p className="mt-4 text-sm text-gray-500 leading-relaxed group-hover:text-gray-700 transition-opacity min-h-[5em]">{variant.description}</p>
-              <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4 group-hover:border-amber-100 transition-colors">
-                <span className="text-xs uppercase tracking-[0.1em] text-gray-400 group-hover:text-amber-600/70">{variant.duration}</span>
-                <span className="text-xl font-bold text-amber-600">{variant.price}</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/30 group-hover:to-indigo-50/30 transition-all duration-500" />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#0071e3] mb-4 group-hover:bg-[#0071e3] group-hover:text-white transition-all duration-300">
+                  {variant.icon}
+                </span>
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-1">{variant.title}</h3>
+                <p className="text-xs font-bold tracking-wide text-[#0071e3] uppercase mb-3">{variant.subtitle}</p>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-grow">{variant.description}</p>
+                
+                <div className="flex items-end justify-between border-t border-gray-100 pt-4 mt-auto group-hover:border-blue-50">
+                  <span className="text-lg font-bold text-gray-900 tracking-tight">{variant.price}</span>
+                  <span className="text-xs font-medium text-gray-500">{variant.duration}</span>
+                </div>
               </div>
             </motion.button>
           ))}

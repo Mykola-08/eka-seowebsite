@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
 
@@ -162,7 +162,7 @@ export default function CasosContent() {
       />
       <PageLayout hero={Hero}>
       {/* Main Problems Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-light text-gray-900 mb-4">{t('casos.frequentCases')}</h2>
           <p className="text-gray-500">{t('casos.frequentCasesSubtitle')}</p>
@@ -183,7 +183,7 @@ export default function CasosContent() {
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${colors.bg.replace('bg-', 'bg-gradient-to-br from-white to-')}`} />
 
                 <div className="relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl ${colors.bg} ${colors.text} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <div className={`w-14 h-14 rounded-2xl ${colors.bg} ${colors.text} flex items-center justify-center mb-6 shadow-sm`}>
                     <Icon className="w-7 h-7" />
                   </div>
                   
@@ -207,7 +207,7 @@ export default function CasosContent() {
       </div>
 
       {/* Additional Problems List - Modernized */}
-      <div className="bg-white py-24 border-t border-gray-100">
+      <div className="bg-white py-12 sm:py-16 md:py-24 border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-light text-gray-900 mb-4">{t('casos.otherCases')}</h2>
@@ -231,7 +231,7 @@ export default function CasosContent() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-br from-[#000035] to-[#000060] py-24 px-6 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#000035] to-[#000060] py-12 sm:py-16 md:py-24 px-6 relative overflow-hidden">
         {/* Abstract Background Shapes */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -247,7 +247,7 @@ export default function CasosContent() {
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  className="btn btn-accent border-none"
+                  variant="accent"
                 >
                   {t('casos.bookSession')}
                 </Button>
@@ -255,7 +255,8 @@ export default function CasosContent() {
              <Link href="/services">
                 <Button 
                   size="xl" 
-                  className="btn btn-outline border-white/20 text-white hover:bg-white/10"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
                 >
                   {t('casos.discoverIdeal')}
                 </Button>

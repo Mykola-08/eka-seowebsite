@@ -5,7 +5,7 @@ import { ArrowRight, Brain, CheckCircle2, Clock, Zap } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -60,16 +60,15 @@ export default function KinesiologiaContent() {
                 <Button 
                   onClick={() => navigateToBooking()}
                   size="xl"
-                  className="bg-primary-600 hover:bg-primary-700 text-white border-none rounded-full px-10 py-4 text-lg font-medium shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
                 >
                   {t('common.bookNow')}
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
             </div>
 
             <div className="relative">
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-gray-100 aspect-[4/3] rotate-2 transition-transform duration-700 hover:rotate-0">
+              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-gray-100 aspect-[4/3]">
                  <Image
                     src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=1200"
                     alt={t('kinesiology.page.imageAlt') || "Kinesiologia Session"}
@@ -107,7 +106,7 @@ export default function KinesiologiaContent() {
       {Hero}
 
       {/* Benefits Section */}
-      <section className="py-24 bg-gray-50/50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50/50">
         <div className="section-container max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
@@ -132,7 +131,7 @@ export default function KinesiologiaContent() {
       </section>
 
       {/* Duration & Pricing */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="section-container">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
@@ -162,7 +161,8 @@ export default function KinesiologiaContent() {
                 
                 <Button
                   onClick={() => navigateToBooking()}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white rounded-xl h-12 border-none"
+                  className="w-full"
+                  size="lg"
                 >
                   {t('common.bookNow')}
                 </Button>
@@ -173,7 +173,7 @@ export default function KinesiologiaContent() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
              <h2 className="heading-2 mb-4">{t('kinesiology.page.testimonialsTitle')}</h2>

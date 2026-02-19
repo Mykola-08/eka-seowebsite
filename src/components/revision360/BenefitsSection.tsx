@@ -34,35 +34,36 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full">
-            Benefits
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#0071e3] uppercase bg-blue-50 rounded-full border border-blue-100">
+            {t('labels.benefits')}
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('benefits.title')}</h2>
           <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('benefits.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-20 grid gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <motion.article
+            <motion.div
               key={`${benefit.title}-${index}`}
-              className="rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-amber-200 shadow-sm"
+              className="group relative"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+              <div className="absolute -left-6 top-0 h-full w-px bg-gray-100 opacity-0 transition-opacity group-hover:opacity-100 lg:group-hover:opacity-0" />
+              
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#0071e3] transition-colors group-hover:bg-blue-100/80">
                 {benefit.icon}
               </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-900">{benefit.title}</h3>
-              <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
+              <h3 className="text-lg font-bold text-gray-900 tracking-tight">{benefit.title}</h3>
+              <p className="mt-3 text-base text-gray-500 leading-relaxed">{benefit.description}</p>
               {benefit.science && (
-                <div className="mt-4 border-t border-gray-100 pt-3">
-                  <p className="text-xs uppercase tracking-[0.12em] text-amber-700 font-semibold">Science</p>
-                  <p className="mt-2 text-sm text-gray-500 italic">{benefit.science}</p>
-                </div>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-[#0071e3] border-l-2 border-blue-200 pl-3">
+                  {benefit.science}
+                </p>
               )}
-            </motion.article>
+            </motion.div>
           ))}
         </div>
 

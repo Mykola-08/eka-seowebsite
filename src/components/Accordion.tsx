@@ -15,6 +15,7 @@ const AccordionContext = React.createContext<AccordionContextValue | undefined>(
 
 interface AccordionProps {
   type?: 'single' | 'multiple';
+  collapsible?: boolean;
   defaultValue?: string | string[];
   value?: string | string[];
   onValueChange?: (value: string | string[]) => void;
@@ -24,6 +25,7 @@ interface AccordionProps {
 
 export function Accordion({ 
   type = 'single', 
+  collapsible: _collapsible,
   defaultValue, 
   value: controlledValue,
   onValueChange,

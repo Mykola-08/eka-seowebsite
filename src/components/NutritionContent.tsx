@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Clock, Leaf, Sprout } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -69,10 +69,11 @@ export default function NutritionContent() {
             <div className="flex flex-wrap gap-4">
               <Button 
                 onClick={() => navigateToBooking()}
-                className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] border-none rounded-2xl px-8 h-14 text-lg font-semibold shadow-lg shadow-amber-200/50"
+                variant="accent"
+                size="xl"
               >
                 {t('common.bookNow')}
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
           </div>
@@ -83,7 +84,7 @@ export default function NutritionContent() {
                   src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Nutrició i dietètica"
                   fill
-                  className="object-cover transform hover:scale-105 transition-transform duration-700"
+                  className="object-cover transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
             </div>
@@ -115,7 +116,7 @@ export default function NutritionContent() {
       {Hero}
 
       {/* Benefits Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">{t('nutrition.page.benefitsTitle')}</h2>
@@ -136,7 +137,7 @@ export default function NutritionContent() {
       </section>
 
       {/* Duration & Pricing */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">{t('nutrition.page.durationsTitle')}</h2>
@@ -164,7 +165,8 @@ export default function NutritionContent() {
                 
                 <Button
                   onClick={() => navigateToBooking()}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white rounded-xl h-12 border-none"
+                  className="w-full"
+                  size="lg"
                 >
                   {t('common.bookNow')}
                 </Button>
@@ -175,7 +177,7 @@ export default function NutritionContent() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
              <h2 className="heading-2 mb-4">{t('nutrition.page.testimonialsTitle')}</h2>

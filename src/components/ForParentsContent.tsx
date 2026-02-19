@@ -6,7 +6,7 @@ import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -36,14 +36,14 @@ export default function ForParentsContent() {
               <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                className="btn btn-accent"
+                variant="accent"
               >
                 {t('common.bookNow')}
               </Button>
               <Link href="/contact">
                 <Button
                   size="xl"
-                  className="btn btn-outline border-pink-100 text-pink-600 hover:bg-pink-50 hover:border-pink-200"
+                  variant="outline"
                 >
                   {t('common.askQuestions')}
                 </Button>

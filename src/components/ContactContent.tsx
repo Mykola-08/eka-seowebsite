@@ -3,7 +3,7 @@
 import ContactFormOptimized from '@/components/ContactFormOptimized';
 import { MessageCircle, Phone, HelpCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import PageLayout from './PageLayout';
 import { motion } from 'framer-motion';
 import SEOUpdater from '@/components/SEOUpdater';
@@ -37,17 +37,14 @@ export default function ContactContent() {
                 >
                     <Button 
                       size="xl"
-                      className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-full shadow-lg shadow-green-500/20 hover:shadow-green-500/30 border-none normal-case flex items-center gap-3 transition-all duration-300 hover:scale-105"
+                      className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg shadow-green-500/20"
                     >
                       <MessageCircle className="w-6 h-6" />
                       <span className="text-lg">{t('contact.whatsapp')}</span>
                     </Button>
                 </a>
                 <a href="tel:+34658867133" className="group">
-                   <Button 
-                      size="xl"
-                      className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl border-none normal-case flex items-center gap-3 transition-all duration-300 hover:scale-105"
-                   >
+                   <Button size="xl">
                       <Phone className="w-6 h-6" />
                       <span className="text-lg">{t('contact.callNow')}</span>
                    </Button>
@@ -69,7 +66,7 @@ export default function ContactContent() {
           </section>
 
           {/* FAQ Section */}
-          <section className="py-24 bg-gray-50/50">
+          <section className="py-12 sm:py-16 md:py-24 bg-gray-50/50">
             <div className="section-container max-w-4xl mx-auto">
               <div className="text-center mb-16">
                  <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-6">

@@ -46,13 +46,13 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50/50">
-      <div className="section-container max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-white border border-gray-100 text-gray-500 text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
+    <section className="py-12 sm:py-16 md:py-24 bg-gray-50/50">
+      <div className="section-container max-w-4xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
+          <span className="inline-block py-1 px-3 rounded-full bg-white border border-gray-100 text-gray-500 text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-6 shadow-sm">
             FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-4 sm:mb-6 tracking-tight">
             {t('faq.title')}
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
@@ -60,15 +60,15 @@ const FAQ = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 ring-1 ring-black/5">
+        <div className="bg-white rounded-2xl sm:rounded-[2rem] p-4 sm:p-8 shadow-sm border border-gray-100 ring-1 ring-black/5">
           <Accordion type="single" collapsible defaultValue="item-1">
             {faqItems.map((item) => (
-              <AccordionItem key={item.id} value={item.id} className="border-b-gray-100 last:border-0 px-4">
-                <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-primary-600 hover:no-underline py-6">
+              <AccordionItem key={item.id} value={item.id} className="border-b-gray-100 last:border-0 px-2 sm:px-4">
+                <AccordionTrigger className="text-base sm:text-lg font-medium text-gray-900 hover:text-primary-600 hover:no-underline py-4 sm:py-6 min-h-[48px]">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-base leading-relaxed text-gray-600 pb-6 pr-8 font-light">
+                  <p className="text-sm sm:text-base leading-relaxed text-gray-600 pb-4 sm:pb-6 pr-4 sm:pr-8 font-light">
                     {item.answer}
                   </p>
                 </AccordionContent>

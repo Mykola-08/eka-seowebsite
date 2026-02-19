@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -34,7 +34,7 @@ export default function FamiliesContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                   <Button size="xl" className="btn btn-accent px-8 py-4 normal-case">
+                   <Button variant="accent" size="xl">
                       {t('common.reserveSession')}
                    </Button>
                 </Link>
@@ -47,7 +47,7 @@ export default function FamiliesContent() {
                   src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1920&h=1080&fit=crop"
                   alt={t('elena.target.families.title')}
                   fill
-                  className="object-cover rounded-apple-xl shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="object-cover rounded-apple-xl shadow-2xl"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Dna, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
@@ -44,10 +44,7 @@ export default function AgenyzContent() {
 
                         <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
                             <Link href='/booking'>
-                                <Button
-                                    size='xl'
-                                    className='btn btn-primary rounded-xl px-8'
-                                >
+                                <Button size='xl'>
                                     {t('common.bookNow')}
                                 </Button>
                             </Link>
@@ -56,12 +53,9 @@ export default function AgenyzContent() {
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
-                                <Button
-                                    size='xl'
-                                    className='btn btn-secondary bg-primary-600 border-none text-white hover:bg-primary-700 rounded-xl px-8'
-                                >
+                                <Button variant='secondary' size='xl'>
                                     {t('agenyz.cta.visitStore') || 'Visit Agenyz Store'}
-                                    <ArrowRight className='ml-2 w-5 h-5' />
+                                    <ArrowRight className='w-5 h-5' />
                                 </Button>
                             </a>
                         </div>
@@ -194,7 +188,7 @@ export default function AgenyzContent() {
 
                                         <div className='pt-6 border-t border-gray-100 flex items-center justify-between mt-auto'>
                                             <span className='text-sm font-medium text-gray-400'>{t('agenyz.viewDetails') || 'View details'}</span>
-                                            <Button size='sm' className='btn btn-outline border-primary-200 text-primary-600 hover:bg-primary-50 pointer-events-none rounded-xl'>
+                                            <Button variant='outline' size='icon' className='pointer-events-none'>
                                                 <ArrowRight className='w-4 h-4' />
                                             </Button>
                                         </div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import SEOUpdater from '@/components/SEOUpdater';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Heart, Star } from 'lucide-react';
 import CTASection from '@/components/CTASection';
@@ -45,8 +45,8 @@ export default function AboutElenaContent() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40" />
                 <div className="relative rounded-full overflow-hidden w-full h-full shadow-2xl">
                   <Image
                     src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
@@ -86,19 +86,12 @@ export default function AboutElenaContent() {
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
                  <Link href="/booking">
-                    <Button 
-                      size="xl" 
-                      className="btn btn-accent px-10 py-4 normal-case border-none"
-                    >
+                    <Button variant="accent" size="xl">
                       {t('common.bookNow')}
                     </Button>
                  </Link>
                  <Link href="/contact">
-                    <Button 
-                      size="xl" 
-                      variant="outline"
-                      className="btn btn-outline border-2 px-10 py-4 normal-case bg-white border-gray-200"
-                    >
+                    <Button variant="outline" size="xl">
                       {t('nav.contact')}
                     </Button>
                  </Link>

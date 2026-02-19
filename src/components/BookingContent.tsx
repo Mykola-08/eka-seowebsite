@@ -101,7 +101,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
       }}
     >
       {/* Booking Options Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-16">
             {/* Option 1: Direct Contact */}
@@ -125,7 +125,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 onClick={() => logEvent('booking_page_whatsapp_click')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn w-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg shadow-green-500/20 hover:shadow-green-500/30 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-flex items-center justify-center w-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg shadow-green-500/20 hover:shadow-green-500/30 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:-translate-y-1"
               >
                 {t('booking.direct.button')}
               </a>
@@ -153,10 +153,10 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     logEvent('booking_page_toggle_form', { show: !showForm });
                     setShowForm(!showForm);
                 }}
-                className={`btn w-full py-4 rounded-full text-lg font-medium shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
+                className={`inline-flex items-center justify-center w-full py-4 rounded-full text-lg font-medium shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
                   showForm 
-                    ? 'bg-gray-900 text-white hover:bg-gray-800 shadow-gray-900/20' 
-                    : 'bg-primary-600 text-white hover:bg-primary-700 shadow-blue-500/20'
+                    ? 'bg-gray-100 text-gray-900 hover:bg-gray-200 shadow-sm' 
+                    : 'bg-[#0071e3] text-white hover:bg-[#0077ed] shadow-[#0071e3]/20'
                 }`}
               >
                 {showForm ? t('booking.form.close') : t('booking.form.button')}
@@ -307,7 +307,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
       </section>
 
       {/* Contact Info */}
-      <section className="py-24 bg-gray-50/50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50/50">
         <div className="section-container max-w-5xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-12 tracking-tight">
             {t('booking.help.title')}

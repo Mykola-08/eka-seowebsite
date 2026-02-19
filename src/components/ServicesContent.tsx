@@ -5,7 +5,7 @@ import { Heart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import ServiceCard from '@/components/ServiceCard';
 import PageLayout from './PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
@@ -32,12 +32,9 @@ export default function ServicesContent() {
         {/* Quick CTA */}
         <div className="flex justify-center -mt-8 mb-16 relative z-20">
           <Link href="/booking">
-              <Button 
-              size="xl" 
-              className="btn btn-accent px-8 py-4 rounded-xl normal-case border-none"
-              >
+              <Button variant="accent" size="xl">
               {t('common.bookNow')}
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="w-5 h-5" />
               </Button>
           </Link>
         </div>
@@ -71,7 +68,7 @@ export default function ServicesContent() {
         </section>
 
         {/* Disclaimer */}
-        <section className="py-24 bg-white">
+        <section className="py-12 sm:py-16 md:py-24 bg-white">
           <div className="section-container">
             <div className="max-w-4xl mx-auto text-center">
               <div className="bg-yellow-50/50 p-8 rounded-[2rem] border border-yellow-100/50 shadow-sm">

@@ -1,5 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 
 interface ModalProps {
@@ -87,12 +88,13 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
                     <h3 className="text-2xl font-bold text-gray-900 leading-tight">
                       {title}
                     </h3>
-                    <button
+                    <Button
                       onClick={onClose}
-                      className="rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                      variant="ghost"
+                      size="icon"
                     >
                       <X className="h-5 w-5" />
-                    </button>
+                    </Button>
                   </div>
                 )}
                 
@@ -101,12 +103,14 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
                 </div>
                 
                 {!title && (
-                  <button
+                  <Button
                     onClick={onClose}
-                    className="absolute right-6 top-6 rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-6 top-6"
                   >
                     <X className="h-5 w-5" />
-                  </button>
+                  </Button>
                 )}
               </div>
             </motion.div>

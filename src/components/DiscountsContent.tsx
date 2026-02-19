@@ -8,6 +8,7 @@ import { useState } from 'react';
 import PageLayout from './PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import CTASection from '@/components/CTASection';
+import { Button } from '@/components/ui/button';
 
 export default function DiscountsContent() {
   const { t } = useLanguage();
@@ -137,12 +138,13 @@ export default function DiscountsContent() {
                           {t('discounts.activeBadge') || "Descompte actiu"}
                         </div>
                       ) : (
-                        <button
+                        <Button
                           onClick={() => handleApplyDiscount(discount.code || '')}
-                          className="w-full btn btn-primary py-3 rounded-xl shadow-sm"
+                          variant="default"
+                          className="w-full"
                         >
                           {t('discounts.apply') || "Aplicar descompte"}
-                        </button>
+                        </Button>
                       )}
                     </div>
                 )}

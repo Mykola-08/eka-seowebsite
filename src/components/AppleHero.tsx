@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
@@ -28,7 +28,7 @@ export default function AppleHero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-section-full">
+    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-section-full">
       {/* Background Image with smooth transitions */}
       <div className="absolute inset-0 transition-opacity duration-1000">
         {heroImages.map((image, index) => (
@@ -44,10 +44,10 @@ export default function AppleHero() {
       <div className="bg-overlay-dark" />
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center text-white px-5 sm:px-6 max-w-6xl mx-auto py-16 sm:py-0">
         {/* Badge - Glassy Style */}
         <AnimateIn delay={0.2} from="top">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-6 sm:mb-8 animate-fade-in">
             <span className="text-sm md:text-base font-medium tracking-wide text-white/90">
               {t('hero.badge')}
             </span>
@@ -56,31 +56,31 @@ export default function AppleHero() {
 
         {/* Main Title */}
         <AnimateIn delay={0.4} duration={0.8}>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-white mb-6 md:mb-8 font-bold tracking-tight drop-shadow-2xl">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-white mb-4 sm:mb-6 md:mb-8 font-bold tracking-tight drop-shadow-2xl leading-[1.1]">
             {t('hero.title')}
           </h1>
         </AnimateIn>
 
         {/* Subtitle */}
         <AnimateIn delay={0.6}>
-          <p className="apple-subtitle text-white/90 mb-8 md:mb-12 max-w-3xl mx-auto text-balance">
+          <p className="apple-subtitle text-white/90 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto text-balance text-base sm:text-lg md:text-xl">
             {t('hero.subtitle')}
           </p>
         </AnimateIn>
 
         {/* CTA Buttons */}
         <AnimateIn delay={0.8}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
-              <Button size="xl" className="btn btn-primary px-8 py-4 rounded-full shadow-lg hover:shadow-xl normal-case text-lg border-2 border-transparent hover:border-white/20">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <Link href="/first-time" className="group w-full sm:w-auto" onClick={() => logEvent('hero_first_time_click')}>
+              <Button size="xl" className="w-full sm:w-auto shadow-lg hover:shadow-xl text-base sm:text-lg">
                 {t('hero.firstTime')}
               </Button>
             </Link>
 
-            <Link href="/services" className="group" onClick={() => logEvent('hero_services_click')}>
-              <Button size="xl" className="btn btn-accent px-8 py-4 rounded-full shadow-lg hover:shadow-xl normal-case font-medium text-lg border-2 border-transparent">
+            <Link href="/services" className="group w-full sm:w-auto" onClick={() => logEvent('hero_services_click')}>
+              <Button variant="accent" size="xl" className="w-full sm:w-auto shadow-lg hover:shadow-xl font-medium text-base sm:text-lg">
                 {t('hero.discoverServices')}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </Button>
             </Link>
           </div>

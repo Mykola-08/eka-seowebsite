@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ServiceItem } from '@/shared/types';
@@ -13,24 +13,31 @@ interface ServiceCardProps {
 export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
   
-  // Minimalist palette - replacing multi-color system with unified EKA accents
-  const palette = { text: 'text-primary-700', dot: 'bg-primary-500' };
+  // Muted color palette per service — headline text + benefit dot
+  const colorMap: Record<string, { text: string; dot: string }> = {
+    orange:  { text: 'text-amber-700',   dot: 'bg-amber-400' },
+    blue:    { text: 'text-blue-700',    dot: 'bg-blue-400' },
+    green:   { text: 'text-emerald-700', dot: 'bg-emerald-400' },
+    purple:  { text: 'text-violet-700',  dot: 'bg-violet-400' },
+    pink:    { text: 'text-rose-700',    dot: 'bg-rose-400' },
+  };
+  const palette = colorMap[service.color] || { text: 'text-gray-700', dot: 'bg-gray-400' };
 
   return (
-    <div className="group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 hover:border-gray-200 hover:shadow-lg hover:shadow-gray-100/50">
+    <div className="h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm shadow-gray-100/50">
       <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
         <LazyImage
           src={service.image}
           alt={t(service.titleKey)}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 heading-3">
+        <h3 className={`text-xl font-semibold mb-2 heading-3 ${palette.text}`}>
           {t(service.titleKey)}
         </h3>
-        {/* Helper text/subtitle in orange/color */}
-        <p className={`text-sm font-medium mb-3 ${palette.text}`}>
+        {/* Helper text/subtitle */}
+        <p className="text-sm font-medium mb-3 text-gray-500">
           {t(service.subtitleKey)}
         </p>
 
@@ -57,17 +64,12 @@ export default function ServiceCard({ service }: ServiceCardProps) {
 
         <div className="mt-auto flex gap-3 pt-4">
           <Link href={service.href} className="flex-1">
-            <Button
-              variant="outline"
-              className="w-full btn btn-sm rounded-full p-2.5 normal-case border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900 bg-transparent"
-            >
+            <Button variant="outline" size="sm" className="w-full">
               {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
-            <Button
-              className="w-full btn btn-sm rounded-full p-2.5 normal-case border-none font-medium bg-gray-900 text-white hover:bg-gray-800 shadow-none"
-            >
+            <Button size="sm" className="w-full">
               {t('nav.bookNow')}
             </Button>
           </Link>

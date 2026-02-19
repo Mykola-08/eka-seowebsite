@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
 import { ArrowRight, Star } from 'lucide-react';
@@ -37,12 +37,9 @@ export default function PersonalizedServicesContent() {
 
              <div className="mt-8 flex justify-center">
                 <Link href="/booking">
-                <Button 
-                    size="xl" 
-                    className="btn btn-accent px-8 py-4 rounded-2xl shadow-xl border-none"
-                >
+                <Button variant="accent" size="xl">
                     {t('personalizedServices.cta')}
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <ArrowRight className="w-5 h-5" />
                 </Button>
                 </Link>
             </div>

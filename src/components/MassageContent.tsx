@@ -7,6 +7,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
 import SEOUpdater from '@/components/SEOUpdater';
+import FAQ from '@/components/FAQ';
+import CTASection from '@/components/CTASection';
 
 export default function MassageContent() {
   const { navigateToBooking } = useBooking();
@@ -189,25 +191,8 @@ export default function MassageContent() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 relative overflow-hidden bg-gray-900">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-        
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {t('services.readyToStart')}
-          </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
-            {t('services.contactUsToBook')}
-          </p>
-          <Button
-            onClick={() => navigateToBooking()}
-            className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] border-none px-10 h-14 rounded-2xl text-lg font-bold"
-          >
-            {t('common.bookNow')}
-          </Button>
-        </div>
-      </section>
+      <FAQ />
+      <CTASection />
     </PageLayout>
     </>
   );

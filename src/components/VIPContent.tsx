@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOUpdater from '@/components/SEOUpdater';
+import CTASection from '@/components/CTASection';
 
 // --- Constants & Data ---
 
@@ -385,6 +386,8 @@ export default function VIPContent() {
             </div>
          </div>
       </section>
+
+      <CTASection />
 
     </div>
   );

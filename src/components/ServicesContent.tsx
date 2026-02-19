@@ -9,6 +9,7 @@ import { Button } from 'keep-react';
 import ServiceCard from '@/components/ServiceCard';
 import PageLayout from './PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
+import CTASection from '@/components/CTASection';
 
 export default function ServicesContent() {
   const { t } = useLanguage();
@@ -68,6 +69,8 @@ export default function ServicesContent() {
             </p>
           </div>
         </section>
+
+        <CTASection />
       </PageLayout>
     </>
   );

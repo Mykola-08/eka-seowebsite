@@ -16,6 +16,7 @@ import ServiceCard from '@/components/ServiceCard';
 
 import AnimatedCounter from '@/components/AnimatedCounter';
 import SEOUpdater from '@/components/SEOUpdater';
+import CTASection from '@/components/CTASection';
 
 export default function HomeContent() {
   const { t } = useLanguage();
@@ -165,6 +166,8 @@ export default function HomeContent() {
 
       {/* FAQ Section */}
       <FAQ />
+
+      <CTASection />
     </>
   );
 }

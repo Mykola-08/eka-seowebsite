@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Button } from 'keep-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Heart, Star } from 'lucide-react';
+import CTASection from '@/components/CTASection';
 
 export default function AboutElenaContent() {
   const { t } = useLanguage();
@@ -170,31 +171,7 @@ export default function AboutElenaContent() {
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section className="py-20 bg-gray-50">
-           <div className="max-w-4xl mx-auto px-4 text-center">
-              <h2 className="text-3xl font-light text-[#000035] mb-8">{t('footer.readyToBegin')}</h2>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                 <Link href="/booking">
-                    <Button 
-                      size="xl" 
-                      className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] px-10 py-4 rounded-2xl font-medium shadow-lg hover:translate-y-[-2px] transition-all border-none normal-case"
-                    >
-                      {t('common.bookNow')}
-                    </Button>
-                 </Link>
-                 <Link href="/contact">
-                    <Button 
-                      size="xl" 
-                      variant="outline"
-                      className="bg-white text-gray-900 border-gray-200 px-10 py-4 rounded-2xl font-medium hover:bg-gray-100 normal-case"
-                    >
-                      {t('nav.contact')}
-                    </Button>
-                 </Link>
-              </div>
-           </div>
-        </section>
+        <CTASection />
       </div>
     </>
   );

@@ -247,7 +247,7 @@ export default function CasosContent() {
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035]"
+                  className="btn btn-accent border-none"
                 >
                   {t('casos.bookSession')}
                 </Button>

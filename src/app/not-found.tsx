@@ -1,29 +1,20 @@
 'use client';
 
 import Link from 'next/link';
+import { Button } from 'keep-react';
 
 export default function NotFound() {
   return (
-    <html lang="en">
-      <body style={{ fontFamily: 'system-ui, sans-serif', padding: '2rem', textAlign: 'center' }}>
-        <div>
-          <h2>404 - Page Not Found</h2>
-          <p style={{ marginBottom: '1.5rem' }}>The page you are looking for does not exist.</p>
-          <Link
-            href="/"
-            style={{
-              padding: '0.75rem 1.5rem',
-              backgroundColor: '#0070f3',
-              color: 'white',
-              textDecoration: 'none',
-              borderRadius: '0.5rem',
-              display: 'inline-block',
-            }}
-          >
-            Go back home
-          </Link>
-        </div>
-      </body>
-    </html>
+    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+      <h2 className="text-4xl font-bold text-eka-dark mb-4">404 - Page Not Found</h2>
+      <p className="text-gray-600 mb-8 max-w-md">
+        The page you are looking for does not exist or has been moved.
+      </p>
+      <Link href="/">
+        <Button size="xl" className="btn btn-primary">
+          Go back home
+        </Button>
+      </Link>
+    </div>
   );
 }

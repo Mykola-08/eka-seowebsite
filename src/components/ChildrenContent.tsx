@@ -7,6 +7,8 @@ import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
 import SEOUpdater from '@/components/SEOUpdater';
+import FAQ from '@/components/FAQ';
+import CTASection from '@/components/CTASection';
 
 export default function ChildrenContent() {
   const { t } = useLanguage();
@@ -141,7 +143,7 @@ export default function ChildrenContent() {
             </div>
         </div>
       </section>
-    </PageLayout>
-    </>
-  );
+
+      <FAQ />
+      <CTASection />
 }

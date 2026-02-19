@@ -7,6 +7,7 @@ import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
 import { useState } from 'react';
 import PageLayout from './PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
+import CTASection from '@/components/CTASection';
 
 export default function DiscountsContent() {
   const { t } = useLanguage();
@@ -176,6 +177,8 @@ export default function DiscountsContent() {
              </div>
         </div>
       </section>
+
+      <CTASection />
     </PageLayout>
   );
 }

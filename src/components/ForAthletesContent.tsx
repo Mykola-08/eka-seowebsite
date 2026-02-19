@@ -7,6 +7,8 @@ import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { Button } from 'keep-react';
 import SEOUpdater from '@/components/SEOUpdater';
+import FAQ from '@/components/FAQ';
+import CTASection from '@/components/CTASection';
 
 export default function ForAthletesContent() {
   const { navigateToBooking } = useBooking();
@@ -80,7 +82,7 @@ export default function ForAthletesContent() {
         </section>
 
         {/* Recommended Services */}
-        <section className="py-16">
+        <section className="py-16 bg-gradient-to-b from-transparent to-orange-50/30">
           <div className="max-w-6xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-12">
               <h2 className="heading-2 mb-4 font-bold text-eka-dark">
@@ -126,8 +128,6 @@ export default function ForAthletesContent() {
             </div>
           </div>
         </section>
-    </PageLayout>
-    </>
-  );
-}
 
+        <FAQ />
+        <CTASection />

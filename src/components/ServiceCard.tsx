@@ -66,7 +66,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           <Link href={service.href} className="flex-1">
             <Button
               variant="outline"
-              className="w-full btn btn-sm btn-secondary border-primary-200 text-primary-700 hover:bg-primary-50 rounded-xl p-2.5 normal-case"
+              className="w-full btn btn-sm btn-outline rounded-xl p-2.5 normal-case"
             >
               {t('common.readMore') || 'Read More'}
             </Button>

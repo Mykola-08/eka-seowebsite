@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import CTASection from '@/components/CTASection';
 
 // Move map to shared or props if needed, but safe here for rendering logic if id is passed
 const techniqueMap: Record<string, string> = {
@@ -70,6 +71,8 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
           </div>
         </motion.div>
       </div>
+      
+      <CTASection />
     </div>
   );
 }

@@ -448,25 +448,6 @@ export default function MainLayout({
         <CookieBanner />
         <LanguagePopup />
 
-        {/* Fixed Mobile Bottom CTA */}
-        <AnimatePresence>
-          {showMobileCTA && !isMenuOpen && (
-            <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 100, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="fixed bottom-0 left-0 right-0 px-4 pt-3 pb-safe bg-white/90 backdrop-blur-xl border-t border-gray-200/50 md:hidden z-50 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
-            >
-              <Link
-                href="/booking"
-                className="block w-full bg-accent hover:bg-accent-dark text-eka-dark font-bold text-center py-3.5 rounded-2xl shadow-lg transition-transform active:scale-[0.98] text-[17px] mb-2"
-              >
-                {t('nav.bookNow')}
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* Footer */}
         <footer className="py-10 sm:py-12 md:py-16 bg-gray-900 text-white mb-20 md:mb-0 border-t border-gray-800">

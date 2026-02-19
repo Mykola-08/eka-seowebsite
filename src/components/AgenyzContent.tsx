@@ -63,7 +63,7 @@ export default function AgenyzContent() {
 
                     <div className='order-1 lg:order-2'>
                         <div className='relative group'>
-                            <div className='absolute inset-0 bg-gradient-to-tr from-primary-200 to-indigo-200 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-duration-500' />
+                            <div className='absolute inset-0 bg-gradient-to-tr from-primary-200 to-indigo-200 rounded-apple blur-xl opacity-30 group-hover:opacity-50 transition-duration-500' />
                             <div className='relative aspect-[4/3]'>
                               <Image
                                   src='/agenyz-products.png'
@@ -73,7 +73,7 @@ export default function AgenyzContent() {
                                   sizes="(max-width: 1024px) 100vw, 50vw"
                               />
                             </div>
-                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20 z-10'>
+                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-xl rounded-apple p-4 shadow-xl border border-white/20 z-10'>
                                 <div className='flex items-center space-x-3'>
                                     <span className='relative flex h-3 w-3'>
                                         <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75'></span>
@@ -141,7 +141,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className='card card-interactive rounded-2xl p-8 flex flex-col h-full group'
+                                        className='card card-interactive rounded-apple p-8 flex flex-col h-full group'
                                     >
                                         <div className='mb-4 flex items-start justify-between'>
                                             <span className='px-3 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full uppercase tracking-wide'>
@@ -149,7 +149,7 @@ export default function AgenyzContent() {
                                             </span>
                                         </div>
 
-                                        <div className='relative w-full h-56 mb-6 bg-white rounded-2xl flex items-center justify-center p-4'>
+                                        <div className='relative w-full h-56 mb-6 bg-white rounded-apple flex items-center justify-center p-4'>
                                             {product.image ? (
                                                 <div className='relative w-full h-full'>
                                                     <Image

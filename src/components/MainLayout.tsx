@@ -125,14 +125,6 @@ export default function MainLayout({
     },
   ];
 
-  const isActivePath = (path: string) => {
-    if (!pathname) return false;
-    if (path === '/') {
-      return pathname === '/';
-    }
-    return pathname.startsWith(path);
-  };
-
   return (
     <div className="min-h-screen">
       <OfflineIndicator />
@@ -163,7 +155,7 @@ export default function MainLayout({
                         <>
                           <Link
                             href={item.href}
-                            className="nav-trigger text-[12px] text-gray-800/80 hover:text-black transition-colors duration-200 flex items-center tracking-tight"
+                            className="nav-trigger text-[12px] text-gray-900 hover:text-black transition-colors duration-200 flex items-center tracking-tight font-semibold"
                             onMouseEnter={openDropdown}
                             onMouseLeave={scheduleHide}
                             onFocus={openDropdown}
@@ -181,9 +173,9 @@ export default function MainLayout({
                             aria-hidden="true"
                           />
 
-                          {/* Dropdown menu with CSS-first positioning */}
+                          {/* Dropdown menu with matching background style */}
                           <div
-                            className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''} bg-white border border-gray-200/50 shadow-lg rounded-xl p-2 min-w-[200px]`}
+                            className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''} ${isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-white/70 backdrop-blur-md'} border border-gray-200/50 shadow-lg rounded-xl p-2 min-w-[200px]`}
                             onMouseEnter={openDropdown}
                             onMouseLeave={scheduleHide}
                             onKeyDown={(e) => {
@@ -199,7 +191,7 @@ export default function MainLayout({
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
                                 onClick={() => setShowPersonalServices(false)}
-                              className="block px-3 py-2 text-[13px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                              className="block px-3 py-2 text-[13px] text-gray-800 hover:text-black hover:bg-gray-100/50 rounded-lg transition-colors font-medium"
                                 role="menuitem"
                                 suppressHydrationWarning
                               >
@@ -212,7 +204,7 @@ export default function MainLayout({
                         <a
                           href={item.href}
                           rel="noopener noreferrer"
-                          className="text-[12px] text-gray-800/80 hover:text-black transition-colors duration-200 tracking-tight"
+                          className="text-[12px] text-gray-900 hover:text-black transition-colors duration-200 tracking-tight font-semibold"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -224,7 +216,7 @@ export default function MainLayout({
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-[12px] text-gray-800/80 hover:text-black transition-colors duration-200 tracking-tight"
+                          className="text-[12px] text-gray-900 hover:text-black transition-colors duration-200 tracking-tight font-semibold"
                           suppressHydrationWarning
                         >
                           {item.name}
@@ -237,10 +229,10 @@ export default function MainLayout({
               {/* Right side actions - Search/Bag style icons usually, here just Booking CTA but simpler */}
               <div className="flex items-center space-x-4 flex-shrink-0">
 
-                {/* Reserva Button - Simplified to text link or small button */}
+                {/* Reserva Button - Updated to Blue */}
                 <Link
                   href="/booking"
-                  className="hidden sm:inline-flex text-[12px] bg-black text-white px-3 py-1 rounded-full hover:bg-gray-800 transition-colors duration-200"
+                  className="hidden sm:inline-flex text-[12px] bg-[#0071e3] text-white px-3 py-1 rounded-full hover:bg-[#0077ED] transition-colors duration-200 font-medium"
                   suppressHydrationWarning
                 >
                   {t('nav.bookNow')}
@@ -282,7 +274,7 @@ export default function MainLayout({
                               setIsMenuOpen(false);
                               window.open(item.href, '_blank', 'noopener,noreferrer');
                             }}
-                            className="block py-2 text-[17px] font-medium text-gray-900"
+                            className="block py-2 text-[17px] font-semibold text-gray-900"
                           >
                             {item.name}
                           </a>
@@ -290,7 +282,7 @@ export default function MainLayout({
                           <Link
                             href={item.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="block py-2 text-[17px] font-medium text-gray-900"
+                            className="block py-2 text-[17px] font-semibold text-gray-900"
                           >
                             {item.name}
                           </Link>
@@ -302,7 +294,7 @@ export default function MainLayout({
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
                                 onClick={() => setIsMenuOpen(false)}
-                                className="block py-1 text-[15px] text-gray-600"
+                                className="block py-1 text-[15px] text-gray-600 font-medium"
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -317,7 +309,7 @@ export default function MainLayout({
                       <Link
                         href="/booking"
                         onClick={() => setIsMenuOpen(false)}
-                        className="block w-full bg-blue-600 text-white font-medium px-4 py-3 rounded-xl text-center"
+                        className="block w-full bg-[#0071e3] text-white font-semibold px-4 py-3 rounded-xl text-center"
                       >
                         {t('nav.bookNow')}
                       </Link>
@@ -353,7 +345,7 @@ export default function MainLayout({
             >
               <Link
                 href="/booking"
-                className="block w-full bg-blue-600 text-white font-medium text-center py-3 rounded-full shadow-lg"
+                className="block w-full bg-[#0071e3] text-white font-bold text-center py-3 rounded-full shadow-lg"
               >
                 {t('nav.bookNow')}
               </Link>

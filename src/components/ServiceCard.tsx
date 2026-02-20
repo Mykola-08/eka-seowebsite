@@ -26,7 +26,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const theme = colorMap[service.color] || { text: 'text-primary-700', dot: 'bg-primary-500', border: 'hover:border-gray-200' };
 
   return (
-    <div className={`group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 ${theme.border} hover:shadow-lg hover:shadow-gray-100/50`}>
+    <div className={`group h-full flex flex-col glassy-blue rounded-[2rem] overflow-hidden transition-all duration-300 ${theme.border}`}>
       <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
         <LazyImage
           src={service.image}

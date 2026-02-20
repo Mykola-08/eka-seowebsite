@@ -27,7 +27,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const theme = colorMap[service.color] || { dot: 'bg-accent', border: 'hover:border-gray-200' };
 
   return (
-    <div className={`group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 ${theme.border} hover:shadow-lg hover:shadow-gray-100/50`}>
+    <div className={`group h-full flex flex-col glassy-blue rounded-[2rem] overflow-hidden transition-all duration-300 ${theme.border}`}>
        <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
           <LazyImage
             src={service.image}
@@ -87,7 +87,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <Link href="/booking" className="flex-1">
              <Button 
                 variant="primary"
-                className="w-full py-3 shadow-md border-none normal-case"
+                className="w-full py-3 border-none normal-case"
              >
                {t('nav.bookNow')}
             </Button>

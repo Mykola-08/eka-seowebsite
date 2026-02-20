@@ -7,6 +7,7 @@ import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
 import { useState } from 'react';
 import PageLayout from './PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 import CTASection from '@/components/CTASection';
 
 export default function DiscountsContent() {
@@ -137,9 +138,10 @@ export default function DiscountsContent() {
                           {t('discounts.activeBadge') || "Descompte actiu"}
                         </div>
                       ) : (
-                        <button
+                        <Button
                           onClick={() => handleApplyDiscount(discount.code || '')}
-                          className="w-full btn btn-primary py-3 rounded-xl shadow-sm"
+                          variant="primary"
+                          className="w-full py-3 rounded-xl shadow-sm"
                         >
                           {t('discounts.apply') || "Aplicar descompte"}
                         </button>

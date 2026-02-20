@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 
 export default function ArtistsContent() {
@@ -31,7 +31,7 @@ export default function ArtistsContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                    <Button size="xl" className="btn btn-accent">
+                    <Button size="xl" variant="accent">
                       {t('common.reserveSession')}
                     </Button>
                 </Link>
@@ -191,14 +191,15 @@ export default function ArtistsContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                   <Button size="xl" className="btn btn-primary bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] w-full sm:w-auto">
+                   <Button size="xl" variant="gold" className="w-full sm:w-auto">
                     {t('artists.session.cta')}
                    </Button>
                 </Link>
                 <Link href="/services">
                   <Button
                     size="xl"
-                    className="btn btn-outline bg-white border-gray-200 text-gray-700 hover:bg-gray-50 w-full sm:w-auto"
+                    variant="outline"
+                    className="bg-white border-gray-200 text-gray-700 hover:bg-gray-50 w-full sm:w-auto"
                   >
                     {t('artists.session.other')}
                   </Button>

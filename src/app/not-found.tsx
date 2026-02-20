@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
@@ -11,7 +11,7 @@ export default function NotFound() {
         The page you are looking for does not exist or has been moved.
       </p>
       <Link href="/">
-        <Button size="xl" className="btn btn-primary">
+        <Button size="xl" variant="primary">
           Go back home
         </Button>
       </Link>

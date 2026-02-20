@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -34,7 +34,7 @@ export default function ChildrenContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                  <Link href="/booking">
-                   <Button size="xl" className="btn btn-accent px-8 py-4 normal-case">
+                   <Button size="xl" variant="accent" className="px-8 py-4 normal-case">
                       {t('common.reserveSession')}
                    </Button>
                 </Link>

@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -24,15 +24,17 @@ export default function CTASection() {
           <Button
             onClick={() => navigateToBooking()}
             size="xl"
-            className="btn-primary px-8 py-4"
+            variant="primary"
+            className="px-8 py-4"
           >
             {t('common.bookNow')}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           <Link href="/contact">
-            <Button 
-              size="xl" 
-              className="btn-secondary px-8 py-4"
+            <Button
+              size="xl"
+              variant="outline"
+              className="px-8 py-4"
             >
               {t('common.contactUs') || 'Contact Us'}
             </Button>

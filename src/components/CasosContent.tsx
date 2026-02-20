@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
 
@@ -247,7 +247,8 @@ export default function CasosContent() {
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  className="btn btn-accent border-none"
+                  variant="accent"
+                  className="border-none"
                 >
                   {t('casos.bookSession')}
                 </Button>
@@ -255,7 +256,8 @@ export default function CasosContent() {
              <Link href="/services">
                 <Button 
                   size="xl" 
-                  className="btn btn-outline border-white/20 text-white hover:bg-white/10"
+                  variant="outline"
+                  className="bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white"
                 >
                   {t('casos.discoverIdeal')}
                 </Button>

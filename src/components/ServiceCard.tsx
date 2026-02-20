@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ServiceItem } from '@/shared/types';
@@ -59,14 +59,15 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           <Link href={service.href} className="flex-1">
             <Button
               variant="outline"
-              className="w-full btn-outline p-2.5 normal-case"
+              className="w-full p-2.5 normal-case"
             >
               {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
             <Button
-              className="w-full btn-primary p-2.5 normal-case shadow-none"
+              variant="primary"
+              className="w-full p-2.5 normal-case shadow-none"
             >
               {t('nav.bookNow')}
             </Button>

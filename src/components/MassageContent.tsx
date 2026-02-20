@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Clock, Heart } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -57,8 +57,10 @@ export default function MassageContent() {
 
             <div className="flex flex-wrap gap-4">
               <Button 
+                size="xl"
+                variant="gold"
                 onClick={() => navigateToBooking()}
-                className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] border-none rounded-2xl px-8 h-14 text-lg font-semibold shadow-lg shadow-amber-200/50"
+                className="shadow-lg shadow-amber-200/50"
               >
                 {t('common.bookNow')}
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -152,8 +154,9 @@ export default function MassageContent() {
                 </p>
                 
                 <Button
+                  variant="primary"
                   onClick={() => navigateToBooking()}
-                  className="btn-primary w-full h-12 border-none"
+                  className="w-full h-12 border-none"
                 >
                   {t('common.bookNow')}
                 </Button>

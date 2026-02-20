@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { CalendarCheck2, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
 
 export default function FinalInvitationSection() {
   const { t } = useLanguage();
@@ -23,24 +24,34 @@ export default function FinalInvitationSection() {
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-360-primary px-7 py-3.5 text-base inline-flex items-center gap-2 transition-transform hover:scale-105 duration-300 shadow-lg shadow-amber-500/20"
+            <Button
+              asChild
+              className="btn-360-primary h-auto px-7 py-3.5 text-base shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95 transition-transform duration-300"
             >
-              <CalendarCheck2 className="h-4.5 w-4.5" />
-              {t('final.cta')}
-            </a>
-            <a
-              href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-360-secondary px-7 py-3.5 text-base inline-flex items-center gap-2 hover:bg-white/10 transition-colors"
+              <a
+                href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <CalendarCheck2 className="h-4.5 w-4.5 mr-2" />
+                {t('final.cta')}
+              </a>
+            </Button>
+            
+            <Button
+              asChild
+              variant="outline"
+              className="btn-360-secondary h-auto px-7 py-3.5 text-base border-amber-500/30 text-amber-200 hover:bg-zinc-700/70 hover:text-amber-100 hover:border-amber-500/50 hover:scale-105 transition-all duration-300"
             >
-              <MessageCircle className="h-4.5 w-4.5" />
-              {t('cta.scheduleDiscoveryCall')}
-            </a>
+              <a
+                href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="h-4.5 w-4.5 mr-2" />
+                {t('cta.scheduleDiscoveryCall')}
+              </a>
+            </Button>
           </div>
 
           <div className="mt-9 flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-zinc-200/90">

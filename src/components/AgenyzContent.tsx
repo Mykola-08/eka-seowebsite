@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Dna, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
@@ -46,7 +46,8 @@ export default function AgenyzContent() {
                             <Link href='/booking'>
                                 <Button
                                     size='xl'
-                                    className='btn btn-primary rounded-xl px-8'
+                                    variant='primary'
+                                    className='px-8'
                                 >
                                     {t('common.bookNow')}
                                 </Button>
@@ -58,7 +59,7 @@ export default function AgenyzContent() {
                             >
                                 <Button
                                     size='xl'
-                                    className='btn btn-secondary bg-primary-600 border-none text-white hover:bg-primary-700 rounded-xl px-8'
+                                    className='bg-primary-600 border-none text-white hover:bg-primary-700 px-8'
                                 >
                                     {t('agenyz.cta.visitStore') || 'Visit Agenyz Store'}
                                     <ArrowRight className='ml-2 w-5 h-5' />

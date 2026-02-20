@@ -1,92 +1,75 @@
-import { ReactNode } from 'react';
-import { CircleNotch } from 'phosphor-react';
-import { Button } from 'keep-react';
+import { Button, ButtonProps } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-interface LoadingButtonProps {
-  children: ReactNode;
+export interface LoadingButtonProps extends ButtonProps {
   loading?: boolean;
-  disabled?: boolean;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
-  variant?: 'default' | 'softBg' | 'outline' | 'link';
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-  className?: string;
-  loadingText?: string;
 }
 
-export default function LoadingButton({
-  children,
-  loading = false,
-  disabled = false,
-  onClick,
-  type = 'button',
-  color = 'primary',
-  variant = 'default',
-  size = 'md',
-  className = '',
-  loadingText,
+export default function LoadingButton({ 
+  loading, 
+  children, 
+  className, 
+  disabled,
+  ...props 
 }: LoadingButtonProps) {
-  const isDisabled = disabled || loading;
-
   return (
     <Button
-      type={type}
-      onClick={onClick}
-      disabled={isDisabled}
-      color={color}
-      variant={variant}
-      size={size}
-      className={`${loading ? 'cursor-wait' : ''} normal-case ${className}`}
+      className={cn("relative transition-all duration-200", className)}
+      disabled={loading || disabled}
+      {...props}
     >
-      {loading && (
-        <CircleNotch className="w-4 h-4 mr-2 animate-spin" />
+      {loading ? (
+        <>
+          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+          {children}
+        </>
+      ) : (
+        children
       )}
-      {loading && loadingText ? loadingText : children}
     </Button>
   );
 }
+
 
 // Specialized buttons using Keep React
 export function SaveButton({ 
   loading, 
   saved, 
+  children,
   ...props 
 }: LoadingButtonProps & { saved?: boolean }) {
   return (
     <LoadingButton
       {...props}
-      color={saved ? 'success' : (props.color || 'primary')}
+      variant={saved ? "outline" : (props.variant || "primary")}
       loading={loading}
-      loadingText="Desant..."
     >
-      {saved ? '✓ Desat' : (props.children || 'Desar')}
+      {saved ? '✓ Desat' : (loading ? 'Desant...' : (children || 'Desar'))}
     </LoadingButton>
   );
 }
 
-export function SubmitButton({ loading, ...props }: LoadingButtonProps) {
+export function SubmitButton({ loading, children, ...props }: LoadingButtonProps) {
   return (
     <LoadingButton
-      {...props}
       type="submit"
       loading={loading}
-      loadingText="Enviant..."
+      {...props}
     >
-      {props.children || 'Enviar'}
+      {loading ? 'Enviant...' : (children || 'Enviar')}
     </LoadingButton>
   );
 }
 
-export function DeleteButton({ loading, ...props }: LoadingButtonProps) {
+export function DeleteButton({ loading, children, ...props }: LoadingButtonProps) {
   return (
     <LoadingButton
-      {...props}
-      color="error"
+      variant="destructive"
       loading={loading}
-      loadingText="Eliminant..."
+      {...props}
     >
-      {props.children || 'Eliminar'}
+      {loading ? 'Eliminant...' : (children || 'Eliminar')}
     </LoadingButton>
   );
 }

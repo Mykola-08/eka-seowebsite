@@ -5,7 +5,7 @@ import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -35,7 +35,7 @@ export default function ForOfficeWorkersContent() {
                 <Button
                   onClick={() => navigateToBooking()}
                   size="xl"
-                  className="btn btn-accent"
+                  variant="accent"
                 >
                   {t('common.bookNow')}
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -45,7 +45,8 @@ export default function ForOfficeWorkersContent() {
                 >
                     <Button 
                         size="xl" 
-                        className="btn btn-outline bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
+                        variant="outline"
+                        className="bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
                     >
                         {t('common.askQuestions')}
                     </Button>

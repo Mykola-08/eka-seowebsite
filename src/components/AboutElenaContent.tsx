@@ -4,7 +4,7 @@ import Link from 'next/link';
 import SEOUpdater from '@/components/SEOUpdater';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Heart, Star } from 'lucide-react';
 import CTASection from '@/components/CTASection';
@@ -88,7 +88,8 @@ export default function AboutElenaContent() {
                  <Link href="/booking">
                     <Button 
                       size="xl" 
-                      className="btn btn-accent px-10 py-4 normal-case border-none"
+                      variant="accent"
+                      className="px-10 py-4 normal-case border-none"
                     >
                       {t('common.bookNow')}
                     </Button>
@@ -97,7 +98,7 @@ export default function AboutElenaContent() {
                     <Button 
                       size="xl" 
                       variant="outline"
-                      className="btn btn-outline border-2 px-10 py-4 normal-case bg-white border-gray-200"
+                      className="px-10 py-4 normal-case bg-white border-gray-200"
                     >
                       {t('nav.contact')}
                     </Button>

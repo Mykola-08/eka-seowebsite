@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
 import AppleHero from '@/components/AppleHero';
@@ -13,7 +13,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/components/ServiceCard';
 
-import AnimatedCounter from '@/components/AnimatedCounter';
 import SEOUpdater from '@/components/SEOUpdater';
 import CTASection from '@/components/CTASection';
 
@@ -49,7 +48,7 @@ export default function HomeContent() {
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gray-50/50 hover:bg-gray-50 transition-colors duration-300">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2500} />
+                  {stat.value}{stat.suffix}
                 </div>
                 <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</span>
               </div>
@@ -112,7 +111,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block">
-                <Button variant="outline" className="btn btn-secondary border-gray-200 text-gray-900 bg-white hover:bg-gray-50 px-8 py-3 rounded-full normal-case transition-all duration-300 hover:shadow-lg">
+                <Button variant="outline" className="border-gray-200 text-gray-900 bg-white hover:bg-gray-50 px-8 py-3 shadow-md hover:shadow-lg transition-all duration-300">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -150,7 +149,7 @@ export default function HomeContent() {
 
           <div className="mt-12 text-center">
             <Link href="/services">
-              <Button className="btn btn-primary px-8 py-3 rounded-xl normal-case transition-all hover:scale-105">
+              <Button variant="primary" className="px-8 py-3 text-white transition-all hover:scale-105">
                 {t('services.viewAll')}
               </Button>
             </Link>

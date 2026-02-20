@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion } from 'framer-motion';
 import { z } from 'zod';
+import { Button } from '@/components/ui/button';
 
 // Zod Schema for Validation
 const createContactSchema = (t: (key: string) => string) => z.object({
@@ -211,12 +212,13 @@ export default function ContactFormOptimized() {
           <p className="text-gray-600 mb-8 leading-relaxed text-lg">
             {t('contact.success.message')}
           </p>
-          <button
+          <Button
             onClick={() => setIsSubmitted(false)}
-            className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-3 rounded-xl transition-colors duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            className="bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            size="lg"
           >
             {t('contact.success.button')}
-          </button>
+          </Button>
         </div>
       </motion.div>
     );
@@ -537,10 +539,12 @@ export default function ContactFormOptimized() {
                   {errors.privacy_policy && <p className="text-red-500 text-xs ml-8">{errors.privacy_policy}</p>}
                 </div>
 
-                <button
+                <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                  className="w-full shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                  variant="primary"
+                  size="xl"
                 >
                   {isSubmitting ? (
                     <>
@@ -553,7 +557,7 @@ export default function ContactFormOptimized() {
                       {t('contact.form.submit')}
                     </>
                   )}
-                </button>
+                </Button>
               </form>
 
               {/* Quick Contact */}

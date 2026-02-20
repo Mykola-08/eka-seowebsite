@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 
 export default function AdultsContent() {
@@ -119,7 +119,7 @@ export default function AdultsContent() {
                 {t('adult.cta.desc')}
             </p>
             <Link href="/booking">
-                <Button size="xl" className="btn btn-accent">
+                <Button size="xl" variant="accent">
                     {t('common.bookNow')}
                 </Button>
             </Link>

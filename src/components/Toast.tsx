@@ -2,7 +2,8 @@
 
 
 import { useState, useEffect, useCallback } from 'react';
-import { Alert } from 'keep-react';
+import { CheckCircle, AlertCircle, Info, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 declare global {
   interface Window {
@@ -54,90 +55,97 @@ function ToastComponent({ toast, onClose }: ToastProps) {
     }
   }, [toast.duration, handleClose]);
 
-  const getKeepColor = () => {
+  const getVariantStyles = () => {
     switch (toast.type) {
       case 'success':
-        return 'success';
+        return 'bg-green-50 border-green-200 text-green-900';
       case 'error':
-        return 'error';
+        return 'bg-red-50 border-red-200 text-red-900';
       case 'warning':
-        return 'warning';
+        return 'bg-yellow-50 border-yellow-200 text-yellow-900';
       case 'info':
-        return 'primary';
       default:
-        return 'primary';
+        return 'bg-blue-50 border-blue-200 text-blue-900';
+    }
+  };
+
+  const getIcon = () => {
+    switch (toast.type) {
+      case 'success':
+        return <CheckCircle className="w-5 h-5 text-green-600" />;
+      case 'error':
+        return <AlertCircle className="w-5 h-5 text-red-600" />;
+      case 'warning':
+        return <AlertCircle className="w-5 h-5 text-yellow-600" />;
+      case 'info':
+      default:
+        return <Info className="w-5 h-5 text-blue-600" />;
+    }
+  };
+
+  const progressBarColor = () => {
+    switch (toast.type) {
+      case 'success': return 'bg-green-600';
+      case 'error': return 'bg-red-600';
+      case 'warning': return 'bg-yellow-600';
+      case 'info': default: return 'bg-blue-600';
     }
   };
 
   return (
     <div
-      className={`
-        relative overflow-hidden max-w-md w-full
-        transition-all duration-200 ease-out transform
-        ${isVisible && !isExiting
+      className={cn(
+        "relative overflow-hidden max-w-md w-full rounded-lg border shadow-lg backdrop-blur-sm transition-all duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
+        getVariantStyles(),
+        isVisible && !isExiting
           ? 'translate-x-0 opacity-100 scale-100'
-          : isExiting
-            ? 'translate-x-full opacity-0 scale-95'
-            : 'translate-x-full opacity-0 scale-95'
-        }
-      `}
+          : 'translate-x-full opacity-0 scale-95'
+      )}
     >
-      <Alert
-        color={getKeepColor()}
-        withBg
-        className="shadow-lg backdrop-blur-sm relative"
-      >
-        <div className="flex items-start justify-between">
-          <div className="flex-1 min-w-0">
-            <h3 className="text-sm font-medium">
-              {toast.title}
-            </h3>
-            {toast.message && (
-              <p className="mt-1 text-sm opacity-90">
-                {toast.message}
-              </p>
-            )}
-            {toast.action && (
-              <div className="mt-3">
-                <button
-                  onClick={toast.action.onClick}
-                  className="text-sm font-medium underline hover:no-underline transition-all"
-                >
-                  {toast.action.label}
-                </button>
-              </div>
-            )}
-          </div>
-          <button
-            onClick={handleClose}
-            className="ml-4 text-xl leading-none hover:opacity-70 transition-opacity"
-          >
-            ×
-          </button>
-        </div>
-
-        {/* Progress bar for duration */}
-        {toast.duration && toast.duration > 0 && (
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10">
-            <div
-              className="h-full bg-current opacity-30 transition-all ease-linear"
-              style={{
-                animation: `shrink ${toast.duration}ms linear forwards`,
-                width: '100%'
-              }}
-            />
+      <div className="flex-shrink-0 mt-0.5">
+        {getIcon()}
+      </div>
+      
+      <div className="flex-1 min-w-0">
+        <h3 className="text-sm font-medium pr-6">
+          {toast.title}
+        </h3>
+        {toast.message && (
+          <p className="mt-1 text-sm opacity-90">
+            {toast.message}
+          </p>
+        )}
+        {toast.action && (
+          <div className="mt-3">
+            <button
+              onClick={toast.action.onClick}
+              className="text-sm font-medium underline hover:no-underline transition-all"
+            >
+              {toast.action.label}
+            </button>
           </div>
         )}
-      </Alert>
+      </div>
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes shrink {
-            from { width: 100%; }
-            to { width: 0%; }
-          }
-        `
-      }} />
+      <button
+        onClick={handleClose}
+        className="absolute top-4 right-4 text-current opacity-70 hover:opacity-100 transition-opacity p-0.5 rounded-full hover:bg-black/5"
+      >
+        <X className="w-4 h-4" />
+      </button>
+
+      {/* Progress bar for duration */}
+      {toast.duration && toast.duration > 0 && (
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/5">
+          <div
+            className={cn("h-full transition-all ease-linear", progressBarColor())}
+            style={{
+              width: isVisible && !isExiting ? '0%' : '100%',
+              transitionDuration: `${toast.duration}ms`
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }

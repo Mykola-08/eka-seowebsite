@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
 import LazyImage from '@/components/LazyImage';
@@ -74,7 +74,8 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         <div className="flex gap-4">
           <Link href="/booking" className="flex-1">
              <Button 
-                className="w-full btn btn-accent py-3 rounded-xl shadow-md border-none normal-case"
+                variant="accent"
+                className="w-full py-3 shadow-md border-none normal-case"
              >
                {t('nav.bookNow')}
             </Button>
@@ -82,7 +83,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <Link href={service.href} className="flex-1">
              <Button 
                 variant="outline"
-                className="w-full btn btn-outline py-3 rounded-xl normal-case"
+                className="w-full py-3 normal-case"
                 >
                {t('common.readMore') || 'Read More'}
             </Button>

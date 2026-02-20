@@ -3,7 +3,7 @@
 import ContactFormOptimized from '@/components/ContactFormOptimized';
 import { MessageCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import PageLayout from './PageLayout';
 import { motion } from 'framer-motion';
 import SEOUpdater from '@/components/SEOUpdater';
@@ -37,7 +37,7 @@ export default function ContactContent() {
                 >
                     <Button 
                       size="xl"
-                      className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 rounded-full shadow-lg shadow-green-500/20 hover:shadow-green-500/30 border-none normal-case flex items-center gap-3 transition-all duration-300 hover:scale-105"
+                      className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium px-8 py-4 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 border-none normal-case gap-3 transition-all duration-300 hover:scale-105"
                     >
                       <MessageCircle className="w-6 h-6" />
                       <span className="text-lg">{t('contact.whatsapp')}</span>
@@ -46,7 +46,8 @@ export default function ContactContent() {
                 <a href="tel:+34658867133" className="group">
                    <Button 
                       size="xl"
-                      className="btn-primary px-8 py-4 flex items-center gap-3 border-none normal-case"
+                      variant="primary"
+                      className="px-8 py-4 gap-3 border-none normal-case"
                    >
                       <Phone className="w-6 h-6" />
                       <span className="text-lg">{t('contact.callNow')}</span>

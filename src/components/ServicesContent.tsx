@@ -5,7 +5,7 @@ import { Heart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import ServiceCard from '@/components/ServiceCard';
 import PageLayout from './PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
@@ -34,7 +34,8 @@ export default function ServicesContent() {
           <Link href="/booking">
               <Button 
               size="xl" 
-              className="btn btn-accent px-8 py-4 rounded-xl normal-case border-none"
+              variant="accent"
+              className="px-8 py-4 px rounded-full normal-case border-none"
               >
               {t('common.bookNow')}
               <ArrowRight className="ml-2 w-5 h-5" />

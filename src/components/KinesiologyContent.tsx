@@ -5,7 +5,7 @@ import { ArrowRight, Brain, CheckCircle2, Clock, Zap } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -60,7 +60,8 @@ export default function KinesiologiaContent() {
                 <Button 
                   onClick={() => navigateToBooking()}
                   size="xl"
-                  className="bg-primary-600 hover:bg-primary-700 text-white border-none rounded-full px-10 py-4 text-lg font-medium shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
+                  variant="primary"
+                  className="shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
                 >
                   {t('common.bookNow')}
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -161,8 +162,9 @@ export default function KinesiologiaContent() {
                 </p>
                 
                 <Button
+                  variant="primary"
                   onClick={() => navigateToBooking()}
-                  className="btn-primary w-full h-12 border-none"
+                  className="w-full h-12 border-none"
                 >
                   {t('common.bookNow')}
                 </Button>

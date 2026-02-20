@@ -1,4 +1,5 @@
 import { Component, ReactNode, ErrorInfo } from 'react';
+import { Button } from '@/components/ui/button';
 import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
 
 interface Props {
@@ -80,21 +81,23 @@ export default class ErrorBoundary extends Component<Props, State> {
             )}
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
+              <Button
                 onClick={this.handleRetry}
-                className="btn-primary"
+                variant="primary"
+                className="w-full sm:w-auto"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Tornar a intentar
-              </button>
+              </Button>
               
-              <button
-                onClick={this.handleGoHome}
-                className="btn-neutral"
+              <Button
+                onClick={() => window.location.href = '/'}
+                variant="outline"
+                className="w-full sm:w-auto"
               >
                 <Home className="w-4 h-4 mr-2" />
                 Anar a l'inici
-              </button>
+              </Button>
             </div>
           </div>
         </div>

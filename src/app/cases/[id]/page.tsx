@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from 'keep-react';
+import { Button } from '@/components/ui/button';
 
 export const dynamic = 'force-dynamic';
 
@@ -176,7 +176,8 @@ export default function CasoDetailPage() {
             <Link href={config.href}>
               <Button
                 size="xl"
-                className="bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-bold px-8 py-4 rounded-2xl border-none hover:scale-105 transition-transform shadow-lg"
+                variant="gold"
+                className="font-bold px-8 py-4 border-none hover:scale-105 transition-transform shadow-lg"
               >
                 {t('common.bookNow')}
                 <ArrowRight className="w-5 h-5 ml-2" />

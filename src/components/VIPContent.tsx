@@ -230,7 +230,7 @@ export default function VIPContent() {
               <span className="text-amber-800 font-medium tracking-wide">VIP CLUB</span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-serif text-gray-900 mb-8 tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-sans text-gray-900 mb-8 tracking-tight">
                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">
                 {t('vip.hero.title')}
                </span>
@@ -275,7 +275,7 @@ export default function VIPContent() {
       <section className="py-24 bg-gray-50">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-               <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">{t('vip.services.title')}</h2>
+               <h2 className="text-4xl md:text-5xl font-sans text-gray-900 mb-6">{t('vip.services.title')}</h2>
                <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">{t('vip.services.subtitle')}</p>
             </div>
 

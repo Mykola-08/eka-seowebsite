@@ -1,11 +1,17 @@
-
-import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from 'next';
 import "./globals.css";
 import MainLayout from "@/components/MainLayout";
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { DiscountProvider } from "@/contexts/DiscountContext";
 import { BookingProvider } from '@/components/BookingProvider';
 import SmoothScrolling from "@/components/SmoothScrolling";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ekabalance.com'),
@@ -72,8 +78,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans">
+    <html lang="en" className={inter.variable}>
+      <body className="font-sans antialiased text-gray-900 bg-white">
         <SmoothScrolling>
           <LanguageProvider>
             <DiscountProvider>

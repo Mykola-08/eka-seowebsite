@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'SF Pro Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  
   /* Font Weights */
+  --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -59,11 +57,12 @@
 
 @layer base {
   body {
-    @apply text-gray-900 leading-relaxed;
+    @apply text-gray-900 leading-relaxed antialiased bg-white;
     font-weight: 400;
-    letter-spacing: -0.003em;
-    background-color: #ffffff;
-    min-height: 100vh;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300; /* Lighter weight for luxury feel */
+    line-height: 1.6;
+    letter-spacing: 0.01em; /* Slight tracking for elegance */
   }
 
   h1,
@@ -72,22 +71,40 @@
   h4,
   h5,
   h6 {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    @apply text-eka-dark;
-    font-weight: var(--font-weight-semibold);
-    text-wrap: balance;
-    letter-spacing: -0.015em;
-    line-height: 1.1;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply text-gray-900;
+    font-weight: 500; /* Medium weight, not bold */
+    letter-spacing: -0.02em; /* Tighter tracking for headings */
+    line-height: 1.2;
   }
 
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
   p {
-    font-weight: 400;
-    line-height: 1.5;
-    color: #374151;
+    @apply text-gray-600;
+    font-weight: 300;
+    margin-bottom: 1.5em;
+  }
+
+  strong {
+    font-weight: 600;
+    @apply text-gray-900;
   }
 
   * {
-    @apply border-gray-200/30;
+    @apply border-gray-200;
   }
 }
 
@@ -173,25 +190,23 @@
 
   .btn-primary {
     @apply btn;
-    @apply text-white;
-    background: #3b82f6;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+    @apply text-white bg-primary hover:bg-primary-600;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
   }
 
   .btn-primary:hover {
-    background: #2563eb;
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3);
   }
 
   .btn-accent {
     @apply btn;
     @apply text-[#000035];
     background: #ffb405;
+    @apply bg-accent hover:bg-accent-dark;
     box-shadow: 0 4px 12px rgba(255, 180, 5, 0.25);
   }
 
   .btn-accent:hover {
-    background: #eab308;
     box-shadow: 0 6px 16px rgba(255, 180, 5, 0.3);
   }
 
@@ -200,6 +215,12 @@
     @apply bg-white/80 backdrop-blur-md border border-gray-200/50 hover:bg-white;
     @apply text-gray-900;
     box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-neutral {
+    @apply btn;
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900;
+    box-shadow: none;
   }
 
   .btn-ghost {
@@ -291,7 +312,7 @@
 
   /* Typography */
   .apple-headline, .heading-1 {
-    font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white;
     font-weight: 300;
     letter-spacing: -0.025em;
@@ -299,7 +320,7 @@
   }
 
   .apple-title, .heading-2 {
-    font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     @apply text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 dark:text-white;
     font-weight: 500;
     letter-spacing: -0.020em;
@@ -327,7 +348,7 @@
   }
 
   .apple-large-title {
-    font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     @apply text-6xl md:text-7xl lg:text-8xl font-light text-gray-900 dark:text-white;
     font-weight: 200;
     letter-spacing: -0.035em;

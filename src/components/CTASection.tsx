@@ -24,7 +24,7 @@ export default function CTASection() {
           <Button
             onClick={() => navigateToBooking()}
             size="xl"
-            className="rounded-full px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-200 transition-all hover:scale-105"
+            className="btn-primary px-8 py-4"
           >
             {t('common.bookNow')}
             <ArrowRight className="w-5 h-5 ml-2" />
@@ -32,7 +32,7 @@ export default function CTASection() {
           <Link href="/contact">
             <Button 
               size="xl" 
-              className="rounded-full px-8 py-4 bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 shadow-sm"
+              className="btn-secondary px-8 py-4"
             >
               {t('common.contactUs') || 'Contact Us'}
             </Button>

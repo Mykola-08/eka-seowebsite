@@ -1,7 +1,7 @@
 'use client';
 
 import ContactFormOptimized from '@/components/ContactFormOptimized';
-import { MessageCircle, Phone, HelpCircle } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from 'keep-react';
 import PageLayout from './PageLayout';
@@ -46,7 +46,7 @@ export default function ContactContent() {
                 <a href="tel:+34658867133" className="group">
                    <Button 
                       size="xl"
-                      className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl border-none normal-case flex items-center gap-3 transition-all duration-300 hover:scale-105"
+                      className="btn-primary px-8 py-4 flex items-center gap-3 border-none normal-case"
                    >
                       <Phone className="w-6 h-6" />
                       <span className="text-lg">{t('contact.callNow')}</span>

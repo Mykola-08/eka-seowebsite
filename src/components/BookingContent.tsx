@@ -155,8 +155,8 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 }}
                 className={`btn w-full py-4 rounded-full text-lg font-medium shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
                   showForm 
-                    ? 'bg-gray-900 text-white hover:bg-gray-800 shadow-gray-900/20' 
-                    : 'bg-primary-600 text-white hover:bg-primary-700 shadow-blue-500/20'
+                    ? 'btn-neutral shadow-none' 
+                    : 'btn-primary shadow-blue-500/20'
                 }`}
               >
                 {showForm ? t('booking.form.close') : t('booking.form.button')}

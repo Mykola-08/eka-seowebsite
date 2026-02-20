@@ -153,7 +153,7 @@ export default function MassageContent() {
                 
                 <Button
                   onClick={() => navigateToBooking()}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white rounded-xl h-12 border-none"
+                  className="btn-primary w-full h-12 border-none"
                 >
                   {t('common.bookNow')}
                 </Button>

@@ -1022,9 +1022,9 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
               <button
                 onClick={handleNext}
-                className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${canProceed()
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                className={`${canProceed()
+                  ? 'btn-primary'
+                  : 'btn bg-gray-200 text-gray-400 cursor-not-allowed hover:bg-gray-200 shadow-none'
                   }`}
                 disabled={!canProceed()}
               >

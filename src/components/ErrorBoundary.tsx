@@ -82,7 +82,7 @@ export default class ErrorBoundary extends Component<Props, State> {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={this.handleRetry}
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-xl transition-colors"
+                className="btn-primary"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Tornar a intentar
@@ -90,7 +90,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               
               <button
                 onClick={this.handleGoHome}
-                className="inline-flex items-center justify-center px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium rounded-xl transition-colors"
+                className="btn-neutral"
               >
                 <Home className="w-4 h-4 mr-2" />
                 Anar a l'inici

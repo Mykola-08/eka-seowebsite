@@ -59,14 +59,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           <Link href={service.href} className="flex-1">
             <Button
               variant="outline"
-              className="w-full btn btn-sm rounded-full p-2.5 normal-case border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900 bg-transparent"
+              className="w-full btn-outline p-2.5 normal-case"
             >
               {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
             <Button
-              className="w-full btn btn-sm rounded-full p-2.5 normal-case border-none font-medium bg-gray-900 text-white hover:bg-gray-800 shadow-none"
+              className="w-full btn-primary p-2.5 normal-case shadow-none"
             >
               {t('nav.bookNow')}
             </Button>

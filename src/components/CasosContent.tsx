@@ -116,33 +116,19 @@ export default function CasosContent() {
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colors: Record<string, { bg: string, text: string, border: string }> = {
-      blue: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'group-hover:border-blue-200' },
-      purple: { bg: 'bg-purple-50', text: 'text-purple-700', border: 'group-hover:border-purple-200' },
-      green: { bg: 'bg-green-50', text: 'text-green-700', border: 'group-hover:border-green-200' },
-      orange: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'group-hover:border-orange-200' },
-      indigo: { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'group-hover:border-indigo-200' },
-      pink: { bg: 'bg-pink-50', text: 'text-pink-700', border: 'group-hover:border-pink-200' },
-      red: { bg: 'bg-red-50', text: 'text-red-700', border: 'group-hover:border-red-200' }
-    };
-    return colors[color as keyof typeof colors] || colors.blue;
-  };
-
   const Hero = (
-    <div className="relative pt-32 pb-20 px-6 overflow-hidden">
-        {/* Grid is handled by PageLayout background */}
+    <div className="relative pt-32 pb-20 px-6 overflow-hidden bg-white">
         <div className="relative max-w-4xl mx-auto text-center z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-blue-100 text-sm text-blue-600 mb-8 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-600 mb-8 border border-gray-200">
             <Search className="w-4 h-4" />
             <span className="font-medium">{t('casos.hero.badge') || "What brings you here?"}</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-6 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight">
             {t('casos.title')}
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-gray-500 mb-8 leading-relaxed font-normal max-w-2xl mx-auto">
             {t('casos.subtitle')}
           </p>
 
@@ -162,47 +148,43 @@ export default function CasosContent() {
       />
       <PageLayout hero={Hero}>
       {/* Main Problems Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-light text-gray-900 mb-4">{t('casos.frequentCases')}</h2>
-          <p className="text-gray-500">{t('casos.frequentCasesSubtitle')}</p>
-        </div>
+      <div className="bg-[#f5f5f7] py-24">
+        <div className="section-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">{t('casos.frequentCases')}</h2>
+            <p className="text-xl text-gray-500">{t('casos.frequentCasesSubtitle')}</p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {mainProblems.map((problem) => {
-            const colors = getColorClasses(problem.color);
-            const Icon = problem.icon;
-            
-            return (
-              <Link 
-                key={problem.id} 
-                href={`/cases/${problem.id}`}
-                className="group relative bg-white rounded-3xl p-8 border border-transparent hover:border-gray-100/50 hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden"
-              >
-                {/* Hover Gradient Background */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${colors.bg.replace('bg-', 'bg-gradient-to-br from-white to-')}`} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mainProblems.map((problem) => {
+              const Icon = problem.icon;
 
-                <div className="relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl ${colors.bg} ${colors.text} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+              return (
+                <Link
+                  key={problem.id}
+                  href={`/cases/${problem.id}`}
+                  className="group relative apple-card p-8 flex flex-col h-full hover:scale-[1.01] active:scale-[0.99] transition-all duration-300"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600 text-gray-900">
                     <Icon className="w-7 h-7" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {problem.title}
                   </h3>
                   
-                  <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-gray-500 text-base leading-relaxed mb-6 line-clamp-3">
                     {problem.description}
                   </p>
                   
-                  <div className="mt-auto flex items-center text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <div className="mt-auto flex items-center text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                     <span>{t('casos.seeDetails')}</span>
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -210,18 +192,18 @@ export default function CasosContent() {
       <div className="bg-white py-24 border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-light text-gray-900 mb-4">{t('casos.otherCases')}</h2>
-            <p className="text-gray-500">{t('casos.otherCasesSubtitle')}</p>
+            <h2 className="text-3xl font-semibold text-gray-900 mb-4 tracking-tight">{t('casos.otherCases')}</h2>
+            <p className="text-xl text-gray-500">{t('casos.otherCasesSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {additionalProblemsKeys.map((key) => (
               <div 
                 key={key} 
-                className="flex items-center p-4 rounded-2xl bg-gray-50 hover:bg-blue-50/50 transition-colors duration-200 group cursor-default"
+                className="flex items-center p-4 rounded-2xl bg-gray-50/80 hover:bg-gray-100 transition-colors duration-200 group cursor-default"
               >
-                <div className="w-2 h-2 rounded-full bg-blue-400/50 mr-4 group-hover:bg-blue-500 transition-colors" />
-                <span className="text-gray-700 font-medium group-hover:text-blue-800 transition-colors">
+                <div className="w-2 h-2 rounded-full bg-blue-500/30 mr-4 group-hover:bg-blue-500 transition-colors" />
+                <span className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors">
                   {t(key)}
                 </span>
               </div>
@@ -230,25 +212,21 @@ export default function CasosContent() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-gradient-to-br from-[#000035] to-[#000060] py-24 px-6 relative overflow-hidden">
-        {/* Abstract Background Shapes */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-
+      {/* CTA Section - Apple Style */}
+      <div className="bg-black py-32 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-light text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">
             {t('casos.ctaTitle')}
           </h2>
-          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
             {t('casos.ctaSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  variant="apple"
-                  className="border-none"
+                  variant="primary" // Assuming primary works on dark, otherwise custom white
+                  className="bg-white text-black hover:bg-gray-100 border-none px-8 py-4 h-auto text-lg rounded-full"
                 >
                   {t('casos.bookSession')}
                 </Button>
@@ -256,8 +234,8 @@ export default function CasosContent() {
              <Link href="/services">
                 <Button 
                   size="xl" 
-                  variant="outline"
-                  className="bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white"
+                  variant="secondary"
+                  className="bg-transparent border-gray-600 text-white hover:bg-white/10 hover:border-white px-8 py-4 h-auto text-lg rounded-full"
                 >
                   {t('casos.discoverIdeal')}
                 </Button>

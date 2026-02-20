@@ -12,12 +12,11 @@ export default function CTASection() {
 
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40" />
       <div className="section-container relative z-10 text-center">
         <h2 className="text-4xl sm:text-5xl mb-6 font-semibold text-gray-900 tracking-tight text-balance">
           {t('common.readyToStart') || 'Ready to start your journey?'}
         </h2>
-        <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-normal leading-relaxed">
           {t('common.bookConsultation') || 'Book a consultation today and take the first step towards better health and wellbeing.'}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -25,7 +24,7 @@ export default function CTASection() {
             onClick={() => navigateToBooking()}
             size="xl"
             variant="primary"
-            className="px-8 py-4"
+            className="px-8 py-4 shadow-sm"
           >
             {t('common.bookNow')}
             <ArrowRight className="w-5 h-5 ml-2" />

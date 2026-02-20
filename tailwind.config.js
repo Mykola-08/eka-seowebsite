@@ -14,40 +14,50 @@ const config = {
       },
       colors: {
         primary: {
-          50: '#f5f5f7', // Apple Gray Light
+          50: '#f5f5f7',
           100: '#e5e5e7',
           200: '#d2d2d7',
           300: '#a1a1a6',
           400: '#6e6e73',
-          500: '#0071e3', // Apple Blue
+          500: 'var(--apple-blue)', // Using variable
           600: '#0077ED',
           700: '#006edb',
-          800: '#1d1d1f', // Apple Dark Gray
+          800: 'var(--apple-gray-dark)', // Using variable
           900: '#1d1d1f',
           950: '#000000',
-          DEFAULT: '#0071e3',
+          DEFAULT: 'var(--apple-blue)', // Using variable
+          foreground: '#ffffff',
+        },
+        secondary: {
+          DEFAULT: 'var(--apple-gray)', // Using variable
+          foreground: 'var(--apple-gray-dark)', // Using variable
+          border: '#e5e5e5',
+        },
+        background: {
+            DEFAULT: '#ffffff',
+            secondary: 'var(--apple-gray)', // Using variable
         },
         accent: {
-          light: '#60a5fa', // Blue light
-          DEFAULT: '#0071e3', // Apple Blue (Standard Accent)
-          dark: '#1d4ed8', // Blue dark
+          light: '#60a5fa',
+          DEFAULT: 'var(--apple-blue)',
+          dark: '#1d4ed8',
         },
         gold: {
           light: '#FDE68A',
-          DEFAULT: '#FFB405', // EKA Gold
+          DEFAULT: '#FFB405',
           dark: '#B45309',
         },
         'eka-dark': '#000035',
         gray: {
           50: '#fafafa',
-          100: '#f5f5f7', // Apple Gray
+          100: 'var(--apple-gray)', // Using variable
           200: '#e5e5e7',
           300: '#d2d2d7',
           400: '#a1a1a6',
           500: '#86868b',
           600: '#6e6e73',
           700: '#424245',
-          800: '#1d1d1f', // Apple Gray Dark
+          800: 'var(--apple-gray-dark)', // Using variable
           900: '#171717',
           950: '#000000',
         },

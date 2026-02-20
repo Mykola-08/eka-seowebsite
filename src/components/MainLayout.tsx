@@ -127,7 +127,7 @@ export default function MainLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7]"> {/* Updated global background to Apple Gray */}
+    <div className="min-h-screen bg-secondary">
       <OfflineIndicator />
 
       {/* Navigation with scroll effect - Liquid Glass Style */}
@@ -360,7 +360,7 @@ export default function MainLayout({
         </AnimatePresence>
 
         {/* Footer */}
-        <footer className="py-12 sm:py-16 bg-[#f5f5f7] text-gray-900 border-t border-gray-200">
+        <footer className="py-12 sm:py-16 bg-secondary text-gray-900 border-t border-gray-200">
           <div className="max-w-[1024px] mx-auto px-6 text-center">
             {/* Logo */}
             <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">

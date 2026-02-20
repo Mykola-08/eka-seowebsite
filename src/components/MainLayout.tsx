@@ -147,7 +147,7 @@ export default function MainLayout({
                 </div>
               </Link>
 
-              {/* Desktop Navigation - Centered - Apple Style: text-[12px], regular weight, gray-800 */}
+              {/* Desktop Navigation - Centered - Apple Style: text-[12px], regular weight, gray-700 */}
               <div className="hidden md:flex items-center justify-center space-x-8">
                   {navigation.map(item => (
                     <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative' : ''}`}
@@ -156,7 +156,7 @@ export default function MainLayout({
                         <>
                           <Link
                             href={item.href}
-                            className="nav-trigger text-[12px] text-gray-800 hover:text-black transition-colors duration-200 flex items-center tracking-tight font-medium"
+                            className="nav-trigger text-[12px] text-gray-700 hover:text-black transition-colors duration-200 flex items-center tracking-tight font-normal"
                             onMouseEnter={openDropdown}
                             onMouseLeave={scheduleHide}
                             onFocus={openDropdown}
@@ -174,9 +174,9 @@ export default function MainLayout({
                             aria-hidden="true"
                           />
 
-                          {/* Dropdown menu with matching background style */}
+                          {/* Dropdown menu with matching background style (Unified) */}
                           <div
-                            className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''} bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-lg rounded-2xl p-2 min-w-[220px]`}
+                            className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''} bg-white/70 backdrop-blur-xl border border-white/20 shadow-lg rounded-2xl p-2 min-w-[220px]`}
                             onMouseEnter={openDropdown}
                             onMouseLeave={scheduleHide}
                             onKeyDown={(e) => {
@@ -193,7 +193,7 @@ export default function MainLayout({
                                   key={dropdownItem.name}
                                   href={dropdownItem.href}
                                   onClick={() => setShowPersonalServices(false)}
-                                  className="block px-4 py-2 text-[13px] text-gray-700 hover:text-black hover:bg-gray-100/50 rounded-lg transition-colors font-medium"
+                                  className="block px-4 py-2 text-[12px] text-gray-700 hover:text-black hover:bg-gray-100/50 rounded-lg transition-colors font-normal"
                                   role="menuitem"
                                   suppressHydrationWarning
                                 >
@@ -207,7 +207,7 @@ export default function MainLayout({
                         <a
                           href={item.href}
                           rel="noopener noreferrer"
-                          className="text-[12px] text-gray-800 hover:text-black transition-colors duration-200 tracking-tight font-medium"
+                          className="text-[12px] text-gray-700 hover:text-black transition-colors duration-200 tracking-tight font-normal"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -219,7 +219,7 @@ export default function MainLayout({
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-[12px] text-gray-800 hover:text-black transition-colors duration-200 tracking-tight font-medium"
+                          className="text-[12px] text-gray-700 hover:text-black transition-colors duration-200 tracking-tight font-normal"
                           suppressHydrationWarning
                         >
                           {item.name}

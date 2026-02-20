@@ -19,7 +19,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <LazyImage
           src={service.image}
           alt={t(service.titleKey)}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
       </div>
 

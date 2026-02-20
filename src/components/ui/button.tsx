@@ -5,33 +5,30 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-transform duration-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-white hover:bg-primary/90 shadow-none",
+          "bg-[#0071e3] text-white hover:bg-[#0077ED] shadow-none",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-none",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-none",
+          "border border-[#0071e3] bg-transparent text-[#0071e3] hover:bg-[#0071e3]/10 shadow-none",
         secondary:
-          "bg-transparent border border-[#0071e3] text-[#0071e3] hover:bg-[#0071e3]/5 shadow-none",
+          "bg-[#f5f5f7] text-[#1d1d1f] hover:bg-[#e8e8ed] shadow-none",
         ghost: "hover:bg-accent hover:text-accent-foreground shadow-none",
-        link: "text-primary underline-offset-4 hover:underline shadow-none",
-        // Custom variants matching globals.css
+        link: "text-[#0071e3] underline-offset-4 hover:underline shadow-none",
+        // Custom variants
         primary: "bg-[#0071e3] text-white hover:bg-[#0077ED] shadow-none",
-        // Replaced yellow/golden accents with Apple Blue as requested
-        accent: "bg-[#0071e3] text-white hover:bg-[#0077ED] shadow-none",
-        gold: "bg-[#0071e3] text-white font-semibold hover:bg-[#0077ED] shadow-none",
-        // Replaced black with Apple Blue as requested
-        apple: "bg-[#0071e3] text-white hover:bg-[#0077ED] shadow-none",
+        white: "bg-white text-black hover:bg-gray-100 shadow-none border-transparent",
+        "white-outline": "bg-transparent text-white border border-white hover:bg-white/10 shadow-none",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-full px-3",
-        lg: "h-11 rounded-full px-8",
-        xl: "h-14 rounded-full px-8 text-lg font-medium", // matching .btn sizes roughly
+        default: "h-10 px-5 py-2.5", // slightly larger touch target
+        sm: "h-8 rounded-full px-3 text-xs",
+        lg: "h-12 rounded-full px-8 text-base",
+        xl: "h-14 rounded-full px-10 text-lg font-medium",
         icon: "h-10 w-10",
       },
     },

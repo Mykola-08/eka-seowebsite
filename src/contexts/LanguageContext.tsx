@@ -126,7 +126,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'footer.readyToBegin': 'Ready to begin?',
     'hero.badge': 'Somatic wellness and integrative support',
     'hero.subtitle': 'Personalized somatic and wellness support to improve mobility, reduce stress, and restore everyday balance.',
-    'hero.firstTime': 'És la teva primera vegada?',
+    'hero.firstTime': 'First wellness session',
     'kinesiology.page.availableToday': 'Available today',
     'kinesiology.page.bookSession': 'Book your session',
     'kinesiology.page.durationsTitle': 'Available durations',

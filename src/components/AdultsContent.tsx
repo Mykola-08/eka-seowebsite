@@ -83,7 +83,7 @@ export default function AdultsContent() {
                 {t('adult.cta.desc')}
             </p>
             <Link href="/booking">
-                <Button size="xl" variant="apple">
+                <Button size="xl" variant="primary">
                     {t('common.bookNow')}
                 </Button>
             </Link>

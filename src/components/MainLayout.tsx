@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import ToastContainer from '@/components/Toast';
@@ -16,6 +16,7 @@ import CookieBanner from './CookieBanner';
 
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { Button } from '@/components/ui/button';
 
 export default function MainLayout({
   children
@@ -126,16 +127,16 @@ export default function MainLayout({
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#f5f5f7]"> {/* Updated global background to Apple Gray */}
       <OfflineIndicator />
 
-      {/* Navigation with scroll effect */}
-        <nav className={`sticky top-0 z-50 transition-all duration-300 ease-in-out border-b border-gray-200/50 ${isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-white/70 backdrop-blur-md'}`}>
-          <div className="max-w-[1024px] mx-auto px-6">
-            <div className="flex items-center justify-between h-12">
-              {/* Logo Only - Left Side */}
-              <Link href="/" className="flex items-center flex-shrink-0 group relative opacity-80 hover:opacity-100 transition-opacity">
-                <div className="relative w-5 h-5">
+      {/* Navigation with scroll effect - Liquid Glass Style */}
+        <nav className={`sticky top-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled ? 'bg-white/70 backdrop-blur-xl shadow-sm border-gray-200/50' : 'bg-transparent'}`}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex items-center justify-between h-14">
+              {/* Logo Only - Left Side - INCREASED SIZE */}
+              <Link href="/" className="flex items-center flex-shrink-0 group relative opacity-90 hover:opacity-100 transition-opacity">
+                <div className="relative w-8 h-8"> {/* Increased from w-5 h-5 */}
                   <Image
                     src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                     alt="EKA Balance Logo"
@@ -146,7 +147,7 @@ export default function MainLayout({
                 </div>
               </Link>
 
-              {/* Desktop Navigation - Centered - Apple Style: text-xs, regular weight, gray-800 */}
+              {/* Desktop Navigation - Centered - Apple Style: text-[12px], regular weight, gray-800 */}
               <div className="hidden md:flex items-center justify-center space-x-8">
                   {navigation.map(item => (
                     <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative' : ''}`}
@@ -155,7 +156,7 @@ export default function MainLayout({
                         <>
                           <Link
                             href={item.href}
-                            className="nav-trigger text-[12px] text-gray-900 hover:text-black transition-colors duration-200 flex items-center tracking-tight font-semibold"
+                            className="nav-trigger text-[12px] text-gray-800 hover:text-black transition-colors duration-200 flex items-center tracking-tight font-medium"
                             onMouseEnter={openDropdown}
                             onMouseLeave={scheduleHide}
                             onFocus={openDropdown}
@@ -175,7 +176,7 @@ export default function MainLayout({
 
                           {/* Dropdown menu with matching background style */}
                           <div
-                            className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''} ${isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-white/70 backdrop-blur-md'} border border-gray-200/50 shadow-lg rounded-xl p-2 min-w-[200px]`}
+                            className={`nav-dropdown ${showPersonalServices ? 'is-open' : ''} bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-lg rounded-2xl p-2 min-w-[220px]`}
                             onMouseEnter={openDropdown}
                             onMouseLeave={scheduleHide}
                             onKeyDown={(e) => {
@@ -186,25 +187,27 @@ export default function MainLayout({
                             role="menu"
                             aria-label={`${item.name} submenu`}
                           >
-                            {item.dropdownItems?.map((dropdownItem, index) => (
-                              <Link
-                                key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                onClick={() => setShowPersonalServices(false)}
-                              className="block px-3 py-2 text-[13px] text-gray-800 hover:text-black hover:bg-gray-100/50 rounded-lg transition-colors font-medium"
-                                role="menuitem"
-                                suppressHydrationWarning
-                              >
-                                {dropdownItem.name}
-                              </Link>
-                            ))}
+                            <div className="py-1">
+                              {item.dropdownItems?.map((dropdownItem, index) => (
+                                <Link
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  onClick={() => setShowPersonalServices(false)}
+                                  className="block px-4 py-2 text-[13px] text-gray-700 hover:text-black hover:bg-gray-100/50 rounded-lg transition-colors font-medium"
+                                  role="menuitem"
+                                  suppressHydrationWarning
+                                >
+                                  {dropdownItem.name}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
                         </>
                       ) : item.isExternal ? (
                         <a
                           href={item.href}
                           rel="noopener noreferrer"
-                          className="text-[12px] text-gray-900 hover:text-black transition-colors duration-200 tracking-tight font-semibold"
+                          className="text-[12px] text-gray-800 hover:text-black transition-colors duration-200 tracking-tight font-medium"
                           onClick={(e) => {
                             e.preventDefault();
                             window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -216,7 +219,7 @@ export default function MainLayout({
                       ) : (
                         <Link
                           href={item.href}
-                          className="text-[12px] text-gray-900 hover:text-black transition-colors duration-200 tracking-tight font-semibold"
+                          className="text-[12px] text-gray-800 hover:text-black transition-colors duration-200 tracking-tight font-medium"
                           suppressHydrationWarning
                         >
                           {item.name}
@@ -229,14 +232,17 @@ export default function MainLayout({
               {/* Right side actions - Search/Bag style icons usually, here just Booking CTA but simpler */}
               <div className="flex items-center space-x-4 flex-shrink-0">
 
-                {/* Reserva Button - Updated to Blue */}
-                <Link
-                  href="/booking"
-                  className="hidden sm:inline-flex text-[12px] bg-[#0071e3] text-white px-3 py-1 rounded-full hover:bg-[#0077ED] transition-colors duration-200 font-medium"
-                  suppressHydrationWarning
+                {/* Reserva Button - Updated to Blue Primary Button */}
+                <Button
+                  asChild
+                  variant="primary"
+                  size="sm"
+                  className="hidden sm:inline-flex text-[12px] font-medium rounded-full h-8 px-4"
                 >
-                  {t('nav.bookNow')}
-                </Link>
+                  <Link href="/booking" suppressHydrationWarning>
+                    {t('nav.bookNow')}
+                  </Link>
+                </Button>
 
                 {/* Mobile menu button */}
                 <button
@@ -274,7 +280,7 @@ export default function MainLayout({
                               setIsMenuOpen(false);
                               window.open(item.href, '_blank', 'noopener,noreferrer');
                             }}
-                            className="block py-2 text-[17px] font-semibold text-gray-900"
+                            className="block py-2 text-[17px] font-medium text-gray-900"
                           >
                             {item.name}
                           </a>
@@ -282,7 +288,7 @@ export default function MainLayout({
                           <Link
                             href={item.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="block py-2 text-[17px] font-semibold text-gray-900"
+                            className="block py-2 text-[17px] font-medium text-gray-900"
                           >
                             {item.name}
                           </Link>
@@ -294,7 +300,7 @@ export default function MainLayout({
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
                                 onClick={() => setIsMenuOpen(false)}
-                                className="block py-1 text-[15px] text-gray-600 font-medium"
+                                className="block py-1 text-[15px] text-gray-600 font-normal"
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -306,13 +312,14 @@ export default function MainLayout({
                     
                     {/* Mobile Reserva */}
                     <div className="pt-4">
-                      <Link
-                        href="/booking"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block w-full bg-[#0071e3] text-white font-semibold px-4 py-3 rounded-xl text-center"
-                      >
-                        {t('nav.bookNow')}
-                      </Link>
+                      <Button asChild variant="primary" size="lg" className="w-full text-base font-semibold rounded-xl">
+                        <Link
+                          href="/booking"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {t('nav.bookNow')}
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </motion.div>
@@ -322,7 +329,7 @@ export default function MainLayout({
         </nav>
 
         {/* Main Content */}
-        <main className="flex-1">
+        <main className="flex-1 w-full">
           {children}
         </main>
 
@@ -343,28 +350,27 @@ export default function MainLayout({
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe"
             >
-              <Link
-                href="/booking"
-                className="block w-full bg-[#0071e3] text-white font-bold text-center py-3 rounded-full shadow-lg"
-              >
-                {t('nav.bookNow')}
-              </Link>
+              <Button asChild variant="primary" size="lg" className="w-full text-base font-bold rounded-full shadow-lg">
+                <Link href="/booking">
+                  {t('nav.bookNow')}
+                </Link>
+              </Button>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* Footer */}
-        <footer className="py-12 sm:py-16 bg-gray-50 text-gray-900 border-t border-gray-200">
+        <footer className="py-12 sm:py-16 bg-[#f5f5f7] text-gray-900 border-t border-gray-200">
           <div className="max-w-[1024px] mx-auto px-6 text-center">
             {/* Logo */}
             <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
-              <div className="relative w-6 h-6">
+              <div className="relative w-8 h-8">
                 <Image
                   src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
                   alt="EKA Balance Logo"
                   fill
                   className="object-contain"
-                  sizes="24px"
+                  sizes="32px"
                 />
               </div>
               <span className="text-lg font-medium tracking-tight">EKA Balance</span>

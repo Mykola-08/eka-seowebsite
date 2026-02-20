@@ -3,11 +3,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle, Activity } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, Activity, Brain, Heart, Zap, Moon, Shield, Stethoscope } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
-import { Activity as ActivityIcon, Brain, Heart, Zap, Moon, Shield, Stethoscope } from 'lucide-react';
 
 interface ProblemConfig {
   icon: React.ComponentType<any>;
@@ -37,7 +36,7 @@ export default function CasoDetailContent() {
   };
 
   const problemsConfig: Record<string, ProblemConfig> = {
-    'back-pain': { icon: ActivityIcon, color: 'blue', href: '/services/massage', key: 'backPain' },
+    'back-pain': { icon: Activity, color: 'blue', href: '/services/massage', key: 'backPain' },
     'stress-anxiety': { icon: Brain, color: 'purple', href: '/services/kinesiology', key: 'stress' },
     'digestive-problems': { icon: Heart, color: 'green', href: '/services/nutrition', key: 'digestive' },
     'migraines': { icon: Brain, color: 'red', href: '/services/massage', key: 'migraines' },
@@ -176,8 +175,8 @@ export default function CasoDetailContent() {
                   <Link href={config.href}>
                       <Button
                           size="xl"
-                          variant="primary" // White on dark context needs override or careful variant use
-                          className="bg-white text-black hover:bg-gray-100 border-none px-10 py-6 h-auto text-xl rounded-full font-medium"
+                          variant="white"
+                          className="px-10 py-6 h-auto text-xl rounded-full font-medium"
                       >
                           {t('common.bookNow')}
                           <ArrowRight className="w-6 h-6 ml-2" />

@@ -27,16 +27,16 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const theme = colorMap[service.color] || { dot: 'bg-accent', border: 'hover:border-gray-200' };
 
   return (
-    <div className={`bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 ${theme.border} hover:shadow-md hover:-translate-y-1 h-full flex flex-col overflow-hidden`}>
-       <div className="relative h-64 overflow-hidden">
+    <div className={`group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 ${theme.border} hover:shadow-lg hover:shadow-gray-100/50`}>
+       <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-105"
           />
         </div>
         
-      <div className="p-8 flex flex-col flex-grow">
+      <div className="p-6 flex flex-col flex-grow">
         <h3 className="heading-3 mb-3">
           {t(service.titleKey)}
         </h3>

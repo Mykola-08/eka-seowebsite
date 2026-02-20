@@ -149,7 +149,7 @@ export default function HomeContent() {
 
           <div className="mt-12 text-center">
             <Link href="/services">
-              <Button variant="primary" className="px-8 py-3 text-white transition-all hover:scale-105">
+              <Button variant="apple" className="px-8 py-3 text-white transition-all hover:scale-105">
                 {t('services.viewAll')}
               </Button>
             </Link>

@@ -28,6 +28,11 @@ const config = {
           DEFAULT: '#0071e3',
         },
         accent: {
+          light: '#60a5fa', // Blue light
+          DEFAULT: '#0071e3', // Apple Blue (Standard Accent)
+          dark: '#1d4ed8', // Blue dark
+        },
+        gold: {
           light: '#FDE68A',
           DEFAULT: '#FFB405', // EKA Gold
           dark: '#B45309',

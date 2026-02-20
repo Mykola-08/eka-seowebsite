@@ -13,15 +13,15 @@ export default function BenefitsSection() {
   const { t } = useLanguage();
 
   const benefits: Benefit[] = [
-    { icon: <Brain className="w-5 h-5" />, title: t('benefits.benefit1.title'), description: t('benefits.benefit1.description'), science: t('benefits.benefit1.science') },
-    { icon: <Heart className="w-5 h-5" />, title: t('benefits.benefit2.title'), description: t('benefits.benefit2.description'), science: t('benefits.benefit2.science') },
-    { icon: <Zap className="w-5 h-5" />, title: t('benefits.benefit3.title'), description: t('benefits.benefit3.description'), science: t('benefits.benefit3.science') },
-    { icon: <Shield className="w-5 h-5" />, title: t('benefits.benefit4.title'), description: t('benefits.benefit4.description'), science: t('benefits.benefit4.science') },
-    { icon: <Moon className="w-5 h-5" />, title: t('benefits.benefit5.title'), description: t('benefits.benefit5.description'), science: t('benefits.benefit5.science') },
-    { icon: <Smile className="w-5 h-5" />, title: t('benefits.benefit6.title'), description: t('benefits.benefit6.description'), science: t('benefits.benefit6.science') },
-    { icon: <Activity className="w-5 h-5" />, title: t('benefits.benefit7.title'), description: t('benefits.benefit7.description'), science: t('benefits.benefit7.science') },
-    { icon: <Compass className="w-5 h-5" />, title: t('benefits.benefit8.title'), description: t('benefits.benefit8.description'), science: t('benefits.benefit8.science') },
-    { icon: <Sparkles className="w-5 h-5" />, title: t('benefits.benefit9.title'), description: t('benefits.benefit9.description'), science: t('benefits.benefit9.science') },
+    { icon: <Brain className="w-5 h-5" />, title: t('revision360.benefits.benefit1.title'), description: t('revision360.benefits.benefit1.description'), science: t('revision360.benefits.benefit1.science') },
+    { icon: <Heart className="w-5 h-5" />, title: t('revision360.benefits.benefit2.title'), description: t('revision360.benefits.benefit2.description'), science: t('revision360.benefits.benefit2.science') },
+    { icon: <Zap className="w-5 h-5" />, title: t('revision360.benefits.benefit3.title'), description: t('revision360.benefits.benefit3.description'), science: t('revision360.benefits.benefit3.science') },
+    { icon: <Shield className="w-5 h-5" />, title: t('revision360.benefits.benefit4.title'), description: t('revision360.benefits.benefit4.description'), science: t('revision360.benefits.benefit4.science') },
+    { icon: <Moon className="w-5 h-5" />, title: t('revision360.benefits.benefit5.title'), description: t('revision360.benefits.benefit5.description'), science: t('revision360.benefits.benefit5.science') },
+    { icon: <Smile className="w-5 h-5" />, title: t('revision360.benefits.benefit6.title'), description: t('revision360.benefits.benefit6.description'), science: t('revision360.benefits.benefit6.science') },
+    { icon: <Activity className="w-5 h-5" />, title: t('revision360.benefits.benefit7.title'), description: t('revision360.benefits.benefit7.description'), science: t('revision360.benefits.benefit7.science') },
+    { icon: <Compass className="w-5 h-5" />, title: t('revision360.benefits.benefit8.title'), description: t('revision360.benefits.benefit8.description'), science: t('revision360.benefits.benefit8.science') },
+    { icon: <Sparkles className="w-5 h-5" />, title: t('revision360.benefits.benefit9.title'), description: t('revision360.benefits.benefit9.description'), science: t('revision360.benefits.benefit9.science') },
   ];
 
   return (
@@ -35,10 +35,10 @@ export default function BenefitsSection() {
           transition={{ duration: 0.45 }}
         >
           <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-gray-900 uppercase bg-gray-100 rounded-full">
-            Benefits
+            {t('revision360.benefits.badge')}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('benefits.title')}</h2>
-          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('benefits.subtitle')}</p>
+          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('revision360.benefits.title')}</h2>
+          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('revision360.benefits.subtitle')}</p>
         </motion.div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -74,7 +74,7 @@ export default function BenefitsSection() {
           transition={{ duration: 0.35 }}
         >
           <p className="text-gray-600 italic text-lg sm:text-xl font-serif">
-            "{t('benefits.philosophy')}"
+            "{t('revision360.benefits.philosophy')}"
           </p>
         </motion.div>
       </div>

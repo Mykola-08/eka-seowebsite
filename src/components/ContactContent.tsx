@@ -46,7 +46,3 @@ export default function ContactContent() {
     </>
   );
 }
-      </PageLayout>
-    </>
-  );
-}

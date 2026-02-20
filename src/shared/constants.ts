@@ -156,5 +156,21 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     resultKey: 'personalizedServices.students.result',
     price: 60,
     duration: '1 h'
+  },
+  {
+    id: 'parents',
+    titleKey: 'personalizedServices.parents',
+    descriptionKey: 'personalizedServices.parents.desc',
+    color: 'pink',
+    image: 'https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=1920&h=1080&fit=crop',
+    href: '/services/parents',
+    benefitsKeys: [
+      'personalizedServices.parents.benefit1',
+      'personalizedServices.parents.benefit2',
+      'personalizedServices.parents.benefit3'
+    ],
+    resultKey: 'personalizedServices.parents.result',
+    price: 70,
+    duration: '1 h'
   }
 ];

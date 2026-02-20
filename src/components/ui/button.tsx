@@ -21,9 +21,11 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline shadow-none",
         // Custom variants matching globals.css
         primary: "bg-primary text-white hover:bg-primary-600 shadow-md hover:shadow-lg",
-        accent: "bg-accent text-eka-dark hover:bg-accent-dark shadow-md hover:shadow-lg",
-        gold: "bg-accent text-eka-dark font-semibold hover:bg-accent-dark shadow-md hover:shadow-lg transition-all duration-300",
-        apple: "bg-gray-900 text-white hover:bg-gray-800 shadow-md transition-all duration-300",
+        // Replaced yellow/golden accents with Apple Blue as requested
+        accent: "bg-primary text-white hover:bg-primary-600 shadow-md hover:shadow-lg",
+        gold: "bg-primary text-white font-semibold hover:bg-primary-600 shadow-md hover:shadow-lg transition-all duration-300",
+        // Replaced black with Apple Blue as requested
+        apple: "bg-primary text-white hover:bg-primary-600 shadow-md transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

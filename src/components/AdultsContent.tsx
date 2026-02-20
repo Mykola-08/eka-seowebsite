@@ -7,9 +7,30 @@ import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
+import ServiceCard from '@/components/ServiceCard';
+import { SERVICES_DATA } from '@/shared/constants';
+import { ServiceItem } from '@/shared/types';
 
 export default function AdultsContent() {
   const { t } = useLanguage();
+
+  const kinesiologyBase = SERVICES_DATA.find(s => s.id === 'kinesiologia');
+  const customKinesiology: ServiceItem = {
+      ...kinesiologyBase!,
+      id: 'kinesiology-adult',
+      subtitleKey: 'adult.kinesiology.badge',
+      descriptionKey: 'services.kinesiology.shortDesc',
+      image: 'https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop'
+  };
+
+  const nutritionBase = SERVICES_DATA.find(s => s.id === 'nutritio');
+  const customNutrition: ServiceItem = {
+      ...nutritionBase!,
+      id: 'nutrition-adult',
+      subtitleKey: 'adult.nutrition.badge',
+      descriptionKey: 'services.nutrition.shortDesc', // Fallback or check if exists
+      image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop'
+  };
 
   const HeroCustom = (
       <section className="py-20 sm:py-28 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/50 relative overflow-hidden">
@@ -48,65 +69,8 @@ export default function AdultsContent() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-               {/* Kinesiology */}
-               <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden relative">
-                     <Image
-                        src="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop"
-                        alt={t('services.kinesiology.title')}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                     />
-                  </div>
-                  <div className="p-8">
-                     <div className="flex items-center gap-3 mb-4 text-amber-600">
-                        <div className="p-2 bg-amber-50 rounded-full">
-                            <HeartPulse className="w-6 h-6" />
-                        </div>
-                        <span className="font-medium">{t('adult.kinesiology.badge')}</span>
-                     </div>
-                     <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-amber-700 transition-colors">
-                        {t('services.kinesiology.title')}
-                     </h3>
-                     <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        {t('services.kinesiology.shortDesc')}
-                     </p>
-                     <Link href="/services/kinesiology" className="inline-flex items-center text-amber-600 font-medium hover:text-amber-700 transition-colors">
-                        {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
-                     </Link>
-                  </div>
-               </div>
-
-               {/* Nutrition */}
-               <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-green-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden relative">
-                     <Image
-                        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop"
-                        alt={t('services.nutrition.title')}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                     />
-                  </div>
-                  <div className="p-8">
-                     <div className="flex items-center gap-3 mb-4 text-green-600">
-                        <div className="p-2 bg-green-50 rounded-full">
-                            <Salad className="w-6 h-6" />
-                        </div>
-                        <span className="font-medium">{t('adult.nutrition.badge')}</span>
-                     </div>
-                     <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-green-700 transition-colors">
-                        {t('services.nutrition.title')}
-                     </h3>
-                     <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        {t('services.nutrition.shortDesc')}
-                     </p>
-                     <Link href="/services/nutrition" className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors">
-                        {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
-                     </Link>
-                  </div>
-               </div>
+               <ServiceCard service={customKinesiology} />
+               <ServiceCard service={customNutrition} />
             </div>
         </div>
       </section>

@@ -9,9 +9,30 @@ import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
+import ServiceCard from '@/components/ServiceCard';
+import { SERVICES_DATA } from '@/shared/constants';
+import { ServiceItem } from '@/shared/types';
 
 export default function FamiliesContent() {
   const { t } = useLanguage();
+
+  const kinesiologyBase = SERVICES_DATA.find(s => s.id === 'kinesiologia');
+  const familyKinesiology: ServiceItem = {
+      ...kinesiologyBase!,
+      id: 'kinesiology-family',
+      subtitleKey: 'families.kinesiology.badge',
+      descriptionKey: 'services.kinesiology.shortDesc',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop'
+  };
+
+  const nutritionBase = SERVICES_DATA.find(s => s.id === 'nutritio');
+  const familyNutrition: ServiceItem = {
+      ...nutritionBase!,
+      id: 'nutrition-family',
+      subtitleKey: 'families.nutrition.badge',
+      descriptionKey: 'services.nutrition.shortDesc',
+      image: 'https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?q=80&w=2070&auto=format&fit=crop'
+  };
 
   const Hero = (
       <section className="py-12 sm:py-20 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50 relative overflow-hidden">
@@ -81,65 +102,8 @@ export default function FamiliesContent() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-               {/* Kinesiology */}
-               <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-green-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden relative">
-                     <Image
-                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
-                        alt={t('services.kinesiology.title')}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                     />
-                  </div>
-                  <div className="p-8">
-                     <div className="flex items-center gap-3 mb-4 text-green-600">
-                        <div className="p-2 bg-green-50 rounded-full">
-                            <HeartPulse className="w-6 h-6" />
-                        </div>
-                        <span className="font-medium">{t('families.kinesiology.badge')}</span>
-                     </div>
-                     <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-green-700 transition-colors">
-                        {t('services.kinesiology.title')}
-                     </h3>
-                     <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        {t('services.kinesiology.shortDesc')}
-                     </p>
-                     <Link href="/services/kinesiology" className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors">
-                        {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
-                     </Link>
-                  </div>
-               </div>
-
-               {/* Nutrition */}
-               <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-green-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden relative">
-                     <Image
-                        src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop"
-                        alt={t('services.nutrition.title')}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                     />
-                  </div>
-                  <div className="p-8">
-                     <div className="flex items-center gap-3 mb-4 text-green-600">
-                        <div className="p-2 bg-green-50 rounded-full">
-                            <Salad className="w-6 h-6" />
-                        </div>
-                        <span className="font-medium">{t('families.nutrition.badge')}</span>
-                     </div>
-                     <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-green-700 transition-colors">
-                        {t('services.nutrition.title')}
-                     </h3>
-                     <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        {t('services.nutrition.shortDesc')}
-                     </p>
-                     <Link href="/services/nutrition" className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors">
-                        {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
-                     </Link>
-                  </div>
-               </div>
+               <ServiceCard service={familyKinesiology} />
+               <ServiceCard service={familyNutrition} />
             </div>
         </div>
       </section>

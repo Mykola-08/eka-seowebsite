@@ -75,7 +75,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           </Link>
           <Link href="/booking" className="flex-1">
             <Button
-              variant="primary"
+              variant="apple"
               className="w-full p-2.5 normal-case shadow-none"
             >
               {t('nav.bookNow')}

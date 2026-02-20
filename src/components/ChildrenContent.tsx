@@ -9,9 +9,31 @@ import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
+import ServiceCard from '@/components/ServiceCard';
+import { SERVICES_DATA } from '@/shared/constants';
+import { ServiceItem } from '@/shared/types';
 
 export default function ChildrenContent() {
   const { t } = useLanguage();
+  
+  const kinesiologyBase = SERVICES_DATA.find(s => s.id === 'kinesiologia');
+  const customKinesiology: ServiceItem = {
+      ...kinesiologyBase!,
+      id: 'kinesiology-child-learning',
+      // titleKey remains 'services.kinesiology.title'
+      subtitleKey: 'children.kinesiology.badge',
+      descriptionKey: 'children.kinesiology.desc',
+      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2072&auto=format&fit=crop'
+  };
+
+  const customHealth: ServiceItem = {
+      ...kinesiologyBase!,
+      id: 'kinesiology-child-health',
+      titleKey: 'children.health.title',
+      subtitleKey: 'children.health.badge',
+      descriptionKey: 'children.health.desc',
+      image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop'
+  };
 
   const Hero = (
       <section className="py-12 sm:py-20 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
@@ -81,65 +103,8 @@ export default function ChildrenContent() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-               {/* Kinesiology - Focusing on emotions/learning */}
-               <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden relative">
-                     <Image
-                        src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2072&auto=format&fit=crop"
-                        alt={t('children.kinesiology.imgAlt')}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                     />
-                  </div>
-                  <div className="p-8">
-                     <div className="flex items-center gap-3 mb-4 text-blue-600">
-                        <div className="p-2 bg-blue-50 rounded-full">
-                            <Brain className="w-6 h-6" />
-                        </div>
-                        <span className="font-medium">{t('children.kinesiology.badge')}</span>
-                     </div>
-                     <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
-                        {t('services.kinesiology.title')}
-                     </h3>
-                     <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        {t('children.kinesiology.desc')}
-                     </p>
-                     <Link href="/services/kinesiology" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                        {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
-                     </Link>
-                  </div>
-               </div>
-
-               {/* Kinesiology - General checkup/Health - using same service link but focused content card */}
-               <div className="group relative bg-white rounded-3xl border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden relative">
-                     <Image
-                        src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop"
-                        alt={t('children.health.imgAlt')}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                     />
-                  </div>
-                  <div className="p-8">
-                     <div className="flex items-center gap-3 mb-4 text-blue-600">
-                        <div className="p-2 bg-blue-50 rounded-full">
-                            <HeartPulse className="w-6 h-6" />
-                        </div>
-                        <span className="font-medium">{t('children.health.badge')}</span>
-                     </div>
-                     <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
-                        {t('children.health.title')}
-                     </h3>
-                     <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        {t('children.health.desc')}
-                     </p>
-                     <Link href="/services/kinesiology" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                        {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
-                     </Link>
-                  </div>
-               </div>
+               <ServiceCard service={customKinesiology} />
+               <ServiceCard service={customHealth} />
             </div>
         </div>
       </section>

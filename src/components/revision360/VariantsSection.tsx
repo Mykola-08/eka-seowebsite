@@ -22,81 +22,81 @@ export default function VariantsSection() {
   const variants: Variant[] = [
     {
       icon: <RotateCcw className="w-6 h-6" />,
-      title: t('variants.reset.title'),
-      subtitle: t('variants.reset.subtitle'),
-      description: t('variants.reset.description'),
+      title: t('revision360.variants.reset.title'),
+      subtitle: t('revision360.variants.reset.subtitle'),
+      description: t('revision360.variants.reset.description'),
       idealFor: [
-        t('variants.reset.idealFor.1'),
-        t('variants.reset.idealFor.2'),
-        t('variants.reset.idealFor.3'),
-        t('variants.reset.idealFor.4'),
+        t('revision360.variants.reset.idealFor.1'),
+        t('revision360.variants.reset.idealFor.2'),
+        t('revision360.variants.reset.idealFor.3'),
+        t('revision360.variants.reset.idealFor.4'),
       ],
-      duration: t('variants.reset.duration'),
+      duration: t('revision360.variants.reset.duration'),
       includes: [
-        t('variants.reset.includes.1'),
-        t('variants.reset.includes.2'),
-        t('variants.reset.includes.3'),
-        t('variants.reset.includes.4'),
+        t('revision360.variants.reset.includes.1'),
+        t('revision360.variants.reset.includes.2'),
+        t('revision360.variants.reset.includes.3'),
+        t('revision360.variants.reset.includes.4'),
       ],
       price: 'EUR 450',
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: t('variants.mapping.title'),
-      subtitle: t('variants.mapping.subtitle'),
-      description: t('variants.mapping.description'),
+      title: t('revision360.variants.mapping.title'),
+      subtitle: t('revision360.variants.mapping.subtitle'),
+      description: t('revision360.variants.mapping.description'),
       idealFor: [
-        t('variants.mapping.idealFor.1'),
-        t('variants.mapping.idealFor.2'),
-        t('variants.mapping.idealFor.3'),
-        t('variants.mapping.idealFor.4'),
+        t('revision360.variants.mapping.idealFor.1'),
+        t('revision360.variants.mapping.idealFor.2'),
+        t('revision360.variants.mapping.idealFor.3'),
+        t('revision360.variants.mapping.idealFor.4'),
       ],
-      duration: t('variants.mapping.duration'),
+      duration: t('revision360.variants.mapping.duration'),
       includes: [
-        t('variants.mapping.includes.1'),
-        t('variants.mapping.includes.2'),
-        t('variants.mapping.includes.3'),
-        t('variants.mapping.includes.4'),
+        t('revision360.variants.mapping.includes.1'),
+        t('revision360.variants.mapping.includes.2'),
+        t('revision360.variants.mapping.includes.3'),
+        t('revision360.variants.mapping.includes.4'),
       ],
       price: 'EUR 350',
     },
     {
       icon: <Compass className="w-6 h-6" />,
-      title: t('variants.alignment.title'),
-      subtitle: t('variants.alignment.subtitle'),
-      description: t('variants.alignment.description'),
+      title: t('revision360.variants.alignment.title'),
+      subtitle: t('revision360.variants.alignment.subtitle'),
+      description: t('revision360.variants.alignment.description'),
       idealFor: [
-        t('variants.alignment.idealFor.1'),
-        t('variants.alignment.idealFor.2'),
-        t('variants.alignment.idealFor.3'),
-        t('variants.alignment.idealFor.4'),
+        t('revision360.variants.alignment.idealFor.1'),
+        t('revision360.variants.alignment.idealFor.2'),
+        t('revision360.variants.alignment.idealFor.3'),
+        t('revision360.variants.alignment.idealFor.4'),
       ],
-      duration: t('variants.alignment.duration'),
+      duration: t('revision360.variants.alignment.duration'),
       includes: [
-        t('variants.alignment.includes.1'),
-        t('variants.alignment.includes.2'),
-        t('variants.alignment.includes.3'),
-        t('variants.alignment.includes.4'),
+        t('revision360.variants.alignment.includes.1'),
+        t('revision360.variants.alignment.includes.2'),
+        t('revision360.variants.alignment.includes.3'),
+        t('revision360.variants.alignment.includes.4'),
       ],
       price: 'EUR 280',
     },
     {
       icon: <Sparkles className="w-6 h-6" />,
-      title: t('variants.integral.title'),
-      subtitle: t('variants.integral.subtitle'),
-      description: t('variants.integral.description'),
+      title: t('revision360.variants.integral.title'),
+      subtitle: t('revision360.variants.integral.subtitle'),
+      description: t('revision360.variants.integral.description'),
       idealFor: [
-        t('variants.integral.idealFor.1'),
-        t('variants.integral.idealFor.2'),
-        t('variants.integral.idealFor.3'),
-        t('variants.integral.idealFor.4'),
+        t('revision360.variants.integral.idealFor.1'),
+        t('revision360.variants.integral.idealFor.2'),
+        t('revision360.variants.integral.idealFor.3'),
+        t('revision360.variants.integral.idealFor.4'),
       ],
-      duration: t('variants.integral.duration'),
+      duration: t('revision360.variants.integral.duration'),
       includes: [
-        t('variants.integral.includes.1'),
-        t('variants.integral.includes.2'),
-        t('variants.integral.includes.3'),
-        t('variants.integral.includes.4'),
+        t('revision360.variants.integral.includes.1'),
+        t('revision360.variants.integral.includes.2'),
+        t('revision360.variants.integral.includes.3'),
+        t('revision360.variants.integral.includes.4'),
       ],
       price: 'EUR 750',
     },
@@ -113,10 +113,10 @@ export default function VariantsSection() {
           transition={{ duration: 0.45 }}
         >
           <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-gray-900 uppercase bg-gray-100 rounded-full">
-            Options
+            {t('revision360.variants.badge')}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('variants.title')}</h2>
-          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('variants.subtitle')}</p>
+          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('revision360.variants.title')}</h2>
+          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('revision360.variants.subtitle')}</p>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -157,7 +157,7 @@ export default function VariantsSection() {
             <p className="text-gray-700 text-lg leading-relaxed">{selectedVariant.description}</p>
             <div className="grid gap-8 sm:grid-cols-2">
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">{t('variants.idealFor')}</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">{t('revision360.variants.idealFor')}</p>
                 <ul className="space-y-2.5">
                   {selectedVariant.idealFor.map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-600">
@@ -168,7 +168,7 @@ export default function VariantsSection() {
                 </ul>
               </div>
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">{t('variants.includes')}</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">{t('revision360.variants.includes')}</p>
                 <ul className="space-y-2.5">
                   {selectedVariant.includes.map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-600">
@@ -181,11 +181,11 @@ export default function VariantsSection() {
             </div>
             <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.1em] text-gray-500 font-bold">{t('variants.sessionDuration')}</p>
+                <p className="text-xs uppercase tracking-[0.1em] text-gray-500 font-bold">{t('revision360.variants.sessionDuration')}</p>
                 <p className="text-xl font-bold text-gray-900 mt-1">{selectedVariant.duration}</p>
               </div>
               <div className="sm:text-right">
-                <p className="text-xs uppercase tracking-[0.1em] text-gray-500 font-bold">{t('variants.investment')}</p>
+                <p className="text-xs uppercase tracking-[0.1em] text-gray-500 font-bold">{t('revision360.variants.investment')}</p>
                 <p className="text-3xl font-bold text-gray-900 mt-1">{selectedVariant.price}</p>
               </div>
             </div>

@@ -17,16 +17,16 @@ export default function FinalInvitationSection() {
           transition={{ duration: 0.45 }}
         >
           <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight">
-            {t('final.title')}
+            {t('revision360.final.title')}
           </h2>
           <p className="mt-5 max-w-3xl mx-auto text-gray-600 text-base sm:text-xl leading-relaxed">
-            {t('final.subtitle')}
+            {t('revision360.final.subtitle')}
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               asChild
-              className="btn-360-primary h-auto px-7 py-3.5 text-base bg-gray-900 text-white hover:bg-black hover:scale-105 active:scale-95 transition-transform duration-300 shadow-md"
+              className="btn-360-primary h-auto px-7 py-3.5 text-base bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-yellow-200"
             >
               <a
                 href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
@@ -41,7 +41,7 @@ export default function FinalInvitationSection() {
             <Button
               asChild
               variant="outline"
-              className="btn-360-secondary h-auto px-7 py-3.5 text-base border-gray-300 text-gray-900 hover:bg-gray-100 hover:text-gray-900 hover:border-gray-400 hover:scale-105 transition-all duration-300"
+              className="btn-360-secondary h-auto px-7 py-3.5 text-base border-gray-300 text-gray-900 hover:bg-yellow-50 hover:text-yellow-900 hover:border-yellow-200 hover:scale-105 transition-all duration-300"
             >
               <a
                 href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"
@@ -61,17 +61,17 @@ export default function FinalInvitationSection() {
           </div>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-              <p className="text-2xl font-bold text-gray-900">500+</p>
+            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm hover:border-yellow-200 transition-colors">
+              <p className="text-2xl font-bold text-yellow-600">500+</p>
               <p className="mt-1 text-sm text-gray-500">{t('final.stat1')}</p>
             </div>
-            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-              <p className="text-2xl font-bold text-gray-900">15+</p>
+            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm hover:border-yellow-200 transition-colors">
+              <p className="text-2xl font-bold text-yellow-600">15+</p>
               <p className="mt-1 text-sm text-gray-500">{t('final.stat2')}</p>
             </div>
-            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-              <p className="text-2xl font-bold text-gray-900">98%</p>
-              <p className="mt-1 text-sm text-gray-500">{t('final.stat3')}</p>
+            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm hover:border-yellow-200 transition-colors">
+              <p className="text-2xl font-bold text-yellow-600">98%</p>
+              <p className="mt-1 text-sm text-gray-500">{t('revision360.final.stat3')}</p>
             </div>
           </div>
         </motion.div>

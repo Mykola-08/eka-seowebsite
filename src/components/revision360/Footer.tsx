@@ -31,7 +31,7 @@ export default function Footer() {
             <div className="flex items-center space-x-3">
               <motion.img 
                 src="/images/eka_logo.png"
-                alt={t('alt.ekaLogo')}
+                alt={t('revision360.alt.ekaLogo')}
                 className="w-12 h-12 object-contain opacity-80"
                 whileHover={{ 
                   scale: 1.05,
@@ -45,20 +45,20 @@ export default function Footer() {
                   EKA Balance
                 </h3>
                 <p className="text-amber-300/60 text-sm font-light">
-                  {t('footer.brand')}
+                  {t('revision360.footer.brand')}
                 </p>
               </div>
             </div>
             
             <p className="text-zinc-400 leading-relaxed font-light">
-              {t('footer.description')}
+              {t('revision360.footer.description')}
             </p>
             
             <div 
               className="flex items-center space-x-2 text-amber-200"
             >
               <Heart className="w-4 h-4" />
-              <span className="text-sm italic">{t('footer.healingWithIntention')}</span>
+              <span className="text-sm italic">{t('revision360.footer.healingWithIntention')}</span>
             </div>
           </motion.div>
 
@@ -71,7 +71,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-semibold text-amber-100">
-              {t('footer.contact')}
+              {t('revision360.footer.contact')}
             </h4>
             
             <div className="space-y-4">
@@ -112,8 +112,8 @@ export default function Footer() {
               >
                 <MapPin className="w-5 h-5 text-amber-400 mt-0.5" />
                 <div>
-                  <p>{t('labels.presentialConsultations')}</p>
-                  <p className="text-sm text-zinc-400">{t('labels.onlineSessionsAvailable')}</p>
+                  <p>{t('revision360.labels.presentialConsultations')}</p>
+                  <p className="text-sm text-zinc-400">{t('revision360.labels.onlineSessionsAvailable')}</p>
                 </div>
               </motion.div>
             </div>
@@ -128,16 +128,16 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-semibold text-amber-100">
-              {t('footer.services')}
+              {t('revision360.footer.services')}
             </h4>
             
             <div className="space-y-3">
               {[
-                t('services.completeReview'),
-                t('services.reset360'),
-                t('services.mapping360'),
-                t('services.alignment360'),
-                t('services.followUpConsultations')
+                t('revision360.services.completeReview'),
+                t('revision360.services.reset360'),
+                t('revision360.services.mapping360'),
+                t('revision360.services.alignment360'),
+                t('revision360.services.followUpConsultations')
               ].map((service, index) => (
                 <motion.p
                   key={service}
@@ -170,7 +170,7 @@ export default function Footer() {
             <p 
               className="text-zinc-400 text-sm"
             >
-              {t('footer.copyright')}
+              {t('revision360.footer.copyright')}
             </p>
             <LanguageSelector />
           </div>
@@ -180,12 +180,13 @@ export default function Footer() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <span>{t('footer.madeWith')}</span>
+            <span>{t('revision360.footer.madeWith')}</span>
             <Heart className="w-4 h-4 text-red-400" />
-            <span>{t('footer.forHealing')}</span>
+            <span>{t('revision360.footer.forHealing')}</span>
           </motion.div>
         </motion.div>
       </div>
     </motion.footer>
   );
+}
 }

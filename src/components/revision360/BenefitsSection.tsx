@@ -34,7 +34,7 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-gray-900 uppercase bg-gray-100 rounded-full">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-yellow-800 uppercase bg-amber-50 rounded-full border border-amber-200">
             {t('revision360.benefits.badge')}
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('revision360.benefits.title')}</h2>
@@ -45,20 +45,20 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-gray-400 shadow-sm"
+              className="rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-100/40 hover:border-yellow-300 shadow-sm group"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-900">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-yellow-600 border border-amber-100 group-hover:bg-yellow-100 group-hover:text-yellow-800 transition-colors">
                 {benefit.icon}
               </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-900">{benefit.title}</h3>
+              <h3 className="mt-4 text-lg font-bold text-gray-900 group-hover:text-yellow-900 transition-colors">{benefit.title}</h3>
               <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
               {benefit.science && (
-                <div className="mt-4 border-t border-gray-100 pt-3">
-                  <p className="text-xs uppercase tracking-[0.12em] text-gray-500 font-bold">Science</p>
+                <div className="mt-4 border-t border-gray-100 pt-3 group-hover:border-yellow-100">
+                  <p className="text-xs uppercase tracking-[0.12em] text-yellow-600 font-bold">Science</p>
                   <p className="mt-2 text-sm text-gray-500 italic">{benefit.science}</p>
                 </div>
               )}

@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import AnimateIn from './AnimateIn';
 
+// High-quality, clean, therapeutic images
 const heroImages = [
-  'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1920', // Barcelona Skyline
-  'https://images.pexels.com/photos/10521232/pexels-photo-10521232.jpeg?auto=compress&cs=tinysrgb&w=1920', // Wellness Bed / Spa Room
-  'https://images.pexels.com/photos/6628817/pexels-photo-6628817.jpeg?auto=compress&cs=tinysrgb&w=1920', // Women talking in massage room (Candid)
-  'https://images.pexels.com/photos/7176059/pexels-photo-7176059.jpeg?auto=compress&cs=tinysrgb&w=1920', // Consultation with notes (Candid)
+  'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920', // Clean massage/therapy setup
+  'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920', // Relaxing atmosphere
+  'https://images.pexels.com/photos/3820288/pexels-photo-3820288.jpeg?auto=compress&cs=tinysrgb&w=1920', // Minimalist wellness
 ];
 
 export default function AppleHero() {
@@ -23,68 +23,68 @@ export default function AppleHero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex(prev => (prev + 1) % heroImages.length);
-    }, 12000);
+    }, 5000); // Faster rotation for engagement
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-section-full">
-      {/* Background Image with smooth transitions */}
-      <div className="absolute inset-0 transition-opacity duration-1000">
-        {heroImages.map((image, index) => (
-          <div
-            key={image}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
-            style={{ backgroundImage: `url(${image})` }}
-          />
-        ))}
-      </div>
+    <section className="relative w-full bg-[#f5f5f7] pt-20 pb-12 md:pt-32 md:pb-24 overflow-hidden">
+      <div className="apple-container flex flex-col items-center text-center px-6">
 
-      {/* Overlay for text readability */}
-      <div className="bg-overlay-dark" />
+        {/* Main Content Area */}
+        <div className="max-w-4xl mx-auto mb-12 md:mb-16 z-10">
+          <AnimateIn delay={0.1} duration={0.6}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-gray-900 tracking-tight leading-[1.1] mb-6">
+              {t('hero.title')}
+            </h1>
+          </AnimateIn>
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
-        {/* Badge - Glassy Style */}
-        <AnimateIn delay={0.2} from="top">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 animate-fade-in">
-            <span className="text-sm md:text-base font-medium tracking-wide text-white/90">
-              {t('hero.badge')}
-            </span>
+          <AnimateIn delay={0.2} duration={0.6}>
+            <p className="text-xl md:text-2xl text-gray-500 font-normal leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10 text-balance">
+              {t('hero.subtitle')}
+            </p>
+          </AnimateIn>
+
+          <AnimateIn delay={0.3} duration={0.6}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/first-time" onClick={() => logEvent('hero_first_time_click')}>
+                <Button size="xl" variant="primary" className="text-lg px-8 py-6 h-auto">
+                  {t('hero.firstTime')}
+                </Button>
+              </Link>
+
+              <Link href="/services" onClick={() => logEvent('hero_services_click')}>
+                <Button size="xl" variant="secondary" className="text-lg px-8 py-6 h-auto">
+                  {t('hero.discoverServices')}
+                </Button>
+              </Link>
+            </div>
+          </AnimateIn>
+        </div>
+
+        {/* Hero Image Slider Container */}
+        <AnimateIn delay={0.4} duration={0.8} className="w-full max-w-[1200px] mx-auto">
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-sm bg-white">
+            {heroImages.map((image, index) => (
+              <div
+                key={image}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt={`Wellness atmosphere ${index + 1}`}
+                  fill
+                  priority={index === 0}
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                />
+              </div>
+            ))}
           </div>
         </AnimateIn>
 
-        {/* Main Title */}
-        <AnimateIn delay={0.4} duration={0.8}>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-white mb-6 md:mb-8 font-bold tracking-tight drop-shadow-2xl">
-            {t('hero.title')}
-          </h1>
-        </AnimateIn>
-
-        {/* Subtitle */}
-        <AnimateIn delay={0.6}>
-          <p className="apple-subtitle text-white/90 mb-8 md:mb-12 max-w-3xl mx-auto text-balance">
-            {t('hero.subtitle')}
-          </p>
-        </AnimateIn>
-
-        {/* CTA Buttons */}
-        <AnimateIn delay={0.8}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/first-time" className="group" onClick={() => logEvent('hero_first_time_click')}>
-              <Button size="xl" variant="apple" className="shadow-lg hover:shadow-xl normal-case text-lg border-2 border-transparent hover:border-white/20">
-                {t('hero.firstTime')}
-              </Button>
-            </Link>
-
-            <Link href="/services" className="group" onClick={() => logEvent('hero_services_click')}>
-              <Button size="xl" variant="outline" className="shadow-lg hover:shadow-xl normal-case font-medium text-lg bg-transparent text-white border-white hover:bg-white/10 hover:text-white">
-                {t('hero.discoverServices')}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 ease-out-quart" />
-              </Button>
-            </Link>
-          </div>
-        </AnimateIn>
       </div>
     </section>
   );

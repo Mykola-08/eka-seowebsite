@@ -12,20 +12,20 @@
 
   --apple-gray: #f5f5f7;
   --apple-gray-dark: #1d1d1f;
-  --apple-blue: #007aff;
+  --apple-blue: #0071e3;
   --apple-purple: #5856d6;
   --apple-border-radius: 32px;
   --apple-border-radius-small: 9999px;
   --apple-border-radius-large: 48px;
   --apple-border-radius-xl: 64px;
   --apple-shadow: 0 0 0 0 transparent;
-  --apple-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.06);
-  --apple-shadow-large: 0 16px 48px rgba(0, 0, 0, 0.05);
+  --apple-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for interactive elements */
+  --apple-shadow-large: 0 8px 24px rgba(0, 0, 0, 0.05); /* Very slight large shadow */
   --surface-primary: #ffffff;
-  --surface-muted: #f8fafc;
-  --surface-elevated: #f1f5f9;
-  --border-subtle: rgba(148, 163, 184, 0.12);
-  --border-strong: rgba(148, 163, 184, 0.25);
+  --surface-muted: #f5f5f7;
+  --surface-elevated: #ffffff;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.12);
 
   /* Animation Easings */
   --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -117,7 +117,8 @@
     @apply text-base sm:text-lg text-gray-600 leading-relaxed;
   }
 
-  /* Full-Width Background Image Sections */
+  /* Full-Width Background Image Sections - Commented out for cleaner design */
+  /*
   .bg-section-full {
     @apply relative overflow-hidden;
     background-size: cover;
@@ -139,6 +140,7 @@
     @apply absolute inset-0 bg-black;
     opacity: 0.3;
   }
+  */
 
   /* Utility Classes */
   .rounded-apple {
@@ -159,32 +161,6 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Service Category Pills */
-  .service-pill {
-    @apply relative overflow-hidden transition-all duration-500 ease-out;
-    @apply hover:scale-105 hover:shadow-2xl;
-    border-radius: var(--apple-border-radius-large);
-    background-size: cover;
-    background-position: center;
-    min-height: 320px;
-  }
-
-  .service-pill::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60;
-    transition: all 0.5s ease;
-  }
-
-  .service-pill:hover::before {
-    @apply from-black/30 via-black/40 to-black/70;
-  }
-
-  /* UNIFIED BUTTON SYSTEM - MOVED TO components/ui/button.tsx */
-  /* Keeping minimal resets if needed, but removing .btn classes */
-
-  /* UNIFIED CARD SYSTEM - REPLACED WITH TAILWIND UTILITIES */
-  /* Remove .card, .apple-card, .card-interactive to promote component usage */
 
   /* Apple-style sections */
   .apple-section {
@@ -300,7 +276,7 @@
     -webkit-backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(229, 231, 235, 0.2);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Minimal shadow */
   }
 
   .liquid-glass-nav::before {
@@ -324,7 +300,7 @@
     -webkit-backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(229, 231, 235, 0.2);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Minimal shadow */
   }
 
   .liquid-glass-nav-no-anim::before {

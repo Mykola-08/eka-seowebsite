@@ -53,7 +53,7 @@ export default function AdultsContent() {
                   <div className="aspect-video w-full overflow-hidden relative">
                      <Image
                         src="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop"
-                        alt="Kinesiología"
+                        alt={t('services.kinesiology.title')}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -64,7 +64,7 @@ export default function AdultsContent() {
                         <div className="p-2 bg-amber-50 rounded-full">
                             <HeartPulse className="w-6 h-6" />
                         </div>
-                        <span className="font-medium">Equilibrio Integral</span>
+                        <span className="font-medium">{t('adult.kinesiology.badge')}</span>
                      </div>
                      <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-amber-700 transition-colors">
                         {t('services.kinesiology.title')}
@@ -83,7 +83,7 @@ export default function AdultsContent() {
                   <div className="aspect-video w-full overflow-hidden relative">
                      <Image
                         src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop"
-                        alt="Nutrición"
+                        alt={t('services.nutrition.title')}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -94,7 +94,7 @@ export default function AdultsContent() {
                         <div className="p-2 bg-green-50 rounded-full">
                             <Salad className="w-6 h-6" />
                         </div>
-                        <span className="font-medium">Salud Digestiva</span>
+                        <span className="font-medium">{t('adult.nutrition.badge')}</span>
                      </div>
                      <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-green-700 transition-colors">
                         {t('services.nutrition.title')}

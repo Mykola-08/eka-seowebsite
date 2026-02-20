@@ -73,10 +73,10 @@ export default function ChildrenContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
               <h2 className="heading-2 mb-4 text-gray-900">
-                Servicios Recomendados
+                {t('children.recommended')}
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-                Cuidado especializado para el desarrollo y bienestar infantil.
+                {t('children.recommended.desc')}
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export default function ChildrenContent() {
                   <div className="aspect-video w-full overflow-hidden relative">
                      <Image
                         src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2072&auto=format&fit=crop"
-                        alt="Kinesiología Infantil"
+                        alt={t('children.kinesiology.imgAlt')}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -97,13 +97,13 @@ export default function ChildrenContent() {
                         <div className="p-2 bg-blue-50 rounded-full">
                             <Brain className="w-6 h-6" />
                         </div>
-                        <span className="font-medium">Aprendizaje y Emociones</span>
+                        <span className="font-medium">{t('children.kinesiology.badge')}</span>
                      </div>
                      <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
                         {t('services.kinesiology.title')}
                      </h3>
                      <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        Apoyo en dificultades de aprendizaje, gestión emocional y coordinación motora.
+                        {t('children.kinesiology.desc')}
                      </p>
                      <Link href="/services/kinesiology" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors">
                         {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />
@@ -116,7 +116,7 @@ export default function ChildrenContent() {
                   <div className="aspect-video w-full overflow-hidden relative">
                      <Image
                         src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop"
-                        alt="Salud Física"
+                        alt={t('children.health.imgAlt')}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -127,13 +127,13 @@ export default function ChildrenContent() {
                         <div className="p-2 bg-blue-50 rounded-full">
                             <HeartPulse className="w-6 h-6" />
                         </div>
-                        <span className="font-medium">Salud Física</span>
+                        <span className="font-medium">{t('children.health.badge')}</span>
                      </div>
                      <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
-                        Equilibrio Corporal
+                        {t('children.health.title')}
                      </h3>
                      <p className="text-gray-600 mb-8 font-light line-clamp-3">
-                        Tratamiento holístico para alergias, intolerancias y desarrollo físico saludable.
+                        {t('children.health.desc')}
                      </p>
                      <Link href="/services/kinesiology" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors">
                         {t('common.moreInfo')} <ArrowRight className="w-5 h-5 ml-2" />

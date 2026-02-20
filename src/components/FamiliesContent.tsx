@@ -73,10 +73,10 @@ export default function FamiliesContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
               <h2 className="heading-2 mb-4 text-gray-900">
-                Servicios Recomendados
+                {t('families.recommended')}
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-                Apoyo integral para el bienestar de toda la familia.
+                {t('families.recommended.desc')}
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export default function FamiliesContent() {
                   <div className="aspect-video w-full overflow-hidden relative">
                      <Image
                         src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
-                        alt="Kinesiología"
+                        alt={t('services.kinesiology.title')}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -97,7 +97,7 @@ export default function FamiliesContent() {
                         <div className="p-2 bg-green-50 rounded-full">
                             <HeartPulse className="w-6 h-6" />
                         </div>
-                        <span className="font-medium">Bienestar Familiar</span>
+                        <span className="font-medium">{t('families.kinesiology.badge')}</span>
                      </div>
                      <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-green-700 transition-colors">
                         {t('services.kinesiology.title')}
@@ -116,7 +116,7 @@ export default function FamiliesContent() {
                   <div className="aspect-video w-full overflow-hidden relative">
                      <Image
                         src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop"
-                        alt="Nutrición"
+                        alt={t('services.nutrition.title')}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -127,7 +127,7 @@ export default function FamiliesContent() {
                         <div className="p-2 bg-green-50 rounded-full">
                             <Salad className="w-6 h-6" />
                         </div>
-                        <span className="font-medium">Hábitos Saludables</span>
+                        <span className="font-medium">{t('families.nutrition.badge')}</span>
                      </div>
                      <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-green-700 transition-colors">
                         {t('services.nutrition.title')}

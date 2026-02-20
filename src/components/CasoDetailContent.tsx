@@ -177,7 +177,7 @@ export default function CasoDetailContent() {
                 <Link href={config.href}>
                     <Button 
                         size="xl"
-                        variant="accent"
+                        variant="apple"
                     >
                         {t('common.bookNow')}
                         <ArrowRight className="w-5 h-5 ml-2" />

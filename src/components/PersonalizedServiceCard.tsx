@@ -86,7 +86,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         <div className="flex gap-4">
           <Link href="/booking" className="flex-1">
              <Button 
-                variant="accent"
+                variant="primary"
                 className="w-full py-3 shadow-md border-none normal-case"
              >
                {t('nav.bookNow')}

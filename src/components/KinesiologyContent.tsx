@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Brain, CheckCircle2, Zap } from 'lucide-react';
+import { Brain, CheckCircle2, Zap, Clock } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';

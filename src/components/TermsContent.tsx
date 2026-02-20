@@ -95,7 +95,7 @@ export default function TermsContent() {
                   </p>
                   <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
                     <li>We do not provide medical diagnosis, prescriptions, or medical treatment.</li>
-                    <li>We do not advise stopping prescribed medication or clinical care.</li>
+                    <li>We do not advise stopping prescribed medication or medical care.</li>
                     <li>Outcomes vary by person, context, and consistency of practice.</li>
                     <li>For physical or psychological emergencies, seek immediate licensed medical care.</li>
                   </ul>

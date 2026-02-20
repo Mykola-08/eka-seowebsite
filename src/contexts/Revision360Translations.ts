@@ -44,10 +44,10 @@ const rawTranslations: Translations = {
     ru: 'Обзор 360° | EKA Balance'
   },
   'revision360.seo.description': {
-    ca: 'Avaluació completa de biomecànica, postura i estat metabòlic. Informe clínic detallat i full de ruta terapèutic personalitzat.',
-    en: 'Complete assessment of biomechanics, posture, and metabolic status. Detailed clinical report and personalized therapeutic roadmap.',
-    es: 'Evaluación completa de biomecánica, postura y estado metabólico. Informe clínico detallado y hoja de ruta terapéutica personalizada.',
-    ru: 'Полная оценка биомеханики, осанки и метаболического статуса. Подробный клинический отчет и персональная терапевтическая карта.'
+    ca: 'Avaluació completa de biomecànica, postura i estat metabòlic. Informe detallat i full de ruta terapèutic personalitzat.',
+    en: 'Complete assessment of biomechanics, posture, and metabolic status. Detailed report and personalized therapeutic roadmap.',
+    es: 'Evaluación completa de biomecánica, postura y estado metabólico. Informe detallado y hoja de ruta terapéutica personalizada.',
+    ru: 'Полная оценка биомеханики, осанки и метаболического статуса. Подробный отчет и персональная терапевтическая карта.'
   },
   'revision360.seo.keywords': {
     ca: 'revisió 360, avaluació biomecànica, diagnòstic funcional, salut integral',

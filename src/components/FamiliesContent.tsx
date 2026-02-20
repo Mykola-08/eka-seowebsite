@@ -34,7 +34,7 @@ export default function FamiliesContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                   <Button size="xl" variant="accent" className="px-8 py-4 normal-case">
+                   <Button size="xl" variant="apple" className="px-8 py-4 normal-case">
                       {t('common.reserveSession')}
                    </Button>
                 </Link>

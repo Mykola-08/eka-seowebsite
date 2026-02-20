@@ -36,7 +36,7 @@ export default function ForParentsContent() {
               <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                variant="accent"
+                variant="apple"
               >
                 {t('common.bookNow')}
               </Button>

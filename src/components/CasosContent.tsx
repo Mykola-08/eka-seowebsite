@@ -247,7 +247,7 @@ export default function CasosContent() {
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  variant="accent"
+                  variant="apple"
                   className="border-none"
                 >
                   {t('casos.bookSession')}

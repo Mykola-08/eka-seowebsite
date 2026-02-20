@@ -39,7 +39,7 @@ export default function PersonalizedServicesContent() {
                 <Link href="/booking">
                 <Button 
                     size="xl" 
-                    variant="accent"
+                    variant="apple"
                     className="px-8 py-4 shadow-xl border-none"
                 >
                     {t('personalizedServices.cta')}

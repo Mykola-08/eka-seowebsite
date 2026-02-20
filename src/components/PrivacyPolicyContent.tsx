@@ -33,7 +33,7 @@ export default function PrivacyPolicyContent() {
                       EKA Balance services are complementary wellness services. They are not medical diagnosis or treatment and do not replace care from licensed medical or mental-health professionals.
                     </p>
                     <ul className="space-y-2 text-gray-700 list-disc ml-5">
-                      <li>Do not stop prescribed medication or clinical care based on website content.</li>
+                      <li>Do not stop prescribed medication or medical care based on website content.</li>
                       <li>Consult your physician for medical decisions, symptoms, or health emergencies.</li>
                       <li>If you are in immediate danger, call emergency services right away.</li>
                     </ul>

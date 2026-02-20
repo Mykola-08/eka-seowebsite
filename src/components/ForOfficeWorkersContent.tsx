@@ -38,7 +38,7 @@ export default function ForOfficeWorkersContent() {
             <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                variant="accent"
+                variant="apple"
                 className="shadow-xl"
             >
                 {t('common.bookNow')}
@@ -65,12 +65,50 @@ export default function ForOfficeWorkersContent() {
               <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
                 <p>{t('personalized.officeWorkers.understanding.description1')}</p>
                 <p>{t('personalized.officeWorkers.understanding.description2')}</p>
-                <p className="font-medium text-gray-900">
+
+                {/* Benefits List */}
+                <div className="mt-8 bg-white/60 rounded-xl p-6 border border-blue-100/50">
+                    <h3 className="font-bold text-blue-900 mb-4">{t('personalized.officeWorkers.benefits.title')}</h3>
+                    <ul className="space-y-2">
+                        {(t('personalized.officeWorkers.benefits.list') as unknown as string[]).map((benefit, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                                <span className="text-gray-700">{benefit}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <p className="font-medium text-gray-900 mt-6">
                   {t('personalized.officeWorkers.understanding.callToAction')}
                 </p>
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Methodology Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8">
+             <h2 className="heading-2 mb-12 font-bold text-center text-eka-dark">
+                {t('personalized.officeWorkers.method.title')}
+             </h2>
+             <div className="grid md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((step) => (
+                  <div key={step} className="bg-blue-50/30 rounded-2xl p-8 border border-blue-100">
+                     <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mb-4">
+                        {step}
+                     </div>
+                     <h3 className="font-bold text-xl mb-3 text-gray-900">
+                        {t(`personalized.officeWorkers.method.step${step}.title`, {})}
+                     </h3>
+                     <p className="text-gray-600">
+                        {t(`personalized.officeWorkers.method.step${step}.desc`, {})}
+                     </p>
+                  </div>
+                ))}
+            </div>
+        </div>
         </section>
 
         {/* Recommended Services */}
@@ -121,7 +159,23 @@ export default function ForOfficeWorkersContent() {
           </div>
         </section>
 
-        <FAQ />
+        <FAQ items={[
+             {
+                id: 'office-q1',
+                question: t('personalized.officeWorkers.faq.q1'),
+                answer: t('personalized.officeWorkers.faq.a1')
+             },
+             {
+                id: 'office-q2',
+                question: t('personalized.officeWorkers.faq.q2'),
+                answer: t('personalized.officeWorkers.faq.a2')
+             },
+             {
+                id: 'office-q3',
+                question: t('personalized.officeWorkers.faq.q3'),
+                answer: t('personalized.officeWorkers.faq.a3')
+             }
+        ]} />
         <CTASection />
     </PageLayout>
     </>

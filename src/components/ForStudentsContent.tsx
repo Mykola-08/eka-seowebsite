@@ -38,7 +38,7 @@ export default function ForStudentsContent() {
             <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                variant="accent"
+                variant="apple"
                 className="shadow-xl"
             >
                 {t('common.bookNow')}

@@ -26,7 +26,7 @@ export default function Why360Section() {
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs uppercase tracking-[0.12em] text-amber-700 font-bold">
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs uppercase tracking-[0.12em] text-gray-900 font-bold">
               <Sparkles className="h-3.5 w-3.5" />
               360 Framework
             </span>
@@ -39,7 +39,7 @@ export default function Why360Section() {
             <button
               type="button"
               onClick={() => setShowModal(true)}
-              className="mt-8 btn bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 hover:border-gray-300 shadow-sm transition-all px-6 py-3 rounded-full font-medium"
+              className="mt-8 btn bg-gray-900 text-white border border-transparent hover:bg-black hover:scale-105 shadow-md transition-all px-8 py-4 rounded-full font-bold tracking-wide"
             >
               {t('why360.philosophy')}
             </button>
@@ -55,13 +55,13 @@ export default function Why360Section() {
             {layers.map((layer) => (
               <article
                 key={layer.name}
-                className="rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:-translate-y-1"
+                className="rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-gray-300 hover:-translate-y-1"
               >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-orange-50 text-amber-600">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-900">
                   <Layers className="h-5 w-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">{layer.name}</h3>
-                <p className="mt-2 text-sm sm:text-base text-gray-500 leading-relaxed">
+                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
                   {layer.description}
                 </p>
               </article>

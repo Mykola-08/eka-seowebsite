@@ -31,7 +31,7 @@ export default function ArtistsContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                    <Button size="xl" variant="accent">
+                    <Button size="xl" variant="apple">
                       {t('common.reserveSession')}
                     </Button>
                 </Link>
@@ -191,7 +191,7 @@ export default function ArtistsContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                   <Button size="xl" variant="gold" className="w-full sm:w-auto">
+                   <Button size="xl" variant="apple" className="w-full sm:w-auto">
                     {t('artists.session.cta')}
                    </Button>
                 </Link>

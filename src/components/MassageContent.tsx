@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, CheckCircle2, Heart } from 'lucide-react';
+import { CheckCircle2, Heart, Clock } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';

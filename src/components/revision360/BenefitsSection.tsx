@@ -34,7 +34,7 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-purple-600 uppercase bg-purple-50 rounded-full">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-gray-900 uppercase bg-gray-100 rounded-full">
             Benefits
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('benefits.title')}</h2>
@@ -45,20 +45,20 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-purple-200 shadow-sm"
+              className="rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-gray-400 shadow-sm"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-purple-50 text-purple-600">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-900">
                 {benefit.icon}
               </div>
               <h3 className="mt-4 text-lg font-bold text-gray-900">{benefit.title}</h3>
               <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
               {benefit.science && (
                 <div className="mt-4 border-t border-gray-100 pt-3">
-                  <p className="text-xs uppercase tracking-[0.12em] text-purple-700 font-semibold">Science</p>
+                  <p className="text-xs uppercase tracking-[0.12em] text-gray-500 font-bold">Science</p>
                   <p className="mt-2 text-sm text-gray-500 italic">{benefit.science}</p>
                 </div>
               )}

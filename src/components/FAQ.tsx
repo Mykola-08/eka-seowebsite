@@ -14,10 +14,16 @@ interface FAQItem {
   answer: string;
 }
 
-const FAQ = () => {
+interface FAQProps {
+  items?: FAQItem[];
+  title?: string;
+  subtitle?: string;
+}
+
+const FAQ = ({ items, title, subtitle }: FAQProps) => {
   const { t } = useLanguage();
 
-  const faqItems: FAQItem[] = [
+  const defaultItems: FAQItem[] = [
     {
       id: 'item-1',
       question: t('faq.q1.question'),
@@ -45,6 +51,10 @@ const FAQ = () => {
     }
   ];
 
+  const faqItems = items || defaultItems;
+
+  if (faqItems.length === 0) return null;
+
   return (
     <section className="py-24 bg-gray-50/50">
       <div className="section-container max-w-4xl mx-auto">
@@ -53,10 +63,10 @@ const FAQ = () => {
             FAQ
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
-            {t('faq.title')}
+            {title || t('faq.title')}
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
-            {t('faq.subtitle')}
+            {subtitle || t('faq.subtitle')}
           </p>
         </div>
 

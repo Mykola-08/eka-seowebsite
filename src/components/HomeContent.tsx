@@ -111,7 +111,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block">
-                <Button variant="outline" className="border-gray-200 text-gray-900 bg-white hover:bg-gray-50 px-8 py-3 shadow-md hover:shadow-lg transition-all duration-300">
+                <Button variant="outline" size="lg" className="border-gray-200 text-gray-900 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg transition-all duration-300">
                   {t('common.readMore')}
                 </Button>
               </Link>

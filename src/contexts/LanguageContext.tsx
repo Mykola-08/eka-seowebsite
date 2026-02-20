@@ -23,6 +23,11 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'booking.form.close': 'Tancar formulari',
     'common.minutes': 'min',
     'common.notFound': 'No trobat',
+    'common.readyToStart': 'Preparat per començar?',
+    'common.bookConsultation': 'Reserva la teva consulta avui i fes el primer pas cap a una millor salut i benestar.',
+    'common.bookNow': 'Reserva ara',
+    'common.contactUs': 'Contacta amb nosaltres',
+    'common.readMore': 'Llegir més',
     'contact.form.emailPlaceholder': 'El teu correu electrònic',
     'contact.form.namePlaceholder': 'El teu nom',
     'contact.form.title': 'Envia\'ns un missatge',
@@ -87,6 +92,11 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'booking.form.close': 'Close form',
     'common.minutes': 'min',
     'common.notFound': 'Not found',
+    'common.readyToStart': 'Ready to start your journey?',
+    'common.bookConsultation': 'Book a consultation today and take the first step towards better health and wellbeing.',
+    'common.bookNow': 'Book now',
+    'common.contactUs': 'Contact us',
+    'common.readMore': 'Read more',
     'contact.form.emailPlaceholder': 'Your email',
     'contact.form.namePlaceholder': 'Your name',
     'contact.form.title': 'Send us a message',
@@ -146,6 +156,11 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
   es: {
     'adult.cta.desc': 'Empieza tu camino de bienestar con una sesión personalizada.',
     'adult.cta.title': '¿Lista para empezar?',
+    'common.readyToStart': '¿Listo para empezar?',
+    'common.bookConsultation': 'Reserva tu consulta hoy y da el primer paso hacia una mejor salud y bienestar.',
+    'common.bookNow': 'Reserva ahora',
+    'common.contactUs': 'Contáctanos',
+    'common.readMore': 'Leer más',
     'adult.recommended': 'Servicios recomendados',
     'adult.recommended.desc': 'Terapias seleccionadas para adultos y bienestar integral.',
     'booking.form.close': 'Cerrar formulario',
@@ -215,6 +230,11 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'booking.form.close': 'Закрыть форму',
     'common.minutes': 'мин',
     'common.notFound': 'Не найдено',
+    'common.readyToStart': 'Готовы начать?',
+    'common.bookConsultation': 'Запишитесь на консультацию сегодня и сделайте первый шаг к лучшему здоровью и благополучию.',
+    'common.bookNow': 'Забронировать',
+    'common.contactUs': 'Связаться с нами',
+    'common.readMore': 'Читать дальше',
     'contact.form.emailPlaceholder': 'Ваш email',
     'contact.form.namePlaceholder': 'Ваше имя',
     'contact.form.title': 'Отправьте нам сообщение',
@@ -1966,6 +1986,7 @@ const translations: Record<Language, Record<string, string>> = {
     'home.elenaAlt': 'Elena, EKA Balance body therapist',
     'home.viewAllServices': 'View all services',
     'home.elenaName': 'Elena Kucherova',
+    'elena.name': 'Elena Kucherova',
 
     // Hero section
     'hero.badge': 'Integrative clinical somatics',
@@ -3616,6 +3637,15 @@ const translations: Record<Language, Record<string, string>> = {
     'home.elenaAlt': 'Elena, terapeuta corporal de EKA Balance',
     'home.viewAllServices': 'Ver todos los servicios',
     'home.elenaName': 'Elena Kucherova',
+    'elena.name': 'Elena Kucherova',
+    
+    // About
+    'about.badge': 'Mi trayectoria',
+    'about.title': 'Elena Kucherova',
+    'about.role': 'Especialista en integración somática y kinesiología',
+    'about.description1': 'Con más de 15 años de práctica clínica, he perfeccionado un método que va más allá del tratamiento convencional. Mi misión es decodificar el lenguaje de tu cuerpo para desbloquear su capacidad innata de regeneración.',
+    'about.description2': 'Fusiono la precisión de la neurociencia aplicada con la profundidad de las terapias manuales. Cada sesión es una intervención estratégica en tu sistema nervioso para desactivar patrones de dolor y restaurar el equilibrio vital.',
+    'about.cta': 'Descubre el método',
 
     // Hero Section
     'hero.title': 'EKA Balance',
@@ -5113,9 +5143,12 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step.description.title': 'Descripción',
     'discovery.step.description.subtitle': '¿Qué te pasa?',
     'discovery.step.description.placeholder': 'Cuéntanos...',
+    'discovery.step.description.minChars': 'Por favor, describe tu problema con el máximo detalle posible.',
+    'discovery.recommendation.online.note': 'Nota: Como has seleccionado Online, este servicio se adapta para sesiones remotas.',
 
     'common.moreInfo': 'Más info',
     'common.readMore': 'Leer más',
+    'common.blog': 'Blog',
     'common.expectedResult': 'Resultado esperado',
     'common.bookNow': 'Reservar',
     'common.contact': 'Contacto',
@@ -5274,7 +5307,15 @@ const translations: Record<Language, Record<string, string>> = {
     'home.elenaAlt': 'Елена, телесный терапевт EKA Balance',
     'home.viewAllServices': 'Посмотреть все услуги',
     'home.elenaName': 'Елена Кучерова',
+    'elena.name': 'Елена Кучерова',
 
+    // About
+    'about.badge': 'Мой путь',
+    'about.title': 'Елена Кучерова',
+    'about.role': 'Специалист по соматической интеграции и кинезиологии',
+    'about.description1': 'За 15 лет клинической практики я усовершенствовала метод, который выходит за рамки классического лечения.',
+    'about.description2': 'Я объединяю точность прикладной нейробиологии с глубиной мануальных техник для восстановления жизненного баланса.',
+    'about.cta': 'Узнайте больше о методе',
 
     // Hero section
     'hero.badge': 'Естественный способ исцеления',

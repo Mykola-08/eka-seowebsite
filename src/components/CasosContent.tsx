@@ -177,7 +177,7 @@ export default function CasosContent() {
               <Link 
                 key={problem.id} 
                 href={`/cases/${problem.id}`}
-                className="group relative bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100/50 flex flex-col h-full overflow-hidden card" // Added card class just in case, but custom styling is prevalent
+                className="group relative bg-white rounded-3xl p-8 border border-transparent hover:border-gray-100/50 hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden"
               >
                 {/* Hover Gradient Background */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${colors.bg.replace('bg-', 'bg-gradient-to-br from-white to-')}`} />

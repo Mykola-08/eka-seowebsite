@@ -78,7 +78,7 @@ export default function ForParentsContent() {
       <PageLayout hero={Hero}>
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
-          <div className="card bg-pink-50/50 border-pink-100 p-8 sm:p-12">
+          <div className="bg-pink-50/50 border border-pink-100 rounded-[2rem] shadow-sm p-8 sm:p-12 transition-all duration-500 ease-out">
             <h2 className="heading-2 mb-6 font-bold text-eka-dark">
               {t('personalized.parents.understanding.title')}
             </h2>
@@ -105,7 +105,7 @@ export default function ForParentsContent() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="card card-interactive p-8 group">
+            <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
               <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-pink-700 transition-colors">
                 {t('personalized.parents.services.emotionalKinesiology.title')}
               </h3>
@@ -120,7 +120,7 @@ export default function ForParentsContent() {
               </div>
             </div>
 
-            <div className="card card-interactive p-8 group">
+            <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
               <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-pink-700 transition-colors">
                 {t('personalized.parents.services.relaxingMassage.title')}
               </h3>

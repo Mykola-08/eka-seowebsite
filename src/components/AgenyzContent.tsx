@@ -148,7 +148,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className='card card-interactive rounded-2xl p-8 flex flex-col h-full group'
+                                        className='bg-white border border-gray-100 shadow-sm rounded-2xl p-8 flex flex-col h-full group hover:shadow-lg hover:-translate-y-1 transition-all duration-300'
                                     >
                                         <div className='mb-4 flex items-start justify-between'>
                                             <span className='px-3 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full uppercase tracking-wide'>
@@ -195,7 +195,7 @@ export default function AgenyzContent() {
 
                                         <div className='pt-6 border-t border-gray-100 flex items-center justify-between mt-auto'>
                                             <span className='text-sm font-medium text-gray-400'>{t('agenyz.viewDetails') || 'View details'}</span>
-                                            <Button size='sm' className='btn btn-outline border-primary-200 text-primary-600 hover:bg-primary-50 pointer-events-none rounded-xl'>
+                                            <Button size='sm' variant="outline" className='border-primary-200 text-primary-600 hover:bg-primary-50 pointer-events-none rounded-xl bg-transparent'>
                                                 <ArrowRight className='w-4 h-4' />
                                             </Button>
                                         </div>

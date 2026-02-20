@@ -144,7 +144,7 @@ export default function DiscountsContent() {
                           className="w-full py-3 rounded-xl shadow-sm"
                         >
                           {t('discounts.apply') || "Aplicar descompte"}
-                        </button>
+                        </Button>
                       )}
                     </div>
                 )}

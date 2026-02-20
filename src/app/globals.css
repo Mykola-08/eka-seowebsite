@@ -169,124 +169,15 @@
     @apply from-black/30 via-black/40 to-black/70;
   }
 
-  /* UNIFIED BUTTON SYSTEM */
-  .btn {
-    @apply inline-flex items-center justify-center font-medium transition-all duration-300 ease-out;
-    @apply px-6 py-3 sm:px-8 sm:py-4;
-    @apply hover:scale-[1.02] active:scale-[0.98];
-    border-radius: 9999px;
-    font-size: 15px;
-    letter-spacing: -0.01em;
-    min-height: 48px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  }
+  /* UNIFIED BUTTON SYSTEM - MOVED TO components/ui/button.tsx */
+  /* Keeping minimal resets if needed, but removing .btn classes */
 
-  @media (min-width: 640px) {
-    .btn {
-      font-size: 16px;
-      min-height: 52px;
-    }
-  }
-
-  .btn-primary {
-    @apply btn;
-    @apply text-white bg-primary hover:bg-primary-600;
-    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
-  }
-
-  .btn-primary:hover {
-    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3);
-  }
-
-  .btn-accent {
-    @apply btn;
-    @apply text-[#000035];
-    background: #ffb405;
-    @apply bg-accent hover:bg-accent-dark;
-    box-shadow: 0 4px 12px rgba(255, 180, 5, 0.25);
-  }
-
-  .btn-accent:hover {
-    box-shadow: 0 6px 16px rgba(255, 180, 5, 0.3);
-  }
-
-  .btn-secondary {
-    @apply btn;
-    @apply bg-white/80 backdrop-blur-md border border-gray-200/50 hover:bg-white;
-    @apply text-gray-900;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
-  }
-
-  .btn-neutral {
-    @apply btn;
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-900;
-    box-shadow: none;
-  }
-
-  .btn-ghost {
-    @apply btn;
-    @apply text-blue-600 hover:text-blue-700 bg-transparent shadow-none hover:bg-blue-50/50;
-  }
-
-  .btn-outline {
-    @apply btn;
-    @apply border-2 border-gray-200/80 bg-transparent text-gray-700 hover:bg-gray-50/80 hover:text-gray-900 hover:border-gray-300;
-    box-shadow: none;
-  }
-
-  /* UNIFIED CARD SYSTEM */
-  .card, .apple-card {
-    @apply bg-white dark:bg-gray-900;
-    @apply border dark:border-gray-800/50;
-    @apply transition-all duration-500 ease-out;
-    border-radius: var(--apple-border-radius);
-    border-color: var(--border-subtle);
-    box-shadow: var(--apple-shadow);
-  }
-
-  @media (min-width: 768px) {
-    .card, .apple-card {
-      @apply hover:scale-[1.005] hover:-translate-y-0.5;
-    }
-  }
-
-  .card:hover, .apple-card:hover {
-    border-color: var(--border-strong);
-    box-shadow: var(--apple-shadow-hover);
-  }
-
-  .card-interactive {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  .card-interactive:hover {
-    @apply -translate-y-1;
-    box-shadow: var(--apple-shadow-hover);
-  }
-
-  .apple-card-flat {
-    @apply bg-white dark:bg-gray-900;
-    @apply border border-gray-200/30 dark:border-gray-800/30;
-    @apply transition-all duration-300 ease-out;
-    border-radius: var(--apple-border-radius);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  }
-
-  .apple-card-glass {
-    @apply bg-white/80 dark:bg-gray-900/80;
-    @apply border border-white/20 dark:border-gray-800/20;
-    @apply backdrop-blur-xl;
-    @apply transition-all duration-500 ease-out;
-    border-radius: var(--apple-border-radius);
-    box-shadow: var(--apple-shadow);
-  }
-
-  .card-hover {
-    @apply hover:shadow-xl hover:-translate-y-1;
-  }
+  /* UNIFIED CARD SYSTEM - REPLACED WITH TAILWIND UTILITIES */
+  /* Remove .card, .apple-card, .card-interactive to promote component usage */
 
   /* Apple-style sections */
   .apple-section {
+
     @apply py-12 sm:py-20 md:py-32 px-4 sm:px-6;
   }
 

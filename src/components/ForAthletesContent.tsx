@@ -67,7 +67,7 @@ export default function ForAthletesContent() {
         {/* Understanding Section */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
-            <div className="card bg-orange-50/50 border-orange-100 p-8 sm:p-12">
+            <div className="bg-orange-50/50 border border-orange-100 rounded-[2rem] shadow-sm p-8 sm:p-12 transition-all duration-500 ease-out">
               <h2 className="heading-2 mb-6 font-bold text-eka-dark">
                 {t('personalized.athletes.understanding.title')}
               </h2>
@@ -96,7 +96,7 @@ export default function ForAthletesContent() {
 
             <div className="grid md:grid-cols-2 gap-8">
                  {/* Sports Massage Card */}
-                 <div className="card card-interactive p-8 group">
+                 <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors">
                          {t('personalized.athletes.services.sportsMassage.title')}
                     </h3>
@@ -112,7 +112,7 @@ export default function ForAthletesContent() {
                 </div>
 
                 {/* Osteobalance Card */}
-                <div className="card card-interactive p-8 group">
+                <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors">
                         {t('personalized.athletes.services.osteobalance.title')}
                     </h3>

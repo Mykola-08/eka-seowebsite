@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Calendar, MessageCircle, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import PageLayout from './PageLayout';
@@ -148,19 +149,20 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               <p className="text-gray-600 mb-10 leading-relaxed font-light text-lg">
                 {t('booking.form.description')}
               </p>
-              <button
+              <Button
                 onClick={() => {
                     logEvent('booking_page_toggle_form', { show: !showForm });
                     setShowForm(!showForm);
                 }}
-                className={`btn w-full py-4 rounded-full text-lg font-medium shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
+                variant={showForm ? "secondary" : "primary"}
+                className={`w-full py-4 text-lg font-medium shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
                   showForm 
-                    ? 'btn-neutral shadow-none' 
-                    : 'btn-primary shadow-blue-500/20'
+                    ? 'shadow-none' 
+                    : 'shadow-blue-500/20'
                 }`}
               >
                 {showForm ? t('booking.form.close') : t('booking.form.button')}
-              </button>
+              </Button>
             </motion.div>
           </div>
 

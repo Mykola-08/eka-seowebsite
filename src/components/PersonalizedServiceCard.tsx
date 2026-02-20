@@ -15,8 +15,8 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   return (
-    <div className="card card-interactive h-full flex flex-col">
-       <div className="relative h-64 overflow-hidden rounded-t-2xl">
+    <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full flex flex-col overflow-hidden">
+       <div className="relative h-64 overflow-hidden">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}

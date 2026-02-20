@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FormData {
@@ -1020,17 +1021,15 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 {t('common.step')} {currentStep + 1} {t('common.of')} 7
               </span>
 
-              <button
+              <Button
                 onClick={handleNext}
-                className={`${canProceed()
-                  ? 'btn-primary'
-                  : 'btn bg-gray-200 text-gray-400 cursor-not-allowed hover:bg-gray-200 shadow-none'
-                  }`}
                 disabled={!canProceed()}
+                variant="primary"
+                className="w-auto"
               >
                 {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              </Button>
             </div>
           </div>
         </div>

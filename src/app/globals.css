@@ -18,7 +18,7 @@
   --apple-border-radius-small: 9999px;
   --apple-border-radius-large: 48px;
   --apple-border-radius-xl: 64px;
-  --apple-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --apple-shadow: 0 0 0 0 transparent;
   --apple-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.06);
   --apple-shadow-large: 0 16px 48px rgba(0, 0, 0, 0.05);
   --surface-primary: #ffffff;
@@ -143,6 +143,17 @@
   /* Utility Classes */
   .rounded-apple {
     border-radius: var(--apple-border-radius);
+  }
+
+  .glassy-blue {
+    @apply bg-white/60 backdrop-blur-xl border border-white/20 transition-all duration-300;
+    background: rgba(245, 245, 247, 0.6); /* Apple gray/white tint */
+  }
+
+  .glassy-blue:hover {
+    @apply shadow-xl;
+    box-shadow: 0 12px 40px -12px rgba(0, 113, 227, 0.15); /* Apple Blue subtle shadow */
+    border-color: rgba(0, 113, 227, 0.1);
   }
 
   .text-balance {
@@ -674,12 +685,14 @@ html {
 .interactive-hover {
   @apply transition-all duration-300 ease-out;
   @apply hover:scale-[1.02] hover:-translate-y-1;
-  @apply hover:shadow-lg;
+  @apply hover:shadow-xl;
+  box-shadow: none; /* No shadow by default */
 }
 
 /* Revision 360 specific styles */
 .btn-360-primary {
-  @apply bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-900 font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95;
+  @apply bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-900 font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95;
+  box-shadow: none;
 }
 
 .btn-360-secondary {

@@ -117,34 +117,26 @@
     @apply text-base sm:text-lg text-gray-600 leading-relaxed;
   }
 
-  /* Full-Width Background Image Sections - Commented out for cleaner design */
-  /*
-  .bg-section-full {
-    @apply relative overflow-hidden;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  .bg-overlay {
-    @apply absolute inset-0 bg-black;
-    opacity: 0.4;
-  }
-
-  .bg-overlay-dark {
-    @apply absolute inset-0 bg-black;
-    opacity: 0.5;
-  }
-
-  .bg-overlay-light {
-    @apply absolute inset-0 bg-black;
-    opacity: 0.3;
-  }
-  */
-
   /* Utility Classes */
   .rounded-apple {
     border-radius: var(--apple-border-radius);
+  }
+
+  /* New Apple Card Class - The core of the design system update */
+  .apple-card {
+    @apply bg-white transition-all duration-300;
+    border-radius: var(--apple-border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Extremely subtle shadow */
+    border: 1px solid rgba(0,0,0,0.04); /* Very subtle border */
+  }
+
+  .apple-card:hover {
+    box-shadow: var(--apple-shadow-hover);
+    transform: scale(1.01);
+  }
+
+  .apple-card:active {
+    transform: scale(0.99);
   }
 
   .glassy-blue {

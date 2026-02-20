@@ -27,8 +27,8 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const theme = colorMap[service.color] || { dot: 'bg-accent', border: 'hover:border-gray-200' };
 
   return (
-    <div className={`group h-full flex flex-col glassy-blue rounded-[2rem] overflow-hidden transition-all duration-300 ${theme.border}`}>
-       <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
+    <div className="group h-full flex flex-col apple-card p-2">
+       <div className="relative h-56 sm:h-64 overflow-hidden rounded-[24px]">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}
@@ -37,7 +37,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         </div>
         
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="heading-3 mb-3">
+        <h3 className="apple-title mb-3 text-xl font-semibold">
           {t(service.titleKey)}
         </h3>
         
@@ -59,12 +59,12 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
 
         {/* Expected Result Box */}
         {service.resultKey && (
-             <div className="bg-accent-light/30 rounded-xl p-4 mb-6 border border-accent/20">
+             <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-100">
                 <div className="flex flex-col gap-1">
-                     <span className="text-xs font-bold text-accent-dark uppercase tracking-wide opacity-80">
+                     <span className="text-xs font-bold text-gray-900 uppercase tracking-wide opacity-80">
                          {t('common.expectedResult') || 'Expected Result:'}
                      </span>
-                     <p className="text-sm font-medium text-gray-900">
+                     <p className="text-sm font-medium text-gray-600">
                          {t(service.resultKey)}
                      </p>
                 </div>
@@ -87,15 +87,15 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <Link href="/booking" className="flex-1">
              <Button 
                 variant="primary"
-                className="w-full py-3 border-none normal-case"
+                className="w-full py-3 h-auto border-none normal-case text-base"
              >
                {t('nav.bookNow')}
             </Button>
           </Link>
           <Link href={service.href} className="flex-1">
              <Button 
-                variant="outline"
-                className="w-full py-3 normal-case"
+                variant="secondary"
+                className="w-full py-3 h-auto normal-case text-base"
                 >
                {t('common.readMore') || 'Read More'}
             </Button>
@@ -105,4 +105,3 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
     </div>
   );
 }
-

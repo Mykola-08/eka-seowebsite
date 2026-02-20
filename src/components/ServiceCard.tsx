@@ -26,8 +26,8 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const theme = colorMap[service.color] || { text: 'text-primary-700', dot: 'bg-primary-500', border: 'hover:border-gray-200' };
 
   return (
-    <div className={`group h-full flex flex-col glassy-blue rounded-[2rem] overflow-hidden transition-all duration-300 ${theme.border}`}>
-      <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
+    <div className="group h-full flex flex-col apple-card p-2">
+      <div className="relative h-56 sm:h-64 overflow-hidden rounded-[24px]">
         <LazyImage
           src={service.image}
           alt={t(service.titleKey)}
@@ -35,7 +35,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         />
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 heading-3">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2 apple-title">
           {t(service.titleKey)}
         </h3>
         {/* Helper text/subtitle in color */}
@@ -67,16 +67,16 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <div className="mt-auto flex gap-3 pt-4">
           <Link href={service.href} className="flex-1">
             <Button
-              variant="outline"
-              className="w-full p-2.5 normal-case"
+              variant="secondary"
+              className="w-full p-2.5 h-auto text-base normal-case"
             >
               {t('common.readMore') || 'Read More'}
             </Button>
           </Link>
           <Link href="/booking" className="flex-1">
             <Button
-              variant="apple"
-              className="w-full p-2.5 normal-case shadow-none"
+              variant="primary"
+              className="w-full p-2.5 h-auto text-base normal-case shadow-none"
             >
               {t('nav.bookNow')}
             </Button>

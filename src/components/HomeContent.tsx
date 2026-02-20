@@ -46,7 +46,7 @@ export default function HomeContent() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gray-50/50 hover:bg-gray-50 transition-colors duration-300">
+              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl transition-colors duration-300">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
                   {stat.value}{stat.suffix}
                 </div>
@@ -58,9 +58,9 @@ export default function HomeContent() {
       </section>
 
       {/* Elena Introduction Section - REDESIGNED */}
-      <section className="py-24 relative overflow-hidden bg-white">
+      <section className="py-24 relative overflow-hidden bg-[#f5f5f7]">
         <div className="section-container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 
             {/* Image Column (5 cols) */}
             <motion.div
@@ -70,17 +70,14 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-64 h-64 sm:w-96 sm:h-96 group">
-                <div className="absolute inset-0 bg-blue-100/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl scale-110" />
-                <div className="relative rounded-[2rem] overflow-hidden aspect-square w-full h-full shadow-2xl shadow-gray-200/50 rotate-3 transition-transform duration-700 group-hover:rotate-0">
-                  <Image
-                    src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
-                    alt={t('home.elenaAlt')}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 384px, 500px"
-                  />
-                </div>
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-[40px] overflow-hidden shadow-sm bg-white">
+                <Image
+                  src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
+                  alt={t('home.elenaAlt')}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                />
               </div>
             </motion.div>
 
@@ -93,15 +90,15 @@ export default function HomeContent() {
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-                <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wider">
+                <span className="inline-block py-1 px-3 rounded-full bg-white border border-gray-200 text-gray-900 text-xs font-semibold uppercase tracking-wider">
                   {t('elena.role') || 'Lead Therapist'}
                 </span>
-                <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 tracking-tight leading-tight">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
                   {t('elena.greeting')}
                 </h2>
               </div>
 
-              <div className="text-lg text-gray-600 leading-relaxed space-y-6 font-light">
+              <div className="text-xl text-gray-500 leading-relaxed space-y-6 font-normal max-w-2xl mx-auto lg:mx-0">
                 <p>
                   {t('elena.bio')}
                 </p>
@@ -110,8 +107,8 @@ export default function HomeContent() {
                 </p>
               </div>
 
-              <Link href="/about-elena" className="inline-block">
-                <Button variant="outline" size="lg" className="border-gray-200 text-gray-900 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg transition-all duration-300">
+              <Link href="/about-elena" className="inline-block pt-4">
+                <Button variant="secondary" size="xl" className="text-lg px-8">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -121,13 +118,13 @@ export default function HomeContent() {
       </section>
 
       {/* Featured Services Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-32 bg-white">
         <div className="section-container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
               {t('services.featuredTitle')}
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
               {t('services.featuredSubtitle')}
             </p>
           </div>
@@ -147,9 +144,9 @@ export default function HomeContent() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Link href="/services">
-              <Button variant="apple" className="px-8 py-3 text-white transition-all hover:scale-105">
+              <Button variant="primary" size="xl" className="px-10 py-6 text-lg h-auto">
                 {t('services.viewAll')}
               </Button>
             </Link>

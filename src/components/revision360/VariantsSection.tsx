@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Compass, MapPin, RotateCcw, Sparkles } from 'lucide-react';
@@ -103,43 +105,43 @@ export default function VariantsSection() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 bg-gray-50">
+    <section className="relative py-24 bg-secondary">
       <div className="section-container">
         <motion.div
-          className="max-w-3xl"
-          initial={{ opacity: 0, y: 18 }}
+          className="max-w-3xl text-center mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-yellow-800 uppercase bg-amber-50 rounded-full border border-amber-200">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
             {t('revision360.variants.badge')}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('revision360.variants.title')}</h2>
-          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('revision360.variants.subtitle')}</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.variants.title')}</h2>
+          <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.variants.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {variants.map((variant, index) => (
             <motion.button
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="group text-left rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-yellow-400 hover:shadow-xl hover:shadow-yellow-100/40 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 16 }}
+              className="group text-left apple-card p-6 bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.08 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-yellow-600 border border-amber-100 group-hover:bg-gradient-to-br group-hover:from-yellow-400 group-hover:to-yellow-600 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 border border-gray-100 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors duration-300">
                 {variant.icon}
               </span>
-              <h3 className="mt-6 text-xl font-bold text-gray-900 group-hover:text-yellow-900 transition-colors">{variant.title}</h3>
-              <p className="mt-1 text-xs text-gray-500 font-bold uppercase tracking-wider">{variant.subtitle}</p>
-              <p className="mt-4 text-sm text-gray-600 leading-relaxed min-h-[5em]">{variant.description}</p>
-              <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4 group-hover:border-yellow-100 transition-colors">
-                <span className="text-xs uppercase tracking-[0.1em] text-gray-400 font-medium">{variant.duration}</span>
-                <span className="text-xl font-bold text-gray-900 group-hover:text-yellow-700">{variant.price}</span>
+              <h3 className="mt-6 text-xl font-semibold text-gray-900">{variant.title}</h3>
+              <p className="mt-1 text-xs text-blue-600 font-bold uppercase tracking-wider">{variant.subtitle}</p>
+              <p className="mt-4 text-sm text-gray-500 leading-relaxed min-h-[5em] font-normal">{variant.description}</p>
+              <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
+                <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">{variant.duration}</span>
+                <span className="text-lg font-semibold text-gray-900">{variant.price}</span>
               </div>
             </motion.button>
           ))}
@@ -154,38 +156,38 @@ export default function VariantsSection() {
           size="lg"
         >
           <div className="space-y-8">
-            <p className="text-gray-700 text-lg leading-relaxed">{selectedVariant.description}</p>
+            <p className="text-gray-600 text-lg leading-relaxed font-light">{selectedVariant.description}</p>
             <div className="grid gap-8 sm:grid-cols-2">
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">{t('revision360.variants.idealFor')}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">{t('revision360.variants.idealFor')}</p>
                 <ul className="space-y-2.5">
                   {selectedVariant.idealFor.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-600">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-gray-700 font-medium">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">{t('revision360.variants.includes')}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">{t('revision360.variants.includes')}</p>
                 <ul className="space-y-2.5">
                   {selectedVariant.includes.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-600">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-gray-700 font-medium">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="rounded-2xl bg-secondary p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-gray-100">
               <div>
-                <p className="text-xs uppercase tracking-[0.1em] text-gray-500 font-bold">{t('revision360.variants.sessionDuration')}</p>
-                <p className="text-xl font-bold text-gray-900 mt-1">{selectedVariant.duration}</p>
+                <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">{t('revision360.variants.sessionDuration')}</p>
+                <p className="text-xl font-semibold text-gray-900 mt-1">{selectedVariant.duration}</p>
               </div>
               <div className="sm:text-right">
-                <p className="text-xs uppercase tracking-[0.1em] text-gray-500 font-bold">{t('revision360.variants.investment')}</p>
+                <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">{t('revision360.variants.investment')}</p>
                 <p className="text-3xl font-bold text-gray-900 mt-1">{selectedVariant.price}</p>
               </div>
             </div>

@@ -25,12 +25,10 @@ export default function AboutElenaContent() {
     { id: 'quiromasaje', name: t('technique.quiromasaje.title') },
   ];
 
-  // Custom Hero for Elena's page to preserve the specific design while using PageLayout
+  // Custom Hero for Elena's page matched to Apple style
   const CustomHero = (
     <section className="relative pt-32 pb-24 overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-      
-      <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 text-center">
+      <div className="section-container relative z-10 text-center">
         {/* Profile Image with Glow */}
         <motion.div
           className="relative max-w-xs mx-auto mb-12"
@@ -39,8 +37,9 @@ export default function AboutElenaContent() {
           transition={{ duration: 0.8 }}
         >
           <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-            <div className="relative rounded-full overflow-hidden w-full h-full shadow-2xl">
+            {/* Subtle glow behind */}
+            <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-3xl opacity-60 scale-110" />
+            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100 shadow-2xl">
               <Image
                 src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}
@@ -60,7 +59,7 @@ export default function AboutElenaContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-eka-dark tracking-tight leading-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-gray-900 tracking-tight leading-tight">
             {t('elena.greeting')}
           </h1>
 
@@ -71,7 +70,7 @@ export default function AboutElenaContent() {
             <p className="text-xl sm:text-2xl text-gray-500 font-light tracking-wide">
               {t('elena.role')}
             </p>
-            <p className="text-lg sm:text-xl text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed">
               {t('elena.bio')}
             </p>
           </div>
@@ -82,7 +81,7 @@ export default function AboutElenaContent() {
                 <Button 
                   size="xl" 
                   variant="primary"
-                  className="px-10 py-4 normal-case border-none"
+                  className="px-10 py-4"
                 >
                   {t('common.bookNow')}
                 </Button>
@@ -91,7 +90,7 @@ export default function AboutElenaContent() {
                 <Button 
                   size="xl" 
                   variant="outline"
-                  className="px-10 py-4 normal-case bg-white border-gray-200"
+                  className="px-10 py-4"
                 >
                   {t('nav.contact')}
                 </Button>
@@ -99,10 +98,9 @@ export default function AboutElenaContent() {
           </div>
 
           {/* Quote */}
-          <div className="max-w-3xl mx-auto mt-12">
-            <blockquote className="text-xl sm:text-2xl text-gray-700 italic font-light leading-relaxed relative">
-              <span className="text-6xl text-primary-200 absolute -top-8 -left-4 font-serif">"</span>
-              <span className="relative z-10">{t('elena.quote')}</span>
+          <div className="max-w-3xl mx-auto mt-16">
+            <blockquote className="text-xl sm:text-2xl text-gray-800 italic font-light leading-relaxed relative">
+              <span className="relative z-10">"{t('elena.quote')}"</span>
             </blockquote>
           </div>
         </motion.div>
@@ -114,11 +112,11 @@ export default function AboutElenaContent() {
            transition={{ duration: 0.8, delay: 0.4 }}
            className="flex flex-wrap justify-center gap-4"
         >
-            <div className="inline-flex items-center px-6 py-3 bg-white rounded-full border border-gray-100 shadow-sm">
+            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full border border-gray-200/50">
                <Star className="w-4 h-4 text-yellow-500 mr-2" />
                <span className="text-gray-700 font-medium">15+ {t('hero.stats.experience')}</span>
             </div>
-            <div className="inline-flex items-center px-6 py-3 bg-white rounded-full border border-gray-100 shadow-sm">
+            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full border border-gray-200/50">
                <Heart className="w-4 h-4 text-red-500 mr-2" />
                <span className="text-gray-700 font-medium">96% {t('hero.stats.clients')}</span>
             </div>
@@ -135,15 +133,15 @@ export default function AboutElenaContent() {
         keywordsKey="elena.seo.keywords"
       />
       
-      <PageLayout hero={CustomHero}>
+      <PageLayout hero={CustomHero} className="bg-secondary">
         {/* Techniques Section */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white rounded-t-[3rem]">
           <div className="section-container relative z-10 text-center">
             <div className="mb-20">
-              <h2 className="text-3xl sm:text-4xl font-semibold text-eka-dark mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
                 {t('elena.approach.title')}
               </h2>
-              <p className="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
+              <p className="text-xl text-gray-500 max-w-3xl mx-auto font-normal leading-relaxed">
                 {t('elena.approach.desc')}
               </p>
             </div>
@@ -165,8 +163,7 @@ export default function AboutElenaContent() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 }
                   }}
-                  whileHover={{ scale: 1.05 }}
-                  className="px-8 py-4 bg-white text-gray-700 rounded-2xl border border-gray-100 font-medium shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-700 transition-all cursor-default"
+                  className="px-8 py-4 bg-secondary text-gray-700 rounded-2xl font-medium cursor-default border border-transparent hover:border-gray-200 transition-colors"
                 >
                   {tech.name}
                 </motion.div>

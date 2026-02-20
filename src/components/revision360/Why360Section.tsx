@@ -1,8 +1,11 @@
+'use client';
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Sparkles } from 'lucide-react';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
 
 export default function Why360Section() {
   const [showModal, setShowModal] = useState(false);
@@ -16,55 +19,56 @@ export default function Why360Section() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 bg-gray-50">
+    <section className="relative py-24 bg-secondary">
       <div className="section-container">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-start">
+        <div className="grid gap-12 lg:grid-cols-12 items-start">
           <motion.div
             className="lg:col-span-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs uppercase tracking-[0.12em] text-yellow-800 font-bold">
-              <Sparkles className="h-3.5 w-3.5 text-yellow-600" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs uppercase tracking-wider text-blue-700 font-semibold mb-6">
+              <Sparkles className="h-3.5 w-3.5" />
               {t('revision360.why360.badge')}
             </span>
-            <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-6">
               {t('revision360.why360.title')}
             </h2>
-            <p className="mt-5 text-gray-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-lg text-gray-500 leading-relaxed font-normal mb-8">
               {t('revision360.why360.subtitle')}
             </p>
-            <button
-              type="button"
+            <Button
               onClick={() => setShowModal(true)}
-              className="mt-8 btn bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-white border border-transparent hover:scale-105 shadow-md shadow-yellow-200 hover:shadow-yellow-300/50 transition-all px-8 py-4 rounded-full font-bold tracking-wide"
+              variant="outline"
+              size="lg"
+              className="rounded-full"
             >
               {t('revision360.why360.philosophy')}
-            </button>
+            </Button>
           </motion.div>
 
           <motion.div
-            className="lg:col-span-7 grid sm:grid-cols-2 gap-4"
-            initial={{ opacity: 0, y: 24 }}
+            className="lg:col-span-7 grid sm:grid-cols-2 gap-6"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             {layers.map((layer) => (
-              <article
+              <div
                 key={layer.name}
-                className="rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-yellow-200 hover:-translate-y-1 group"
+                className="group apple-card p-6 bg-white hover:scale-[1.01] transition-transform duration-300"
               >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-yellow-700 group-hover:bg-yellow-100 transition-colors">
-                  <Layers className="h-5 w-5" />
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                  <Layers className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-yellow-800 transition-colors">{layer.name}</h3>
-                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{layer.name}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
                   {layer.description}
                 </p>
-              </article>
+              </div>
             ))}
           </motion.div>
         </div>

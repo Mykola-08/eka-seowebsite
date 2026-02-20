@@ -6,6 +6,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
+import CTASection from '@/components/CTASection';
+import ParallaxBackground from '@/components/ParallaxBackground';
 
 interface Problem {
   id: string;
@@ -116,29 +118,6 @@ export default function CasosContent() {
     }
   ];
 
-  const Hero = (
-    <div className="relative pt-32 pb-20 px-6 overflow-hidden bg-white">
-        <div className="relative max-w-4xl mx-auto text-center z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-600 mb-8 border border-gray-200">
-            <Search className="w-4 h-4" />
-            <span className="font-medium">{t('casos.hero.badge') || "What brings you here?"}</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight">
-            {t('casos.title')}
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-500 mb-8 leading-relaxed font-normal max-w-2xl mx-auto">
-            {t('casos.subtitle')}
-          </p>
-
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            {t('casos.description')}
-          </p>
-        </div>
-      </div>
-  );
-
   return (
     <>
       <SEOUpdater 
@@ -146,13 +125,21 @@ export default function CasosContent() {
         descriptionKey="casos.seo.desc"
         keywordsKey="casos.seo.keywords"
       />
-      <PageLayout hero={Hero}>
+      <PageLayout
+        hero={{
+          title: t('casos.title'),
+          subtitle: t('casos.subtitle'),
+          badge: t('casos.hero.badge') || "Solutions",
+          icon: <Search className="w-4 h-4" />
+        }}
+        className="bg-secondary"
+      >
       {/* Main Problems Grid */}
-      <div className="bg-[#f5f5f7] py-24">
+      <div className="py-16 sm:py-24">
         <div className="section-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">{t('casos.frequentCases')}</h2>
-            <p className="text-xl text-gray-500">{t('casos.frequentCasesSubtitle')}</p>
+            <p className="text-xl text-gray-500 font-normal">{t('casos.frequentCasesSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -163,13 +150,13 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative apple-card p-8 flex flex-col h-full hover:scale-[1.01] active:scale-[0.99] transition-all duration-300"
+                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50 shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600 text-gray-900">
+                  <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 text-gray-900">
                     <Icon className="w-7 h-7" />
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {problem.title}
                   </h3>
                   
@@ -177,9 +164,9 @@ export default function CasosContent() {
                     {problem.description}
                   </p>
                   
-                  <div className="mt-auto flex items-center text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <div className="mt-auto flex items-center text-sm font-medium text-blue-600">
                     <span>{t('casos.seeDetails')}</span>
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
                 </Link>
               );
@@ -190,20 +177,20 @@ export default function CasosContent() {
 
       {/* Additional Problems List - Modernized */}
       <div className="bg-white py-24 border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="section-container max-w-5xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold text-gray-900 mb-4 tracking-tight">{t('casos.otherCases')}</h2>
-            <p className="text-xl text-gray-500">{t('casos.otherCasesSubtitle')}</p>
+            <p className="text-xl text-gray-500 font-normal">{t('casos.otherCasesSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {additionalProblemsKeys.map((key) => (
               <div 
                 key={key} 
-                className="flex items-center p-4 rounded-2xl bg-gray-50/80 hover:bg-gray-100 transition-colors duration-200 group cursor-default"
+                className="flex items-center p-4 rounded-2xl bg-secondary hover:bg-gray-100 transition-colors duration-200 cursor-default"
               >
-                <div className="w-2 h-2 rounded-full bg-blue-500/30 mr-4 group-hover:bg-blue-500 transition-colors" />
-                <span className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors">
+                <div className="w-2 h-2 rounded-full bg-blue-500 mr-4" />
+                <span className="text-gray-700 font-medium">
                   {t(key)}
                 </span>
               </div>
@@ -212,20 +199,24 @@ export default function CasosContent() {
         </div>
       </div>
 
-      {/* CTA Section - Apple Style */}
-      <div className="bg-black py-32 px-6 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+      {/* Parallax CTA - Apple Style with Background Image */}
+      <ParallaxBackground
+        src="https://images.pexels.com/photos/4099305/pexels-photo-4099305.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        className="py-32 px-6 text-center"
+        overlayOpacity={0.6}
+      >
+        <div className="max-w-4xl mx-auto relative z-10">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">
             {t('casos.ctaTitle')}
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
             {t('casos.ctaSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  variant="primary" // Assuming primary works on dark, otherwise custom white
+                  variant="primary"
                   className="bg-white text-black hover:bg-gray-100 border-none px-8 py-4 h-auto text-lg rounded-full"
                 >
                   {t('casos.bookSession')}
@@ -234,15 +225,15 @@ export default function CasosContent() {
              <Link href="/services">
                 <Button 
                   size="xl" 
-                  variant="secondary"
-                  className="bg-transparent border-gray-600 text-white hover:bg-white/10 hover:border-white px-8 py-4 h-auto text-lg rounded-full"
+                  variant="outline"
+                  className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white px-8 py-4 h-auto text-lg rounded-full"
                 >
                   {t('casos.discoverIdeal')}
                 </Button>
              </Link>
           </div>
         </div>
-      </div>
+      </ParallaxBackground>
     </PageLayout>
     </>
   );

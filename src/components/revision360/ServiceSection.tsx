@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { Clock3 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -65,76 +67,76 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section id="process" className="relative py-20 sm:py-24 bg-white">
+    <section id="process" className="relative py-24 bg-white">
       <div className="section-container">
         <motion.div
-          className="max-w-3xl"
-          initial={{ opacity: 0, y: 18 }}
+          className="max-w-3xl text-center mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-yellow-800 uppercase bg-amber-50 rounded-full border border-amber-200">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
             {t('revision360.service.badge')}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 to-yellow-500">
-              {t('revision360.service.title')}
-            </span>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">
+            {t('revision360.service.title')}
           </h2>
-          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('revision360.service.subtitle')}</p>
+          <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.service.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2">
           {steps.map((step, index) => (
-            <motion.article
+            <motion.div
               key={step.number}
-              className="group rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-yellow-200 hover:shadow-yellow-100/30"
-              initial={{ opacity: 0, y: 18 }}
+              className="group apple-card p-8 bg-white border border-gray-100/50 hover:border-gray-200 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.08 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-start justify-between gap-4 mb-6">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-yellow-700 font-bold bg-amber-50 border border-amber-100 px-2 py-1 inline-block rounded">{t('revision360.service.step')} {step.number}</p>
-                  <h3 className="mt-4 text-2xl font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">{step.title}</h3>
-                  <p className="mt-3 text-gray-600 leading-relaxed">{step.description}</p>
+                  <div className="text-xs uppercase tracking-wider text-blue-600 font-semibold bg-blue-50 border border-blue-100 px-3 py-1 inline-block rounded-full mb-4">
+                    {t('revision360.service.step')} {step.number}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 text-gray-500 font-normal leading-relaxed">{step.description}</p>
                 </div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-bold text-gray-900 whitespace-nowrap group-hover:bg-amber-50 group-hover:text-yellow-800 group-hover:border-amber-200 transition-colors shadow-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 whitespace-nowrap">
                   <Clock3 className="h-3.5 w-3.5" />
                   {step.duration}
                 </div>
               </div>
 
-              <div className="mt-6 border-t border-gray-100 pt-6">
-                <p className="text-sm font-bold text-gray-900 uppercase tracking-wide">{t('revision360.service.expect')}</p>
-                <ul className="mt-4 space-y-3">
+              <div className="border-t border-gray-100 pt-6">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">{t('revision360.service.expect')}</p>
+                <ul className="space-y-3">
                   {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start gap-3 text-sm sm:text-base text-gray-600">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0" />
+                    <li key={detailIndex} className="flex items-start gap-3 text-sm text-gray-600 font-medium">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8"
-          initial={{ opacity: 0, y: 16 }}
+          className="mt-12 rounded-[24px] bg-secondary p-8 border border-gray-100/50 text-center"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.11em] text-gray-500 font-bold">{t('revision360.service.total.title')}</p>
-              <p className="mt-1 text-3xl font-bold text-gray-900">{t('revision360.service.total.duration')}</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+            <div className="text-left">
+              <p className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">{t('revision360.service.total.title')}</p>
+              <p className="text-3xl font-semibold text-gray-900">{t('revision360.service.total.duration')}</p>
             </div>
-            <p className="text-gray-600 max-w-xl italic">{t('revision360.service.total.note')}</p>
+            <p className="text-gray-500 text-sm font-normal max-w-xl text-left">{t('revision360.service.total.note')}</p>
           </div>
         </motion.div>
       </div>

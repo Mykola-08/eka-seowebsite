@@ -10,7 +10,7 @@ import SEOUpdater from '@/components/SEOUpdater';
 
 export default function Revision360Content() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-secondary">
       <SEOUpdater 
         titleKey="revision360.seo.title"
         descriptionKey="revision360.seo.description"

@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { Activity, Brain, Compass, Heart, Moon, Shield, Smile, Sparkles, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -25,41 +27,41 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 bg-white">
+    <section className="relative py-24 bg-white border-t border-gray-100">
       <div className="section-container">
         <motion.div
-          className="max-w-3xl"
-          initial={{ opacity: 0, y: 18 }}
+          className="max-w-3xl mx-auto text-center"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-yellow-800 uppercase bg-amber-50 rounded-full border border-amber-200">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
             {t('revision360.benefits.badge')}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">{t('revision360.benefits.title')}</h2>
-          <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">{t('revision360.benefits.subtitle')}</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.benefits.title')}</h2>
+          <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.benefits.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-100/40 hover:border-yellow-300 shadow-sm group"
-              initial={{ opacity: 0, y: 16 }}
+              className="group apple-card p-6 bg-white border border-gray-100/50 hover:border-blue-100 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.05 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-yellow-600 border border-amber-100 group-hover:bg-yellow-100 group-hover:text-yellow-800 transition-colors">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
                 {benefit.icon}
               </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-900 group-hover:text-yellow-900 transition-colors">{benefit.title}</h3>
-              <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
+              <h3 className="mt-6 text-lg font-semibold text-gray-900">{benefit.title}</h3>
+              <p className="mt-3 text-sm sm:text-base text-gray-500 leading-relaxed font-normal">{benefit.description}</p>
               {benefit.science && (
-                <div className="mt-4 border-t border-gray-100 pt-3 group-hover:border-yellow-100">
-                  <p className="text-xs uppercase tracking-[0.12em] text-yellow-600 font-bold">Science</p>
-                  <p className="mt-2 text-sm text-gray-500 italic">{benefit.science}</p>
+                <div className="mt-6 border-t border-gray-100 pt-4">
+                  <p className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-2">Science</p>
+                  <p className="text-sm text-gray-400 italic font-light">{benefit.science}</p>
                 </div>
               )}
             </motion.article>
@@ -67,15 +69,15 @@ export default function BenefitsSection() {
         </div>
 
         <motion.div
-          className="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center"
-          initial={{ opacity: 0, y: 16 }}
+          className="mt-16 max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.5 }}
         >
-          <p className="text-gray-600 italic text-lg sm:text-xl font-serif">
+          <blockquote className="text-xl sm:text-2xl text-gray-800 font-light italic leading-relaxed">
             "{t('revision360.benefits.philosophy')}"
-          </p>
+          </blockquote>
         </motion.div>
       </div>
     </section>

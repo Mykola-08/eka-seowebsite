@@ -41,7 +41,7 @@ export default function AboutElenaContent() {
             <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-3xl opacity-60 scale-110" />
             <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100 shadow-2xl">
               <Image
-                src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
+                src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}
                 fill
                 className="object-cover"

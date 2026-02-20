@@ -72,7 +72,7 @@ export default function HomeContent() {
             >
               <div className="relative w-full max-w-md aspect-[4/5] rounded-[40px] overflow-hidden shadow-sm bg-white">
                 <Image
-                  src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg"
+                  src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
                   fill
                   className="object-cover"

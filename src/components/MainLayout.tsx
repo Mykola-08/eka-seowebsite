@@ -138,7 +138,7 @@ export default function MainLayout({
               <Link href="/" className="flex items-center flex-shrink-0 group relative opacity-90 hover:opacity-100 transition-opacity">
                 <div className="relative w-8 h-8"> {/* Increased from w-5 h-5 */}
                   <Image
-                    src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
+                  src="/images/eka_logo.png"
                     alt="EKA Balance Logo"
                     fill
                     className="object-contain"
@@ -366,7 +366,7 @@ export default function MainLayout({
             <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
               <div className="relative w-8 h-8">
                 <Image
-                  src="https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/eka_logo.png"
+                  src="/images/eka_logo.png"
                   alt="EKA Balance Logo"
                   fill
                   className="object-contain"
@@ -378,8 +378,8 @@ export default function MainLayout({
 
             {/* Contact Info */}
             <div className="space-y-1 mb-8 text-gray-500 text-xs">
-              <p>{t('footer.address')}</p>
-              <p>{t('footer.email')}</p>
+              <p>Carrer Pelai, 12, 08001 Barcelona</p>
+              <p>info@ekabalance.com</p>
             </div>
 
             {/* Footer Links */}

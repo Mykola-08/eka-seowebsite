@@ -14,8 +14,20 @@ interface PersonalizedServiceCardProps {
 export default function PersonalizedServiceCard({ service }: PersonalizedServiceCardProps) {
   const { t } = useLanguage();
 
+  const colorMap: Record<string, { dot: string; border: string }> = {
+    orange: { dot: 'bg-orange-500', border: 'hover:border-orange-200' },
+    blue: { dot: 'bg-blue-500', border: 'hover:border-blue-200' },
+    green: { dot: 'bg-green-500', border: 'hover:border-green-200' },
+    purple: { dot: 'bg-purple-500', border: 'hover:border-purple-200' },
+    pink: { dot: 'bg-pink-500', border: 'hover:border-pink-200' },
+    amber: { dot: 'bg-amber-500', border: 'hover:border-amber-200' },
+    red: { dot: 'bg-red-500', border: 'hover:border-red-200' },
+  };
+
+  const theme = colorMap[service.color] || { dot: 'bg-accent', border: 'hover:border-gray-200' };
+
   return (
-    <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full flex flex-col overflow-hidden">
+    <div className={`bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 ${theme.border} hover:shadow-md hover:-translate-y-1 h-full flex flex-col overflow-hidden`}>
        <div className="relative h-64 overflow-hidden">
           <LazyImage
             src={service.image}
@@ -38,7 +50,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <ul className="space-y-3 mb-8">
             {service.benefitsKeys.map((key, i) => (
               <li key={i} className="flex items-start text-sm text-gray-700">
-                <span className="w-2 h-2 rounded-full bg-accent mt-1.5 mr-3 flex-shrink-0" />
+                <span className={`w-2 h-2 rounded-full ${theme.dot} mt-1.5 mr-3 flex-shrink-0`} />
                 {t(key)}
               </li>
             ))}

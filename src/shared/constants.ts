@@ -82,6 +82,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.officeWorkers', // Офисные работники
     descriptionKey: 'personalizedServices.officeWorkers.desc',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop',
+    color: 'blue',
     href: '/services/office-workers',
     benefitsKeys: [
       'personalizedServices.officeWorkers.benefit1', // Relieves neck and back pain
@@ -97,6 +98,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.athletes', // Спортсмены
     descriptionKey: 'personalizedServices.athletes.desc',
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1920&h=1080&fit=crop',
+    color: 'orange',
     href: '/services/athletes',
     benefitsKeys: [
       'personalizedServices.athletes.benefit1', // Muscle recovery
@@ -112,6 +114,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.artists',
     descriptionKey: 'personalizedServices.artists.desc',
     image: 'https://images.unsplash.com/photo-1599447421405-0c325d26d77e?w=1920&h=1080&fit=crop',
+    color: 'purple',
     href: '/services/artists',
     benefitsKeys: [
         'personalizedServices.artists.benefit1',
@@ -127,6 +130,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.musicians',
     descriptionKey: 'personalizedServices.musicians.desc',
     image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&h=1080&fit=crop',
+    color: 'amber',
     href: '/services/musicians',
      benefitsKeys: [
         'personalizedServices.musicians.benefit1',
@@ -141,6 +145,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     id: 'students',
     titleKey: 'personalizedServices.students',
     descriptionKey: 'personalizedServices.students.desc',
+    color: 'green',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop',
     href: '/services/students',
     benefitsKeys: [

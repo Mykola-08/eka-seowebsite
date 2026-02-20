@@ -11,9 +11,9 @@ export default function HeroSection() {
     <section className="relative overflow-hidden pt-24 sm:pt-32 pb-20 sm:pb-24 bg-white">
       {/* Background gradients */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-amber-50 mix-blend-multiply blur-[100px] opacity-60" />
-        <div className="absolute top-24 right-0 h-[340px] w-[340px] rounded-full bg-orange-50 mix-blend-multiply blur-[80px] opacity-40" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-amber-50 mix-blend-multiply blur-[90px]" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-purple-50 mix-blend-multiply blur-[100px] opacity-60" />
+        <div className="absolute top-24 right-0 h-[340px] w-[340px] rounded-full bg-fuchsia-50 mix-blend-multiply blur-[80px] opacity-40" />
+        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-purple-50 mix-blend-multiply blur-[90px]" />
       </div>
 
       <div className="section-container relative z-10">
@@ -23,7 +23,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mx-auto max-w-4xl text-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-amber-700">
+          <span className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-purple-700">
             <Sparkles className="h-3.5 w-3.5" />
             Integral Method
           </span>
@@ -41,7 +41,7 @@ export default function HeroSection() {
               href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-amber-500 hover:bg-amber-600 text-white font-bold uppercase tracking-wider px-10 py-4 rounded-full shadow-lg shadow-amber-200 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-amber-200/50"
+              className="bg-purple-600 hover:bg-purple-700 text-white font-bold uppercase tracking-wider px-10 py-4 rounded-full shadow-lg shadow-purple-200 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-purple-200/50"
             >
               {t('hero.cta')}
             </a>

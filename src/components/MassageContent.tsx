@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { ArrowRight, CheckCircle2, Clock, Heart } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Heart } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
@@ -9,10 +8,12 @@ import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
+import { SERVICES_DATA } from '@/shared/constants';
 
 export default function MassageContent() {
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
+  const serviceData = SERVICES_DATA.find(s => s.id === 'massatge');
 
   const benefits = [
     t('massage.benefits.pain'),
@@ -36,65 +37,6 @@ export default function MassageContent() {
 
   const durations = [60, 90, 120];
 
-  const Hero = (
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-32 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-        
-        <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-orange-100 text-sm text-orange-600 mb-8 shadow-sm">
-              <Heart className="w-4 h-4" />
-              <span className="font-medium">{t('massage.hero.badge')}</span>
-            </div>
-            
-            <h1 className="heading-1 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-orange-800 to-gray-900">
-              {t('massage.page.title')}
-            </h1>
-            
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-lg font-light">
-              {t('massage.page.description')}
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                size="xl"
-                variant="gold"
-                onClick={() => navigateToBooking()}
-                className="shadow-lg shadow-amber-200/50"
-              >
-                {t('common.bookNow')}
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video">
-               <Image
-                  src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Sessió de massatge terapèutic"
-                  fill
-                  className="object-cover transform hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-            </div>
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 max-w-xs">
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-orange-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">{t('massage.page.availableToday')}</p>
-                    <p className="text-xs text-gray-500">{t('massage.page.bookSession')}</p>
-                  </div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  );
-
   return (
     <>
       <SEOUpdater 
@@ -102,9 +44,16 @@ export default function MassageContent() {
         descriptionKey="seo.massage.description"
         keywordsKey="seo.massage.keywords"
       />
-      <PageLayout>
-      {Hero}
-
+      <PageLayout
+        hero={{
+          title: t('services.massage.title'),
+          subtitle: t('services.massage.description'),
+          badge: t('services.massage.subtitle'),
+          icon: <Heart className="w-4 h-4" />,
+          backgroundImage: serviceData?.image,
+          themeColor: serviceData?.color || 'orange'
+        }}
+      >
       {/* Benefits Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -196,7 +145,7 @@ export default function MassageContent() {
 
       <FAQ />
       <CTASection />
-    </PageLayout>
+      </PageLayout>
     </>
   );
 }

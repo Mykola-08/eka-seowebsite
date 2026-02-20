@@ -13,11 +13,20 @@ interface ServiceCardProps {
 export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
   
-  // Minimalist palette - replacing multi-color system with unified EKA accents
-  const palette = { text: 'text-primary-700', dot: 'bg-primary-500' };
+  const colorMap: Record<string, { text: string; dot: string; border: string }> = {
+    orange: { text: 'text-orange-600', dot: 'bg-orange-500', border: 'hover:border-orange-200' },
+    blue: { text: 'text-blue-600', dot: 'bg-blue-500', border: 'hover:border-blue-200' },
+    green: { text: 'text-green-600', dot: 'bg-green-500', border: 'hover:border-green-200' },
+    purple: { text: 'text-purple-600', dot: 'bg-purple-500', border: 'hover:border-purple-200' },
+    pink: { text: 'text-pink-600', dot: 'bg-pink-500', border: 'hover:border-pink-200' },
+    amber: { text: 'text-amber-600', dot: 'bg-amber-500', border: 'hover:border-amber-200' },
+    red: { text: 'text-red-600', dot: 'bg-red-500', border: 'hover:border-red-200' },
+  };
+
+  const theme = colorMap[service.color] || { text: 'text-primary-700', dot: 'bg-primary-500', border: 'hover:border-gray-200' };
 
   return (
-    <div className="group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 hover:border-gray-200 hover:shadow-lg hover:shadow-gray-100/50">
+    <div className={`group h-full flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 transition-all duration-300 ${theme.border} hover:shadow-lg hover:shadow-gray-100/50`}>
       <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
         <LazyImage
           src={service.image}
@@ -29,8 +38,8 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <h3 className="text-xl font-semibold text-gray-900 mb-2 heading-3">
           {t(service.titleKey)}
         </h3>
-        {/* Helper text/subtitle in orange/color */}
-        <p className={`text-sm font-medium mb-3 ${palette.text}`}>
+        {/* Helper text/subtitle in color */}
+        <p className={`text-sm font-medium mb-3 ${theme.text}`}>
           {t(service.subtitleKey)}
         </p>
 
@@ -47,7 +56,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             <ul className="space-y-2">
               {service.benefitsKeys.slice(0, 4).map((key, i) => (
                 <li key={i} className="flex items-start text-sm text-gray-600">
-                  <span className={`w-1.5 h-1.5 rounded-full ${palette.dot} mt-2 mr-2 flex-shrink-0 opacity-60`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${theme.dot} mt-2 mr-2 flex-shrink-0 opacity-60`} />
                   {t(key)}
                 </li>
               ))}

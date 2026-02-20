@@ -27,6 +27,7 @@ export interface PersonalizedServiceItem {
   titleKey: string;
   descriptionKey: string;
   image: string;
+  color: string;
   href: string;
   benefitsKeys?: string[];
   resultKey?: string;

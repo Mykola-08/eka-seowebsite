@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { ArrowRight, Brain, CheckCircle2, Clock, Zap } from 'lucide-react';
+import { ArrowRight, Brain, CheckCircle2, Zap } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
@@ -9,10 +8,12 @@ import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
+import { SERVICES_DATA } from '@/shared/constants';
 
 export default function KinesiologiaContent() {
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
+  const serviceData = SERVICES_DATA.find(s => s.id === 'kinesiologia');
 
   const benefits = [
     t('services.kinesiology.subtitle'),
@@ -36,66 +37,7 @@ export default function KinesiologiaContent() {
 
   const durations = [60, 90];
 
-  const Hero = (
-    <section className="relative pt-32 pb-24 overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-        
-        <div className="section-container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-sm text-blue-700 mb-8 shadow-sm">
-                <Brain className="w-4 h-4" />
-                <span className="font-medium tracking-wide">{t('kinesiology.hero.badge')}</span>
-              </div>
-              
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-gray-900 mb-8 tracking-tight leading-tight">
-                {t('kinesiology.page.title')}
-              </h1>
-              
-              <p className="text-xl text-gray-500 mb-10 leading-relaxed font-light">
-                {t('kinesiology.page.description')}
-              </p>
 
-              <div className="flex flex-wrap gap-4">
-                <Button 
-                  onClick={() => navigateToBooking()}
-                  size="xl"
-                  variant="primary"
-                  className="shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
-                >
-                  {t('common.bookNow')}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-gray-100 aspect-[4/3] rotate-2 transition-transform duration-700 hover:rotate-0">
-                 <Image
-                    src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                    alt={t('kinesiology.page.imageAlt') || "Kinesiologia Session"}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-              </div>
-              {/* Floating Card */}
-              <div className="absolute -bottom-8 -left-8 bg-white/90 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-gray-100 max-w-xs animate-gentle-float">
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
-                      <Zap className="w-6 h-6 stroke-[1.5px]" />
-                    </div>
-                    <div>
-                      <p className="text-base font-semibold text-gray-900">{t('kinesiology.page.availableToday')}</p>
-                      <p className="text-sm text-gray-500 font-light">{t('kinesiology.page.bookSession')}</p>
-                    </div>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  );
 
   return (
     <>
@@ -104,9 +46,16 @@ export default function KinesiologiaContent() {
         descriptionKey="seo.kinesiology.description"
         keywordsKey="seo.kinesiology.keywords"
       />
-      <PageLayout>
-      {Hero}
-
+      <PageLayout
+        hero={{
+          title: t('services.kinesiology.title'),
+          subtitle: t('services.kinesiology.description'),
+          badge: t('services.kinesiology.subtitle'),
+          icon: <Brain className="w-4 h-4" />,
+          backgroundImage: serviceData?.image,
+          themeColor: serviceData?.color || 'blue'
+        }}
+      >
       {/* Benefits Section */}
       <section className="py-24 bg-gray-50/50">
         <div className="section-container max-w-5xl mx-auto">
@@ -204,7 +153,7 @@ export default function KinesiologiaContent() {
 
       <FAQ />
       <CTASection />
-    </PageLayout>
+      </PageLayout>
     </>
   );
 }

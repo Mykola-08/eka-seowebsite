@@ -9,53 +9,13 @@ import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
+import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
 
 export default function ForOfficeWorkersContent() {
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
+  const serviceData = PERSONALIZED_SERVICES_DATA.find(s => s.id === 'office-workers');
 
-  const Hero = (
-    <section className="py-16 sm:py-24 relative overflow-hidden">
-          {/* Grid background handled by PageLayout */}
-          <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-8 shadow-sm border border-gray-100">
-                <Monitor className="w-10 h-10 text-gray-600" />
-              </div>
-              
-              <h1 className="heading-1 mb-6 font-bold text-eka-dark">
-                {t('personalized.officeWorkers.hero.title')}
-              </h1>
-              
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
-                {t('personalized.officeWorkers.hero.description')}
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  onClick={() => navigateToBooking()}
-                  size="xl"
-                  variant="accent"
-                >
-                  {t('common.bookNow')}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Link
-                  href="/contact"
-                >
-                    <Button 
-                        size="xl" 
-                        variant="outline"
-                        className="bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
-                    >
-                        {t('common.askQuestions')}
-                    </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-  );
 
   return (
     <>
@@ -64,7 +24,37 @@ export default function ForOfficeWorkersContent() {
         descriptionKey="seo.officeWorkers.description"
         keywordsKey="seo.officeWorkers.keywords"
       />
-      <PageLayout hero={Hero}>
+      <PageLayout
+        hero={{
+          title: t('personalized.officeWorkers.hero.title'),
+          subtitle: t('personalized.officeWorkers.hero.description'),
+          badge: t('personalizedServices.title'),
+          icon: <Monitor className="w-4 h-4" />,
+          backgroundImage: serviceData?.image,
+          themeColor: serviceData?.color || 'blue'
+        }}
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center -mt-8 mb-16 relative z-20">
+            <Button
+                onClick={() => navigateToBooking()}
+                size="xl"
+                variant="accent"
+                className="shadow-xl"
+            >
+                {t('common.bookNow')}
+                <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Link href="/contact">
+                <Button 
+                    size="xl" 
+                    variant="outline"
+                    className="bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200 hover:bg-white"
+                >
+                    {t('common.askQuestions')}
+                </Button>
+            </Link>
+        </div>
+
         {/* Understanding Section */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">

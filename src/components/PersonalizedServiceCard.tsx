@@ -14,34 +14,22 @@ interface PersonalizedServiceCardProps {
 export default function PersonalizedServiceCard({ service }: PersonalizedServiceCardProps) {
   const { t } = useLanguage();
 
-  const colorMap: Record<string, { dot: string; border: string }> = {
-    orange: { dot: 'bg-orange-500', border: 'hover:border-orange-200' },
-    blue: { dot: 'bg-blue-500', border: 'hover:border-blue-200' },
-    green: { dot: 'bg-green-500', border: 'hover:border-green-200' },
-    purple: { dot: 'bg-purple-500', border: 'hover:border-purple-200' },
-    pink: { dot: 'bg-pink-500', border: 'hover:border-pink-200' },
-    amber: { dot: 'bg-amber-500', border: 'hover:border-amber-200' },
-    red: { dot: 'bg-red-500', border: 'hover:border-red-200' },
-  };
-
-  const theme = colorMap[service.color] || { dot: 'bg-accent', border: 'hover:border-gray-200' };
-
   return (
-    <div className={`group h-full flex flex-col glassy-blue rounded-[2rem] overflow-hidden transition-all duration-300 ${theme.border}`}>
-       <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
+    <div className="group h-full flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-8 border border-gray-100/50">
+       <div className="relative h-64 sm:h-72 overflow-hidden rounded-2xl mb-6">
           <LazyImage
             src={service.image}
             alt={t(service.titleKey)}
-            className="w-full h-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-105"
+            className="w-full h-full object-cover"
           />
         </div>
         
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="heading-3 mb-3">
+      <div className="flex flex-col flex-grow">
+        <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-3 tracking-tight">
           {t(service.titleKey)}
         </h3>
         
-        <p className="text-body text-sm mb-6">
+        <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed font-normal">
           {t(service.descriptionKey)}
         </p>
 
@@ -49,22 +37,22 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         {service.benefitsKeys && service.benefitsKeys.length > 0 && (
           <ul className="space-y-3 mb-8">
             {service.benefitsKeys.map((key, i) => (
-              <li key={i} className="flex items-start text-sm text-gray-700">
-                <span className={`w-2 h-2 rounded-full ${theme.dot} mt-1.5 mr-3 flex-shrink-0`} />
+              <li key={i} className="flex items-start text-sm sm:text-base text-gray-700 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 mr-3 flex-shrink-0" />
                 {t(key)}
               </li>
             ))}
           </ul>
         )}
 
-        {/* Expected Result Box */}
+        {/* Expected Result Box - Styled cleanly */}
         {service.resultKey && (
-             <div className="bg-accent-light/30 rounded-xl p-4 mb-6 border border-accent/20">
+             <div className="bg-secondary/50 rounded-xl p-5 mb-8 border border-gray-100">
                 <div className="flex flex-col gap-1">
-                     <span className="text-xs font-bold text-accent-dark uppercase tracking-wide opacity-80">
+                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wide">
                          {t('common.expectedResult') || 'Expected Result:'}
                      </span>
-                     <p className="text-sm font-medium text-gray-900">
+                     <p className="text-sm sm:text-base font-semibold text-gray-900">
                          {t(service.resultKey)}
                      </p>
                 </div>
@@ -72,32 +60,34 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         )}
         
         {/* Price and Duration Row */}
-         <div className="flex items-center justify-between mb-8 mt-auto text-sm text-gray-500">
+         <div className="flex items-center justify-between mb-6 mt-auto text-sm font-medium text-gray-500">
             <div className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4" />
                 <span>{service.duration || '1 h'}</span>
             </div>
-             <span className="text-xl font-medium text-gray-900">
+             <span className="text-lg text-gray-900 font-semibold">
                 {service.price ? `${service.price} EUR` : 'Ask price'}
             </span>
         </div>
 
-        {/* Buttons */}
-        <div className="flex gap-4">
-          <Link href="/booking" className="flex-1">
+        {/* Buttons - Primary & Outline Combination */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <Link href="/booking" className="w-full">
              <Button 
                 variant="primary"
-                className="w-full py-3 border-none normal-case"
+                size="lg"
+                className="w-full text-base font-medium"
              >
                {t('nav.bookNow')}
             </Button>
           </Link>
-          <Link href={service.href} className="flex-1">
+          <Link href={service.href} className="w-full">
              <Button 
                 variant="outline"
-                className="w-full py-3 normal-case"
+                size="lg"
+                className="w-full text-base font-medium"
                 >
-               {t('common.readMore') || 'Read More'}
+               {t('common.readMore') || 'Learn more'}
             </Button>
           </Link>
         </div>
@@ -105,4 +95,3 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
     </div>
   );
 }
-

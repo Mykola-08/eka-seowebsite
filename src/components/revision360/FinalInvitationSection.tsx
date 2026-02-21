@@ -1,81 +1,75 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { CalendarCheck2, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import ParallaxBackground from '@/components/ParallaxBackground';
 
 export default function FinalInvitationSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-20 sm:py-24 bg-white">
-      <div className="section-container">
+    <ParallaxBackground
+      src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920"
+      className="py-24 sm:py-32"
+      overlayOpacity={0.7}
+    >
+      <div className="section-container relative z-10 text-center">
         <motion.div
-          className="rounded-3xl border border-gray-200 bg-gray-50 p-8 sm:p-12 text-center shadow-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-semibold text-white tracking-tight mb-6">
             {t('revision360.final.title')}
           </h2>
-          <p className="mt-5 max-w-3xl mx-auto text-gray-600 text-base sm:text-xl leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-200 font-light leading-relaxed max-w-3xl mx-auto mb-10">
             {t('revision360.final.subtitle')}
           </p>
 
-          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               asChild
-              className="btn-360-primary h-auto px-7 py-3.5 text-base bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-yellow-200"
+              size="xl"
+              variant="primary"
+              className="px-10 py-6 text-lg h-auto bg-white text-black hover:bg-gray-100 border-none"
             >
               <a
                 href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <CalendarCheck2 className="h-4.5 w-4.5 mr-2" />
-                {t('final.cta')}
+                <CalendarCheck2 className="w-5 h-5 mr-2" />
+                {t('common.bookNow')}
               </a>
             </Button>
             
             <Button
               asChild
+              size="xl"
               variant="outline"
-              className="btn-360-secondary h-auto px-7 py-3.5 text-base border-gray-300 text-gray-900 hover:bg-yellow-50 hover:text-yellow-900 hover:border-yellow-200 hover:scale-105 transition-all duration-300"
+              className="px-10 py-6 text-lg h-auto text-white border-white hover:bg-white/10"
             >
               <a
                 href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="h-4.5 w-4.5 mr-2" />
+                <MessageCircle className="w-5 h-5 mr-2" />
                 {t('cta.scheduleDiscoveryCall')}
               </a>
             </Button>
           </div>
 
-          <div className="mt-9 flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500">
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1.5">{t('labels.noInsuranceNeeded')}</span>
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1.5">{t('labels.flexibleSchedules')}</span>
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1.5">{t('labels.personalizedApproach')}</span>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm hover:border-yellow-200 transition-colors">
-              <p className="text-2xl font-bold text-yellow-600">500+</p>
-              <p className="mt-1 text-sm text-gray-500">{t('final.stat1')}</p>
-            </div>
-            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm hover:border-yellow-200 transition-colors">
-              <p className="text-2xl font-bold text-yellow-600">15+</p>
-              <p className="mt-1 text-sm text-gray-500">{t('final.stat2')}</p>
-            </div>
-            <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm hover:border-yellow-200 transition-colors">
-              <p className="text-2xl font-bold text-yellow-600">98%</p>
-              <p className="mt-1 text-sm text-gray-500">{t('revision360.final.stat3')}</p>
-            </div>
+          <div className="mt-12 flex flex-wrap justify-center gap-3 sm:gap-4 text-sm text-gray-300">
+            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2">{t('labels.noInsuranceNeeded')}</span>
+            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2">{t('labels.flexibleSchedules')}</span>
+            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2">{t('labels.personalizedApproach')}</span>
           </div>
         </motion.div>
       </div>
-    </section>
+    </ParallaxBackground>
   );
 }

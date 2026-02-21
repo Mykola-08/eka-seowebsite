@@ -176,8 +176,8 @@ export default function CasoDetailPage() {
             <Link href={config.href}>
               <Button
                 size="xl"
-                variant="gold"
-                className="font-bold px-8 py-4 border-none hover:scale-105 transition-transform shadow-lg"
+                variant="white"
+                className="font-bold px-8 py-4 border-none shadow-lg"
               >
                 {t('common.bookNow')}
                 <ArrowRight className="w-5 h-5 ml-2" />

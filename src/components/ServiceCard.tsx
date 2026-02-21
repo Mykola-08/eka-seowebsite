@@ -12,51 +12,40 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
-  
-  const colorMap: Record<string, { text: string; dot: string; border: string }> = {
-    orange: { text: 'text-orange-600', dot: 'bg-orange-500', border: 'hover:border-orange-200' },
-    blue: { text: 'text-blue-600', dot: 'bg-blue-500', border: 'hover:border-blue-200' },
-    green: { text: 'text-green-600', dot: 'bg-green-500', border: 'hover:border-green-200' },
-    purple: { text: 'text-purple-600', dot: 'bg-purple-500', border: 'hover:border-purple-200' },
-    pink: { text: 'text-pink-600', dot: 'bg-pink-500', border: 'hover:border-pink-200' },
-    amber: { text: 'text-amber-600', dot: 'bg-amber-500', border: 'hover:border-amber-200' },
-    red: { text: 'text-red-600', dot: 'bg-red-500', border: 'hover:border-red-200' },
-  };
-
-  const theme = colorMap[service.color] || { text: 'text-primary-700', dot: 'bg-primary-500', border: 'hover:border-gray-200' };
 
   return (
-    <div className={`group h-full flex flex-col glassy-blue rounded-[2rem] overflow-hidden transition-all duration-300 ${theme.border}`}>
-      <div className="relative h-48 sm:h-56 overflow-hidden m-2 rounded-[1.5rem]">
+    <div className="group h-full flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 p-6 border border-gray-100/50">
+      <div className="relative h-56 sm:h-64 overflow-hidden rounded-2xl mb-6">
         <LazyImage
           src={service.image}
           alt={t(service.titleKey)}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 heading-3">
+
+      <div className="flex flex-col flex-grow">
+        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2 tracking-tight">
           {t(service.titleKey)}
         </h3>
-        {/* Helper text/subtitle in color */}
-        <p className={`text-sm font-medium mb-3 ${theme.text}`}>
+
+        <p className="text-sm font-medium text-blue-600 mb-4 uppercase tracking-wide">
           {t(service.subtitleKey)}
         </p>
 
-        <p className="text-body text-sm mb-6 line-clamp-3 text-gray-500">
+        <p className="text-base text-gray-600 mb-6 line-clamp-3 leading-relaxed">
           {t(service.descriptionKey)}
         </p>
 
         {/* Benefits List */}
         {service.benefitsKeys && service.benefitsKeys.length > 0 && (
-          <div className="mb-6">
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          <div className="mb-8">
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
               {t('services.mainBenefits') || 'Key Benefits'}
             </h4>
             <ul className="space-y-2">
               {service.benefitsKeys.slice(0, 4).map((key, i) => (
-                <li key={i} className="flex items-start text-sm text-gray-600">
-                  <span className={`w-1.5 h-1.5 rounded-full ${theme.dot} mt-2 mr-2 flex-shrink-0 opacity-60`} />
+                <li key={i} className="flex items-start text-sm text-gray-700 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 mr-2 flex-shrink-0" />
                   {t(key)}
                 </li>
               ))}
@@ -64,21 +53,21 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           </div>
         )}
 
-        <div className="mt-auto flex gap-3 pt-4">
-          <Link href={service.href} className="flex-1">
+        <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <Link href="/booking" className="w-full">
             <Button
-              variant="outline"
-              className="w-full p-2.5 normal-case"
-            >
-              {t('common.readMore') || 'Read More'}
-            </Button>
-          </Link>
-          <Link href="/booking" className="flex-1">
-            <Button
-              variant="apple"
-              className="w-full p-2.5 normal-case shadow-none"
+              variant="primary"
+              className="w-full"
             >
               {t('nav.bookNow')}
+            </Button>
+          </Link>
+          <Link href={service.href} className="w-full">
+            <Button
+              variant="outline"
+              className="w-full"
+            >
+              {t('common.readMore') || 'Learn more'}
             </Button>
           </Link>
         </div>

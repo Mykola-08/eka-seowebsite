@@ -38,8 +38,8 @@ export default function LanguagePopup() {
                     </button>
 
                     <div className="text-center mb-8">
-                        <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <Globe className="w-8 h-8 text-blue-600" />
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <Globe className="w-8 h-8 text-primary" />
                         </div>
                         <h2 className="text-2xl font-semibold text-gray-900 mb-2">
                             {t('language.popup.title')}
@@ -54,10 +54,10 @@ export default function LanguagePopup() {
                             <button
                                 key={lang.code}
                                 onClick={() => confirmLanguage(lang.code)}
-                                className="flex items-center p-4 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 group"
+                                className="flex items-center p-4 rounded-xl border-2 border-gray-100 hover:border-primary hover:bg-primary/5 transition-all duration-200 group"
                             >
                                 <span className="text-2xl mr-4">{lang.flag}</span>
-                                <span className="font-medium text-gray-700 group-hover:text-blue-700">
+                                <span className="font-medium text-gray-700 group-hover:text-primary">
                                     {lang.label}
                                 </span>
                             </button>
@@ -68,4 +68,3 @@ export default function LanguagePopup() {
         </AnimatePresence>
     );
 }
-

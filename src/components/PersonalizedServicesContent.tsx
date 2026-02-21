@@ -23,45 +23,46 @@ export default function PersonalizedServicesContent() {
       />
       <PageLayout
         hero={{
-          badge: t('personalizedServices.title'),
-        subtitle: t('personalizedServices.subtitle'),
-        title: t('services.therapiesFor'),
-        icon: <Star className="w-4 h-4" />
-      }}
-    >
-        {/* Helper text for title */}
-        <div className="text-center -mt-8 mb-12 animate-fade-in relative z-20">
-            <span className="font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-xl sm:text-2xl">
+          title: t('personalizedServices.title'),
+          subtitle: t('personalizedServices.subtitle'),
+          badge: t('services.therapiesFor'),
+          icon: <Star className="w-4 h-4" />
+        }}
+        className="bg-white"
+      >
+        {/* Intro / CTA Section */}
+        <div className="text-center -mt-8 mb-16 animate-fade-in relative z-20 px-6">
+            <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-8">
                 {t('services.integralWellbeing')}
-            </span>
+            </h3>
 
              <div className="mt-8 flex justify-center">
                 <Link href="/booking">
-                <Button 
-                    size="xl" 
-                    variant="apple"
-                    className="px-8 py-4 shadow-xl border-none"
-                >
-                    {t('personalizedServices.cta')}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                  <Button
+                      size="xl"
+                      variant="primary"
+                      className="px-8 py-4 shadow-sm"
+                  >
+                      {t('personalizedServices.cta')}
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
                 </Link>
             </div>
         </div>
 
-      {/* Service List - Revised to use Cards */}
-      <section className="pb-16 sm:pb-24">
+      {/* Service List - Gray Background for Cards */}
+      <section className="bg-secondary py-16 sm:py-24">
         <div className="section-container">
            <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="heading-2 mb-6">
+            <h2 className="heading-2 mb-4 text-black">
               {t('personalizedServices.choose.title')}
             </h2>
-            <p className="text-body-lg">
+            <p className="text-body-lg text-gray-500">
               {t('personalizedServices.choose.subtitle')}
             </p>
           </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {PERSONALIZED_SERVICES_DATA.map((service, index) => (
                 <motion.div
                     key={service.id}

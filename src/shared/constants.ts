@@ -10,7 +10,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Heart',
     color: 'orange',
     durations: [60, 90, 120],
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9c3028eb2?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/massage',
     benefitsKeys: ['services.benefits.reduces', 'services.benefits.stress', 'services.benefits.circulation', 'services.benefits.relaxation']
   },
@@ -22,7 +22,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Brain',
     color: 'blue',
     durations: [60, 90],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/kinesiology',
     benefitsKeys: ['services.benefits.blockages', 'services.benefits.posture', 'services.benefits.stress', 'services.benefits.energy']
   },
@@ -34,7 +34,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Leaf',
     color: 'green',
     durations: [],
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/nutrition',
     benefitsKeys: ['services.benefits.habits', 'services.benefits.vitality', 'services.benefits.weight', 'services.benefits.longterm']
   },
@@ -46,7 +46,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'RotateCcw',
     color: 'purple',
     durations: [60, 90, 120],
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/360-revision',
     benefitsKeys: ['services.benefits.assessment', 'services.benefits.plan', 'services.benefits.recommendations', 'services.benefits.followup']
   },
@@ -58,7 +58,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Leaf',
     color: 'green',
     durations: [],
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/3652898/pexels-photo-3652898.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/supplements',
     benefitsKeys: ['services.benefits.vitality', 'services.benefits.habits', 'services.benefits.energy', 'services.benefits.longterm']
   },
@@ -70,7 +70,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Heart',
     color: 'pink',
     durations: [],
-    image: 'https://images.unsplash.com/photo-1544367563-12123d8959d9?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/systemic',
     benefitsKeys: ['services.benefits.blockages', 'services.benefits.stress', 'services.benefits.assessment', 'services.benefits.longterm']
   }
@@ -81,7 +81,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     id: 'office-workers',
     titleKey: 'personalizedServices.officeWorkers', // Офисные работники
     descriptionKey: 'personalizedServices.officeWorkers.desc',
-    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
     color: 'blue',
     href: '/services/office-workers',
     benefitsKeys: [
@@ -97,7 +97,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     id: 'athletes',
     titleKey: 'personalizedServices.athletes', // Спортсмены
     descriptionKey: 'personalizedServices.athletes.desc',
-    image: 'https://images.unsplash.com/photo-1517836357463-c25dfe21529b?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg?auto=compress&cs=tinysrgb&w=800',
     color: 'orange',
     href: '/services/athletes',
     benefitsKeys: [
@@ -113,7 +113,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     id: 'artists',
     titleKey: 'personalizedServices.artists',
     descriptionKey: 'personalizedServices.artists.desc',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=800',
     color: 'purple',
     href: '/services/artists',
     benefitsKeys: [
@@ -129,7 +129,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     id: 'musicians',
     titleKey: 'personalizedServices.musicians',
     descriptionKey: 'personalizedServices.musicians.desc',
-    image: 'https://images.unsplash.com/photo-1511379938549-c06b9bc91f98?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg?auto=compress&cs=tinysrgb&w=800',
     color: 'amber',
     href: '/services/musicians',
      benefitsKeys: [
@@ -146,7 +146,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.students',
     descriptionKey: 'personalizedServices.students.desc',
     color: 'green',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/students',
     benefitsKeys: [
       'personalizedServices.students.benefit1',
@@ -162,7 +162,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.parents',
     descriptionKey: 'personalizedServices.parents.desc',
     color: 'pink',
-    image: 'https://images.unsplash.com/photo-1484820540004-14229fe36ca4?auto=format&fit=crop&w=800',
+    image: 'https://images.pexels.com/photos/160994/family-outdoor-happy-park-160994.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/parents',
     benefitsKeys: [
       'personalizedServices.parents.benefit1',

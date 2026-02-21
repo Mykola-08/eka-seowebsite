@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, Activity, Brain, Heart, Zap, Moon, Shield, Stethoscope } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
@@ -51,8 +51,8 @@ export default function CasoDetailContent() {
   if (!config) {
     return (
       <PageLayout>
-          <div className="py-20 text-center">
-              <h1 className="text-2xl font-bold mb-4">{t('common.notFound') || 'Case not found'}</h1>
+          <div className="py-32 text-center bg-[#f5f5f7] min-h-screen flex flex-col items-center justify-center">
+              <h1 className="text-3xl font-semibold mb-6">{t('common.notFound') || 'Case not found'}</h1>
               <Link href="/cases">
                   <Button variant="outline">
                       <ArrowLeft className="mr-2 h-4 w-4" />
@@ -65,16 +65,17 @@ export default function CasoDetailContent() {
   }
 
   const Icon = config.icon;
-  const colors = {
-    blue: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
-    purple: { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200' },
-    green: { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200' },
-    orange: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' },
-    indigo: { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' },
-    pink: { bg: 'bg-pink-50', text: 'text-pink-700', border: 'border-pink-200' },
-    red: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' }
-  };
-  const colorClass = colors[config.color as keyof typeof colors] || colors.blue;
+
+  // Clean color mapping for minimal accents
+  const accentColorClass = {
+    blue: 'text-blue-600 bg-blue-50',
+    purple: 'text-purple-600 bg-purple-50',
+    green: 'text-green-600 bg-green-50',
+    orange: 'text-orange-600 bg-orange-50',
+    indigo: 'text-indigo-600 bg-indigo-50',
+    pink: 'text-pink-600 bg-pink-50',
+    red: 'text-red-600 bg-red-50'
+  }[config.color] || 'text-blue-600 bg-blue-50';
 
   // Data
   const symptoms = getArray(`casos.problems.${config.key}.symptom`);
@@ -83,24 +84,23 @@ export default function CasoDetailContent() {
   const results = t(`casos.problems.${config.key}.results`);
 
   const Hero = (
-     <div className="relative pt-32 pb-20 overflow-hidden border-b border-gray-100/50">
-        {/* Grid handled by PageLayout */}
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+     <div className="relative pt-32 pb-24 bg-[#f5f5f7] border-b border-gray-200">
+        <div className="section-container text-center max-w-4xl mx-auto">
           
-          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 mb-8 transition-colors bg-white px-4 py-2 rounded-full shadow-sm hover:shadow border border-gray-100">
-            <ArrowLeft className="w-4 h-4 mr-2" />
+          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-black mb-10 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-1" />
             {t('casos.title')}
           </Link>
 
-          <div className={`w-20 h-20 mx-auto rounded-3xl ${colorClass.bg} flex items-center justify-center mb-6 shadow-inner`}>
-            <Icon className={`w-10 h-10 ${colorClass.text}`} />
+          <div className={`w-24 h-24 mx-auto rounded-[24px] ${accentColorClass} flex items-center justify-center mb-8 shadow-sm`}>
+            <Icon className="w-12 h-12" />
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 mb-8 tracking-tight leading-tight">
             {t(`casos.problems.${config.key}.title`)}
           </h1>
           
-          <p className="text-xl text-gray-600 leading-relaxed font-light max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-normal max-w-2xl mx-auto text-balance">
             {t(`casos.problems.${config.key}.description`)}
           </p>
         </div>
@@ -109,81 +109,81 @@ export default function CasoDetailContent() {
 
   return (
     <PageLayout hero={Hero}>
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-          
-          {/* Symptoms */}
-          <div className="relative">
-            <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-red-200 to-transparent rounded-full opacity-50" />
-            <h2 className="text-2xl font-light text-gray-900 mb-6 flex items-center">
-              <span className="w-8 h-8 rounded-full bg-red-50 text-red-500 flex items-center justify-center mr-3 text-sm font-bold">1</span>
-              {t('casos.symptoms')}
-            </h2>
-            <ul className="space-y-4">
-              {symptoms.map((item, idx) => (
-                <li key={idx} className="flex items-start bg-gray-50 p-4 rounded-xl">
-                  <span className="w-1.5 h-1.5 mt-2 rounded-full bg-red-400 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="bg-white py-24">
+        <div className="section-container max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
 
-          {/* Causes */}
-          <div className="relative">
-            <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-200 to-transparent rounded-full opacity-50" />
-            <h2 className="text-2xl font-light text-gray-900 mb-6 flex items-center">
-                <span className="w-8 h-8 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center mr-3 text-sm font-bold">2</span>
-              {t('casos.causes')}
-            </h2>
-            <ul className="space-y-4">
-              {causes.map((item, idx) => (
-                <li key={idx} className="flex items-start bg-gray-50 p-4 rounded-xl">
-                  <span className="w-1.5 h-1.5 mt-2 rounded-full bg-orange-400 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Treatment & Results */}
-        <div className="bg-gray-900 rounded-apple-xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-            <div className={`absolute top-0 right-0 w-96 h-96 ${colorClass.bg.replace('bg-', 'bg-')} opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2`} />
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
-                <div>
-                    <h2 className="text-2xl font-light text-white mb-6 flex items-center">
-                        <Activity className="w-6 h-6 text-blue-400 mr-3" />
-                        {t('casos.treatment')}
-                    </h2>
-                    <p className="text-gray-300 leading-relaxed text-lg font-light">
-                        {treatment}
-                    </p>
-                </div>
-
-                <div>
-                    <h2 className="text-2xl font-light text-white mb-6 flex items-center">
-                        <CheckCircle className="w-6 h-6 text-green-400 mr-3" />
-                        {t('casos.results')}
-                    </h2>
-                    <p className="text-gray-300 leading-relaxed text-lg font-light">
-                        {results}
-                    </p>
-                </div>
+            {/* Symptoms */}
+            <div>
+              <h2 className="text-3xl font-semibold text-gray-900 mb-8 tracking-tight flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-black text-white text-sm font-bold">1</span>
+                {t('casos.symptoms')}
+              </h2>
+              <ul className="space-y-4">
+                {symptoms.map((item, idx) => (
+                  <li key={idx} className="p-6 rounded-2xl bg-gray-50 border border-gray-100/50">
+                    <p className="text-gray-700 text-lg leading-relaxed">{item}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="mt-12 text-center pt-8 border-t border-white/10">
-                <Link href={config.href}>
-                    <Button 
-                        size="xl"
-                        variant="apple"
-                    >
-                        {t('common.bookNow')}
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
-                </Link>
+            {/* Causes */}
+            <div>
+              <h2 className="text-3xl font-semibold text-gray-900 mb-8 tracking-tight flex items-center gap-3">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-gray-900 text-sm font-bold">2</span>
+                {t('casos.causes')}
+              </h2>
+              <ul className="space-y-4">
+                {causes.map((item, idx) => (
+                  <li key={idx} className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <p className="text-gray-600 text-lg leading-relaxed">{item}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
+          </div>
+
+          {/* Treatment & Results - Highlight Section */}
+          <div className="bg-black rounded-[40px] p-8 md:p-16 text-white relative overflow-hidden">
+              {/* Subtle mesh gradient background */}
+              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+                  <div>
+                      <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                          <Activity className="w-6 h-6 text-blue-400" />
+                          {t('casos.treatment')}
+                      </h2>
+                      <p className="text-gray-300 leading-relaxed text-xl font-light">
+                          {treatment}
+                      </p>
+                  </div>
+
+                  <div>
+                      <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                          <CheckCircle className="w-6 h-6 text-green-400" />
+                          {t('casos.results')}
+                      </h2>
+                      <p className="text-gray-300 leading-relaxed text-xl font-light">
+                          {results}
+                      </p>
+                  </div>
+              </div>
+
+              <div className="mt-16 text-center pt-8 border-t border-white/10">
+                  <Link href={config.href}>
+                      <Button
+                          size="xl"
+                          variant="white"
+                          className="px-10 py-6 h-auto text-xl rounded-full font-medium"
+                      >
+                          {t('common.bookNow')}
+                          <ArrowRight className="w-6 h-6 ml-2" />
+                      </Button>
+                  </Link>
+              </div>
+          </div>
         </div>
       </div>
     </PageLayout>

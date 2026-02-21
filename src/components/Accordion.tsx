@@ -56,7 +56,7 @@ export function Accordion({
 
   return (
     <AccordionContext.Provider value={{ value, onValueChange: handleValueChange, type }}>
-      <div className={cn('space-y-4', className)}>
+      <div className={cn('w-full', className)}>
         {children}
       </div>
     </AccordionContext.Provider>
@@ -70,8 +70,9 @@ interface AccordionItemProps {
 }
 
 export function AccordionItem({ value, className, children }: AccordionItemProps) {
+  // Removed hardcoded background and rounded corners for universal design
   return (
-    <div className={cn('overflow-hidden rounded-apple bg-gray-50 dark:bg-gray-800 transition-colors hover:bg-gray-100', className)}>
+    <div className={cn('overflow-hidden transition-colors', className)}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, { value } as React.Attributes & { value: string });
@@ -99,7 +100,7 @@ export function AccordionTrigger({ children, className, value: itemValue }: Acco
   return (
     <button
       className={cn(
-        'group flex w-full flex-1 items-center justify-between px-6 py-5 text-left font-medium transition-all hover:text-primary-600 focus:outline-none',
+        'group flex w-full flex-1 items-center justify-between py-4 text-left font-medium transition-all focus:outline-none',
         className
       )}
       onClick={() => context.onValueChange(itemValue!)}
@@ -108,8 +109,8 @@ export function AccordionTrigger({ children, className, value: itemValue }: Acco
       {children}
       <ChevronDown
         className={cn(
-          'h-5 w-5 flex-shrink-0 text-gray-500 transition-transform duration-300',
-          isOpen && 'rotate-180 text-primary-600'
+          'h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-300',
+          isOpen && 'rotate-180 text-blue-600'
         )}
       />
     </button>
@@ -140,7 +141,7 @@ export function AccordionContent({ children, className, value: itemValue }: Acco
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           className="overflow-hidden bg-transparent"
         >
-          <div className={cn('px-6 pb-5 pt-0 text-gray-700 dark:text-gray-300', className)}>
+          <div className={cn('pb-4 pt-0', className)}>
             {children}
           </div>
         </motion.div>

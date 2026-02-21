@@ -124,7 +124,7 @@ export default function AgenyzContent() {
                             <button
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
-                                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category
+                                className={`px-6 py-3 rounded-full text-sm font-medium transition duration-300 ${selectedCategory === category
                                     ? 'bg-primary-600 text-white shadow-lg scale-105'
                                     : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                                     }`}
@@ -148,7 +148,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className='bg-white border border-gray-100 shadow-sm rounded-2xl p-8 flex flex-col h-full group hover:shadow-lg hover:-translate-y-1 transition-all duration-300'
+                                        className='bg-white border border-gray-100 shadow-sm rounded-2xl p-8 flex flex-col h-full group hover:shadow-lg hover:-translate-y-1 transition duration-300'
                                     >
                                         <div className='mb-4 flex items-start justify-between'>
                                             <span className='px-3 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full uppercase tracking-wide'>

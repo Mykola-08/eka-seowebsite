@@ -127,7 +127,7 @@ export default function VariantsSection() {
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="group text-left apple-card p-6 bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className="group text-left apple-card p-6 bg-white hover:scale-[1.02] active:scale-[0.97] transition duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

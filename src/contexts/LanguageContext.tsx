@@ -55,7 +55,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'elena.approach': 'T\'ajudo a escoltar el cos i restaurar l\'equilibri natural.',
     'footer.readyToBegin': 'Preparat per començar?',
     'hero.badge': 'Benestar somàtic i acompanyament integratiu',
-    'hero.subtitle': 'Acompanyament somàtic i de benestar per millorar la mobilitat, reduir l\'estrès i recuperar equilibri.',
+    'hero.subtitle': "Acompanyament somàtic i de benestar per millorar la mobilitat, reduir l'estrès i recuperar equilibri.",
     'hero.firstTime': 'Primera sessió de benestar',
     'kinesiology.page.availableToday': 'Disponible avui',
     'kinesiology.page.bookSession': 'Reserva la teva sessió',
@@ -78,7 +78,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'services.kinesiology.shortDesc': 'Equilibra cos, ment i energia.',
     'services.nutrition.shortDesc': 'Nutrició funcional adaptada al teu cas.',
     'services.title': 'Sessions personalitzades de benestar',
-    'services.subtitle': 'Enfocament somàtic i integratiu per mobilitat, regulació de l\'estrès i equilibri corporal.',
+    'services.subtitle': 'Enfocament somàtic i integratiu per mobilitat, regulació de l'estrès i equilibri corporal.',
     'services.cta': 'Explorar sessions',
     'problems.subtitle': 'Situacions freqüents que acompanyem amb enfocament complementari i personalitzat.',
     'discovery.diagnosis.title': 'Valoració personalitzada',
@@ -326,7 +326,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.approach.desc': 'Al nucli del meu treball hi ha una profunda comprensió que el cos, el cervell i les emocions són un sistema unificat. No tracto símptomes, sinó que busco la seva causa arrel, ajudant l\'organisme a restaurar la seva capacitat natural d\'autoregulació. El meu mètode combina tècniques avançades de treball amb el cos i el sistema nerviós: Movement Lesson, JKA (Jeremy Krauss Approach), Child’Space, Feldenkrais i Biodinàmica. És una influència suau però poderosa que reentrena el sistema nerviós, allibera tensions profundes i restaura la facilitat de moviment i la claredat mental.',
 
     'elena.target.adults.title': 'Adults',
-    'elena.target.adults.desc': 'Per a aquells que senten fatiga crònica, mal d\'esquena o coll, o els efectes de l\'estrès i el trauma. T\'ajudo a restaurar el teu estat de recursos, millorar la postura, alliberar bloquejos psicosomàtics i recuperar la lleugeresa en moure\'t. No és només un massatge o una teràpia; és un reinici del teu sistema nerviós per elevar la teva qualitat de vida.',
+    'elena.target.adults.desc': 'Per a aquells que senten fatiga crònica, mal d'esquena o coll, o els efectes de l'estrès i el trauma. T\'ajudo a restaurar el teu estat de recursos, millorar la postura, alliberar bloquejos psicosomàtics i recuperar la lleugeresa en moure\'t. No és només un massatge o una teràpia; és un reinici del teu sistema nerviós per elevar la teva qualitat de vida.',
 
     'elena.target.children.title': 'Nens',
     'elena.target.children.desc': 'Suport per a un desenvolupament harmoniós des dels primers dies. Treballo amb retards motors, alteracions posturals, hiperactivitat i dificultats d\'aprenentatge. Mitjançant tècniques suaus, ajudo l\'infant a sentir millor el seu cos, desenvolupant coordinació, seguretat i confiança en si mateix.',
@@ -335,7 +335,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.target.families.desc': 'Acompanyament integral per a famílies amb nens amb pc, síndromes genètics o altres necessitats del desenvolupament. Treballo no només amb l\'infant perquè adquireixi noves habilitats de moviment i comunicació, sinó també amb els pares, ensenyant-vos a interactuar amb ell i a cuidar la vostra pròpia energia i benestar.',
 
     // Dropdown items
-    'nav.officeWorkers': 'Professionals d\'oficina',
+    'nav.officeWorkers': 'Professionals d'oficina',
     'nav.athletes': 'Esportistes',
     'nav.artists': 'Artistes',
     'nav.musicians': 'Músics',
@@ -448,7 +448,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.stress.cause3': 'Traumes no processats o situacions vitals difícils que mantenen el sistema en alerta.',
     'casos.problems.stress.cause4': 'Desregulació del sistema nerviós autònom (simpaticotonia crònica).',
     'casos.problems.stress.treatment': 'Regulació del sistema nerviós: kinesiologia emocional, tècniques vagals, treball corporal suau (Feldenkrais) i respiració conscient per restablir la calma interna.',
-    'casos.problems.stress.results': 'Recuperació de la pau mental i l\'equilibri emocional. Millora de la qualitat del son i la capacitat de gestió de l\'estrès. Sensació de control i benestar profund.',
+    'casos.problems.stress.results': 'Recuperació de la pau mental i l\'equilibri emocional. Millora de la qualitat del son i la capacitat de gestió de l'estrès.Sensació de control i benestar profund.',
 
     // Digestive
     'casos.problems.digestive.symptom1': 'Malestar digestiu: inflor, gasos, acidesa, reflux o pesadesa després dels àpats.',
@@ -457,7 +457,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.digestive.symptom4': 'Relació conflictiva amb el menjar o sospita d\'intoleràncies.',
     'casos.problems.digestive.cause1': 'Intoleràncies o sensibilitats alimentàries no diagnosticades.',
     'casos.problems.digestive.cause2': 'Hàbits alimentaris inadequats: menjar ràpid, amb estrès o a deshores.',
-    'casos.problems.digestive.cause3': 'Eix intestí-cervell: l\'estrès emocional impactant directament en la funció digestiva.',
+    'casos.problems.digestive.cause3': 'Eix intestí-cervell: l'estrès emocional impactant directament en la funció digestiva.',
     'casos.problems.digestive.cause4': 'Disfuncions viscerals mecàniques o desequilibris de la microbiota.',
     'casos.problems.digestive.treatment': 'Kinesiologia nutricional per testar aliments, massatge visceral per millorar la motilitat i pautes d\'alimentació conscient i personalitzada.',
     'casos.problems.digestive.results': 'Digestions lleugeres i sense molèsties. Desaparició de la inflor i recuperació de l\'energia vital. Una relació sana i plaent amb l\'alimentació.',
@@ -628,13 +628,13 @@ const translations: Record<Language, Record<string, string>> = {
     'seo.home.description': 'Descobreix el benestar integral a EKA Balance. Especialistes en massatge terapèutic, kinesiologia i Osteobalance a Barcelona. Reserves per WhatsApp/Telegram 658867133.',
     'seo.home.keywords': 'Massatge terapèutic Barcelona, kinesiologia Barcelona, Osteobalance, centre teràpies holístiques, benestar integral, relaxació Barcelona, plaça universitat',
     'seo.contact.title': 'Contacte - EKA Balance | centre de teràpies holístiques a Barcelona',
-    'seo.contact.description': 'Contacta amb EKA Balance per reserves i consultes. Centres a Barcelona i Rubí. Telefon 658 867 133, email contact@ekabalance.com',
+    'seo.contact.description': 'Contacta amb EKA Balance per reserves i consultes. Centres a Barcelona i Rubí. Telefon +34 658 867 133, email contact@ekabalance.com',
     'seo.contact.keywords': 'Contacte EKA Balance, reserves massatge Barcelona, teràpies holístiques Rubí, centre benestar Barcelona',
     'seo.services.title': 'Serveis de teràpies holístiques a Barcelona | EKA Balance',
     'seo.services.description': 'Descobreix els nostres serveis: massatge terapèutic, kinesiologia, nutrició conscient i revisió 360°. Espai de benestar integral a Barcelona.',
     'seo.services.keywords': 'Serveis terapèutics Barcelona, massatge, kinesiologia, nutrició, revisió integral, teràpies holístiques',
     'seo.personalized.title': 'Serveis personalitzats - EKA Balance Barcelona',
-    'seo.personalized.description': 'Tria el servei que més s\'adapta a tu: treballadors d\'oficina, esportistes, artistes, músics i estudiants. Cuida el teu cos amb teràpies personalitzades.',
+    'seo.personalized.description': 'Tria el servei que més s\'adapta a tu: treballadors d'oficina, esportistes, artistes, músics i estudiants.Cuida el teu cos amb teràpies personalitzades.',
     'seo.personalized.keywords': 'Serveis personalitzats Barcelona, massatge oficina, esportistes, artistes, músics, estudiants',
     'seo.vip.title': 'Inner circle VIP - experiència premium exclusiva | EKA Balance',
     'seo.vip.description': 'Uneix-te al cercle interior VIP d\'EKA Balance. Plans Bronze, Silver i Gold Elite amb beneficis exclusius, atenció 24/7 i experiències personalitzades.',
@@ -643,11 +643,11 @@ const translations: Record<Language, Record<string, string>> = {
     'seo.massage.description': 'Massatge terapèutic professional a Barcelona. Allibera tensions, cuida el teu cos i relaxa la ment. Sessions de 60, 90 i 120 minuts. Reserva ara.',
 
     'seo.students.title': 'Teràpies per a estudiants - gestió de l\'Estrès i Concentració | EKA Balance',
-    'seo.students.description': 'Serveis especialitzats per a estudiants: reducció de l\'estrès mental, millora de la concentració i gestió de l\'ansietat acadèmica. Kinesiologia i massatge per a ments joves i curioses.',
+    'seo.students.description': 'Serveis especialitzats per a estudiants: reducció de l'estrès mental, millora de la concentració i gestió de l\'ansietat acadèmica. Kinesiologia i massatge per a ments joves i curioses.',
     'seo.students.keywords': 'Teràpies estudiants, estrès estudis, concentració, ansietat acadèmica, kinesiologia estudiants, massatge relaxant Barcelona',
 
     'seo.officeWorkers.title': 'Teràpies per a treballadors d\'Oficina - Dolor Cervical i Postura | EKA Balance',
-    'seo.officeWorkers.description': 'Serveis especialitzats per a professionals d\'oficina: alleujar dolor cervical, corregir postura, reduir estrès tecnològic. Massatge terapèutic i Feldenkrais per a qui passa hores davant l\'ordinador.',
+    'seo.officeWorkers.description': 'Serveis especialitzats per a professionals d'oficina: alleujar dolor cervical, corregir postura, reduir estrès tecnològic.Massatge terapèutic i Feldenkrais per a qui passa hores davant l\'ordinador.',
     'seo.officeWorkers.keywords': 'Dolor cervical oficina, postura ordinador, estrès tecnològic, massatge terapèutic, Feldenkrais Barcelona, treballadors oficina',
 
     'seo.musicians.title': 'Teràpies per a músics - expressió corporal i flow musical | EKA Balance',
@@ -655,11 +655,11 @@ const translations: Record<Language, Record<string, string>> = {
     'seo.musicians.keywords': 'Teràpies músics, expressió corporal, ansietat escènica, flow musical, Feldenkrais músics, kinesiologia performance Barcelona',
 
     'seo.artists.title': 'Teràpies per a artistes - creativitat i benestar | EKA Balance',
-    'seo.artists.description': 'Serveis per a artistes de totes les disciplines. Desbloqueja la teva creativitat, redueix l\'estrès i millora la teva expressió artística.',
+    'seo.artists.description': 'Serveis per a artistes de totes les disciplines. Desbloqueja la teva creativitat, redueix l'estrès i millora la teva expressió artística.',
     'seo.artists.keywords': 'Teràpies artistes, creativitat, benestar emocional, expressió artística, artteràpia Barcelona',
 
     'seo.adults.title': 'Benestar integral per a adults - salut i equilibri | EKA Balance',
-    'seo.adults.description': 'Tractaments personalitzats per a adults: gestió de l\'estrès, dolor crònic i millora de la qualitat de vida. Massatge, kinesiologia i més.',
+    'seo.adults.description': 'Tractaments personalitzats per a adults: gestió de l'estrès, dolor crònic i millora de la qualitat de vida.Massatge, kinesiologia i més.',
     'seo.adults.keywords': 'Benestar adults, gestió estrès, dolor crònic, massatge terapèutic, kinesiologia Barcelona',
 
     'seo.children.title': 'Teràpies per a nens - desenvolupament i creixement | EKA Balance',
@@ -694,7 +694,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Kinesiology Page
     'kinesiology.hero.badge': 'Cos, ment i emocions en equilibri',
     'kinesiology.benefits.posture': 'Millora la postura i la coordinació',
-    'kinesiology.benefits.stress': 'Redueix l\'estrès i millora el descans',
+    'kinesiology.benefits.stress': 'Redueix l'estrès i millora el descans',
     'kinesiology.benefits.energy': 'Més autoconeixement i energia estable',
 
     // Nutrition Page
@@ -720,7 +720,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.userTypes.regular.title': 'Benestar general',
     'discovery.userTypes.regular.desc': 'Manteniment preventiu i relaxació profunda.',
     'discovery.userTypes.office.title': 'Perfil executiu',
-    'discovery.userTypes.office.desc': 'Descompressió de l\'estrès corporatiu i postural.',
+    'discovery.userTypes.office.desc': 'Descompressió de l'estrès corporatiu i postural.',
     'discovery.userTypes.athlete.title': 'Rendiment esportiu',
     'discovery.userTypes.athlete.desc': 'Optimització biomecànica i recuperació activa.',
 
@@ -754,7 +754,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Discovery Form - Recommendations
     'discovery.recommendation.emotional.service': 'Reequilibri emocional',
     'discovery.recommendation.emotional.desc': 'Teràpia holística per gestionar estrès, ansietat o tristesa. Se centra a superar problemes emocionals i recuperar harmonia i felicitat.',
-    'discovery.recommendation.emotional.benefit1': 'Reducció de l\'estrès',
+    'discovery.recommendation.emotional.benefit1': 'Reducció de l'estrès',
     'discovery.recommendation.emotional.benefit2': 'Equilibri emocional',
     'discovery.recommendation.emotional.benefit3': 'Claredat mental',
     'discovery.recommendation.emotional.benefit4': 'Pau interior',
@@ -776,7 +776,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.recommendation.relax.service': 'Massatge relaxant complet',
     'discovery.recommendation.relax.desc': 'Experiència de relaxació global (física i mental), ideal si el teu objectiu és senzillament descansar i recarregar energies.',
     'discovery.recommendation.relax.benefit1': 'Relaxació profunda',
-    'discovery.recommendation.relax.benefit2': 'Reducció de l\'estrès',
+    'discovery.recommendation.relax.benefit2': 'Reducció de l'estrès',
     'discovery.recommendation.relax.benefit3': 'Renovació d\'energia',
     'discovery.recommendation.relax.benefit4': 'Benestar general',
 
@@ -850,7 +850,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Office Workers
     'office.seo.title': 'Serveis per a treballadors d\'Oficina - EKA Balance Barcelona',
-    'office.seo.desc': 'Teràpies especialitzades per a treballadors d\'oficina: alleuja tensions, millora postura i gestiona l\'estrès laboral. Sessions d\'1 hora per 70€.',
+    'office.seo.desc': 'Teràpies especialitzades per a treballadors d'oficina: alleuja tensions, millora postura i gestiona l'estrès laboral. Sessions d\'1 hora per 70€.',
     'office.seo.keywords': 'Massatge oficina Barcelona, estrès laboral, dolor esquena ordinador, kinesiologia treballadors',
 
     // Athletes SEO
@@ -870,7 +870,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Students SEO
     'students.seo.title': 'Serveis per a estudiants - EKA Balance Barcelona',
-    'students.seo.desc': 'Teràpies per a estudiants: gestió de l\'estrès d\'exàmens, millora de la concentració i correcció postural. Sessions d\'1 hora per 70€.',
+    'students.seo.desc': 'Teràpies per a estudiants: gestió de l'estrès d\'exàmens, millora de la concentració i correcció postural. Sessions d\'1 hora per 70€.',
     'students.seo.keywords': 'Estrès exàmens Barcelona, concentració estudi, postura estudiants, ansietat acadèmica',
 
     'office.problems.pain.title': 'Dolor postural',
@@ -880,10 +880,10 @@ const translations: Record<Language, Record<string, string>> = {
     'office.problems.sedentary.title': 'Sedentarisme',
     'office.problems.sedentary.desc': 'Pèrdua de mobilitat i flexibilitat per passar massa hores assegut',
     'office.benefits.techniques.title': 'Tècniques específiques',
-    'office.benefits.techniques.desc': 'Tècniques específiques per descontracturar zones afectades pel treball d\'oficina',
+    'office.benefits.techniques.desc': 'Tècniques específiques per descontracturar zones afectades pel treball d'oficina',
     'office.benefits.exercises.title': 'Correcció postural',
     'office.benefits.exercises.desc': 'Exercicis i correccions posturals per prevenir futurs problemes',
-    'office.benefits.mindfulness.title': 'Gestió de l\'estrès',
+    'office.benefits.mindfulness.title': 'Gestió de l'estrès',
     'office.benefits.mindfulness.desc': 'Tècniques de relaxació i mindfulness adaptades a l\'entorn professional',
     'office.stats.pain': 'Reducció del dolor',
     'office.stats.posture': 'Millora postural',
@@ -896,11 +896,11 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hero.title': 'Contacta amb',
     'contact.hero.titleHighlight': 'nosaltres',
     'contact.hero.description': 'Estem aquí per ajudar-te en el teu camí cap al benestar. Contacta\'ns per reserves, consultes o qualsevol dubte sobre els nostres serveis.',
-    'contact.whatsapp': 'WhatsApp 658 867 133',
+    'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Trucar ara',
     'contact.faq.title': 'Preguntes freqüents',
     'contact.faq.q1.title': 'Com puc reservar una cita?',
-    'contact.faq.q1.answer': 'Pots reservar una cita escrivint per WhatsApp o Telegram al 658 867 133, trucant-nos al mateix número o enviant-nos un email.',
+    'contact.faq.q1.answer': 'Pots reservar una cita escrivint per WhatsApp o Telegram al +34 658 867 133, trucant-nos al mateix número o enviant-nos un email.',
     'contact.faq.q2.title': 'Quina és la política de cancel·lació?',
     'contact.faq.q2.answer': 'Les cancel·lacions gratuïtes es poden fer fins a 24 hores abans de la cita. Els usuaris VIP poden cancel·lar fins a 12 hores abans.',
     'contact.faq.q3.title': 'Oferiu descomptes o plans VIP?',
@@ -912,7 +912,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.help.title': 'Necessites ajuda amb la reserva?',
     'booking.help.contactDirect': 'Contacta\'ns directament',
     'booking.help.email': 'ðŸ“§ contact@ekabalance.com',
-    'booking.help.address': 'ðŸ“ Carrer Pelai, 12, Barcelona',
+    'booking.help.address': 'ðŸ“ Carrer Pelai, 12, 08001 Barcelona',
     'booking.help.hours': 'Horari d\'atenció',
     'booking.help.hours.weekdays': 'Dilluns - divendres: 9:00 - 20:00',
     'booking.help.hours.saturday': 'Dissabte: 9:00 - 14:00',
@@ -956,10 +956,10 @@ const translations: Record<Language, Record<string, string>> = {
     'personalizedServices.bookNow.title': 'Eleva el teu potencial',
     'personalizedServices.bookNow.subtitle': 'No deixis que el dolor limiti la teva carrera o passió. Reserva avui.',
     'personalizedServices.officeWorkers': 'Executius i oficina',
-    'personalizedServices.officeWorkers.desc': 'Contraresta els efectes del sedentarisme i l\'estrès d\'alt nivell. Recupera la postura i la claredat mental.',
+    'personalizedServices.officeWorkers.desc': 'Contraresta els efectes del sedentarisme i l'estrès d\'alt nivell. Recupera la postura i la claredat mental.',
     'personalizedServices.officeWorkers.benefit1': 'Descompressió de la columna i alliberament cervical.',
     'personalizedServices.officeWorkers.benefit2': 'Correcció postural ergonòmica i respiratòria.',
-    'personalizedServices.officeWorkers.benefit3': 'Gestió de l\'estrès executiu i fatiga visual.',
+    'personalizedServices.officeWorkers.benefit3': 'Gestió de l'estrès executiu i fatiga visual.',
     'personalizedServices.officeWorkers.result': 'Màxima productivitat sense desgast físic.',
     'personalizedServices.athletes': 'Esportistes d\'elit',
     'personalizedServices.athletes.desc': 'Optimització biomecànica, prevenció de lesions i recuperació accelerada per a un rendiment superior.',
@@ -1071,7 +1071,7 @@ const translations: Record<Language, Record<string, string>> = {
     'athletes.help1.desc': 'Tècniques específiques per reduir la inflamació i accelerar la curació',
     'athletes.help2.title': 'Millora la flexibilitat i mobilitat',
     'athletes.help2.desc': 'Exercicis dirigits per augmentar el rang de moviment',
-    'athletes.help3.title': 'Gestiona l\'estrès competitiu',
+    'athletes.help3.title': 'Gestiona l'estrès competitiu',
     'athletes.help3.desc': 'Tècniques de relaxació per mantenir la calma sota pressió',
     'athletes.result.title': 'Resultat',
     'athletes.result.desc': 'Recuperació més ràpida, millor rendiment i menys lesions',
@@ -1162,7 +1162,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Students personalized service
     'students.hero.badge': 'Especialitzat per estudiants',
     'students.hero.title': 'Estudiants',
-    'students.hero.subtitle': 'Gestió de l\'estrès d\'estudi, millora de la concentració i cura postural',
+    'students.hero.subtitle': 'Gestió de l'estrès d\'estudi, millora de la concentració i cura postural',
     'students.challenges.title': 'Problemes comuns',
     'students.challenge1.title': 'Estrès d\'exàmens',
     'students.challenge1.desc': 'Ansietat i tensió que afecten el rendiment acadèmic',
@@ -1171,7 +1171,7 @@ const translations: Record<Language, Record<string, string>> = {
     'students.challenge3.title': 'Tensions posturals',
     'students.challenge3.desc': 'Dolor d\'esquena i coll per estar assegut moltes hores estudiant',
     'students.help.title': 'Com t\'ajudem',
-    'students.help1.title': 'Gestiona l\'estrès acadèmic',
+    'students.help1.title': 'Gestiona l'estrès acadèmic',
     'students.help1.desc': 'Tècniques de relaxació per reduir l\'ansietat d\'exàmens',
     'students.help2.title': 'Millora la concentració',
     'students.help2.desc': 'Exercicis per augmentar la capacitat d\'atenció i memòria',
@@ -1216,7 +1216,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.closeForm': 'Tancar formulari',
 
     'form.step1.question': 'Quin és el teu perfil principal?',
-    'form.userType.officeWorker': 'Treballador/a d\'oficina',
+    'form.userType.officeWorker': 'Treballador/a d'oficina',
     'form.userType.officeWorkerDesc': 'Passo moltes hores assegut/da davant l\'ordinador',
     'form.userType.athlete': 'Esportista',
     'form.userType.athleteDesc': 'Faig exercici regularment o sóc atleta professional',
@@ -1267,11 +1267,11 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.duration': 'Durada',
     'form.recommendation.benefits': 'Beneficis principals',
 
-    'form.recommendation.officeWorker.title': 'Sessió per a treballadors d\'oficina',
-    'form.recommendation.officeWorker.desc': 'Teràpia especialitzada per alleujar tensions del treball sedentari, millorar la postura i reduir l\'estrès laboral',
+    'form.recommendation.officeWorker.title': 'Sessió per a treballadors d'oficina',
+    'form.recommendation.officeWorker.desc': 'Teràpia especialitzada per alleujar tensions del treball sedentari, millorar la postura i reduir l'estrès laboral',
     'form.recommendation.officeWorker.benefit1': 'Alleuja dolor cervical i d\'esquena',
     'form.recommendation.officeWorker.benefit2': 'Millora la postura davant l\'ordinador',
-    'form.recommendation.officeWorker.benefit3': 'Redueix l\'estrès laboral',
+    'form.recommendation.officeWorker.benefit3': 'Redueix l'estrès laboral',
     'form.recommendation.officeWorker.benefit4': 'Més energia per treballar',
 
     'form.recommendation.athlete.title': 'Sessió per a esportistes',
@@ -1296,7 +1296,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.musician.benefit4': 'Relaxació específica',
 
     'form.recommendation.student.title': 'Sessió per a estudiants',
-    'form.recommendation.student.desc': 'Gestió de l\'estrès d\'estudi, millora de la concentració i cura postural per a estudiants',
+    'form.recommendation.student.desc': 'Gestió de l'estrès d\'estudi, millora de la concentració i cura postural per a estudiants',
     'form.recommendation.student.benefit1': 'Redueix estrès d\'exàmens',
     'form.recommendation.student.benefit2': 'Millora concentració',
     'form.recommendation.student.benefit3': 'Corregeix postura d\'estudi',
@@ -1319,7 +1319,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.kinesiology.title': 'Kinesiologia holística',
     'form.recommendation.kinesiology.desc': 'Teràpia que combina tècniques corporals i emocionals per reequilibrar el teu estat general',
     'form.recommendation.kinesiology.benefit1': 'Equilibri emocional',
-    'form.recommendation.kinesiology.benefit2': 'Gestió de l\'estrès',
+    'form.recommendation.kinesiology.benefit2': 'Gestió de l'estrès',
     'form.recommendation.kinesiology.benefit3': 'Millora autoconeixement',
     'form.recommendation.kinesiology.benefit4': 'Pau interior',
 
@@ -1345,7 +1345,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     'onboarding.questions.userType.title': 'Com et descriuries millor?',
     'onboarding.userTypes.student': 'Estudiant',
-    'onboarding.userTypes.office': 'Persona d\'oficina',
+    'onboarding.userTypes.office': 'Persona d'oficina',
     'onboarding.userTypes.artist': 'Artista o músic',
     'onboarding.userTypes.musician': 'Músic',
     'onboarding.userTypes.athlete': 'Esportista',
@@ -1397,7 +1397,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.students.understanding.callToAction': 'A EKA Balance t\'ajudem a reconnectar amb el teu cos, millorar la postura i recuperar la calma mental.',
     'personalized.students.services.title': 'Sessions recomanades per a tu',
     'personalized.students.services.subtitle': 'Tractaments especialitzats per estudiants',
-    'personalized.students.services.kinesiologyStress.title': 'Kinesiologia per a l\'estrès mental',
+    'personalized.students.services.kinesiologyStress.title': 'Kinesiologia per a l'estrès mental',
     'personalized.students.services.kinesiologyStress.description': 'Teràpia específica per equilibrar el sistema nerviós i gestionar l\'ansietat d\'exàmens.',
     'personalized.students.services.relaxingMassage.title': 'Massatge relaxant + tècniques de respiració',
     'personalized.students.services.relaxingMassage.description': 'Combinació de massatge terapèutic i exercicis de respiració per alleujar tensions posturals.',
@@ -1408,7 +1408,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.hero.title': 'Per a qui passa massa hores davant l\'ordinador',
     'personalized.officeWorkers.hero.description': 'Dolor cervical, esquena rígida, ulls cansats, ment hiperactiva. T\'acompanyem a recuperar equilibri i energia.',
     'personalized.officeWorkers.understanding.title': 'Sabem exactament com et sents',
-    'personalized.officeWorkers.understanding.description1': 'Dolor cervical, esquena rígida, ulls cansats, ment hiperactiva. El treball d\'oficina crea patrons de tensió únics.',
+    'personalized.officeWorkers.understanding.description1': 'Dolor cervical, esquena rígida, ulls cansats, ment hiperactiva. El treball d'oficina crea patrons de tensió únics.',
     'personalized.officeWorkers.understanding.description2': 'Les llargues hores davant l\'ordinador generen contractures cervicals, dolor lumbar i fatiga mental.',
     'personalized.officeWorkers.understanding.callToAction': 'T\'acompanyem a recuperar equilibri i energia per poder treballar còmodament.',
     'personalized.officeWorkers.services.title': 'Sessions dissenyades per a tu',
@@ -1430,7 +1430,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.benefit1': 'Alleujament immediat del dolor crònic de coll, espatlles i esquena baixa.',
     'personalized.officeWorkers.benefit2': 'Reducció de mals de cap tensionals i fatiga ocular mitjançant alliberament cranial.',
     'personalized.officeWorkers.benefit3': 'Millora de la claredat mental i l\'enfocament regulant el sistema nerviós.',
-    'personalized.officeWorkers.benefit4': 'Millor qualitat del son reduint les hormones de l\'estrès acumulades.',
+    'personalized.officeWorkers.benefit4': 'Millor qualitat del son reduint les hormones de l'estrès acumulades.',
 
     'personalized.officeWorkers.faq.title': 'Preguntes freqüents',
     'personalized.officeWorkers.faq.q1': 'Tinc "coll de text". La teràpia somàtica pot arreglar la meva postura?',
@@ -1515,7 +1515,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.athletes.services.sportsMassage.description': 'Tractament especialitzat per accelerar la recuperació muscular i prevenir lesions.',
     'personalized.athletes.services.osteobalance.title': 'Osteobalance i estiraments guiats',
     'personalized.athletes.services.osteobalance.description': 'Tècniques avançades per millorar la mobilitat articular i optimitzar el rendiment.',
-    
+
     'personalized.athletes.method.title': 'El nostre protocol de rendiment',
     'personalized.athletes.method.step1.title': 'Avaluació biomecànica',
     'personalized.athletes.method.step1.desc': 'Analitzem els teus patrons de moviment per identificar ineficiències neuromusculars i restriccions fascials.',
@@ -1551,7 +1551,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.parents.services.title': 'Sessions pensades per a pares i mares',
     'personalized.parents.services.subtitle': 'Tractaments per recuperar energia i equilibri emocional',
     'personalized.parents.services.emotionalKinesiology.title': 'Kinesiologia emocional',
-    'personalized.parents.services.emotionalKinesiology.description': 'Teràpia específica per gestionar l\'estrès familiar i recuperar l\'equilibri emocional.',
+    'personalized.parents.services.emotionalKinesiology.description': 'Teràpia específica per gestionar l'estrès familiar i recuperar l\'equilibri emocional.',
     'personalized.parents.services.relaxingMassage.title': 'Massatge relaxant i consciència corporal',
     'personalized.parents.services.relaxingMassage.description': 'Sessió de desconnexió profunda per alliberar tensions acumulades i recuperar energia.',
     'personalized.parents.testimonial.title': 'Experiència d\'una mare',
@@ -1706,8 +1706,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.stats.sessions': 'Sessions realitzades',
     'hero.stats.countries': 'Països impactats',
 
-    'footer.address': 'Carrer de pelai',
-    'footer.email': 'info@ekabalance.com',
+    'footer.address': 'Carrer Pelai, 12, 08001 Barcelona',
+    'footer.email': 'contact@ekabalance.com',
     'footer.copyright': '© 2024 EKA Balance. Tots els drets reservats.',
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': 'Descomptes d\'estiu',
@@ -1765,7 +1765,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Students
     'students.problems.title': 'Reptes dels estudiants',
-    'students.problems.subtitle': 'Supera l\'estrès acadèmic',
+    'students.problems.subtitle': 'Supera l'estrès acadèmic',
     'students.problem1.title': 'Ansietat',
     'students.problem1.desc': 'Davant exàmens',
     'students.problem2.title': 'Postura',
@@ -1999,7 +1999,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.smart.title': 'Reserva la teva cita',
     'booking.smart.subtitle': 'Tria com vols contactar',
 
-  
+
     // Missing keys added by script
     'elena.work.title': 'El meu enfocament',
     'common.home': 'Inici',
@@ -2022,7 +2022,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.required': 'Requerit',
     'common.optional': 'Opcional',
     'common.book': 'Reservar',
-    
+
     'personalized.artists.title': 'Benestar per a artistes i creatius | EKA Balance',
     'personalized.artists.description': 'Potencia la teva creativitat, desbloqueja tensions i connecta amb la teva expressió artística.',
     'personalized.artists.keywords': 'benestar artistes barcelona, creativitat, desbloqueig emocional',
@@ -2030,18 +2030,18 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.athletes.description': 'Millora el teu rendiment, recupera lesions i optimitza el teu cos amb els nostres plans.',
     'personalized.athletes.keywords': 'rendiment esportiu, recuperació lesions, optimització física',
     'personalized.musicians.title': 'Benestar per a músics | EKA Balance',
-    'personalized.musicians.description': "Prevé lesions, millora la postura i connecta amb el teu instrument des d\'un cos lliure.",
+    'personalized.musicians.description': "Prevé lesions, millora la postura i connecta amb el teu instrument des d'un cos lliure.",
     'personalized.musicians.keywords': 'benestar músics, prevenció lesions, postura músics',
-    'personalized.office.title': "Benestar per a treballadors d\'oficina | EKA Balance",
-    'personalized.office.description': "Alleuja el mal d\'esquena, corregeix la postura i redueix l\'estrès laboral amb els nostres programes.",
-    'personalized.office.keywords': "mal d\'esquena oficina, ergonomia, postura ordinador, estrès laboral",
+    'personalized.office.title': "Benestar per a treballadors d'oficina | EKA Balance",
+    'personalized.office.description': "Alleuja el mal d'esquena, corregeix la postura i redueix l'estrès laboral amb els nostres programes.",
+    'personalized.office.keywords': "mal d'esquena oficina, ergonomia, postura ordinador, estrès laboral",
     'personalized.parents.title': 'Benestar per a pares i mares | EKA Balance',
-    'personalized.parents.description': 'Troba el teu equilibri, redueix l\'estrès i millora la teva energia vital per a la criança.',
+    'personalized.parents.description': 'Troba el teu equilibri, redueix l'estrès i millora la teva energia vital per a la criança.',
     'personalized.parents.keywords': 'benestar pares, criança conscient, estrès familiar, equilibri vida-treball',
     'personalized.students.title': 'Benestar per a estudiants | EKA Balance',
     'personalized.students.description': 'Millora la concentració, redueix l\'ansietat i optimitza el teu rendiment acadèmic.',
     'personalized.students.keywords': 'estrès exàmens, concentració estudiants, ansietat acadèmica',
-},
+  },
 
   en: {
     // Navigation
@@ -2074,6 +2074,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.artists': 'Artists & creatives',
     'nav.musicians': 'Musicians',
     'nav.students': 'Students',
+    'nav.parents': 'Parents',
 
     'home.founder': 'Founder & CEO',
     'home.elenaAlt': 'Elena, EKA Balance body therapist',
@@ -2094,7 +2095,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.stats.countries': 'International certifications',
 
     // Footer
-    'footer.address': 'Carrer Pelai, 12, Barcelona, Spain',
+    'footer.address': 'Carrer Pelai, 12, 08001 Barcelona, Spain',
     'footer.email': 'contact@ekabalance.com',
     'footer.copyright': '© 2024 EKA Balance. All rights reserved.',
     'footer.selectLanguage': 'Select language',
@@ -3459,11 +3460,11 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hero.title': 'Contact',
     'contact.hero.titleHighlight': 'us',
     'contact.hero.description': 'We are here to help you on your path to wellbeing. Contact us for bookings, inquiries or any questions about our services.',
-    'contact.whatsapp': 'WhatsApp 658 867 133',
+    'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Call now',
     'contact.faq.title': 'Frequently asked questions',
     'contact.faq.q1.title': 'How can i book an appointment?',
-    'contact.faq.q1.answer': 'You can book an appointment by writing via WhatsApp or Telegram at 658 867 133, calling us at the same number or sending us an email.',
+    'contact.faq.q1.answer': 'You can book an appointment by writing via WhatsApp or Telegram at +34 658 867 133, calling us at the same number or sending us an email.',
     'contact.faq.q2.title': 'What is the cancellation policy?',
     'contact.faq.q2.answer': 'Free cancellations can be made up to 24 hours before the appointment. VIP users can cancel up to 12 hours before.',
     'contact.faq.q3.title': 'Do you offer discounts or VIP plans?',
@@ -3475,7 +3476,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.help.title': 'Need help with booking?',
     'booking.help.contactDirect': 'Contact us directly',
     'booking.help.email': 'ðŸ“§ contact@ekabalance.com',
-    'booking.help.address': 'ðŸ“ Carrer Pelai, 12, Barcelona',
+    'booking.help.address': 'ðŸ“ Carrer Pelai, 12, 08001 Barcelona',
     'booking.help.hours': 'Opening hours',
     'booking.help.hours.weekdays': 'Monday - friday: 9:00 - 20:00',
     'booking.help.hours.saturday': 'Saturday: 9:00 - 14:00',
@@ -3735,7 +3736,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.smart.title': 'Book your appointment',
     'booking.smart.subtitle': 'Choose how you want to contact',
 
-  
+
     // Missing keys added by script
     'common.home': 'Home',
     'common.about': 'About',
@@ -3776,10 +3777,10 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.students.title': 'Wellness for Students | EKA Balance',
     'personalized.students.description': 'Improve concentration, reduce anxiety, and optimize your academic performance.',
     'personalized.students.keywords': 'exam stress, student concentration, academic anxiety',
-    
+
     'discovery.step.description.minChars': 'characters minimum',
     'discovery.recommendation.online.note': 'Note: Since you selected Online, this service is adapted for remote sessions.',
-},
+  },
   es: {
     // Navigation
     'nav.home': 'Inicio',
@@ -3811,13 +3812,14 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.artists': 'Artistas',
     'nav.musicians': 'Músicos',
     'nav.students': 'Estudiantes',
+    'nav.parents': 'Padres y madres',
 
     'home.founder': 'Fundadora y CEO',
     'home.elenaAlt': 'Elena, terapeuta corporal de EKA Balance',
     'home.viewAllServices': 'Ver todos los servicios',
     'home.elenaName': 'Elena Kucherova',
     'elena.name': 'Elena Kucherova',
-    
+
     // About
     'about.badge': 'Mi trayectoria',
     'about.title': 'Elena Kucherova',
@@ -4809,11 +4811,11 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hero.title': 'Contacta',
     'contact.hero.titleHighlight': 'con nosotros',
     'contact.hero.description': 'Estamos aquí para ayudarte en tu camino hacia el bienestar. Contáctanos para reservas, consultas o cualquier duda sobre nuestros servicios.',
-    'contact.whatsapp': 'WhatsApp 658 867 133',
+    'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Llamar ahora',
     'contact.faq.title': 'Preguntas frecuentes',
     'contact.faq.q1.title': '¿Cómo puedo reservar una cita?',
-    'contact.faq.q1.answer': 'Puedes reservar cita escribiendo por WhatsApp o Telegram al 658 867 133, llamándonos al mismo número o enviándonos un email.',
+    'contact.faq.q1.answer': 'Puedes reservar cita escribiendo por WhatsApp o Telegram al +34 658 867 133, llamándonos al mismo número o enviándonos un email.',
     'contact.faq.q2.title': '¿Cuál es la política de cancelación?',
     'contact.faq.q2.answer': 'Se pueden realizar cancelaciones gratuitas hasta 24 horas antes de la cita. Los usuarios VIP pueden cancelar hasta 12 horas antes.',
     'contact.faq.q3.title': '¿Ofrecéis descuentos o planes VIP?',
@@ -4825,7 +4827,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.help.title': '¿Necesitas ayuda con la reserva?',
     'booking.help.contactDirect': 'Contáctanos directamente',
     'booking.help.email': '📧 contact@ekabalance.com',
-    'booking.help.address': '📍 Carrer Pelai, 12, Barcelona',
+    'booking.help.address': '📍 Carrer Pelai, 12, 08001 Barcelona',
     'booking.help.hours': 'Horario de atención',
     'booking.help.hours.weekdays': 'Lunes - viernes: 9:00 - 20:00',
     'booking.help.hours.saturday': 'Sábado: 9:00 - 14:00',
@@ -5183,7 +5185,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.stats.countries': 'Países impactados',
 
     'footer.address': 'Calle de pelai',
-    'footer.email': 'info@ekabalance.com',
+    'footer.email': 'contact@ekabalance.com',
     'footer.copyright': '© 2024 EKA Balance. Todos los derechos reservados.',
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': 'Descuentos de verano',
@@ -5501,6 +5503,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.artists': 'Артисты',
     'nav.musicians': 'Музыканты',
     'nav.students': 'Студенты',
+    'nav.parents': 'Родители',
 
     'home.founder': 'Основатель и CEO',
     'home.elenaAlt': 'Елена, телесный терапевт EKA Balance',
@@ -5528,7 +5531,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.stats.experience': 'Лет практики',
     'hero.stats.countries': 'Международных обучений',
     // Footer
-    'footer.address': 'Carrer Pelai, 12, Barcelona, Spain',
+    'footer.address': 'Carrer Pelai, 12, 08001 Barcelona, Spain',
     'footer.email': 'contact@ekabalance.com',
     'footer.copyright': '© 2024 EKA Balance. Все права защищены.',
     'footer.selectLanguage': 'Выберите язык',
@@ -6877,11 +6880,11 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hero.title': 'Свяжитесь',
     'contact.hero.titleHighlight': 'с нами',
     'contact.hero.description': 'Мы здесь, чтобы помочь вам на пути к благополучию. Свяжитесь с нами для бронирования, запросов или любых вопросов о наших услугах.',
-    'contact.whatsapp': 'WhatsApp 658 867 133',
+    'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Позвонить сейчас',
     'contact.faq.title': 'Часто задаваемые вопросы',
     'contact.faq.q1.title': 'Как я могу забронировать встречу?',
-    'contact.faq.q1.answer': 'Вы можете забронировать встречу, написав в WhatsApp или Telegram по номеру 658 867 133, позвонив нам по тому же номеру или отправив нам электронное письмо.',
+    'contact.faq.q1.answer': 'Вы можете забронировать встречу, написав в WhatsApp или Telegram по номеру +34 658 867 133, позвонив нам по тому же номеру или отправив нам электронное письмо.',
     'contact.faq.q2.title': 'Какова политика отмены?',
     'contact.faq.q2.answer': 'Бесплатная отмена возможна за 24 часа до встречи. VIP-пользователи могут отменить за 12 часов.',
     'contact.faq.q3.title': 'Вы предлагаете скидки или VIP-планы?',
@@ -6893,7 +6896,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.help.title': 'Нужна помощь с бронированием?',
     'booking.help.contactDirect': 'Свяжитесь с нами напрямую',
     'booking.help.email': '📧 contact@ekabalance.com',
-    'booking.help.address': '📍 Carrer Pelai, 12, Barcelona',
+    'booking.help.address': '📍 Carrer Pelai, 12, 08001 Barcelona',
     'booking.help.hours': 'Часы работы',
     'booking.help.hours.weekdays': 'Понедельник - пятница: 9:00 - 20:00',
     'booking.help.hours.saturday': 'Суббота: 9:00 - 14:00',

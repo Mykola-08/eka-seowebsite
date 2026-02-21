@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Brain } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForStudentsContent() {

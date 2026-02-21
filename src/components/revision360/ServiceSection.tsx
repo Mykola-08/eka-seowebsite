@@ -89,7 +89,7 @@ export default function ServiceSection() {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              className="group apple-card p-8 bg-white border border-gray-100/50 hover:border-gray-200 transition-all duration-300"
+              className="group apple-card p-8 bg-white border border-gray-100/50 hover:border-gray-200 transition duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

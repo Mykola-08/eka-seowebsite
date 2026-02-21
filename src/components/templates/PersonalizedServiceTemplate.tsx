@@ -40,11 +40,11 @@ const themeConfig: Record<string, {
   subtext: string;
   accent: string;
   dots: string;
-  stepsBg: string; 
-  stepsIconBg: string; 
+  stepsBg: string;
+  stepsIconBg: string;
   stepsIconText: string;
-  servicesBgFrom: string; 
-  servicesBgTo: string; 
+  servicesBgFrom: string;
+  servicesBgTo: string;
   serviceCardHoverText: string;
   serviceLinkText: string;
 }> = {
@@ -123,7 +123,7 @@ const themeConfig: Record<string, {
     serviceCardHoverText: 'group-hover:text-pink-700',
     serviceLinkText: 'text-pink-600'
   },
-  amber: { 
+  amber: {
     bg: 'bg-amber-50/50',
     border: 'border-amber-100',
     text: 'text-amber-900',
@@ -152,16 +152,21 @@ export default function PersonalizedServiceTemplate({
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
   const serviceData = PERSONALIZED_SERVICES_DATA.find(s => s.id === serviceId);
-  
+
   // Create a pseudo-object for parents/others if not in constant list to provide fallback color/image?
   // Or assume the consumer will ensure serviceId exists in constant list or pass 'orange' fallback.
   // We can also allow passing color override as prop if needed, but keeping it simple.
-  
+
   const colorKey = serviceData?.color || 'orange';
   const theme = themeConfig[colorKey] || themeConfig.orange;
 
-  // Type assertion for array access
-  const benefitsList = (t(`${translationKey}.benefits.list`) as unknown as string[]) || [];
+  // Safely resolve benefits List
+  const rawBenefits = t(`${translationKey}.benefits.list`);
+  const benefitsList = Array.isArray(rawBenefits)
+    ? rawBenefits
+    : (typeof rawBenefits === 'object' && rawBenefits !== null)
+      ? Object.values(rawBenefits)
+      : [];
 
   return (
     <>
@@ -191,8 +196,8 @@ export default function PersonalizedServiceTemplate({
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           <Link href="/contact">
-            <Button 
-              size="xl" 
+            <Button
+              size="xl"
               variant="outline"
               className="bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200 hover:bg-white"
             >
@@ -204,25 +209,25 @@ export default function PersonalizedServiceTemplate({
         {/* Understanding Section */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
-            <div className={`${theme.bg} ${theme.border} border rounded-[2rem] shadow-sm p-8 sm:p-12 transition-all duration-500 ease-out`}>
+            <div className={`${theme.bg} ${theme.border} border rounded-[2rem] shadow-sm p-8 sm:p-12 transition duration-500 ease-out`}>
               <h2 className={`heading-2 mb-6 font-bold ${theme.accent}`}>
                 {t(`${translationKey}.understanding.title`)}
               </h2>
               <div className={`space-y-4 ${theme.subtext} leading-relaxed text-lg`}>
                 <p>{t(`${translationKey}.understanding.description1`)}</p>
                 <p>{t(`${translationKey}.understanding.description2`)}</p>
-                
+
                 {/* Benefits List */}
                 <div className={`mt-8 bg-white/60 rounded-xl p-6 border ${theme.border}`}>
-                   <h3 className={`font-bold ${theme.text} mb-4`}>{t(`${translationKey}.benefits.title`)}</h3>
-                   <ul className="space-y-2">
-                      {benefitsList.map((benefit: string, i: number) => (
-                        <li key={i} className="flex items-start gap-3">
-                           <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.dots} shrink-0`} />
-                           <span className="text-gray-700">{benefit}</span>
-                        </li>
-                      ))}
-                   </ul>
+                  <h3 className={`font-bold ${theme.text} mb-4`}>{t(`${translationKey}.benefits.title`)}</h3>
+                  <ul className="space-y-2">
+                    {benefitsList.map((benefit: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.dots} shrink-0`} />
+                        <span className="text-gray-700">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <p className={`font-medium ${theme.text} mt-6`}>
@@ -235,28 +240,28 @@ export default function PersonalizedServiceTemplate({
 
         {/* Methodology Section */}
         {showMethodology && (
-            <section className="py-16 bg-white">
+          <section className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-8">
-                <h2 className="heading-2 mb-12 font-bold text-center text-eka-dark">
-                    {t(`${translationKey}.method.title`)}
-                </h2>
-                <div className="grid md:grid-cols-3 gap-8">
-                    {[1, 2, 3].map((step) => (
-                    <div key={step} className={`${theme.stepsBg} rounded-2xl p-8 border ${theme.border}`}>
-                        <div className={`w-10 h-10 rounded-full ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} font-bold mb-4`}>
-                            {step}
-                        </div>
-                        <h3 className="text-xl font-bold mb-3 text-gray-900">
-                            {t(`${translationKey}.method.step${step}.title`, {})}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                            {t(`${translationKey}.method.step${step}.desc`, {})}
-                        </p>
+              <h2 className="heading-2 mb-12 font-bold text-center text-eka-dark">
+                {t(`${translationKey}.method.title`)}
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((step) => (
+                  <div key={step} className={`${theme.stepsBg} rounded-2xl p-8 border ${theme.border}`}>
+                    <div className={`w-10 h-10 rounded-full ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} font-bold mb-4`}>
+                      {step}
                     </div>
-                    ))}
-                </div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                      {t(`${translationKey}.method.step${step}.title`, {})}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {t(`${translationKey}.method.step${step}.desc`, {})}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-            </section>
+          </section>
         )}
 
         {/* Recommended Services Section */}
@@ -272,24 +277,24 @@ export default function PersonalizedServiceTemplate({
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-                {recommendedServices.map((service, index) => (
-                    <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
-                        <Link href={service.href} className="flex flex-col h-full">
-                           <h3 className={`text-2xl font-bold text-gray-900 mb-4 ${theme.serviceCardHoverText} transition-colors`}>
-                               {t(service.titleKey)}
-                           </h3>
-                           <p className="text-gray-600 mb-6 flex-grow">
-                               {t(service.descriptionKey)}
-                           </p>
-                           <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
-                               <span className="text-sm font-medium text-gray-500">{service.duration || '60-90 min'}</span>
-                               <span className={`${theme.serviceLinkText} font-medium hover:opacity-80 flex items-center`}>
-                                   {t('common.moreInfo')} <ArrowRight className="w-4 h-4 ml-1" />
-                               </span>
-                           </div>
-                        </Link>
+              {recommendedServices.map((service, index) => (
+                <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
+                  <Link href={service.href} className="flex flex-col h-full">
+                    <h3 className={`text-2xl font-bold text-gray-900 mb-4 ${theme.serviceCardHoverText} transition-colors`}>
+                      {t(service.titleKey)}
+                    </h3>
+                    <p className="text-gray-600 mb-6 flex-grow">
+                      {t(service.descriptionKey)}
+                    </p>
+                    <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-500">{service.duration || '60-90 min'}</span>
+                      <span className={`${theme.serviceLinkText} font-medium hover:opacity-80 flex items-center`}>
+                        {t('common.moreInfo')} <ArrowRight className="w-4 h-4 ml-1" />
+                      </span>
                     </div>
-                ))}
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </section>

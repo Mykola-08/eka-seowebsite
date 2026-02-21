@@ -242,7 +242,7 @@ export default function VIPContent() {
 
             <Link href="#pricing">
               <button 
-                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium shadow-lg hover:shadow-amber-200/50 transition-all duration-300"
+                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium shadow-lg hover:shadow-amber-200/50 transition duration-300"
               >
                 {t('vip.cta.apply')}
               </button>
@@ -344,7 +344,7 @@ export default function VIPContent() {
                  </div>
 
                  <button 
-                   className={`w-full h-14 rounded-2xl text-lg font-bold border-none transition-all ${
+                   className={`w-full h-14 rounded-2xl text-lg font-bold border-none transition ${
                      plan.popular 
                        ? 'bg-amber-500 hover:bg-amber-600 text-white' 
                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900'

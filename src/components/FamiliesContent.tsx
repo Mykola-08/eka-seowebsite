@@ -1,6 +1,5 @@
 'use client';
 
-import { ArrowRight, HeartPulse, Salad } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';

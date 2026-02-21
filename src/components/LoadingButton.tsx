@@ -15,7 +15,7 @@ export default function LoadingButton({
 }: LoadingButtonProps) {
   return (
     <Button
-      className={cn("relative transition-all duration-200", className)}
+      className={cn("relative transition duration-200", className)}
       disabled={loading || disabled}
       {...props}
     >

@@ -600,14 +600,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <div className="inline-flex bg-gray-100 p-1 rounded-xl mb-8">
                 <button
                   onClick={() => setViewMode('basic')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'basic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'basic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
                     }`}
                 >
                   {t('discovery.view.basic')}
                 </button>
                 <button
                   onClick={() => setViewMode('advanced')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'advanced' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'advanced' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
                     }`}
                 >
                   {t('discovery.view.advanced')}
@@ -662,7 +662,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         <button
                           key={slot}
                           onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
-                          className={`py-2 px-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium ${selectedTime === t(`booking.options.timeSlot.${slot}`)
+                          className={`py-2 px-4 rounded-xl border-2 transition duration-200 text-sm font-medium ${selectedTime === t(`booking.options.timeSlot.${slot}`)
                             ? 'border-blue-500 bg-blue-50 text-blue-700'
                             : 'border-gray-200 text-gray-600 hover:border-gray-300'
                             }`}
@@ -827,7 +827,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       <button
                         key={loc.id}
                         onClick={() => setFormData({ ...formData, location: loc.id })}
-                        className={`text-center p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg flex flex-col items-center justify-center ${formData.location === loc.id
+                        className={`text-center p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg flex flex-col items-center justify-center ${formData.location === loc.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
                           }`}
@@ -877,7 +877,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={type.id}
                       onClick={() => setFormData({ ...formData, userType: type.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.userType === type.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.userType === type.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -908,7 +908,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                           : [...formData.tensionAreas, option];
                         setFormData({ ...formData, tensionAreas: newAreas });
                       }}
-                      className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 ${formData.tensionAreas.includes(option)
+                      className={`w-full text-left p-4 rounded-2xl border-2 transition duration-200 ${formData.tensionAreas.includes(option)
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -938,7 +938,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={state.id}
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.emotionalState === state.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.emotionalState === state.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -964,7 +964,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={time.id}
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.timeCommitment === time.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.timeCommitment === time.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -990,7 +990,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={budget.id}
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 hover:shadow-lg ${formData.budget === budget.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.budget === budget.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}

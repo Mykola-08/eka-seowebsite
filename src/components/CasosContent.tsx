@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
-import CTASection from '@/components/CTASection';
+
 import ParallaxBackground from '@/components/ParallaxBackground';
 
 interface Problem {
@@ -150,7 +150,7 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50 shadow-sm hover:shadow-md transition-all duration-300 active:scale-[0.98]"
+                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50 shadow-sm hover:shadow-md transition duration-300 active:scale-[0.97]"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 text-gray-900">
                     <Icon className="w-7 h-7" />

@@ -3,7 +3,7 @@
 import ContactFormOptimized from '@/components/ContactFormOptimized';
 import { MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
+
 import PageLayout from './PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';

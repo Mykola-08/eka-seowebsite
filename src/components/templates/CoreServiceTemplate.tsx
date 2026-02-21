@@ -138,7 +138,7 @@ export default function CoreServiceTemplate({
 
           <div className={`grid gap-8 max-w-4xl mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {pricing.options.map((option, index) => (
-              <div key={index} className="bg-white rounded-[2.5rem] p-10 border border-gray-200/50 hover:border-gray-300 shadow-sm hover:shadow-xl transition-all duration-300 group text-center flex flex-col items-center relative overflow-hidden">
+              <div key={index} className="bg-white rounded-[2.5rem] p-10 border border-gray-200/50 hover:border-gray-300 shadow-sm hover:shadow-xl transition duration-300 group text-center flex flex-col items-center relative overflow-hidden">
                 {/* Theme decoration */}
                 <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${theme === 'orange' ? 'from-orange-400 to-amber-500' : theme === 'blue' ? 'from-blue-400 to-indigo-500' : theme === 'green' ? 'from-green-400 to-emerald-500' : theme === 'purple' ? 'from-purple-400 to-violet-500' : 'from-gray-400 to-gray-500'} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
 
@@ -173,7 +173,7 @@ export default function CoreServiceTemplate({
                         onClick={() => navigateToBooking()}
                         variant="primary"
                         size="lg"
-                        className="w-full shadow-md hover:shadow-lg transition-all"
+                        className="w-full shadow-md hover:shadow-lg transition"
                     >
                         {t('common.bookNow')}
                     </Button>
@@ -191,7 +191,7 @@ export default function CoreServiceTemplate({
                 <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     {testimonials.items.map((testimonial, i) => (
-                        <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 h-full flex flex-col hover:bg-white hover:shadow-lg transition-all duration-300">
+                        <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 h-full flex flex-col hover:bg-white hover:shadow-lg transition duration-300">
                              <div className="flex gap-1 mb-4 text-yellow-400">
                                 {[...Array(testimonial.rating)].map((_, i) => (
                                     <Star key={i} className="w-5 h-5 fill-current" />

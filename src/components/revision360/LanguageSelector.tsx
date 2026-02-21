@@ -32,7 +32,7 @@ export default function LanguageSelector() {
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-sm hover:bg-zinc-800/80 hover:border-amber-500/40 transition-all duration-200"
+        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-sm hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200"
         whileHover={{ 
           scale: 1.02
         }}

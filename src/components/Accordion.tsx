@@ -100,7 +100,7 @@ export function AccordionTrigger({ children, className, value: itemValue }: Acco
   return (
     <button
       className={cn(
-        'group flex w-full flex-1 items-center justify-between py-4 text-left font-medium transition-all focus:outline-none',
+        'group flex w-full flex-1 items-center justify-between py-4 text-left font-medium transition focus:outline-none',
         className
       )}
       onClick={() => context.onValueChange(itemValue!)}

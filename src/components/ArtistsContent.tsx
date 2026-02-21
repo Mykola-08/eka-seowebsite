@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { Palette } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ArtistsContent() {
-  const { t } = useLanguage();
+
 
   return (
     <PersonalizedServiceTemplate

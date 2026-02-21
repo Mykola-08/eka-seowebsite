@@ -1,0 +1,19 @@
+
+> eka-seowebsite@1.0.0 lint
+> eslint .
+
+
+C:\eka-seowebsite\src\components\ArtistsContent.tsx
+  5:10  error  'useLanguage' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\BookingContent.tsx
+  4:38  error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ServicesContent.tsx
+  3:39  error  'Star' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\contexts\LanguageContext.tsx
+  58:94  error  Parsing error: ',' expected
+
+Γ£û 4 problems (4 errors, 0 warnings)
+

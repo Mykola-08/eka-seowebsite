@@ -322,10 +322,21 @@ export default function PersonalizedOnboarding() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl sm:text-5xl font-light text-gray-900 mb-8 leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight"
           >
             🌿 {t('onboarding.welcome.title')}
           </motion.h1>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.35 }}
+            className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 text-green-700 px-5 py-2.5 rounded-full mb-8 font-medium shadow-sm transition-transform hover:scale-105"
+          >
+            <span className="text-lg">🎁</span>
+            <span>{t('onboarding.welcome.discountBadge') || '15€ de descompte en la teva primera sessió'}</span>
+          </motion.div>
+
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -339,7 +350,7 @@ export default function PersonalizedOnboarding() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
             onClick={startOnboarding}
-            className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition-all duration-300 text-lg shadow-lg hover:shadow-[#FFB405]/20 hover:-translate-y-1"
+            className="inline-flex items-center bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] font-semibold px-10 py-4 rounded-full transition duration-300 text-lg shadow-lg hover:shadow-[#FFB405]/20 hover:-translate-y-1"
           >
             {t('common.getStarted')}
             <ChevronRight className="w-6 h-6 ml-3" />
@@ -393,7 +404,21 @@ export default function PersonalizedOnboarding() {
                       #{index + 1} {t('onboarding.results.recommended')}
                     </span>
                     <div className="flex flex-col items-end">
-                      {rec.price !== undefined && <PriceDisplay basePriceCents={rec.price * 100} size="lg" showCalculation={true} />}
+                      {rec.price !== undefined && rec.price > 0 ? (
+                        <>
+                          <div className="text-xs font-semibold text-green-700 bg-green-100 px-2.5 py-1 rounded-full mb-1">
+                            {t('onboarding.results.discountApplied') || '🎁 -15€ Primera sessió'}
+                          </div>
+                          <PriceDisplay
+                            basePriceCents={rec.price * 100}
+                            finalPriceCents={(rec.price - 15) * 100}
+                            size="lg"
+                            showCalculation={true}
+                          />
+                        </>
+                      ) : (
+                        <span className="text-2xl font-light text-gray-900">{t('common.free') || 'Gratuït'}</span>
+                      )}
                       {rec.duration && (
                         <span className="text-sm text-gray-500 font-medium mt-1">
                           {rec.duration}
@@ -527,21 +552,21 @@ export default function PersonalizedOnboarding() {
                     key={option.id}
                     onClick={() => handleSelection(currentQuestion.id, option.id)}
                     className={`
-                      group relative p-6 rounded-2xl transition-all duration-300 text-left min-h-[100px] flex items-center
-                      border shadow-sm
+                      group relative p-6 rounded-[2rem] transition duration-300 text-left min-h-[100px] flex items-center
+                      border overflow-hidden
                       ${isSelected
-                        ? 'border-[#FFB405] bg-[#FFB405]/5 ring-1 ring-[#FFB405] shadow-md'
-                        : 'border-white bg-white hover:border-[#FFB405]/50 hover:shadow-lg hover:-translate-y-1'
+                        ? 'border-[#FFB405] bg-gradient-to-br from-[#FFB405]/10 to-transparent shadow-md transform scale-[1.02] ring-1 ring-[#FFB405]'
+                        : 'border-white/60 bg-white/60 backdrop-blur-md shadow-sm hover:border-[#FFB405]/40 hover:bg-white hover:shadow-lg hover:-translate-y-1'
                       }
                     `}
                   >
                     <div className="flex items-center space-x-4 w-full relative z-10">
                       {option.icon && (
                         <div className={`
-                          w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300
+                          w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition duration-300
                           ${isSelected
                             ? 'bg-[#FFB405] text-[#000035] shadow-md transform scale-110'
-                            : 'bg-gray-50 text-gray-400 group-hover:bg-[#FFB405]/10 group-hover:text-[#FFB405]'}
+                            : 'bg-gray-100 text-gray-500 group-hover:bg-[#FFB405]/10 group-hover:text-[#FFB405]'}
                         `}>
                           <option.icon className="w-6 h-6" />
                         </div>
@@ -590,7 +615,7 @@ export default function PersonalizedOnboarding() {
             onClick={nextStep}
             disabled={!canProceed()}
             className={`
-              px-8 py-3 rounded-full font-semibold transition-all duration-200 flex items-center
+              px-8 py-3 rounded-full font-semibold transition duration-200 flex items-center
               ${canProceed()
                 ? 'bg-[#FFB405] hover:bg-[#e8a204] text-[#000035] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'

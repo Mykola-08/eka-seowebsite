@@ -54,7 +54,7 @@ export default function LanguagePopup() {
                             <button
                                 key={lang.code}
                                 onClick={() => confirmLanguage(lang.code)}
-                                className="flex items-center p-4 rounded-xl border-2 border-gray-100 hover:border-primary hover:bg-primary/5 transition-all duration-200 group"
+                                className="flex items-center p-4 rounded-xl border-2 border-gray-100 hover:border-primary hover:bg-primary/5 transition duration-200 group"
                             >
                                 <span className="text-2xl mr-4">{lang.flag}</span>
                                 <span className="font-medium text-gray-700 group-hover:text-primary">

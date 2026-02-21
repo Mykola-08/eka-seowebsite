@@ -1,6 +1,6 @@
 'use client';
 
-import { Heart, ArrowRight, UserPlus, Star } from 'lucide-react';
+import { Heart, ArrowRight, UserPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA, PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
@@ -17,7 +17,7 @@ export default function ServicesContent() {
 
   return (
     <>
-      <SEOUpdater 
+      <SEOUpdater
         titleKey="seo.services.title"
         descriptionKey="seo.services.description"
         keywordsKey="seo.services.keywords"
@@ -34,14 +34,14 @@ export default function ServicesContent() {
         {/* Quick CTA */}
         <div className="flex justify-center -mt-8 mb-16 relative z-20 px-6">
           <Link href="/booking">
-              <Button 
-              size="xl" 
+            <Button
+              size="xl"
               variant="primary"
               className="px-8 py-4 shadow-sm"
-              >
+            >
               {t('common.bookNow')}
               <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+            </Button>
           </Link>
         </div>
 
@@ -56,19 +56,19 @@ export default function ServicesContent() {
                 {t('services.coreDesc') || t('services.descriptionPrefix') || 'From relaxing massages to specialized kinesiology therapies.'}
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {SERVICES_DATA.map((service, index) => (
-                  <motion.div
-                    key={service.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <ServiceCard service={service} />
-                  </motion.div>
-                ))}
+              {SERVICES_DATA.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <ServiceCard service={service} />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -84,7 +84,7 @@ export default function ServicesContent() {
           <div className="section-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center justify-center p-3 bg-blue-50 rounded-full mb-6">
-                 <UserPlus className="w-6 h-6 text-blue-600" />
+                <UserPlus className="w-6 h-6 text-blue-600" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
                 {t('personalizedServices.title') || 'Personalized Programs'}
@@ -93,23 +93,23 @@ export default function ServicesContent() {
                 {t('personalizedServices.subtitle') || 'Specialized care tailored to your specific needs and lifestyle.'}
               </p>
             </div>
-            
+
             {/* Cards need a background to stand out on white. Or border.
                 Apple cards on white usually have a border or shadow.
                 My cards have shadow-sm and border. So they will look fine on white.
             */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {PERSONALIZED_SERVICES_DATA.map((service, index) => (
-                  <motion.div
-                    key={service.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <PersonalizedServiceCard service={service} />
-                  </motion.div>
-                ))}
+              {PERSONALIZED_SERVICES_DATA.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <PersonalizedServiceCard service={service} />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

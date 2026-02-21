@@ -91,7 +91,7 @@ export default function Footer() {
               </motion.a>
               
               <motion.a
-                href="mailto:info@ekabalance.com"
+                href="mailto:contact@ekabalance.com"
                 className="flex items-center space-x-3 text-zinc-300 group"
                 whileHover={{ 
                   color: "rgb(252, 211, 77)",
@@ -100,7 +100,7 @@ export default function Footer() {
                 transition={{ duration: 0.2 }}
               >
                 <Mail className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform duration-200" />
-                <span>info@ekabalance.com</span>
+                <span>contact@ekabalance.com</span>
               </motion.a>
               
               <motion.div

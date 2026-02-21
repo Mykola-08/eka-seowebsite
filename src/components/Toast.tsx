@@ -95,7 +95,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden max-w-md w-full rounded-lg border shadow-lg backdrop-blur-sm transition-all duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
+        "relative overflow-hidden max-w-md w-full rounded-lg border shadow-lg backdrop-blur-sm transition duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
         getVariantStyles(),
         isVisible && !isExiting
           ? 'translate-x-0 opacity-100 scale-100'
@@ -119,7 +119,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
           <div className="mt-3">
             <button
               onClick={toast.action.onClick}
-              className="text-sm font-medium underline hover:no-underline transition-all"
+              className="text-sm font-medium underline hover:no-underline transition"
             >
               {toast.action.label}
             </button>
@@ -138,7 +138,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
       {toast.duration && toast.duration > 0 && (
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/5">
           <div
-            className={cn("h-full transition-all ease-linear", progressBarColor())}
+            className={cn("h-full transition ease-out", progressBarColor())}
             style={{
               width: isVisible && !isExiting ? '0%' : '100%',
               transitionDuration: `${toast.duration}ms`

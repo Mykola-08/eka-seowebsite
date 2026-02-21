@@ -244,7 +244,7 @@ export default function ContactFormOptimized() {
 
           <div className="space-y-6">
             {[
-              { icon: Phone, title: t('contact.info.phone'), content: "658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), color: "blue" },
+              { icon: Phone, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), color: "blue" },
               { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), color: "purple" },
               { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", sub: t('contact.info.metro'), color: "green" }
             ].map((item, index) => (
@@ -347,7 +347,7 @@ export default function ContactFormOptimized() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                         placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
@@ -366,7 +366,7 @@ export default function ContactFormOptimized() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                         placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
@@ -387,7 +387,7 @@ export default function ContactFormOptimized() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                         placeholder="+34 123 456 789"
                       />
                     </div>
@@ -404,7 +404,7 @@ export default function ContactFormOptimized() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none ${errors.service ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                       >
                         <option value="">{t('contact.form.service.placeholder')}</option>
                         {services.map((service) => (
@@ -431,7 +431,7 @@ export default function ContactFormOptimized() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                     placeholder={t('contact.form.message.placeholder')}
                   />
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -450,7 +450,7 @@ export default function ContactFormOptimized() {
                       ].map((option) => (
                         <label 
                           key={option.value}
-                          className={`flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer transition-all duration-200 ${
+                          className={`flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer transition duration-200 ${
                             formData.preferred_contact === option.value 
                               ? 'border-blue-500 bg-blue-50 text-blue-700' 
                               : 'border-gray-200 hover:border-blue-200 hover:bg-gray-50'
@@ -482,7 +482,7 @@ export default function ContactFormOptimized() {
                         name="preferred_time"
                         value={formData.preferred_time}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none"
+                        className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
                       >
                         <option value="">{t('contact.form.selectTime')}</option>
                         {timeSlots.map((slot) => (
@@ -508,7 +508,7 @@ export default function ContactFormOptimized() {
                       name="source"
                       value={formData.source}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
                     >
                       <option value="">{t('contact.form.source.placeholder')}</option>
                       {sources.map((source) => (

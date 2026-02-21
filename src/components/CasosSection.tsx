@@ -92,7 +92,7 @@ export default function CasosSection() {
               <AnimateIn key={problem.id} delay={index * 0.05}>
                 <Link
                   href={problem.href}
-                  className="group block h-full apple-card p-8 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  className="group block h-full apple-card p-8 hover:scale-[1.02] active:scale-[0.97] transition duration-300"
                 >
                   <div className="w-12 h-12 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600">
                     <ProblemIcon className="w-6 h-6 stroke-[1.5px]" />
@@ -140,14 +140,14 @@ export default function CasosSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/cases"
-              className="inline-flex items-center bg-[#0071e3] hover:bg-[#0077ED] text-white font-medium px-8 py-4 rounded-full transition-all duration-200 active:scale-[0.97]"
+              className="inline-flex items-center bg-[#0071e3] hover:bg-[#0077ED] text-white font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
             >
               {t('casos.section.viewAll')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <Link
               href="/first-time"
-              className="inline-flex items-center bg-transparent border border-[#0071e3] text-[#0071e3] hover:bg-[#0071e3]/5 font-medium px-8 py-4 rounded-full transition-all duration-200 active:scale-[0.97]"
+              className="inline-flex items-center bg-transparent border border-[#0071e3] text-[#0071e3] hover:bg-[#0071e3]/5 font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
             >
               {t('casos.section.findYourCase')}
             </Link>

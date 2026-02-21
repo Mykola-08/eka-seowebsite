@@ -47,7 +47,7 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="group apple-card p-6 bg-white border border-gray-100/50 hover:border-blue-100 transition-all duration-300"
+              className="group apple-card p-6 bg-white border border-gray-100/50 hover:border-blue-100 transition duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -1,0 +1,54 @@
+
+> eka-seowebsite@1.0.0 lint
+> eslint .
+
+
+C:\eka-seowebsite\src\components\AdultsContent.tsx
+  3:10  error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  3:22  error  'HeartPulse' is defined but never used  @typescript-eslint/no-unused-vars
+  3:34  error  'Salad' is defined but never used       @typescript-eslint/no-unused-vars
+  6:8   error  'Image' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ArtistsContent.tsx
+  9:11  error  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\BookingContent.tsx
+  4:38  error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\CasosContent.tsx
+  9:8  error  'CTASection' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ChildrenContent.tsx
+  3:10  error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  3:22  error  'Brain' is defined but never used       @typescript-eslint/no-unused-vars
+  3:29  error  'HeartPulse' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ContactContent.tsx
+  6:10  error  'Button' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\FamiliesContent.tsx
+  3:10  error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  3:22  error  'HeartPulse' is defined but never used  @typescript-eslint/no-unused-vars
+  3:34  error  'Salad' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ForParentsContent.tsx
+  5:10  error  'useLanguage' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ForStudentsContent.tsx
+  5:10  error  'useLanguage' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\MainLayout.tsx
+  192:67  error  'index' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\components\ServicesContent.tsx
+  3:39  error  'Star' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\eka-seowebsite\src\contexts\LanguageContext.tsx
+  2033:116  error  Unnecessary escape character: \'  no-useless-escape
+  2035:64   error  Unnecessary escape character: \'  no-useless-escape
+  2036:57   error  Unnecessary escape character: \'  no-useless-escape
+  2036:100  error  Unnecessary escape character: \'  no-useless-escape
+  2037:43   error  Unnecessary escape character: \'  no-useless-escape
+
+Γ£û 23 problems (23 errors, 0 warnings)
+

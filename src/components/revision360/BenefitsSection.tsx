@@ -36,7 +36,7 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full border border-amber-100">
             {t('revision360.benefits.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.benefits.title')}</h2>
@@ -47,20 +47,20 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="group apple-card p-6 bg-white border border-gray-100/50 hover:border-blue-100 transition duration-300"
+              className="group apple-card p-6 bg-white border border-gray-100/50 hover:border-amber-100 transition duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">
                 {benefit.icon}
               </div>
               <h3 className="mt-6 text-lg font-semibold text-gray-900">{benefit.title}</h3>
               <p className="mt-3 text-sm sm:text-base text-gray-500 leading-relaxed font-normal">{benefit.description}</p>
               {benefit.science && (
                 <div className="mt-6 border-t border-gray-100 pt-4">
-                  <p className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-2">Science</p>
+                  <p className="text-xs uppercase tracking-wider text-amber-600 font-bold mb-2">Science</p>
                   <p className="text-sm text-gray-400 italic font-light">{benefit.science}</p>
                 </div>
               )}

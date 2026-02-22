@@ -162,11 +162,11 @@ export default function PersonalizedServiceTemplate({
 
   // Safely resolve benefits List
   const rawBenefits = t(`${translationKey}.benefits.list`);
-  const benefitsList = Array.isArray(rawBenefits)
+  const benefitsList = (Array.isArray(rawBenefits)
     ? rawBenefits
     : (typeof rawBenefits === 'object' && rawBenefits !== null)
       ? Object.values(rawBenefits)
-      : [];
+      : []) as string[];
 
   return (
     <>

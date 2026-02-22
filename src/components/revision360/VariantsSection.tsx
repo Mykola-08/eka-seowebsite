@@ -114,7 +114,7 @@ export default function VariantsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full border border-amber-100">
             {t('revision360.variants.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.variants.title')}</h2>
@@ -133,11 +133,11 @@ export default function VariantsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 border border-gray-100 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors duration-300">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 border border-gray-100 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors duration-300">
                 {variant.icon}
               </span>
               <h3 className="mt-6 text-xl font-semibold text-gray-900">{variant.title}</h3>
-              <p className="mt-1 text-xs text-blue-600 font-bold uppercase tracking-wider">{variant.subtitle}</p>
+              <p className="mt-1 text-xs text-amber-600 font-bold uppercase tracking-wider">{variant.subtitle}</p>
               <p className="mt-4 text-sm text-gray-500 leading-relaxed min-h-[5em] font-normal">{variant.description}</p>
               <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
                 <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">{variant.duration}</span>
@@ -163,7 +163,7 @@ export default function VariantsSection() {
                 <ul className="space-y-2.5">
                   {selectedVariant.idealFor.map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-700 font-medium">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -174,7 +174,7 @@ export default function VariantsSection() {
                 <ul className="space-y-2.5">
                   {selectedVariant.includes.map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-700 font-medium">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}

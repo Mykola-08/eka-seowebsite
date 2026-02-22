@@ -76,7 +76,7 @@ export default function ServiceSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 rounded-full border border-amber-100">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
             {t('revision360.service.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">
@@ -97,7 +97,7 @@ export default function ServiceSection() {
             >
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-amber-600 font-semibold bg-amber-50 border border-amber-100 px-3 py-1 inline-block rounded-full mb-4">
+                  <div className="text-xs uppercase tracking-wider text-blue-600 font-semibold bg-blue-50 border border-blue-100 px-3 py-1 inline-block rounded-full mb-4">
                     {t('revision360.service.step')} {step.number}
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900">{step.title}</h3>
@@ -114,7 +114,7 @@ export default function ServiceSection() {
                 <ul className="space-y-3">
                   {step.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start gap-3 text-sm text-gray-600 font-medium">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}

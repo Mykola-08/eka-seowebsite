@@ -1,65 +1,59 @@
 'use client';
 
-import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import LegalLayout from '@/components/templates/LegalLayout';
+import PageLayout from '@/components/PageLayout';
 
 export default function CookiePolicyContent() {
   const { t } = useLanguage();
 
-  const sections = [
-    {
-      id: 'what-are-cookies',
-      title: 'What Are Cookies?',
-      content: (
-        <p>
-          Cookies are small text files stored on your device when you visit our website. They help us provide, secure, and improve our Services by complying with GDPR requirements.
-        </p>
-      )
-    },
-    {
-      id: 'types-cookies',
-      title: 'Types of Cookies We Use',
-      content: (
-        <div className="space-y-6">
-          <div className="border border-gray-100 bg-gray-50/50 rounded-2xl p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Essential Cookies</h3>
-            <p>Necessary for the website to function. Cannot be switched off.</p>
-          </div>
-          <div className="border border-gray-100 bg-gray-50/50 rounded-2xl p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Analytical Cookies</h3>
-            <p>Help us understand how visitors interact with the website (e.g., Google Analytics).</p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'managing-cookies',
-      title: 'Managing Cookies',
-      content: (
-        <p>
-          You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed.
-        </p>
-      )
-    },
-    {
-      id: 'disclaimer',
-      title: 'Complementary Services Notice',
-      content: (
-        <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
-          <p>
-            The EKA Balance website presents complementary wellness services. Website content is informational and is not medical advice.
-          </p>
-        </div>
-      )
-    }
-  ];
-
   return (
-    <LegalLayout
-      title={t('footer.cookiePolicy') || 'Cookie Policy'}
-      lastUpdated="November 15, 2025"
-      sections={sections}
-    />
+    <PageLayout
+        hero={{
+          title: t('footer.cookiePolicy') || 'Cookie Policy',
+          subtitle: `${t('policy.lastUpdated') || 'Last Updated'}: November 15, 2025`
+        }}
+    >
+        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
+            <div className="bg-white rounded-apple-xl shadow-xl shadow-blue-900/5 border border-gray-100 overflow-hidden p-8 md:p-12">
+
+                 {/* Introduction */}
+                 <div className="mb-12">
+                  <p className="text-gray-700 leading-relaxed text-lg font-light">
+                    This Cookie Policy explains how we use cookies and similar technologies on our website in compliance with GDPR requirements.
+                  </p>
+                </div>
+
+                {/* What Cookies Are */}
+                <div className="mb-12">
+                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
+                    1. What Cookies Are (GDPR Article 4(11))
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Cookies are small text files stored on your device when you visit our website. They help us provide, secure, and improve our Services.
+                  </p>
+                </div>
+
+                {/* Complementary Methods Disclaimer */}
+                <div className="mb-12">
+                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
+                    Complementary Services Notice
+                  </h2>
+                  <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
+                    <p className="text-gray-700 leading-relaxed">
+                      The EKA Balance website presents complementary wellness services. Website content is informational and is not medical advice, diagnosis, or treatment. For medical concerns, consult a licensed healthcare professional.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="border-t border-gray-100 pt-8 mt-12">
+                  <p className="text-center text-gray-400 text-sm">
+                    This Cookie Policy is provided in compliance with the General Data Protection Regulation (EU) 2016/679.
+                  </p>
+                </div>
+
+            </div>
+        </div>
+    </PageLayout>
   );
 }

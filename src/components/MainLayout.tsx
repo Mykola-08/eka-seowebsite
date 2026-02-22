@@ -175,9 +175,9 @@ export default function MainLayout({
                         aria-hidden="true"
                       />
 
-                      {/* Dropdown menu with dynamic background matching header */}
+                      {/* Dropdown menu with matching background style (Unified) - Grows from header */}
                       <div
-                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${isScrolled ? 'bg-white/70 backdrop-blur-xl border border-t-0 border-gray-200/50 shadow-sm' : 'bg-white/70 backdrop-blur-xl border-gray-200/50'} rounded-2xl p-2 min-w-[220px] absolute top-full left-1/2 -translate-x-1/2 mt-2 origin-top transition duration-200 ease-out z-50`}
+                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${isScrolled ? 'bg-white/70 backdrop-blur-xl border border-t-0 border-gray-200/50 shadow-sm' : 'bg-transparent border-transparent'} rounded-b-2xl p-2 min-w-[220px] absolute top-full left-1/2 -translate-x-1/2 mt-0 origin-top transition duration-200 ease-out z-50`}
                         onMouseEnter={openDropdown}
                         onMouseLeave={scheduleHide}
                         onKeyDown={(e) => {

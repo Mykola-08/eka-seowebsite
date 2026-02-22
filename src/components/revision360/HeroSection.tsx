@@ -17,8 +17,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mx-auto max-w-4xl"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-600 mb-8 border border-amber-100">
-            <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600 mb-8">
+            <Sparkles className="h-3.5 w-3.5" />
             Integral Method
           </span>
 

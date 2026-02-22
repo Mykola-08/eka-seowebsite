@@ -233,7 +233,7 @@ export default function PersonalizedServiceTemplate({
                       {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
                     </h3>
                     <ul className="space-y-2">
-                      {benefits.map((benefit, i) => (
+                      {benefits.map((benefit: string, i: number) => (
                         <li key={i} className="flex items-start gap-3">
                           <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.dots} shrink-0`} />
                           <span className="text-gray-700">{benefit}</span>

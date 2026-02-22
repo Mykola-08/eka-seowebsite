@@ -29,8 +29,8 @@ export default function Why360Section() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-100 bg-amber-50 px-3 py-1 text-xs uppercase tracking-wider text-amber-700 font-semibold mb-6">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs uppercase tracking-wider text-blue-700 font-semibold mb-6">
+              <Sparkles className="h-3.5 w-3.5" />
               {t('revision360.why360.badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-6">
@@ -59,9 +59,9 @@ export default function Why360Section() {
             {layers.map((layer) => (
               <div
                 key={layer.name}
-                className="group apple-card p-6 bg-white hover:scale-[1.01] transition-transform duration-300 border hover:border-amber-100/50"
+                className="group apple-card p-6 bg-white hover:scale-[1.01] transition-transform duration-300"
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
                   <Layers className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{layer.name}</h3>

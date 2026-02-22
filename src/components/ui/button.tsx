@@ -10,17 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-white hover:bg-[#005bb5] shadow-none border border-transparent",
+          "bg-primary text-white hover:bg-primary-600 shadow-none border border-transparent",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-none",
         outline:
-          "border border-primary bg-transparent text-primary hover:bg-primary hover:text-white shadow-none",
+          "border border-primary bg-transparent text-primary hover:bg-primary/5 shadow-none",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-none border border-transparent",
         ghost: "hover:bg-accent hover:text-accent-foreground shadow-none",
         link: "text-primary underline-offset-4 hover:underline shadow-none",
         // Custom variants - keeping primarily for backward compatibility but mapped to new system
-        primary: "bg-primary text-white hover:bg-[#005bb5] shadow-none border border-transparent",
+        primary: "bg-primary text-white hover:bg-primary-600 shadow-none border border-transparent",
         white: "bg-white text-black hover:bg-gray-100 shadow-none border-transparent",
         "white-outline": "bg-transparent text-white border border-white hover:bg-white/10 shadow-none",
       },

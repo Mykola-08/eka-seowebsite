@@ -32,9 +32,6 @@ export default function PersonalizedServicesContent() {
       >
         {/* Intro / CTA Section */}
         <div className="text-center -mt-8 mb-16 animate-fade-in relative z-20 px-6">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-8">
-                {t('services.integralWellbeing')}
-            </h3>
 
              <div className="mt-8 flex justify-center">
                 <Link href="/booking">

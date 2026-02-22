@@ -1,30 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useToast } from '@/hooks/useToast';
 
 export function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(true);
-  const [wasOffline, setWasOffline] = useState(false);
   const toast = useToast();
+  const toastRef = useRef(toast);
+  const wasOfflineRef = useRef(false);
+
+  const [isOnline, setIsOnline] = useState(() => (
+    typeof navigator === 'undefined' ? true : navigator.onLine
+  ));
+  const [wasOffline, setWasOffline] = useState(false);
 
   useEffect(() => {
-    // Check initial status on mount
-    if (typeof navigator !== 'undefined') {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsOnline(navigator.onLine);
-    }
+    toastRef.current = toast;
+  }, [toast]);
 
+  useEffect(() => {
     const handleOnline = () => {
       setIsOnline(true);
-      if (wasOffline) {
-        toast.success('Connexió restaurada', 'Ja pots continuar utilitzant l\'aplicació');
+
+      if (wasOfflineRef.current) {
+        toastRef.current.success?.('Connexió restaurada', "Ja pots continuar utilitzant l'aplicació");
+        wasOfflineRef.current = false;
         setWasOffline(false);
       }
     };
 
     const handleOffline = () => {
       setIsOnline(false);
+      wasOfflineRef.current = true;
       setWasOffline(true);
-      toast.warning('Sense connexió', 'Algunes funcions poden no estar disponibles');
+      toastRef.current.warning?.('Sense connexió', 'Algunes funcions poden no estar disponibles');
     };
 
     window.addEventListener('online', handleOnline);
@@ -34,9 +40,7 @@ export function useOnlineStatus() {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
-  }, [wasOffline, toast]);
+  }, []);
 
   return { isOnline, wasOffline };
 }
-
-// Component to show offline indicator - create this as a separate .tsx file

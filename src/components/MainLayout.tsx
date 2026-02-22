@@ -95,6 +95,12 @@ export default function MainLayout({
     isExternal?: boolean;
   }
 
+  const headerSurfaceClass = isScrolled
+    ? 'bg-white/70 backdrop-blur-xl border-gray-200/50 shadow-sm'
+    : 'bg-transparent';
+
+  const dropdownSurfaceClass = headerSurfaceClass;
+
   const navigation: NavItem[] = [
     {
       name: t('nav.services'),
@@ -132,7 +138,7 @@ export default function MainLayout({
       <OfflineIndicator />
 
       {/* Navigation with scroll effect - Liquid Glass Style */}
-      <nav className={`sticky top-0 z-50 transition duration-500 border-b border-transparent ${isScrolled ? 'bg-white/70 backdrop-blur-xl shadow-sm border-gray-200/50' : 'bg-transparent'}`}>
+      <nav className={`sticky top-0 z-50 transition duration-500 border-b border-transparent ${headerSurfaceClass}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             {/* Logo Only - Left Side - INCREASED SIZE */}
@@ -177,7 +183,7 @@ export default function MainLayout({
 
                       {/* Dropdown menu with matching background style (Unified) - Grows from header */}
                       <div
-                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${isScrolled ? 'bg-white/70 backdrop-blur-xl border border-t-0 border-gray-200/50 shadow-sm' : 'bg-transparent border-transparent'} rounded-b-2xl p-2 min-w-[220px] absolute top-full left-1/2 -translate-x-1/2 mt-0 origin-top transition duration-200 ease-out z-50`}
+                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${dropdownSurfaceClass} border border-t-0 rounded-b-2xl p-2 min-w-[220px] absolute top-full left-1/2 -translate-x-1/2 mt-0 origin-top transition duration-200 ease-out z-50`}
                         onMouseEnter={openDropdown}
                         onMouseLeave={scheduleHide}
                         onKeyDown={(e) => {

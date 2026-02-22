@@ -11,7 +11,6 @@ import AnimateIn from './AnimateIn';
 // High-quality, clean, therapeutic images
 const heroImages = [
   'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920', // Clean massage/therapy setup
-  'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1920', // Relaxing atmosphere
   'https://images.pexels.com/photos/3820288/pexels-photo-3820288.jpeg?auto=compress&cs=tinysrgb&w=1920', // Minimalist wellness
 ];
 

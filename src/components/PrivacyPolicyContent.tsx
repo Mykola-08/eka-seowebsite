@@ -5,17 +5,17 @@ import PageLayout from '@/components/PageLayout';
 
 export default function PrivacyPolicyContent() {
   const { t } = useLanguage();
-  
+
   return (
-    <PageLayout 
+    <PageLayout
         hero={{
-          title: t('footer.privacyPolicy') || 'Privacy Policy', 
+          title: t('footer.privacyPolicy') || 'Privacy Policy',
           subtitle: `${t('policy.lastUpdated') || 'Last Updated'}: November 15, 2025`
         }}
     >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
             <div className="bg-white rounded-apple-xl shadow-xl shadow-blue-900/5 border border-gray-100 overflow-hidden p-8 md:p-12">
-                
+
                 {/* Introduction */}
                 <div className="mb-12">
                   <p className="text-gray-700 leading-relaxed text-lg font-light">
@@ -170,7 +170,7 @@ export default function PrivacyPolicyContent() {
                   <p className="text-gray-700 leading-relaxed mb-6">
                     We process personal data based on the following legal grounds:
                   </p>
-                  
+
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="bg-green-50/50 rounded-2xl p-6 border border-green-100">
                       <h3 className="text-lg font-medium text-gray-900 mb-3">2.1 Consent (Article 6(1)(a))</h3>
@@ -274,7 +274,7 @@ export default function PrivacyPolicyContent() {
                   <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
                     Contact Information and Complaints
                   </h2>
-                  
+
                   <div className="grid gap-6">
                     <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                       <h3 className="text-lg font-medium text-gray-900 mb-4">Data Protection Officer (DPO)</h3>

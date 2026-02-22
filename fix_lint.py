@@ -5,10 +5,10 @@ def fix_file(filepath, replacements):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
-        
+
         for old, new in replacements:
             content = content.replace(old, new)
-            
+
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(content)
         print(f"Fixed {filepath}")

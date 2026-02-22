@@ -20,7 +20,7 @@ def repl(match):
     key = match.group(2)
     val = match.group(3)
     comma = match.group(4)
-    
+
     # If there is a single quote inside the string, we MUST wrap it in double quotes instead.
     if "'" in val:
         # Before we wrap in double quotes, we need to escape any existing double quotes inside.

@@ -44,7 +44,7 @@ export default function ContactFormOptimized() {
     privacy_policy: false
   });
 
-  // Reset privacy policy to false initially to force user interaction if needed, 
+  // Reset privacy policy to false initially to force user interaction if needed,
   // but for better UX often it's unchecked.
   useEffect(() => {
     setFormData(prev => ({ ...prev, privacy_policy: false }));
@@ -63,7 +63,7 @@ export default function ContactFormOptimized() {
 //           .select('full_name, email, phone')
 //           .eq('user_id', user.id)
 //           .single();
-        
+
 //         if (data) {
 //           setFormData(prev => ({
 //             ...prev,
@@ -125,9 +125,9 @@ export default function ContactFormOptimized() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
-    
+
     const newValue = type === 'checkbox' ? checked : value;
-    
+
     setFormData(prev => ({ ...prev, [name]: newValue }));
     validateField(name as keyof ContactFormData, newValue);
   };
@@ -192,13 +192,13 @@ export default function ContactFormOptimized() {
 
   if (isSubmitted) {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-2xl mx-auto"
       >
         <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center border border-green-100 shadow-lg">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -248,7 +248,7 @@ export default function ContactFormOptimized() {
               { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), color: "purple" },
               { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", sub: t('contact.info.metro'), color: "green" }
             ].map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -275,7 +275,7 @@ export default function ContactFormOptimized() {
             ))}
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -306,7 +306,7 @@ export default function ContactFormOptimized() {
 
         {/* Contact Form */}
         <div className="lg:col-span-7">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -324,7 +324,7 @@ export default function ContactFormOptimized() {
                 </div>
 
                 {serverError && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center"
@@ -448,11 +448,11 @@ export default function ContactFormOptimized() {
                         { value: 'phone', label: t('contact.form.phone'), icon: Phone },
                         { value: 'whatsapp', label: 'WhatsApp', icon: MessageCircle }
                       ].map((option) => (
-                        <label 
+                        <label
                           key={option.value}
                           className={`flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer transition duration-200 ${
-                            formData.preferred_contact === option.value 
-                              ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                            formData.preferred_contact === option.value
+                              ? 'border-blue-500 bg-blue-50 text-blue-700'
                               : 'border-gray-200 hover:border-blue-200 hover:bg-gray-50'
                           }`}
                         >

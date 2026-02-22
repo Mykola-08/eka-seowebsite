@@ -19,6 +19,11 @@ interface RecommendedService {
   href: string;
 }
 
+interface MethodStep {
+  title: string;
+  description: string;
+}
+
 interface PersonalizedServiceTemplateProps {
   serviceId: string;
   translationKey: string;
@@ -31,6 +36,8 @@ interface PersonalizedServiceTemplateProps {
   recommendedServices: RecommendedService[];
   faqItems?: Array<{ id: string; question: string; answer: string }>;
   showMethodology?: boolean;
+  benefits?: string[];
+  methodSteps?: MethodStep[];
 }
 
 const themeConfig: Record<string, {
@@ -147,26 +154,28 @@ export default function PersonalizedServiceTemplate({
   seoKeys,
   recommendedServices,
   faqItems,
-  showMethodology = true
+  showMethodology = true,
+  benefits = [],
+  methodSteps = []
 }: PersonalizedServiceTemplateProps) {
   const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
   const serviceData = PERSONALIZED_SERVICES_DATA.find(s => s.id === serviceId);
 
-  // Create a pseudo-object for parents/others if not in constant list to provide fallback color/image?
-  // Or assume the consumer will ensure serviceId exists in constant list or pass 'orange' fallback.
-  // We can also allow passing color override as prop if needed, but keeping it simple.
-
   const colorKey = serviceData?.color || 'orange';
   const theme = themeConfig[colorKey] || themeConfig.orange;
 
-  // Safely resolve benefits List
-  const rawBenefits = t(`${translationKey}.benefits.list`);
-  const benefitsList = Array.isArray(rawBenefits)
-    ? rawBenefits
-    : (typeof rawBenefits === 'object' && rawBenefits !== null)
-      ? Object.values(rawBenefits)
-      : [];
+  // Fallback methodology steps if none provided but showMethodology is true
+  // Try to load from translation keys if methodSteps is empty but showMethodology is true
+  const stepsToRender = methodSteps.length > 0 ? methodSteps : (showMethodology ? [1, 2, 3].map(step => ({
+    title: t(`${translationKey}.method.step${step}.title`),
+    description: t(`${translationKey}.method.step${step}.desc`)
+  })) : []);
+
+  // Filter out any steps that look like translation keys (if t returns the key)
+  const validSteps = stepsToRender.filter(step =>
+    !step.title.includes(translationKey) && !step.description.includes(translationKey)
+  );
 
   return (
     <>
@@ -218,17 +227,21 @@ export default function PersonalizedServiceTemplate({
                 <p>{t(`${translationKey}.understanding.description2`)}</p>
 
                 {/* Benefits List */}
-                <div className={`mt-8 bg-white/60 rounded-xl p-6 border ${theme.border}`}>
-                  <h3 className={`font-bold ${theme.text} mb-4`}>{t(`${translationKey}.benefits.title`)}</h3>
-                  <ul className="space-y-2">
-                    {benefitsList.map((benefit: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.dots} shrink-0`} />
-                        <span className="text-gray-700">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {benefits.length > 0 && (
+                  <div className={`mt-8 bg-white/60 rounded-xl p-6 border ${theme.border}`}>
+                    <h3 className={`font-bold ${theme.text} mb-4`}>
+                      {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
+                    </h3>
+                    <ul className="space-y-2">
+                      {benefits.map((benefit: string, i: number) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.dots} shrink-0`} />
+                          <span className="text-gray-700">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <p className={`font-medium ${theme.text} mt-6`}>
                   {t(`${translationKey}.understanding.callToAction`)}
@@ -239,23 +252,23 @@ export default function PersonalizedServiceTemplate({
         </section>
 
         {/* Methodology Section */}
-        {showMethodology && (
+        {showMethodology && validSteps.length > 0 && (
           <section className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-8">
               <h2 className="heading-2 mb-12 font-bold text-center text-eka-dark">
                 {t(`${translationKey}.method.title`)}
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
-                {[1, 2, 3].map((step) => (
-                  <div key={step} className={`${theme.stepsBg} rounded-2xl p-8 border ${theme.border}`}>
+                {validSteps.map((step, index) => (
+                  <div key={index} className={`${theme.stepsBg} rounded-2xl p-8 border ${theme.border}`}>
                     <div className={`w-10 h-10 rounded-full ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} font-bold mb-4`}>
-                      {step}
+                      {index + 1}
                     </div>
                     <h3 className="text-xl font-bold mb-3 text-gray-900">
-                      {t(`${translationKey}.method.step${step}.title`, {})}
+                      {step.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
-                      {t(`${translationKey}.method.step${step}.desc`, {})}
+                      {step.description}
                     </p>
                   </div>
                 ))}

@@ -162,7 +162,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     titleKey: 'personalizedServices.parents',
     descriptionKey: 'personalizedServices.parents.desc',
     color: 'pink',
-    image: 'https://images.pexels.com/photos/160994/family-outdoor-happy-park-160994.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.pexels.com/photos/1683975/pexels-photo-1683975.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/parents',
     benefitsKeys: [
       'personalizedServices.parents.benefit1',

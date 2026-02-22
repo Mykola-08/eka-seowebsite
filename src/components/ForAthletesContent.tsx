@@ -26,6 +26,13 @@ export default function ForAthletesContent() {
     }
   ];
 
+  const benefits = [
+    t('personalized.athletes.benefit1'),
+    t('personalized.athletes.benefit2'),
+    t('personalized.athletes.benefit3'),
+    t('personalized.athletes.benefit4')
+  ];
+
   const recommendedServices = [
     {
       titleKey: 'personalized.athletes.services.sportsMassage.title',
@@ -53,6 +60,7 @@ export default function ForAthletesContent() {
       }}
       recommendedServices={recommendedServices}
       faqItems={faqItems}
+      benefits={benefits}
     />
   );
 }

@@ -2,10 +2,19 @@
 
 import React from 'react';
 import { Brain } from 'lucide-react';
-
+import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForStudentsContent() {
+  const { t } = useLanguage();
+
+  const benefits = [
+    t('personalized.students.benefit1'),
+    t('personalized.students.benefit2'),
+    t('personalized.students.benefit3'),
+    t('personalized.students.benefit4')
+  ];
+
   return (
     <PersonalizedServiceTemplate
       serviceId="students"
@@ -30,7 +39,8 @@ export default function ForStudentsContent() {
           duration: '60-90 min'
         }
       ]}
-      showMethodology={false}
+      benefits={benefits}
+      showMethodology={true}
     />
   );
 }

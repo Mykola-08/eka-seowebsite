@@ -26,6 +26,13 @@ export default function ForMusiciansContent() {
     }
   ];
 
+  const benefits = [
+    t('personalized.musicians.benefit1'),
+    t('personalized.musicians.benefit2'),
+    t('personalized.musicians.benefit3'),
+    t('personalized.musicians.benefit4')
+  ];
+
   const recommendedServices = [
     {
       titleKey: 'personalized.musicians.services.feldenkraisExpression.title',
@@ -53,6 +60,7 @@ export default function ForMusiciansContent() {
       }}
       recommendedServices={recommendedServices}
       faqItems={faqItems}
+      benefits={benefits}
     />
   );
 }

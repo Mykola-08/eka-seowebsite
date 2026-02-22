@@ -2,16 +2,23 @@
 
 import React from 'react';
 import { Palette } from 'lucide-react';
-
+import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ArtistsContent() {
+  const { t } = useLanguage();
 
+  const benefits = [
+    t('personalized.artists.benefit1'),
+    t('personalized.artists.benefit2'),
+    t('personalized.artists.benefit3'),
+    t('personalized.artists.benefit4')
+  ];
 
   return (
     <PersonalizedServiceTemplate
       serviceId="artists"
-      translationKey="personalized.artists" // Strategy: I'll need to define this, OR I can rely on 'artists' if I change the key
+      translationKey="personalized.artists"
       Icon={Palette}
       seoKeys={{
         title: 'seo.artists.title',
@@ -20,13 +27,14 @@ export default function ArtistsContent() {
       }}
       recommendedServices={[
         {
-          titleKey: 'artists.session.title', // Reusing existing key
-          descriptionKey: 'artists.session.cta', // Reusing
+          titleKey: 'personalized.artists.services.title',
+          descriptionKey: 'personalized.artists.services.subtitle',
           href: '/booking',
           duration: '60 min'
         }
       ]}
-      showMethodology={false}
+      benefits={benefits}
+      showMethodology={true}
     />
   );
 }

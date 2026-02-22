@@ -1,36 +1,22 @@
-import re
+import sys
 
-filepath = r'C:\eka-seowebsite\src\contexts\LanguageContext.tsx'
-with open(filepath, 'r', encoding='utf-8') as f:
-    text = f.read()
+path = 'src/contexts/LanguageContext.tsx'
 
-# This regex finds all translation keys that look like:
-# 'some.key': 'Some text with l'apostrophe'
-# and replaces the outer single quotes around the text with double quotes.
-# It matches lines exactly like:  'key': 'text'
-# Breakdown:
-# (^s*)                -> group 1: leading whitespace
-# ('?[a-zA-Z0-9_.-]+'?) -> group 2: the key (e.g. 'services.title' or just status)
-# :\s*                 -> colon and spaces
-# '(.*?)'              -> group 3: the value inside single quotes
-# (,?)$                -> group 4: optional comma at the end
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-def repl(match):
-    whitespace = match.group(1)
-    key = match.group(2)
-    val = match.group(3)
-    comma = match.group(4)
-    
-    # If there is a single quote inside the string, we MUST wrap it in double quotes instead.
-    if "'" in val:
-        # Before we wrap in double quotes, we need to escape any existing double quotes inside.
-        val = val.replace('"', '\\"')
-        return f'{whitespace}{key}: "{val}"{comma}'
-    return match.group(0) # No change needed
+replacements = [
+    ("Prevenció del burnout digital i l'esgotament", "Prevenció del burnout digital i l\'esgotament"),
+    ("Optimització de la postura amb l'instrument", "Optimització de la postura amb l\'instrument"),
+    ("Control de l'ansietat abans d'actuacions", "Control de l\'ansietat abans d\'actuacions"),
+    ("Reducció de l'estrès i l'ansietat acadèmica", "Reducció de l\'estrès i l\'ansietat acadèmica"),
+    ("Alleujament de la tensió cervical per l'estudi", "Alleujament de la tensió cervical per l\'estudi")
+]
 
-new_text = re.sub(r'(^\s*)(\'?[a-zA-Z0-9_\.-]+\'?):\s*\'(.*?)\'(,?)$', repl, text, flags=re.MULTILINE)
+for old, new in replacements:
+    content = content.replace(old, new)
 
-with open(filepath, 'w', encoding='utf-8') as f:
-    f.write(new_text)
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
 
-print("Quotes fixed successfully.")
+print("Fixed quotes.")

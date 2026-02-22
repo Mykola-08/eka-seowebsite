@@ -2,10 +2,19 @@
 
 import React from 'react';
 import { Users } from 'lucide-react';
-
+import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForParentsContent() {
+  const { t } = useLanguage();
+
+  const benefits = [
+    t('personalized.parents.benefit1'),
+    t('personalized.parents.benefit2'),
+    t('personalized.parents.benefit3'),
+    t('personalized.parents.benefit4')
+  ];
+
   return (
     <PersonalizedServiceTemplate
       serviceId="parents"
@@ -30,7 +39,8 @@ export default function ForParentsContent() {
           duration: '60-90 min'
         }
       ]}
-      showMethodology={false}
+      benefits={benefits}
+      showMethodology={true}
     />
   );
 }

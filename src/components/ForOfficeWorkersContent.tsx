@@ -26,6 +26,13 @@ export default function ForOfficeWorkersContent() {
     }
   ];
 
+  const benefits = [
+    t('personalized.officeWorkers.benefit1'),
+    t('personalized.officeWorkers.benefit2'),
+    t('personalized.officeWorkers.benefit3'),
+    t('personalized.officeWorkers.benefit4')
+  ];
+
   const recommendedServices = [
     {
       titleKey: 'personalized.officeWorkers.services.therapeuticMassage.title',
@@ -53,7 +60,7 @@ export default function ForOfficeWorkersContent() {
       }}
       recommendedServices={recommendedServices}
       faqItems={faqItems}
+      benefits={benefits}
     />
   );
 }
-

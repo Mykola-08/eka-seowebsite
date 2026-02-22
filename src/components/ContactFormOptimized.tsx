@@ -52,7 +52,7 @@ export default function ContactFormOptimized() {
     }
   };
 
-  const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
+  const onSubmit: SubmitHandler<ContactFormInputs> = async (data: ContactFormInputs) => {
     if (!isCaptchaVerified) {
       toast.error(t('common.captchaError') || 'Please complete the verification check correctly.');
       return;

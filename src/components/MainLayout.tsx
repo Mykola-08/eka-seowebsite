@@ -99,7 +99,7 @@ export default function MainLayout({
     ? 'bg-white/70 backdrop-blur-xl border-gray-200/50 shadow-sm'
     : 'bg-transparent';
 
-  const dropdownSurfaceClass = headerSurfaceClass;
+  const dropdownSurfaceClass = 'bg-[#f5f5f7] shadow-lg border border-gray-200/50';
 
   const navigation: NavItem[] = [
     {
@@ -157,7 +157,7 @@ export default function MainLayout({
             {/* Desktop Navigation - Centered - Apple Style: text-[12px], regular weight, gray-700 */}
             <div className="hidden md:flex items-center justify-center space-x-8">
               {navigation.map(item => (
-                <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative' : ''}`}
+                <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative flex items-center h-full' : 'flex items-center h-full'}`}
                   ref={item.hasDropdown ? personalServicesRef : undefined}>
                   {item.hasDropdown ? (
                     <>
@@ -270,14 +270,14 @@ export default function MainLayout({
             {isMenuOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-xl overflow-hidden"
+                className="md:hidden fixed top-[56px] left-0 w-full h-[calc(100vh-56px)] bg-[#f5f5f7] overflow-y-auto z-40"
               >
-                <div className="py-4 px-6 space-y-4 max-h-[80vh] overflow-y-auto">
+                <div className="p-6 space-y-6">
                   {navigation.map(item => (
-                    <div key={item.name} className="border-b border-gray-100 pb-2 last:border-0">
+                    <div key={item.name} className="border-b border-gray-200/50 pb-4 last:border-0">
                       {item.isExternal ? (
                         <a
                           href={item.href}
@@ -287,7 +287,7 @@ export default function MainLayout({
                             setIsMenuOpen(false);
                             window.open(item.href, '_blank', 'noopener,noreferrer');
                           }}
-                          className="block py-2 text-[17px] font-medium text-gray-900"
+                          className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
                         >
                           {item.name}
                         </a>
@@ -295,7 +295,7 @@ export default function MainLayout({
                         <Link
                           href={item.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block py-2 text-[17px] font-medium text-gray-900"
+                          className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
                         >
                           {item.name}
                         </Link>
@@ -307,7 +307,7 @@ export default function MainLayout({
                               key={dropdownItem.name}
                               href={dropdownItem.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="block py-1 text-[15px] text-gray-600 font-normal"
+                              className="block py-2 text-lg text-gray-500 font-medium pl-4"
                             >
                               {dropdownItem.name}
                             </Link>

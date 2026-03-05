@@ -80,7 +80,7 @@ export default function AboutElenaContent() {
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  variant="primary"
+                  variant="default"
                   className="px-10 py-4"
                 >
                   {t('common.bookNow')}

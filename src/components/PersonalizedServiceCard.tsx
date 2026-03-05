@@ -2,6 +2,13 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
 import LazyImage from '@/components/LazyImage';
@@ -15,20 +22,24 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   return (
-    <div className="group h-full flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-8 border border-gray-100/50">
-       <div className="relative h-64 sm:h-72 overflow-hidden rounded-2xl mb-6">
-          <LazyImage
-            src={service.image}
-            alt={t(service.titleKey)}
-            className="w-full h-full object-cover"
-          />
-        </div>
+    <Card className="group h-full flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100/50">
+       <div className="p-6 sm:p-8 pb-0">
+          <div className="relative h-64 sm:h-72 overflow-hidden rounded-2xl mb-6">
+              <LazyImage
+                src={service.image}
+                alt={t(service.titleKey)}
+                className="w-full h-full object-cover"
+              />
+            </div>
+       </div>
         
-      <div className="flex flex-col flex-grow">
-        <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-3 tracking-tight">
+      <CardHeader className="px-6 sm:px-8 pt-0 pb-2">
+        <CardTitle className="text-2xl sm:text-3xl font-semibold text-gray-900 tracking-tight">
           {t(service.titleKey)}
-        </h3>
+        </CardTitle>
+      </CardHeader>
         
+      <CardContent className="px-6 sm:px-8 py-4 flex-grow flex flex-col">
         <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed font-normal">
           {t(service.descriptionKey)}
         </p>
@@ -60,21 +71,21 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         )}
         
         {/* Price and Duration Row */}
-         <div className="flex items-center justify-between mb-6 mt-auto text-sm font-medium text-gray-500">
+         <div className="flex items-center justify-between mt-auto text-sm font-medium text-gray-500 pt-4 border-t border-gray-100">
             <div className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4" />
-                <span>{service.duration || '1 h'}</span>
+                <span>{service.duration ? `${service.duration} ${t('common.minutes')}` : `60 ${t('common.minutes')}`}</span>
             </div>
              <span className="text-lg text-gray-900 font-semibold">
-                {service.price ? `${service.price} EUR` : 'Ask price'}
+                {service.price ? `${service.price} EUR` : t('common.consultPrice')}
             </span>
         </div>
+      </CardContent>
 
-        {/* Buttons - Primary & Outline Combination */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <CardFooter className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
           <Link href="/booking" className="w-full">
              <Button 
-                variant="primary"
+                variant="default"
                 size="lg"
                 className="w-full text-base font-medium"
              >
@@ -90,8 +101,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
                {t('common.readMore') || 'Learn more'}
             </Button>
           </Link>
-        </div>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 }

@@ -1,8 +1,6 @@
 'use client';
 
 import { ReactNode, useEffect } from 'react';
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
 
 export default function SmoothScrolling({ children }: { children: ReactNode }) {
   useEffect(() => {
@@ -10,31 +8,18 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
       return;
     }
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    let rafId = 0;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+    if (window.innerWidth < 1024) {
+      return;
     }
 
-    rafId = requestAnimationFrame(raf);
-
-    // Integrate with native scroll behavior for anchor links if needed
+    let lenis: { raf: (time: number) => void; scrollTo: (target: string) => void; destroy: () => void } | null = null;
+    let rafId = 0;
     const anchors = Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'));
     const handleAnchorClick = (event: MouseEvent) => {
       const target = event.currentTarget as HTMLAnchorElement | null;
       const href = target?.getAttribute('href');
 
-      if (!href || href === '#') {
+      if (!href || href === '#' || !lenis) {
         return;
       }
 
@@ -42,16 +27,38 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
       lenis.scrollTo(href);
     };
 
-    anchors.forEach((anchor) => {
-      anchor.addEventListener('click', handleAnchorClick);
-    });
+    const start = async () => {
+      const { default: Lenis } = await import('lenis');
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+
+      rafId = requestAnimationFrame(raf);
+
+      anchors.forEach((anchor) => {
+        anchor.addEventListener('click', handleAnchorClick);
+      });
+    };
+
+    void start();
 
     return () => {
       anchors.forEach((anchor) => {
         anchor.removeEventListener('click', handleAnchorClick);
       });
       cancelAnimationFrame(rafId);
-      lenis.destroy();
+      lenis?.destroy();
     };
   }, []);
 

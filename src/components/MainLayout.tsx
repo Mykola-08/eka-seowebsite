@@ -3,20 +3,21 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import ToastContainer from '@/components/Toast';
-import { OfflineIndicator } from '@/components/OfflineIndicator';
 import { Language } from '@/contexts/LanguageTypes';
 import { useLanguage } from '@/contexts/LanguageContext';
-import LanguagePopup from '@/components/LanguagePopup';
-import CookieBanner from './CookieBanner';
-
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { Button } from '@/components/ui/button';
+
+const ToastContainer = dynamic(() => import('@/components/Toast'), { ssr: false });
+const LanguagePopup = dynamic(() => import('@/components/LanguagePopup'), { ssr: false });
+const CookieBanner = dynamic(() => import('./CookieBanner'), { ssr: false });
+const FooterPillMenu = dynamic(() => import('@/components/FooterPillMenu'), { ssr: false });
 
 export default function MainLayout({
   children
@@ -63,18 +64,40 @@ export default function MainLayout({
 
   // Handle scroll effect for header and mobile CTA
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      const winHeight = window.innerHeight;
-      const scrollPercent = scrollTop / (docHeight - winHeight);
+    let rafId: number | null = null;
 
-      setIsScrolled(scrollTop > 20);
-      setShowMobileCTA(scrollPercent > 0.7);
+    const handleScroll = () => {
+      if (rafId !== null) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+        const scrollPercent = scrollTop / (docHeight - winHeight);
+
+        setIsScrolled((prev) => {
+          const next = scrollTop > 20;
+          return prev === next ? prev : next;
+        });
+        setShowMobileCTA((prev) => {
+          const next = scrollPercent > 0.7;
+          return prev === next ? prev : next;
+        });
+        rafId = null;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -135,8 +158,6 @@ export default function MainLayout({
 
   return (
     <div className="min-h-screen bg-secondary">
-      <OfflineIndicator />
-
       {/* Navigation with scroll effect - Liquid Glass Style */}
       <nav className={`sticky top-0 z-50 transition duration-500 border-b border-transparent ${headerSurfaceClass}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -242,7 +263,7 @@ export default function MainLayout({
               {/* Reserva Button - Updated to Blue Primary Button */}
               <Button
                 asChild
-                variant="primary"
+                variant="default"
                 size="sm"
                 className="hidden sm:inline-flex text-[12px] font-medium rounded-full h-8 px-4"
               >
@@ -319,7 +340,7 @@ export default function MainLayout({
 
                   {/* Mobile Reserva */}
                   <div className="pt-4">
-                    <Button asChild variant="primary" size="lg" className="w-full text-base font-semibold rounded-xl">
+                    <Button asChild variant="default" size="lg" className="w-full text-base font-semibold rounded-xl">
                       <Link
                         href="/booking"
                         onClick={() => setIsMenuOpen(false)}
@@ -357,7 +378,7 @@ export default function MainLayout({
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe"
           >
-            <Button asChild variant="primary" size="lg" className="w-full text-base font-bold rounded-full shadow-lg">
+            <Button asChild variant="default" size="lg" className="w-full text-base font-bold rounded-full shadow-lg">
               <Link href="/booking">
                 {t('nav.bookNow')}
               </Link>
@@ -452,6 +473,7 @@ export default function MainLayout({
           </div>
         </div>
       </footer>
+      <FooterPillMenu />
     </div>
   );
 }

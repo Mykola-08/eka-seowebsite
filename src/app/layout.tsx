@@ -6,6 +6,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { DiscountProvider } from "@/contexts/DiscountContext";
 import { BookingProvider } from '@/components/BookingProvider';
 import SmoothScrolling from "@/components/SmoothScrolling";
+import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
     "massatge terapèutic",
     "Feldenkrais",
     "Barcelona",
+    "Somatic Therapy",
+    "Wellness",
+    "Integrative Therapy"
   ],
   authors: [{ name: "EKA Balance" }],
   creator: "EKA Balance",
@@ -84,6 +88,7 @@ export default function RootLayout({
           <LanguageProvider>
             <DiscountProvider>
               <BookingProvider>
+                <JsonLd />
                 <MainLayout>
                   {children}
                 </MainLayout>

@@ -1024,7 +1024,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <Button
                 onClick={handleNext}
                 disabled={!canProceed()}
-                variant="primary"
+                variant="default"
                 className="w-auto"
               >
                 {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}

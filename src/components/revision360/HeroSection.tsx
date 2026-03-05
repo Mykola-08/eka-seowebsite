@@ -36,7 +36,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="xl" variant="primary" className="px-10 py-6 text-lg h-auto">
+              <Button size="xl" variant="default" className="px-10 py-6 text-lg h-auto">
                 {t('revision360.hero.cta')}
               </Button>
             </a>

@@ -319,6 +319,10 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.aboutElena': 'Sobre Elena',
     'nav.casos': 'Casos reals',
 
+    'common.consultPrice': 'Consultar preu',
+    'services.variableDuration': 'Variable',
+    'services.mainBenefits': 'Beneficis principals',
+
     // Elena Section (Profile)
     'elena.greeting': "Hola, sóc l'Elena",
     'elena.name': 'Elena Kucherova',
@@ -2069,6 +2073,10 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.aboutElena': 'About Elena',
     'nav.casos': 'Cases',
 
+    'common.consultPrice': 'Ask price',
+    'services.variableDuration': 'Variable',
+    'services.mainBenefits': 'Key Benefits',
+
     // Elena Approach & Targets
     'elena.approach.title': 'The Elena Kucherova method',
     'elena.approach.desc': 'I believe that your body, mind, and emotions are not separate parts, but a single, living system. My approach goes beyond treating symptoms—I seek the root cause of your discomfort to help your body rediscover its natural ability to heal and self-regulate. By integrating advanced bodywork with nervous system re-education—using techniques like Movement Lesson, JKA, Child’Space, Feldenkrais, and Biodynamics—I offer a gentle yet profound pathway to release deep tension, rewire old patterns, and restore the joy of effortless movement.',
@@ -3807,7 +3815,10 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.services': 'Servicios',
     'nav.personalizedServices': 'Servicios personalizados',
     'nav.revision360': 'Revisión 360°',
-    'nav.vip': 'VIP',
+
+    'common.consultPrice': 'Consultar precio',
+    'services.variableDuration': 'Variable',
+    'services.mainBenefits': 'Beneficios principales',
     'nav.bookNow': 'Reservar cita',
     'nav.contact': 'Contacto',
     'nav.aboutElena': 'Sobre Elena',
@@ -5495,7 +5506,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.smart.send': 'Enviar por WhatsApp',
     'booking.smart.title': 'Reserva tu cita',
     'booking.smart.subtitle': 'Elige cómo quieres contactar',
-
   },
 
   ru: {
@@ -5504,6 +5514,10 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.services': 'Услуги',
     'nav.personalizedServices': 'Персонализированные услуги',
     'nav.revision360': 'Обзор 360°',
+
+    'common.consultPrice': 'Уточнить цену',
+    'services.variableDuration': 'Вариативно',
+    'services.mainBenefits': 'Преимущества',
     'nav.vip': 'VIP',
     'nav.bookNow': 'Забронировать',
     'nav.contact': 'Контакты',
@@ -7216,7 +7230,6 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.smart.send': 'Отправить в WhatsApp',
     'booking.smart.title': 'Забронируйте сеанс',
     'booking.smart.subtitle': 'Выберите способ связи',
-
   }
 };
 

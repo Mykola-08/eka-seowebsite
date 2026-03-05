@@ -83,7 +83,7 @@ export default class ErrorBoundary extends Component<Props, State> {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={this.handleRetry}
-                variant="primary"
+                variant="default"
                 className="w-full sm:w-auto"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />

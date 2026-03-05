@@ -32,7 +32,7 @@ export default function LoadingButton({
 }
 
 
-// Specialized buttons using Keep React
+// Specialized buttons using standard ShadCN
 export function SaveButton({ 
   loading, 
   saved, 
@@ -42,7 +42,7 @@ export function SaveButton({
   return (
     <LoadingButton
       {...props}
-      variant={saved ? "outline" : (props.variant || "primary")}
+      variant={saved ? "outline" : (props.variant || "default")}
       loading={loading}
     >
       {saved ? '✓ Desat' : (loading ? 'Desant...' : (children || 'Desar'))}

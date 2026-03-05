@@ -48,7 +48,7 @@ export default function AppleHero() {
             {/* Primary Button: Apple Blue */}
             <Button
               asChild
-              variant="primary"
+              variant="default"
               size="xl"
               className="px-8 py-6 text-lg h-auto rounded-full w-full sm:w-auto"
               onClick={() => logEvent('hero_first_time_click')}

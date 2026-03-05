@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -11,7 +9,7 @@ export default function NotFound() {
         The page you are looking for does not exist or has been moved.
       </p>
       <Link href="/">
-        <Button size="xl" variant="primary">
+        <Button size="xl" variant="default">
           Go back home
         </Button>
       </Link>

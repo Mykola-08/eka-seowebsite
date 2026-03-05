@@ -12,7 +12,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     durations: [60, 90, 120],
     image: 'https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/massage',
-    benefitsKeys: ['services.benefits.reduces', 'services.benefits.stress', 'services.benefits.circulation', 'services.benefits.relaxation']
+    benefitsKeys: ['services.benefits.reduces', 'services.benefits.stress', 'services.benefits.circulation', 'services.benefits.relaxation'],
+    price: 60
   },
   {
     id: 'kinesiologia',
@@ -24,7 +25,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     durations: [60, 90],
     image: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/kinesiology',
-    benefitsKeys: ['services.benefits.blockages', 'services.benefits.posture', 'services.benefits.stress', 'services.benefits.energy']
+    benefitsKeys: ['services.benefits.blockages', 'services.benefits.posture', 'services.benefits.stress', 'services.benefits.energy'],
+    price: 70
   },
   {
     id: 'nutritio',
@@ -36,6 +38,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     durations: [],
     image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/nutrition',
+    price: 60,
     benefitsKeys: ['services.benefits.habits', 'services.benefits.vitality', 'services.benefits.weight', 'services.benefits.longterm']
   },
   {
@@ -48,6 +51,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     durations: [60, 90, 120],
     image: 'https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/360-revision',
+    price: 150,
     benefitsKeys: ['services.benefits.assessment', 'services.benefits.plan', 'services.benefits.recommendations', 'services.benefits.followup']
   },
   {
@@ -59,6 +63,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     color: 'green',
     durations: [],
     image: 'https://images.pexels.com/photos/3652898/pexels-photo-3652898.jpeg?auto=compress&cs=tinysrgb&w=800',
+    price: 45,
     href: '/services/supplements',
     benefitsKeys: ['services.benefits.vitality', 'services.benefits.habits', 'services.benefits.energy', 'services.benefits.longterm']
   },
@@ -72,7 +77,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     durations: [],
     image: 'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/systemic',
-    benefitsKeys: ['services.benefits.blockages', 'services.benefits.stress', 'services.benefits.assessment', 'services.benefits.longterm']
+    benefitsKeys: ['services.benefits.blockages', 'services.benefits.stress', 'services.benefits.assessment', 'services.benefits.longterm'],
+    price: 80
   }
 ];
 
@@ -91,7 +97,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     ],
     resultKey: 'personalizedServices.officeWorkers.result', // More energy, less pain...
     price: 70,
-    duration: '1 h'
+    duration: '60'
   },
   {
     id: 'athletes',
@@ -107,7 +113,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     ],
     resultKey: 'personalizedServices.athletes.result', // Faster recovery...
     price: 70,
-    duration: '1 h'
+    duration: '60'
   },
   {
     id: 'artists',
@@ -123,7 +129,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     ],
     resultKey: 'personalizedServices.artists.result',
     price: 70,
-    duration: '1 h'
+    duration: '60'
   },
   {
     id: 'musicians',
@@ -139,7 +145,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     ],
     resultKey: 'personalizedServices.musicians.result',
     price: 70,
-    duration: '1 h'
+    duration: '60'
   },
   {
     id: 'students',
@@ -155,7 +161,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     ],
     resultKey: 'personalizedServices.students.result',
     price: 60,
-    duration: '1 h'
+    duration: '60'
   },
   {
     id: 'parents',
@@ -171,6 +177,6 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
     ],
     resultKey: 'personalizedServices.parents.result',
     price: 70,
-    duration: '1 h'
+    duration: '60'
   }
 ];

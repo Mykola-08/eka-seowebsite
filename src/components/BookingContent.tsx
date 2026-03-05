@@ -128,7 +128,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="primary" size="xl" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white border-transparent">
+                <Button variant="default" size="xl" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white border-transparent">
                   {t('booking.direct.button')}
                 </Button>
               </a>
@@ -156,7 +156,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                   logEvent('booking_page_toggle_form', { show: !showForm });
                   setShowForm(!showForm);
                 }}
-                variant={showForm ? "outline" : "primary"}
+                variant={showForm ? "outline" : "default"}
                 size="xl"
                 className="w-full"
               >

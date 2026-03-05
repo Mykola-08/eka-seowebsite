@@ -37,7 +37,7 @@ export default function PersonalizedServicesContent() {
                 <Link href="/booking">
                   <Button
                       size="xl"
-                      variant="primary"
+                      variant="default"
                       className="px-8 py-4 shadow-sm"
                   >
                       {t('personalizedServices.cta')}

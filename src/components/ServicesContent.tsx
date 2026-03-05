@@ -36,7 +36,7 @@ export default function ServicesContent() {
           <Link href="/booking">
             <Button
               size="xl"
-              variant="primary"
+              variant="default"
               className="px-8 py-4 shadow-sm"
             >
               {t('common.bookNow')}

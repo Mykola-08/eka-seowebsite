@@ -140,7 +140,7 @@ export default function DiscountsContent() {
                       ) : (
                         <Button
                           onClick={() => handleApplyDiscount(discount.code || '')}
-                          variant="primary"
+                          variant="default"
                           className="w-full py-3 rounded-xl shadow-sm"
                         >
                           {t('discounts.apply') || "Aplicar descompte"}

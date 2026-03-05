@@ -28,7 +28,7 @@ export default function CTASection() {
           <Button
             onClick={() => navigateToBooking()}
             size="xl"
-            variant="primary"
+            variant="default"
             className="px-10 py-6 text-lg h-auto bg-white text-black hover:bg-gray-100 border-none"
           >
             {t('common.bookNow')}

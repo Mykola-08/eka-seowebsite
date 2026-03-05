@@ -8,8 +8,6 @@ import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion } from 'framer-motion';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 
 // Zod Schema for Validation
 const createContactSchema = (t: (key: string) => string) => z.object({
@@ -343,13 +341,13 @@ export default function ContactFormOptimized() {
                     </label>
                     <div className="relative">
                       <User className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
-                      <Input
+                      <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`pl-12 pr-4 ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                         placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
@@ -362,13 +360,13 @@ export default function ContactFormOptimized() {
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
-                      <Input
+                      <input
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`pl-12 pr-4 ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                         placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
@@ -383,13 +381,13 @@ export default function ContactFormOptimized() {
                     </label>
                     <div className="relative">
                       <Phone className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
-                      <Input
+                      <input
                         type="tel"
                         id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`pl-12 pr-4 ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                         placeholder="+34 123 456 789"
                       />
                     </div>
@@ -427,13 +425,13 @@ export default function ContactFormOptimized() {
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                     {t('contact.form.message')} <span className="text-red-500">*</span>
                   </label>
-                  <Textarea
+                  <textarea
                     id="message"
                     name="message"
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                     placeholder={t('contact.form.message.placeholder')}
                   />
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}

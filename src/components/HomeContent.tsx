@@ -146,7 +146,7 @@ export default function HomeContent() {
 
           <div className="mt-16 text-center">
             <Link href="/services">
-              <Button variant="primary" size="xl" className="px-10 py-6 text-lg h-auto">
+              <Button variant="default" size="xl" className="px-10 py-6 text-lg h-auto">
                 {t('services.viewAll')}
               </Button>
             </Link>

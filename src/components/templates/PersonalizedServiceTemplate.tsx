@@ -198,7 +198,7 @@ export default function PersonalizedServiceTemplate({
           <Button
             onClick={() => navigateToBooking()}
             size="xl"
-            variant="primary"
+            variant="default"
             className="shadow-xl"
           >
             {t('common.bookNow')}

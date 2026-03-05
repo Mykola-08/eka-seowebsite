@@ -83,27 +83,27 @@ export const techniqueTranslations = {
     'technique.movement_lesson.desc': 'This is an alternative approach to optimizing and improving human movement through touch. Improving functionality and efficiency of movement.',
 
     'technique.jka.title': 'JKA',
-    'technique.jka.location': 'Tegernsee (germany)',
+    'technique.jka.location': 'Tegernsee (Germany)',
     'technique.jka.desc': 'Work with children with special needs, based on the work of dr. M. Feldenkrais.',
 
     'technique.tmr.title': 'TMR',
-    'technique.tmr.location': 'Barcelona (spain)',
+    'technique.tmr.location': 'Barcelona (Spain)',
     'technique.tmr.desc': 'Rhythmic movement therapy. An effective approach for nervous system correction. Help in correct integration of primitive reflexes.',
 
     'technique.kgh.title': 'Holistic global kinesiology',
-    'technique.kgh.location': 'Barcelona (spain)',
+    'technique.kgh.location': 'Barcelona (Spain)',
     'technique.kgh.desc': 'Complex therapy for chronic health problems, chronic diseases, helps in children\'s education at school, etc.',
 
     'technique.ke.title': 'Emotional kinesiology',
-    'technique.ke.location': 'Barcelona (spain)',
+    'technique.ke.location': 'Barcelona (Spain)',
     'technique.ke.desc': 'Work with emotional problems: stress, depression, apathy, conflicts, communication and behavioral problems and others.',
 
     'technique.kb.title': 'Biochemical kinesiology',
-    'technique.kb.location': 'Barcelona (spain)',
+    'technique.kb.location': 'Barcelona (Spain)',
     'technique.kb.desc': 'Development and personal recommendations on nutrition, allergies/hypersensitivity, etc.',
 
     'technique.osteobalance.title': 'Osteobalance',
-    'technique.osteobalance.location': 'Düsseldorf (germany)',
+    'technique.osteobalance.location': 'Düsseldorf (Germany)',
     'technique.osteobalance.desc': 'Work with the physical and energetic structure of a person.',
 
     'technique.sujok.title': 'Su-Jok',
@@ -111,7 +111,7 @@ export const techniqueTranslations = {
     'technique.sujok.desc': 'Work with internal organs, meridians, based on traditional chinese medicine.',
 
     'technique.quiromasaje.title': 'Chiromassage',
-    'technique.quiromasaje.location': 'Barcelona (spain)',
+    'technique.quiromasaje.location': 'Barcelona (Spain)',
     'technique.quiromasaje.desc': 'Different types of massage.',
 
     'kinesiology.what_is': 'What is kinesiology?',
@@ -138,39 +138,39 @@ export const techniqueTranslations = {
     'elena.target.families.desc': 'Ayuda y acompañamiento a los padres de niños especiales. Apoyo psicológico a los padres. Trabajo con el estado emocional de la madre. Ayuda en la elaboración de un plan de rehabilitación (qué es óptimo, método, clases). Respuestas a preguntas: ¿qué pasa? ¿a dónde ir? ¿cómo empezar? ¿qué hacer? ¿cómo organizar la vida? Si habéis llegado recientemente a españa: acompañamiento y traducción de visitas al hospital, asesoramiento, búsqueda de escuela especializada.',
 
     'technique.movement_lesson.title': 'Movement Lesson',
-    'technique.movement_lesson.location': 'Moscú, kazán (rusia) – (ee.uu.)',
+    'technique.movement_lesson.location': 'Moscú, Kazán (Rusia) – (EE.UU.)',
     'technique.movement_lesson.desc': 'Es un enfoque alternativo para optimizar y mejorar los movimientos humanos mediante el tacto. Mejorando la funcionalidad y la eficiencia del movimiento.',
 
     'technique.jka.title': 'JKA',
-    'technique.jka.location': 'Tegernsee (alemania)',
+    'technique.jka.location': 'Tegernsee (Alemania)',
     'technique.jka.desc': 'Trabajo con niños con necesidades especiales, basado en el trabajo del dr. M. Feldenkrais.',
 
     'technique.tmr.title': 'TMR',
-    'technique.tmr.location': 'Barcelona (españa)',
+    'technique.tmr.location': 'Barcelona (España)',
     'technique.tmr.desc': 'Terapia de movimiento rítmico. Un enfoque eficaz para la corrección del sistema nervioso. Ayuda en la correcta integración de los reflejos primitivos.',
 
     'technique.kgh.title': 'Kinesiología global holística',
-    'technique.kgh.location': 'Barcelona (españa)',
+    'technique.kgh.location': 'Barcelona (España)',
     'technique.kgh.desc': 'Terapia compleja con problemas crónicos de salud, enfermedades crónicas, ayuda en el aprendizaje de los niños en la escuela, etc.',
 
     'technique.ke.title': 'Kinesiología emocional',
-    'technique.ke.location': 'Barcelona (españa)',
+    'technique.ke.location': 'Barcelona (España)',
     'technique.ke.desc': 'Trabajo con problemas emocionales: estrés, depresión, apatía, conflictos, problemas de comunicación y comportamiento, y otros.',
 
     'technique.kb.title': 'Kinesiología bioquímica',
-    'technique.kb.location': 'Barcelona (españa)',
+    'technique.kb.location': 'Barcelona (España)',
     'technique.kb.desc': 'Desarrollo y recomendaciones personales sobre nutrición, alergias/hipersensibilidad, etc.',
 
     'technique.osteobalance.title': 'Osteobalance',
-    'technique.osteobalance.location': 'Düsseldorf (alemania)',
+    'technique.osteobalance.location': 'Düsseldorf (Alemania)',
     'technique.osteobalance.desc': 'Trabajo con la estructura física y energética de la persona.',
 
     'technique.sujok.title': 'Su-Jok',
-    'technique.sujok.location': 'Moscú (rusia)',
+    'technique.sujok.location': 'Moscú (Rusia)',
     'technique.sujok.desc': 'Trabajo con órganos internos, meridianos, basado en la medicina tradicional china.',
 
     'technique.quiromasaje.title': 'Quiromasaje',
-    'technique.quiromasaje.location': 'Barcelona (españa)',
+    'technique.quiromasaje.location': 'Barcelona (España)',
     'technique.quiromasaje.desc': 'Diferentes tipos de masaje.',
 
     'kinesiology.what_is': '¿qué es la kinesiología?',
@@ -197,39 +197,39 @@ export const techniqueTranslations = {
     'elena.target.families.desc': 'Помощь и сопровождение родителей особых детей. психологическое сопровождение родителей. работа с эмоциональным состоянием мамы ребенка. помощь в составлении плана реабилитации ребенка (что оптимально, метод, занятия). помощь с ответами на вопросы: что происходит? куда с этим идти? как начать? что делать? как организовать жизнь? если вы недавно приехали в испанию — сопровождение и переводы визитов в госпиталь (врачи и обследования), консультирование, сопровождение по подбору и устройству в специализированную школу.',
 
     'technique.movement_lesson.title': 'Movement Lesson',
-    'technique.movement_lesson.location': 'Москва, казань (россия) – (сша)',
-    'technique.movement_lesson.desc': 'Это альтернативный подход к оптимизации улучшению движений человека с помощью прикосновений. улучшая функциональность и эффективность движения.',
+    'technique.movement_lesson.location': 'Москва, Казань (Россия) – (США)',
+    'technique.movement_lesson.desc': 'Это альтернативный подход к оптимизации улучшению движений человека с помощью прикосновений. Улучшая функциональность и эффективность движения.',
 
     'technique.jka.title': 'JKA',
-    'technique.jka.location': 'Тегерензе (германия)',
-    'technique.jka.desc': 'Работа с детьми с особыми потребностями, основанная на работе доктора м. фельденкрайза.',
+    'technique.jka.location': 'Тегерензе (Германия)',
+    'technique.jka.desc': 'Работа с детьми с особыми потребностями, основанная на работе доктора М. Фельденкрайза.',
 
     'technique.tmr.title': 'TMR',
-    'technique.tmr.location': 'Барселона (испания)',
+    'technique.tmr.location': 'Барселона (Испания)',
     'technique.tmr.desc': 'Терапия ритмичным движением. эффективный подход для коррекции нервной системы. помощь в корректной интеграции примитивных рефлексов.',
 
-    'technique.kgh.title': 'Kinesiología global holística',
-    'technique.kgh.location': 'Барселона (испания)',
-    'technique.kgh.desc': 'Комплексная терапия с хроническими проблемами со здоровьем, хроническими заболеваниями, помогает в обучении детей в школе и т. д.',
+    'technique.kgh.title': 'Глобальная холистическая кинезиология',
+    'technique.kgh.location': 'Барселона (Испания)',
+    'technique.kgh.desc': 'Комплексная терапия хронических проблем со здоровьем, хронических заболеваний, помощь в обучении детей в школе и т.д.',
 
-    'technique.ke.title': 'Kinesiología emocional',
-    'technique.ke.location': 'Барселона (испания)',
+    'technique.ke.title': 'Эмоциональная кинезиология',
+    'technique.ke.location': 'Барселона (Испания)',
     'technique.ke.desc': 'Работа с эмоциональными проблемами: стресс, депрессия, апатия, конфликты, проблемы общения и поведения и другое.',
 
-    'technique.kb.title': 'Kinesiología bioquímica',
-    'technique.kb.location': 'Барселона (испания)',
-    'technique.kb.desc': 'Разработка и персональные рекомендации по питанию, аллергии/гиперчувствительности и др..',
+    'technique.kb.title': 'Биохимическая кинезиология',
+    'technique.kb.location': 'Барселона (Испания)',
+    'technique.kb.desc': 'Разработка и персональные рекомендации по питанию, аллергии/гиперчувствительности и др.',
 
-    'technique.osteobalance.title': 'Osteobalance',
-    'technique.osteobalance.location': 'Дюссельдорф (германия)',
+    'technique.osteobalance.title': 'Остеобаланс',
+    'technique.osteobalance.location': 'Дюссельдорф (Германия)',
     'technique.osteobalance.desc': 'Работа с физической и энергетической структурой человека.',
 
-    'technique.sujok.title': 'Su-Jok',
-    'technique.sujok.location': 'Москва (россия)',
+    'technique.sujok.title': 'Су-Джок',
+    'technique.sujok.location': 'Москва (Россия)',
     'technique.sujok.desc': 'Работа с внутренними органами, меридианами, основанная на традиционной китайской медицине.',
 
-    'technique.quiromasaje.title': 'Quiromasaje',
-    'technique.quiromasaje.location': 'Барселона (испания)',
+    'technique.quiromasaje.title': 'Хиромассаж',
+    'technique.quiromasaje.location': 'Барселона (Испания)',
     'technique.quiromasaje.desc': 'Разные типы массажа.',
 
     'kinesiology.what_is': 'Кинезиология что это?',

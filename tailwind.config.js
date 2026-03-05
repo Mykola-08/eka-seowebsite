@@ -1,4 +1,3 @@
-import { keepTheme } from 'keep-react/keepTheme'
 
 const config = {
   content: [
@@ -135,4 +134,4 @@ const config = {
   plugins: [],
 }
 
-export default keepTheme(config)
+export default config

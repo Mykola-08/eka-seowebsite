@@ -216,7 +216,7 @@ export default function CasosContent() {
              <Link href="/booking">
                 <Button 
                   size="xl" 
-                  variant="primary"
+                  variant="default"
                   className="bg-white text-black hover:bg-gray-100 border-none px-8 py-4 h-auto text-lg rounded-full"
                 >
                   {t('casos.bookSession')}

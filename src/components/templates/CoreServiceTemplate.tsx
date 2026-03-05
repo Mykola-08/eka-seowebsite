@@ -171,7 +171,7 @@ export default function CoreServiceTemplate({
                 <div className="mt-auto w-full">
                     <Button 
                         onClick={() => navigateToBooking()}
-                        variant="primary"
+                        variant="default"
                         size="lg"
                         className="w-full shadow-md hover:shadow-lg transition"
                     >

@@ -92,7 +92,7 @@ export default function CasosSection() {
               <AnimateIn key={problem.id} delay={index * 0.05}>
                 <Link
                   href={problem.href}
-                  className="group block h-full apple-card p-8 hover:scale-[1.02] active:scale-[0.97] transition duration-300"
+                  className="group block h-full apple-card p-8 transition-colors duration-300"
                 >
                   <div className="w-12 h-12 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600">
                     <ProblemIcon className="w-6 h-6 stroke-[1.5px]" />
@@ -108,7 +108,7 @@ export default function CasosSection() {
 
                   <div className="flex items-center text-blue-600 font-medium text-sm mt-auto">
                     {t('casos.section.readMore')}
-                    <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 ml-1 transition-colors duration-200" />
                   </div>
                 </Link>
               </AnimateIn>

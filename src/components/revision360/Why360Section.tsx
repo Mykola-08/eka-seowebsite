@@ -59,7 +59,7 @@ export default function Why360Section() {
             {layers.map((layer) => (
               <div
                 key={layer.name}
-                className="group apple-card p-6 bg-white hover:scale-[1.01] transition-transform duration-300"
+                className="group apple-card p-6 bg-white transition-colors duration-300"
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
                   <Layers className="h-6 w-6" />

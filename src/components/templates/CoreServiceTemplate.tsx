@@ -140,9 +140,9 @@ export default function CoreServiceTemplate({
             {pricing.options.map((option, index) => (
               <div key={index} className="bg-white rounded-[2.5rem] p-10 border border-gray-200/50 hover:border-gray-300 shadow-sm hover:shadow-xl transition duration-300 group text-center flex flex-col items-center relative overflow-hidden">
                 {/* Theme decoration */}
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${theme === 'orange' ? 'from-orange-400 to-amber-500' : theme === 'blue' ? 'from-blue-400 to-indigo-500' : theme === 'green' ? 'from-green-400 to-emerald-500' : theme === 'purple' ? 'from-purple-400 to-violet-500' : 'from-gray-400 to-gray-500'} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${theme === 'orange' ? 'from-orange-400 to-amber-500' : theme === 'blue' ? 'from-blue-400 to-indigo-500' : theme === 'green' ? 'from-green-400 to-emerald-500' : theme === 'purple' ? 'from-purple-400 to-violet-500' : 'from-gray-400 to-gray-500'} transition-colors duration-500`} />
 
-                <div className={`flex items-center justify-center mb-8 w-20 h-20 rounded-2xl ${theme === 'orange' ? 'bg-orange-50' : theme === 'blue' ? 'bg-blue-50' : theme === 'green' ? 'bg-green-50' : 'bg-gray-50'} shadow-sm mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`flex items-center justify-center mb-8 w-20 h-20 rounded-2xl ${theme === 'orange' ? 'bg-orange-50' : theme === 'blue' ? 'bg-blue-50' : theme === 'green' ? 'bg-green-50' : 'bg-gray-50'} shadow-sm mx-auto transition-colors duration-300`}>
                   <Clock className={`w-8 h-8 ${theme === 'orange' ? 'text-orange-600' : theme === 'blue' ? 'text-blue-600' : theme === 'green' ? 'text-green-600' : 'text-gray-600'}`} />
                 </div>
                 

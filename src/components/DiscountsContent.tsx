@@ -93,7 +93,7 @@ export default function DiscountsContent() {
 
                 {/* Header */}
                 <div className="relative flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center text-blue-600 transition-colors duration-300">
                     <Percent className="w-7 h-7" />
                   </div>
                   {discount.isActive && (

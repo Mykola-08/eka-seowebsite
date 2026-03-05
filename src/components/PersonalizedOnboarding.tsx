@@ -331,7 +331,7 @@ export default function PersonalizedOnboarding() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.35 }}
-            className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 text-green-700 px-5 py-2.5 rounded-full mb-8 font-medium shadow-sm transition-transform hover:scale-105"
+            className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 text-green-700 px-5 py-2.5 rounded-full mb-8 font-medium shadow-sm transition-colors"
           >
             <span className="text-lg">🎁</span>
             <span>{t('onboarding.welcome.discountBadge') || '15€ de descompte en la teva primera sessió'}</span>
@@ -447,7 +447,7 @@ export default function PersonalizedOnboarding() {
                   </Link>
                   <Link
                     href="/booking"
-                    className="flex-1 bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="flex-1 bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm shadow-md hover:shadow-lg"
                   >
                     {t('common.bookNow')}
                   </Link>
@@ -459,7 +459,7 @@ export default function PersonalizedOnboarding() {
           <div className="text-center">
             <Link
               href="/booking"
-              className="inline-flex items-center bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-8 py-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-8 py-4 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               {t('common.bookNow')}
               <ChevronRight className="w-5 h-5 ml-2" />
@@ -617,7 +617,7 @@ export default function PersonalizedOnboarding() {
             className={`
               px-8 py-3 rounded-full font-semibold transition duration-200 flex items-center
               ${canProceed()
-                ? 'bg-gold hover:bg-gold-dark text-eka-dark shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
+                ? 'bg-gold hover:bg-gold-dark text-eka-dark shadow-lg hover:shadow-xl'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }
             `}

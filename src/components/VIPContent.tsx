@@ -259,7 +259,7 @@ export default function VIPContent() {
               const Icon = feature.icon || Diamond;
               return (
                 <div key={idx} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-amber-100 transition-colors group">
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 transition-colors shadow-sm">
                     <Icon className="w-7 h-7 text-amber-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{t(feature.title)}</h3>

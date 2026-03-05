@@ -34,7 +34,6 @@ export default function Footer() {
                 alt={t('revision360.alt.ekaLogo')}
                 className="w-12 h-12 object-contain opacity-80"
                 whileHover={{ 
-                  scale: 1.05,
                   rotate: 360,
                   opacity: 1
                 }}
@@ -86,7 +85,7 @@ export default function Footer() {
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <Phone className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform duration-200" />
+                <Phone className="w-5 h-5 text-amber-400 transition-colors duration-200" />
                 <span>+34 658 867 133</span>
               </motion.a>
               
@@ -99,7 +98,7 @@ export default function Footer() {
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <Mail className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform duration-200" />
+                <Mail className="w-5 h-5 text-amber-400 transition-colors duration-200" />
                 <span>contact@ekabalance.com</span>
               </motion.a>
               
@@ -177,7 +176,6 @@ export default function Footer() {
           
           <motion.div 
             className="flex items-center space-x-2 text-amber-300/80 text-sm"
-            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
             <span>{t('revision360.footer.madeWith')}</span>

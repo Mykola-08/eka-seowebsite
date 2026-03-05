@@ -33,10 +33,6 @@ export default function LanguageSelector() {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-sm hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200"
-        whileHover={{ 
-          scale: 1.02
-        }}
-        whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2 }}
       >
         <Globe className="w-4 h-4" />

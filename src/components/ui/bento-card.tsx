@@ -37,8 +37,6 @@ export function BentoCard({
       className={`relative min-h-[250px] ${className}`}
     >
       <motion.div 
-        whileHover={{ scale: 0.98, transition: { type: "spring", duration: 0.5, bounce: 0.2 } }}
-        whileTap={{ scale: 0.96 }}
         className="w-full h-full"
       >
         <Link 

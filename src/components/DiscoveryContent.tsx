@@ -683,7 +683,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {t('booking.direct.button')}
@@ -745,7 +745,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {t('booking.direct.button')}

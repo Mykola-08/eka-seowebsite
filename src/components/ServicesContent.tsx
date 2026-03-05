@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA, PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { BentoCard } from '@/components/ui/bento-card';
 import ServiceCard from '@/components/ServiceCard';
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
 import PageLayout from './PageLayout';
@@ -44,6 +45,48 @@ export default function ServicesContent() {
             </Button>
           </Link>
         </div>
+
+        {/* Bento Collage for Services */}
+        <section className="py-12 section-container">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+            {/* Top Left - Large */}
+            <BentoCard href="/services" className="md:col-span-2 md:row-span-1 relative">
+              <img src="https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Massage" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8 text-white z-20">
+                <h3 className="text-3xl md:text-4xl font-bold mb-2">Massatges Terapèutics</h3>
+                <p className="text-white/90 text-lg font-medium max-w-lg">Allibera tensions i restaura l'equilibri natural del teu cos.</p>
+              </div>
+            </BentoCard>
+
+            {/* Top Right - Small */}
+            <BentoCard href="/services" delay={0.1} className="md:col-span-1 md:row-span-1 bg-yellow-50">
+              <div className="absolute inset-0 flex flex-col justify-center p-8 z-20">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Renovació</h3>
+                <p className="text-gray-700 font-medium">Troba la teva energia amb teràpies que et revitalitzen per dins i per fora.</p>
+              </div>
+            </BentoCard>
+
+            {/* Bottom Left - Small */}
+            <BentoCard href="/services" delay={0.2} className="md:col-span-1 md:row-span-1 relative">
+              <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Health" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white z-20">
+                <span className="font-bold text-lg">Salut Preventiva</span>
+              </div>
+            </BentoCard>
+
+            {/* Bottom Right - Large */}
+            <BentoCard href="/services" delay={0.3} className="md:col-span-2 md:row-span-1 bg-blue-50">
+              <div className="absolute inset-0 flex items-center p-8 z-20">
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-3">Tècniques Avançades</h3>
+                  <p className="text-gray-700 font-medium text-lg max-w-md">De la Kinesiologia al Biomagnetisme, oferim les millors eines per al teu cos.</p>
+                </div>
+              </div>
+            </BentoCard>
+          </div>
+        </section>
 
         {/* Services Grid (Core) - Gray Background */}
         <section className="py-24 bg-secondary">

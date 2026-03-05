@@ -76,7 +76,7 @@ export default function AgenyzContent() {
                                   src='/agenyz-products.png'
                                   alt='Cellular Bio-Innovation'
                                   fill
-                                  className='object-cover shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]'
+                                  className='object-cover shadow-2xl'
                                   sizes="(max-width: 1024px) 100vw, 50vw"
                               />
                             </div>
@@ -163,7 +163,7 @@ export default function AgenyzContent() {
                                                         src={product.image}
                                                         alt={getLocalized(product.name, language)}
                                                         fill
-                                                        className='object-contain transform group-hover:scale-105 transition-transform duration-500 will-change-transform'
+                                                        className='object-contain transform will-change-transform'
                                                         sizes="(max-width: 768px) 100vw, 33vw"
                                                     />
                                                 </div>

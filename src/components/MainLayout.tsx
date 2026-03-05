@@ -122,7 +122,9 @@ export default function MainLayout({
     ? 'bg-white/70 backdrop-blur-xl border-gray-200/50 shadow-sm'
     : 'bg-transparent';
 
-  const dropdownSurfaceClass = 'bg-[#f5f5f7] shadow-lg border border-gray-200/50';
+  const dropdownSurfaceClass = isScrolled
+    ? 'bg-white/60 backdrop-blur-xl border-gray-200/40 shadow-lg'
+    : 'bg-white/40 backdrop-blur-lg border-gray-200/30';
 
   const navigation: NavItem[] = [
     {
@@ -184,7 +186,7 @@ export default function MainLayout({
                     <>
                       <Link
                         href={item.href}
-                        className="nav-trigger text-[12px] text-gray-700 hover:text-black transition-colors duration-200 flex items-center tracking-tight font-normal"
+                        className="nav-trigger text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 flex items-center tracking-tight"
                         onMouseEnter={openDropdown}
                         onMouseLeave={scheduleHide}
                         onFocus={openDropdown}
@@ -202,9 +204,9 @@ export default function MainLayout({
                         aria-hidden="true"
                       />
 
-                      {/* Dropdown menu with matching background style (Unified) - Grows from header */}
+                      {/* Dropdown menu with refined frosted glass aesthetic */}
                       <div
-                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${dropdownSurfaceClass} border border-t-0 rounded-b-2xl p-2 min-w-[220px] absolute top-full left-1/2 -translate-x-1/2 mt-0 origin-top transition duration-200 ease-out z-50`}
+                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} ${dropdownSurfaceClass} border border-t-0 rounded-b-3xl p-3 min-w-[240px] absolute top-full left-1/2 -translate-x-1/2 mt-0 origin-top transition-all duration-300 ease-out z-50`}
                         onMouseEnter={openDropdown}
                         onMouseLeave={scheduleHide}
                         onKeyDown={(e) => {
@@ -215,13 +217,13 @@ export default function MainLayout({
                         role="menu"
                         aria-label={`${item.name} submenu`}
                       >
-                        <div className="py-1">
+                        <div className="py-2">
                           {item.dropdownItems?.map((dropdownItem) => (
                             <Link
                               key={dropdownItem.name}
                               href={dropdownItem.href}
                               onClick={() => setShowPersonalServices(false)}
-                              className="block px-4 py-2 text-[12px] text-gray-700 hover:text-black hover:bg-gray-100/50 rounded-lg transition-colors font-normal"
+                              className="block px-3 py-2.5 text-[13px] text-gray-600 hover:text-black hover:font-medium hover:bg-white/40 hover:backdrop-blur-sm rounded-lg transition-all duration-150 tracking-tight"
                               role="menuitem"
                               suppressHydrationWarning
                             >
@@ -235,7 +237,7 @@ export default function MainLayout({
                     <a
                       href={item.href}
                       rel="noopener noreferrer"
-                      className="text-[12px] text-gray-700 hover:text-black transition-colors duration-200 tracking-tight font-normal"
+                      className="text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
                       onClick={(e) => {
                         e.preventDefault();
                         window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -247,7 +249,7 @@ export default function MainLayout({
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-[12px] text-gray-700 hover:text-black transition-colors duration-200 tracking-tight font-normal"
+                      className="text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
                       suppressHydrationWarning
                     >
                       {item.name}

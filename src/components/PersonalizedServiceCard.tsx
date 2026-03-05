@@ -83,7 +83,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
       </CardContent>
 
       <CardFooter className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
-          <Link href="/booking" className="w-full">
+          <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey))}`} className="w-full">
              <Button 
                 variant="default"
                 size="lg"

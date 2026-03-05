@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { BentoCard } from '@/components/ui/bento-card';
 
 import AppleHero from '@/components/AppleHero';
 import CasosSection from '@/components/CasosSection';
@@ -54,6 +55,60 @@ export default function HomeContent() {
               </div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Bento Grid Collage */}
+      <section className="py-20 bg-secondary overflow-hidden">
+        <div className="section-container">
+          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+            {/* Main large visual */}
+            <BentoCard href="/services/equilibri" className="md:col-span-2 md:row-span-2">
+              <img src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Integrative Wellness" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8 text-white z-20">
+                <h3 className="text-3xl sm:text-4xl font-semibold mb-3 drop-shadow-md text-white">Equilibri Integral</h3>
+                <p className="text-white/90 text-lg font-medium drop-shadow-md">Harmonia entre cos, ment i benestar en cada sessió.</p>
+              </div>
+            </BentoCard>
+
+            {/* Top right smaller */}
+            <BentoCard href="/services/kinesiology" delay={0.1} className="md:col-span-2 md:row-span-1 bg-blue-50">
+              <div className="absolute inset-0 flex items-center p-8 z-20">
+                <div className="w-full max-w-sm">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 tracking-tight">Kinesiologia Holística</h3>
+                  <p className="text-gray-700 font-medium mb-6">Diagnòstic de precisió per restablir el teu balanç energètic.</p>
+                  <Button variant="outline" className="rounded-full bg-white/90 hover:bg-white text-gray-900 border-gray-200 pointer-events-none shadow-sm">
+                    Descobreix-ne més
+                  </Button>
+                </div>
+              </div>
+              <img src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kinesiology" className="absolute right-0 top-0 bottom-0 w-1/2 object-cover opacity-50 mix-blend-multiply" />
+            </BentoCard>
+
+            {/* Bottom right split - 1 */}
+            <BentoCard href="/services/nutrition" delay={0.2} className="md:col-span-1 md:row-span-1">
+              <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Healthy Lifestyle" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white z-20">
+                <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold tracking-wide shadow-lg border border-white/30 text-white">Nutrició</span>
+              </div>
+            </BentoCard>
+
+            {/* Bottom right split - 2 */}
+            <BentoCard href="/cases" delay={0.3} className="md:col-span-1 md:row-span-1 bg-red-50">
+              <div className="absolute inset-0 flex flex-col justify-end p-8 z-20">
+                <div className="mb-auto">
+                  <span className="text-5xl text-red-400 opacity-90 font-serif leading-none">"</span>
+                  <p className="text-gray-900 text-lg font-bold leading-tight mt-2">Un abans i un després en el meu benestar.</p>
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm font-extrabold text-gray-900 uppercase tracking-wide">- Maria G.</p>
+                  <p className="text-xs font-semibold text-gray-500 mt-1">Pacient freqüent</p>
+                </div>
+              </div>
+            </BentoCard>
+          </div>
         </div>
       </section>
 

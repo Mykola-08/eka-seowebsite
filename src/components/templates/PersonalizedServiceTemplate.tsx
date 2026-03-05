@@ -196,13 +196,15 @@ export default function PersonalizedServiceTemplate({
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center -mt-8 mb-16 relative z-20">
           <Button
-            onClick={() => navigateToBooking()}
+            asChild
             size="xl"
             variant="default"
             className="shadow-xl"
           >
-            {t('common.bookNow')}
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <Link href={`/booking?service=${encodeURIComponent(t(`${translationKey}.hero.title`))}`}>
+              {t('common.bookNow') || t('nav.bookNow') || 'Reservar'}
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
           </Button>
           <Link href="/contact">
             <Button
@@ -291,21 +293,28 @@ export default function PersonalizedServiceTemplate({
 
             <div className="grid md:grid-cols-2 gap-8">
               {recommendedServices.map((service, index) => (
-                <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition duration-300 hover:shadow-md hover:-translate-y-1 p-8 group">
-                  <Link href={service.href} className="flex flex-col h-full">
+                <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition duration-300 hover:shadow-md hover:-translate-y-1 p-8 group flex flex-col h-full">
+                  <div className="flex flex-col h-full">
                     <h3 className={`text-2xl font-bold text-gray-900 mb-4 ${theme.serviceCardHoverText} transition-colors`}>
                       {t(service.titleKey)}
                     </h3>
                     <p className="text-gray-600 mb-6 flex-grow">
                       {t(service.descriptionKey)}
                     </p>
-                    <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-500">{service.duration || '60-90 min'}</span>
-                      <span className={`${theme.serviceLinkText} font-medium hover:opacity-80 flex items-center`}>
-                        {t('common.moreInfo')} <ArrowRight className="w-4 h-4 ml-1" />
-                      </span>
+                    <div className="mt-auto pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                      <span className="text-sm font-medium text-gray-500 whitespace-nowrap">{service.duration || '60-90 min'}</span>
+                      <div className="flex items-center gap-3 w-full sm:w-auto">
+                        <Link href={service.href} className={`${theme.serviceLinkText} text-sm font-medium hover:opacity-80 flex items-center`}>
+                          {t('common.moreInfo')}
+                        </Link>
+                        <Button asChild size="sm" className="rounded-full w-full sm:w-auto mt-2 sm:mt-0" variant="default">
+                          <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey) || service.titleKey)}`}>
+                            {t('nav.bookNow') || 'Reservar'}
+                          </Link>
+                        </Button>
+                      </div>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>

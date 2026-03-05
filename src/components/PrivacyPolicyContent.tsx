@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function PrivacyPolicyContent() {
   const { t } = useLanguage();
@@ -14,7 +15,8 @@ export default function PrivacyPolicyContent() {
         }}
     >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
-            <div className="bg-white rounded-apple-xl shadow-xl shadow-blue-900/5 border border-gray-100 overflow-hidden p-8 md:p-12">
+            <Card className="shadow-xl shadow-blue-900/5 bg-white overflow-hidden">
+                <CardContent className="p-8 md:p-12">
 
                 {/* Introduction */}
                 <div className="mb-12">
@@ -316,7 +318,8 @@ export default function PrivacyPolicyContent() {
                     This Privacy Policy is provided in compliance with the General Data Protection Regulation (EU) 2016/679.
                   </p>
                 </div>
-            </div>
+                </CardContent>
+            </Card>
         </div>
     </PageLayout>
   );

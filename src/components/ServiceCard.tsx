@@ -81,7 +81,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       </CardContent>
 
       <CardFooter className="p-6 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
-          <Link href="/booking" className="w-full">
+          <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey))}`} className="w-full">
             <Button
               variant="default"
               className="w-full"

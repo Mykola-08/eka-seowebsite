@@ -145,6 +145,26 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Serveis Destacats',
     'services.featuredSubtitle': 'Descobreix les nostres ofertes més populars',
     'services.viewAll': 'Veure Tots els Serveis',
+  
+    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
+    'agenyz.product.vitamin-d3.desc': 'Fórmula avançada...',
+    'agenyz.product.fungomax.name': 'Fungomax',
+    'agenyz.product.fungomax.desc': 'Suport natural...',
+    'agenyz.product.ferboost.name': 'Ferboost',
+    'agenyz.product.ferboost.desc': 'Suport per a la salut...',
+    'agenyz.product.Gummyz-KidYZ.features': 'Gummies naturals...',
+    'agenyz.product.gummyz-KidYZ.features': 'Gummies naturals...',
+
+  
+    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
+    'agenyz.product.vitamin-d3.desc': 'Fórmula avançada...',
+    'agenyz.product.fungomax.name': 'Fungomax',
+    'agenyz.product.fungomax.desc': 'Suport natural...',
+    'agenyz.product.ferboost.name': 'Ferboost',
+    'agenyz.product.ferboost.desc': 'Suport per a la salut...',
+    'agenyz.product.Gummyz-KidYZ.features': 'Gummies naturals...',
+    'agenyz.product.gummyz-KidYZ.features': 'Gummies naturals...',
+
   },
   en: {    'agenyz.seo.title': 'Agenyz - Cellular Nutrition & Biohacking | EKA Balance',
     'agenyz.seo.description': 'Agenyz biohacking supplements for cellular regeneration. Energy, immunity, and systemic wellness.',
@@ -294,6 +314,12 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Featured Services',
     'services.featuredSubtitle': 'Discover our most popular offerings',
     'services.viewAll': 'View All Services',
+  
+    'agenyz.product.gummyz-KidYZ.features': 'Natural gummies...',
+
+  
+    'agenyz.product.gummyz-KidYZ.features': 'Natural gummies...',
+
   },
   es: {
     'agenyz.seo.title': 'Agenyz - Nutrición Celular y Biohacking | EKA Balance',
@@ -445,6 +471,12 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Servicios Destacados',
     'services.featuredSubtitle': 'Descubre nuestras ofertas más populares',
     'services.viewAll': 'Ver Todos los Servicios',
+  
+    'agenyz.product.gummyz-KidYZ.features': 'Gominolas naturales...',
+
+  
+    'agenyz.product.gummyz-KidYZ.features': 'Gominolas naturales...',
+
   },
   ru: {
     'agenyz.seo.title': 'Agenyz - Клеточное питание и биохакинг | EKA Balance',
@@ -596,5 +628,11 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Популярные услуги',
     'services.featuredSubtitle': 'Откройте для себя наши лучшие предложения',
     'services.viewAll': 'Посмотреть все услуги',
+  
+    'agenyz.product.gummyz-KidYZ.features': 'Натуральные мармеладки...',
+
+  
+    'agenyz.product.gummyz-KidYZ.features': 'Натуральные мармеладки...',
+
   }
 };

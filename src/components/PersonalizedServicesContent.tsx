@@ -59,7 +59,7 @@ export default function PersonalizedServicesContent() {
             </p>
           </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">     
               {PERSONALIZED_SERVICES_DATA.map((service, index) => (
                 <motion.div
                     key={service.id}
@@ -67,6 +67,7 @@ export default function PersonalizedServicesContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className={index === PERSONALIZED_SERVICES_DATA.length - 1 && PERSONALIZED_SERVICES_DATA.length % 2 !== 0 ? "lg:col-span-2 max-w-2xl mx-auto w-full" : ""}
                 >
                     <PersonalizedServiceCard service={service} />
                 </motion.div>

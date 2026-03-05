@@ -24,19 +24,22 @@ export default function MassageContent() {
           {
             titleKey: 'massage.techniques.deepTissue',
             descriptionKey: 'massage.techniques.deepTissue.desc',
-            image: '/images/massage-deep.jpg',
+            detailsKey: 'massage.techniques.deepTissue.details',
+            image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=2070',
             colSpan: 2
           },
           {
             titleKey: 'massage.techniques.recovery',
             descriptionKey: 'massage.techniques.recovery.desc',
-            image: '/images/massage-sports.jpg',
+            detailsKey: 'massage.techniques.recovery.details',
+            image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2070',
             colSpan: 1
           },
           {
             titleKey: 'massage.techniques.relaxation',
             descriptionKey: 'massage.techniques.relaxation.desc',
-            image: '/images/massage-relax.jpg',
+            detailsKey: 'massage.techniques.relaxation.details',
+            image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=2070',
             colSpan: 3
           }
         ]

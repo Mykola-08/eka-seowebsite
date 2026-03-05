@@ -5,6 +5,7 @@ import { servicesTranslations } from './TranslationExtensions';
 import { revision360Translations } from './Revision360Translations';
 import { techniqueTranslations } from './TechniqueTranslations';
 import { agenyzTranslations } from './AgenyzTranslations';
+import { bentoTranslations } from './BentoTranslations';
 
 import { Language, LanguageContextType } from './LanguageTypes';
 
@@ -7396,11 +7397,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       (revision360Translations[language] as Record<string, string>)?.[key] ||
       (techniqueTranslations[language] as Record<string, string>)?.[key] ||
       (agenyzTranslations[language] as Record<string, string>)?.[key] ||
+      (bentoTranslations[language] as Record<string, string>)?.[key] ||
       (translations.en as Record<string, string>)?.[key] ||
       (servicesTranslations.en as Record<string, string>)?.[key] ||
       (revision360Translations.en as Record<string, string>)?.[key] ||
       (techniqueTranslations.en as Record<string, string>)?.[key] ||
       (agenyzTranslations.en as Record<string, string>)?.[key] ||
+      (bentoTranslations.en as Record<string, string>)?.[key] ||
       key;
 
     if (params) {

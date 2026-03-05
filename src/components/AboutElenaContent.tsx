@@ -9,6 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Heart, Star } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import PageLayout from '@/components/PageLayout';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
 
 export default function AboutElenaContent() {
   const { t } = useLanguage();
@@ -171,6 +172,48 @@ export default function AboutElenaContent() {
             </motion.div>
           </div>
         </section>
+
+        {/* Target Audience Bento */}
+        <section className="py-24 bg-[#fbfbfd]">
+          <div className="section-container relative z-10">
+            <div className="text-center mb-16">
+               <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight">
+                 {t('elena.work.title')}
+               </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
+               <div className="md:col-span-2 lg:col-span-1">
+                 <ServiceBentoItem 
+                   title={t('elena.target.adults.title')}
+                   description={t('elena.target.adults.desc')}
+                   details={<p>{t('elena.target.adults.desc')}</p>}
+                   image="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2070"
+                   delay={0}
+                 />
+               </div>
+               <div className="col-span-1 md:col-span-1">
+                 <ServiceBentoItem 
+                   title={t('elena.target.children.title')}
+                   description={t('elena.target.children.desc')}
+                   details={<p>{t('elena.target.children.desc')}</p>}
+                   image="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=2070"
+                   delay={0.1}
+                 />
+               </div>
+               <div className="col-span-1 md:col-span-2 lg:col-span-1">
+                 <ServiceBentoItem 
+                   title={t('elena.target.families.title')}
+                   description={t('elena.target.families.desc')}
+                   details={<p>{t('elena.target.families.desc')}</p>}
+                   image="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=2070"
+                   delay={0.2}
+                 />
+               </div>
+            </div>
+          </div>
+        </section>
+
 
         <CTASection />
       </PageLayout>

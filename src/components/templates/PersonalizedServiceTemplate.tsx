@@ -3,7 +3,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
@@ -158,7 +157,6 @@ export default function PersonalizedServiceTemplate({
   benefits = [],
   methodSteps = []
 }: PersonalizedServiceTemplateProps) {
-  const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
   const serviceData = PERSONALIZED_SERVICES_DATA.find(s => s.id === serviceId);
 
@@ -188,8 +186,6 @@ export default function PersonalizedServiceTemplate({
         hero={{
           title: t(`${translationKey}.hero.title`),
           subtitle: t(`${translationKey}.hero.description`),
-          badge: t('personalizedServices.title'),
-          icon: <Icon className="w-4 h-4" />,
           backgroundImage: serviceData?.image,
           themeColor: serviceData?.color || 'orange'
         }}
@@ -202,7 +198,7 @@ export default function PersonalizedServiceTemplate({
             className="shadow-xl"
           >
             <Link href={`/booking?service=${encodeURIComponent(t(`${translationKey}.hero.title`))}`}>
-              {t('common.bookNow') || t('nav.bookNow') || 'Reservar'}
+              {t('nav.bookNow')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>
@@ -217,59 +213,69 @@ export default function PersonalizedServiceTemplate({
           </Link>
         </div>
 
-        {/* Understanding Section */}
-        <section className="py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-8">
-            <div className={`${theme.bg} ${theme.border} border rounded-[2rem] shadow-sm p-8 sm:p-12 transition duration-500 ease-out`}>
-              <h2 className={`heading-2 mb-6 font-bold ${theme.accent}`}>
+        {/* Understanding Section - Bento Box */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-[#fbfbfd]">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
                 {t(`${translationKey}.understanding.title`)}
               </h2>
-              <div className={`space-y-4 ${theme.subtext} leading-relaxed text-lg`}>
-                <p>{t(`${translationKey}.understanding.description1`)}</p>
-                <p>{t(`${translationKey}.understanding.description2`)}</p>
-
-                {/* Benefits List */}
-                {benefits.length > 0 && (
-                  <div className={`mt-8 bg-white/60 rounded-xl p-6 border ${theme.border}`}>
-                    <h3 className={`font-bold ${theme.text} mb-4`}>
-                      {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
-                    </h3>
-                    <ul className="space-y-2">
-                      {benefits.map((benefit: string, i: number) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.dots} shrink-0`} />
-                          <span className="text-gray-700">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <p className={`font-medium ${theme.text} mt-6`}>
-                  {t(`${translationKey}.understanding.callToAction`)}
-                </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1400px] mx-auto">
+              {/* Description 1 - Large box */}
+              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden group">
+                 <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
+                 <p className="text-2xl md:text-3xl text-gray-800 font-medium leading-tight relative z-10 text-balance">
+                    {t(`${translationKey}.understanding.description1`)}
+                 </p>
+                 <p className="mt-8 text-lg text-gray-500 leading-relaxed max-w-2xl font-medium relative z-10">
+                    {t(`${translationKey}.understanding.description2`)}
+                 </p>
+                 <div className="mt-8 relative z-10">
+                    <p className={`font-semibold tracking-tight ${theme.text}`}>
+                      {t(`${translationKey}.understanding.callToAction`)}
+                    </p>
+                 </div>
               </div>
+
+              {/* Benefits Box */}
+              {benefits.length > 0 && (
+                <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] ${theme.bg} ${theme.border} border shadow-sm transition-all duration-500 flex flex-col justify-center`}>
+                  <h3 className={`font-semibold text-2xl mb-6 tracking-tight ${theme.text}`}>
+                    {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
+                  </h3>
+                  <ul className="space-y-4">
+                    {benefits.map((benefit: string, i: number) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <div className={`mt-2 w-2 h-2 rounded-full ${theme.dots} shrink-0`} />
+                        <span className={`text-lg font-medium leading-tight ${theme.text}`}>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        {/* Methodology Section */}
+        {/* Methodology Section - Apple Bento layout */}
         {showMethodology && validSteps.length > 0 && (
-          <section className="py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-4 sm:px-8">
-              <h2 className="heading-2 mb-12 font-bold text-center text-eka-dark">
+          <section className="py-16 sm:py-20 lg:py-24 bg-white">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16 text-center text-black">
                 {t(`${translationKey}.method.title`)}
               </h2>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                 {validSteps.map((step, index) => (
-                  <div key={index} className={`${theme.stepsBg} rounded-2xl p-8 border ${theme.border}`}>
-                    <div className={`w-10 h-10 rounded-full ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} font-bold mb-4`}>
+                    <div key={index} className={`rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 ${theme.stepsBg} shadow-sm group hover:shadow-xl transition-all duration-500`}>
+                    <div className={`w-14 h-14 rounded-2xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-2xl font-semibold mb-8 group-hover:scale-110 transition-transform duration-500`}>
                       {index + 1}
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                    <h3 className="text-3xl font-semibold mb-4 text-gray-900 tracking-tight leading-tight">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
                       {step.description}
                     </p>
                   </div>
@@ -280,36 +286,41 @@ export default function PersonalizedServiceTemplate({
         )}
 
         {/* Recommended Services Section */}
-        <section className={`py-16 bg-gradient-to-b ${theme.servicesBgFrom} ${theme.servicesBgTo}`}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-8">
-            <div className="text-center mb-12">
-              <h2 className="heading-2 mb-4 font-bold text-eka-dark">
+        <section className="py-16 sm:py-20 lg:py-24 bg-[#fbfbfd]">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
                 {t(`${translationKey}.services.title`)}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
                 {t(`${translationKey}.services.subtitle`)}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className={`grid md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:gap-8`}>
               {recommendedServices.map((service, index) => (
-                <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-sm transition duration-300 hover:shadow-md hover:-translate-y-1 p-8 group flex flex-col h-full">
-                  <div className="flex flex-col h-full">
-                    <h3 className={`text-2xl font-bold text-gray-900 mb-4 ${theme.serviceCardHoverText} transition-colors`}>
+                  <div key={index} className="bg-white rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl p-6 sm:p-8 md:p-10 group flex flex-col h-full relative overflow-hidden">
+                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
+                  
+                  <div className="flex flex-col h-full relative z-10">
+                    <h3 className={`text-4xl font-semibold text-gray-900 mb-4 tracking-tighter leading-[1.1] ${theme.serviceCardHoverText} transition-colors`}>
                       {t(service.titleKey)}
                     </h3>
-                    <p className="text-gray-600 mb-6 flex-grow">
+                    <p className="text-lg text-gray-500 mb-8 flex-grow font-medium leading-relaxed">
                       {t(service.descriptionKey)}
                     </p>
-                    <div className="mt-auto pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                      <span className="text-sm font-medium text-gray-500 whitespace-nowrap">{service.duration || '60-90 min'}</span>
-                      <div className="flex items-center gap-3 w-full sm:w-auto">
-                        <Link href={service.href} className={`${theme.serviceLinkText} text-sm font-medium hover:opacity-80 flex items-center`}>
+                    
+                    <div className="mt-auto pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-start justify-between gap-6">
+                      <span className="text-lg font-semibold text-gray-900 bg-gray-50 px-4 py-2 rounded-xl whitespace-nowrap border border-gray-100">
+                        {service.duration || '60-90 min'}
+                      </span>
+                      <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+                        <Link href={service.href} className={`${theme.serviceLinkText} text-sm font-semibold hover:opacity-80 flex items-center px-4 py-2`}>
                           {t('common.moreInfo')}
                         </Link>
-                        <Button asChild size="sm" className="rounded-full w-full sm:w-auto mt-2 sm:mt-0" variant="default">
+                        <Button asChild size="lg" className="rounded-full w-full sm:w-auto font-medium shadow-md shadow-black/5" variant="default">
                           <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey) || service.titleKey)}`}>
-                            {t('nav.bookNow') || 'Reservar'}
+                            {t('nav.bookNow')}
                           </Link>
                         </Button>
                       </div>
@@ -327,3 +338,8 @@ export default function PersonalizedServiceTemplate({
     </>
   );
 }
+
+
+
+
+

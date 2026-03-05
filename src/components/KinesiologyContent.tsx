@@ -24,25 +24,29 @@ export default function KinesiologiaContent() {
           {
             titleKey: 'services.kinesiology.subtitle',
             descriptionKey: 'services.kinesiology.subtitle',
-            image: '/images/kinesiology-1.jpg',
+            detailsKey: 'kinesiology.benefits.balance.details',
+            image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2070', // yoga / balance
             colSpan: 1
           },
           {
             titleKey: 'kinesiology.benefits.posture',
             descriptionKey: 'kinesiology.benefits.posture',
-            image: '/images/kinesiology-2.jpg',
+            detailsKey: 'kinesiology.benefits.posture.details',
+            image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=2070',
             colSpan: 2
           },
           {
             titleKey: 'kinesiology.benefits.stress',
             descriptionKey: 'kinesiology.benefits.stress',
-            image: '/images/kinesiology-3.jpg',
+            detailsKey: 'kinesiology.benefits.stress.details',
+            image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=2070', // calm meditation
             colSpan: 2
           },
           {
             titleKey: 'kinesiology.benefits.energy',
             descriptionKey: 'kinesiology.benefits.energy',
-            image: '/images/kinesiology-4.jpg',
+            detailsKey: 'kinesiology.benefits.energy.details',
+            image: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&q=80&w=2070', // hiking enjoying nature / vital energy
             colSpan: 1
           }
         ]

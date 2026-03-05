@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Calendar, MessageCircle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
@@ -39,10 +39,10 @@ export default function BookingContent() {
     timeSlot: ''
   });
 
-  // Update formData and show form if URL parameter changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const serviceParam = searchParams.get('service');
-    if (serviceParam) {
+    if (serviceParam && serviceParam !== formData.service) { // Only update if it actually changed
       setFormData(prev => ({ ...prev, service: serviceParam }));
       setShowForm(true);
       // Optional: scroll to the form

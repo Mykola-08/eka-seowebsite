@@ -216,8 +216,8 @@ export default function HomeContent() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES_DATA.slice(0, 3).map((service, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {SERVICES_DATA.slice(0, 4).map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}

@@ -114,16 +114,15 @@ export default function CoreServiceTemplate({
         hero={{
           title: t(hero.titleKey),
           subtitle: t(hero.subtitleKey),
-          badge: t(hero.badgeKey),
-          icon: hero.icon ? <hero.icon className="w-4 h-4" /> : undefined,
+
           backgroundImage: serviceData?.image,
           themeColor: theme
         }}
       >
       {/* Bento Grid Section */}
       {bentoGrid && (
-        <section className="py-24 bg-white relative z-10">
-          <div className="max-w-[1400px] mx-auto px-6">
+        <section className="py-16 sm:py-20 lg:py-24 bg-white relative z-10">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-black">
                 {t(bentoGrid.titleKey)}
@@ -134,7 +133,7 @@ export default function CoreServiceTemplate({
                 </p>
               )}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-[1400px] mx-auto">
               {bentoGrid.items.map((item, index) => {
                  let spanClass = "col-span-1";
                  if (item.colSpan === 2) spanClass = "md:col-span-2";
@@ -162,73 +161,91 @@ export default function CoreServiceTemplate({
         </section>
       )}
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Benefits Section - Apple Bento Layout */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#fbfbfd]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">{t(features.titleKey)}</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">{t(features.subtitleKey)}</p>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+              {t(features.titleKey)}
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
+              {t(features.subtitleKey)}
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {features.benefits.map((benefit, index) => (
-              <div key={index} className={`flex gap-4 p-6 rounded-2xl border transition-colors ${benefitStyle}`}>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${iconStyle}`}>
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <span className="text-lg text-gray-700 font-medium pt-2">{benefit}</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-[1400px] mx-auto">
+            {features.benefits.map((benefit, index) => {
+              const title = t(benefit) !== benefit ? t(benefit) : benefit;    
+                return (
+                  <div
+                    key={index}
+                    className="p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-[180px]"
+                  >
+                    <div className="absolute -top-4 -right-4 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500 transform group-hover:scale-110">
+                      <CheckCircle2 className="w-40 h-40" />
+                    </div>
+                      <div className={`w-12 h-12 rounded-xl sm:rounded-2xl flex items-center justify-center mb-6 relative z-10 bg-gray-50 ${iconStyle} shadow-sm group-hover:scale-110 transition-transform duration-500 shrink-0`}>
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 tracking-tight leading-[1.2] relative z-10 w-[95%]">
+                      {title}
+                    </h3>
+                  </div>
+                );
+            })}
           </div>
         </div>
       </section>
 
       {/* Pricing / Duration Section */}
-      <section className="py-24 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-20 lg:py-24 bg-white relative">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">{t(pricing.titleKey)}</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">{t(pricing.subtitleKey)}</p>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+              {t(pricing.titleKey)}
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
+              {t(pricing.subtitleKey)}
+            </p>
           </div>
 
-          <div className={`grid gap-8 max-w-4xl mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+          <div className={`grid gap-6 md:gap-8 max-w-[1200px] mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {pricing.options.map((option, index) => (
-              <div key={index} className="bg-white rounded-[2.5rem] p-10 border border-gray-200/50 hover:border-gray-300 shadow-sm hover:shadow-xl transition duration-300 group text-center flex flex-col items-center relative overflow-hidden">
-                {/* Theme decoration */}
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${theme === 'orange' ? 'from-orange-400 to-amber-500' : theme === 'blue' ? 'from-blue-400 to-indigo-500' : theme === 'green' ? 'from-green-400 to-emerald-500' : theme === 'purple' ? 'from-purple-400 to-violet-500' : 'from-gray-400 to-gray-500'} transition-colors duration-500`} />
-
-                <div className={`flex items-center justify-center mb-8 w-20 h-20 rounded-2xl ${theme === 'orange' ? 'bg-orange-50' : theme === 'blue' ? 'bg-blue-50' : theme === 'green' ? 'bg-green-50' : 'bg-gray-50'} shadow-sm mx-auto transition-colors duration-300`}>
-                  <Clock className={`w-8 h-8 ${theme === 'orange' ? 'text-orange-600' : theme === 'blue' ? 'text-blue-600' : theme === 'green' ? 'text-green-600' : 'text-gray-600'}`} />
-                </div>
+                <div key={index} className="bg-[#fbfbfd] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 hover:border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gray-100 rounded-bl-full z-0 opacity-50 group-hover:bg-blue-50 transition-colors duration-500" />
                 
+                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[1.25rem] bg-white shadow-sm mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
+                  <Clock className="w-7 h-7" />
+                </div>
+
                 {option.nameKey && (
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg font-medium text-gray-500 tracking-tight mb-2 relative z-10">
                          {t(option.nameKey) !== option.nameKey ? t(option.nameKey) : option.nameKey}
                     </h3>
                 )}
 
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  {typeof option.duration === 'number' ? `${option.duration} ${t('common.minutes')}` : option.duration}
+                <h3 className="text-4xl md:text-5xl font-semibold text-gray-900 tracking-tighter mb-4 relative z-10">
+                  {typeof option.duration === 'number' ? `${option.duration}'` : option.duration}
                 </h3>
-                
+
                 {option.descriptionKey && (
-                    <p className="text-gray-600 mb-6 font-light leading-relaxed text-sm">
+                    <p className="text-gray-500 mb-8 font-medium leading-relaxed text-sm max-w-[250px] relative z-10">
                         {t(option.descriptionKey)}
                     </p>
                 )}
-                
+
                 {option.price && (
-                   <div className="mb-8">
-                      <span className="text-4xl font-light text-gray-900">{option.price}€</span>
+                   <div className="mb-8 relative z-10">
+                      <span className="text-4xl font-semibold tracking-tighter text-gray-900">{option.price}€</span>
                    </div>
                 )}
-                
-                <div className="mt-auto w-full">
-                    <Button 
+
+                <div className="mt-auto w-full pt-4 relative z-10">
+                    <Button
                         onClick={() => navigateToBooking()}
                         variant="default"
-                        size="lg"
-                        className="w-full shadow-md hover:shadow-lg transition"
+                        size="xl"
+                        className="w-full rounded-full bg-[#1d1d1f] hover:bg-[#000000] text-white shadow-md hover:shadow-xl transition-all font-medium text-lg"
                     >
                         {t('common.bookNow')}
                     </Button>
@@ -241,8 +258,8 @@ export default function CoreServiceTemplate({
       
       {/* Testimonials (Optional) */}
       {testimonials && testimonials.items.length > 0 && (
-          <section className="py-24 bg-white">
-            <div className="max-w-6xl mx-auto px-6">
+          <section className="py-16 sm:py-20 lg:py-24 bg-white">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     {testimonials.items.map((testimonial, i) => (
@@ -267,3 +284,7 @@ export default function CoreServiceTemplate({
     </>
   );
 }
+
+
+
+

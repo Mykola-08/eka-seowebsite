@@ -9,6 +9,7 @@ import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import ServiceCard from '@/components/ServiceCard';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { SERVICES_DATA } from '@/shared/constants';
 import { ServiceItem } from '@/shared/types';
 
@@ -90,20 +91,28 @@ export default function ChildrenContent() {
       {Hero}
       
       {/* Recommended Services */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <section className="py-24 bg-[#fbfbfd]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
-              <h2 className="heading-2 mb-4 text-gray-900">
+              <h2 className="text-4xl md:text-5xl tracking-tighter font-semibold mb-4 text-gray-900">
                 {t('children.recommended')}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+              <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">
                 {t('children.recommended.desc')}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-               <ServiceCard service={customKinesiology} />
-               <ServiceCard service={customHealth} />
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto">
+               <ServiceBentoItem 
+                  title={t(customKinesiology.titleKey)} 
+                  description={t(customKinesiology.descriptionKey)} 
+                  image={customKinesiology.image} 
+               />
+               <ServiceBentoItem 
+                  title={t(customHealth.titleKey)} 
+                  description={t(customHealth.descriptionKey)} 
+                  image={customHealth.image} 
+               />
             </div>
         </div>
       </section>

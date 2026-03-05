@@ -7,6 +7,7 @@ import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import ServiceCard from '@/components/ServiceCard';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { SERVICES_DATA } from '@/shared/constants';
 import { ServiceItem } from '@/shared/types';
 
@@ -56,20 +57,28 @@ export default function AdultsContent() {
       <PageLayout>
       {HeroCustom}
       
-      <section className="py-16 bg-white relative z-10 -mt-10 rounded-t-[3rem] shadow-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <section className="py-24 bg-[#fbfbfd] relative z-10 -mt-10 rounded-t-[3rem] shadow-xl">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
-              <h2 className="heading-2 mb-4 text-gray-900 font-bold">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-gray-900 tracking-tighter">
                 {t('adult.recommended')}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+              <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium tracking-tight">
                 {t('adult.recommended.desc')}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-               <ServiceCard service={customKinesiology} />
-               <ServiceCard service={customNutrition} />
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto">
+               <ServiceBentoItem 
+                  title={t(customKinesiology.titleKey)} 
+                  description={t(customKinesiology.descriptionKey)} 
+                  image={customKinesiology.image} 
+               />
+               <ServiceBentoItem 
+                  title={t(customNutrition.titleKey)} 
+                  description={t(customNutrition.descriptionKey)} 
+                  image={customNutrition.image} 
+               />
             </div>
         </div>
       </section>

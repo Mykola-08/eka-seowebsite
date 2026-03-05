@@ -27,25 +27,29 @@ export default function NutritionContent() {
           {
             titleKey: 'nutrition.benefits.habits',
             descriptionKey: 'nutrition.benefits.habits',
-            image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+            detailsKey: 'nutrition.benefits.habits.details',
+            image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=2070', // healthy food bowls
             colSpan: 2
           },
           {
             titleKey: 'services.nutrition.subtitle',
             descriptionKey: 'services.nutrition.subtitle',
-            image: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=800',
+            detailsKey: 'nutrition.benefits.knowledge.details',
+            image: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&q=80&w=2070', // fresh ingredients making salad
             colSpan: 1
           },
           {
             titleKey: 'nutrition.benefits.weight',
             descriptionKey: 'nutrition.benefits.weight',
-            image: 'https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg?auto=compress&cs=tinysrgb&w=800',
+            detailsKey: 'nutrition.benefits.weight.details',
+            image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=2070', // fit body / healthy lifestyle
             colSpan: 1
           },
           {
             titleKey: 'nutrition.benefits.prevention',
             descriptionKey: 'nutrition.benefits.prevention',
-            image: 'https://images.pexels.com/photos/333850/pexels-photo-333850.jpeg?auto=compress&cs=tinysrgb&w=800',
+            detailsKey: 'nutrition.benefits.prevention.details',
+            image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=2070', // healthy detox juice / salad bowl
             colSpan: 2
           }
         ]

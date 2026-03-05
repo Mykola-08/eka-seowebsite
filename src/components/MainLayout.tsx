@@ -145,25 +145,12 @@ export default function MainLayout({
       href: '/agenyz'
     },
     {
-      name: t('nav.personalizedServices'),
-      href: '/personalized-services',
-      hasDropdown: true,
-      dropdownItems: [
-        { name: t('nav.officeWorkers'), href: '/services/office-workers' },
-        { name: t('nav.athletes'), href: '/services/athletes' },
-        { name: t('nav.artists'), href: '/services/artists' },
-        { name: t('nav.musicians'), href: '/services/musicians' },
-        { name: t('nav.students'), href: '/services/students' },
-        { name: t('nav.parents'), href: '/services/parents' },
-      ]
-    },
-    {
-      name: t('nav.casos'),
-      href: '/cases'
-    },
-    {
       name: t('nav.revision360'),
       href: '/360-revision'
+    },
+    {
+      name: t('personalizedServices.business') || 'For Business',
+      href: '/for-business'
     },
   ];
 
@@ -449,9 +436,6 @@ export default function MainLayout({
                 </Link>
                 <Link href="/first-time" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
                   {t('hero.firstTime')}
-                </Link>
-                <Link href="/cases" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.casos')}
                 </Link>
               </div>
 

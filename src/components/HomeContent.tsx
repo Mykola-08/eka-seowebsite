@@ -59,52 +59,84 @@ export default function HomeContent() {
       </section>
 
       {/* Bento Grid Collage */}
-      <section className="py-20 bg-secondary overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-sm font-semibold text-primary tracking-wider uppercase mb-3">Benestar Integral</h2>
+            <h3 className="text-3xl md:text-5xl font-semibold text-gray-900 tracking-tight">El teu viatge cap a la salut.</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[320px] md:auto-rows-[280px]">
             {/* Main large visual */}
             <BentoCard href="/services/equilibri" className="md:col-span-2 md:row-span-2">
-              <img src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Integrative Wellness" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-              <div className="absolute bottom-8 left-8 right-8 text-white z-20">
-                <h3 className="text-3xl sm:text-4xl font-semibold mb-3 drop-shadow-md text-white">Equilibri Integral</h3>
-                <p className="text-white/90 text-lg font-medium drop-shadow-md">Harmonia entre cos, ment i benestar en cada sessió.</p>
+              <div className="absolute inset-0 bg-primary/5 z-0" />
+              <Image 
+                src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+                alt="Integrative Wellness" 
+                fill
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col items-start">
+                <span className="text-white inline-flex items-center px-4 py-1.5 rounded-full bg-black/30 backdrop-blur-md text-xs font-semibold mb-4 border border-white/20 truncate">
+                  Servei Destacat
+                </span>
+                <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-tight drop-shadow-lg">Equilibri Integral</h3>
+                <p className="text-white/95 text-lg md:text-xl font-medium max-w-md drop-shadow-md">Harmonia entre cos, ment i benestar en cada sessió.</p>
               </div>
             </BentoCard>
 
             {/* Top right smaller */}
-            <BentoCard href="/services/kinesiology" delay={0.1} className="md:col-span-2 md:row-span-1 bg-blue-50">
-              <div className="absolute inset-0 flex items-center p-8 z-20">
-                <div className="w-full max-w-sm">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 tracking-tight">Kinesiologia Holística</h3>
-                  <p className="text-gray-700 font-medium mb-6">Diagnòstic de precisió per restablir el teu balanç energètic.</p>
-                  <Button variant="outline" className="rounded-full bg-white/90 hover:bg-white text-gray-900 border-gray-200 pointer-events-none shadow-sm">
-                    Descobreix-ne més
-                  </Button>
+            <BentoCard href="/services/kinesiology" delay={0.1} className="md:col-span-2 md:row-span-1">
+              <div className="absolute inset-0 z-0 bg-[#f5f5f7]"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-[60%] md:w-1/2 z-0 overflow-hidden">
+                <Image 
+                  src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Kinesiology" 
+                  fill
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#f5f5f7] via-[#f5f5f7]/80 to-transparent pointer-events-none"></div>
+              </div>
+              <div className="absolute inset-0 flex items-center p-8 md:p-10 z-20">
+                <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%]">
+                  <h3 className="text-gray-900 text-2xl font-bold mb-3 tracking-tight">Kinesiologia Holística</h3>
+                  <p className="text-gray-700 font-medium mb-6 text-sm md:text-base leading-relaxed">Diagnòstic per restablir el teu balanç energètic.</p>
+                  <span className="inline-flex items-center text-sm font-bold text-primary group-hover:text-primary-600 transition-colors">
+                    Descobreix-ne més &rarr;
+                  </span>
                 </div>
               </div>
-              <img src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kinesiology" className="absolute right-0 top-0 bottom-0 w-1/2 object-cover opacity-50 mix-blend-multiply" />
             </BentoCard>
 
             {/* Bottom right split - 1 */}
             <BentoCard href="/services/nutrition" delay={0.2} className="md:col-span-1 md:row-span-1">
-              <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Healthy Lifestyle" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 text-white z-20">
-                <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold tracking-wide shadow-lg border border-white/30 text-white">Nutrició</span>
+              <Image 
+                src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                alt="Healthy Lifestyle" 
+                fill
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
+              <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">
+                <h3 className="text-white text-2xl font-bold mb-2 tracking-tight drop-shadow-md">Nutrició</h3>
+                <p className="text-white/90 text-sm font-medium drop-shadow-sm">Alimenta la teva millor versió</p>
               </div>
             </BentoCard>
 
             {/* Bottom right split - 2 */}
-            <BentoCard href="/cases" delay={0.3} className="md:col-span-1 md:row-span-1 bg-red-50">
-              <div className="absolute inset-0 flex flex-col justify-end p-8 z-20">
-                <div className="mb-auto">
-                  <span className="text-5xl text-red-400 opacity-90 font-serif leading-none">"</span>
-                  <p className="text-gray-900 text-lg font-bold leading-tight mt-2">Un abans i un després en el meu benestar.</p>
+            <BentoCard href="/cases" delay={0.3} className="md:col-span-1 md:row-span-1">
+              <div className="absolute inset-0 z-0 bg-[#fff5f5]"></div>
+              <div className="absolute inset-0 p-8 z-20 flex flex-col">
+                <div className="flex-1">
+                  <svg className="w-8 h-8 text-red-400 mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-gray-900 text-lg font-medium leading-snug">"Un abans i un després en el meu benestar."</p>
                 </div>
-                <div className="mt-4">
-                  <p className="text-sm font-extrabold text-gray-900 uppercase tracking-wide">- Maria G.</p>
-                  <p className="text-xs font-semibold text-gray-500 mt-1">Pacient freqüent</p>
+                <div className="mt-auto pt-4 border-t border-red-100/50">
+                  <p className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Maria G.</p>
+                  <p className="text-xs font-medium text-gray-500 mt-0.5">Pacient freqüent</p>
                 </div>
               </div>
             </BentoCard>
@@ -163,7 +195,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block pt-4">
-                <Button variant="secondary" size="xl" className="text-lg px-8">
+                <Button variant="white" size="xl" className="text-lg px-8 shadow-sm border border-gray-100"> 
                   {t('common.readMore')}
                 </Button>
               </Link>

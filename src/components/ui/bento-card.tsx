@@ -34,7 +34,7 @@ export function BentoCard({
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`relative min-h-[250px] ${className}`}
+      className={`relative h-full w-full ${className}`}
     >
       <motion.div 
         className="w-full h-full"
@@ -42,7 +42,7 @@ export function BentoCard({
         <Link 
           href={href} 
           onMouseMove={handleMouseMove}
-          className="relative block w-full h-full rounded-[2rem] overflow-hidden group outline-none isolate shadow-sm"
+          className="relative block w-full h-full rounded-3xl overflow-hidden group outline-none isolate shadow-sm border border-secondary/50 bg-[#fbfbfd] hover:shadow-md transition-shadow duration-500"
         >
           {/* Spotlight overlay */}
           <motion.div

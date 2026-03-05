@@ -5,6 +5,7 @@ import { CheckCircle2, Star, Clock } from 'lucide-react';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
@@ -31,6 +32,17 @@ interface CoreServiceTemplateProps {
     subtitleKey: string;
     badgeKey: string;
     icon?: React.ElementType;
+  };
+  bentoGrid?: {
+    titleKey: string;
+    subtitleKey?: string;
+    items: Array<{
+      titleKey: string;
+      descriptionKey: string;
+      detailsKey?: string;
+      image?: string;
+      colSpan?: number;
+    }>;
   };
   features: {
     titleKey: string;
@@ -75,6 +87,7 @@ const iconColorMap: Record<string, string> = {
 export default function CoreServiceTemplate({
   serviceId,
   hero,
+  bentoGrid,
   features,
   pricing,
   testimonials,
@@ -107,6 +120,48 @@ export default function CoreServiceTemplate({
           themeColor: theme
         }}
       >
+      {/* Bento Grid Section */}
+      {bentoGrid && (
+        <section className="py-24 bg-white relative z-10">
+          <div className="max-w-[1400px] mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-black">
+                {t(bentoGrid.titleKey)}
+              </h2>
+              {bentoGrid.subtitleKey && (
+                <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto tracking-tight font-medium">
+                  {t(bentoGrid.subtitleKey)}
+                </p>
+              )}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
+              {bentoGrid.items.map((item, index) => {
+                 let spanClass = "col-span-1";
+                 if (item.colSpan === 2) spanClass = "md:col-span-2";
+                 if (item.colSpan === 3) spanClass = "md:col-span-2 lg:col-span-3";
+                 
+                 const title = t(item.titleKey) !== item.titleKey ? t(item.titleKey) : item.titleKey;
+                 const desc = t(item.descriptionKey) !== item.descriptionKey ? t(item.descriptionKey) : item.descriptionKey;
+                 const detailsKey = item.detailsKey || item.descriptionKey;
+                 const details = t(detailsKey) !== detailsKey ? t(detailsKey) : detailsKey;
+
+                 return (
+                   <div key={index} className={spanClass}>
+                     <ServiceBentoItem 
+                       title={title}
+                       description={desc}
+                       image={item.image}
+                       details={<p>{details}</p>}
+                       delay={0.1 * index}
+                     />
+                   </div>
+                 );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Benefits Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">

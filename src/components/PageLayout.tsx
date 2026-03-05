@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -28,50 +29,115 @@ export default function PageLayout({ children, hero, className = '' }: PageLayou
   } | undefined) : undefined;
 
   return (
-    <div className={`min-h-screen bg-white ${className}`}>
+    <div className={`min-h-screen bg-[#fbfbfd] ${className}`}>
       {/* Hero Section */}
       {isCustomHero ? (
         hero
       ) : (heroData && (
-        <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden bg-white">
-          <div className="section-container text-center z-10">
-            {heroData.badge && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center text-sm font-semibold tracking-wide uppercase text-blue-600 mb-4"
-              >
-                {heroData.icon && <span className="mr-2">{heroData.icon}</span>}
-                {heroData.badge}
-              </motion.div>
-            )}
-
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-semibold text-black mb-6 tracking-tight text-balance pb-2"
+        heroData.backgroundImage ? (
+          <section className="relative w-full h-[100svh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden">
+            <motion.div 
+               initial={{ scale: 1.1, opacity: 0 }}
+               animate={{ scale: 1, opacity: 1 }}
+               transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+               className="absolute inset-0 z-0"
             >
-              {heroData.title}
-            </motion.h1>
+              <Image 
+                src={heroData.backgroundImage} 
+                alt={heroData.title} 
+                fill 
+                className="object-cover" 
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 pointer-events-none"></div>
+            </motion.div>
 
-            {heroData.subtitle && (
-              <motion.p
+            <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mt-16">
+              {heroData.badge && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-sm"
+                >
+                  {heroData.icon && <span className="mr-2 text-white">{heroData.icon}</span>}
+                  {heroData.badge}
+                </motion.div>
+              )}
+
+              <motion.h1
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl sm:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed text-balance font-normal"
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-4xl sm:text-6xl lg:text-[5.5rem] font-semibold text-white mb-6 tracking-tighter text-balance pb-2 leading-[1.05]"
               >
-                {heroData.subtitle}
-              </motion.p>
-            )}
-          </div>
-        </section>
+                {heroData.title}
+              </motion.h1>
+
+              {heroData.subtitle && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="text-lg sm:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed text-balance font-medium tracking-tight"
+                >
+                  {heroData.subtitle}
+                </motion.p>
+              )}
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center justify-center animate-bounce"
+            >
+               <div className="w-[30px] h-[50px] rounded-full border-2 border-white/40 flex justify-center p-2">
+                 <div className="w-1.5 h-3 bg-white rounded-full"></div>
+               </div>
+            </motion.div>
+          </section>
+        ) : (
+          <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden bg-[#fbfbfd]">
+            <div className="section-container text-center z-20 relative max-w-4xl mx-auto px-6">
+              {heroData.badge && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6 bg-white/50 backdrop-blur-md border border-gray-200 px-4 py-1.5 rounded-full shadow-sm"
+                >
+                  {heroData.icon && <span className="mr-2 text-gray-700">{heroData.icon}</span>}
+                  {heroData.badge}
+                </motion.div>
+              )}
+
+              <motion.h1
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-4xl sm:text-6xl lg:text-[5.5rem] font-semibold text-black mb-6 tracking-tighter text-balance pb-2 leading-[1.05]"
+              >
+                {heroData.title}
+              </motion.h1>
+
+              {heroData.subtitle && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-lg sm:text-2xl text-gray-500/90 max-w-3xl mx-auto leading-relaxed text-balance font-medium tracking-tight"
+                >
+                  {heroData.subtitle}
+                </motion.p>
+              )}
+            </div>
+          </section>
+        )
       ))}
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative z-20 bg-white rounded-t-[3rem] -mt-8 pt-12 pb-24 shadow-[0_-20px_40px_rgba(0,0,0,0.05)]">
         {children}
       </main>
     </div>

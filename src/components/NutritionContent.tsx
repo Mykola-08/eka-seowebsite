@@ -20,6 +20,36 @@ export default function NutritionContent() {
         badgeKey: 'services.nutrition.subtitle',
         icon: Leaf
       }}
+      bentoGrid={{
+        titleKey: 'nutrition.page.benefitsTitle',
+        subtitleKey: 'nutrition.page.benefitsSubtitle',
+        items: [
+          {
+            titleKey: 'nutrition.benefits.habits',
+            descriptionKey: 'nutrition.benefits.habits',
+            image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+            colSpan: 2
+          },
+          {
+            titleKey: 'services.nutrition.subtitle',
+            descriptionKey: 'services.nutrition.subtitle',
+            image: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=800',
+            colSpan: 1
+          },
+          {
+            titleKey: 'nutrition.benefits.weight',
+            descriptionKey: 'nutrition.benefits.weight',
+            image: 'https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg?auto=compress&cs=tinysrgb&w=800',
+            colSpan: 1
+          },
+          {
+            titleKey: 'nutrition.benefits.prevention',
+            descriptionKey: 'nutrition.benefits.prevention',
+            image: 'https://images.pexels.com/photos/333850/pexels-photo-333850.jpeg?auto=compress&cs=tinysrgb&w=800',
+            colSpan: 2
+          }
+        ]
+      }}
       seoKeys={{
         title: 'seo.nutrition.title',
         description: 'seo.nutrition.description',

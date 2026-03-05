@@ -84,6 +84,22 @@ export const SERVICES_DATA: ServiceItem[] = [
 
 export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
   {
+    id: 'business',
+    titleKey: 'personalizedServices.business',
+    descriptionKey: 'personalizedServices.business.desc',
+    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+    color: 'blue',
+    href: '/for-business',
+    benefitsKeys: [
+      'personalizedServices.business.benefit1',
+      'personalizedServices.business.benefit2',
+      'personalizedServices.business.benefit3'
+    ],
+    resultKey: 'personalizedServices.business.result',
+    price: 0,
+    duration: 'Custom'
+  },
+  {
     id: 'office-workers',
     titleKey: 'personalizedServices.officeWorkers', // Офисные работники
     descriptionKey: 'personalizedServices.officeWorkers.desc',

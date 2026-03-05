@@ -17,6 +17,30 @@ export default function MassageContent() {
         badgeKey: 'services.massage.subtitle',
         icon: Heart
       }}
+      bentoGrid={{
+        titleKey: 'massage.bento.title',
+        subtitleKey: 'massage.bento.subtitle',
+        items: [
+          {
+            titleKey: 'massage.techniques.deepTissue',
+            descriptionKey: 'massage.techniques.deepTissue.desc',
+            image: '/images/massage-deep.jpg',
+            colSpan: 2
+          },
+          {
+            titleKey: 'massage.techniques.recovery',
+            descriptionKey: 'massage.techniques.recovery.desc',
+            image: '/images/massage-sports.jpg',
+            colSpan: 1
+          },
+          {
+            titleKey: 'massage.techniques.relaxation',
+            descriptionKey: 'massage.techniques.relaxation.desc',
+            image: '/images/massage-relax.jpg',
+            colSpan: 3
+          }
+        ]
+      }}
       seoKeys={{
         title: 'seo.massage.title',
         description: 'seo.massage.description',

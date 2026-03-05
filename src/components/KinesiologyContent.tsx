@@ -17,6 +17,36 @@ export default function KinesiologiaContent() {
         badgeKey: 'services.kinesiology.subtitle',
         icon: Brain
       }}
+      bentoGrid={{
+        titleKey: 'kinesiology.page.benefitsTitle',
+        subtitleKey: 'kinesiology.page.benefitsSubtitle',
+        items: [
+          {
+            titleKey: 'services.kinesiology.subtitle',
+            descriptionKey: 'services.kinesiology.subtitle',
+            image: '/images/kinesiology-1.jpg',
+            colSpan: 1
+          },
+          {
+            titleKey: 'kinesiology.benefits.posture',
+            descriptionKey: 'kinesiology.benefits.posture',
+            image: '/images/kinesiology-2.jpg',
+            colSpan: 2
+          },
+          {
+            titleKey: 'kinesiology.benefits.stress',
+            descriptionKey: 'kinesiology.benefits.stress',
+            image: '/images/kinesiology-3.jpg',
+            colSpan: 2
+          },
+          {
+            titleKey: 'kinesiology.benefits.energy',
+            descriptionKey: 'kinesiology.benefits.energy',
+            image: '/images/kinesiology-4.jpg',
+            colSpan: 1
+          }
+        ]
+      }}
       seoKeys={{
         title: 'seo.kinesiology.title',
         description: 'seo.kinesiology.description',

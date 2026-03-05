@@ -36,20 +36,20 @@ export default function MainLayout({
     }
   }, [pathname, logPageView]);
 
-  const [showPersonalServices, setShowPersonalServices] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showMobileCTA, setShowMobileCTA] = useState(false);
-  const personalServicesRef = useClickOutside<HTMLDivElement>(() => setShowPersonalServices(false));
+  const navRef = useClickOutside<HTMLDivElement>(() => setActiveDropdown(null));
 
   // Hover intent management for dropdown
   const [hideTimeout, setHideTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
-  const openDropdown = () => {
+  const openDropdown = (id: string) => {
     if (hideTimeout) {
       clearTimeout(hideTimeout);
       setHideTimeout(null);
     }
-    setShowPersonalServices(true);
+    setActiveDropdown(id);
   };
 
   const scheduleHide = () => {
@@ -57,7 +57,7 @@ export default function MainLayout({
       clearTimeout(hideTimeout);
     }
     const timeout = setTimeout(() => {
-      setShowPersonalServices(false);
+      setActiveDropdown(null);
     }, 220);
     setHideTimeout(timeout);
   };
@@ -119,17 +119,26 @@ export default function MainLayout({
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-white/70 backdrop-blur-xl border-gray-200/50 shadow-sm'
+    ? 'bg-white/70 backdrop-blur-2xl border-gray-200/50 shadow-sm'
     : 'bg-transparent';
 
   const dropdownSurfaceClass = isScrolled
-    ? 'bg-white/60 backdrop-blur-xl border-gray-200/40 shadow-lg'
-    : 'bg-white/40 backdrop-blur-lg border-gray-200/30';
+    ? 'bg-white/70 backdrop-blur-2xl border border-gray-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)]'
+    : 'bg-white/50 backdrop-blur-xl border border-gray-200/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)]';
 
   const navigation: NavItem[] = [
     {
       name: t('nav.services'),
-      href: '/services'
+      href: '/services',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: t('services.massage.title') || 'Massage', href: '/services/massage' },
+        { name: t('services.kinesiology.title') || 'Kinesiology', href: '/services/kinesiology' },
+        { name: t('services.nutrition.title') || 'Nutrition', href: '/services/nutrition' },
+        { name: t('service.supplements.title') || 'Supplements', href: '/services/supplements' },
+        { name: t('service.systemic.title') || 'Systemic', href: '/services/systemic' },
+        { name: t('services.revision360.title') || '360° Revision', href: '/360-revision' },
+      ]
     },
     {
       name: 'Agenyz',
@@ -181,15 +190,15 @@ export default function MainLayout({
             <div className="hidden md:flex items-center justify-center space-x-8">
               {navigation.map(item => (
                 <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative flex items-center h-full' : 'flex items-center h-full'}`}
-                  ref={item.hasDropdown ? personalServicesRef : undefined}>
+                  ref={item.hasDropdown ? navRef : undefined}>
                   {item.hasDropdown ? (
                     <>
                       <Link
                         href={item.href}
                         className="nav-trigger text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 flex items-center tracking-tight"
-                        onMouseEnter={openDropdown}
+                        onMouseEnter={() => openDropdown(item.name)}
                         onMouseLeave={scheduleHide}
-                        onFocus={openDropdown}
+                        onFocus={() => openDropdown(item.name)}
                         onBlur={scheduleHide}
                         suppressHydrationWarning
                       >
@@ -199,31 +208,31 @@ export default function MainLayout({
                       {/* Hover bridge for seamless navigation */}
                       <div
                         className="hover-bridge"
-                        onMouseEnter={openDropdown}
+                        onMouseEnter={() => openDropdown(item.name)}
                         onMouseLeave={scheduleHide}
                         aria-hidden="true"
                       />
 
                       {/* Dropdown menu with refined frosted glass aesthetic */}
                       <div
-                        className={`nav-dropdown ${showPersonalServices ? 'is-open opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} ${dropdownSurfaceClass} border border-t-0 rounded-b-3xl p-3 min-w-[240px] absolute top-full left-1/2 -translate-x-1/2 mt-0 origin-top transition-all duration-300 ease-out z-50`}
-                        onMouseEnter={openDropdown}
+                        className={`nav-dropdown ${activeDropdown === item.name ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${dropdownSurfaceClass} p-2 min-w-[240px] absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 mt-0 origin-top transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] z-50 rounded-[20px]`}
+                        onMouseEnter={() => openDropdown(item.name)}
                         onMouseLeave={scheduleHide}
                         onKeyDown={(e) => {
                           if (e.key === 'Escape') {
-                            setShowPersonalServices(false);
+                            setActiveDropdown(null);
                           }
                         }}
                         role="menu"
                         aria-label={`${item.name} submenu`}
                       >
-                        <div className="py-2">
+                        <div className="py-2 px-1">
                           {item.dropdownItems?.map((dropdownItem) => (
                             <Link
                               key={dropdownItem.name}
                               href={dropdownItem.href}
-                              onClick={() => setShowPersonalServices(false)}
-                              className="block px-3 py-2.5 text-[13px] text-gray-600 hover:text-black hover:font-medium hover:bg-white/40 hover:backdrop-blur-sm rounded-lg transition-all duration-150 tracking-tight"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-2.5 mx-1 text-[13px] text-gray-600 hover:text-black hover:font-medium hover:bg-black/5 hover:backdrop-blur-sm rounded-lg transition-all duration-150 tracking-tight"
                               role="menuitem"
                               suppressHydrationWarning
                             >
@@ -413,32 +422,69 @@ export default function MainLayout({
           </div>
 
           {/* Footer Links */}
-          <div className="mb-8">
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-              <Link
-                href="/discounts"
-                className="text-gray-500 hover:text-black transition-colors duration-200 text-xs"
-              >
-                {t('footer.discounts')}
-              </Link>
-              <Link
-                href="/privacy-policy"
-                className="text-gray-500 hover:text-black transition-colors duration-200 text-xs"
-              >
-                {t('footer.privacyPolicy')}
-              </Link>
-              <Link
-                href="/cookie-policy"
-                className="text-gray-500 hover:text-black transition-colors duration-200 text-xs"
-              >
-                {t('footer.cookiePolicy')}
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-gray-500 hover:text-black transition-colors duration-200 text-xs"
-              >
-                {t('footer.termsOfService')}
-              </Link>
+          <div className="mb-10 w-full max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left mb-8 px-4">
+              {/* Column 1: Core Services */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">{t('nav.services')}</h4>
+                <Link href="/services" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.services')}
+                </Link>
+                <Link href="/personalized-services" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.personalizedServices')}
+                </Link>
+                <Link href="/for-business" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('personalizedServices.business')}
+                </Link>
+                <Link href="/vip" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.vip')}
+                </Link>
+              </div>
+
+              {/* Column 2: Specific Modalities */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">EKA Balance</h4>
+                <Link href="/360-revision" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.revision360')}
+                </Link>
+                <Link href="/first-time" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('hero.firstTime')}
+                </Link>
+                <Link href="/cases" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.casos')}
+                </Link>
+              </div>
+
+              {/* Column 3: Company */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">{t('nav.aboutElena')}</h4>
+                <Link href="/about-elena" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.aboutElena')}
+                </Link>
+                <Link href="/contact" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.contact')}
+                </Link>
+                <Link href="/booking" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm font-medium text-primary">
+                  {t('nav.bookNow')}
+                </Link>
+              </div>
+
+              {/* Column 4: Resources */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">Legal</h4>
+                <Link href="/discounts" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.discounts')}
+                </Link>
+                <Link href="/privacy-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.privacyPolicy')}
+                </Link>
+                <Link href="/cookie-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.cookiePolicy')}
+                </Link>
+                <Link href="/terms-of-service" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.termsOfService')}
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -479,3 +525,5 @@ export default function MainLayout({
     </div>
   );
 }
+
+

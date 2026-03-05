@@ -2,6 +2,29 @@ import { Language } from './LanguageTypes';
 
 export const bentoTranslations: Record<Language, Record<string, string>> = {
   ca: {
+    'home.bento.badge': 'Benestar Integral',
+    'home.bento.title': 'El teu viatge cap a la salut.',
+    'home.bento.featured': 'Servei Destacat',
+    'home.bento.equilibri.title': 'Equilibri Integral',
+    'home.bento.equilibri.desc': 'Harmonia entre cos, ment i benestar en cada sessió.',
+    'home.bento.kinesiology.title': 'Kinesiologia Holística',
+    'home.bento.kinesiology.desc': 'Diagnòstic per restablir el teu balanç energètic.',
+    'home.bento.explore': 'Descobreix-ne més \u2192',
+    'home.bento.nutrition.title': 'Nutrició',
+    'home.bento.nutrition.desc': 'Alimenta la teva millor versió',
+    'home.bento.testimonial.quote': '"Un abans i un després en el meu benestar."',
+    'home.bento.testimonial.author': 'Maria G.',
+    'home.bento.testimonial.role': 'Pacient freqüent',
+
+    'massage.bento.title': 'Tècniques Especialitzades',
+    'massage.bento.subtitle': 'Teràpia personalitzada per a una recuperació òptima.',
+    'massage.techniques.deepTissue': 'Teixit Profund',
+    'massage.techniques.deepTissue.desc': 'Alliberament de tensions i nusos crònics.',
+    'massage.techniques.recovery': 'Recuperació Esportiva',
+    'massage.techniques.recovery.desc': 'Preparació i descàrrega muscular.',
+    'massage.techniques.relaxation': 'Relaxació Profunda',
+    'massage.techniques.relaxation.desc': 'Calma el teu sistema nerviós i l\'estrès.',
+
     'massage.techniques.deepTissue.details': 'Focus en les capes més profundes del teixit muscular, descomponent nusos i adherències. Ideal per a la tensió crònica i la recuperació atlètica, proporciona un alliberament immediat de les restriccions musculars i articulatories més tossudes.',
     'massage.techniques.recovery.details': 'Una fusió d\'estiraments, compressions i cops específics dissenyats per eliminar la fatiga miofascial i el dolor post-entrenament. Accelera l\'eliminació de l\'àcid làctic i restaura la fluïdesa del teixit per a un millor rendiment esportiu i funcionalitat.',
     'massage.techniques.relaxation.details': 'Incorporant moviments fluids i rítmics amb una pressió controlada per calmar el sistema nerviós, alleujar l\'estrès acumulat i promoure un son i una regeneració de qualitat. Restaura l\'equilibri entre el cos actiu i el repòs.',

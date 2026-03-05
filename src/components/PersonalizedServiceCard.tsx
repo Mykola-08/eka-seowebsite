@@ -22,7 +22,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   return (
-    <Card className="group h-full flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100/50">
+    <Card className="group h-full flex flex-col bg-white rounded-3xl overflow-hidden   transition-shadow duration-300 border border-gray-100/50">
        <div className="p-6 sm:p-8 pb-0">
           <div className="relative h-64 sm:h-72 overflow-hidden rounded-2xl mb-6">
               <LazyImage

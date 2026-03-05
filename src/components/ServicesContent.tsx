@@ -29,15 +29,16 @@ export default function ServicesContent() {
           subtitle: t('services.wellnessPath'),
           icon: <Heart className="w-4 h-4" />
         }}
-        className="bg-white"
+        className="bg-[#fbfbfd]"
+        mainClassName="bg-transparent"
       >
         {/* Quick CTA */}
-        <div className="flex justify-center -mt-8 mb-16 relative z-20 px-6">
+        <div className="bg-white rounded-[3rem] shadow-sm relative z-20 mx-4 sm:mx-8 px-6 py-12 mb-16 max-w-5xl xl:mx-auto flex flex-col items-center">
           <Link href="/booking">
             <Button
               size="xl"
               variant="default"
-              className="px-8 py-4 shadow-sm"
+              className="px-8 py-4 "
             >
               {t('common.bookNow')}
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -45,8 +46,8 @@ export default function ServicesContent() {
           </Link>
         </div>
 
-        {/* Services Grid (Core) - Gray Background */}
-        <section className="py-24 bg-secondary">
+        {/* Services Grid (Core) - Transparent Background */}
+        <section className="py-16">
           <div className="section-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
@@ -74,10 +75,10 @@ export default function ServicesContent() {
         </section>
 
         {/* Disclaimer */}
-        <section className="py-16 bg-secondary border-t border-gray-200/50">
+        <section className="py-16 bg-transparent">
           <div className="section-container">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="bg-white p-8 rounded-3xl border border-gray-200/50 shadow-sm">
+              <div className="bg-white p-8 rounded-3xl border border-gray-200/50 ">
                 <p className="text-sm text-gray-500 leading-relaxed font-medium">
                   <span className="font-semibold text-gray-900 block mb-2 text-base">{t('services.disclaimerPrefix')}:</span>
                   {t('services.disclaimerBody')}

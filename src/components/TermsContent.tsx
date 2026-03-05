@@ -15,7 +15,7 @@ export default function TermsContent() {
         }}
     >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
-            <Card className="shadow-xl shadow-blue-900/5 bg-white overflow-hidden">
+            <Card className="  bg-white overflow-hidden">
                 <CardContent className="p-8 md:p-12">
 
                 {/* Introduction */}

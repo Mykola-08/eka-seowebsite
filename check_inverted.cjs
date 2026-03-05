@@ -28,4 +28,4 @@ for (const k of codeKeys) {
   }
 }
 console.log("Truly undefined keys:", stillUndefined.length);
-console.log(stillUndefined);
+fs.writeFileSync("true-undefined.json", JSON.stringify(stillUndefined, null, 2));

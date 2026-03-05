@@ -40,14 +40,14 @@ export default function AppleHero() {
       {/* Content Layer - Centered Text */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-12 sm:mb-16">
         <AnimateIn delay={0.1} duration={0.8} from="bottom">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60 shadow-sm backdrop-blur-md mb-8">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60  backdrop-blur-md mb-8">
             <Sparkles className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-medium text-gray-800 tracking-wide">EKA Balance Method</span>
           </div>
         </AnimateIn>
 
         <AnimateIn delay={0.2} duration={0.8} from="bottom">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-gray-900 drop-shadow-sm">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-gray-900 ">
             {t('hero.title')}
           </h1>
         </AnimateIn>
@@ -65,7 +65,7 @@ export default function AppleHero() {
               asChild
               variant="default"
               size="xl"
-              className="px-8 py-6 text-lg h-auto rounded-full w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300"
+              className="px-8 py-6 text-lg h-auto rounded-full w-full sm:w-auto   transition-all duration-300"
               onClick={() => logEvent('hero_first_time_click')}
             >
               <Link href="/first-time">
@@ -90,7 +90,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style */}
-      <div className="relative w-full max-w-[90%] md:max-w-6xl aspect-video md:aspect-[21/9] rounded-[32px] md:rounded-[48px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.08)] mx-auto group">
+      <div className="relative w-full max-w-[90%] md:max-w-6xl aspect-video md:aspect-[21/9] rounded-[32px] md:rounded-[48px] overflow-hidden _20px_40px_rgba(0,0,0,0.08)] mx-auto group">
         {heroImages.map((image, index) => (
           <div
             key={image}

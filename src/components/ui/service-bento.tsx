@@ -55,7 +55,7 @@ export function ServiceBentoItem({
         <button
           onClick={() => setIsOpen(true)}
           onMouseMove={handleMouseMove}
-          className="relative text-left flex flex-col justify-end w-full h-full min-h-[420px] rounded-[2.5rem] overflow-hidden group outline-none isolate shadow-sm border border-secondary/50 bg-[#fbfbfd] hover:shadow-xl transition-all duration-500 will-change-transform active:scale-[0.98]"
+          className="relative text-left flex flex-col justify-end w-full h-full min-h-[420px] rounded-[2.5rem] overflow-hidden group outline-none isolate  border border-secondary/50 bg-[#fbfbfd]  transition-all duration-500 will-change-transform active:scale-[0.98]"
         >
           {/* Spotlight overlay */}
           <motion.div
@@ -101,7 +101,7 @@ export function ServiceBentoItem({
                  </div>
                )}
              </motion.div>
-             <div className={`absolute bottom-8 right-8 flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-md border transition-all duration-500 group-hover:scale-110 group-hover:bg-opacity-100 group-active:scale-95 z-20 shadow-lg ${image ? 'bg-white/20 border-white/40 text-white group-hover:bg-white group-hover:text-black group-hover:border-white' : 'bg-black/5 border-black/10 text-black group-hover:bg-black group-hover:text-white group-hover:border-black'}`}
+             <div className={`absolute bottom-8 right-8 flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-md border transition-all duration-500 group-hover:scale-110 group-hover:bg-opacity-100 group-active:scale-95 z-20  ${image ? 'bg-white/20 border-white/40 text-white group-hover:bg-white group-hover:text-black group-hover:border-white' : 'bg-black/5 border-black/10 text-black group-hover:bg-black group-hover:text-white group-hover:border-black'}`}
              >
                 <svg className="w-6 h-6 transition-transform duration-500 group-hover:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -126,7 +126,7 @@ export function ServiceBentoItem({
                animate={{ opacity: 1, scale: 1, y: 0 }}
                exit={{ opacity: 0, scale: 0.95, y: 10 }}
                transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-               className="relative w-full max-w-5xl bg-white rounded-[2.5rem] overflow-hidden shadow-2xl z-10 max-h-[95vh] md:h-[80vh] flex flex-col"
+               className="relative w-full max-w-5xl bg-white rounded-[2.5rem] overflow-hidden  z-10 max-h-[95vh] md:h-[80vh] flex flex-col"
                onClick={(e) => e.stopPropagation()}
             >
                <button 

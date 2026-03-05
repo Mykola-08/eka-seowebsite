@@ -65,7 +65,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden relative"
+        className="bg-white dark:bg-zinc-900 rounded-3xl  max-w-lg w-full overflow-hidden relative"
       >
         <button
           onClick={onClose}
@@ -194,7 +194,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium shadow-lg shadow-green-600/20 transition-colors flex items-center justify-center"
+                    className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium   transition-colors flex items-center justify-center"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {t('booking.smart.send')}

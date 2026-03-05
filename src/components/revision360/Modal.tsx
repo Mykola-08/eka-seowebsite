@@ -57,7 +57,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
           />
           <div className="flex min-h-full items-center justify-center p-4 sm:p-6 lg:p-8">
             <motion.div 
-              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-2xl bg-white border border-gray-200 shadow-2xl shadow-gray-200/50`}
+              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-2xl bg-white border border-gray-200  `}
               initial={{ 
                 opacity: 0, 
                 scale: 0.95,

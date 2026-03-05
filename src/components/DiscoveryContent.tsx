@@ -600,14 +600,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <div className="inline-flex bg-gray-100 p-1 rounded-xl mb-8">
                 <button
                   onClick={() => setViewMode('basic')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'basic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'basic' ? 'bg-white text-gray-900 ' : 'text-gray-500 hover:text-gray-700'
                     }`}
                 >
                   {t('discovery.view.basic')}
                 </button>
                 <button
                   onClick={() => setViewMode('advanced')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'advanced' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'advanced' ? 'bg-white text-gray-900 ' : 'text-gray-500 hover:text-gray-700'
                     }`}
                 >
                   {t('discovery.view.advanced')}
@@ -616,10 +616,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             </div>
 
             {viewMode === 'basic' ? (
-              <div className={`bg-white rounded-3xl shadow-xl border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
+              <div className={`bg-white rounded-3xl  border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
                 <div className="text-center mb-8">
                   {Icon && (
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ">
                       <Icon className="w-10 h-10 text-gray-700" />
                     </div>
                   )}
@@ -683,7 +683,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center  "
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {t('booking.direct.button')}
@@ -697,7 +697,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8 sm:p-12 mb-8">
+              <div className="bg-white rounded-3xl  border border-gray-200 p-8 sm:p-12 mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center justify-center">
                   <ClipboardList className="w-6 h-6 mr-3 text-blue-600" />
                   {t('discovery.diagnosis.title')}
@@ -715,7 +715,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
                     <div className="flex flex-wrap gap-2">
                       {recommendation.diagnosis?.symptoms.map((s, i) => (
-                        <span key={i} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700 shadow-sm">
+                        <span key={i} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700 ">
                           {s}
                         </span>
                       ))}
@@ -745,7 +745,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center  "
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {t('booking.direct.button')}
@@ -810,7 +810,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-12">
+          <div className="bg-white rounded-3xl  border border-gray-100 p-8 sm:p-12">
 
             {/* Step 0: Location */}
             {currentStep === 0 && (
@@ -827,7 +827,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       <button
                         key={loc.id}
                         onClick={() => setFormData({ ...formData, location: loc.id })}
-                        className={`text-center p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg flex flex-col items-center justify-center ${formData.location === loc.id
+                        className={`text-center p-6 rounded-2xl border-2 transition duration-200  flex flex-col items-center justify-center ${formData.location === loc.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
                           }`}
@@ -877,7 +877,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={type.id}
                       onClick={() => setFormData({ ...formData, userType: type.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.userType === type.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.userType === type.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -938,7 +938,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={state.id}
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.emotionalState === state.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.emotionalState === state.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -964,7 +964,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={time.id}
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.timeCommitment === time.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.timeCommitment === time.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
@@ -990,7 +990,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <button
                       key={budget.id}
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200 hover:shadow-lg ${formData.budget === budget.id
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.budget === budget.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}

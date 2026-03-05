@@ -85,7 +85,7 @@ export default function Why360Section() {
             <h3 className="text-xl font-bold text-gray-900 mb-4">{t('revision360.why360.modal.dimensions.title')}</h3>
             <div className="grid gap-4 sm:grid-cols-2">
               {layers.map((layer) => (
-                <div key={layer.name} className="rounded-xl border border-gray-100 bg-gray-50 p-5 hover:bg-white hover:shadow-sm transition">
+                <div key={layer.name} className="rounded-xl border border-gray-100 bg-gray-50 p-5 hover:bg-white  transition">
                   <p className="font-bold text-gray-900 mb-1">{layer.name}</p>
                   <p className="text-sm text-gray-500">{layer.description}</p>
                 </div>

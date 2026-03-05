@@ -10,17 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-white hover:bg-primary-600 shadow-none border border-transparent",
+          "bg-primary text-white hover:bg-primary-600  border border-transparent",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-none",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 ",
         outline:
-          "border border-primary bg-transparent text-primary hover:bg-primary/5 shadow-none",
+          "border border-primary bg-transparent text-primary hover:bg-primary/5 ",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-none border border-transparent",
-        ghost: "hover:bg-accent hover:text-accent-foreground shadow-none",
-        link: "text-primary underline-offset-4 hover:underline shadow-none",
-        white: "bg-white text-black hover:bg-gray-100 shadow-none border-transparent",
-        "white-outline": "bg-transparent text-white border border-white hover:bg-white/10 shadow-none",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80  border border-transparent",
+        ghost: "hover:bg-accent hover:text-accent-foreground ",
+        link: "text-primary underline-offset-4 hover:underline ",
+        white: "bg-white text-black hover:bg-gray-100  border-transparent",
+        "white-outline": "bg-transparent text-white border border-white hover:bg-white/10 ",
       },
       size: {
         default: "h-10 px-5 py-2.5", // slightly larger touch target

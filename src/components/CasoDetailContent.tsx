@@ -92,7 +92,7 @@ export default function CasoDetailContent() {
             {t('casos.title')}
           </Link>
 
-          <div className={`w-24 h-24 mx-auto rounded-[24px] ${accentColorClass} flex items-center justify-center mb-8 shadow-sm`}>
+          <div className={`w-24 h-24 mx-auto rounded-[24px] ${accentColorClass} flex items-center justify-center mb-8 `}>
             <Icon className="w-12 h-12" />
           </div>
 
@@ -136,7 +136,7 @@ export default function CasoDetailContent() {
               </h2>
               <ul className="space-y-4">
                 {causes.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                  <li key={idx} className="p-6 rounded-2xl bg-white border border-gray-100 ">
                     <p className="text-gray-600 text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}

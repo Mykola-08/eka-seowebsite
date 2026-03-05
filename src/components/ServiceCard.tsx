@@ -23,7 +23,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const { t } = useLanguage();
 
   return (
-    <Card className="group h-full flex flex-col rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100/50 bg-white">
+    <Card className="group h-full flex flex-col rounded-3xl overflow-hidden   transition-shadow duration-300 border border-gray-100/50 bg-white">
       <div className="p-6 pb-0">
         <div className="relative h-56 sm:h-64 overflow-hidden rounded-2xl mb-6">
           <LazyImage

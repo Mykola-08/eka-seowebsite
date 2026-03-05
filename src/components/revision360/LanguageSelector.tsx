@@ -50,7 +50,7 @@ export default function LanguageSelector() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute bottom-full right-0 mb-2 w-40 bg-zinc-900 border border-amber-500/20 rounded-lg shadow-xl overflow-hidden z-50"
+            className="absolute bottom-full right-0 mb-2 w-40 bg-zinc-900 border border-amber-500/20 rounded-lg  overflow-hidden z-50"
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}

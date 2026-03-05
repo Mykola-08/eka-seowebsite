@@ -15,9 +15,10 @@ interface PageLayoutProps {
     themeColor?: string;
   };
   className?: string;
+  mainClassName?: string;
 }
 
-export default function PageLayout({ children, hero, className = '' }: PageLayoutProps) {
+export default function PageLayout({ children, hero, className = '', mainClassName = 'bg-white rounded-t-[3rem]' }: PageLayoutProps) {
   const isCustomHero = React.isValidElement(hero);
   const heroData = !isCustomHero ? (hero as {
     title: string;
@@ -58,7 +59,7 @@ export default function PageLayout({ children, hero, className = '' }: PageLayou
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-sm"
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full "
                 >
                   {heroData.icon && <span className="mr-2 text-white">{heroData.icon}</span>}
                   {heroData.badge}
@@ -105,7 +106,7 @@ export default function PageLayout({ children, hero, className = '' }: PageLayou
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6 bg-white/50 backdrop-blur-md border border-gray-200 px-4 py-1.5 rounded-full shadow-sm"
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6 bg-white/50 backdrop-blur-md border border-gray-200 px-4 py-1.5 rounded-full "
                 >
                   {heroData.icon && <span className="mr-2 text-gray-700">{heroData.icon}</span>}
                   {heroData.badge}
@@ -137,7 +138,7 @@ export default function PageLayout({ children, hero, className = '' }: PageLayou
       ))}
 
       {/* Main Content */}
-      <main className="relative z-20 bg-white rounded-t-[3rem] -mt-8 pt-12 pb-24 shadow-[0_-20px_40px_rgba(0,0,0,0.05)]">
+      <main className={`relative z-20 -mt-8 pt-12 pb-24 ${mainClassName}`}>
         {children}
       </main>
     </div>

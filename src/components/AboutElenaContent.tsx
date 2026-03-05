@@ -40,7 +40,7 @@ export default function AboutElenaContent() {
           <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
             {/* Subtle glow behind */}
             <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-3xl opacity-60 scale-110" />
-            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100 shadow-2xl">
+            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100 ">
               <Image
                 src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}

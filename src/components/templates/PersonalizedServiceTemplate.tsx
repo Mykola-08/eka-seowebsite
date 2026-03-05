@@ -190,12 +190,12 @@ export default function PersonalizedServiceTemplate({
           themeColor: serviceData?.color || 'orange'
         }}
       >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center -mt-8 mb-16 relative z-20">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 mb-16 relative z-20">
           <Button
             asChild
             size="xl"
             variant="default"
-            className="shadow-xl"
+            
           >
             <Link href={`/booking?service=${encodeURIComponent(t(`${translationKey}.hero.title`))}`}>
               {t('nav.bookNow')}
@@ -224,7 +224,7 @@ export default function PersonalizedServiceTemplate({
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1400px] mx-auto">
               {/* Description 1 - Large box */}
-              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden group">
+              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100   transition-all duration-500 relative overflow-hidden group">
                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
                  <p className="text-2xl md:text-3xl text-gray-800 font-medium leading-tight relative z-10 text-balance">
                     {t(`${translationKey}.understanding.description1`)}
@@ -241,7 +241,7 @@ export default function PersonalizedServiceTemplate({
 
               {/* Benefits Box */}
               {benefits.length > 0 && (
-                <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] ${theme.bg} ${theme.border} border shadow-sm transition-all duration-500 flex flex-col justify-center`}>
+                <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] ${theme.bg} ${theme.border} border  transition-all duration-500 flex flex-col justify-center`}>
                   <h3 className={`font-semibold text-2xl mb-6 tracking-tight ${theme.text}`}>
                     {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
                   </h3>
@@ -268,7 +268,7 @@ export default function PersonalizedServiceTemplate({
               </h2>
               <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                 {validSteps.map((step, index) => (
-                    <div key={index} className={`rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 ${theme.stepsBg} shadow-sm group hover:shadow-xl transition-all duration-500`}>
+                    <div key={index} className={`rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 ${theme.stepsBg}  group  transition-all duration-500`}>
                     <div className={`w-14 h-14 rounded-2xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-2xl font-semibold mb-8 group-hover:scale-110 transition-transform duration-500`}>
                       {index + 1}
                     </div>
@@ -299,7 +299,7 @@ export default function PersonalizedServiceTemplate({
 
             <div className={`grid md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:gap-8`}>
               {recommendedServices.map((service, index) => (
-                  <div key={index} className="bg-white rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl p-6 sm:p-8 md:p-10 group flex flex-col h-full relative overflow-hidden">
+                  <div key={index} className="bg-white rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100  transition-all duration-500  p-6 sm:p-8 md:p-10 group flex flex-col h-full relative overflow-hidden">
                   <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
                   
                   <div className="flex flex-col h-full relative z-10">
@@ -318,7 +318,7 @@ export default function PersonalizedServiceTemplate({
                         <Link href={service.href} className={`${theme.serviceLinkText} text-sm font-semibold hover:opacity-80 flex items-center px-4 py-2`}>
                           {t('common.moreInfo')}
                         </Link>
-                        <Button asChild size="lg" className="rounded-full w-full sm:w-auto font-medium shadow-md shadow-black/5" variant="default">
+                        <Button asChild size="lg" className="rounded-full w-full sm:w-auto font-medium  " variant="default">
                           <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey) || service.titleKey)}`}>
                             {t('nav.bookNow')}
                           </Link>

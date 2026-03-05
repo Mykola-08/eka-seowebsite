@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -119,12 +120,12 @@ export default function MainLayout({
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-white/70 backdrop-blur-2xl border-gray-200/50 shadow-sm'
+    ? 'bg-white/70 backdrop-blur-2xl border-gray-200/50 '
     : 'bg-transparent';
 
   const dropdownSurfaceClass = isScrolled
-    ? 'bg-white/70 backdrop-blur-2xl border border-gray-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)]'
-    : 'bg-white/50 backdrop-blur-xl border border-gray-200/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)]';
+    ? 'bg-white/70 backdrop-blur-2xl border border-gray-200/50 _8px_30px_rgb(0,0,0,0.08)]'
+    : 'bg-white/50 backdrop-blur-xl border border-gray-200/30 _8px_30px_rgb(0,0,0,0.04)]';
 
   const navigation: NavItem[] = [
     {
@@ -155,7 +156,135 @@ export default function MainLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-secondary">
+    <>
+      <FooterUncover
+        footer={
+          <>
+          {/* Footer */}
+      <footer className="py-12 sm:py-16 bg-secondary text-gray-900 border-t border-gray-200">
+        <div className="max-w-[1024px] mx-auto px-6 text-center">
+          {/* Logo */}
+          <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
+            <div className="relative w-8 h-8">
+              <Image
+                src="/images/eka_logo.png"
+                alt="EKA Balance Logo"
+                fill
+                className="object-contain"
+                sizes="32px"
+              />
+            </div>
+            <span className="text-lg font-medium tracking-tight">EKA Balance</span>
+          </Link>
+
+          {/* Contact Info */}
+          <div className="space-y-1 mb-8 text-gray-500 text-xs">
+            <p>Carrer Pelai, 12, 08001 Barcelona</p>
+            <p>contact@ekabalance.com</p>
+          </div>
+
+          {/* Footer Links */}
+          <div className="mb-10 w-full max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left mb-8 px-4">
+              {/* Column 1: Core Services */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">{t('nav.services')}</h4>
+                <Link href="/services" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.services')}
+                </Link>
+                <Link href="/personalized-services" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.personalizedServices')}
+                </Link>
+                <Link href="/for-business" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('personalizedServices.business')}
+                </Link>
+                <Link href="/vip" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.vip')}
+                </Link>
+              </div>
+
+              {/* Column 2: Specific Modalities */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">EKA Balance</h4>
+                <Link href="/360-revision" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.revision360')}
+                </Link>
+                <Link href="/first-time" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('hero.firstTime')}
+                </Link>
+              </div>
+
+              {/* Column 3: Company */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">{t('nav.aboutElena')}</h4>
+                <Link href="/about-elena" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.aboutElena')}
+                </Link>
+                <Link href="/contact" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('nav.contact')}
+                </Link>
+                <Link href="/booking" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm font-medium text-primary">
+                  {t('nav.bookNow')}
+                </Link>
+              </div>
+
+              {/* Column 4: Resources */}
+              <div className="flex flex-col space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-2">Legal</h4>
+                <Link href="/discounts" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.discounts')}
+                </Link>
+                <Link href="/privacy-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.privacyPolicy')}
+                </Link>
+                <Link href="/cookie-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.cookiePolicy')}
+                </Link>
+                <Link href="/terms-of-service" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
+                  {t('footer.termsOfService')}
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Language Selector */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <Globe className="w-3 h-3 text-gray-400" />
+              <span className="text-xs text-gray-400">{t('footer.selectLanguage')}</span>
+            </div>
+            <div className="flex justify-center space-x-2">
+              {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === lang
+                    ? 'bg-gray-200 text-black font-medium'
+                    : 'text-gray-500 hover:bg-gray-100'
+                    }`}
+                >
+                  {lang === 'ca' && 'Catalan'}
+                  {lang === 'en' && 'English'}
+                  {lang === 'es' && 'Spanish'}
+                  {lang === 'ru' && 'Russian'}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-gray-200 pt-8">
+            <p className="text-xs text-gray-400">
+              {t('footer.copyright')}
+            </p>
+          </div>
+        </div>
+      </footer>
+          </>
+        }
+      >
+        {/* Main Content Container inside Uncover */}
+
       {/* Navigation with scroll effect - Liquid Glass Style */}
       <nav className={`sticky top-0 z-50 transition duration-500 border-b border-transparent ${headerSurfaceClass}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -376,7 +505,7 @@ export default function MainLayout({
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe"
           >
-            <Button asChild variant="default" size="lg" className="w-full text-base font-bold rounded-full shadow-lg">
+            <Button asChild variant="default" size="lg" className="w-full text-base font-bold rounded-full ">
               <Link href="/booking">
                 {t('nav.bookNow')}
               </Link>
@@ -385,129 +514,8 @@ export default function MainLayout({
         )}
       </AnimatePresence>
 
-      {/* Footer */}
-      <footer className="py-12 sm:py-16 bg-secondary text-gray-900 border-t border-gray-200">
-        <div className="max-w-[1024px] mx-auto px-6 text-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
-            <div className="relative w-8 h-8">
-              <Image
-                src="/images/eka_logo.png"
-                alt="EKA Balance Logo"
-                fill
-                className="object-contain"
-                sizes="32px"
-              />
-            </div>
-            <span className="text-lg font-medium tracking-tight">EKA Balance</span>
-          </Link>
-
-          {/* Contact Info */}
-          <div className="space-y-1 mb-8 text-gray-500 text-xs">
-            <p>Carrer Pelai, 12, 08001 Barcelona</p>
-            <p>contact@ekabalance.com</p>
-          </div>
-
-          {/* Footer Links */}
-          <div className="mb-10 w-full max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left mb-8 px-4">
-              {/* Column 1: Core Services */}
-              <div className="flex flex-col space-y-3">
-                <h4 className="font-semibold text-gray-900 mb-2">{t('nav.services')}</h4>
-                <Link href="/services" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.services')}
-                </Link>
-                <Link href="/personalized-services" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.personalizedServices')}
-                </Link>
-                <Link href="/for-business" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('personalizedServices.business')}
-                </Link>
-                <Link href="/vip" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.vip')}
-                </Link>
-              </div>
-
-              {/* Column 2: Specific Modalities */}
-              <div className="flex flex-col space-y-3">
-                <h4 className="font-semibold text-gray-900 mb-2">EKA Balance</h4>
-                <Link href="/360-revision" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.revision360')}
-                </Link>
-                <Link href="/first-time" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('hero.firstTime')}
-                </Link>
-              </div>
-
-              {/* Column 3: Company */}
-              <div className="flex flex-col space-y-3">
-                <h4 className="font-semibold text-gray-900 mb-2">{t('nav.aboutElena')}</h4>
-                <Link href="/about-elena" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.aboutElena')}
-                </Link>
-                <Link href="/contact" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.contact')}
-                </Link>
-                <Link href="/booking" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm font-medium text-primary">
-                  {t('nav.bookNow')}
-                </Link>
-              </div>
-
-              {/* Column 4: Resources */}
-              <div className="flex flex-col space-y-3">
-                <h4 className="font-semibold text-gray-900 mb-2">Legal</h4>
-                <Link href="/discounts" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('footer.discounts')}
-                </Link>
-                <Link href="/privacy-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('footer.privacyPolicy')}
-                </Link>
-                <Link href="/cookie-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('footer.cookiePolicy')}
-                </Link>
-                <Link href="/terms-of-service" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('footer.termsOfService')}
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Language Selector */}
-          <div className="mb-8">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Globe className="w-3 h-3 text-gray-400" />
-              <span className="text-xs text-gray-400">{t('footer.selectLanguage')}</span>
-            </div>
-            <div className="flex justify-center space-x-2">
-              {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === lang
-                    ? 'bg-gray-200 text-black font-medium'
-                    : 'text-gray-500 hover:bg-gray-100'
-                    }`}
-                >
-                  {lang === 'ca' && 'Catalan'}
-                  {lang === 'en' && 'English'}
-                  {lang === 'es' && 'Spanish'}
-                  {lang === 'ru' && 'Russian'}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="border-t border-gray-200 pt-8">
-            <p className="text-xs text-gray-400">
-              {t('footer.copyright')}
-            </p>
-          </div>
-        </div>
-      </footer>
+            </FooterUncover>
       <FooterPillMenu />
-    </div>
+    </>
   );
 }
-
-

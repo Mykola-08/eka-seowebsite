@@ -136,7 +136,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
             <motion.div
               initial={{ opacity: 0, y: 20 }}
             >
-            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50 shadow-sm hover:shadow-md transition duration-300 h-full">
+            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50   transition duration-300 h-full">
               <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <MessageCircle className="w-8 h-8 text-green-600 stroke-[2px]" />
               </div>
@@ -166,7 +166,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50 shadow-sm hover:shadow-md transition duration-300 h-full">
+            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50   transition duration-300 h-full">
               <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-blue-600 stroke-[2px]" />
               </div>
@@ -201,7 +201,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 exit={{ opacity: 0, height: 0, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-              <Card className="rounded-[32px] shadow-xl shadow-gray-200/50 border border-gray-100 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
+              <Card className="rounded-[32px]   border border-gray-100 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
                 <div className="flex justify-between items-center mb-10">
                   <h3 className="text-2xl font-semibold text-gray-900 tracking-tight">
                     {t('booking.form.quickTitle')}
@@ -344,7 +344,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
+            <div className="bg-white p-8 rounded-[32px] border border-gray-100 ">
               <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
                 <MessageCircle className="w-6 h-6" />
               </div>
@@ -355,7 +355,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
+            <div className="bg-white p-8 rounded-[32px] border border-gray-100 ">
               <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
                 <Calendar className="w-6 h-6" />
               </div>

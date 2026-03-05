@@ -38,7 +38,7 @@ export default function PersonalizedServicesContent() {
                   <Button
                       size="xl"
                       variant="default"
-                      className="px-8 py-4 shadow-sm"
+                      className="px-8 py-4 "
                   >
                       {t('personalizedServices.cta')}
                       <ArrowRight className="ml-2 w-5 h-5" />

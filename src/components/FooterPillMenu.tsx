@@ -20,7 +20,7 @@ export default function FooterPillMenu() {
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-sm px-4 md:hidden">
-      <nav className="bg-white/90 backdrop-blur-lg border border-white/20 shadow-xl rounded-full px-2 py-2 flex justify-between items-center ring-1 ring-black/5">
+      <nav className="bg-white/90 backdrop-blur-lg border border-white/20  rounded-full px-2 py-2 flex justify-between items-center ring-1 ring-black/5">
         {items.map((item) => {
           const isActive = pathname === item.href;
           return (

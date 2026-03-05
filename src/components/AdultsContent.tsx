@@ -57,7 +57,7 @@ export default function AdultsContent() {
       <PageLayout>
       {HeroCustom}
       
-      <section className="py-24 bg-[#fbfbfd] relative z-10 -mt-10 rounded-t-[3rem] shadow-xl">
+      <section className="py-24 bg-[#fbfbfd] relative z-10 -mt-10 rounded-t-[3rem] ">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-gray-900 tracking-tighter">

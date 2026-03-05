@@ -68,7 +68,7 @@ export default function FamiliesContent() {
                   src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1920&h=1080&fit=crop"
                   alt={t('elena.target.families.title')}
                   fill
-                  className="object-cover rounded-apple-xl shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="object-cover rounded-apple-xl  rotate-1 hover:rotate-0 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

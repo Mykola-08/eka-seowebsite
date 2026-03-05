@@ -135,8 +135,7 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'agenyz.product.pH-Balance-cell.features': 'Alcalinitzant, reposició mineral, desintoxicació',
     'agenyz.product.Immune-cell.features': 'Immunitat diària, energia, vitalitat',
     'agenyz.product.Sorbio-detox-cell.features': 'Desintoxicació profunda, salut intestinal, eliminació de metalls pesants',
-    'agenyz.product.gummyz-KidYZ.features': 'Hossos forts, suport al creixement, gustós i saludable',
-    'vip.cta.apply': 'Sol·licitar Membresia',
+        'vip.cta.apply': 'Sol·licitar Membresia',
     'vip.services.title': 'Serveis Exclusius',
     'vip.services.subtitle': 'Adaptat al teu viatge de salut únic',
     'vip.pricing.title': 'Plans de Membresia',
@@ -146,25 +145,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredSubtitle': 'Descobreix les nostres ofertes més populars',
     'services.viewAll': 'Veure Tots els Serveis',
   
-    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
-    'agenyz.product.vitamin-d3.desc': 'Fórmula avançada...',
-    'agenyz.product.fungomax.name': 'Fungomax',
-    'agenyz.product.fungomax.desc': 'Suport natural...',
-    'agenyz.product.ferboost.name': 'Ferboost',
-    'agenyz.product.ferboost.desc': 'Suport per a la salut...',
-    'agenyz.product.Gummyz-KidYZ.features': 'Gummies naturals...',
-    'agenyz.product.gummyz-KidYZ.features': 'Gummies naturals...',
-
+        
   
-    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
-    'agenyz.product.vitamin-d3.desc': 'Fórmula avançada...',
-    'agenyz.product.fungomax.name': 'Fungomax',
-    'agenyz.product.fungomax.desc': 'Suport natural...',
-    'agenyz.product.ferboost.name': 'Ferboost',
-    'agenyz.product.ferboost.desc': 'Suport per a la salut...',
-    'agenyz.product.Gummyz-KidYZ.features': 'Gummies naturals...',
-    'agenyz.product.gummyz-KidYZ.features': 'Gummies naturals...',
-
+        
   },
   en: {    'agenyz.seo.title': 'Agenyz - Cellular Nutrition & Biohacking | EKA Balance',
     'agenyz.seo.description': 'Agenyz biohacking supplements for cellular regeneration. Energy, immunity, and systemic wellness.',
@@ -315,11 +298,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredSubtitle': 'Discover our most popular offerings',
     'services.viewAll': 'View All Services',
   
-    'agenyz.product.gummyz-KidYZ.features': 'Natural gummies...',
-
+    
   
-    'agenyz.product.gummyz-KidYZ.features': 'Natural gummies...',
-
+    
   },
   es: {
     'agenyz.seo.title': 'Agenyz - Nutrición Celular y Biohacking | EKA Balance',
@@ -409,12 +390,6 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'agenyz.product.gummies-stress.desc': 'Una forma natural de lograr la calma y el equilibrio emocional todos los días.',
     'agenyz.product.deep-reboot.name': 'SET "DEEP REBOOT PROTOCOL"',
     'agenyz.product.deep-reboot.desc': 'Protocolo de reinicio profundo: Restablece tu sistema. Apoya tu energía.',
-    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
-    'agenyz.product.vitamin-d3.desc': 'Vitamina solar vegana con potenciador de biodisponibilidad. 2000 UI + XBi-A.',
-    'agenyz.product.fungomax.name': 'FungoMax + XBi-A',
-    'agenyz.product.fungomax.desc': 'El poder de 6 hongos medicinales para la defensa inmunológica definitiva.',
-    'agenyz.product.ferboost.name': 'FerBoost + XBi-A',
-    'agenyz.product.ferboost.desc': 'Complejo de hierro inteligente de 4 fuentes para anemia y energía.',
     'agenyz.category.All': 'Todos',
     'agenyz.category.Cell Elixir': 'Elixir celular',
     'agenyz.category.3D Guard': 'Protección 3d',
@@ -472,11 +447,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredSubtitle': 'Descubre nuestras ofertas más populares',
     'services.viewAll': 'Ver Todos los Servicios',
   
-    'agenyz.product.gummyz-KidYZ.features': 'Gominolas naturales...',
-
+    
   
-    'agenyz.product.gummyz-KidYZ.features': 'Gominolas naturales...',
-
+    
   },
   ru: {
     'agenyz.seo.title': 'Agenyz - Клеточное питание и биохакинг | EKA Balance',
@@ -629,10 +602,8 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredSubtitle': 'Откройте для себя наши лучшие предложения',
     'services.viewAll': 'Посмотреть все услуги',
   
-    'agenyz.product.gummyz-KidYZ.features': 'Натуральные мармеладки...',
-
+    
   
-    'agenyz.product.gummyz-KidYZ.features': 'Натуральные мармеладки...',
-
+    
   }
 };

@@ -76,11 +76,11 @@ export default function AgenyzContent() {
                                   src='/agenyz-products.png'
                                   alt='Cellular Bio-Innovation'
                                   fill
-                                  className='object-cover shadow-2xl'
+                                  className='object-cover '
                                   sizes="(max-width: 1024px) 100vw, 50vw"
                               />
                             </div>
-                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20 z-10'>
+                            <div className='absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-2xl p-4  border border-white/20 z-10'>
                                 <div className='flex items-center space-x-3'>
                                     <span className='relative flex h-3 w-3'>
                                         <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75'></span>
@@ -125,7 +125,7 @@ export default function AgenyzContent() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-6 py-3 rounded-full text-sm font-medium transition duration-300 ${selectedCategory === category
-                                    ? 'bg-primary-600 text-white shadow-lg scale-105'
+                                    ? 'bg-primary-600 text-white  scale-105'
                                     : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                                     }`}
                             >
@@ -148,7 +148,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
                                         transition={{ duration: 0.3 }}
-                                        className='bg-white border border-gray-100 shadow-sm rounded-2xl p-8 flex flex-col h-full group hover:shadow-lg hover:-translate-y-1 transition duration-300'
+                                        className='bg-white border border-gray-100  rounded-2xl p-8 flex flex-col h-full group  hover:-translate-y-1 transition duration-300'
                                     >
                                         <div className='mb-4 flex items-start justify-between'>
                                             <span className='px-3 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full uppercase tracking-wide'>

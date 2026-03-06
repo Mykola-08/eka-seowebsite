@@ -59,6 +59,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'recommendations.feldenkrais.feeling': 'Moviment lliure i sense dolor',
     'recommendations.systemic.feeling': 'Ordre intern i alleujament',
     'recommendations.supplements.feeling': 'Vitalitat i suport físic',
+    'recommendations.supplements.description': 'Nutrició cel·lular avançada per millorar la teva productivitat diària.',
 
     // Services page
     'services.integralWellbeingFor': 'Teràpies per al benestar integral',
@@ -691,6 +692,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'recommendations.feldenkrais.feeling': 'Free movement without pain',
     'recommendations.systemic.feeling': 'Inner order and relief',
     'recommendations.supplements.feeling': 'Vitality and physical support',
+    'recommendations.supplements.description': 'Advanced cellular nutrition to boost your daily performance.',
 
     // Services page
     'services.integralWellbeingFor': 'Therapies for integral wellbeing',
@@ -1321,6 +1323,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'recommendations.feldenkrais.feeling': 'Movimiento libre y sin dolor',
     'recommendations.systemic.feeling': 'Orden interno y alivio',
     'recommendations.supplements.feeling': 'Vitalidad y soporte físico',
+    'recommendations.supplements.description': 'Nutrición celular avanzada para aumentar tu productividad diaria.',
 
     // Services page
     'services.integralWellbeingFor': 'Terapias para el bienestar integral',

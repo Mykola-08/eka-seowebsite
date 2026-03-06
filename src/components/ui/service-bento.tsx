@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import Image from 'next/image';
 import { X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface BentoItemProps {
   title: string;
@@ -37,16 +38,7 @@ export function ServiceBentoItem({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
     const { left, top } = currentTarget.getBoundingClientRect();

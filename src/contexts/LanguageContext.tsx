@@ -56,6 +56,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'common.contactUs': 'Contacta amb nosaltres',
     'common.readMore': 'Llegir més',
     'common.clickHere': 'Fes clic aquí',
+    'whatsapp.booking': 'Hola, vull reservar una sessió',
     'contact.form.emailPlaceholder': 'El teu correu electrònic',
     'contact.form.namePlaceholder': 'El teu nom',
     'contact.form.title': "Envia'ns un missatge",
@@ -163,6 +164,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'common.contactUs': 'Contact us',
     'common.readMore': 'Read more',
     'common.clickHere': 'Click here',
+    'whatsapp.booking': 'Hi, I would like to book a session',
     'contact.form.emailPlaceholder': 'Your email',
     'contact.form.namePlaceholder': 'Your name',
     'contact.form.title': 'Send us a message',
@@ -264,6 +266,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'common.contactUs': 'Contáctanos',
     'common.readMore': 'Leer más',
     'common.clickHere': 'Haz clic aquí',
+    'whatsapp.booking': 'Hola, quiero reservar una sesión',
     'adult.recommended': 'Servicios recomendados',
     'adult.recommended.desc': 'Terapias seleccionadas para adultos y bienestar integral.',
     'booking.form.close': 'Cerrar formulario',
@@ -436,6 +439,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'common.contactUs': 'Связаться с нами',
     'common.readMore': 'Читать дальше',
     'common.clickHere': 'Нажмите здесь',
+    'whatsapp.booking': 'Здравствуйте, я хочу забронировать сессию',
     'contact.form.emailPlaceholder': 'Ваш email',
     'contact.form.namePlaceholder': 'Ваше имя',
     'contact.form.title': 'Отправьте нам сообщение',
@@ -1167,6 +1171,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Trucar ara',
     'contact.faq.title': 'Preguntes freqüents',
+    'contact.faq.subtitle': 'Tot el que necessites saber sobre com contactar amb nosaltres',
     'contact.faq.q1.title': 'Com puc reservar una cita?',
     'contact.faq.q1.answer': 'Pots reservar una cita escrivint per WhatsApp o Telegram al +34 658 867 133, trucant-nos al mateix número o enviant-nos un email.',
     'contact.faq.q2.title': 'Quina és la política de cancel·lació?',
@@ -1669,6 +1674,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Onboarding System
     'onboarding.welcome.title': 'Benvinguda',
     'onboarding.welcome.description': "Cada persona és diferent. Per això, abans de recomanar-te res, volem escoltar-te. Explica'ns qui ets, què busques i com vols sentir-te. Nosaltres t'ajudarem a trobar el camí que més ressoni amb tu.",
+    'onboarding.welcome.discountBadge': '15€ de descompte en la teva primera sessió',
     'onboarding.progress.step': 'Pas',
     'onboarding.progress.of': 'De',
     'onboarding.processing.title': 'Personalitzant la teva experiència...',
@@ -1677,6 +1683,8 @@ const translations: Record<Language, Record<string, string>> = {
     'onboarding.results.title': 'La teva experiència personalitzada està llesta',
     'onboarding.results.subtitle': 'Segons les teves respostes, et recomanem:',
     'onboarding.results.recommended': 'Recomanat',
+    'onboarding.results.discountApplied': '🎁 -15€ Primera sessió',
+    'onboarding.results.howYouWillFeel': 'Com et sentiràs',
     'onboarding.results.personalizedInfo': 'Informació personalitzada',
 
     'onboarding.questions.userType.title': 'Com et descriuries millor?',
@@ -2217,6 +2225,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.reserveSession': 'Reserva sessió',
     'common.seeOtherServices': 'Altres serveis',
     'common.getStarted': 'Començar',
+    'common.free': 'Gratuït',
     'common.price': 'Preu',
     'common.duration': 'Duració',
     'common.benefits': 'Beneficis',
@@ -2508,6 +2517,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.reserveSession': 'Secure your spot',
     'common.seeOtherServices': 'View other services',
     'common.getStarted': 'Start your journey',
+    'common.free': 'Free',
 
     // About Elena
     'elena.greeting': "Hello, I'm Elena",
@@ -3264,6 +3274,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Onboarding System
     'onboarding.welcome.title': 'Welcome',
     'onboarding.welcome.description': "Every person is different. That's why, before recommending anything, we want to listen to you. Tell us who you are, what you're looking for and how you want to feel. We'll help you find the path that resonates most with you.",
+    'onboarding.welcome.discountBadge': '15€ discount on your first session',
     'onboarding.progress.step': 'Step',
     'onboarding.progress.of': 'Of',
     'onboarding.processing.title': 'Personalizing your experience...',
@@ -3272,6 +3283,8 @@ const translations: Record<Language, Record<string, string>> = {
     'onboarding.results.title': 'Your personalized experience is ready',
     'onboarding.results.subtitle': 'Based on your responses, we recommend:',
     'onboarding.results.recommended': 'Recommended',
+    'onboarding.results.discountApplied': '🎁 -15€ First session',
+    'onboarding.results.howYouWillFeel': 'How you will feel',
     'onboarding.results.personalizedInfo': 'Personalized info',
 
     'onboarding.questions.userType.title': 'How would you best describe yourself?',
@@ -3809,6 +3822,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Call now',
     'contact.faq.title': 'Frequently asked questions',
+    'contact.faq.subtitle': 'Everything you need to know about contacting us',
     'contact.faq.q1.title': 'How can i book an appointment?',
     'contact.faq.q1.answer': 'You can book an appointment by writing via WhatsApp or Telegram at +34 658 867 133, calling us at the same number or sending us an email.',
     'contact.faq.q2.title': 'What is the cancellation policy?',
@@ -4985,6 +4999,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Onboarding
     'onboarding.welcome.title': 'Bienvenido a tu experiencia personalizada',
     'onboarding.welcome.description': 'Responde unas breves preguntas para que podamos recomendarte el servicio ideal para ti.',
+    'onboarding.welcome.discountBadge': '15€ de descuento en tu primera sesión',
     'onboarding.progress.step': 'Paso',
     'onboarding.progress.of': 'De',
     'onboarding.processing.title': 'Procesando tus respuestas...',
@@ -4993,6 +5008,8 @@ const translations: Record<Language, Record<string, string>> = {
     'onboarding.results.title': 'Tu recomendación personalizada',
     'onboarding.results.subtitle': 'Basado en tus respuestas, te recomendamos:',
     'onboarding.results.recommended': 'Recomendado',
+    'onboarding.results.discountApplied': '🎁 -15€ Primera sesión',
+    'onboarding.results.howYouWillFeel': 'Cómo te sentirás',
     'onboarding.results.personalizedInfo': 'Información personalizada',
 
     // Personalized Pages SEO
@@ -5231,6 +5248,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Llamar ahora',
     'contact.faq.title': 'Preguntas frecuentes',
+    'contact.faq.subtitle': 'Todo lo que necesitas saber sobre cómo contactarnos',
     'contact.faq.q1.title': '¿Cómo puedo reservar una cita?',
     'contact.faq.q1.answer': 'Puedes reservar cita escribiendo por WhatsApp o Telegram al +34 658 867 133, llamándonos al mismo número o enviándonos un email.',
     'contact.faq.q2.title': '¿Cuál es la política de cancelación?',
@@ -5841,6 +5859,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.reserveSession': 'Reserva sesión',
     'common.seeOtherServices': 'Otros servicios',
     'common.getStarted': 'Comenzar',
+    'common.free': 'Gratis',
 
     'services.therapiesFor': 'Terapias para',
     'services.integralWellbeing': 'Bienestar integral',
@@ -6083,6 +6102,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.reserveSession': 'Забронировать сессию',
     'common.seeOtherServices': 'Посмотреть другие услуги',
     'common.getStarted': 'Начать',
+    'common.free': 'Бесплатно',
 
     // About Section
     'elena.greeting': 'Здравствуйте, я Елена',
@@ -6902,6 +6922,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Onboarding
     'onboarding.welcome.title': 'Добро пожаловать в ваш персонализированный опыт',
     'onboarding.welcome.description': 'Ответьте на несколько коротких вопросов, чтобы мы могли порекомендовать вам идеальную услугу.',
+    'onboarding.welcome.discountBadge': 'Скидка 15€ на первую сессию',
     'onboarding.progress.step': 'Шаг',
     'onboarding.progress.of': 'Из',
     'onboarding.processing.title': 'Обработка ваших ответов...',
@@ -6910,6 +6931,8 @@ const translations: Record<Language, Record<string, string>> = {
     'onboarding.results.title': 'Ваша персонализированная рекомендация',
     'onboarding.results.subtitle': 'На основе ваших ответов мы рекомендуем:',
     'onboarding.results.recommended': 'Рекомендуется',
+    'onboarding.results.discountApplied': '🎁 -15€ Первая сессия',
+    'onboarding.results.howYouWillFeel': 'Как вы будете себя чувствовать',
     'onboarding.results.personalizedInfo': 'Персонализированная информация',
 
     // Personalized Pages SEO
@@ -7371,6 +7394,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.whatsapp': 'WhatsApp +34 658 867 133',
     'contact.callNow': 'Позвонить сейчас',
     'contact.faq.title': 'Часто задаваемые вопросы',
+    'contact.faq.subtitle': 'Всё, что нужно знать о том, как с нами связаться',
     'contact.faq.q1.title': 'Как я могу забронировать встречу?',
     'contact.faq.q1.answer': 'Вы можете забронировать встречу, написав в WhatsApp или Telegram по номеру +34 658 867 133, позвонив нам по тому же номеру или отправив нам электронное письмо.',
     'contact.faq.q2.title': 'Какова политика отмены?',

@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface SmartBookingPopupProps {
   isOpen: boolean;
@@ -22,14 +23,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     timePreference: ''
   });
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   if (!isOpen) return null;
 

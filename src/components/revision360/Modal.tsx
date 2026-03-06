@@ -1,6 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,17 +12,7 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, children, title, size = 'md' }: ModalProps) {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {

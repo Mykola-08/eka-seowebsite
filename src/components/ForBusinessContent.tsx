@@ -8,7 +8,6 @@ import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight } from 'lucide-react';

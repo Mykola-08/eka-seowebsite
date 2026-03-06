@@ -1,20 +1,13 @@
-import { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/contexts/LanguageTypes';
 import { X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 export default function LanguagePopup() {
     const { showLanguagePopup, setShowLanguagePopup, confirmLanguage, t } = useLanguage();
 
-    useEffect(() => {
-        if (showLanguagePopup) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => { document.body.style.overflow = ''; };
-    }, [showLanguagePopup]);
+    useScrollLock(showLanguagePopup);
 
     if (!showLanguagePopup) return null;
 

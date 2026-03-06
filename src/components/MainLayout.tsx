@@ -383,7 +383,7 @@ export default function MainLayout({
         {/* Main Content Container inside Uncover */}
 
       {/* Navigation with scroll effect - Liquid Glass Style */}
-      <nav className={`sticky top-0 z-50 transition duration-500 border-b border-transparent ${headerSurfaceClass}`}>
+      <nav className={`sticky top-0 z-[100] transition duration-500 border-b border-transparent ${headerSurfaceClass}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             {/* Logo Only - Left Side - INCREASED SIZE */}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/contexts/LanguageTypes';
 import { X, Globe } from 'lucide-react';
@@ -5,6 +6,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function LanguagePopup() {
     const { showLanguagePopup, setShowLanguagePopup, confirmLanguage, t } = useLanguage();
+
+    useEffect(() => {
+        if (showLanguagePopup) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [showLanguagePopup]);
 
     if (!showLanguagePopup) return null;
 
@@ -21,13 +31,15 @@ export default function LanguagePopup() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+                className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+                onClick={() => setShowLanguagePopup(false)}
             >
                 <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
                     className="bg-white rounded-3xl  max-w-md w-full p-8 relative border border-gray-100"
+                    onClick={(e) => e.stopPropagation()}
                 >
                     <button
                         onClick={() => setShowLanguagePopup(false)}

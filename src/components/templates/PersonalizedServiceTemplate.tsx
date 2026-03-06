@@ -218,26 +218,26 @@ export default function PersonalizedServiceTemplate({
         </div>
         {childrenTop}
         {/* Understanding Section - Bento Box */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-[#fbfbfd]">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-[#fbfbfd]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
                 {t(`${translationKey}.understanding.title`)}
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1400px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-[1400px] mx-auto">
               {/* Description 1 - Large box */}
               <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100   transition-all duration-500 relative overflow-hidden group">
                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
-                 <p className="text-2xl md:text-3xl text-gray-800 font-medium leading-tight relative z-10 text-balance">
+                 <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 font-medium leading-tight relative z-10 text-balance">
                     {t(`${translationKey}.understanding.description1`)}
                  </p>
-                 <p className="mt-8 text-lg text-gray-500 leading-relaxed max-w-2xl font-medium relative z-10">
+                 <p className="mt-6 sm:mt-8 text-base sm:text-lg text-gray-500 leading-relaxed max-w-2xl font-medium relative z-10">
                     {t(`${translationKey}.understanding.description2`)}
                  </p>
-                 <div className="mt-8 relative z-10">
-                    <p className={`font-semibold tracking-tight ${theme.text}`}>
+                 <div className="mt-6 sm:mt-8 relative z-10">
+                    <p className={`font-semibold tracking-tight ${theme.text} text-sm sm:text-base`}>
                       {t(`${translationKey}.understanding.callToAction`)}
                     </p>
                  </div>
@@ -246,14 +246,14 @@ export default function PersonalizedServiceTemplate({
               {/* Benefits Box */}
               {benefits.length > 0 && (
                 <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] ${theme.bg} ${theme.border} border  transition-all duration-500 flex flex-col justify-center`}>
-                  <h3 className={`font-semibold text-2xl mb-6 tracking-tight ${theme.text}`}>
+                  <h3 className={`font-semibold text-xl sm:text-2xl mb-4 sm:mb-6 tracking-tight ${theme.text}`}>
                     {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
                   </h3>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3 sm:space-y-4">
                     {benefits.map((benefit: string, i: number) => (
-                      <li key={i} className="flex items-start gap-4">
+                      <li key={i} className="flex items-start gap-3 sm:gap-4">
                         <div className={`mt-2 w-2 h-2 rounded-full ${theme.dots} shrink-0`} />
-                        <span className={`text-lg font-medium leading-tight ${theme.text}`}>{benefit}</span>
+                        <span className={`text-base sm:text-lg font-medium leading-tight ${theme.text}`}>{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -265,21 +265,21 @@ export default function PersonalizedServiceTemplate({
 
         {/* Methodology Section - Apple Bento layout */}
         {showMethodology && validSteps.length > 0 && (
-          <section className="py-16 sm:py-20 lg:py-24 bg-white">
+          <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16 text-center text-black">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-12 sm:mb-16 text-center text-black">
                 {t(`${translationKey}.method.title`)}
               </h2>
-              <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                 {validSteps.map((step, index) => (
                     <div key={index} className={`rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 ${theme.stepsBg}  group  transition-all duration-500`}>
-                    <div className={`w-14 h-14 rounded-2xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-2xl font-semibold mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-500`}>
                       {index + 1}
                     </div>
-                    <h3 className="text-3xl font-semibold mb-4 text-gray-900 tracking-tight leading-tight">
+                    <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-900 tracking-tight leading-tight">
                       {step.title}
                     </h3>
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
                       {step.description}
                     </p>
                   </div>
@@ -290,18 +290,18 @@ export default function PersonalizedServiceTemplate({
         )}
 
         {/* Recommended Services Section */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-[#fbfbfd]">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-[#fbfbfd]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-3 sm:mb-4 text-black">
                 {t(`${translationKey}.services.title`)}
               </h2>
-              <p className="text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
+              <p className="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
                 {t(`${translationKey}.services.subtitle`)}
               </p>
             </div>
 
-            <div className={`grid md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:gap-8`}>
+            <div className={`grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5 sm:gap-6 md:gap-8`}>
               {recommendedServices.map((service, index) => {
                 const details = (
                   <div className="flex items-center gap-6 mt-8 p-6 bg-gray-50 rounded-2xl">

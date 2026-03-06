@@ -89,12 +89,12 @@ export default function ForBusinessContent() {
                 className="md:col-span-2"
                 details={
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold text-gray-900">Team Cohesion</h4>
-                    <p className="text-gray-600 leading-relaxed">Our specialized activities help break the ice, foster communication, and build strong bonds within your team. We provide tailored workshops focusing on interpersonal dynamics, ensuring every team member feels valued and understood, which dramatically improves collaboration and mutual trust.</p>
+                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box1.details.title")}</h4>
+                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box1.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/contact?subject=teams"
-                bookText="Enquire Now"
+                bookText={t("common.enquireNow")}
               />
 
               <ServiceBentoItem
@@ -105,12 +105,12 @@ export default function ForBusinessContent() {
                 delay={0.1}
                 details={
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold text-gray-900">Enhanced Focus</h4>
-                    <p className="text-gray-600 leading-relaxed">Learn techniques to improve individual output and overall team efficiency. We train your staff on how to manage their energy rather than just their time. By implementing simple daily habits and mindset shifts, employees experience fewer distractions and extended periods of deep work.</p>
+                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box2.details.title")}</h4>
+                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box2.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/contact?subject=office"
-                bookText="Enquire Now"
+                bookText={t("common.enquireNow")}
               />
 
               <ServiceBentoItem
@@ -121,12 +121,12 @@ export default function ForBusinessContent() {
                 delay={0.2}
                 details={
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold text-gray-900">Stress Relief</h4>
-                    <p className="text-gray-600 leading-relaxed">Strategies and practices aimed at reducing pressure and maintaining strong mental health. Burnout prevention is crucial for employee retention. We offer guided relaxation sessions, stress-management workshops, and actionable tools your team can use instantly during high-pressure situations.</p>
+                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box3.details.title")}</h4>
+                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box3.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/contact?subject=teams"
-                bookText="Enquire Now"
+                bookText={t("common.enquireNow")}
               />
 
               <ServiceBentoItem
@@ -137,12 +137,12 @@ export default function ForBusinessContent() {
                 delay={0.3}
                 details={
                   <div className="space-y-4">
-                     <h4 className="text-xl font-bold text-gray-900">Holistic Environment</h4>
-                     <p className="text-gray-600 leading-relaxed">Create a workspace that naturally encourages well-being. We audit your current environment and provide recommendations for ergonomic improvements, lighting optimizations, and dedicated spaces that foster both energetic collaboration and peaceful reflection, leading to a healthier organizational culture.</p>
+                     <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box4.details.title")}</h4>
+                     <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box4.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/contact?subject=office"
-                bookText="Enquire Now"
+                bookText={t("common.enquireNow")}
               />
             </div>
           </div>
@@ -153,11 +153,11 @@ export default function ForBusinessContent() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-gray-900 mb-6">
-                Tailored Solutions for Organizations
+                {t('personalized.business.plans.title')}
               </h2>
               <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
-                Invest in your team's physical and mental well-being to achieve peak productivity and harmony in the workplace.
-              </p>
+                  {t("personalized.business.plans.subtitle")}
+                </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
@@ -167,38 +167,38 @@ export default function ForBusinessContent() {
               {/* Plan 1 - Teams */}
               <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-xl shadow-gray-200/20 relative transition-all duration-300 flex flex-col h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-blue-400 pointer-events-none" />
-                <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">Teams / Startups</h3>
-                <p className="text-gray-500 font-medium mb-8 flex-grow relative z-10">Perfect for small groups and departments looking to improve synchronization and performance.</p>
+                <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
+                <p className="text-gray-500 font-medium mb-8 flex-grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
                     <span className="text-5xl font-bold text-gray-900 tracking-tighter">€100</span>
                     <span className="text-xl text-gray-500 font-medium">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1 font-medium">Starting from</div>
+                  <div className="text-sm text-gray-400 mt-1 font-medium">{t("personalized.business.plans.teams.price")}</div>
                 </div>
 
                 <ul className="space-y-5 mb-10 relative z-10 flex-grow">
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
-                    <span className="text-gray-700 leading-snug">Individual supplement testing</span>
+                    <span className="text-gray-700 leading-snug">{t("personalized.business.plans.teams.feature1")}</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
-                    <span className="text-gray-700 leading-snug">Team cohesion sessions & events</span>
+                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature2')}</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
-                    <span className="text-gray-700 leading-snug">Conflicts resolution frameworks</span>
+                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature3')}</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
-                    <span className="text-gray-700 leading-snug">Better operational effectivity & focus</span>
+                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature4')}</span>
                   </li>
                 </ul>
 
                 <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-gray-900 hover:bg-black text-white">
-                  <Link href="/contact?subject=teams">Get Started</Link>
+                  <Link href="/contact?subject=teams">{t('common.getStarted')}</Link>
                 </Button>
               </div>
 
@@ -207,38 +207,38 @@ export default function ForBusinessContent() {
                 <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-white pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-blue-500 pointer-events-none" />
                 
-                <h3 className="text-3xl font-semibold tracking-tight text-white mb-3 relative z-10">Office / Enterprise</h3>
-                <p className="text-gray-300 font-medium mb-8 flex-grow relative z-10">Comprehensive solution for entire offices and companies requiring scalable wellness infrastructure.</p>
+                <h3 className="text-3xl font-semibold tracking-tight text-white mb-3 relative z-10">{t('personalized.business.plans.enterprise.title')}</h3>
+                <p className="text-gray-300 font-medium mb-8 flex-grow relative z-10">{t('personalized.business.plans.enterprise.desc')}</p>
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
                     <span className="text-5xl font-bold text-white tracking-tighter">€500</span>
                     <span className="text-xl text-gray-400 font-medium">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-500 mt-1 font-medium">Starting from</div>
+                  <div className="text-sm text-gray-500 mt-1 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
                 </div>
 
                 <ul className="space-y-5 mb-10 relative z-10 flex-grow">
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
-                    <span className="text-gray-100 leading-snug">Advanced individual supplement testing</span>
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature1')}</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
-                    <span className="text-gray-100 leading-snug">Company-wide team cohesion programs</span>
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature2')}</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
-                    <span className="text-gray-100 leading-snug">Complex conflict resolution frameworks</span>
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature3')}</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
-                    <span className="text-gray-100 leading-snug">Maximized overall effectivity & throughput</span>
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature4')}</span>
                   </li>
                 </ul>
 
                 <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-white text-black hover:bg-gray-100">
-                  <Link href="/contact?subject=office">Get Started</Link>
+                  <Link href="/contact?subject=office">{t('common.getStarted')}</Link>
                 </Button>
               </div>
             </div>

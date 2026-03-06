@@ -66,10 +66,10 @@ export default class ErrorBoundary extends Component<Props, State> {
               Ho sentim, s'ha produït un error inesperat. Prova de recarregar la pàgina o torna a l'inici.
             </p>
 
-            {this.state.error && (
-              <details className="mb-6 text-left" open>
+            {this.state.error && process.env.NODE_ENV === 'development' && (
+              <details className="mb-6 text-left">
                 <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700 font-medium">
-                  Detalls de l'error
+                  Detalls de l&apos;error
                 </summary>
                 <div className="mt-4 p-4 bg-gray-100 rounded-lg border border-gray-200">
                   <p className="font-mono text-sm font-bold text-red-700 mb-2">

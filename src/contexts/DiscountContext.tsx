@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useCallback, useMemo } from 'react';
 // import { supabase } from '@/lib/supabase';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
@@ -44,7 +44,7 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
     fetchDiscounts();
   }, []);
 
-  const applyDiscount = async (code: string): Promise<boolean> => {
+  const applyDiscount = useCallback(async (code: string): Promise<boolean> => {
     const discount = availableDiscounts.find(
       d => d.code.toLowerCase() === code.toLowerCase()
     );
@@ -71,34 +71,36 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
     }, code);
 
     return false;
-  };
+  }, [availableDiscounts, logEvent]);
 
-  const removeDiscount = () => {
+  const removeDiscount = useCallback(() => {
     setSelectedDiscount(null);
     localStorage.removeItem('eka-applied-discount');
-  };
+  }, []);
 
-  const calculateDiscountedPrice = (originalPrice: number): number => {
+  const calculateDiscountedPrice = useCallback((originalPrice: number): number => {
     if (!selectedDiscount) return originalPrice;
     const discountAmount = (originalPrice * selectedDiscount.percentage) / 100;
     return Math.round((originalPrice - discountAmount) * 100) / 100;
-  };
+  }, [selectedDiscount]);
 
-  const getDiscountAmount = (originalPrice: number): number => {
+  const getDiscountAmount = useCallback((originalPrice: number): number => {
     if (!selectedDiscount) return 0;
     return Math.round((originalPrice * selectedDiscount.percentage) / 100 * 100) / 100;
-  };
+  }, [selectedDiscount]);
+
+  const contextValue = useMemo(() => ({
+    selectedDiscount,
+    availableDiscounts,
+    applyDiscount,
+    removeDiscount,
+    calculateDiscountedPrice,
+    getDiscountAmount,
+    isLoading
+  }), [selectedDiscount, availableDiscounts, applyDiscount, removeDiscount, calculateDiscountedPrice, getDiscountAmount, isLoading]);
 
   return (
-    <DiscountContext.Provider value={{
-      selectedDiscount,
-      availableDiscounts,
-      applyDiscount,
-      removeDiscount,
-      calculateDiscountedPrice,
-      getDiscountAmount,
-      isLoading
-    }}>
+    <DiscountContext.Provider value={contextValue}>
       {children}
     </DiscountContext.Provider>
   );

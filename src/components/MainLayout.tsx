@@ -645,7 +645,7 @@ export default function MainLayout({
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 w-full">
+      <main id="main-content" className="flex-1 w-full">
         {children}
       </main>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
@@ -22,19 +22,59 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     service: preselectedService || '',
     timePreference: ''
   });
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useScrollLock(isOpen);
 
-  if (!isOpen) return null;
+  // Keyboard escape handler
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
-  const handleQuickWhatsApp = () => {
+  // Focus trap
+  useEffect(() => {
+    if (!isOpen || !dialogRef.current) return;
+    const dialog = dialogRef.current;
+    const focusableElements = dialog.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length === 0) return;
+    const firstEl = focusableElements[0];
+    const lastEl = focusableElements[focusableElements.length - 1];
+    
+    firstEl.focus();
+    
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    };
+    dialog.addEventListener('keydown', handleTab);
+    return () => dialog.removeEventListener('keydown', handleTab);
+  }, [isOpen, step]);
+
+  const handleQuickWhatsApp = useCallback(() => {
     logEvent('booking_whatsapp_click', { type: 'quick' });
     const message = encodeURIComponent(t('booking.whatsapp.greetingGeneric'));
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
-  };
+  }, [logEvent, t, onClose]);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     logEvent('booking_whatsapp_click', { 
         type: 'form',
@@ -48,7 +88,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     );
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
-  };
+  }, [logEvent, t, formData, onClose]);
 
   const services = [
     t('booking.service.consultation'),
@@ -62,9 +102,15 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
     t('booking.service.other')
   ];
 
+  if (!isOpen) return null;
+
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] flex items-center justify-center p-4" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] flex items-center justify-center p-4" onClick={onClose} role="presentation">
       <motion.div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('booking.smart.title')}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
@@ -73,6 +119,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
       >
         <button
           onClick={onClose}
+          aria-label={t('booking.smart.close') || 'Close'}
           className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 flex items-center justify-center transition-colors z-10"
         >
           <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
@@ -155,10 +202,11 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       {t('booking.smart.name')}
                     </label>
                     <input
+                      id="booking-name"
                       type="text"
                       required
                       value={formData.name}
@@ -168,10 +216,11 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-service" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       {t('booking.smart.service')}
                     </label>
                     <select
+                      id="booking-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-none transition"
@@ -184,10 +233,11 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       {t('booking.smart.time')}
                     </label>
                     <input
+                      id="booking-time"
                       type="text"
                       placeholder={t('booking.smart.time.placeholder')}
                       value={formData.timePreference}

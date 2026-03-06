@@ -4,6 +4,7 @@ import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
+import { ContactFormSchema } from '@/shared/types';
 
 const app = new Hono().basePath('/api');
 
@@ -43,15 +44,20 @@ app.use('*', cors({
   credentials: true,
 }));
 
-// Supabase helper
+// Supabase helper — singleton pattern to avoid re-creating client on every request
+let _supabaseClient: ReturnType<typeof createClient> | null = null;
+
 const getSupabase = () => {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (_supabaseClient) return _supabaseClient;
+  
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   
   if (!supabaseUrl || !supabaseKey) {
-    throw new Error('Missing Supabase credentials');
+    throw new Error('Missing Supabase credentials: NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required');
   }
-  return createClient(supabaseUrl, supabaseKey);
+  _supabaseClient = createClient(supabaseUrl, supabaseKey);
+  return _supabaseClient;
 };
 
 // Helper to get user from context (set by authMiddleware)
@@ -65,8 +71,7 @@ function getAuthenticatedUser(c: Context) {
  */
 
 app.post('/dashboard/init-types', authMiddleware, async (c) => {
-    // Implementation of initialize logic if needed
-    return c.json({ message: "Not implemented in this migration yet, please use Supabase dashboard" });
+    return c.json({ error: "Not implemented — use Supabase dashboard" }, 501);
 });
 
 app.get('/session-types', async (c) => {
@@ -226,16 +231,33 @@ app.post('/appointments', authMiddleware, zValidator('json', z.object({
   }
 });
 
-app.post('/contact', zValidator('json', z.object({
-  name: z.string().min(1),
-  email: z.string().email(),
-  phone: z.string().optional(),
-  service: z.string().optional(),
-  message: z.string().optional(),
-  preferred_contact: z.string().optional(),
-  preferred_time: z.string().optional()
-})), async (c) => {
+// Simple in-memory rate limiter for contact form
+const contactRateLimit = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const RATE_LIMIT_MAX = 5; // 5 submissions per hour per IP
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = contactRateLimit.get(ip);
+  if (!entry || now > entry.resetAt) {
+    contactRateLimit.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT_MAX) return false;
+  entry.count++;
+  return true;
+}
+
+// Contact form schema — imported from @/shared/types (ContactFormSchema)
+
+app.post('/contact', zValidator('json', ContactFormSchema), async (c) => {
   try {
+    // Rate limiting
+    const clientIp = c.req.header('x-forwarded-for') || c.req.header('x-real-ip') || 'unknown';
+    if (!checkRateLimit(clientIp)) {
+      return c.json({ error: 'Too many submissions. Please try again later.' }, 429);
+    }
+    
     const data = c.req.valid('json');
     const supabase = getSupabase();
 

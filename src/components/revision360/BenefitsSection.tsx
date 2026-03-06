@@ -47,21 +47,23 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="group apple-card p-6 bg-white border border-gray-100/50 hover:border-blue-100 transition duration-300"
+              className={`group rounded-[2rem] p-8 bg-white border border-gray-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 relative overflow-hidden ${index === 0 || index === 4 || index === 8 ? 'md:col-span-2 xl:col-span-1 bg-gradient-to-br from-blue-50/50 to-white' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 group-hover:scale-110 transition-transform duration-500 relative z-10">
                 {benefit.icon}
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-gray-900">{benefit.title}</h3>
-              <p className="mt-3 text-sm sm:text-base text-gray-500 leading-relaxed font-normal">{benefit.description}</p>
+              <h3 className="mt-6 text-xl font-semibold text-gray-900 tracking-tight relative z-10">{benefit.title}</h3>
+              <p className="mt-3 text-base text-gray-600 leading-relaxed font-medium relative z-10">{benefit.description}</p>
+              
               {benefit.science && (
-                <div className="mt-6 border-t border-gray-100 pt-4">
+                <div className="mt-6 border-t border-gray-100 pt-4 relative z-10">
                   <p className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-2">Science</p>
-                  <p className="text-sm text-gray-400 italic font-light">{benefit.science}</p>
+                  <p className="text-sm text-gray-500 italic font-medium">{benefit.science}</p>
                 </div>
               )}
             </motion.article>

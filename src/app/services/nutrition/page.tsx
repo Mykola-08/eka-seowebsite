@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
 import NutritionContent from '@/components/NutritionContent';
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Nutrición y Dietética | EKA Balance',

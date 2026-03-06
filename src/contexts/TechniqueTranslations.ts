@@ -5,60 +5,60 @@ export const techniqueTranslations = {
     
     // Approach
     'elena.approach.title': 'Mètode Elena Kucherova',
-    'elena.approach.desc': 'És un mètode integral creat a partir d\'una percepció holística de la persona. Combina el coneixement sobre l\'ésser humà, el seu organisme, el funcionament dels òrgans, sistemes i cossos en un sistema holístic que funciona eficaçment.',
+    'elena.approach.desc': 'Aquest és un mètode pràctic basat en entendre el cos com un tot. Ens centrem en com les diferents parts del teu organisme treballen juntes per ajudar-te a moure\'t i sentir-te millor en conjunt.',
     
     // Target Groups
     'elena.target.adults.title': 'Adults',
-    'elena.target.adults.desc': 'Problemes emocionals (psicològics), dolors crònics, conflictes interns. Ajudar a percebre el problema com una tasca, com un punt de partida. El següent pas serà mirar des d\'un nou angle, trobar nous punts de referència i construir un nou camí per assolir els objectius i tasques establerts, per trobar l\'harmonia i la felicitat.',
+    'elena.target.adults.desc': 'Dificultats emocionals, dolor crònic, sensació d\'estancament. L\'objectiu és entendre aquestes molèsties no com un defecte, sinó com un punt de partida. T\'ajudem a recuperar el confort físic i emocional per avançar amb més claredat i tranquil·litat.',
     
     'elena.target.children.title': 'Nens',
-    'elena.target.children.desc': 'Ajudar a entendre què passa amb el nen, aclarir la situació. Millorar situacions habituals de l\'edat, problemes emocionals o de comportament (a l\'escola, a casa), dificultats d\'aprenentatge, problemes d\'atenció, trastorns del son, intoleràncies alimentàries i al·lèrgies, entre d\'altres.',
+    'elena.target.children.desc': 'Ajudar a entendre les necessitats físiques i emocionals del nen. Abordem temes freqüents relacionats amb la postura, el desenvolupament motor, la hiperactivitat, les dificultats d\'aprenentatge o els problemes de son a través d\'enfocaments corporis respectuosos.',
     
     'elena.target.families.title': 'Famílies amb nens especials',
-    'elena.target.families.desc': 'Ajuda i acompanyament als pares de nens especials. Suport psicològic als pares. Treball amb l\'estat emocional de la mare. Ajuda en l\'elaboració d\'un pla de rehabilitació (què és òptim, mètode, classes). Respostes a preguntes: Què passa? On anar? Com començar? Què fer? Com organitzar la vida? Si heu arribat recentment a Espanya: acompanyament i traducció de visites a l\'hospital, assessorament, recerca d\'escola especialitzada.',
+    'elena.target.families.desc': 'Oferim suport pràctic per als pares i sessions orientades a les necessitats motores i emocionals dels nens. T\'ajudem a organitzar l\'esforç físic en l\'entorn domèstic i a entendre quins moviments són més beneficiosos per promoure el desenvolupament i la comoditat familiar.',
 
     // Techniques
     'technique.movement_lesson.title': 'Movement Lesson',
     'technique.movement_lesson.location': 'Moscou, Kazan (Rússia) – (EUA)',
-    'technique.movement_lesson.desc': 'És un enfocament alternatiu per optimitzar i millorar els moviments humans mitjançant el tacte. Millorant la funcionalitat i l\'eficiència del moviment.',
+    'technique.movement_lesson.desc': 'Mètode basat en el tacte suau creat per facilitar una mobilitat més lleugera i natural del cos, millorant la coordinació.',
 
     'technique.jka.title': 'JKA',
     'technique.jka.location': 'Tegernsee (Alemanya)',
-    'technique.jka.desc': 'Treball amb nens amb necessitats especials, basat en el treball del dr. M. Feldenkrais.',
+    'technique.jka.desc': 'Metodologia derivada del mètode Feldenkrais, centrada en estimular el desenvolupament i aprenentatge motor dels nens.',
 
     'technique.tmr.title': 'TMR',
     'technique.tmr.location': 'Barcelona (Espanya)',
-    'technique.tmr.desc': 'Teràpia de moviment rítmic. Un enfocament eficaç per a la correcció del sistema nerviós. Ajuda en la correcta integració dels reflexos primitius.',
+    'technique.tmr.desc': 'Teràpia de Moviment Rítmic. Tècnica que utilitza patrons de moviment suaus per ajudar a rebaixar la tensió i afavorir la integració sensorial.',
 
     'technique.kgh.title': 'Kinesiologia global holística',
     'technique.kgh.location': 'Barcelona (Espanya)',
-    'technique.kgh.desc': 'Teràpia complexa amb problemes crònics de salut, malalties cròniques, ajuda en l\'aprenentatge dels nens a l\'escola, etc.',
+    'technique.kgh.desc': 'Una avaluació pràctica per entendre els desequilibris físics i de salut, adreçant qüestions que van des del dolor crònic fins a dificultats de concentració.',
 
     'technique.ke.title': 'Kinesiologia emocional',
     'technique.ke.location': 'Barcelona (Espanya)',
-    'technique.ke.desc': 'Treball amb problemes emocionals: estrès, depressió, apatia, conflictes, problemes de comunicació i comportament, i altres.',
+    'technique.ke.desc': 'Una aproximació basada en el cos per alliberar tensió emocional acumulada associada a l\'estrès diari o esgotament.',
 
     'technique.kb.title': 'Kinesiologia bioquímica',
     'technique.kb.location': 'Barcelona (Espanya)',
-    'technique.kb.desc': 'Desenvolupament i recomanacions personals sobre nutrició, al·lèrgies/hipersensibilitat, etc.',
+    'technique.kb.desc': 'Suport per entendre sensibilitats alimentàries o buscar orientació nutricional per a una millor energia.',
 
     'technique.osteobalance.title': 'Osteobalance',
     'technique.osteobalance.location': 'Düsseldorf (Alemanya)',
-    'technique.osteobalance.desc': 'Treball amb l\'estructura física i energètica de la persona.',
+    'technique.osteobalance.desc': 'Estudis per a la regulació estructural i el suport de l\'equilibri general del cos.',
 
     'technique.sujok.title': 'Su-Jok',
     'technique.sujok.location': 'Moscou (Rússia)',
-    'technique.sujok.desc': 'Treball amb òrgans interns, meridians, basat en la medicina tradicional xinesa.',
+    'technique.sujok.desc': 'Principis basats en l\'estimulació de punts reflexos per alleujar el malestar general de manera suau.',
 
     'technique.quiromasaje.title': 'Quiromassatge',
     'technique.quiromasaje.location': 'Barcelona (Espanya)',
-    'technique.quiromasaje.desc': 'Diferents tipus de massatge.',
+    'technique.quiromasaje.desc': 'Massatge manual per alliberar nusos musculars i afavorir una recuperació física còmoda.',
 
     // Kinesiology Info
     'kinesiology.what_is': 'Què és la kinesiologia?',
-    'kinesiology.desc': 'És un camí cap a la perfecció, cap a la recerca del punt d\'equilibri, cap al jo veritable i lliure. És un diàleg amb el conscient i l\'inconscient, amb el cos savi mitjançant el test muscular, la recerca sota la guia del sistema nerviós...',
-    'kinesiology.emotions.title': 'Treball amb emocions',
-    'kinesiology.emotions.desc': 'Molts de nosaltres sabem que la causa de la majoria de les nostres malalties arrela en el desequilibri emocional. Ajuda amb la recerca i eliminació de les causes de les malalties. Psicosomàtica.',
+    'kinesiology.desc': 'És un mètode no invasiu que utilitza un test muscular suau com a indicador per identificar on el cos acumula tensions excessives o desequilibris, permetent així trobar formes pràctiques per ajudar a relaxar i regular l\'organisme.',
+    'kinesiology.emotions.title': 'Relació entre cos i emocions',
+    'kinesiology.emotions.desc': 'Molts malestars físics empitjoren o s\'originen quan estem sota estrès o pressió continuada. La kinesiologia ens ajuda a reconèixer i tractar aquest estrès a través del cos.',
     'kinesiology.dialogue.p1': '— no sé què em passa... I com solucionar-ho. Vull canviar la meva vida!',
     'kinesiology.dialogue.p2': '— crec que la kinesiologia et pot ajudar! Saps què és?'
   },
@@ -67,57 +67,57 @@ export const techniqueTranslations = {
     'technique.location': 'Study location:',
 
     'elena.approach.title': 'Elena Kucherova approach',
-    'elena.approach.desc': 'This is an integral method — created based on a holistic perception of the person. Combining knowledge about the person, their organism, the work of organs, systems and bodies into a holistic effectively working system.',
+    'elena.approach.desc': 'This is a practical method based on understanding the body as a whole. We focus on how the different parts of your organism work together to help you move and feel better overall.',
 
     'elena.target.adults.title': 'Adults',
-    'elena.target.adults.desc': 'Emotional (psychological) problems, chronic pain, internal conflicts. Help to perceive the problem as a task, as a starting point. The next step will be to look from a new angle, find new landmarks, and build a new path, to achieve set goals and tasks, to find harmony and happiness.',
+    'elena.target.adults.desc': 'Emotional strain, chronic discomfort, or a feeling of being stuck physically. The goal is to see these discomforts not as a flaw, but as a starting point. We focus on recovering physical and mental comfort to move forward with clearer perspectives.',
 
     'elena.target.children.title': 'Children',
-    'elena.target.children.desc': 'Help to figure out what is happening with the child, clarify the situation. Improve age-typical situations, emotional or behavioral problems (at school, at home), learning difficulties, attention problems, sleep disorders, food intolerances and allergies and others.',
+    'elena.target.children.desc': 'Understanding the child\'s physical and emotional challenges. We address common issues like posture, motor development, restlessness, learning difficulties, or tense sleep patterns through respectful, body-centered methods.',
 
     'elena.target.families.title': 'Families with special needs children',
-    'elena.target.families.desc': 'Support and accompaniment of parents of special children. Psychological support for parents. Work with the emotional state of the child\'s mother. Help in drawing up a child rehabilitation plan (what is optimal, method, classes). Help with answers to questions: What is happening? Where to go with this? How to start? What to do? How to organize life? If you recently arrived in Spain — accompaniment and translation of visits to the hospital (doctors and examinations), consulting, accompaniment in selection and placement in a specialized school.',
+    'elena.target.families.desc': 'Offering practical physical support for parents and sessions tailored to the children\'s motor needs. We help you organize physical handling at home and understand which movements best support family comfort and development.',
 
     'technique.movement_lesson.title': 'Movement Lesson',
     'technique.movement_lesson.location': 'Moscow, Kazan (Russia) – (USA)',
-    'technique.movement_lesson.desc': 'This is an alternative approach to optimizing and improving human movement through touch. Improving functionality and efficiency of movement.',
+    'technique.movement_lesson.desc': 'A hands-on method designed to facilitate lighter, more natural body movement and coordination focus.',
 
     'technique.jka.title': 'JKA',
     'technique.jka.location': 'Tegernsee (Germany)',
-    'technique.jka.desc': 'Work with children with special needs, based on the work of dr. M. Feldenkrais.',
+    'technique.jka.desc': 'A gentle methodology derived from the Feldenkrais approach, focusing on encouraging motor learning in children.',
 
     'technique.tmr.title': 'TMR',
     'technique.tmr.location': 'Barcelona (Spain)',
-    'technique.tmr.desc': 'Rhythmic movement therapy. An effective approach for nervous system correction. Help in correct integration of primitive reflexes.',
+    'technique.tmr.desc': 'Rhythmic Movement Training. A gentle approach utilizing rhythmic movements to help relax bodily tension and support coordination.',
 
     'technique.kgh.title': 'Holistic global kinesiology',
     'technique.kgh.location': 'Barcelona (Spain)',
-    'technique.kgh.desc': 'Complex therapy for chronic health problems, chronic diseases, helps in children\'s education at school, etc.',
+    'technique.kgh.desc': 'A hands-on assessment to explore physical imbalances, addressing discomfort built up through structural habits.',
 
     'technique.ke.title': 'Emotional kinesiology',
     'technique.ke.location': 'Barcelona (Spain)',
-    'technique.ke.desc': 'Work with emotional problems: stress, depression, apathy, conflicts, communication and behavioral problems and others.',
+    'technique.ke.desc': 'A body-based approach to release emotional tension stored physically from daily stress or burnout.',
 
     'technique.kb.title': 'Biochemical kinesiology',
     'technique.kb.location': 'Barcelona (Spain)',
-    'technique.kb.desc': 'Development and personal recommendations on nutrition, allergies/hypersensitivity, etc.',
+    'technique.kb.desc': 'Support for understanding suspected food sensitivities or finding nutritional ways to recover daily energy.',
 
     'technique.osteobalance.title': 'Osteobalance',
     'technique.osteobalance.location': 'Düsseldorf (Germany)',
-    'technique.osteobalance.desc': 'Work with the physical and energetic structure of a person.',
+    'technique.osteobalance.desc': 'Applied structural support to gently help regulate physical balance and comfort.',
 
     'technique.sujok.title': 'Su-Jok',
     'technique.sujok.location': 'Moscow (Russia)',
-    'technique.sujok.desc': 'Work with internal organs, meridians, based on traditional chinese medicine.',
+    'technique.sujok.desc': 'Techniques based on traditional reflex points to help relieve generalized muscular discomfort.',
 
     'technique.quiromasaje.title': 'Chiromassage',
     'technique.quiromasaje.location': 'Barcelona (Spain)',
-    'technique.quiromasaje.desc': 'Different types of massage.',
+    'technique.quiromasaje.desc': 'Hands-on massage to help undo muscle knots and offer comfortable physical recovery.',
 
     'kinesiology.what_is': 'What is kinesiology?',
-    'kinesiology.desc': 'It is a path to perfection, to finding the point of Balance, to the true and free self. It is a dialogue with the conscious and unconscious, with the wise body through muscle testing, searching under the guidance of the nervous system...',
-    'kinesiology.emotions.title': 'Work with emotions',
-    'kinesiology.emotions.desc': 'Many of us know that the cause of most of our diseases is rooted in emotional imbalance. Help with finding and eliminating the causes of diseases. Psychosomatics.',
+    'kinesiology.desc': 'A non-invasive method using gentle muscle testing as an indicator to find out where the body is holding excessive tension. This allows us to find practical ways to relax and support physical regulation.',
+    'kinesiology.emotions.title': 'Body and emotion connection',
+    'kinesiology.emotions.desc': 'Many physical discomforts worsen or pop up when we are under sustained stress. Kinesiology provides a way to recognize and gently address this stress through the body.',
     'kinesiology.dialogue.p1': '— i don\'t know what\'s wrong with me... and how to deal with it. I want to change my life!',
     'kinesiology.dialogue.p2': '— I think kinesiology can help you! Do you know what it is?'
   },
@@ -126,57 +126,57 @@ export const techniqueTranslations = {
     'technique.location': 'Lugar de estudio:',
 
     'elena.approach.title': 'Método Elena Kucherova',
-    'elena.approach.desc': 'Es un método integral creado a partir de una percepción holística de la persona. Combina el conocimiento sobre el ser humano, su organismo, el funcionamiento de los órganos, sistemas y cuerpos en un sistema holístico que funciona eficazmente.',
+    'elena.approach.desc': 'Este es un método práctico basado en entender el cuerpo como un todo. Nos centramos en cómo las diferentes partes de tu organismo trabajan juntas para ayudarte a moverte y sentirte mejor en conjunto.',
 
     'elena.target.adults.title': 'Adultos',
-    'elena.target.adults.desc': 'Problemas emocionales (psicológicos), dolores crónicos, conflictos internos. Ayudar a percibir el problema como una tarea, como un punto de partida. El siguiente paso será mirar desde un nuevo ángulo, encontrar nuevos puntos de referencia y construir un nuevo camino para alcanzar los objetivos y tareas establecidos, para encontrar la armonía y la felicidad.',
+    'elena.target.adults.desc': 'Dificultades físicas ligadas al estrés, dolor crónico o sensación de estancamiento. El objetivo es entender estas molestias no como un defecto, sino como un punto de partida para recuperar el confort físico y avanzar con más claridad.',
 
     'elena.target.children.title': 'Niños',
-    'elena.target.children.desc': 'Ayudar a entender qué pasa con el niño, aclarar la situación. Mejorar situaciones habituales de la edad, problemas emocionales o de comportamiento (en la escuela, en casa), dificultades de aprendizaje, problemas de atención, trastornos del sueño, intolerancias alimentarias y alergias, entre otros.',
+    'elena.target.children.desc': 'Ayudar a entender las necesidades del niño. Abordamos temas frecuentes como la postura, hiperactividad, dificultades de aprendizaje o trastornos del sueño a través de enfoques de movimiento suave y respetuoso.',
 
     'elena.target.families.title': 'Familias con niños especiales',
-    'elena.target.families.desc': 'Ayuda y acompañamiento a los padres de niños especiales. Apoyo psicológico a los padres. Trabajo con el estado emocional de la madre. Ayuda en la elaboración de un plan de rehabilitación (qué es óptimo, método, clases). Respuestas a preguntas: ¿qué pasa? ¿a dónde ir? ¿cómo empezar? ¿qué hacer? ¿cómo organizar la vida? Si habéis llegado recientemente a españa: acompañamiento y traducción de visitas al hospital, asesoramiento, búsqueda de escuela especializada.',
+    'elena.target.families.desc': 'Apoyo práctico para padres y acompañamiento físico de las necesidades del niño. Os guiamos en cómo organizar el esfuerzo físico en casa y qué dinámicas benefician más su desarrollo para recuperar cierto bienestar familiar general.',
 
     'technique.movement_lesson.title': 'Movement Lesson',
     'technique.movement_lesson.location': 'Moscú, Kazán (Rusia) – (EE.UU.)',
-    'technique.movement_lesson.desc': 'Es un enfoque alternativo para optimizar y mejorar los movimientos humanos mediante el tacto. Mejorando la funcionalidad y la eficiencia del movimiento.',
+    'technique.movement_lesson.desc': 'Método basado en un tacto suave creado para facilitar una movilidad más natural y con menos esfuerzo para el sistema neuromuscular.',
 
     'technique.jka.title': 'JKA',
     'technique.jka.location': 'Tegernsee (Alemania)',
-    'technique.jka.desc': 'Trabajo con niños con necesidades especiales, basado en el trabajo del dr. M. Feldenkrais.',
+    'technique.jka.desc': 'Metodología derivada del enfoque de Feldenkrais, centrada en estimular el aprendizaje motor en niños.',
 
     'technique.tmr.title': 'TMR',
     'technique.tmr.location': 'Barcelona (España)',
-    'technique.tmr.desc': 'Terapia de movimiento rítmico. Un enfoque eficaz para la corrección del sistema nervioso. Ayuda en la correcta integración de los reflejos primitivos.',
+    'technique.tmr.desc': 'Terapia de Movimiento Rítmico. Una técnica que utiliza patrones rítmicos para ayudar a rebajar la tensión corporal y favorecer la coordinación.',
 
     'technique.kgh.title': 'Kinesiología global holística',
     'technique.kgh.location': 'Barcelona (España)',
-    'technique.kgh.desc': 'Terapia compleja con problemas crónicos de salud, enfermedades crónicas, ayuda en el aprendizaje de los niños en la escuela, etc.',
+    'technique.kgh.desc': 'Una evaluación práctica para observar malestares físicos y ayudar con la tensión crónica o falta de energía diaria.',
 
     'technique.ke.title': 'Kinesiología emocional',
     'technique.ke.location': 'Barcelona (España)',
-    'technique.ke.desc': 'Trabajo con problemas emocionales: estrés, depresión, apatía, conflictos, problemas de comunicación y comportamiento, y otros.',
+    'technique.ke.desc': 'Un enfoque basado en el cuerpo para liberar estrés emocional o bloqueos derivados de presiones del día a día.',
 
     'technique.kb.title': 'Kinesiología bioquímica',
     'technique.kb.location': 'Barcelona (España)',
-    'technique.kb.desc': 'Desarrollo y recomendaciones personales sobre nutrición, alergias/hipersensibilidad, etc.',
+    'technique.kb.desc': 'Apoyo para abordar sensibilidad a ciertos alimentos u orientar hacia hábitos nutricionales que mejoren tu descanso y energía.',
 
     'technique.osteobalance.title': 'Osteobalance',
     'technique.osteobalance.location': 'Düsseldorf (Alemania)',
-    'technique.osteobalance.desc': 'Trabajo con la estructura física y energética de la persona.',
+    'technique.osteobalance.desc': 'Ayuda estructural suave para favorecer el equilibrio físico.',
 
     'technique.sujok.title': 'Su-Jok',
     'technique.sujok.location': 'Moscú (Rusia)',
-    'technique.sujok.desc': 'Trabajo con órganos internos, meridianos, basado en la medicina tradicional china.',
+    'technique.sujok.desc': 'Estimulación de puntos reflejos para ayudar con molestias generales de manera muy poco invasiva.',
 
     'technique.quiromasaje.title': 'Quiromasaje',
     'technique.quiromasaje.location': 'Barcelona (España)',
-    'technique.quiromasaje.desc': 'Diferentes tipos de masaje.',
+    'technique.quiromasaje.desc': 'Trabajo de masaje directo para nudos musculares y recuperación tras esfuerzo.',
 
     'kinesiology.what_is': '¿qué es la kinesiología?',
-    'kinesiology.desc': 'Es un camino hacia la perfección, hacia la búsqueda del punto de equilibrio, hacia el yo verdadero y libre. Es un diálogo con el consciente y el inconsciente, con el cuerpo sabio mediante el test muscular, la búsqueda bajo la guía del sistema nervioso...',
-    'kinesiology.emotions.title': 'Trabajo con emociones',
-    'kinesiology.emotions.desc': 'Muchos de nosotros sabemos que la causa de la mayoría de nuestras enfermedades radica en el desequilibrio emocional. Ayuda con la búsqueda y eliminación de las causas de las enfermedades. Psicosomática.',
+    'kinesiology.desc': 'Es un método no invasivo que emplea un leve test muscular como indicador de las áreas donde el cuerpo está reteniendo exceso de estrés. Esto permite buscar soluciones prácticas para acompañar a tu cuerpo a relajarse y regularse.',
+    'kinesiology.emotions.title': 'Relación de cuerpo y emociones',
+    'kinesiology.emotions.desc': 'Sabemos que gran parte de la tensión corporal y dolores menores empeoran o surgen con el estrés continuo. La kinesiología busca reconocer y aflojar esa sobrecarga acumulada en el tejido muscular.',
     'kinesiology.dialogue.p1': '— no sé qué me pasa... Y cómo solucionarlo. ¡quiero cambiar mi vida!',
     'kinesiology.dialogue.p2': '— ¡creo que la kinesiología te puede ayudar! ¿sabes qué es?'
   },
@@ -185,58 +185,58 @@ export const techniqueTranslations = {
     'technique.location': 'Место обучения:',
 
     'elena.approach.title': 'Метод елены кучеровой',
-    'elena.approach.desc': 'Это интегральный метод — созданный на базе целостного восприятия человека. объединяющий знания о человеке, его организме, работе органов, систем и тел в целостную эффективно работающую систему.',
+    'elena.approach.desc': 'Это практический метод, основанный на восприятии тела как единого целого. Мы фокусируемся на том, как различные системы вашего организма работают вместе, чтобы помочь вам двигаться и чувствовать себя лучше в целом.',
 
     'elena.target.adults.title': 'Взрослые',
-    'elena.target.adults.desc': 'Эмоциональные (психологические) проблемы, хронические боли, внутренние конфликты. помочь воспринять проблему как задачу, как отправную точку. следующим шагом будет посмотреть под новым углом, найти новые ориентиры, и выстроить новый путь, для достижения поставленных целей и задач, для обретения гармонии и счастья.',
+    'elena.target.adults.desc': 'Эмоциональное напряжение, хронический дискомфорт или чувство физической скованности. Цель состоит в том, чтобы воспринимать эти ощущения не как недостаток, а как отправную точку для восстановления комфорта и жизненной энергии.',
 
     'elena.target.children.title': 'Дети',
-    'elena.target.children.desc': 'Помочь разобраться с тем, что происходит с ребенком, прояснить ситуацию. улучшить привычные для возраста ситуации, эмоциональные или поведенческие проблемы (в школе, дома), трудности в обучении, проблемы с вниманием, нарушением сна, пищевыми непереносимостями и аллергиями и другое.',
+    'elena.target.children.desc': 'Понимание физических и эмоциональных потребностей ребенка. Мы работаем с такими вопросами, как осанка, моторное развитие, гиперактивность, трудности в обучении или нарушения сна, используя мягкие телесные методы.',
 
     'elena.target.families.title': 'Семьи с особыми детьми',
-    'elena.target.families.desc': 'Помощь и сопровождение родителей особых детей. психологическое сопровождение родителей. работа с эмоциональным состоянием мамы ребенка. помощь в составлении плана реабилитации ребенка (что оптимально, метод, занятия). помощь с ответами на вопросы: что происходит? куда с этим идти? как начать? что делать? как организовать жизнь? если вы недавно приехали в испанию — сопровождение и переводы визитов в госпиталь (врачи и обследования), консультирование, сопровождение по подбору и устройству в специализированную школу.',
+    'elena.target.families.desc': 'Практическая поддержка родителей и занятия, адаптированные под моторные нужды детей. Мы помогаем организовать физическую нагрузку дома и понять, какие движения будут наиболее полезны для комфорта вашей семьи.',
 
     'technique.movement_lesson.title': 'Movement Lesson',
     'technique.movement_lesson.location': 'Москва, Казань (Россия) – (США)',
-    'technique.movement_lesson.desc': 'Это альтернативный подход к оптимизации улучшению движений человека с помощью прикосновений. Улучшая функциональность и эффективность движения.',
+    'technique.movement_lesson.desc': 'Метод, основанный на мягком прикосновении, созданный для облегчения естественной подвижности тела и улучшения координации.',
 
     'technique.jka.title': 'JKA',
     'technique.jka.location': 'Тегерензе (Германия)',
-    'technique.jka.desc': 'Работа с детьми с особыми потребностями, основанная на работе доктора М. Фельденкрайза.',
+    'technique.jka.desc': 'Методика, основанная на подходе Фельденкрайза, направленная на стимулирование моторного обучения у детей.',
 
     'technique.tmr.title': 'TMR',
     'technique.tmr.location': 'Барселона (Испания)',
-    'technique.tmr.desc': 'Терапия ритмичным движением. эффективный подход для коррекции нервной системы. помощь в корректной интеграции примитивных рефлексов.',
+    'technique.tmr.desc': 'Терапия ритмичными движениями. Техника использует мягкие ритмичные паттерны, чтобы помочь снять телесное напряжение и поддержать координацию.',
 
     'technique.kgh.title': 'Глобальная холистическая кинезиология',
     'technique.kgh.location': 'Барселона (Испания)',
-    'technique.kgh.desc': 'Комплексная терапия хронических проблем со здоровьем, хронических заболеваний, помощь в обучении детей в школе и т.д.',
+    'technique.kgh.desc': 'Практическая оценка для изучения физических дисбалансов и работы с накопленным напряжением или повседневной усталостью.',
 
     'technique.ke.title': 'Эмоциональная кинезиология',
     'technique.ke.location': 'Барселона (Испания)',
-    'technique.ke.desc': 'Работа с эмоциональными проблемами: стресс, депрессия, апатия, конфликты, проблемы общения и поведения и другое.',
+    'technique.ke.desc': 'Телесно-ориентированный подход к снятию эмоционального напряжения, вызванного ежедневным стрессом или выгоранием.',
 
     'technique.kb.title': 'Биохимическая кинезиология',
     'technique.kb.location': 'Барселона (Испания)',
-    'technique.kb.desc': 'Разработка и персональные рекомендации по питанию, аллергии/гиперчувствительности и др.',
+    'technique.kb.desc': 'Поддержка в выявлении пищевых чувствительностей или выборе привычек питания для восстановления энергии.',
 
     'technique.osteobalance.title': 'Остеобаланс',
     'technique.osteobalance.location': 'Дюссельдорф (Германия)',
-    'technique.osteobalance.desc': 'Работа с физической и энергетической структурой человека.',
+    'technique.osteobalance.desc': 'Мягкая структурная поддержка для регуляции физического равновесия и комфорта.',
 
     'technique.sujok.title': 'Су-Джок',
     'technique.sujok.location': 'Москва (Россия)',
-    'technique.sujok.desc': 'Работа с внутренними органами, меридианами, основанная на традиционной китайской медицине.',
+    'technique.sujok.desc': 'Знания, основанные на стимуляции рефлекторных точек для мягкого облегчения общего дискомфорта.',
 
     'technique.quiromasaje.title': 'Хиромассаж',
     'technique.quiromasaje.location': 'Барселона (Испания)',
-    'technique.quiromasaje.desc': 'Разные типы массажа.',
+    'technique.quiromasaje.desc': 'Прямая мануальная работа для расслабления мышечных зажимов и комфортного восстановления.',
 
-    'kinesiology.what_is': 'Кинезиология что это?',
-    'kinesiology.desc': 'Это путь к совершенствованию, к поиску точки равновесия, к истинному и свободному себе. это диалог с сознательным и бессознательным, с мудрым телом посредством мышечного теста, поиска под руководством нервной системы….',
-    'kinesiology.emotions.title': 'Работа с эмоциями',
-    'kinesiology.emotions.desc': 'Многие из нас знают, что причина большинства наших болезней они коренятся в эмоциональном дисбалансе. помощь с поиском и устранением причин заболеваний. психосоматика.',
-    'kinesiology.dialogue.p1': '— не знаю что со мной…и как с этим разобраться. я хочу изменить свою жизнь!',
-    'kinesiology.dialogue.p2': '— думаю, тебе может помочь кинезиология! знаешь что это?'
+    'kinesiology.what_is': 'Что такое кинезиология?',
+    'kinesiology.desc': 'Это неинвазивный метод, использующий мягкий мышечный тест как индикатор мест скопления избыточного напряжения в теле. Это позволяет найти практические пути для расслабления и регуляции организма.',
+    'kinesiology.emotions.title': 'Связь тела и эмоций',
+    'kinesiology.emotions.desc': 'Многие физические проявления усиливаются под воздействием длительного стресса. Мы помогаем распознать и бережно снять это напряжение через расслабление тела.',
+    'kinesiology.dialogue.p1': '— Кажется, накопилась усталость, я не знаю, с чего начать восстановление.',
+    'kinesiology.dialogue.p2': '— Возможно, стоит попробовать кинезиологию, чтобы снять телесное напряжение.'
   }
 };

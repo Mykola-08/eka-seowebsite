@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import Revision360Content from '@/components/Revision360Content';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Revisión 360° | EKA Balance',

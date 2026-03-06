@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import CasosContent from '@/components/CasosContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
     title: 'Casos Frecuentes | EKA Balance',

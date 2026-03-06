@@ -31,7 +31,11 @@ export const metadata: Metadata = {
     "Barcelona",
     "Somatic Therapy",
     "Wellness",
-    "Integrative Therapy"
+    "Integrative Therapy",
+    "Corporate Wellness Programs",
+    "Business Wellness Solutions",
+    "Employee Well-being",
+    "Benestar per a empreses"
   ],
   authors: [{ name: "EKA Balance" }],
   creator: "EKA Balance",
@@ -83,7 +87,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased text-gray-900 bg-white">
+      <body className="font-sans text-gray-900 bg-white">
         <SmoothScrolling>
           <LanguageProvider>
             <DiscountProvider>

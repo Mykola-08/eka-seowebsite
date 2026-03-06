@@ -66,7 +66,7 @@ export const products: Product[] = [
             ru: '1 капсула в день во время еды (желательно с жирами).',
             ca: '1 càpsula al dia amb un àpat gras.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/VitaminD3_1.72cbzz0zfx80c69v1cwvdl.jpg'
+        image: 'https://front.agenyz.ru/resize/w1413/f9/yh/VitaminD3_1.72cbzz0zfx80c69v1cwvdl.jpg'
     },
     {
         id: 'Octomagnesium-XBi-A',
@@ -107,7 +107,7 @@ export const products: Product[] = [
             { en: '8. Magnesium Salicylate', es: '8. Salicilato de Magnesio', ru: '8. Салицилат магния', ca: '8. Salicilat de Magnesi' },
             { en: 'Vitamin B6 (P5P Active Form)', es: 'Vitamina B6 (Forma Activa P5P)', ru: 'Витамин B6 (Активная форма P5P)', ca: 'Vitamina B6 (Forma Activa P5P)' }
         ],
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/OctoMagnesium_1.lgj8791u36o04wc8kc4ock.jpg'
+        image: 'https://storage.agenyz.eu/bs/rq/1240340_OCTOMAGNESIUMXBi-A.4z7ynoqb1iqdyexcgpej.jpg'
     },
     {
         id: '3D-Matrix',
@@ -143,7 +143,7 @@ export const products: Product[] = [
             { en: 'Vitamin C & Hesperidin', es: 'Vitamina C y Hesperidina', ru: 'Витамин C и Гесперидин', ca: 'Vitamina C i Hesperidina' },
             { en: 'Ginkgo Biloba Extract', es: 'Extracto de Ginkgo Biloba', ru: 'Экстракт Гинкго Билоба', ca: 'Extracte de Ginkgo Biloba' }
         ],
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/3DMatrix_1.j72oivd3g9kk048ocww0kc.jpg'
+        image: 'https://storage.agenyz.eu/sc/w8/3dMatrix_En.6o8ovei0rtlqdqm6cixc1ff6mj.png'
     },
     {
         id: 'FungoMax-XBi-A',
@@ -180,7 +180,7 @@ export const products: Product[] = [
             { en: 'Adaptogenic: Helps body resist stress.', es: 'Adaptogénico: Ayuda al cuerpo a resistir el estrés.', ru: 'Адаптоген: Помогает организму противостоять стрессу.', ca: 'Adaptogènic: Ajuda el cos a resistir l\'estrès.' },
             { en: 'Antioxidant: Neutralizes free radicals.', es: 'Antioxidante: Neutraliza radicales libres.', ru: 'Антиоксидант: Нейтрализует свободные радикалы.', ca: 'Antioxidant: Neutralitza radicals lliures.' }
         ],
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/FungoMax_1.m7879r29h3koooogcg0wc4.jpg'
+        image: 'https://front.agenyz.ru/resize/w1413/ky/gs/2026_02_13_AgenyzEU_Fungomax_2000x2000.dwqde2wfnjwcpqgx2akv61r.png'
     },
     {
         id: 'FerBoost-XBi-A',
@@ -216,7 +216,7 @@ export const products: Product[] = [
             { en: 'No constipation or nausea (Bisglycinate form).', es: 'Sin estreñimiento ni náuseas (forma Bisglicinato).', ru: 'Без запоров и тошноты (форма бисглицинат).', ca: 'Sense restrenyiment ni nàusees (forma Bisglicinat).' },
             { en: 'Fast ferritin restoration.', es: 'Restauración rápida de ferritina.', ru: 'Быстрое восстановление ферритина.', ca: 'Restauració ràpida de ferritina.' }
         ],
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/FerBoost_1.m7879r29h3koooogcg0wc4.jpg'
+        image: 'https://front.agenyz.ru/resize/w1413/ek/ju/ferboost_eu_mockup_07_10_2025_v1_4_site.wa3rakw.png'
     },
     // --- CELL ELIXIR SERIES ---
     {
@@ -248,7 +248,7 @@ export const products: Product[] = [
             { en: 'Betulin', es: 'Betulina', ru: 'Бетулин', ca: 'Betulina' },
             { en: 'Vitamin E', es: 'Vitamina E', ru: 'Витамин E', ca: 'Vitamina E' }
         ],
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/CellGenetiX_1.j72oivd3g9kk048ocww0kc.jpg'
+        image: 'https://storage.agenyz.eu/y1/f3/_En.vgnko1s5plrh7vau2elp51f9jzgl.png'
     },
     // --- ADDITIONAL PRODUCTS (Fully Populated) ---
     {
@@ -285,7 +285,7 @@ export const products: Product[] = [
             ru: '2 капсулы в день до еды в течение 15 дней.',
             ca: '2 càpsules al dia abans dels àpats durant 15 dies.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/ParaDetox_1.m7879r29h3koooogcg0wc4.jpg'
+        image: 'https://storage.agenyz.eu/06/t8/1240340_PARADETOX.snrw5xfr96in1.jpg'
     },
     {
         id: 'PHT-SustaHelp',
@@ -321,7 +321,7 @@ export const products: Product[] = [
             ru: '2 капсулы в день во время еды.',
             ca: '2 càpsules al dia amb els àpats.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/SustaHelp_1.jpg'
+        image: 'https://front.agenyz.ru/resize/w1024h1024c1/mn/ax/67f4fab65b447.gjpzimocuuwdb212zy0cn8.png'
     },
     {
         id: 'Cats-Claw-XBi-A',
@@ -355,7 +355,7 @@ export const products: Product[] = [
             ru: '1-2 капсулы в день.',
             ca: '1-2 càpsules al dia.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/CatsClaw_1.jpg'
+        image: 'https://storage.agenyz.eu/1i/8j/1240340_CATSCLAW.9t6mk4h4lo5bg4.jpg'
     },
     {
         id: 'Oculyz-XBi-A',
@@ -391,7 +391,7 @@ export const products: Product[] = [
             ru: '1 капсула в день.',
             ca: '1 càpsula al dia.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/Oculyz_1.jpg'
+        image: 'https://storage.agenyz.eu/dd/af/1240340_OCULYZ.8nan9seb315cv.jpg'
     },
     {
         id: 'VenoBalance',
@@ -426,7 +426,7 @@ export const products: Product[] = [
             ru: '1 таблетка два раза в день.',
             ca: '1 tableta dos cops al dia.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/VenoBalance_1.jpg'
+        image: 'https://front.agenyz.ru/resize/w1024h1024c1/37/nu/venobalance_gel_ru_12_09_2025_v1_4_site.0nxoq6ifsocophtnsgvevrg.png'
     },
     {
         id: 'Slim-MCT',
@@ -460,7 +460,7 @@ export const products: Product[] = [
             ru: 'Добавлять в кофе, смузи или салаты.',
             ca: 'Afegir al cafè, batuts o amanides.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/SlimMCT_1.jpg'
+        image: 'https://front.agenyz.ru/resize/w1413/2g/ty/mockup_iq_mct_eng_07_07_2025_4_site.ubwll6arxede.png'
     },
     {
         id: 'Skin-Elixir',
@@ -495,7 +495,7 @@ export const products: Product[] = [
             ru: 'Наносить утром и вечером на чистое лицо.',
             ca: 'Aplicar matí i nit sobre el rostre net.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/SkinElixir_1.jpg'
+        image: 'https://front.agenyz.ru/resize/w1413/g4/ag/2025_11_11_Collagen_Blend_Biotin_MOCKUP_2000x2000.5vscizg6691gv26az.png'
     },
     {
         id: 'Youth-Secret',
@@ -530,7 +530,7 @@ export const products: Product[] = [
             ru: 'Наносить на ночь для лучших результатов.',
             ca: 'Aplicar a la nit per a millors resultats.'
         },
-        image: 'https://front.agenyz.eu/resize/w1413/f9/yh/YouthSecret_1.jpg'
+        image: 'https://front.agenyz.ru/resize/w1413/zk/jn/youth_secret_set_eu_4_site.sj6s.png'
     }
 ];
 

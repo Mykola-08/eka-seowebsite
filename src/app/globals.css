@@ -19,50 +19,22 @@
   --apple-border-radius-large: 48px;
   --apple-border-radius-xl: 64px;
   --apple-shadow: 0 0 0 0 transparent;
-  --apple-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for interactive elements */
-  --apple-shadow-large: 0 8px 24px rgba(0, 0, 0, 0.05); /* Very slight large shadow */
+  --apple-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --apple-shadow-large: 0 8px 24px rgba(0, 0, 0, 0.05);
   --surface-primary: #ffffff;
   --surface-muted: #f5f5f7;
   --surface-elevated: #ffffff;
   --border-subtle: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.12);
-
-  /* Animation Easings */
-  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
-  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
-  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
-  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
-  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
-  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
-
-  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
-}
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
   body {
-    @apply text-gray-900 leading-relaxed antialiased bg-white;
-    font-weight: 400;
+    @apply text-gray-900 bg-white antialiased;
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 300; /* Lighter weight for luxury feel */
+    font-weight: 300;
     line-height: 1.6;
-    letter-spacing: 0.01em; /* Slight tracking for elegance */
+    letter-spacing: 0.01em;
   }
 
   h1,
@@ -73,8 +45,8 @@
   h6 {
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     @apply text-gray-900;
-    font-weight: 500; /* Medium weight, not bold */
-    letter-spacing: -0.02em; /* Tighter tracking for headings */
+    font-weight: 500;
+    letter-spacing: -0.02em;
     line-height: 1.2;
   }
 
@@ -91,7 +63,7 @@
   h3 {
     @apply text-2xl md:text-3xl;
   }
-  
+
   p {
     @apply text-gray-600;
     font-weight: 300;
@@ -117,17 +89,16 @@
     @apply text-base sm:text-lg text-gray-600 leading-relaxed;
   }
 
-  /* Utility Classes */
   .rounded-apple {
     border-radius: var(--apple-border-radius);
   }
 
-  /* New Apple Card Class - The core of the design system update */
+  /* Apple Card */
   .apple-card {
     @apply bg-white transition-all duration-300;
     border-radius: var(--apple-border-radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Extremely subtle shadow */
-    border: 1px solid rgba(0,0,0,0.04); /* Very subtle border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
   }
 
   .apple-card:hover {
@@ -139,51 +110,10 @@
     transform: scale(0.99);
   }
 
-  .glassy-blue {
-    @apply bg-white/60 backdrop-blur-xl border border-white/20 transition-all duration-300;
-    background: rgba(245, 245, 247, 0.6); /* Apple gray/white tint */
-  }
-
-  .glassy-blue:hover {
-    @apply shadow-xl;
-    box-shadow: 0 12px 40px -12px rgba(0, 113, 227, 0.15); /* Apple Blue subtle shadow */
-    border-color: rgba(0, 113, 227, 0.1);
-  }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Apple-style sections */
-  .apple-section {
-
-    @apply py-12 sm:py-20 md:py-32 px-4 sm:px-6;
-  }
-
-  .apple-section-sm {
-    @apply py-8 sm:py-16 md:py-24 px-4 sm:px-6;
-  }
-
-  .apple-section-lg {
-    @apply py-16 sm:py-32 md:py-48 px-4 sm:px-6;
-  }
-
-  .apple-container {
-    @apply max-w-7xl mx-auto;
-  }
-
-  .apple-container-sm {
-    @apply max-w-4xl mx-auto;
-  }
-
-  .apple-container-lg {
-    @apply max-w-8xl mx-auto;
-  }
-
   /* Typography */
   .apple-headline, .heading-1 {
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white;
+    @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white;
     font-weight: 300;
     letter-spacing: -0.025em;
     line-height: 0.95;
@@ -191,292 +121,43 @@
 
   .apple-title, .heading-2 {
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    @apply text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 dark:text-white;
+    @apply text-xl sm:text-2xl md:text-3xl text-gray-900 dark:text-white;
     font-weight: 500;
     letter-spacing: -0.020em;
     line-height: 1.15;
   }
 
   .apple-subtitle, .heading-3 {
-    @apply text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 font-normal;
+    @apply text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400;
     font-weight: 400;
     letter-spacing: -0.012em;
     line-height: 1.5;
   }
-
-  .apple-body, .text-body {
-    @apply text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 font-normal;
-    font-weight: 400;
-    letter-spacing: -0.006em;
-    line-height: 1.6;
-  }
-
-  .apple-caption {
-    @apply text-sm text-gray-500 dark:text-gray-500 font-medium;
-    font-weight: 500;
-    letter-spacing: -0.008em;
-  }
-
-  .apple-large-title {
-    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    @apply text-6xl md:text-7xl lg:text-8xl font-light text-gray-900 dark:text-white;
-    font-weight: 200;
-    letter-spacing: -0.035em;
-    line-height: 0.9;
-  }
-
-  /* Form elements */
-  .apple-input, .input-field {
-    @apply w-full px-4 py-4 text-lg;
-    @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
-    border-radius: var(--apple-border-radius);
-    @apply transition-all duration-200;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
-    @apply placeholder-gray-400 dark:placeholder-gray-500;
-    font-weight: 400;
-    letter-spacing: -0.003em;
-  }
-
-  .apple-select {
-    @apply w-full px-4 py-4 text-lg;
-    @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
-    border-radius: var(--apple-border-radius);
-    @apply transition-all duration-200;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
-    font-weight: 400;
-    letter-spacing: -0.003em;
-  }
-
-  .label-text {
-    @apply block text-sm font-medium text-gray-700 mb-1;
-  }
-
-  /* Navigation */
-  .apple-nav {
-    @apply bg-white/80 dark:bg-gray-950/80 backdrop-blur-2xl;
-    @apply border-b border-gray-100/50 dark:border-gray-800/50;
-    @apply sticky top-0 z-50;
-  }
-
-  /* Liquid Glass Navigation Header */
-  .liquid-glass-nav {
-    @apply bg-white/60 backdrop-blur-2xl;
-    @apply border-b border-gray-200/20;
-    @apply sticky top-0 z-50;
-    @apply transition-all duration-300 ease-out;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.6);
-    border-bottom: 1px solid rgba(229, 231, 235, 0.2);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Minimal shadow */
-  }
-
-  .liquid-glass-nav::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  /* Navigation Dropdown Styling */
-  .nav-dropdown {
-    /* Backface visibility for smooth animation */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
-  }
-
-  .nav-dropdown.is-open {
-    animation: dropdownSlideIn 0.28s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  @keyframes dropdownSlideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-8px);
-      filter: blur(4px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-  }
-
-  /* Liquid Glass Navigation Header Without Animations */
-  .liquid-glass-nav-no-anim {
-    @apply bg-white/60 backdrop-blur-2xl;
-    @apply border-b border-gray-200/20;
-    @apply sticky top-0 z-50;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.6);
-    border-bottom: 1px solid rgba(229, 231, 235, 0.2);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Minimal shadow */
-  }
-
-  .liquid-glass-nav-no-anim::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  /* Testimonial Slider Styles */
-  .testimonial-slider {
-    @apply relative overflow-hidden;
-  }
-
-  .testimonial-slide {
-    @apply transition-transform duration-500 ease-in-out;
-  }
-
-  .testimonial-indicators {
-    @apply flex justify-center space-x-2 mt-8;
-  }
-
-  .testimonial-dot {
-    @apply w-2 h-2 rounded-full transition-all duration-300;
-    @apply bg-gray-300 hover:bg-gray-400;
-  }
-
-  .testimonial-dot.active {
-    @apply bg-gray-900 w-6;
-  }
-
-  /* FAQ Accordion Styles */
-  .faq-accordion {
-    @apply space-y-4;
-  }
-
-  .faq-item {
-    @apply border border-gray-200/50 overflow-hidden transition-all duration-300;
-    border-radius: var(--apple-border-radius);
-  }
-
-  .faq-question {
-    @apply w-full text-left px-6 py-4 font-medium text-gray-900;
-    @apply hover:bg-gray-50 transition-colors duration-200;
-    @apply focus:outline-none focus:bg-gray-50;
-  }
-
-  .faq-answer {
-    @apply px-6 pb-4 text-gray-600 leading-relaxed;
-  }
-
-  /* Spacing utilities */
-  .apple-spacing-sm {
-    @apply py-16;
-  }
-
-  .apple-spacing-md {
-    @apply py-24;
-  }
-
-  .apple-spacing-lg {
-    @apply py-32;
-  }
-
-  .apple-spacing-xl {
-    @apply py-40;
-  }
-
-  /* Utilities */
-  .glass-panel {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
-  }
 }
 
 /* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.4s ease-out;
 }
 
-.animate-scale-in {
-  animation: scaleIn 0.3s ease-out;
+/* Navigation Dropdown */
+.nav-item {
+  position: relative;
 }
 
-/* Stagger animations */
-.stagger-children>* {
-  animation: fadeInUp 0.6s ease-out both;
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
 }
 
-.stagger-children>*:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.stagger-children>*:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.stagger-children>*:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.stagger-children>*:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.stagger-children>*:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.stagger-children>*:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Scrollbar styling */
@@ -497,7 +178,6 @@ html {
   background: #9ca3af;
 }
 
-/* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-thumb {
   background: #374151;
 }
@@ -506,234 +186,11 @@ html {
   background: #4b5563;
 }
 
-/* Smooth section transitions */
-.section-transition {
-  @apply transition-all duration-700 ease-out;
-  @apply transform;
-}
-
-.section-fade-in {
-  @apply opacity-0 translate-y-8;
-  animation: sectionFadeIn 0.8s ease-out forwards;
-}
-
-@keyframes sectionFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Stagger section animations */
-.stagger-sections>section:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.stagger-sections>section:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.stagger-sections>section:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.stagger-sections>section:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.stagger-sections>section:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* Navigation Dropdown - CSS-first solution for stable hover */
-.nav-item {
-  position: relative;
-}
-
-.nav-trigger {
-  /* your styles - handled by Tailwind classes */
-}
-
-.nav-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-6px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
-    opacity 0.22s,
-    visibility 0s 0.22s;
-  z-index: 50;
-}
-
-/* OPEN if: parent hovered, dropdown hovered, or trigger focused */
-.nav-item:hover .nav-dropdown,
-.nav-item:has(.nav-dropdown:hover) .nav-dropdown,
-.nav-item:has(.nav-dropdown:focus-within) .nav-dropdown,
-.nav-item:has(.nav-trigger:focus-visible) .nav-dropdown {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: 0s;
-}
-
-/* Hover bridge for better UX when :has() not available */
-.hover-bridge {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 100%;
-  height: 12px;
-  width: 100%;
-  min-width: 320px;
-  max-width: 480px;
-  pointer-events: auto;
-  background: transparent;
-  z-index: 49;
-}
-
-/* Fallback for older browsers without :has() support */
-.nav-item.is-open .nav-dropdown {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: 0s;
-}
-
-/* Smooth dropdown slide animation */
-@keyframes slideDownSmooth {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0px);
-  }
-}
-
-/* New dropdown animation for better UX */
-@keyframes dropdownOpen {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0px);
-  }
-}
-
-/* Parallax effect for background elements */
-@keyframes parallax-float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.parallax-float {
-  animation: parallax-float 6s ease-in-out infinite;
-}
-
-/* Floating animation for Agenyz product cards */
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Enhanced hover effects for interactive elements */
-.interactive-hover {
-  @apply transition-all duration-300 ease-out;
-  @apply hover:scale-[1.02] hover:-translate-y-1;
-  @apply hover:shadow-xl;
-  box-shadow: none; /* No shadow by default */
-}
-
-/* Revision 360 specific styles */
-.btn-360-primary {
-  @apply bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-900 font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95;
-  box-shadow: none;
-}
-
-.btn-360-secondary {
-  @apply bg-gradient-to-r from-zinc-700/50 to-zinc-600/50 border border-amber-500/30 text-amber-200 rounded-lg transition-all duration-300 hover:bg-zinc-700/70 hover:border-amber-500/50 hover:scale-105;
-}
-
-.card-360-hover {
-  @apply transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-2;
-}
-
-/* VIP Gold Shimmer Effect */
-.gold-shimmer {
-  background: linear-gradient(to right,
-      #bf953f 0%,
-      #fcf6ba 25%,
-      #b38728 50%,
-      #fbf5b7 75%,
-      #bf953f 100%);
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  font-weight: 800;
-}
-
-.gold-shimmer.shining {
-  animation: gold-shine 3s linear forwards;
-}
-
+/* Gold text effects */
 @keyframes gold-shine {
-  to {
-    background-position: 200% center;
-  }
+  to { background-position: 200% center; }
 }
 
 .text-gold {
   @apply bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent;
-}
-
-.text-gold-shine {
-  background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  background-size: 200% auto;
-  animation: shine 3s linear infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
 }

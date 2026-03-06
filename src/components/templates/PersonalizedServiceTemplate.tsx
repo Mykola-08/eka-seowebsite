@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -37,6 +38,8 @@ interface PersonalizedServiceTemplateProps {
   showMethodology?: boolean;
   benefits?: string[];
   methodSteps?: MethodStep[];
+  children?: React.ReactNode;
+  childrenTop?: React.ReactNode;
 }
 
 const themeConfig: Record<string, {
@@ -149,13 +152,14 @@ const themeConfig: Record<string, {
 export default function PersonalizedServiceTemplate({
   serviceId,
   translationKey,
-  Icon,
   seoKeys,
   recommendedServices,
   faqItems,
   showMethodology = true,
   benefits = [],
-  methodSteps = []
+  methodSteps,
+  children,
+  childrenTop
 }: PersonalizedServiceTemplateProps) {
   const { t } = useLanguage();
   const serviceData = PERSONALIZED_SERVICES_DATA.find(s => s.id === serviceId);
@@ -165,7 +169,7 @@ export default function PersonalizedServiceTemplate({
 
   // Fallback methodology steps if none provided but showMethodology is true
   // Try to load from translation keys if methodSteps is empty but showMethodology is true
-  const stepsToRender = methodSteps.length > 0 ? methodSteps : (showMethodology ? [1, 2, 3].map(step => ({
+  const stepsToRender = (methodSteps && methodSteps.length > 0) ? methodSteps : (showMethodology ? [1, 2, 3].map(step => ({
     title: t(`${translationKey}.method.step${step}.title`),
     description: t(`${translationKey}.method.step${step}.desc`)
   })) : []);
@@ -212,7 +216,7 @@ export default function PersonalizedServiceTemplate({
             </Button>
           </Link>
         </div>
-
+        {childrenTop}
         {/* Understanding Section - Bento Box */}
         <section className="py-16 sm:py-20 lg:py-24 bg-[#fbfbfd]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -298,39 +302,35 @@ export default function PersonalizedServiceTemplate({
             </div>
 
             <div className={`grid md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:gap-8`}>
-              {recommendedServices.map((service, index) => (
-                  <div key={index} className="bg-white rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100  transition-all duration-500  p-6 sm:p-8 md:p-10 group flex flex-col h-full relative overflow-hidden">
-                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
-                  
-                  <div className="flex flex-col h-full relative z-10">
-                    <h3 className={`text-4xl font-semibold text-gray-900 mb-4 tracking-tighter leading-[1.1] ${theme.serviceCardHoverText} transition-colors`}>
-                      {t(service.titleKey)}
-                    </h3>
-                    <p className="text-lg text-gray-500 mb-8 flex-grow font-medium leading-relaxed">
-                      {t(service.descriptionKey)}
-                    </p>
-                    
-                    <div className="mt-auto pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-start justify-between gap-6">
-                      <span className="text-lg font-semibold text-gray-900 bg-gray-50 px-4 py-2 rounded-xl whitespace-nowrap border border-gray-100">
-                        {service.duration || '60-90 min'}
-                      </span>
-                      <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-                        <Link href={service.href} className={`${theme.serviceLinkText} text-sm font-semibold hover:opacity-80 flex items-center px-4 py-2`}>
-                          {t('common.moreInfo')}
-                        </Link>
-                        <Button asChild size="lg" className="rounded-full w-full sm:w-auto font-medium  " variant="default">
-                          <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey) || service.titleKey)}`}>
-                            {t('nav.bookNow')}
-                          </Link>
-                        </Button>
-                      </div>
+              {recommendedServices.map((service, index) => {
+                const details = (
+                  <div className="flex items-center gap-6 mt-8 p-6 bg-gray-50 rounded-2xl">
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">{t('common.duration') || 'Duration'}</span>
+                      <span className="text-xl font-semibold text-gray-900">{service.duration || '60-90 min'}</span>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+
+                return (
+                  <ServiceBentoItem
+                    key={index}
+                    title={t(service.titleKey)}
+                    description={t(service.descriptionKey)}
+                    details={details}
+                    bookUrl={`/booking?service=${encodeURIComponent(t(service.titleKey))}`}
+                    bookText={t('nav.bookNow') || 'Book Now'}
+                    readMoreUrl={service.href}
+                    readMoreText={t('common.moreInfo') || 'More Info'}
+                    className="h-full"
+                  />
+                );
+              })}
             </div>
           </div>
         </section>
+
+        {children}
 
         {faqItems ? <FAQ items={faqItems} /> : <FAQ />}
         <CTASection />

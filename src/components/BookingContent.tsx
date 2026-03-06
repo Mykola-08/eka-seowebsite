@@ -39,22 +39,21 @@ export default function BookingContent() {
     timeSlot: ''
   });
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const serviceParam = searchParams.get('service');
-    if (serviceParam && serviceParam !== formData.service) { // Only update if it actually changed
-      setFormData(prev => ({ ...prev, service: serviceParam }));
-      setShowForm(true);
-      // Optional: scroll to the form
+    if (serviceParam && serviceParam !== formData.service) {
+      // Defer state updates to avoid synchronous setState in effect body
       const timer = setTimeout(() => {
+        setFormData(prev => ({ ...prev, service: serviceParam }));
+        setShowForm(true);
         const formElement = document.getElementById('booking-form');
         if (formElement) {
           formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-      }, 500);
+      }, 0);
       return () => clearTimeout(timer);
     }
-  }, [searchParams]);
+  }, [searchParams, formData.service]);
 
   const services = [
     t('booking.options.service.massage'),

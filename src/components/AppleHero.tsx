@@ -11,9 +11,8 @@ import { Sparkles } from 'lucide-react';
 
 // Premium aesthetic wellness images from Unsplash
 const heroImages = [
-  'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000', // Wellness / Yoga clean aesthetic
-  'https://images.unsplash.com/photo-1519824145371-29681b328e2b?auto=format&fit=crop&q=80&w=2000', // Relaxing elements
-  'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000', // Massage / Spa therapy
+  'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=2000', // Wellness / Yoga clean aesthetic
+  'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=2000', // Relaxing elements
 ];
 
 export default function AppleHero() {
@@ -103,7 +102,7 @@ export default function AppleHero() {
               alt={`Wellness atmosphere ${index + 1}`}
               fill
               priority={index === 0}
-              className="object-cover transition-transform duration-[20s] ease-linear scale-100 group-hover:scale-105"
+              className="object-cover transition-transform duration-[20s] ease-linear "
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
             />
             {/* Subtle Gradient Overlay for depth */}

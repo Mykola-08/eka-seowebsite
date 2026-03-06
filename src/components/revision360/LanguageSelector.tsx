@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -20,6 +20,7 @@ const languages: LanguageOption[] = [
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentLanguage = languages.find(lang => lang.code === language);
 
@@ -28,12 +29,27 @@ export default function LanguageSelector() {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-sm hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200"
-        transition={{ duration: 0.2 }}
+        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-md hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200 shadow-sm"
       >
         <Globe className="w-4 h-4" />
         <span className="text-sm font-medium">
@@ -50,24 +66,24 @@ export default function LanguageSelector() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute bottom-full right-0 mb-2 w-40 bg-zinc-900 border border-amber-500/20 rounded-lg  overflow-hidden z-50"
+            className="absolute bottom-full right-0 mb-3 w-48 bg-zinc-900/85 backdrop-blur-xl border border-amber-500/30 rounded-xl overflow-hidden z-[100] shadow-2xl ring-1 ring-white/5"
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <div className="py-1">
+            <div className="p-1.5 space-y-0.5">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => handleLanguageChange(lang.code)}
-                  className={`w-full text-left px-4 py-2 text-sm flex items-center space-x-3 transition-colors duration-150 ${
-                    language === lang.code 
-                      ? 'bg-amber-500/10 text-amber-200' 
-                      : 'text-zinc-400 hover:bg-zinc-800 hover:text-amber-100'
-                  }`}
+                  className={"w-full text-left px-3 py-2.5 text-sm flex items-center space-x-3 transition-all duration-200 rounded-lg " + (
+                    language === lang.code
+                      ? 'bg-amber-500/15 text-amber-200 font-medium'
+                      : 'text-zinc-400 hover:bg-white/5 hover:text-amber-100'
+                  )}
                 >
-                  <span>{lang.flag}</span>
+                  <span className="text-base">{lang.flag}</span>
                   <span>{t(lang.name)}</span>
                 </button>
               ))}
@@ -78,4 +94,3 @@ export default function LanguageSelector() {
     </div>
   );
 }
-

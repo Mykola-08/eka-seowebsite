@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import VIPContent from '@/components/VIPContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'VIP Club & Luxury Wellness Plans | EKA Balance',

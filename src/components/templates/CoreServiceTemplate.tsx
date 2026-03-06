@@ -66,15 +66,6 @@ interface CoreServiceTemplateProps {
   };
 }
 
-const colorMap: Record<string, string> = {
-  orange: 'text-orange-600 bg-orange-50/50 border-orange-100/50',
-  blue: 'text-blue-600 bg-blue-50/50 border-blue-100/50',
-  green: 'text-green-600 bg-green-50/50 border-green-100/50',
-  purple: 'text-purple-600 bg-purple-50/50 border-purple-100/50',
-  pink: 'text-pink-600 bg-pink-50/50 border-pink-100/50',
-  amber: 'text-amber-600 bg-amber-50/50 border-amber-100/50',
-};
-
 const iconColorMap: Record<string, string> = {
   orange: 'text-orange-600 bg-orange-100',
   blue: 'text-blue-600 bg-blue-100',
@@ -100,7 +91,6 @@ export default function CoreServiceTemplate({
   const theme = serviceData?.color || 'blue';
   
   // Styles based on theme
-  const benefitStyle = colorMap[theme] || colorMap.blue;
   const iconStyle = iconColorMap[theme] || iconColorMap.blue;
 
   return (

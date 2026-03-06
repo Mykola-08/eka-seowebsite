@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import CookiePolicyContent from '@/components/CookiePolicyContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | EKA Balance',

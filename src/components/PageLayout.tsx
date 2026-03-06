@@ -138,7 +138,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
       ))}
 
       {/* Main Content */}
-      <main className={`relative z-20 -mt-8 pt-12 pb-24 ${mainClassName}`}>
+      <main className={`relative z-20 -mt-8 pt-12 pb-0 ${mainClassName}`}>     
         {children}
       </main>
     </div>

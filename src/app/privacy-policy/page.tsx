@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import PrivacyPolicyContent from '@/components/PrivacyPolicyContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | EKA Balance',

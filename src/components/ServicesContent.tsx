@@ -1,13 +1,12 @@
 'use client';
 
-import { Heart, ArrowRight, UserPlus } from 'lucide-react';
+import { Heart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { SERVICES_DATA, PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
+import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import ServiceCard from '@/components/ServiceCard';
-import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
 import PageLayout from './PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
 import CTASection from '@/components/CTASection';
@@ -25,7 +24,7 @@ export default function ServicesContent() {
       <PageLayout
         hero={{
           badge: t('services.integralWellbeingFor'),
-          title: t('services.ourServices'),
+          title: `${t('services.ourServices')} ${t('services.ourServices2')}`.trim(),
           subtitle: t('services.wellnessPath'),
           icon: <Heart className="w-4 h-4" />
         }}

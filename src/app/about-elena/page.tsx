@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import AboutElenaContent from '@/components/AboutElenaContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: "Sobre Elena Kucherova | EKA Balance",

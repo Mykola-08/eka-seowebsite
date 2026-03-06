@@ -68,7 +68,7 @@ export default function HomeContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[320px] md:auto-rows-[280px]">
             {/* Main large visual */}
-            <BentoCard href="/services/equilibri" className="md:col-span-2 md:row-span-2">
+            <BentoCard href="/services" className="md:col-span-2 md:row-span-2">
               <div className="absolute inset-0 bg-primary/5 z-0" />
               <Image 
                 src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200" 
@@ -195,7 +195,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block pt-4">
-                <Button variant="white" size="xl" className="text-lg px-8  border border-gray-100"> 
+                <Button variant="default" size="xl" className="px-10 py-6 text-lg h-auto shadow-sm">
                   {t('common.readMore')}
                 </Button>
               </Link>

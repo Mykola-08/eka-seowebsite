@@ -121,27 +121,28 @@ export default function VariantsSection() {
           <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.variants.subtitle')}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 auto-rows-fr">
           {variants.map((variant, index) => (
             <motion.button
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="group text-left apple-card p-6 bg-white transition duration-300"
+              className="group text-left rounded-[2.5rem] bg-white border border-gray-100 hover:border-gray-200 p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 border border-gray-100 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors duration-300">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-blue-50/50 to-transparent rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
+              <span className="relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 border border-gray-100 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors duration-300">
                 {variant.icon}
               </span>
-              <h3 className="mt-6 text-xl font-semibold text-gray-900">{variant.title}</h3>
-              <p className="mt-1 text-xs text-blue-600 font-bold uppercase tracking-wider">{variant.subtitle}</p>
-              <p className="mt-4 text-sm text-gray-500 leading-relaxed min-h-[5em] font-normal">{variant.description}</p>
-              <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
+              <h3 className="relative z-10 mt-6 text-xl font-semibold text-gray-900">{variant.title}</h3>
+              <p className="relative z-10 mt-1 text-xs text-blue-600 font-bold uppercase tracking-wider">{variant.subtitle}</p>
+              <p className="relative z-10 mt-4 text-sm text-gray-500 leading-relaxed font-normal flex-1">{variant.description}</p>
+              <div className="relative z-10 mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
                 <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">{variant.duration}</span>
-                <span className="text-lg font-semibold text-gray-900">{variant.price}</span>
+                <span className="text-lg font-semibold text-gray-900 bg-gray-50 px-3 py-1 rounded-xl">{variant.price}</span>
               </div>
             </motion.button>
           ))}

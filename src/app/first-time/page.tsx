@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import FirstTimeContent from '@/components/FirstTimeContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Primera Visita - Descubre tu Plan Ideal | EKA Balance',

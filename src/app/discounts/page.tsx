@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import DiscountsContent from '@/components/DiscountsContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: "Descomptes i Ofertes | EKA Balance",

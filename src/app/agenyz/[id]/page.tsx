@@ -8,8 +8,6 @@ import Link from 'next/link';
 import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck, Zap, Microscope } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export const dynamic = 'force-dynamic';
-
 export default function ProductPage() {
     const params = useParams();
     const { language, t } = useLanguage();
@@ -42,7 +40,7 @@ export default function ProductPage() {
         <div className='bg-white min-h-screen'>
             {/* Sticky Mobile CTA */}
             <div className='fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-lg border-t border-gray-100 z-50 md:hidden'>
-                <a href='https://agenyz.eu/catalog' target='_blank' rel='noopener noreferrer' className='block w-full'>
+                  <a href={product.slug ? `https://agenyz.es/products/${product.slug}` : 'https://agenyz.es'} target='_blank' rel='noopener noreferrer' className='block w-full'>
                     <Button size='lg' variant='default' className='w-full shadow-lg'>
                         {t('agenyz.buyNow') || 'Buy Now'}
                     </Button>
@@ -152,7 +150,7 @@ export default function ProductPage() {
                                 transition={{ delay: 0.4 }}
                                 className='flex flex-col sm:flex-row gap-4'
                             >
-                                <a href='https://agenyz.eu/catalog' target='_blank' rel='noopener noreferrer' className='flex-1 sm:flex-none'>
+                                  <a href={product.slug ? `https://agenyz.es/products/${product.slug}` : 'https://agenyz.es'} target='_blank' rel='noopener noreferrer' className='flex-1 sm:flex-none'>
                                     <Button size='xl' variant='default' className='w-full sm:w-auto text-lg px-8 py-4 shadow-lg shadow-blue-500/20'>
                                         <ShoppingBag className='mr-2 w-5 h-5' />
                                         {t('agenyz.buyNow') || 'Order Now'}

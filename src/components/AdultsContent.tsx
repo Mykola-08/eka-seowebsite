@@ -6,7 +6,6 @@ import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
-import ServiceCard from '@/components/ServiceCard';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { SERVICES_DATA } from '@/shared/constants';
 import { ServiceItem } from '@/shared/types';

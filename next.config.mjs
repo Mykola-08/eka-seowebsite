@@ -4,7 +4,11 @@ const nextConfig = {
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'images.pexels.com' },
@@ -16,7 +20,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  // output: 'export', // Uncomment for static export if needed, but not for API routes
 };
 
 export default nextConfig;

@@ -53,7 +53,7 @@ export default function AgenyzContent() {
                                 </Button>
                             </Link>
                             <a
-                                href='https://agenyz.com'
+                                href='https://agenyz.es'
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >

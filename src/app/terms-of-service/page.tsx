@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import TermsContent from '@/components/TermsContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Terms of Service | EKA Balance',

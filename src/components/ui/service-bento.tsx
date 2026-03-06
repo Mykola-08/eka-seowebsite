@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, useEffect, MouseEvent } from 'react';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import Image from 'next/image';
 import { X, ArrowRight } from 'lucide-react';
@@ -36,6 +36,17 @@ export function ServiceBentoItem({
   const [isOpen, setIsOpen] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
     const { left, top } = currentTarget.getBoundingClientRect();
@@ -74,8 +85,8 @@ export function ServiceBentoItem({
           {/* Background Image */}
           {image ? (
             <div className="absolute inset-0 z-0">
-               <Image src={image} fill alt={title} className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-[cubic-bezier(0.16,1,0.3,1)]" />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+               <Image src={image} fill alt={title} className="object-cover  transition-transform duration-[2s] ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           ) : (
             <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-50" />
@@ -85,16 +96,16 @@ export function ServiceBentoItem({
              <motion.div
                className="transform transition-transform duration-500 group-hover:-translate-y-2 pr-16 md:pr-20"
              >
-               <h3 className={`text-2xl sm:text-3xl font-semibold mb-3 tracking-tight ${image ? 'text-white' : 'text-black'}`}>
+               <h3 className={`text-2xl sm:text-3xl font-semibold mb-3 tracking-tight ${image ? 'text-white drop-shadow-md' : 'text-black'}`}>
                   {title}
                </h3>
-               <p className={`text-base tracking-tight leading-relaxed line-clamp-4 md:line-clamp-none mt-2 ${image ? 'text-white/80' : 'text-gray-500'}`}>
+                 <p className={`text-base tracking-tight leading-relaxed line-clamp-4 md:line-clamp-none mt-2 ${image ? 'text-white/95 drop-shadow-sm' : 'text-gray-600'}`}>
                   {description}
                </p>
                {benefits && benefits.length > 0 && (
                  <div className="flex flex-wrap gap-2 mt-4 opacity-90">
                    {benefits.slice(0, 3).map((benefit, i) => (
-                     <span key={i} className={`text-xs px-3 py-1.5 rounded-full border ${image ? 'border-white/20 text-white bg-white/10' : 'border-gray-200 text-gray-700 bg-gray-50'} backdrop-blur-sm`}>
+                     <span key={i} className={`text-xs font-medium px-3 py-1.5 rounded-full border ${image ? 'border-white/30 text-white bg-black/40' : 'border-gray-200 text-gray-700 bg-gray-50'} backdrop-blur-md`}>
                        {benefit}
                      </span>
                    ))}
@@ -141,12 +152,12 @@ export function ServiceBentoItem({
                     <>
                       <div className="relative w-full md:w-2/5 lg:w-1/2 h-64 md:h-full shrink-0">
                          <Image src={image} fill alt={title} className="object-cover" />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
                          <div className="absolute bottom-8 left-8 right-8 z-10">
                            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-4 leading-tight">{title}</h2>
                          </div>
                       </div>
-                      <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto customize-scrollbar">
+                      <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto overscroll-contain customize-scrollbar">
                          <div className="prose prose-lg max-w-none text-gray-600 mb-8 flex-1">
                             <p className="text-xl md:text-2xl leading-relaxed font-medium text-gray-900 mb-8">{description}</p>
                             {details}
@@ -171,7 +182,7 @@ export function ServiceBentoItem({
                       </div>
                     </>
                  ) : (
-                    <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto customize-scrollbar">
+                    <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto overscroll-contain customize-scrollbar">
                        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-black mb-8">{title}</h2>
                        <div className="prose prose-lg max-w-none text-gray-600 mb-8 flex-1">
                           <p className="text-xl md:text-2xl leading-relaxed font-medium text-gray-900 mb-8">{description}</p>

@@ -29,7 +29,7 @@ export default function FooterUncover({
     <div className="relative bg-[#f5f5f7]">
       {/* Main Content Container */}
       <div
-        className="relative z-10 bg-secondary rounded-b-[2rem] sm:rounded-b-[3rem] min-h-screen"
+        className="relative z-10 bg-secondary min-h-screen"
         style={{ marginBottom: `${footerHeight}px` }}
       >
         {children}

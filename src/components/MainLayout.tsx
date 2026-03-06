@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Language } from '@/contexts/LanguageTypes';
@@ -43,25 +43,113 @@ export default function MainLayout({
   const navRef = useClickOutside<HTMLDivElement>(() => setActiveDropdown(null));
 
   // Hover intent management for dropdown
-  const [hideTimeout, setHideTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const showTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navBarRef = useRef<HTMLDivElement>(null);
+  const activeTriggerRef = useRef<HTMLElement | null>(null);
+  const [dropdownPosition, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number } | null>(null);
 
-  const openDropdown = (id: string) => {
-    if (hideTimeout) {
-      clearTimeout(hideTimeout);
-      setHideTimeout(null);
+  // Calculate where the dropdown should appear relative to the nav bar container
+  const computeDropdownPosition = useCallback((triggerElement: HTMLElement) => {
+    if (!triggerElement) return;
+    const triggerRect = triggerElement.getBoundingClientRect();
+    const dropdownWidth = 280; // width of the dropdown panel
+
+    // Center the dropdown under the trigger
+    const triggerCenter = triggerRect.left + triggerRect.width / 2;
+    const idealLeft = triggerCenter - dropdownWidth / 2;
+
+    // Viewport constraints
+    const pad = 16;
+    const minLeft = pad;
+    const maxLeft = document.documentElement.clientWidth - dropdownWidth - pad;
+    
+    const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
+
+    // Make it attach completely flush with the main header
+    const navRect = triggerElement.closest('nav')?.getBoundingClientRect();
+    const top = navRect ? navRect.bottom : triggerRect.bottom + 8;
+
+    // Compute transform-origin X percentage based on where the trigger center falls inside the dropdown
+    const originX = ((triggerCenter - clampedLeft) / dropdownWidth) * 100;
+    
+    setDropdownPosition({ 
+      left: clampedLeft, 
+      top: top,
+      triggerBottom: triggerRect.bottom,
+      originX: Math.max(10, Math.min(90, originX)),
+      width: dropdownWidth
+    });
+  }, []);
+
+  const openDropdown = (e: React.MouseEvent | React.FocusEvent | undefined, id: string) => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+    
+    // Check if triggered from an event
+    if (e && e.currentTarget) {
+      activeTriggerRef.current = e.currentTarget as HTMLElement;
+    }
+    
+    if (showTimeoutRef.current) {
+      clearTimeout(showTimeoutRef.current);
+      showTimeoutRef.current = null;
+    }
+
+    // If a dropdown is already active, skip the delay for swift sequential navigation
+    if (activeDropdown) {
+      setActiveDropdown(id);
+      if (activeTriggerRef.current) {
+        computeDropdownPosition(activeTriggerRef.current);
+      }
+      return;
+    }
+
+    showTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(id);
+      if (activeTriggerRef.current) {
+        computeDropdownPosition(activeTriggerRef.current);
+      }
+    }, 200); // Short delay to prevent accidental activation
+  };
+
+  const keepMenuOpen = (id: string) => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+    if (showTimeoutRef.current) {
+      clearTimeout(showTimeoutRef.current);
+      showTimeoutRef.current = null;
     }
     setActiveDropdown(id);
   };
 
   const scheduleHide = () => {
-    if (hideTimeout) {
-      clearTimeout(hideTimeout);
+    if (showTimeoutRef.current) {
+      clearTimeout(showTimeoutRef.current);
+      showTimeoutRef.current = null;
     }
-    const timeout = setTimeout(() => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+    }
+    hideTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 220);
-    setHideTimeout(timeout);
+    }, 220); // Short delay before disappearing
   };
+
+  // Close dropdown on scroll or resize to prevent floating incorrectly
+  useEffect(() => {
+    const handleScrollOrResize = () => {
+      if (activeDropdown) {
+        setActiveDropdown(null);
+      }
+    };
+    window.addEventListener('resize', handleScrollOrResize, { passive: true });
+    return () => window.removeEventListener('resize', handleScrollOrResize);
+  }, [activeDropdown]);
 
   // Handle scroll effect for header and mobile CTA
   useEffect(() => {
@@ -103,11 +191,14 @@ export default function MainLayout({
 
   useEffect(() => {
     return () => {
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
+      }
+      if (showTimeoutRef.current) {
+        clearTimeout(showTimeoutRef.current);
       }
     };
-  }, [hideTimeout]);
+  }, []);
 
   // Navigation items
   interface NavItem {
@@ -123,9 +214,15 @@ export default function MainLayout({
     ? 'bg-white/70 backdrop-blur-2xl border-gray-200/50 '
     : 'bg-transparent';
 
-  const dropdownSurfaceClass = isScrolled
-    ? 'bg-white/70 backdrop-blur-2xl border border-gray-200/50 _8px_30px_rgb(0,0,0,0.08)]'
-    : 'bg-white/50 backdrop-blur-xl border border-gray-200/30 _8px_30px_rgb(0,0,0,0.04)]';
+  // Icon map for dropdown items
+  const serviceIcons: Record<string, React.ReactNode> = {
+    '/services/massage': <Hand className="w-4 h-4" />,
+    '/services/kinesiology': <Brain className="w-4 h-4" />,
+    '/services/nutrition': <Apple className="w-4 h-4" />,
+    '/services/supplements': <Pill className="w-4 h-4" />,
+    '/services/systemic': <Network className="w-4 h-4" />,
+    '/360-revision': <RotateCcw className="w-4 h-4" />,
+  };
 
   const navigation: NavItem[] = [
     {
@@ -302,8 +399,8 @@ export default function MainLayout({
               </div>
             </Link>
 
-            {/* Desktop Navigation - Centered - Apple Style: text-[12px], regular weight, gray-700 */}
-            <div className="hidden md:flex items-center justify-center space-x-8">
+            {/* Desktop Navigation - Centered - Apple Style */}
+            <div ref={navBarRef} className="hidden md:flex items-center justify-center space-x-8 relative">
               {navigation.map(item => (
                 <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative flex items-center h-full' : 'flex items-center h-full'}`}
                   ref={item.hasDropdown ? navRef : undefined}>
@@ -311,58 +408,111 @@ export default function MainLayout({
                     <>
                       <Link
                         href={item.href}
-                        className="nav-trigger text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 flex items-center tracking-tight"
-                        onMouseEnter={() => openDropdown(item.name)}
+                        className="nav-trigger py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger"
+                        onMouseEnter={(e) => openDropdown(e, item.name)}
                         onMouseLeave={scheduleHide}
-                        onFocus={() => openDropdown(item.name)}
+                        onFocus={(e) => openDropdown(e, item.name)}
                         onBlur={scheduleHide}
                         suppressHydrationWarning
                       >
                         {item.name}
+                        <ChevronDown className={`w-3 h-3 text-gray-400 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-gray-700' : 'group-hover/trigger:translate-y-[1px]'}`} />
                       </Link>
 
-                      {/* Hover bridge for seamless navigation */}
-                      <div
-                        className="hover-bridge"
-                        onMouseEnter={() => openDropdown(item.name)}
-                        onMouseLeave={scheduleHide}
-                        aria-hidden="true"
-                      />
+                      {/* Hover bridge — spans full width of dropdown zone for seamless mouse travel, enlarged for wider safe zone */}
+                      {activeDropdown === item.name && dropdownPosition && (
+                        <div
+                          className="fixed z-[49]"
+                          style={{
+                            top: dropdownPosition.triggerBottom - 15,
+                            left: dropdownPosition.left - 30,
+                            width: dropdownPosition.width + 60,
+                            height: dropdownPosition.top - dropdownPosition.triggerBottom + 30,
+                          }}
+                          onMouseEnter={() => keepMenuOpen(item.name)}
+                          onMouseLeave={scheduleHide}
+                          aria-hidden="true"
+                        />
+                      )}
 
-                      {/* Dropdown menu with refined frosted glass aesthetic */}
-                      <div
-                        className={`nav-dropdown ${activeDropdown === item.name ? 'is-open opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'} ${dropdownSurfaceClass} p-2 min-w-[240px] absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 mt-0 origin-top transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] z-50 rounded-[20px]`}
-                        onMouseEnter={() => openDropdown(item.name)}
-                        onMouseLeave={scheduleHide}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Escape') {
-                            setActiveDropdown(null);
-                          }
-                        }}
-                        role="menu"
-                        aria-label={`${item.name} submenu`}
-                      >
-                        <div className="py-2 px-1">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              onClick={() => setActiveDropdown(null)}
-                              className="block px-3 py-2.5 mx-1 text-[13px] text-gray-600 hover:text-black hover:font-medium hover:bg-black/5 hover:backdrop-blur-sm rounded-lg transition-all duration-150 tracking-tight"
-                              role="menuitem"
-                              suppressHydrationWarning
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                      {/* Dropdown — positioned relative to viewport, flush with header */}
+                      <AnimatePresence>
+                        {activeDropdown === item.name && dropdownPosition && (
+                          <motion.div
+                              initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
+                              animate={{ opacity: 1, scaleY: 1, y: 0 }}
+                              exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
+                              transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+                            className="fixed z-40"
+                            style={{
+                              top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger
+                              left: dropdownPosition.left - 40, // Add large invisible left padding zone
+                              width: dropdownPosition.width + 80, // Expand width by total horizontal padding
+                                transformOrigin: `${40 + (dropdownPosition.originX / 100 * dropdownPosition.width)}px top`,
+                              paddingTop: Math.max(0, dropdownPosition.top - dropdownPosition.triggerBottom),
+                              paddingLeft: 40, // Left invisible safe zone
+                              paddingRight: 40, // Right invisible safe zone
+                              paddingBottom: 40, // Bottom invisible safe zone
+                            }}
+                            onMouseEnter={() => keepMenuOpen(item.name)}
+                            onMouseLeave={scheduleHide}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Escape') {
+                                setActiveDropdown(null);
+                              }
+                            }}
+                            role="menu"
+                            aria-label={`${item.name} submenu`}
+                          >
+                            {/* Inner content wrapper with the actual visual styling */}
+                            <div className="w-[280px] mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-white/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-white/60 ring-1 ring-black/[0.04]">
+                              {/* Subtle blend line at the top connection point */}
+                              <div className="absolute inset-x-0 top-0 h-[1px] bg-white/40" />
+
+                              <div className="py-2 px-1.5 relative z-20">
+                              {item.dropdownItems?.map((dropdownItem, idx) => (
+                                <motion.div
+                                  key={dropdownItem.name}
+                                  initial={{ opacity: 0, y: 4 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ duration: 0.18, delay: idx * 0.035 }}
+                                >
+                                  <Link
+                                    href={dropdownItem.href}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-xl text-[13px] text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
+                                    role="menuitem"
+                                    suppressHydrationWarning
+                                  >
+                                    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100/80 text-gray-500 group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 flex-shrink-0">
+                                      {serviceIcons[dropdownItem.href] || <Hand className="w-4 h-4" />}
+                                    </span>
+                                    <span className="font-medium">{dropdownItem.name}</span>
+                                  </Link>
+                                </motion.div>
+                              ))}
+                            </div>
+
+                            {/* View all services link at the bottom */}
+                            <div className="border-t border-gray-200/50 px-3 py-2.5 relative z-20">
+                              <Link
+                                href={item.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="flex items-center justify-between text-[12px] text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
+                              >
+                                <span>{t('nav.services')} →</span>
+                              </Link>
+                            </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </>
                   ) : item.isExternal ? (
                     <a
                       href={item.href}
                       rel="noopener noreferrer"
-                      className="text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
+                      className="py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
                       onClick={(e) => {
                         e.preventDefault();
                         window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -374,7 +524,7 @@ export default function MainLayout({
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
+                      className="py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
                       suppressHydrationWarning
                     >
                       {item.name}

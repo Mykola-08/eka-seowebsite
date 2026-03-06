@@ -24,7 +24,7 @@ interface Question {
 export default function PersonalizedOnboarding() {
   const { t } = useLanguage();
   // const { user } = useSupabaseAuth();
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState<OnboardingData>({
     userType: '',
@@ -301,7 +301,7 @@ export default function PersonalizedOnboarding() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4 relative overflow-hidden"
+        className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4 relative overflow-hidden"
       >
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -366,7 +366,7 @@ export default function PersonalizedOnboarding() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="min-h-screen bg-white py-8 px-4"
+        className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-white py-8 px-4"
       >
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
@@ -473,7 +473,7 @@ export default function PersonalizedOnboarding() {
   // Processing Screen - Full Page
   if (isProcessing) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+      <div className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-slate-50 flex items-center justify-center px-4">
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-8 ">
             <Brain className="w-10 h-10 text-gold animate-pulse" />
@@ -501,7 +501,7 @@ export default function PersonalizedOnboarding() {
 
   // Onboarding Form - Full Page, Single Screen
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col relative overflow-hidden">
+    <div className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-white flex flex-col relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -594,18 +594,18 @@ export default function PersonalizedOnboarding() {
         </AnimatePresence>
       </div>
 
-      {/* Fixed Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-white/50 p-4 z-50 _-4px_30px_rgba(0,0,0,0.03)]">
-        <div className="max-w-5xl mx-auto flex justify-between items-center">
+      {/* Bottom Navigation */}
+      <div className="mt-auto bg-gray-50 border-t border-gray-100 p-4 sm:p-6 z-20">
+        <div className="max-w-5xl mx-auto flex flex-col-reverse sm:flex-row justify-between items-center gap-4">
           <button
             onClick={() => {
               if (currentStep === 0) {
-                setShowWelcome(true);
+                window.location.href = '/';
               } else {
                 setCurrentStep(prev => prev - 1);
               }
             }}
-            className="px-6 py-3 rounded-full font-semibold transition-colors duration-200 bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center"
+            className="w-full sm:w-auto px-6 py-3 rounded-full font-semibold transition-colors duration-200 bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             {t('common.back')}
@@ -615,7 +615,7 @@ export default function PersonalizedOnboarding() {
             onClick={nextStep}
             disabled={!canProceed()}
             className={`
-              px-8 py-3 rounded-full font-semibold transition duration-200 flex items-center
+              w-full sm:w-auto px-8 py-3 rounded-full font-semibold transition duration-200 flex items-center justify-center
               ${canProceed()
                 ? 'bg-gold hover:bg-gold-dark text-eka-dark  '
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'

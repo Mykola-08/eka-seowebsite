@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import BookingContent from '@/components/BookingContent';
-
-export const dynamic = 'force-dynamic';
 
 
 export const metadata: Metadata = {
@@ -10,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function BookingPage() {
-  return <BookingContent />;
+  return (
+    <Suspense>
+      <BookingContent />
+    </Suspense>
+  );
 }

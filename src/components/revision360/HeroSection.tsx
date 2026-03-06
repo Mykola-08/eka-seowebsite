@@ -4,12 +4,25 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function HeroSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-24 bg-white">
+    <section className="relative overflow-hidden pt-32 pb-24 bg-white min-h-[90vh] flex flex-col justify-center">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+          alt="Integral Health"
+          fill
+          className="object-cover opacity-30 mix-blend-multiply"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/95 backdrop-blur-[2px]" />
+      </div>
+
       <div className="section-container relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

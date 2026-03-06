@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import ForAthletesContent from '@/components/ForAthletesContent';
 
-export const dynamic = 'force-dynamic';
-
 
 export const metadata: Metadata = {
   title: 'Bienestar para Atletas y Deportistas | EKA Balance',

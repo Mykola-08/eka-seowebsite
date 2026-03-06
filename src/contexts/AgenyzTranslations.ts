@@ -2,6 +2,13 @@ import { Language } from './LanguageTypes';
 
 export const agenyzTranslations: Record<Language, Record<string, string>> = {
   ca: {
+    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
+    'agenyz.product.vitamin-d3.desc': 'Vitamina solar vegana amb reforç de biodisponibilitat. 2000 UI + XBi-A.',
+    'agenyz.product.fungomax.name': 'FungoMax + XBi-A',
+    'agenyz.product.fungomax.desc': 'El poder de 6 bolets medicinals per a la màxima defensa immunitària.',
+    'agenyz.product.ferboost.name': 'FerBoost + XBi-A',
+    'agenyz.product.ferboost.desc': 'Complex de ferro intel·ligent de 4 fonts per a anèmia i energia.',
+    'agenyz.product.Gummyz-KidYZ.features': 'Ossos forts, suport al creixement, saborós i saludable',
     'agenyz.seo.title': 'Agenyz - Nutrició Cel·lular i Biohacking | EKA Balance',
     'agenyz.seo.description': 'Suplements de biohacking Agenyz per a la regeneració cel·lular. Energia, immunitat i benestar sistèmic.',
     'agenyz.seo.keywords': 'agenyz, biohacking, suplements, nutrició cel·lular, regeneració, energia',
@@ -303,6 +310,12 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     
   },
   es: {
+    'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
+    'agenyz.product.vitamin-d3.desc': 'Vitamina solar vegana con potenciador de biodisponibilidad. 2000 UI + XBi-A.',
+    'agenyz.product.fungomax.name': 'FungoMax + XBi-A',
+    'agenyz.product.fungomax.desc': 'El poder de 6 hongos medicinales para una defensa inmunológica máxima.',
+    'agenyz.product.ferboost.name': 'FerBoost + XBi-A',
+    'agenyz.product.ferboost.desc': 'Complejo de hierro inteligente de 4 fuentes para anemia y energía.',
     'agenyz.seo.title': 'Agenyz - Nutrición Celular y Biohacking | EKA Balance',
     'agenyz.seo.description': 'Suplementos de biohacking Agenyz para la regeneración celular. Energía, inmunidad y bienestar sistémico.',
     'agenyz.seo.keywords': 'agenyz, biohacking, suplementos, nutrición celular, regeneración, energía',

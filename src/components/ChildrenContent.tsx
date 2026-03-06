@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
-import ServiceCard from '@/components/ServiceCard';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { SERVICES_DATA } from '@/shared/constants';
 import { ServiceItem } from '@/shared/types';

@@ -3,8 +3,11 @@ import { handle } from 'hono/vercel';
 import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { ContactFormSchema } from '@/shared/types';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type UntypedSupabaseClient = SupabaseClient<any, 'public', any>;
 
 const app = new Hono().basePath('/api');
 
@@ -45,9 +48,9 @@ app.use('*', cors({
 }));
 
 // Supabase helper — singleton pattern to avoid re-creating client on every request
-let _supabaseClient: ReturnType<typeof createClient> | null = null;
+let _supabaseClient: UntypedSupabaseClient | null = null;
 
-const getSupabase = () => {
+const getSupabase = (): UntypedSupabaseClient => {
   if (_supabaseClient) return _supabaseClient;
   
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

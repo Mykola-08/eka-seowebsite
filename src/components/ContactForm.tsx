@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-// import { supabase } from '@/lib/supabase';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion } from 'framer-motion';
 import { z } from 'zod';
@@ -28,7 +27,6 @@ type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
 
 export default function ContactFormOptimized() {
   const { t } = useLanguage();
-  // const { user } = useSupabaseAuth();
   const { logEvent } = useAnalytics();
   const schema = useMemo(() => createContactSchema(t), [t]);
   
@@ -54,33 +52,6 @@ export default function ContactFormOptimized() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
-
-//   useEffect(() => {
-//     if (user) {
-//       const fetchProfile = async () => {
-//         const { data } = await supabase
-//           .from('user_profiles')
-//           .select('full_name, email, phone')
-//           .eq('user_id', user.id)
-//           .single();
-
-//         if (data) {
-//           setFormData(prev => ({
-//             ...prev,
-//             name: data.full_name || prev.name,
-//             email: data.email || user.email || prev.email,
-//             phone: data.phone || prev.phone
-//           }));
-//         } else if (user.email) {
-//           setFormData(prev => ({
-//             ...prev,
-//             email: user.email || prev.email
-//           }));
-//         }
-//       };
-//       fetchProfile();
-//     }
-//   }, [user]);
 
   const services = [
     t('contact.service.massageBasic'),

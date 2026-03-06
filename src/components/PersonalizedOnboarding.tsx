@@ -6,8 +6,6 @@ import Link from 'next/link';
 import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-// import { useSupabaseAuth } from '@/contexts/SupabaseAuthContext';
-// import { supabase } from '@/lib/supabase';
 import PriceDisplay from './PriceDisplay';
 import { OnboardingData, Recommendation } from '@/shared/types';
 
@@ -23,7 +21,6 @@ interface Question {
 
 export default function PersonalizedOnboarding() {
   const { t } = useLanguage();
-  // const { user } = useSupabaseAuth();
   const [showWelcome, setShowWelcome] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState<OnboardingData>({
@@ -132,23 +129,6 @@ export default function PersonalizedOnboarding() {
     const recs = generateRecommendations(data);
     setRecommendations(recs);
 
-    /*
-    // Save to Supabase if user is logged in
-    if (user) {
-      try {
-        await supabase.from('user_onboarding').upsert({
-          user_id: user.id,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          data: data as any,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          recommendations: recs as any,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'user_id' });
-      } catch (error) {
-        console.error('Error saving onboarding data:', error);
-      }
-    }
-    */
     setIsProcessing(false);
     setShowResults(true);
   };

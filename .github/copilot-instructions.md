@@ -5,7 +5,7 @@ This is a full-stack application built with **Next.js** (Frontend) and **Cloudfl
 - **Frontend:** `src/app` (Next.js App Router). Legacy components reside in `src/react-app`.
 - **Backend:** `src/worker` (Hono, Cloudflare D1, R2, Vercel Blob)
 - **Shared:** `src/shared` (Types, Zod schemas)
-- **Database:** Cloudflare D1 (SQLite) for data, Supabase for Authentication.
+- **Database:** Cloudflare D1 (SQLite) for data.
 - **Deployment:** Vercel.
 
 ## Architecture & Patterns
@@ -16,7 +16,7 @@ This is a full-stack application built with **Next.js** (Frontend) and **Cloudfl
 - **Styling:** Tailwind CSS. Use utility classes.
 - **Animations:** Framer Motion (`framer-motion`).
 - **Icons:** Lucide React (`lucide-react`) and Phosphor React (`phosphor-react`).
-- **State Management:** React Context (`LanguageContext`, `SupabaseAuthContext`, `BookingProvider`).
+- **State Management:** React Context (`LanguageContext`, `BookingProvider`).
 - **Internationalization (i18n):**
   - Managed via `LanguageContext` in `src/react-app/contexts/LanguageContext.tsx`.
   - **CRITICAL:** All UI text must be translatable. Add keys to the `translations` object in `LanguageContext.tsx` for **Catalan (ca), English (en), Spanish (es), and Russian (ru)**.
@@ -48,7 +48,7 @@ This is a full-stack application built with **Next.js** (Frontend) and **Cloudfl
 - **Imports:** Use the `@` alias to refer to the `src` directory (e.g., `import { ... } from "@/shared/types"`).
 - **Types:** Prefer strict TypeScript types. Avoid `any`.
 - **Component Structure:** Keep components small and focused.
-- **Auth:** Use `useSupabaseAuth` hook for accessing user session and auth state.
+
 
 ## Key Files
 - `wrangler.json`: Cloudflare Worker configuration (D1, R2 bindings).

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, createContext, useCallback, useMemo } from 'react';
-// import { supabase } from '@/lib/supabase';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
 import { Discount, DiscountContextType } from './DiscountTypes';
@@ -17,10 +16,8 @@ export function DiscountProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const { logEvent } = useAnalytics();
 
-  // Load discounts from Supabase
   useEffect(() => {
     const fetchDiscounts = async () => {
-      // Fallback discounts (Supabase removed)
       const fallbackDiscounts: Discount[] = [
         { id: '1', name: 'Amic Mykola', percentage: 20, code: 'MYKOLA20', description: 'Descompte especial del 20% per a amics de Mykola', isActive: true },
         { id: '2', name: 'Conegut Mykola', percentage: 10, code: 'MYKOLA10', description: 'Descompte del 10% per a coneguts de Mykola', isActive: true },

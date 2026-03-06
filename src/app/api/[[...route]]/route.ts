@@ -7,18 +7,37 @@ import { createClient } from '@supabase/supabase-js';
 
 const app = new Hono().basePath('/api');
 
-// Simple auth middleware - checks for Authorization header
+const ALLOWED_ORIGINS = [
+  'https://ekabalance.com',
+  'https://www.ekabalance.com',
+  ...(process.env.NODE_ENV === 'development' ? ['http://localhost:3000', 'http://192.168.31.121:3000'] : []),
+];
+
+// Auth middleware — verifies token with Supabase
 const authMiddleware = async (c: Context, next: Next) => {
   const auth = c.req.header('Authorization');
-  if (!auth) {
+  if (!auth || !auth.startsWith('Bearer ')) {
     return c.json({ error: 'Unauthorized' }, 401);
   }
+
+  const token = auth.replace('Bearer ', '');
+  try {
+    const supabase = getSupabase();
+    const { data: { user }, error } = await supabase.auth.getUser(token);
+    if (error || !user) {
+      return c.json({ error: 'Invalid or expired token' }, 401);
+    }
+    c.set('user', user);
+  } catch {
+    return c.json({ error: 'Authentication failed' }, 401);
+  }
+
   await next();
 };
 
 // CORS middleware
 app.use('*', cors({
-  origin: '*',
+  origin: (origin) => ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -26,9 +45,8 @@ app.use('*', cors({
 
 // Supabase helper
 const getSupabase = () => {
-    // Try Next.js env vars first, then VITE (legacy)
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
   
   if (!supabaseUrl || !supabaseKey) {
     throw new Error('Missing Supabase credentials');
@@ -36,16 +54,10 @@ const getSupabase = () => {
   return createClient(supabaseUrl, supabaseKey);
 };
 
-// Helper to get user
+// Helper to get user from context (set by authMiddleware)
 function getAuthenticatedUser(c: Context) {
-  return c.get('user'); // Note: 'user' is not set in authMiddleware currently in the original code, you might need to verify token with supabase
+  return c.get('user') as { id: string; email?: string } | undefined;
 }
-
-// NOTE: The original code's authMiddleware didn't actually verify the token or set 'user'. 
-// It only checked for existence of header. 
-// If you need real auth, you should use supabase.auth.getUser(token)
-
-// Initialize session types - function removed as it was unused
 
 
 /**
@@ -227,7 +239,7 @@ app.post('/contact', zValidator('json', z.object({
     const data = c.req.valid('json');
     const supabase = getSupabase();
 
-    await supabase.from('contact_submissions').insert({
+    const { error: insertError } = await supabase.from('contact_submissions').insert({
       name: data.name,
       email: data.email,
       phone: data.phone,
@@ -236,6 +248,11 @@ app.post('/contact', zValidator('json', z.object({
       preferred_contact: data.preferred_contact || 'email',
       preferred_time: data.preferred_time
     });
+
+    if (insertError) {
+      console.error('Supabase insert error:', insertError);
+      return c.json({ error: 'Failed to save contact form' }, 500);
+    }
 
     return c.json({ success: true });
   } catch (error) {

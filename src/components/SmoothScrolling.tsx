@@ -51,7 +51,11 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
       });
     };
 
-    void start();
+    start().catch((err) => {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('SmoothScrolling: Failed to initialize Lenis', err);
+      }
+    });
 
     return () => {
       anchors.forEach((anchor) => {

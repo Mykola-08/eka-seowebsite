@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useDiscount } from '@/contexts/DiscountContext';
 import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
@@ -14,14 +14,23 @@ export default function DiscountsContent() {
   const { t } = useLanguage();
   const { selectedDiscount, availableDiscounts, applyDiscount, removeDiscount } = useDiscount();
   const [showSuccess, setShowSuccess] = useState(false);
+  const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleApplyDiscount = async (code: string) => {
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (successTimerRef.current) clearTimeout(successTimerRef.current);
+    };
+  }, []);
+
+  const handleApplyDiscount = useCallback(async (code: string) => {
     const success = await applyDiscount(code);
     if (success) {
       setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 3000);
+      if (successTimerRef.current) clearTimeout(successTimerRef.current);
+      successTimerRef.current = setTimeout(() => setShowSuccess(false), 3000);
     }
-  };
+  }, [applyDiscount]);
 
   return (
     <PageLayout

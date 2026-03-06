@@ -7,6 +7,7 @@ import { DiscountProvider } from "@/contexts/DiscountContext";
 import { BookingProvider } from '@/components/BookingProvider';
 import SmoothScrolling from "@/components/SmoothScrolling";
 import JsonLd from "@/components/JsonLd";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -86,16 +87,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="ca" className={inter.variable} suppressHydrationWarning>
       <body className="font-sans text-gray-900 bg-white">
         <SmoothScrolling>
           <LanguageProvider>
             <DiscountProvider>
               <BookingProvider>
-                <JsonLd />
-                <MainLayout>
-                  {children}
-                </MainLayout>
+                <ErrorBoundary>
+                  <JsonLd />
+                  <MainLayout>
+                    {children}
+                  </MainLayout>
+                </ErrorBoundary>
               </BookingProvider>
             </DiscountProvider>
           </LanguageProvider>

@@ -51,6 +51,22 @@ export default function CookieBanner() {
     setIsVisible(false);
   };
 
+  const rejectCookies = () => {
+    localStorage.setItem('ekabalance-cookie-consent', 'rejected');
+
+    // Deny all non-essential cookies via Google Consent Mode
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    }
+
+    setIsVisible(false);
+  };
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -86,9 +102,9 @@ export default function CookieBanner() {
                      <Button
                         variant="ghost"
                         size="icon"
-                        onClick={acceptCookies}
+                        onClick={rejectCookies}
                         className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full -mt-2 -mr-2 sm:hidden"
-                        aria-label="Close cookie banner"
+                        aria-label="Reject cookies and close banner"
                       >
                         <X className="w-5 h-5" />
                       </Button>
@@ -104,6 +120,14 @@ export default function CookieBanner() {
                       className="bg-gold hover:bg-[#e8a204] text-eka-dark font-medium rounded-full px-8  hover:shadow transition-all"
                     >
                       {t('cookies.accept')}
+                    </Button>
+
+                    <Button
+                      onClick={rejectCookies}
+                      variant="outline"
+                      className="font-medium rounded-full px-6 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all"
+                    >
+                      {t('cookies.reject') || 'Rebutjar'}
                     </Button>
                     
                     <button
@@ -126,9 +150,9 @@ export default function CookieBanner() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  onClick={acceptCookies}
+                  onClick={rejectCookies}
                   className="hidden sm:flex absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full"
-                  aria-label="Close cookie banner"
+                  aria-label="Reject cookies and close banner"
                 >
                   <X className="w-5 h-5" />
                 </Button>

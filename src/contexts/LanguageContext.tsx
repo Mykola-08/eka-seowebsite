@@ -1918,6 +1918,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.title': 'Utilitzem cookies per millorar la teva experiència',
     'cookies.description': "Utilitzem cookies essencials per a la funcionalitat del lloc web i analítiques anònimes per millorar els nostres serveis. No utilitzem cookies publicitàries ni de seguiment. En continuar utilitzant el nostre lloc, acceptes l'ús de cookies.",
     'cookies.accept': 'Acceptar',
+    'cookies.reject': 'Rebutjar',
     'cookies.learnMore': 'Saber més',
 
     // Layout footer
@@ -3551,6 +3552,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.title': 'We use cookies to enhance your experience',
     'cookies.description': 'We use essential cookies for website functionality and anonymous analytics to improve our services. We do not use advertising or tracking cookies. By continuing to use our site, you agree to our use of cookies.',
     'cookies.accept': 'Accept all',
+    'cookies.reject': 'Reject',
     'cookies.learnMore': 'Learn more',
 
     // Layout footer
@@ -4971,6 +4973,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.title': 'Utilizamos cookies para mejorar tu experiencia',
     'cookies.description': 'Utilizamos cookies esenciales para la funcionalidad del sitio web y análisis anónimos para mejorar nuestros servicios. No utilizamos cookies publicitarias ni de seguimiento. Al continuar utilizando nuestro sitio, aceptas el uso de cookies.',
     'cookies.accept': 'Aceptar todo',
+    'cookies.reject': 'Rechazar',
     'cookies.learnMore': 'Más información',
 
     // Layout footer
@@ -6892,6 +6895,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cookies.title': 'Мы используем файлы cookie для улучшения вашего опыта',
     'cookies.description': 'Мы используем основные файлы cookie для функциональности веб-сайта и анонимную аналитику для улучшения наших услуг. Мы не используем рекламные файлы cookie или файлы отслеживания. Продолжая использовать наш сайт, вы соглашаетесь на использование файлов cookie.',
     'cookies.accept': 'Принять все',
+    'cookies.reject': 'Отклонить',
     'cookies.learnMore': 'Узнать больше',
 
     // Layout footer

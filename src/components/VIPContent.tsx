@@ -121,20 +121,30 @@ const useRandomShine = () => {
   const [isShining, setIsShining] = useState(false);
 
   useEffect(() => {
+    let outerTimer: ReturnType<typeof setTimeout>;
+    let innerTimer: ReturnType<typeof setTimeout>;
+    let cancelled = false;
+
     const scheduleNextShine = () => {
+      if (cancelled) return;
       const delay = Math.random() * (45000 - 30000) + 30000; // 30-45s
-      const timer = setTimeout(() => {
+      outerTimer = setTimeout(() => {
+        if (cancelled) return;
         setIsShining(true);
-        setTimeout(() => {
+        innerTimer = setTimeout(() => {
+          if (cancelled) return;
           setIsShining(false);
           scheduleNextShine();
-        }, 3000); // Duration of shine animation
+        }, 3000);
       }, delay);
-      return timer;
     };
 
-    const timer = scheduleNextShine();
-    return () => clearTimeout(timer);
+    scheduleNextShine();
+    return () => {
+      cancelled = true;
+      clearTimeout(outerTimer);
+      clearTimeout(innerTimer);
+    };
   }, []);
 
   return isShining;

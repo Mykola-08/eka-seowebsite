@@ -351,21 +351,32 @@ export default function MainLayout({
               <span className="text-xs text-gray-400">{t('footer.selectLanguage')}</span>
             </div>
             <div className="flex justify-center space-x-2">
-              {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
+                {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => setLanguage(lang)}
+                    className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === lang
+                      ? 'bg-gray-200 text-black font-medium'
+                      : 'text-gray-500 hover:bg-gray-100'
+                      }`}
+                  >
+                    {lang === 'ca' && 'Catalan'}
+                    {lang === 'en' && 'English'}
+                    {lang === 'es' && 'Spanish'}
+                    {lang === 'ru' && 'Russian'}
+                  </button>
+                ))}
+                {/* Always show 'English' label for the language button */}
                 <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === lang
+                  key="language-english"
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === 'en'
                     ? 'bg-gray-200 text-black font-medium'
                     : 'text-gray-500 hover:bg-gray-100'
                     }`}
                 >
-                  {lang === 'ca' && 'Catalan'}
-                  {lang === 'en' && 'English'}
-                  {lang === 'es' && 'Spanish'}
-                  {lang === 'ru' && 'Russian'}
+                  English
                 </button>
-              ))}
             </div>
           </div>
 

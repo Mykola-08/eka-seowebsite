@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, useEffect, MouseEvent } from 'react';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -34,8 +35,8 @@ export function ServiceBentoItem({
   readMoreUrl,
   readMoreText = "Full details"
 }: BentoItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const mouseX = useMotionValue(0);
+  const [isOpen, setIsOpen] = useState(false);  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);  const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   useScrollLock(isOpen);
@@ -115,26 +116,32 @@ export function ServiceBentoItem({
       </motion.div>
 
       {/* Modal */}
-      <AnimatePresence>
+      {mounted && typeof document !== 'undefined' ? createPortal(
+        <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" onClick={() => setIsOpen(false)}>
+          <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center sm:p-6" onClick={() => setIsOpen(false)}>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/40 backdrop-blur-md"
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
             <motion.div
-               initial={{ opacity: 0, scale: 0.95, y: 20 }}
-               animate={{ opacity: 1, scale: 1, y: 0 }}
-               exit={{ opacity: 0, scale: 0.95, y: 10 }}
-               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-               className="relative w-full max-w-5xl bg-white rounded-[2.5rem] overflow-hidden  z-10 max-h-[95vh] md:h-[80vh] flex flex-col"
+               initial={{ opacity: 0, y: "100%" }}
+               animate={{ opacity: 1, y: 0 }}
+               exit={{ opacity: 0, y: "100%" }}
+               transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+               className="relative w-full max-w-5xl bg-white rounded-t-[2rem] sm:rounded-[2.5rem] overflow-hidden z-10 h-[90vh] sm:h-[80vh] flex flex-col"
                onClick={(e) => e.stopPropagation()}
             >
+               {/* Mobile draggable indicator */}
+               <div className="w-full flex justify-center py-3 sm:hidden absolute top-0 z-30">
+                 <div className="w-12 h-1.5 bg-white/40 rounded-full" />
+               </div>
+
                <button 
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-6 right-6 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 backdrop-blur-md transition-colors text-black"
+                  className="absolute top-4 sm:top-6 right-4 sm:right-6 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-xl transition-colors text-white"
                >
                  <X size={20} />
                </button>
@@ -142,31 +149,50 @@ export function ServiceBentoItem({
                <div className="flex flex-col md:flex-row w-full h-full">
                  {image ? (
                     <>
-                      <div className="relative w-full md:w-2/5 lg:w-1/2 h-64 md:h-full shrink-0">
+                      <div className="relative w-full md:w-2/5 lg:w-1/2 h-[20vh] md:h-full shrink-0 flex flex-col justify-end">
                          <Image src={image} fill alt={title} className="object-cover" />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
-                         <div className="absolute bottom-8 left-8 right-8 z-10">
-                           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-4 leading-tight">{title}</h2>
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                         <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end w-full">
+                           <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mb-2 sm:mb-4 leading-tight">{title}</h2>
+                           
+                           {/* Buttons on image for PC */}
+                           <div className="hidden md:flex flex-col xl:flex-row gap-4 mt-2 sm:mt-4 w-full">
+                              {bookUrl && (
+                                  <Link href={bookUrl} className="flex-1">
+                                      <span className="flex items-center justify-center w-full px-6 py-3 bg-white text-black rounded-full font-medium text-base hover:bg-gray-100 transition shadow-lg">
+                                          {bookText}
+                                      </span>
+                                  </Link>
+                              )}
+                              {readMoreUrl && (
+                                  <Link href={readMoreUrl} className="flex-1">
+                                      <span className="flex items-center justify-center w-full px-6 py-3 bg-black/40 text-white backdrop-blur-md rounded-full font-medium text-base hover:bg-black/60 transition whitespace-nowrap border border-white/20">
+                                          {readMoreText} <ArrowRight className="ml-2 w-4 h-4" />
+                                      </span>
+                                  </Link>
+                              )}
+                           </div>
                          </div>
                       </div>
-                      <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto overscroll-contain customize-scrollbar">
-                         <div className="prose prose-lg max-w-none text-gray-600 mb-8 flex-1">
-                            <p className="text-xl md:text-2xl leading-relaxed font-medium text-gray-900 mb-8">{description}</p>
+                      <div className="flex-1 p-6 sm:p-8 md:p-10 flex flex-col overflow-y-auto overscroll-contain customize-scrollbar">
+                         <div className="prose prose-lg max-w-none text-gray-600 mb-4 md:mb-0 flex-1">
+                            <p className="text-lg sm:text-xl md:text-2xl leading-relaxed font-medium text-gray-900 mb-6">{description}</p>
                             {details}
                          </div>
                          
-                         <div className="flex flex-col xl:flex-row gap-4 pt-6 mt-auto border-t border-gray-100 shrink-0">
+                         {/* Buttons for Mobile/Tablet */}
+                         <div className="flex md:hidden flex-col gap-3 pt-4 mt-auto border-t border-gray-100 shrink-0">
                             {bookUrl && (
-                                <Link href={bookUrl} className="flex-1">
-                                    <span className="flex items-center justify-center w-full px-8 py-4 bg-black text-white rounded-full font-medium text-lg hover:bg-gray-800 transition">
+                                <Link href={bookUrl} className="w-full">
+                                    <span className="flex items-center justify-center w-full px-6 py-3.5 bg-black text-white rounded-full font-medium text-base hover:bg-gray-800 transition">
                                         {bookText}
                                     </span>
                                 </Link>
                             )}
                             {readMoreUrl && (
-                                <Link href={readMoreUrl} className="flex-1">
-                                    <span className="flex items-center justify-center w-full px-8 py-4 bg-gray-100 text-black rounded-full font-medium text-lg hover:bg-gray-200 transition whitespace-nowrap">
-                                        {readMoreText} <ArrowRight className="ml-2 w-5 h-5" />
+                                <Link href={readMoreUrl} className="w-full">
+                                    <span className="flex items-center justify-center w-full px-6 py-3.5 bg-gray-100 text-black rounded-full font-medium text-base hover:bg-gray-200 transition whitespace-nowrap">
+                                        {readMoreText} <ArrowRight className="ml-2 w-4 h-4" />
                                     </span>
                                 </Link>
                             )}
@@ -174,25 +200,25 @@ export function ServiceBentoItem({
                       </div>
                     </>
                  ) : (
-                    <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto overscroll-contain customize-scrollbar">
-                       <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-black mb-8">{title}</h2>
-                       <div className="prose prose-lg max-w-none text-gray-600 mb-8 flex-1">
-                          <p className="text-xl md:text-2xl leading-relaxed font-medium text-gray-900 mb-8">{description}</p>
+                    <div className="flex-1 p-6 sm:p-8 flex flex-col overflow-y-auto overscroll-contain customize-scrollbar pt-12 sm:pt-8">
+                       <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-black mb-4 sm:mb-6">{title}</h2>
+                       <div className="prose prose-lg max-w-none text-gray-600 mb-4 flex-1">
+                          <p className="text-lg sm:text-xl md:text-2xl leading-relaxed font-medium text-gray-900 mb-4 sm:mb-6">{description}</p>
                           {details}
                        </div>
                        
-                       <div className="flex flex-col xl:flex-row gap-4 pt-6 mt-auto border-t border-gray-100 shrink-0">
+                       <div className="flex flex-col sm:flex-row gap-3 pt-4 mt-auto border-t border-gray-100 shrink-0">
                           {bookUrl && (
                               <Link href={bookUrl} className="flex-1">
-                                  <span className="flex items-center justify-center w-full px-8 py-4 bg-black text-white rounded-full font-medium text-lg hover:bg-gray-800 transition">
+                                  <span className="flex items-center justify-center w-full px-6 py-3.5 bg-black text-white rounded-full font-medium text-base hover:bg-gray-800 transition">
                                       {bookText}
                                   </span>
                               </Link>
                           )}
                           {readMoreUrl && (
                               <Link href={readMoreUrl} className="flex-1">
-                                  <span className="flex items-center justify-center w-full px-8 py-4 bg-gray-100 text-black rounded-full font-medium text-lg hover:bg-gray-200 transition whitespace-nowrap">
-                                      {readMoreText} <ArrowRight className="ml-2 w-5 h-5" />
+                                  <span className="flex items-center justify-center w-full px-6 py-3.5 bg-gray-100 text-black rounded-full font-medium text-base hover:bg-gray-200 transition whitespace-nowrap">
+                                      {readMoreText} <ArrowRight className="ml-2 w-4 h-4" />
                                   </span>
                               </Link>
                           )}
@@ -203,7 +229,9 @@ export function ServiceBentoItem({
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      ) : null}
     </>
   );
 }

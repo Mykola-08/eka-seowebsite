@@ -50,13 +50,13 @@ export default function ForBusinessContent() {
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 mb-20 relative z-20">
           <Button asChild size="xl" className="rounded-full shadow-md hover:shadow-lg transition-all px-8">
-            <Link href="/contact">
+            <Link href="/booking">
               {t('nav.bookNow')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>
           <Button asChild size="xl" variant="outline" className="rounded-full bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200 hover:bg-gray-50 px-8">
-            <Link href="/contact">
+            <Link href="/booking">
               {t('common.askQuestions')}
             </Link>
           </Button>
@@ -92,7 +92,7 @@ export default function ForBusinessContent() {
                     <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box1.details.desc")}</p>
                   </div>
                 }
-                bookUrl="/contact?subject=teams"
+                bookUrl="/booking?subject=teams"
                 bookText={t("common.enquireNow")}
               />
 
@@ -108,7 +108,7 @@ export default function ForBusinessContent() {
                     <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box2.details.desc")}</p>
                   </div>
                 }
-                bookUrl="/contact?subject=office"
+                bookUrl="/booking?subject=office"
                 bookText={t("common.enquireNow")}
               />
 
@@ -124,7 +124,7 @@ export default function ForBusinessContent() {
                     <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box3.details.desc")}</p>
                   </div>
                 }
-                bookUrl="/contact?subject=teams"
+                bookUrl="/booking?subject=teams"
                 bookText={t("common.enquireNow")}
               />
 
@@ -140,7 +140,7 @@ export default function ForBusinessContent() {
                      <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box4.details.desc")}</p>
                   </div>
                 }
-                bookUrl="/contact?subject=office"
+                bookUrl="/booking?subject=office"
                 bookText={t("common.enquireNow")}
               />
             </div>
@@ -197,7 +197,7 @@ export default function ForBusinessContent() {
                 </ul>
 
                 <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-gray-900 hover:bg-black text-white">
-                  <Link href="/contact?subject=teams">{t('common.getStarted')}</Link>
+                  <Link href="/booking?subject=teams">{t('common.getStarted')}</Link>
                 </Button>
               </div>
 
@@ -237,7 +237,7 @@ export default function ForBusinessContent() {
                 </ul>
 
                 <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-white text-black hover:bg-gray-100">
-                  <Link href="/contact?subject=office">{t('common.getStarted')}</Link>
+                  <Link href="/booking?subject=office">{t('common.getStarted')}</Link>
                 </Button>
               </div>
             </div>

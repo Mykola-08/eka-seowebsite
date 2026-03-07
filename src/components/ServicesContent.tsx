@@ -31,20 +31,6 @@ export default function ServicesContent() {
         className="bg-[#fbfbfd]"
         mainClassName="bg-transparent"
       >
-        {/* Quick CTA */}
-        <div className="bg-white rounded-[3rem] shadow-sm relative z-20 mx-4 sm:mx-8 px-6 py-12 mb-16 max-w-5xl xl:mx-auto flex flex-col items-center">
-          <Link href="/booking">
-            <Button
-              size="xl"
-              variant="default"
-              className="px-8 py-4 "
-            >
-              {t('common.bookNow')}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
-        </div>
-
         {/* Services Grid (Core) - Transparent Background */}
         <section className="py-16">
           <div className="section-container">

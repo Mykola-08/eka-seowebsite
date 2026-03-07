@@ -35,7 +35,7 @@ export default function CTASection() {
                 {t('common.bookNow')}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Link href="/contact" className="w-full sm:w-auto">
+              <Link href="/booking" className="w-full sm:w-auto">
                 <Button
                   size="xl"
                   variant="outline"

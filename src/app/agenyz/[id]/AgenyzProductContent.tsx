@@ -157,7 +157,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                         {t('agenyz.buyNow') || 'Order Now'}
                                     </Button>
                                 </a>
-                                <Link href='/contact' className='flex-1 sm:flex-none'>
+                                <Link href='/booking' className='flex-1 sm:flex-none'>
                                     <Button size='xl' variant='outline' className='w-full sm:w-auto border-gray-200 hover:bg-gray-50 text-gray-900 px-10 py-7 rounded-full text-lg font-bold transition-all'>
                                         <MessageCircle className='mr-3 w-6 h-6' />
                                         {t('common.askQuestions') || 'Consult Expert'}

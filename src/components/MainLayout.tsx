@@ -317,9 +317,6 @@ export default function MainLayout({
                 <Link href="/about-elena" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
                   {t('nav.aboutElena')}
                 </Link>
-                <Link href="/contact" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
-                  {t('nav.contact')}
-                </Link>
                 <Link href="/booking" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm font-medium text-primary">
                   {t('nav.bookNow')}
                 </Link>
@@ -546,14 +543,14 @@ export default function MainLayout({
             </div>
 
             {/* Right side actions - Search/Bag style icons usually, here just Booking CTA but simpler */}
-            <div className="flex items-center space-x-4 flex-shrink-0">
+            <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
 
-              {/* Reserva Button - Updated to Blue Primary Button */}
+              {/* Reserva Button - Visible on mobile now */}
               <Button
                 asChild
                 variant="default"
                 size="sm"
-                className="hidden sm:inline-flex text-[12px] font-medium rounded-full h-8 px-4"
+                className="inline-flex text-[11px] sm:text-[12px] font-medium rounded-full h-7 sm:h-8 px-3 sm:px-4"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}
@@ -564,6 +561,7 @@ export default function MainLayout({
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden p-1 text-gray-800 hover:text-black transition-colors"
+                aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
                   <X className="w-5 h-5" />
@@ -578,53 +576,65 @@ export default function MainLayout({
           <AnimatePresence>
             {isMenuOpen && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden fixed top-[56px] left-0 w-full h-[calc(100vh-56px)] bg-[#f5f5f7] overflow-y-auto z-40"
+                className="md:hidden fixed inset-0 w-full h-[100dvh] bg-[#f5f5f7] z-[110] overflow-y-auto pt-[80px]"
               >
-                <div className="p-6 space-y-6">
-                  {navigation.map(item => (
-                    <div key={item.name} className="border-b border-gray-200/50 pb-4 last:border-0">
-                      {item.isExternal ? (
-                        <a
-                          href={item.href}
-                          rel="noopener noreferrer"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setIsMenuOpen(false);
-                            window.open(item.href, '_blank', 'noopener,noreferrer');
-                          }}
-                          className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
-                        >
-                          {item.name}
-                        </a>
-                      ) : (
+                {/* Close button inside mobile menu to ensure it can be closed if overlapping the header */}
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="absolute top-4 right-6 p-2 text-gray-800 hover:text-black transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+                <div className="p-6 pb-24 space-y-6">
+                  {/* Home */}
+                  <div className="border-b border-gray-200/50 pb-4">
+                    <Link
+                      href="/"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
+                    >
+                      {t('nav.home') || 'Home'}
+                    </Link>
+                  </div>
+
+                  {/* Services */}
+                  <div className="border-b border-gray-200/50 pb-4">
+                    <Link
+                      href="/services"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
+                    >
+                      {t('nav.services')}
+                    </Link>
+                    <div className="ml-4 space-y-2 mt-2">
+                      {navigation.find(n => n.name === t('nav.services'))?.dropdownItems?.map(dropdownItem => (
                         <Link
-                          href={item.href}
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
+                          className="block py-2 text-lg text-gray-500 font-medium pl-4"
                         >
-                          {item.name}
+                          {dropdownItem.name}
                         </Link>
-                      )}
-                      {item.hasDropdown && (
-                        <div className="ml-4 space-y-2 mt-2">
-                          {item.dropdownItems?.map(dropdownItem => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block py-2 text-lg text-gray-500 font-medium pl-4"
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {/* For Business */}
+                  <div className="border-b border-gray-200/50 pb-4">
+                    <Link
+                      href="/for-business"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
+                    >
+                      {t('personalizedServices.business') || 'For Business'}
+                    </Link>
+                  </div>
 
                   {/* Mobile Reserva */}
                   <div className="pt-4">
@@ -645,7 +655,7 @@ export default function MainLayout({
       </nav>
 
       {/* Main Content */}
-      <main id="main-content" className="flex-1 w-full">
+      <main id="main-content" className="flex-1 w-full pb-20 md:pb-0 overflow-x-hidden">
         {children}
       </main>
 
@@ -656,27 +666,23 @@ export default function MainLayout({
       <CookieBanner />
       <LanguagePopup />
 
-      {/* Fixed Mobile Bottom CTA */}
+      
+
+            </FooterUncover>
+      
       <AnimatePresence>
-        {showMobileCTA && (
+        {!isMenuOpen && (
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 md:hidden z-50 pb-safe"
+            className="md:hidden"
           >
-            <Button asChild variant="default" size="lg" className="w-full text-base font-bold rounded-full ">
-              <Link href="/booking">
-                {t('nav.bookNow')}
-              </Link>
-            </Button>
+            <FooterPillMenu />
           </motion.div>
         )}
       </AnimatePresence>
-
-            </FooterUncover>
-      <FooterPillMenu />
     </>
   );
 }

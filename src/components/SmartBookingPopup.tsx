@@ -5,6 +5,7 @@ import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface SmartBookingPopupProps {
@@ -104,7 +105,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
   if (!isOpen) return null;
 
-  return (
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  return mounted && typeof document !== 'undefined' ? createPortal(
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] flex items-center justify-center p-4" onClick={onClose} role="presentation">
       <motion.div
         ref={dialogRef}
@@ -259,7 +263,8 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
           </AnimatePresence>
         </div>
       </motion.div>
-    </div>
-  );
+    </div>,
+    document.body
+  ) : null;
 }
 

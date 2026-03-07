@@ -1,614 +1,253 @@
-"use client";
+'use client';
 
-
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { ChevronRight, Heart, Brain, Leaf, User, Target, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import PriceDisplay from './PriceDisplay';
-import { OnboardingData, Recommendation } from '@/shared/types';
+import PageLayout from '@/components/PageLayout';
+import SEOUpdater from '@/components/SEOUpdater';
+import FAQ from '@/components/FAQ';
+import CTASection from '@/components/CTASection';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
+import Link from 'next/link';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 
-interface Question {
-  id: keyof OnboardingData;
-  type: 'single' | 'multiple';
-  options: Array<{
-    id: string;
-    label: string;
-    icon?: React.ComponentType<{ className?: string }>;
-  }>;
-}
-
-export default function PersonalizedOnboarding() {
+export default function ForBusinessContent() {
   const { t } = useLanguage();
-  const [showWelcome, setShowWelcome] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
-  const [data, setData] = useState<OnboardingData>({
-    userType: '',
-    goals: [],
-    preferredFeeling: ''
-  });
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
 
-  const questions: Question[] = [
+  const faqItems = [
     {
-      id: 'userType',
-      type: 'single',
-      options: [
-        { id: 'student', label: t('onboarding.userTypes.student'), icon: User },
-        { id: 'office', label: t('onboarding.userTypes.office'), icon: User },
-        { id: 'artist', label: t('onboarding.userTypes.artist'), icon: User },
-        { id: 'musician', label: t('onboarding.userTypes.musician'), icon: User },
-        { id: 'athlete', label: t('onboarding.userTypes.athlete'), icon: User },
-        { id: 'parent', label: t('onboarding.userTypes.parent'), icon: User },
-        { id: 'free_woman', label: t('onboarding.userTypes.freeWoman'), icon: User },
-        { id: 'entrepreneur', label: t('onboarding.userTypes.entrepreneur'), icon: User },
-        { id: 'therapist', label: t('onboarding.userTypes.therapist'), icon: User },
-        { id: 'senior', label: t('onboarding.userTypes.senior'), icon: User },
-        { id: 'other', label: t('onboarding.userTypes.other'), icon: User }
-      ]
+      id: 'business-q1',
+      question: t('personalized.business.faq.q1'),
+      answer: t('personalized.business.faq.a1')
     },
     {
-      id: 'goals',
-      type: 'multiple',
-      options: [
-        { id: 'stress', label: t('onboarding.goals.stress'), icon: Heart },
-        { id: 'pain', label: t('onboarding.goals.pain'), icon: Heart },
-        { id: 'posture', label: t('onboarding.goals.posture'), icon: Brain },
-        { id: 'sleep', label: t('onboarding.goals.sleep'), icon: Leaf },
-        { id: 'energy', label: t('onboarding.goals.energy'), icon: Sparkles },
-        { id: 'focus', label: t('onboarding.goals.focus'), icon: Brain },
-        { id: 'bodyAwareness', label: t('onboarding.goals.bodyAwareness'), icon: Target },
-        { id: 'feelGood', label: t('onboarding.goals.feelGood'), icon: Heart },
-        { id: 'lightness', label: t('onboarding.goals.lightness'), icon: Sparkles },
-        { id: 'inspiration', label: t('onboarding.goals.inspiration'), icon: Sparkles },
-        { id: 'vitality', label: t('onboarding.goals.vitality'), icon: Sparkles },
-        { id: 'money', label: t('onboarding.goals.money'), icon: Target },
-        { id: 'relationships', label: t('onboarding.goals.relationships'), icon: Heart },
-        { id: 'family', label: t('onboarding.goals.family'), icon: User },
-        { id: 'selfworth', label: t('onboarding.goals.selfworth'), icon: Sparkles }
-      ]
+      id: 'business-q2',
+      question: t('personalized.business.faq.q2'),
+      answer: t('personalized.business.faq.a2')
     },
     {
-      id: 'preferredFeeling',
-      type: 'single',
-      options: [
-        { id: 'calm', label: t('onboarding.feelings.calm'), icon: Leaf },
-        { id: 'light', label: t('onboarding.feelings.light'), icon: Sparkles },
-        { id: 'energized', label: t('onboarding.feelings.energized'), icon: Sparkles },
-        { id: 'focused', label: t('onboarding.feelings.focused'), icon: Brain },
-        { id: 'confident', label: t('onboarding.feelings.confident'), icon: Target }
-      ]
+      id: 'business-q3',
+      question: t('personalized.business.faq.q3'),
+      answer: t('personalized.business.faq.a3')
     }
   ];
 
-  const currentQuestion = questions[currentStep];
-  const isLastStep = currentStep === questions.length - 1;
-
-  const handleSelection = (questionId: keyof OnboardingData, optionId: string) => {
-    if (questionId === 'goals') {
-      setData(prev => ({
-        ...prev,
-        goals: prev.goals.includes(optionId)
-          ? prev.goals.filter(g => g !== optionId)
-          : [...prev.goals, optionId]
-      }));
-    } else {
-      setData(prev => ({
-        ...prev,
-        [questionId]: optionId
-      }));
-    }
-  };
-
-  const canProceed = () => {
-    const question = questions[currentStep];
-    if (question.id === 'goals') {
-      return data.goals.length > 0;
-    }
-    return (data[question.id] as string) !== '';
-  };
-
-  const nextStep = () => {
-    if (isLastStep) {
-      processResults();
-    } else {
-      setCurrentStep(prev => prev + 1);
-    }
-  };
-
-  const processResults = async () => {
-    setIsProcessing(true);
-
-    // Simulate processing time
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Generate recommendations based on user data
-    const recs = generateRecommendations(data);
-    setRecommendations(recs);
-
-    setIsProcessing(false);
-    setShowResults(true);
-  };
-
-  const generateRecommendations = (userData: OnboardingData): Recommendation[] => {
-    const recommendations: Recommendation[] = [];
-
-    // Always recommend Massage (Fast Result, Pleasant) 
-    recommendations.push({
-      id: 'massage',
-      title: t('services.massage.title'),
-      description: t('recommendations.massage.description'),
-      price: 60,
-      duration: '60 min',
-      link: '/services/massage',
-      personalizedLink: getPersonalizedLink(userData.userType),
-      feeling: t('recommendations.massage.feeling') || 'Cos relaxat i ment en calma'
-    });
-
-    // Recommend Kinesiology/Osteopathy based on goals (Deep work, Long-term)
-    if (userData.goals.includes('pain') ||
-      userData.goals.includes('posture') ||
-      userData.goals.includes('energy') ||
-      userData.goals.includes('vitality') ||
-      userData.goals.includes('stress')) {
-      recommendations.push({
-        id: 'kinesiology',
-        title: t('services.kinesiology.title'),
-        description: t('recommendations.kinesiology.description'),
-        price: 70,
-        duration: '60 min',
-        link: '/services/kinesiology',
-        personalizedLink: getPersonalizedLink(userData.userType),
-        feeling: t('recommendations.kinesiology.feeling') || 'Claredat mental i energia renovada'
-      });
-    }
-
-    // Recommend Kinesiology emotional/mental focus
-    if (userData.goals.includes('focus') ||
-      userData.goals.includes('inspiration') ||
-      userData.goals.includes('lightness')) {
-      recommendations.push({
-        id: 'kinesiology_psy',
-        title: t('services.kinesiology.subtitle') || 'Kinesiologia',
-        description: t('recommendations.kinesiology.emotional_description') || t('recommendations.kinesiology.description'),
-        price: 70,
-        duration: '60 min',
-        link: '/services/kinesiology',
-        personalizedLink: getPersonalizedLink(userData.userType),
-        feeling: t('recommendations.kinesiology.emotional_feeling') || 'Equilibri emocional i pau interior'
-      });
-    }
-
-    // Recommend Systemic Therapy for life/relationship issues
-    if (userData.goals.includes('money') ||
-      userData.goals.includes('relationships') ||
-      userData.goals.includes('family') ||
-      userData.goals.includes('selfworth')) {
-      recommendations.push({
-        id: 'systemic',
-        title: t('service.systemic.title') || 'Teràpia Sistèmica',
-        description: t('recommendations.systemic.description') || 'Ordena els teus vincles familiars i sistèmics per desbloquejar la teva vida.',
-        price: 80,
-        duration: '90 min',
-        link: '/services/systemic-therapy',
-        personalizedLink: getPersonalizedLink(userData.userType),
-        feeling: t('recommendations.systemic.feeling') || 'Ordre intern i alleujament'
-      });
-    }
-
-    // Recommend Supplements for Energy/Vitality/Focus
-    if (userData.goals.includes('energy') ||
-      userData.goals.includes('vitality') ||
-      userData.goals.includes('focus') ||
-      userData.goals.includes('lightness')) {
-      recommendations.push({
-        id: 'supplements',
-        title: t('service.supplements.title') || 'Personalized Supplements',
-        description: t('recommendations.supplements.description') || 'Advanced cellular nutrition to boost your daily performance.',
-        price: 0,
-        duration: 'Product',
-        link: '/agenyz',
-        personalizedLink: getPersonalizedLink(userData.userType),
-        feeling: t('recommendations.supplements.feeling') || 'Vitality from within'
-      });
-    }
-
-    // Ensure we have at least 2 recommendations
-    if (recommendations.length < 2) {
-      recommendations.push({
-        id: 'feldenkrais',
-        title: t('services.feldenkrais.title'),
-        description: t('recommendations.feldenkrais.description'),
-        price: 60,
-        duration: '60 min',
-        link: '/services/feldenkrais',
-        personalizedLink: getPersonalizedLink(userData.userType),
-        feeling: t('recommendations.feldenkrais.feeling') || 'Moviment lliure i sense dolor'
-      });
-    }
-
-    // Add Free Consultation Fallback if not sure
-    recommendations.push({
-      id: 'consultation',
-      title: t('services.consultation.title') || 'Consulta Gratuïta 15 min',
-      description: t('services.consultation.description') || 'No estàs segura? Parlem 15 minuts sense compromís per veure com et puc ajudar.',
-      price: 0,
-      duration: '15 min',
-      link: '/contact', // Or booking specific link
-      personalizedLink: '/contact',
-      feeling: t('services.consultation.feeling') || 'Claredat sobre el teu camí'
-    });
-
-    const uniqueRecs = [];
-    const seen = new Set();
-    for (const rec of recommendations) {
-      if (!seen.has(rec.id)) {
-        seen.add(rec.id);
-        uniqueRecs.push(rec);
-      }
-    }
-    return uniqueRecs; // Return all unique recs, including consultation if applicable
-  };
-
-  const getPersonalizedLink = (userType: string): string => {
-    const userTypeMap: Record<string, string> = {
-      student: 'students',
-      office: 'office-workers',
-      artist: 'artists',
-      musician: 'musicians',
-      athlete: 'athletes',
-      parent: 'parents',
-      entrepreneur: 'entrepreneurs',
-      therapist: 'therapists',
-      senior: 'seniors'
-    };
-
-    const mappedType = userTypeMap[userType] || userType;
-    return `/for-${mappedType}`;
-  };
-
-  const startOnboarding = () => {
-    setShowWelcome(false);
-  };
-
-  // Welcome Screen - Full Page
-  if (showWelcome) {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4 relative overflow-hidden"
+  return (
+    <>
+      <SEOUpdater
+        titleKey="seo.business.title"
+        descriptionKey="seo.business.description"
+        keywordsKey="seo.business.keywords"
+      />
+      <PageLayout
+        hero={{
+          title: t('personalized.business.hero.title'),
+          subtitle: t('personalized.business.hero.description'),
+          backgroundImage: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          themeColor: 'blue'
+        }}
       >
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-gold/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-200/20 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="text-center max-w-2xl mx-auto relative z-10">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full mb-8   ring-4 ring-white"
-          >
-            <Heart className="w-12 h-12 text-gold" />
-          </motion.div>
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight"
-          >
-            🌿 {t('onboarding.welcome.title')}
-          </motion.h1>
-
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.35 }}
-            className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 text-green-700 px-5 py-2.5 rounded-full mb-8 font-medium  transition-colors"
-          >
-            <span className="text-lg">🎁</span>
-            <span>{t('onboarding.welcome.discountBadge') || '15€ de descompte en la teva primera sessió'}</span>
-          </motion.div>
-
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl text-gray-600 mb-12 leading-relaxed max-w-xl mx-auto font-light"
-          >
-            {t('onboarding.welcome.description')}
-          </motion.p>
-          <motion.button
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            onClick={startOnboarding}
-            className="inline-flex items-center bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-10 py-4 rounded-full transition duration-300 text-lg   hover:-translate-y-1"
-          >
-            {t('common.getStarted')}
-            <ChevronRight className="w-6 h-6 ml-3" />
-          </motion.button>
-        </div>
-      </motion.div>
-    );
-  }
-
-  // Results Screen - Full Page
-  if (showResults) {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-white py-8 px-4"
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-              <CheckCircle className="w-10 h-10 text-green-600" />
-            </div>
-            <h2 className="text-3xl font-light text-gray-900 mb-4">
-              {t('onboarding.results.title')}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {t('onboarding.results.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid gap-6 mb-8">
-            {recommendations.map((rec, index) => (
-              <motion.div
-                key={rec.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl border border-gray-100 p-6   transition-shadow"
-              >
-                <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {rec.title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed text-sm">
-                      {rec.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-start w-full md:w-auto gap-2">
-                    <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
-                      #{index + 1} {t('onboarding.results.recommended')}
-                    </span>
-                    <div className="flex flex-col items-end">
-                      {rec.price !== undefined && rec.price > 0 ? (
-                        <>
-                          <div className="text-xs font-semibold text-green-700 bg-green-100 px-2.5 py-1 rounded-full mb-1">
-                            {t('onboarding.results.discountApplied') || '🎁 -15€ Primera sessió'}
-                          </div>
-                          <PriceDisplay
-                            basePriceCents={rec.price * 100}
-                            finalPriceCents={(rec.price - 15) * 100}
-                            size="lg"
-                            showCalculation={true}
-                          />
-                        </>
-                      ) : (
-                        <span className="text-2xl font-light text-gray-900">{t('common.free') || 'Gratuït'}</span>
-                      )}
-                      {rec.duration && (
-                        <span className="text-sm text-gray-500 font-medium mt-1">
-                          {rec.duration}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {rec.feeling && (
-                  <div className="mb-4 bg-blue-50/50 rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-blue-800 text-sm font-medium mb-1">
-                      <Sparkles className="w-4 h-4" />
-                      <span>{t('onboarding.results.howYouWillFeel') || 'Com et sentiràs:'}</span>
-                    </div>
-                    <p className="text-gray-700 text-sm italic">"{rec.feeling}"</p>
-                  </div>
-                )}
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href={rec.link}
-                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm"
-                  >
-                    {t('common.learnMore')}
-                  </Link>
-                  <Link
-                    href="/booking"
-                    className="flex-1 bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-4 py-2 rounded-full transition-colors duration-200 flex items-center justify-center text-sm  "
-                  >
-                    {t('common.bookNow')}
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link
-              href="/booking"
-              className="inline-flex items-center bg-gold hover:bg-gold-dark text-eka-dark font-semibold px-8 py-4 rounded-full transition-colors duration-200  "
-            >
-              {t('common.bookNow')}
-              <ChevronRight className="w-5 h-5 ml-2" />
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 mb-20 relative z-20">
+          <Button asChild size="xl" className="rounded-full shadow-md hover:shadow-lg transition-all px-8">
+            <Link href="/booking">
+              {t('nav.bookNow')}
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
-          </div>
+          </Button>
+          <Button asChild size="xl" variant="outline" className="rounded-full bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200 hover:bg-gray-50 px-8">
+            <Link href="/booking">
+              {t('common.askQuestions')}
+            </Link>
+          </Button>
         </div>
-      </motion.div>
-    );
-  }
 
-  // Processing Screen - Full Page
-  if (isProcessing) {
-    return (
-      <div className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-slate-50 flex items-center justify-center px-4">
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-8 ">
-            <Brain className="w-10 h-10 text-gold animate-pulse" />
-          </div>
-          <h2 className="text-2xl font-light text-gray-900 mb-4">
-            {t('onboarding.processing.title')}
-          </h2>
-          <p className="text-gray-500">
-            {t('onboarding.processing.subtitle')}
-          </p>
-          <div className="mt-8">
-            <div className="w-64 h-1.5 bg-gray-200 rounded-full mx-auto overflow-hidden">
-              <motion.div
-                className="h-full bg-gold rounded-full"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 2, ease: "easeInOut" }}
+        {/* Apple-Style Bento Section */}
+        <section className="py-20 bg-[#fbfbfd] relative overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-gray-900 mb-6">
+                {t('personalized.business.bento.title')}
+              </h2>
+              <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
+                {t('personalized.business.bento.subtitle')}
+              </p>
+            </motion.div>
+
+                        {/* Service Bento Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <ServiceBentoItem
+                title={t('personalized.business.bento.box1.title')}
+                description={t('personalized.business.bento.box1.desc')}
+                image="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                className="md:col-span-2"
+                details={
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box1.details.title")}</h4>
+                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box1.details.desc")}</p>
+                  </div>
+                }
+                bookUrl="/booking?subject=teams"
+                bookText={t("common.enquireNow")}
+              />
+
+              <ServiceBentoItem
+                title={t('personalized.business.bento.box2.title')}
+                description={t('personalized.business.bento.box2.desc')}
+                image="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800"
+                className="col-span-1"
+                delay={0.1}
+                details={
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box2.details.title")}</h4>
+                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box2.details.desc")}</p>
+                  </div>
+                }
+                bookUrl="/booking?subject=office"
+                bookText={t("common.enquireNow")}
+              />
+
+              <ServiceBentoItem
+                title={t('personalized.business.bento.box3.title')}
+                description={t('personalized.business.bento.box3.desc')}
+                image="https://images.pexels.com/photos/4098228/pexels-photo-4098228.jpeg?auto=compress&cs=tinysrgb&w=800"
+                className="col-span-1"
+                delay={0.2}
+                details={
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box3.details.title")}</h4>
+                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box3.details.desc")}</p>
+                  </div>
+                }
+                bookUrl="/booking?subject=teams"
+                bookText={t("common.enquireNow")}
+              />
+
+              <ServiceBentoItem
+                title={t('personalized.business.bento.box4.title')}
+                description={t('personalized.business.bento.box4.desc')}
+                image="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                className="md:col-span-2"
+                delay={0.3}
+                details={
+                  <div className="space-y-4">
+                     <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box4.details.title")}</h4>
+                     <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box4.details.desc")}</p>
+                  </div>
+                }
+                bookUrl="/booking?subject=office"
+                bookText={t("common.enquireNow")}
               />
             </div>
           </div>
-        </div>
-      </div>
-    );
-  }
+        </section>
 
-  // Onboarding Form - Full Page, Single Screen
-  return (
-    <div className="min-h-[60vh] w-full max-w-5xl mx-auto rounded-[2.5rem] border border-gray-100 shadow-sm bg-white flex flex-col relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="flex-1 flex flex-col py-6 px-4 max-w-5xl mx-auto w-full mb-24 relative z-10">
-        {/* Progress Bar */}
-        <div className="mb-6">
-          <div className="flex justify-between items-center mb-3">
-            <span className="text-sm text-gray-600 font-medium">
-              {t('onboarding.progress.step')} {currentStep + 1} {t('onboarding.progress.of')} {questions.length}
-            </span>
-            <span className="text-sm text-gray-600 font-medium">
-              {Math.round(((currentStep + 1) / questions.length) * 100)}%
-            </span>
-          </div>
-          <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-gold rounded-full _0_10px_rgba(255,180,5,0.5)]"
-              initial={{ width: 0 }}
-              animate={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
-              transition={{ duration: 0.5 }}
-            />
-          </div>
-        </div>
-
-        {/* Question */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentQuestion.id}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            className="flex-1 flex flex-col justify-center mb-6"
-          >
-            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-10 text-center tracking-tight">
-              {t(`onboarding.questions.${currentQuestion.id}.title`)}
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {currentQuestion.options.map((option) => {
-                const isSelected = currentQuestion.id === 'goals'
-                  ? data.goals.includes(option.id)
-                  : data[currentQuestion.id as keyof OnboardingData] === option.id;
-
-                return (
-                  <button
-                    key={option.id}
-                    onClick={() => handleSelection(currentQuestion.id, option.id)}
-                    className={`
-                      group relative p-6 rounded-[2rem] transition duration-300 text-left min-h-[100px] flex items-center
-                      border overflow-hidden
-                      ${isSelected
-                        ? 'border-gold bg-gradient-to-br from-gold/10 to-transparent  transform scale-[1.02] ring-1 ring-gold'
-                        : 'border-white/60 bg-white/60 backdrop-blur-md  hover:border-gold/40 hover:bg-white  hover:-translate-y-1'
-                      }
-                    `}
-                  >
-                    <div className="flex items-center space-x-4 w-full relative z-10">
-                      {option.icon && (
-                        <div className={`
-                          w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition duration-300
-                          ${isSelected
-                            ? 'bg-gold text-eka-dark  transform scale-110'
-                            : 'bg-gray-100 text-gray-500 group-hover:bg-gold/10 group-hover:text-gold'}
-                        `}>
-                          <option.icon className="w-6 h-6" />
-                        </div>
-                      )}
-                      <span className={`font-medium text-lg leading-tight transition-colors ${isSelected ? 'text-eka-dark' : 'text-gray-600 group-hover:text-gray-900'}`}>
-                        {option.label}
-                      </span>
-                    </div>
-
-                    {/* Selection Indicator */}
-                    {isSelected && (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="absolute top-4 right-4 text-gold"
-                      >
-                        <CheckCircle className="w-5 h-5 fill-current" />
-                      </motion.div>
-                    )}
-                  </button>
-                );
-              })}
+        {/* Tiers / Plans Section - Rounded Style */}
+        <section className="py-24 bg-white relative overflow-hidden" id="plans">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-gray-900 mb-6">
+                {t('personalized.business.plans.title')}
+              </h2>
+              <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
+                  {t("personalized.business.plans.subtitle")}
+                </p>
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
 
-      {/* Bottom Navigation */}
-      <div className="mt-auto bg-gray-50 border-t border-gray-100 p-4 sm:p-6 z-20">
-        <div className="max-w-5xl mx-auto flex flex-col-reverse sm:flex-row justify-between items-center gap-4">
-          <button
-            onClick={() => {
-              if (currentStep === 0) {
-                window.location.href = '/';
-              } else {
-                setCurrentStep(prev => prev - 1);
-              }
-            }}
-            className="w-full sm:w-auto px-6 py-3 rounded-full font-semibold transition-colors duration-200 bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            {t('common.back')}
-          </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
+              {/* Background gradient blur */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[600px] bg-blue-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-          <button
-            onClick={nextStep}
-            disabled={!canProceed()}
-            className={`
-              w-full sm:w-auto px-8 py-3 rounded-full font-semibold transition duration-200 flex items-center justify-center
-              ${canProceed()
-                ? 'bg-gold hover:bg-gold-dark text-eka-dark  '
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }
-            `}
-          >
-            {isLastStep ? t('onboarding.finish') : t('common.continue')}
-            <ChevronRight className="w-5 h-5 ml-2" />
-          </button>
-        </div>
-      </div>
-    </div>
+              {/* Plan 1 - Teams */}
+              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-xl shadow-gray-200/20 relative transition-all duration-300 flex flex-col h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-blue-400 pointer-events-none" />
+                <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
+                <p className="text-gray-500 font-medium mb-8 flex-grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
+                
+                <div className="mb-8 relative z-10">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-5xl font-bold text-gray-900 tracking-tighter">€100</span>
+                    <span className="text-xl text-gray-500 font-medium">/mo</span>
+                  </div>
+                  <div className="text-sm text-gray-400 mt-1 font-medium">{t("personalized.business.plans.teams.price")}</div>
+                </div>
+
+                <ul className="space-y-5 mb-10 relative z-10 flex-grow">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
+                    <span className="text-gray-700 leading-snug">{t("personalized.business.plans.teams.feature1")}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
+                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature2')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
+                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature3')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-500 mr-3 shrink-0" />
+                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature4')}</span>
+                  </li>
+                </ul>
+
+                <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-gray-900 hover:bg-black text-white">
+                  <Link href="/booking?subject=teams">{t('common.getStarted')}</Link>
+                </Button>
+              </div>
+
+              {/* Plan 2 - Office */}
+              <div className="bg-gray-900 rounded-[2rem] p-8 sm:p-10 shadow-2xl relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-white pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-blue-500 pointer-events-none" />
+                
+                <h3 className="text-3xl font-semibold tracking-tight text-white mb-3 relative z-10">{t('personalized.business.plans.enterprise.title')}</h3>
+                <p className="text-gray-300 font-medium mb-8 flex-grow relative z-10">{t('personalized.business.plans.enterprise.desc')}</p>
+                
+                <div className="mb-8 relative z-10">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-5xl font-bold text-white tracking-tighter">€500</span>
+                    <span className="text-xl text-gray-400 font-medium">/mo</span>
+                  </div>
+                  <div className="text-sm text-gray-500 mt-1 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
+                </div>
+
+                <ul className="space-y-5 mb-10 relative z-10 flex-grow">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature1')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature2')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature3')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-blue-400 mr-3 shrink-0" />
+                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature4')}</span>
+                  </li>
+                </ul>
+
+                <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-white text-black hover:bg-gray-100">
+                  <Link href="/booking?subject=office">{t('common.getStarted')}</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <FAQ items={faqItems} />
+        <CTASection />
+      </PageLayout>
+    </>
   );
 }
-
-

@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import ContactContent from '@/components/ContactContent';
-
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: "Contacte amb EKA Balance | Elena Kucherova",
@@ -14,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactContent />;
+  redirect('/booking');
 }

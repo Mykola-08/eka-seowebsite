@@ -763,7 +763,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             <div className="text-center text-gray-500">
               <p className="mb-4">{t('discovery.recommendation.why')}</p>
               <Link
-                href="/contact"
+                href="/booking"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
                 {t('common.contact')}

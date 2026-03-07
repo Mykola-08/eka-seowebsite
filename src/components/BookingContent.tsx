@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import PageLayout from './PageLayout';
+import FAQ from '@/components/FAQ';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface FormData {
@@ -372,6 +373,18 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </p>
         </div>
       </section>
+
+      {/* FAQ Section from Contact page merged here */}
+      <FAQ 
+        title={t('contact.faq.title')}
+        subtitle={t('contact.faq.subtitle') || 'Everything you need to know about contacting us'}
+        items={[
+            { id: '1', question: t('contact.faq.q1.title'), answer: t('contact.faq.q1.answer') },
+            { id: '2', question: t('contact.faq.q2.title'), answer: t('contact.faq.q2.answer') },
+            { id: '3', question: t('contact.faq.q3.title'), answer: t('contact.faq.q3.answer') },
+            { id: '4', question: t('contact.faq.q4.title'), answer: t('contact.faq.q4.answer') }
+        ]}
+      />
     </PageLayout>
   );
 }

@@ -87,7 +87,7 @@ export default function AboutElenaContent() {
                   {t('common.bookNow')}
                 </Button>
              </Link>
-             <Link href="/contact">
+             <Link href="/booking">
                 <Button 
                   size="xl" 
                   variant="outline"

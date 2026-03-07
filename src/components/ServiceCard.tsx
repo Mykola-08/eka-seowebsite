@@ -46,8 +46,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         description={t(service.descriptionKey)}
         image={service.image}
         details={details}
-        bookUrl={`/booking?service=${encodeURIComponent(t(service.titleKey))}`}
-        bookText={t('nav.bookNow') || 'Book Now'}
         readMoreUrl={service.href}
     />
   );

@@ -206,7 +206,7 @@ export default function PersonalizedServiceTemplate({
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>
-          <Link href="/contact">
+          <Link href="/booking">
             <Button
               size="xl"
               variant="outline"

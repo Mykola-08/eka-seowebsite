@@ -37,9 +37,47 @@ export default function MainLayout({
     }
   }, [pathname, logPageView]);
 
+  // Gesture support: swipe left from right edge to open menu
+  useEffect(() => {
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      // Start within 40px of right edge, swipe left at least 50px, not too much vertical
+      if (
+        touchStartX > window.innerWidth - 40 &&
+        deltaX < -50 &&
+        Math.abs(deltaY) < 50 &&
+        !isMenuOpen
+      ) {
+        setIsMenuOpen(true);
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isMenuOpen]);
+
+
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showMobileCTA, setShowMobileCTA] = useState(false);
+
   const navRef = useClickOutside<HTMLDivElement>(() => setActiveDropdown(null));
 
   // Hover intent management for dropdown
@@ -164,14 +202,10 @@ export default function MainLayout({
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight;
         const winHeight = window.innerHeight;
-        const scrollPercent = scrollTop / (docHeight - winHeight);
+
 
         setIsScrolled((prev) => {
           const next = scrollTop > 20;
-          return prev === next ? prev : next;
-        });
-        setShowMobileCTA((prev) => {
-          const next = scrollPercent > 0.7;
           return prev === next ? prev : next;
         });
         rafId = null;
@@ -560,14 +594,24 @@ export default function MainLayout({
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-1 text-gray-800 hover:text-black transition-colors"
+                className="md:hidden p-1.5 -mr-1 text-gray-800 hover:text-black hover:bg-black/5 active:bg-black/10 rounded-full transition-all active:scale-95"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
-                )}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={isMenuOpen ? "close" : "open"}
+                    initial={{ opacity: 0, rotate: isMenuOpen ? -90 : 90 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: isMenuOpen ? 90 : -90 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {isMenuOpen ? (
+                      <X className="w-5 h-5" />
+                    ) : (
+                      <Menu className="w-5 h-5" />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
               </button>
             </div>
           </div>
@@ -576,69 +620,106 @@ export default function MainLayout({
           <AnimatePresence>
             {isMenuOpen && (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden fixed inset-0 w-full h-[100dvh] bg-[#f5f5f7] z-[110] overflow-y-auto pt-[80px]"
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                drag="y"
+                dragConstraints={{ top: 0, bottom: 0 }}
+                dragElastic={{ top: 0, bottom: 0.5 }}
+                onDragEnd={(e, { offset, velocity }) => {
+                  if (offset.y > 150 || velocity.y > 500) {
+                    setIsMenuOpen(false);
+                  }
+                }}
+                className="md:hidden fixed inset-0 w-full h-[100dvh] bg-[#f5f5f7]/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none"
               >
+                {/* Drag handle for visual affordance */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-gray-300 rounded-full" />
                 {/* Close button inside mobile menu to ensure it can be closed if overlapping the header */}
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="absolute top-4 right-6 p-2 text-gray-800 hover:text-black transition-colors"
+                  className="absolute top-4 right-6 p-2 bg-black/5 hover:bg-black/10 text-gray-800 hover:text-black rounded-full transition-colors active:scale-95"
                   aria-label="Close menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </button>
-                <div className="p-6 pb-24 space-y-6">
-                  {/* Home */}
-                  <div className="border-b border-gray-200/50 pb-4">
-                    <Link
-                      href="/"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
-                    >
-                      {t('nav.home') || 'Home'}
-                    </Link>
-                  </div>
+                <div className="p-6 pb-24 space-y-4">
+                  <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
+                    {/* Home */}
+                    <div className="border-b border-gray-100 pb-2">
+                      <Link
+                        href="/"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
+                      >
+                        {t('nav.home') || 'Home'}
+                      </Link>
+                    </div>
 
-                  {/* Services */}
-                  <div className="border-b border-gray-200/50 pb-4">
-                    <Link
-                      href="/services"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
-                    >
-                      {t('nav.services')}
-                    </Link>
-                    <div className="ml-4 space-y-2 mt-2">
-                      {navigation.find(n => n.name === t('nav.services'))?.dropdownItems?.map(dropdownItem => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block py-2 text-lg text-gray-500 font-medium pl-4"
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
+                    {/* Services */}
+                    <div className="border-b border-gray-100 py-2">
+                      <Link
+                        href="/services"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
+                      >
+                        {t('nav.services')}
+                      </Link>
+                      <div className="ml-2 space-y-1 mt-2 pl-4 border-l-2 border-gray-100">
+                        {navigation.find(n => n.name === t('nav.services'))?.dropdownItems?.map(dropdownItem => (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="flex items-center gap-3 py-2 text-lg text-gray-500 font-medium active:scale-[0.98] transition-transform"
+                          >
+                            <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-gray-50 text-gray-400">
+                              {serviceIcons[dropdownItem.href] || <Hand className="w-4 h-4" />}
+                            </span>
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* For Business */}
+                    <div className="pt-2">
+                      <Link
+                        href="/for-business"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
+                      >
+                        {t('personalizedServices.business') || 'For Business'}
+                      </Link>
                     </div>
                   </div>
 
-                  {/* For Business */}
-                  <div className="border-b border-gray-200/50 pb-4">
-                    <Link
-                      href="/for-business"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block py-3 text-2xl font-semibold text-gray-900 tracking-tight"
-                    >
-                      {t('personalizedServices.business') || 'For Business'}
-                    </Link>
+                  {/* Additional App Links */}
+                  <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
+                    <div className="border-b border-gray-100 pb-2">
+                      <Link
+                        href="/360-revision"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-2 text-xl font-medium text-gray-800 tracking-tight active:scale-[0.98] transition-transform"
+                      >
+                        {t('nav.revision360')}
+                      </Link>
+                    </div>
+                    <div className="pt-2">
+                      <Link
+                        href="/agenyz"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-2 text-xl font-medium text-gray-800 tracking-tight active:scale-[0.98] transition-transform"
+                      >
+                        Agenyz
+                      </Link>
+                    </div>
                   </div>
 
                   {/* Mobile Reserva */}
-                  <div className="pt-4">
-                    <Button asChild variant="default" size="lg" className="w-full text-base font-semibold rounded-xl">
+                  <div className="pt-4 pb-12">
+                    <Button asChild variant="default" size="lg" className="w-full text-lg font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform shadow-md">
                       <Link
                         href="/booking"
                         onClick={() => setIsMenuOpen(false)}

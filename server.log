@@ -1,0 +1,16 @@
+
+> eka-seowebsite@1.0.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+- Environments: .env
+- Experiments (use with caution):
+  ✓ turbopackUseSystemTlsCerts
+
+✓ Starting...
+✓ Ready in 922ms
+○ Compiling / ...
+ GET / 200 in 7.7s (compile: 6.8s, render: 852ms)
+ GET / 200 in 193ms (compile: 8ms, render: 185ms)

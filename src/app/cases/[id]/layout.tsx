@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const id = resolvedParams.id;
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const id = params.id;
 
   const titles: Record<string, string> = {
     'back-pain': "Tractament de Dolor d'esquena",

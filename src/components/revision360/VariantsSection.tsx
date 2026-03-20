@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Compass, MapPin, RotateCcw, Sparkles } from 'lucide-react';
+import { ArrowRight, Compass, MapPin, RotateCcw, Sparkles } from 'lucide-react';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
 
 interface Variant {
   icon: React.ReactNode;
@@ -15,6 +16,7 @@ interface Variant {
   duration: string;
   includes: string[];
   price: string;
+  highlight?: boolean;
 }
 
 export default function VariantsSection() {
@@ -101,12 +103,19 @@ export default function VariantsSection() {
         t('revision360.variants.integral.includes.4'),
       ],
       price: 'EUR 750',
+      highlight: true,
     },
   ];
 
   return (
-    <section className="relative py-24 bg-secondary">
-      <div className="section-container">
+    <section className="relative py-24 bg-[#09090f] overflow-hidden">
+      {/* Ambient blobs */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute top-0 left-1/3 h-[400px] w-[400px] rounded-full bg-blue-600/8 blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 h-[300px] w-[300px] rounded-full bg-indigo-700/6 blur-[100px]" />
+      </div>
+
+      <div className="section-container relative z-10">
         <motion.div
           className="max-w-3xl text-center mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -114,35 +123,65 @@ export default function VariantsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+          <span className="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-300">
             {t('revision360.variants.badge')}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.variants.title')}</h2>
-          <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.variants.subtitle')}</p>
+          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            {t('revision360.variants.title')}
+          </h2>
+          <p className="text-lg font-normal leading-relaxed text-zinc-500">
+            {t('revision360.variants.subtitle')}
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 auto-rows-fr">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           {variants.map((variant, index) => (
             <motion.button
               key={variant.title}
               type="button"
               onClick={() => setSelectedVariant(variant)}
-              className="group text-left rounded-[2.5rem] bg-white border border-gray-100 hover:border-gray-200 p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
+              className={[
+                'group text-left rounded-[2rem] p-7 transition-all duration-500 relative overflow-hidden flex flex-col h-full',
+                'hover:-translate-y-1 active:scale-[0.98]',
+                variant.highlight
+                  ? 'bg-white/10 border border-white/20 hover:bg-white/[0.13] hover:border-white/30 shadow-xl shadow-black/20'
+                  : 'bg-white/5 border border-white/10 hover:bg-white/8 hover:border-white/20',
+              ].join(' ')}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-blue-50/50 to-transparent rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
-              <span className="relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-50 text-gray-900 border border-gray-100 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors duration-300">
+              {variant.highlight && (
+                <div className="absolute top-4 right-4 rounded-full bg-blue-500/20 border border-blue-400/30 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-300">
+                  Popular
+                </div>
+              )}
+
+              {/* Subtle corner glow */}
+              <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-gradient-to-bl from-white/5 to-transparent blur-2xl -mr-10 -mt-10 pointer-events-none" aria-hidden="true" />
+
+              {/* Icon */}
+              <span className="relative z-10 mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-zinc-300 group-hover:border-blue-400/30 group-hover:bg-blue-500/10 group-hover:text-blue-300 transition-colors duration-300">
                 {variant.icon}
               </span>
-              <h3 className="relative z-10 mt-6 text-xl font-semibold text-gray-900">{variant.title}</h3>
-              <p className="relative z-10 mt-1 text-xs text-blue-600 font-bold uppercase tracking-wider">{variant.subtitle}</p>
-              <p className="relative z-10 mt-4 text-sm text-gray-500 leading-relaxed font-normal flex-1">{variant.description}</p>
-              <div className="relative z-10 mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
-                <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">{variant.duration}</span>
-                <span className="text-lg font-semibold text-gray-900 bg-gray-50 px-3 py-1 rounded-xl">{variant.price}</span>
+
+              <h3 className="relative z-10 text-xl font-semibold text-white">{variant.title}</h3>
+              <p className="relative z-10 mt-1 text-xs font-bold uppercase tracking-wider text-blue-400">
+                {variant.subtitle}
+              </p>
+              <p className="relative z-10 mt-4 flex-1 text-sm leading-relaxed text-zinc-400 font-normal">
+                {variant.description}
+              </p>
+
+              <div className="relative z-10 mt-8 flex items-center justify-between border-t border-white/8 pt-5">
+                <span className="text-xs uppercase tracking-wider text-zinc-500 font-medium">
+                  {variant.duration}
+                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-semibold text-white">{variant.price}</span>
+                  <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all duration-200" />
+                </div>
               </div>
             </motion.button>
           ))}
@@ -157,40 +196,65 @@ export default function VariantsSection() {
           size="lg"
         >
           <div className="space-y-8">
-            <p className="text-gray-600 text-lg leading-relaxed font-light">{selectedVariant.description}</p>
+            <p className="text-lg leading-relaxed font-light text-gray-600">
+              {selectedVariant.description}
+            </p>
             <div className="grid gap-8 sm:grid-cols-2">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">{t('revision360.variants.idealFor')}</p>
+                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">
+                  {t('revision360.variants.idealFor')}
+                </p>
                 <ul className="space-y-2.5">
-                  {selectedVariant.idealFor.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-700 font-medium">
+                  {selectedVariant.idealFor.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm font-medium text-gray-700">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
-                      <span className="text-sm">{item}</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">{t('revision360.variants.includes')}</p>
+                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">
+                  {t('revision360.variants.includes')}
+                </p>
                 <ul className="space-y-2.5">
-                  {selectedVariant.includes.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-700 font-medium">
+                  {selectedVariant.includes.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm font-medium text-gray-700">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
-                      <span className="text-sm">{item}</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-            <div className="rounded-2xl bg-secondary p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-gray-100">
+            <div className="rounded-2xl border border-gray-100 bg-secondary p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">{t('revision360.variants.sessionDuration')}</p>
-                <p className="text-xl font-semibold text-gray-900 mt-1">{selectedVariant.duration}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                  {t('revision360.variants.sessionDuration')}
+                </p>
+                <p className="mt-1 text-xl font-semibold text-gray-900">{selectedVariant.duration}</p>
               </div>
               <div className="sm:text-right">
-                <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">{t('revision360.variants.investment')}</p>
-                <p className="text-3xl font-bold text-gray-900 mt-1">{selectedVariant.price}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                  {t('revision360.variants.investment')}
+                </p>
+                <p className="mt-1 text-3xl font-bold text-gray-900">{selectedVariant.price}</p>
               </div>
+            </div>
+            <div className="flex justify-center pt-2">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full px-8 h-12"
+              >
+                <a
+                  href={`https://wa.me/34658867133?text=${encodeURIComponent(t('revision360.whatsapp.booking'))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('revision360.hero.cta')}
+                </a>
+              </Button>
             </div>
           </div>
         </Modal>

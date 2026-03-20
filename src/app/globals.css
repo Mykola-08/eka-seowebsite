@@ -194,3 +194,22 @@
 .text-gold {
   @apply bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent;
 }
+
+/* iOS safe-area bottom padding for pill nav — applied only on small screens */
+@supports (padding: env(safe-area-inset-bottom)) {
+  #main-content {
+    padding-bottom: max(6rem, calc(5rem + env(safe-area-inset-bottom)));
+  }
+}
+@media (min-width: 768px) {
+  #main-content {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Scroll-progress indicator */
+@property --scroll-pct {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}

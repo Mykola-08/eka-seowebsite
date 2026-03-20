@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
+import ScrollProgress from '@/components/ScrollProgress';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -305,6 +306,7 @@ export default function MainLayout({
 
   return (
     <>
+      <ScrollProgress />
       <FooterUncover
         footer={
           <>
@@ -449,14 +451,17 @@ export default function MainLayout({
 
             {/* Desktop Navigation - Centered - Apple Style */}
             <div ref={navBarRef} className="hidden md:flex items-center justify-center space-x-8 relative">
-              {navigation.map(item => (
+              {navigation.map(item => {
+                const isNavItemActive = pathname === item.href ||
+                  (item.href !== '/' && pathname.startsWith(item.href));
+                return (
                 <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative flex items-center h-full' : 'flex items-center h-full'}`}
                   ref={item.hasDropdown ? navRef : undefined}>
                   {item.hasDropdown ? (
                     <>
                       <Link
                         href={item.href}
-                        className="nav-trigger py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger"
+                        className={`nav-trigger py-4 px-4 -mx-4 text-[13px] font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                         onMouseEnter={(e) => openDropdown(e, item.name)}
                         onMouseLeave={scheduleHide}
                         onFocus={(e) => openDropdown(e, item.name)}
@@ -464,7 +469,7 @@ export default function MainLayout({
                         suppressHydrationWarning
                       >
                         {item.name}
-                        <ChevronDown className={`w-3 h-3 text-gray-400 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-gray-700' : 'group-hover/trigger:translate-y-[1px]'}`} />
+                        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-gray-600' : isNavItemActive ? 'text-gray-500' : 'text-gray-400 group-hover/trigger:translate-y-[1px]'}`} />
                       </Link>
 
                       {/* Hover bridge — spans full width of dropdown zone for seamless mouse travel, enlarged for wider safe zone */}
@@ -560,7 +565,7 @@ export default function MainLayout({
                     <a
                       href={item.href}
                       rel="noopener noreferrer"
-                      className="py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
+                      className={`py-4 px-4 -mx-4 text-[13px] font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                       onClick={(e) => {
                         e.preventDefault();
                         window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -572,14 +577,15 @@ export default function MainLayout({
                   ) : (
                     <Link
                       href={item.href}
-                      className="py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
+                      className={`py-4 px-4 -mx-4 text-[13px] font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                       suppressHydrationWarning
                     >
                       {item.name}
                     </Link>
                   )}
                 </div>
-              ))}
+              );
+              })}
             </div>
 
             {/* Right side actions - Search/Bag style icons usually, here just Booking CTA but simpler */}
@@ -749,7 +755,7 @@ export default function MainLayout({
       </AnimatePresence>
 
       {/* Main Content */}
-      <main id="main-content" className="flex-1 w-full pb-20 md:pb-0 overflow-x-hidden">
+      <main id="main-content" className="flex-1 w-full pb-24 md:pb-0 overflow-x-hidden">
         {children}
       </main>
 

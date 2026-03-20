@@ -51,7 +51,7 @@ export default function CasoDetailContent() {
   if (!config) {
     return (
       <PageLayout>
-          <div className="py-32 text-center bg-[#f5f5f7] min-h-screen flex flex-col items-center justify-center">
+          <div className="py-32 text-center bg-secondary min-h-screen flex flex-col items-center justify-center">
               <h1 className="text-3xl font-semibold mb-6">{t('common.notFound') || 'Case not found'}</h1>
               <Link href="/cases">
                   <Button variant="outline">
@@ -84,7 +84,7 @@ export default function CasoDetailContent() {
   const results = t(`casos.problems.${config.key}.results`);
 
   const Hero = (
-     <div className="relative pt-32 pb-24 bg-[#f5f5f7] border-b border-gray-200">
+     <div className="relative pt-32 pb-24 bg-secondary border-b border-gray-200">
         <div className="section-container text-center max-w-4xl mx-auto">
           
           <Link href="/cases" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-black mb-10 transition-colors">

@@ -26,7 +26,7 @@ export default function FooterUncover({
   }, []);
 
   return (
-    <div className="relative bg-[#f5f5f7]">
+    <div className="relative bg-secondary">
       {/* Main Content Container */}
       <div
         className="relative z-10 bg-secondary min-h-screen"

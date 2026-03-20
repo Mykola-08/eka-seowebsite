@@ -118,7 +118,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white dark:bg-zinc-900 rounded-3xl  max-w-lg w-full overflow-hidden relative"
+        className="bg-white dark:bg-zinc-900 rounded-3xl max-w-lg w-full overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -129,7 +129,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
           <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
         </button>
 
-        <div className="p-8">
+        <div className="p-5 sm:p-8">
           <AnimatePresence mode="wait">
             {step === 'choice' ? (
               <motion.div
@@ -151,7 +151,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 <div className="grid gap-4">
                   <button
                     onClick={handleQuickWhatsApp}
-                    className="flex items-center p-4 rounded-2xl border-2 border-green-100 hover:border-green-500 bg-green-50/50 hover:bg-green-50 transition group text-left"
+                    className="flex items-center p-4 rounded-2xl border-2 border-green-100 hover:border-green-500 bg-green-50/50 hover:bg-green-50 transition duration-200 group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4 transition-colors">
                       <MessageCircle className="w-6 h-6 text-green-600" />
@@ -168,7 +168,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     onClick={() => setStep('form')}
-                    className="flex items-center p-4 rounded-2xl border-2 border-blue-100 hover:border-blue-500 bg-blue-50/50 hover:bg-blue-50 transition group text-left"
+                    className="flex items-center p-4 rounded-2xl border-2 border-blue-100 hover:border-blue-500 bg-blue-50/50 hover:bg-blue-50 transition duration-200 group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 transition-colors">
                       <FileText className="w-6 h-6 text-blue-600" />

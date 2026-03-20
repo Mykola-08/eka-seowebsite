@@ -2,51 +2,79 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Sparkles, Calendar, Briefcase, MessageCircle } from 'lucide-react';
+import { Home, Sparkles, Calendar, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/shared/utils';
+
+const items = [
+  { href: '/', icon: Home, labelKey: 'nav.home', exact: true },
+  { href: '/services', icon: Sparkles, labelKey: 'nav.services', exact: false },
+  { href: '/for-business', icon: Briefcase, labelKey: 'personalizedServices.business', exact: false },
+  { href: '/booking', icon: Calendar, labelKey: 'nav.bookNow', exact: true },
+] as const;
 
 export default function FooterPillMenu() {
   const pathname = usePathname();
   const { t } = useLanguage();
 
-  const items = [
-    { href: '/', label: t('nav.home'), icon: Home },
-    { href: '/services', label: t('nav.services'), icon: Sparkles },
-    { href: '/for-business', label: t('personalizedServices.business'), icon: Briefcase },
-    { href: '/booking', label: t('nav.bookNow'), icon: Calendar },
-  ];
-
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-sm px-4">
-      <nav className="bg-white/90 backdrop-blur-lg border border-white/20  rounded-full px-1.5 py-1.5 sm:px-2 sm:py-2 flex justify-between items-center ring-1 ring-black/5 gap-1">
+    /* Sits flush at bottom; padding accounts for iOS home-indicator safe area */
+    <div
+      className="fixed bottom-0 left-0 right-0 z-50 flex justify-center px-4"
+      style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}
+    >
+      <nav
+        className={[
+          /* Match the scrolled header's glass style exactly */
+          'bg-white/90 backdrop-blur-2xl',
+          'border border-gray-200/50',
+          'rounded-2xl p-1.5',
+          'flex items-stretch gap-0.5',
+          /* Soft lift shadow that matches dropdown panels */
+          'shadow-[0_8px_30px_rgba(0,0,0,0.07)]',
+          'ring-1 ring-black/[0.04]',
+          'w-full',
+        ].join(' ')}
+        style={{ maxWidth: 'min(400px, 100%)' }}
+        aria-label="Main navigation"
+      >
         {items.map((item) => {
-          const isActive = pathname === item.href;
+          const label = t(item.labelKey);
+          const isActive = item.exact
+            ? pathname === item.href
+            : pathname === item.href || pathname.startsWith(item.href + '/');
+
           return (
             <Link
               key={item.href}
               href={item.href}
+              aria-current={isActive ? 'page' : undefined}
               className={cn(
-                "flex flex-col items-center justify-center w-auto min-w-[3.5rem] flex-1 py-1 rounded-full transition-all duration-300 relative group",
-                 isActive ? "text-eka-dark font-medium" : "text-gray-500 hover:text-gray-900"
+                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-xl',
+                'transition-colors duration-150 active:scale-[0.93] select-none',
+                isActive ? 'text-white' : 'text-gray-400 hover:text-gray-700',
               )}
             >
-              <div className={cn(
-                  "p-1.5 sm:p-2 rounded-full transition-all duration-300 relative",
-                  isActive ? "bg-gold/20" : "bg-transparent group-hover:bg-gray-100"
-              )}>
-                <item.icon className={cn("w-4 h-4 sm:w-5 sm:h-5", isActive && "fill-current")} />
-              </div>
-              
-              <span className="text-[9px] sm:text-[10px] mt-0.5 text-center leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-[4rem] sm:max-w-none">{item.label}</span>
-
+              {/* Sliding dark-pill active background — animates between tabs */}
               {isActive && (
-                <motion.span 
-                    layoutId="pill-active"
-                    className="absolute -bottom-1 w-1 h-1 bg-gold rounded-full"
+                <motion.div
+                  layoutId="pill-active-bg"
+                  className="absolute inset-0 rounded-xl bg-[#1d1d1f]"
+                  transition={{ type: 'spring', stiffness: 420, damping: 38 }}
                 />
               )}
+
+              <span className="relative z-10 flex flex-col items-center gap-[3px]">
+                <item.icon
+                  className="w-[18px] h-[18px]"
+                  strokeWidth={isActive ? 2.25 : 1.75}
+                  aria-hidden="true"
+                />
+                <span className="text-[10px] font-medium leading-none whitespace-nowrap tracking-tight">
+                  {label}
+                </span>
+              </span>
             </Link>
           );
         })}

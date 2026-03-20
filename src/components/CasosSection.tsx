@@ -69,7 +69,7 @@ export default function CasosSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#f5f5f7]">
+    <section className="py-24 bg-secondary">
       <div className="section-container">
         <div className="text-center mb-20 max-w-4xl mx-auto">
           <span className="inline-block py-1 px-3 rounded-full bg-white border border-gray-200/50 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-6">
@@ -140,14 +140,14 @@ export default function CasosSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/cases"
-              className="inline-flex items-center bg-[#0071e3] hover:bg-[#0077ED] text-white font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
+              className="inline-flex items-center bg-primary hover:bg-primary-600 text-white font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
             >
               {t('casos.section.viewAll')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <Link
               href="/first-time"
-              className="inline-flex items-center bg-transparent border border-[#0071e3] text-[#0071e3] hover:bg-[#0071e3]/5 font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
+              className="inline-flex items-center bg-transparent border border-primary text-primary hover:bg-primary/5 font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
             >
               {t('casos.section.findYourCase')}
             </Link>

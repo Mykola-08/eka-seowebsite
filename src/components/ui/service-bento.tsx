@@ -59,7 +59,7 @@ export function ServiceBentoItem({
         <button
           onClick={() => setIsOpen(true)}
           onMouseMove={handleMouseMove}
-          className="relative text-left flex flex-col justify-end w-full h-full min-h-[420px] rounded-[2.5rem] overflow-hidden group outline-none isolate  border border-secondary/50 bg-[#fbfbfd]  transition-all duration-500 will-change-transform active:scale-[0.98]"
+          className="relative text-left flex flex-col justify-end w-full h-full min-h-[260px] md:min-h-[400px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group outline-none isolate border border-secondary/50 bg-[#fbfbfd] transition-all duration-300 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           {/* Spotlight overlay */}
           <motion.div
@@ -85,7 +85,7 @@ export function ServiceBentoItem({
             <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-50" />
           )}
           
-          <div className="relative z-10 p-8 sm:p-10 flex flex-col justify-end h-full w-full">
+          <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col justify-end h-full w-full">
              <motion.div
                className="transform transition-transform duration-500 group-hover:-translate-y-2 pr-16 md:pr-20"
              >
@@ -131,12 +131,12 @@ export function ServiceBentoItem({
                animate={{ opacity: 1, y: 0 }}
                exit={{ opacity: 0, y: "100%" }}
                transition={{ type: "spring", bounce: 0, duration: 0.5 }}
-               className="relative w-full max-w-5xl bg-white rounded-t-[2rem] sm:rounded-[2.5rem] overflow-hidden z-10 h-[90vh] sm:h-[80vh] flex flex-col"
+               className="relative w-full max-w-5xl bg-white rounded-t-[2rem] sm:rounded-[2.5rem] overflow-hidden z-10 h-[92svh] sm:h-[82vh] flex flex-col"
                onClick={(e) => e.stopPropagation()}
             >
                {/* Mobile draggable indicator */}
                <div className="w-full flex justify-center py-3 sm:hidden absolute top-0 z-30">
-                 <div className="w-12 h-1.5 bg-white/40 rounded-full" />
+                 <div className="w-10 h-1 bg-black/20 rounded-full" />
                </div>
 
                <button 
@@ -149,7 +149,7 @@ export function ServiceBentoItem({
                <div className="flex flex-col md:flex-row w-full h-full">
                  {image ? (
                     <>
-                      <div className="relative w-full md:w-2/5 lg:w-1/2 h-[20vh] md:h-full shrink-0 flex flex-col justify-end">
+                      <div className="relative w-full md:w-2/5 lg:w-1/2 h-[28vh] md:h-full shrink-0 flex flex-col justify-end">
                          <Image src={image} fill alt={title} className="object-cover" />
                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                          <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end w-full">

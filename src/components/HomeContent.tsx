@@ -44,7 +44,7 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl transition-colors duration-300">
@@ -88,7 +88,7 @@ export default function HomeContent() {
 
             {/* Top right smaller */}
             <BentoCard href="/services/kinesiology" delay={0.1} className="md:col-span-2 md:row-span-1">
-              <div className="absolute inset-0 z-0 bg-[#f5f5f7]"></div>
+              <div className="absolute inset-0 z-0 bg-secondary"></div>
               <div className="absolute right-0 top-0 bottom-0 w-[60%] md:w-1/2 z-0 overflow-hidden">
                 <Image 
                   src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800" 
@@ -96,7 +96,7 @@ export default function HomeContent() {
                   fill
                   className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#f5f5f7] via-[#f5f5f7]/80 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent pointer-events-none"></div>
               </div>
               <div className="absolute inset-0 flex items-center p-8 md:p-10 z-20">
                 <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%]">
@@ -145,7 +145,7 @@ export default function HomeContent() {
       </section>
 
       {/* Elena Introduction Section - REDESIGNED */}
-      <section className="py-24 relative overflow-hidden bg-[#f5f5f7]">
+      <section className="py-24 relative overflow-hidden bg-secondary">
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 

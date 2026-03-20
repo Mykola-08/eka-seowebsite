@@ -129,6 +129,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
 
       <button
         onClick={handleClose}
+        aria-label="Close notification"
         className="absolute top-4 right-4 text-current opacity-70 hover:opacity-100 transition-opacity p-0.5 rounded-full hover:bg-black/5"
       >
         <X className="w-4 h-4" />

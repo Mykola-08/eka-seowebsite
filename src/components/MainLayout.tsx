@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
+import ScrollProgress from '@/components/ScrollProgress';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,6 +14,7 @@ import { Language } from '@/contexts/LanguageTypes';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import { Button } from '@/components/ui/button';
 
 const ToastContainer = dynamic(() => import('@/components/Toast'), { ssr: false });
@@ -74,6 +76,17 @@ export default function MainLayout({
     };
   }, [isMenuOpen]);
 
+
+  // Lock background scroll when mobile menu is open (prevents page progress reset on iOS/Android)
+  useScrollLock(isMenuOpen);
+
+  // Close mobile menu on browser back-button / Android back gesture
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handlePopState = () => setIsMenuOpen(false);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [isMenuOpen]);
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -189,21 +202,14 @@ export default function MainLayout({
     return () => window.removeEventListener('resize', handleScrollOrResize);
   }, [activeDropdown]);
 
-  // Handle scroll effect for header and mobile CTA
+  // Handle scroll effect for header
   useEffect(() => {
     let rafId: number | null = null;
 
     const handleScroll = () => {
-      if (rafId !== null) {
-        return;
-      }
-
+      if (rafId !== null) return;
       rafId = window.requestAnimationFrame(() => {
         const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight;
-        const winHeight = window.innerHeight;
-
-
         setIsScrolled((prev) => {
           const next = scrollTop > 20;
           return prev === next ? prev : next;
@@ -222,6 +228,18 @@ export default function MainLayout({
       }
     };
   }, []);
+
+  // Global Escape key closes mobile menu or dropdown
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (isMenuOpen) setIsMenuOpen(false);
+        else if (activeDropdown) setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen, activeDropdown]);
 
   useEffect(() => {
     return () => {
@@ -288,6 +306,7 @@ export default function MainLayout({
 
   return (
     <>
+      <ScrollProgress />
       <FooterUncover
         footer={
           <>
@@ -309,7 +328,7 @@ export default function MainLayout({
           </Link>
 
           {/* Contact Info */}
-          <div className="space-y-1 mb-8 text-gray-500 text-xs">
+          <div className="space-y-1 mb-8 text-gray-500 text-sm">
             <p>Carrer Pelai, 12, 08001 Barcelona</p>
             <p>contact@ekabalance.com</p>
           </div>
@@ -386,7 +405,7 @@ export default function MainLayout({
                   <button
                     key={lang}
                     onClick={() => setLanguage(lang)}
-                    className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === lang
+                    className={`px-3 py-2 rounded-lg text-sm transition-colors duration-200 ${language === lang
                       ? 'bg-gray-200 text-black font-medium'
                       : 'text-gray-500 hover:bg-gray-100'
                       }`}
@@ -397,17 +416,6 @@ export default function MainLayout({
                     {lang === 'ru' && 'Russian'}
                   </button>
                 ))}
-                {/* Always show 'English' label for the language button */}
-                <button
-                  key="language-english"
-                  onClick={() => setLanguage('en')}
-                  className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === 'en'
-                    ? 'bg-gray-200 text-black font-medium'
-                    : 'text-gray-500 hover:bg-gray-100'
-                    }`}
-                >
-                  English
-                </button>
             </div>
           </div>
 
@@ -443,22 +451,27 @@ export default function MainLayout({
 
             {/* Desktop Navigation - Centered - Apple Style */}
             <div ref={navBarRef} className="hidden md:flex items-center justify-center space-x-8 relative">
-              {navigation.map(item => (
+              {navigation.map(item => {
+                const isNavItemActive = pathname === item.href ||
+                  (item.href !== '/' && pathname.startsWith(item.href));
+                return (
                 <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative flex items-center h-full' : 'flex items-center h-full'}`}
                   ref={item.hasDropdown ? navRef : undefined}>
                   {item.hasDropdown ? (
                     <>
                       <Link
                         href={item.href}
-                        className="nav-trigger py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger"
+                        className={`nav-trigger py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                         onMouseEnter={(e) => openDropdown(e, item.name)}
                         onMouseLeave={scheduleHide}
                         onFocus={(e) => openDropdown(e, item.name)}
                         onBlur={scheduleHide}
+                        aria-expanded={activeDropdown === item.name}
+                        aria-haspopup="true"
                         suppressHydrationWarning
                       >
                         {item.name}
-                        <ChevronDown className={`w-3 h-3 text-gray-400 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-gray-700' : 'group-hover/trigger:translate-y-[1px]'}`} />
+                        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-gray-600' : isNavItemActive ? 'text-gray-500' : 'text-gray-400 group-hover/trigger:translate-y-[1px]'}`} />
                       </Link>
 
                       {/* Hover bridge — spans full width of dropdown zone for seamless mouse travel, enlarged for wider safe zone */}
@@ -522,7 +535,7 @@ export default function MainLayout({
                                   <Link
                                     href={dropdownItem.href}
                                     onClick={() => setActiveDropdown(null)}
-                                    className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-xl text-[13px] text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
+                                    className="group/item flex items-center gap-3 px-3 py-3 mx-0.5 rounded-xl text-sm text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
                                     role="menuitem"
                                     suppressHydrationWarning
                                   >
@@ -540,7 +553,7 @@ export default function MainLayout({
                               <Link
                                 href={item.href}
                                 onClick={() => setActiveDropdown(null)}
-                                className="flex items-center justify-between text-[12px] text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
+                                className="flex items-center justify-between text-sm text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
                               >
                                 <span>{t('nav.services')} →</span>
                               </Link>
@@ -554,7 +567,7 @@ export default function MainLayout({
                     <a
                       href={item.href}
                       rel="noopener noreferrer"
-                      className="py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
+                      className={`py-4 px-4 -mx-4 text-[13px] font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                       onClick={(e) => {
                         e.preventDefault();
                         window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -566,14 +579,15 @@ export default function MainLayout({
                   ) : (
                     <Link
                       href={item.href}
-                      className="py-4 px-4 -mx-4 text-[13px] font-medium text-gray-800 hover:text-black transition-colors duration-200 tracking-tight"
+                      className={`py-4 px-4 -mx-4 text-[13px] font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                       suppressHydrationWarning
                     >
                       {item.name}
                     </Link>
                   )}
                 </div>
-              ))}
+              );
+              })}
             </div>
 
             {/* Right side actions - Search/Bag style icons usually, here just Booking CTA but simpler */}
@@ -584,7 +598,7 @@ export default function MainLayout({
                 asChild
                 variant="default"
                 size="sm"
-                className="inline-flex text-[11px] sm:text-[12px] font-medium rounded-full h-7 sm:h-8 px-3 sm:px-4"
+                className="inline-flex text-xs sm:text-sm font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}
@@ -594,7 +608,7 @@ export default function MainLayout({
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-1.5 -mr-1 text-gray-800 hover:text-black hover:bg-black/5 active:bg-black/10 rounded-full transition-all active:scale-95"
+                className="md:hidden p-2.5 -mr-1 text-gray-800 hover:text-black hover:bg-black/5 active:bg-black/10 rounded-full transition-all active:scale-95"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -616,127 +630,134 @@ export default function MainLayout({
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                drag="y"
-                dragConstraints={{ top: 0, bottom: 0 }}
-                dragElastic={{ top: 0, bottom: 0.5 }}
-                onDragEnd={(e, { offset, velocity }) => {
-                  if (offset.y > 150 || velocity.y > 500) {
-                    setIsMenuOpen(false);
-                  }
-                }}
-                className="md:hidden fixed inset-0 w-full h-[100dvh] bg-[#f5f5f7]/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none"
-              >
-                {/* Drag handle for visual affordance */}
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-gray-300 rounded-full" />
-                {/* Close button inside mobile menu to ensure it can be closed if overlapping the header */}
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="absolute top-4 right-6 p-2 bg-black/5 hover:bg-black/10 text-gray-800 hover:text-black rounded-full transition-colors active:scale-95"
-                  aria-label="Close menu"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-                <div className="p-6 pb-24 space-y-4">
-                  <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
-                    {/* Home */}
-                    <div className="border-b border-gray-100 pb-2">
-                      <Link
-                        href="/"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
-                      >
-                        {t('nav.home') || 'Home'}
-                      </Link>
-                    </div>
-
-                    {/* Services */}
-                    <div className="border-b border-gray-100 py-2">
-                      <Link
-                        href="/services"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
-                      >
-                        {t('nav.services')}
-                      </Link>
-                      <div className="ml-2 space-y-1 mt-2 pl-4 border-l-2 border-gray-100">
-                        {navigation.find(n => n.name === t('nav.services'))?.dropdownItems?.map(dropdownItem => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            onClick={() => setIsMenuOpen(false)}
-                            className="flex items-center gap-3 py-2 text-lg text-gray-500 font-medium active:scale-[0.98] transition-transform"
-                          >
-                            <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-gray-50 text-gray-400">
-                              {serviceIcons[dropdownItem.href] || <Hand className="w-4 h-4" />}
-                            </span>
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* For Business */}
-                    <div className="pt-2">
-                      <Link
-                        href="/for-business"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
-                      >
-                        {t('personalizedServices.business') || 'For Business'}
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* Additional App Links */}
-                  <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
-                    <div className="border-b border-gray-100 pb-2">
-                      <Link
-                        href="/360-revision"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block py-2 text-xl font-medium text-gray-800 tracking-tight active:scale-[0.98] transition-transform"
-                      >
-                        {t('nav.revision360')}
-                      </Link>
-                    </div>
-                    <div className="pt-2">
-                      <Link
-                        href="/agenyz"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block py-2 text-xl font-medium text-gray-800 tracking-tight active:scale-[0.98] transition-transform"
-                      >
-                        Agenyz
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* Mobile Reserva */}
-                  <div className="pt-4 pb-12">
-                    <Button asChild variant="default" size="lg" className="w-full text-lg font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform shadow-md">
-                      <Link
-                        href="/booking"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {t('nav.bookNow')}
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </nav>
 
+      {/* Mobile Navigation Drawer — rendered at nav level so fixed positioning is viewport-relative */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={{ top: 0, bottom: 0.5 }}
+            onDragEnd={(_, { offset, velocity }) => {
+              if (offset.y > 150 || velocity.y > 500) {
+                setIsMenuOpen(false);
+              }
+            }}
+            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-secondary/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') setIsMenuOpen(false);
+            }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
+            {/* Drag handle for visual affordance */}
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-gray-300 rounded-full" />
+            {/* Close button */}
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-4 right-6 p-2 bg-black/5 hover:bg-black/10 text-gray-800 hover:text-black rounded-full transition-colors active:scale-95"
+              aria-label="Close menu"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="p-6 pb-24 space-y-4">
+              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
+                {/* Home */}
+                <div className="border-b border-gray-100 pb-2">
+                  <Link
+                    href="/"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
+                  >
+                    {t('nav.home') || 'Home'}
+                  </Link>
+                </div>
+
+                {/* Services */}
+                <div className="border-b border-gray-100 py-2">
+                  <Link
+                    href="/services"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
+                  >
+                    {t('nav.services')}
+                  </Link>
+                  <div className="ml-2 space-y-1 mt-2 pl-4 border-l-2 border-gray-100">
+                    {navigation.find(n => n.name === t('nav.services'))?.dropdownItems?.map(dropdownItem => (
+                      <Link
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-3 py-2 text-lg text-gray-500 font-medium active:scale-[0.98] transition-transform"
+                      >
+                        <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-gray-50 text-gray-400">
+                          {serviceIcons[dropdownItem.href] || <Hand className="w-4 h-4" />}
+                        </span>
+                        {dropdownItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* For Business */}
+                <div className="pt-2">
+                  <Link
+                    href="/for-business"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 text-2xl font-semibold text-gray-900 tracking-tight active:scale-[0.98] transition-transform"
+                  >
+                    {t('personalizedServices.business') || 'For Business'}
+                  </Link>
+                </div>
+              </div>
+
+              {/* Additional App Links */}
+              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
+                <div className="border-b border-gray-100 pb-2">
+                  <Link
+                    href="/360-revision"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 text-xl font-medium text-gray-800 tracking-tight active:scale-[0.98] transition-transform"
+                  >
+                    {t('nav.revision360')}
+                  </Link>
+                </div>
+                <div className="pt-2">
+                  <Link
+                    href="/agenyz"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 text-xl font-medium text-gray-800 tracking-tight active:scale-[0.98] transition-transform"
+                  >
+                    Agenyz
+                  </Link>
+                </div>
+              </div>
+
+              {/* Mobile Reserva */}
+              <div className="pt-4 pb-12">
+                <Button asChild variant="default" size="lg" className="w-full text-lg font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform shadow-md">
+                  <Link
+                    href="/booking"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {t('nav.bookNow')}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Content */}
-      <main id="main-content" className="flex-1 w-full pb-20 md:pb-0 overflow-x-hidden">
+      <main id="main-content" className="flex-1 w-full pb-24 md:pb-0 overflow-x-hidden">
         {children}
       </main>
 

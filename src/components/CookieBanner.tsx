@@ -75,7 +75,7 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6"
+          className="fixed bottom-0 left-0 right-0 z-[60] px-4 pt-4 pb-24 md:p-6"
         >
           <div className="max-w-4xl mx-auto">
             <Card className="bg-white/95 backdrop-blur-lg border-gray-200  overflow-hidden rounded-2xl">
@@ -117,7 +117,7 @@ export default function CookieBanner() {
                   <div className="flex flex-wrap gap-3 items-center pt-2">
                     <Button
                       onClick={acceptCookies}
-                      className="bg-gold hover:bg-[#e8a204] text-eka-dark font-medium rounded-full px-8  hover:shadow transition-all"
+                      className="bg-gold hover:brightness-90 text-eka-dark font-medium rounded-full px-8 hover:shadow-md transition-all duration-200"
                     >
                       {t('cookies.accept')}
                     </Button>
@@ -139,7 +139,7 @@ export default function CookieBanner() {
 
                     <Link
                       href="/cookie-policy"
-                      className="text-gold hover:text-[#e8a204] font-medium text-sm transition-colors duration-200 ml-auto sm:ml-0 px-2"
+                      className="text-gold hover:text-amber-600 font-medium text-sm transition-colors duration-200 ml-auto sm:ml-0 px-2"
                     >
                       {t('cookies.learnMore')}
                     </Link>

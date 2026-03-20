@@ -647,7 +647,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-[#f5f5f7]/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-secondary/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}

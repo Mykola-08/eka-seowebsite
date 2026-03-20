@@ -21,7 +21,7 @@ export default function FooterPillMenu() {
   return (
     /* Sits flush at bottom; padding accounts for iOS home-indicator safe area */
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 flex justify-center px-4"
+      className="fixed bottom-0 left-0 right-0 z-[115] flex justify-center px-4"
       style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}
     >
       <nav

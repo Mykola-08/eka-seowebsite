@@ -328,7 +328,7 @@ export default function MainLayout({
           </Link>
 
           {/* Contact Info */}
-          <div className="space-y-1 mb-8 text-gray-500 text-xs">
+          <div className="space-y-1 mb-8 text-gray-500 text-sm">
             <p>Carrer Pelai, 12, 08001 Barcelona</p>
             <p>contact@ekabalance.com</p>
           </div>
@@ -405,7 +405,7 @@ export default function MainLayout({
                   <button
                     key={lang}
                     onClick={() => setLanguage(lang)}
-                    className={`px-2 py-1 rounded text-xs transition-colors duration-200 ${language === lang
+                    className={`px-3 py-2 rounded-lg text-sm transition-colors duration-200 ${language === lang
                       ? 'bg-gray-200 text-black font-medium'
                       : 'text-gray-500 hover:bg-gray-100'
                       }`}
@@ -533,7 +533,7 @@ export default function MainLayout({
                                   <Link
                                     href={dropdownItem.href}
                                     onClick={() => setActiveDropdown(null)}
-                                    className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-xl text-[13px] text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
+                                    className="group/item flex items-center gap-3 px-3 py-3 mx-0.5 rounded-xl text-sm text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
                                     role="menuitem"
                                     suppressHydrationWarning
                                   >
@@ -551,7 +551,7 @@ export default function MainLayout({
                               <Link
                                 href={item.href}
                                 onClick={() => setActiveDropdown(null)}
-                                className="flex items-center justify-between text-[12px] text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
+                                className="flex items-center justify-between text-sm text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
                               >
                                 <span>{t('nav.services')} →</span>
                               </Link>
@@ -596,7 +596,7 @@ export default function MainLayout({
                 asChild
                 variant="default"
                 size="sm"
-                className="inline-flex text-[11px] sm:text-[12px] font-medium rounded-full h-7 sm:h-8 px-3 sm:px-4"
+                className="inline-flex text-xs sm:text-sm font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}
@@ -606,7 +606,7 @@ export default function MainLayout({
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-1.5 -mr-1 text-gray-800 hover:text-black hover:bg-black/5 active:bg-black/10 rounded-full transition-all active:scale-95"
+                className="md:hidden p-2.5 -mr-1 text-gray-800 hover:text-black hover:bg-black/5 active:bg-black/10 rounded-full transition-all active:scale-95"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait" initial={false}>

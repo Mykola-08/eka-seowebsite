@@ -38,12 +38,12 @@ export default function AppleHero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[90vh] bg-[#fdfdfd] flex flex-col items-center justify-start pt-32 pb-16 overflow-hidden">
-      
-      {/* Subtle background glows for depth */}
-      <div className="absolute top-0 left-0 w-full h-[500px] overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-[100px] mix-blend-multiply" />
-        <div className="absolute top-[10%] right-[-5%] w-[30%] h-[30%] bg-purple-100/40 rounded-full blur-[80px] mix-blend-multiply" />
+    <section className="relative w-full min-h-[100svh] bg-[#fdfdfd] flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 overflow-hidden">
+
+      {/* Subtle background glows — hidden on mobile to protect performance */}
+      <div className="hidden sm:block absolute top-0 left-0 w-full h-[500px] overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-[80px] mix-blend-multiply" />
+        <div className="absolute top-[10%] right-[-5%] w-[30%] h-[30%] bg-purple-100/40 rounded-full blur-[60px] mix-blend-multiply" />
       </div>
 
       {/* Content Layer - Centered Text */}
@@ -99,7 +99,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style */}
-      <div className="relative w-full max-w-[90%] md:max-w-6xl aspect-video md:aspect-[21/9] rounded-[32px] md:rounded-[48px] overflow-hidden _20px_40px_rgba(0,0,0,0.08)] mx-auto group">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-[21/9] rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
         {/* Only render current, previous and next images to avoid loading all 12 */}
         {heroImages.map((image, index) => {
           const prev = (currentImageIndex - 1 + heroImages.length) % heroImages.length;

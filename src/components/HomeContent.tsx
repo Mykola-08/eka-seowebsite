@@ -44,7 +44,7 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl transition-colors duration-300">

@@ -133,7 +133,7 @@ export default function AgenyzContent() {
                             <button
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
-                                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${selectedCategory === category
+                                className={`px-6 py-3 min-h-[44px] rounded-full text-sm font-semibold transition-all duration-300 ${selectedCategory === category
                                     ? 'bg-black text-white shadow-lg scale-105'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                     }`}
@@ -157,10 +157,10 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ duration: 0.4 }}
-                                        className='bg-[#fbfbfd] border border-gray-100 rounded-[2.5rem] p-8 flex flex-col h-full hover:shadow-2xl hover:shadow-black/5 transition-all duration-500'
+                                        className='bg-zinc-50 border border-gray-100 rounded-[2.5rem] p-8 flex flex-col h-full hover:shadow-2xl hover:shadow-black/5 transition-all duration-500'
                                     >
                                         <div className='mb-6'>
-                                            <span className='px-4 py-1.5 bg-white/80 backdrop-blur-md text-gray-600 text-[10px] font-bold rounded-full uppercase tracking-widest border border-gray-100 shadow-sm'>
+                                            <span className='px-4 py-1.5 bg-white/80 backdrop-blur-md text-gray-600 text-xs font-bold rounded-full uppercase tracking-widest border border-gray-100 shadow-sm'>
                                                 {t(`agenyz.category.${product.category}`) || product.category}
                                             </span>
                                         </div>

@@ -461,11 +461,13 @@ export default function MainLayout({
                     <>
                       <Link
                         href={item.href}
-                        className={`nav-trigger py-4 px-4 -mx-4 text-[13px] font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
+                        className={`nav-trigger py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
                         onMouseEnter={(e) => openDropdown(e, item.name)}
                         onMouseLeave={scheduleHide}
                         onFocus={(e) => openDropdown(e, item.name)}
                         onBlur={scheduleHide}
+                        aria-expanded={activeDropdown === item.name}
+                        aria-haspopup="true"
                         suppressHydrationWarning
                       >
                         {item.name}

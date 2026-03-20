@@ -215,25 +215,25 @@ export default function ContactFormOptimized() {
 
           <div className="space-y-6">
             {[
-              { icon: Phone, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), color: "blue" },
-              { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), color: "purple" },
-              { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", sub: t('contact.info.metro'), color: "green" }
+              { icon: Phone, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), iconBg: "bg-blue-50", iconText: "text-blue-600", linkHover: "hover:text-blue-600" },
+              { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), iconBg: "bg-purple-50", iconText: "text-purple-600", linkHover: "hover:text-purple-600" },
+              { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", link: undefined, sub: t('contact.info.metro'), iconBg: "bg-green-50", iconText: "text-green-600", linkHover: "hover:text-green-600" }
             ].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start space-x-4 p-6 bg-white rounded-2xl  border border-gray-100  transition-shadow duration-300"
+                className="flex items-start space-x-4 p-6 bg-white rounded-2xl border border-gray-100 transition-shadow duration-300"
               >
-                <div className={`w-12 h-12 bg-${item.color}-50 rounded-xl flex items-center justify-center flex-shrink-0`}>
-                  <item.icon className={`w-6 h-6 text-${item.color}-600`} />
+                <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  <item.icon className={`w-6 h-6 ${item.iconText}`} />
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-1">{item.title}</h4>
                   <p className="text-gray-600 mb-2">
                     {item.link ? (
-                      <a href={item.link} className={`hover:text-${item.color}-600 transition-colors text-lg font-medium`}>
+                      <a href={item.link} className={`${item.linkHover} transition-colors text-lg font-medium`}>
                         {item.content}
                       </a>
                     ) : (
@@ -541,14 +541,14 @@ export default function ContactFormOptimized() {
                     href="https://wa.me/34658867133"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 text-sm  "
+                    className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-[44px]"
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp
                   </a>
                   <a
                     href="tel:+34658867133"
-                    className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-lg transition-colors duration-200 text-sm  "
+                    className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-[44px]"
                   >
                     <Phone className="w-4 h-4 mr-2" />
                     {t('contact.quick.call')}

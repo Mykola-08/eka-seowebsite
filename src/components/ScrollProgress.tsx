@@ -1,22 +1,15 @@
 'use client';
 
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 /**
  * Thin scroll-progress bar pinned at the very top of the viewport.
- * - Updates continuously and smoothly on scroll using Framer Motion.
- * - Bypasses React state to eliminate lag/jumping.
+ * - Updates on every animation frame via Framer Motion MotionValue.
+ * - No spring lag — tracks scroll position in real time, even while scrolling.
  * - Does NOT reset when modals use overflow:hidden locking methods.
  */
 export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();
-
-  // Optional: add a tiny spring for ultra-smooth buttery feel
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 400,
-    damping: 40,
-    restDelta: 0.001
-  });
 
   return (
     <div
@@ -25,7 +18,7 @@ export default function ScrollProgress() {
     >
       <motion.div
         className="h-full bg-primary origin-left will-change-transform"
-        style={{ scaleX }}
+        style={{ scaleX: scrollYProgress }}
       />
     </div>
   );

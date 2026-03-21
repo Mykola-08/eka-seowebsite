@@ -74,6 +74,8 @@ export default function HomeContent() {
                 src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200" 
                 alt="Integrative Wellness" 
                 fill
+                priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="absolute inset-0 w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
@@ -94,6 +96,8 @@ export default function HomeContent() {
                   src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800" 
                   alt="Kinesiology" 
                   fill
+                  priority={true}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                   className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent pointer-events-none"></div>
@@ -115,6 +119,8 @@ export default function HomeContent() {
                 src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" 
                 alt="Healthy Lifestyle" 
                 fill
+                priority={true}
+                sizes="(max-width: 768px) 100vw, 300px"
                 className="absolute inset-0 w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>

@@ -117,8 +117,8 @@ export default function AppleHero() {
                 src={image}
                 alt={`Wellness atmosphere ${index + 1}`}
                 fill
-                priority={index === 0}
-                loading={index === 0 ? 'eager' : 'lazy'}
+                priority={index < 3}
+                loading={index < 3 ? 'eager' : 'lazy'}
                 className={`object-cover transition-transform duration-[7500ms] ease-out ${
                   index === currentImageIndex ? 'scale-105' : 'scale-100'
                 }`}

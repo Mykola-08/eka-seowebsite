@@ -55,7 +55,7 @@ export default function ContactFormOptimized() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
 
-  const services = [
+  const services = useMemo(() => [
     t('contact.service.massageBasic'),
     t('contact.service.massageComplete'),
     t('contact.service.massagePremium'),
@@ -64,22 +64,34 @@ export default function ContactFormOptimized() {
     t('contact.service.revision360'),
     t('contact.service.vip'),
     t('contact.service.other')
-  ];
+  ], [t]);
 
-  const timeSlots = [
+  const timeSlots = useMemo(() => [
     t('contact.time.morning'),
     t('contact.time.noon'),
     t('contact.time.afternoon'),
     t('contact.time.evening'),
     t('contact.time.any')
-  ];
+  ], [t]);
 
-  const sources = [
+  const sources = useMemo(() => [
     { value: 'google', label: t('contact.form.source.google'), icon: Globe },
     { value: 'social', label: t('contact.form.source.social'), icon: Instagram },
     { value: 'friend', label: t('contact.form.source.friend'), icon: Users },
     { value: 'other', label: t('contact.form.source.other'), icon: HelpCircle },
-  ];
+  ], [t]);
+
+  const contactInfoItems = useMemo(() => [
+    { icon: Phone, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), color: "blue" },
+    { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), color: "purple" },
+    { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", sub: t('contact.info.metro'), color: "green" }
+  ], [t]);
+
+  const preferredContactOptions = useMemo(() => [
+    { value: 'email', label: 'Email', icon: Mail },
+    { value: 'phone', label: t('contact.form.phone'), icon: Phone },
+    { value: 'whatsapp', label: 'WhatsApp', icon: MessageCircle }
+  ], [t]);
 
   const validateField = (name: keyof ContactFormData, value: unknown) => {
     try {
@@ -216,11 +228,7 @@ export default function ContactFormOptimized() {
           </motion.div>
 
           <div className="space-y-6">
-            {[
-              { icon: Phone, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), color: "blue" },
-              { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), color: "purple" },
-              { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", sub: t('contact.info.metro'), color: "green" }
-            ].map((item, index) => (
+            {contactInfoItems.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -416,11 +424,7 @@ export default function ContactFormOptimized() {
                       {t('contact.form.preferred')}
                     </label>
                     <div className="grid grid-cols-3 gap-3">
-                      {[
-                        { value: 'email', label: 'Email', icon: Mail },
-                        { value: 'phone', label: t('contact.form.phone'), icon: Phone },
-                        { value: 'whatsapp', label: 'WhatsApp', icon: MessageCircle }
-                      ].map((option) => (
+                      {preferredContactOptions.map((option) => (
                         <label
                           key={option.value}
                           className={`flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer transition duration-200 ${

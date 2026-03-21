@@ -52,12 +52,8 @@ app.post('/contact', zValidator('json', ContactFormSchema), async (c) => {
     const data = c.req.valid('json');
 
     // TODO: integrate with an email service or external storage
-    console.log('[contact] New submission:', {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
+    console.log('[contact] New submission received:', {
       service: data.service,
-      message: data.message,
       preferred_contact: data.preferred_contact || 'email',
       preferred_time: data.preferred_time,
       ts: new Date().toISOString(),

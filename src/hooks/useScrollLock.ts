@@ -1,59 +1,54 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 /**
- * Locks body scroll when a modal/popup is open.
- * Uses position:fixed trick to reliably prevent background scrolling on all platforms (including iOS).
- * Compensates for scrollbar width to prevent layout shift in the header and page content.
+ * Locks body scroll when a modal/popup is open without losing window.scrollY context.
+ * This prevents the scroll progress bar from jumping to zero.
+ * It uses simple overflow hidden + touch-action to prevent iOS scroll bleed,
+ * rather than the position:fixed hack which ruins scroll coordinate mapping.
+ * Also stops Lenis smooth scrolling instance if it's available globally.
  */
 export function useScrollLock(isLocked: boolean) {
-  const scrollYRef = useRef(0);
-
   useEffect(() => {
-    if (isLocked) {
-      // Save current scroll position
-      scrollYRef.current = window.scrollY;
+    if (typeof window === 'undefined') return;
 
-      // Calculate scrollbar width before hiding it
+    if (isLocked) {
+      // Pause Lenis smooth scrolling if it exists globally
+      if ((window as any).lenis && typeof (window as any).lenis.stop === 'function') {
+        (window as any).lenis.stop();
+      }
+
+      // Calculate scrollbar width to prevent layout shift
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
-      // Lock body in place
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollYRef.current}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
+      // Use overflow:hidden to lock the body without changing position
+      // touch-action: none prevents iOS Safari rubber-band scrolling on the background
       document.body.style.overflow = 'hidden';
-      document.body.style.width = '100%';
+      document.body.style.touchAction = 'none';
 
       // Compensate for scrollbar removal to prevent layout shift
       if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
     } else {
-      // Restore body
-      const savedY = scrollYRef.current;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.overflow = '';
-      document.body.style.width = '';
-      document.body.style.paddingRight = '';
+      // Resume Lenis smooth scrolling
+      if ((window as any).lenis && typeof (window as any).lenis.start === 'function') {
+        (window as any).lenis.start();
+      }
 
-      // Restore scroll position
-      window.scrollTo(0, savedY);
+      // Restore body properties
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+      document.body.style.paddingRight = '';
     }
 
     return () => {
       // Cleanup on unmount
-      const savedY = scrollYRef.current;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
+      if ((window as any).lenis && typeof (window as any).lenis.start === 'function') {
+        (window as any).lenis.start();
+      }
       document.body.style.overflow = '';
-      document.body.style.width = '';
+      document.body.style.touchAction = '';
       document.body.style.paddingRight = '';
-      window.scrollTo(0, savedY);
     };
   }, [isLocked]);
 }

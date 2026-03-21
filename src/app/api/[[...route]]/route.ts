@@ -51,7 +51,12 @@ app.post('/contact', zValidator('json', ContactFormSchema), async (c) => {
 
     // Trigger validation but we don't need the data for now since we just return success
     // TODO: integrate with an email service or external storage
-    c.req.valid('json');
+    console.log('[contact] New submission received:', {
+      service: data.service,
+      preferred_contact: data.preferred_contact || 'email',
+      preferred_time: data.preferred_time,
+      ts: new Date().toISOString(),
+    });
 
     return c.json({ success: true });
   } catch (error) {

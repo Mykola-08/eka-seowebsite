@@ -7,14 +7,17 @@ import { useEffect } from 'react';
  * rather than the position:fixed hack which ruins scroll coordinate mapping.
  * Also stops Lenis smooth scrolling instance if it's available globally.
  */
+type WindowWithLenis = Window & { lenis?: { stop: () => void; start: () => void } };
+
 export function useScrollLock(isLocked: boolean) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    const win = window as WindowWithLenis;
 
     if (isLocked) {
       // Pause Lenis smooth scrolling if it exists globally
-      if ((window as any).lenis && typeof (window as any).lenis.stop === 'function') {
-        (window as any).lenis.stop();
+      if (win.lenis && typeof win.lenis.stop === 'function') {
+        win.lenis.stop();
       }
 
       // Calculate scrollbar width to prevent layout shift
@@ -31,8 +34,8 @@ export function useScrollLock(isLocked: boolean) {
       }
     } else {
       // Resume Lenis smooth scrolling
-      if ((window as any).lenis && typeof (window as any).lenis.start === 'function') {
-        (window as any).lenis.start();
+      if (win.lenis && typeof win.lenis.start === 'function') {
+        win.lenis.start();
       }
 
       // Restore body properties
@@ -43,8 +46,8 @@ export function useScrollLock(isLocked: boolean) {
 
     return () => {
       // Cleanup on unmount
-      if ((window as any).lenis && typeof (window as any).lenis.start === 'function') {
-        (window as any).lenis.start();
+      if (win.lenis && typeof win.lenis.start === 'function') {
+        win.lenis.start();
       }
       document.body.style.overflow = '';
       document.body.style.touchAction = '';

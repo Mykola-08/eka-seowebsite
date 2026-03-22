@@ -6,16 +6,18 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { BentoCard } from '@/components/ui/bento-card';
 
+import dynamic from 'next/dynamic';
 import AppleHero from '@/components/AppleHero';
-import CasosSection from '@/components/CasosSection';
-import FAQ from '@/components/FAQ';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/components/ServiceCard';
 
 import SEOUpdater from '@/components/SEOUpdater';
-import CTASection from '@/components/CTASection';
+
+const CasosSection = dynamic(() => import('@/components/CasosSection'));
+const FAQ = dynamic(() => import('@/components/FAQ'));
+const CTASection = dynamic(() => import('@/components/CTASection'));
 
 export default function HomeContent() {
   const { t } = useLanguage();
@@ -70,13 +72,12 @@ export default function HomeContent() {
             {/* Main large visual */}
             <BentoCard href="/services" className="md:col-span-2 md:row-span-2">
               <div className="absolute inset-0 bg-primary/5 z-0" />
-              <Image 
-                src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-                alt="Integrative Wellness" 
+              <Image
+                src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Integrative Wellness"
                 fill
-                priority={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                className="absolute inset-0 w-full h-full object-cover" 
+                className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col items-start">
@@ -92,13 +93,12 @@ export default function HomeContent() {
             <BentoCard href="/services/kinesiology" delay={0.1} className="md:col-span-2 md:row-span-1">
               <div className="absolute inset-0 z-0 bg-secondary"></div>
               <div className="absolute right-0 top-0 bottom-0 w-[60%] md:w-1/2 z-0 overflow-hidden">
-                <Image 
-                  src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Kinesiology" 
+                <Image
+                  src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Kinesiology"
                   fill
-                  priority={true}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent pointer-events-none"></div>
               </div>
@@ -115,13 +115,12 @@ export default function HomeContent() {
 
             {/* Bottom right split - 1 */}
             <BentoCard href="/services/nutrition" delay={0.2} className="md:col-span-1 md:row-span-1">
-              <Image 
-                src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Healthy Lifestyle" 
+              <Image
+                src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Healthy Lifestyle"
                 fill
-                priority={true}
                 sizes="(max-width: 768px) 100vw, 300px"
-                className="absolute inset-0 w-full h-full object-cover" 
+                className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
               <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">

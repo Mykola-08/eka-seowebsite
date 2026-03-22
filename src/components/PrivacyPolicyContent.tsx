@@ -2,325 +2,200 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { Card, CardContent } from '@/components/ui/card';
+import { Scale, ShieldCheck, UserCheck, Mail, AlertTriangle, FileText } from 'lucide-react';
+
+const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.ElementType; title: string; children: React.ReactNode }) => (
+  <section id={id} className="scroll-mt-24">
+    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
+      <div className="w-9 h-9 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
+        <Icon className="w-4 h-4 text-primary" />
+      </div>
+      <h2 className="text-xl font-semibold text-gray-900 tracking-tight">{title}</h2>
+    </div>
+    <div className="space-y-4 text-gray-600 leading-relaxed">{children}</div>
+  </section>
+);
+
+const toc = [
+  { href: '#disclaimer', label: 'Health Disclaimer' },
+  { href: '#controller', label: 'Data Controller' },
+  { href: '#data', label: 'Data We Collect' },
+  { href: '#basis', label: 'Legal Basis' },
+  { href: '#rights', label: 'Your Rights' },
+  { href: '#contact', label: 'Contact' },
+];
 
 export default function PrivacyPolicyContent() {
   const { t } = useLanguage();
 
   return (
     <PageLayout
-        hero={{
-          title: t('footer.privacyPolicy') || 'Privacy Policy',
-          subtitle: `${t('policy.lastUpdated') || 'Last Updated'}: November 15, 2025`
-        }}
+      hero={{ title: t('footer.privacyPolicy') || 'Privacy Policy', subtitle: 'Last updated: November 15, 2025' }}
     >
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
-            <Card className="  bg-white overflow-hidden">
-                <CardContent className="p-8 md:p-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
-                {/* Introduction */}
-                <div className="mb-12">
-                  <p className="text-gray-700 leading-relaxed text-lg font-light">
-                    This Privacy Policy explains how we collect, use, process, store, protect, and share data when you access or use our website, applications, and services ("Services"). By using the Services, you agree to this Policy.
+          {/* Sticky TOC */}
+          <aside className="hidden lg:block w-52 flex-shrink-0 sticky top-24 self-start">
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contents</p>
+            <nav className="space-y-1">
+              {toc.map(item => (
+                <a key={item.href} href={item.href}
+                  className="block text-sm text-gray-500 hover:text-gray-900 py-1.5 border-l-2 border-gray-100 hover:border-primary pl-3 transition-colors duration-150">
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </aside>
+
+          {/* Main content */}
+          <div className="flex-1 min-w-0 space-y-14">
+
+            {/* Medical disclaimer — always first, always prominent */}
+            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+              <div className="flex items-start gap-4">
+                <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h2 className="text-lg font-bold text-amber-900 mb-3">Important Health Disclaimer</h2>
+                  <p className="text-amber-800 mb-4 font-medium">
+                    EKA Balance offers complementary and alternative wellness services. Our services are <strong>not medical diagnosis, medical treatment, or a substitute for licensed healthcare</strong>.
+                  </p>
+                  <ul className="space-y-2 text-amber-800 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      Always consult your doctor before making any health decision. <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      Do not stop prescribed medication or medical treatment based on information from this website.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      If you are experiencing a medical emergency, call emergency services immediately (112 in Spain).
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      EKA Balance takes no responsibility for health outcomes resulting from actions taken without consulting a licensed physician.
+                    </li>
+                  </ul>
+                  <p className="mt-4 text-xs text-amber-700">
+                    See our full <a href="/disclaimer" className="underline font-medium hover:text-amber-900">Alternative Therapy Disclaimer</a> for complete details.
                   </p>
                 </div>
+              </div>
+            </div>
 
-                {/* Complementary Methods Disclaimer */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    Complementary Methods Disclaimer
-                  </h2>
-                  <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      EKA Balance services are complementary wellness services. They are not medical diagnosis or treatment and do not replace care from licensed medical or mental-health professionals.
-                    </p>
-                    <ul className="space-y-2 text-gray-700 list-disc ml-5">
-                      <li>Do not stop prescribed medication or medical care based on website content.</li>
-                      <li>Consult your physician for medical decisions, symptoms, or health emergencies.</li>
-                      <li>If you are in immediate danger, call emergency services right away.</li>
+            <Section id="controller" icon={UserCheck} title="Data Controller">
+              <div className="bg-gray-50 rounded-2xl p-6 grid sm:grid-cols-2 gap-4 text-sm">
+                {[
+                  ['Name', 'Olena Kucherova Dryzhak (EKA Balance)'],
+                  ['Address', 'Calle Plata 1, 08191 Rubí, Barcelona, Spain'],
+                  ['Phone', '+34 658 867 133'],
+                  ['Email', 'legal@ekabalance.com'],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">{label}</span>
+                    <span className="text-gray-800">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-2xl border border-blue-100 bg-blue-50/50 p-6 grid sm:grid-cols-2 gap-4 text-sm">
+                <div className="sm:col-span-2"><span className="text-xs font-bold uppercase tracking-wider text-blue-500">Data Protection Officer (DPO)</span></div>
+                {[
+                  ['Name', 'Olena Kucherova Dryzhak'],
+                  ['Email', 'dpo@ekabalance.com'],
+                  ['Phone', '+34 658 867 133'],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">{label}</span>
+                    <span className="text-gray-800">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="data" icon={FileText} title="1. Data We Collect">
+              <p>We collect personal data necessary to provide our wellness services, including:</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="rounded-xl border border-blue-100 bg-blue-50/30 p-5">
+                  <p className="font-semibold text-gray-800 text-sm mb-2">Personal Identification</p>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    {['Full name', 'Email address', 'Phone number', 'Postal address', 'Date of birth'].map(item => (
+                      <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0"/>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-xl border border-rose-100 bg-rose-50/30 p-5">
+                  <p className="font-semibold text-gray-800 text-sm mb-2">Wellness & Health Data</p>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    {['Physical condition & wellbeing notes', 'Pain or discomfort indicators', 'Session history and preferences', 'Emotional wellbeing notes (with consent)'].map(item => (
+                      <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-rose-400 flex-shrink-0"/>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Section>
+
+            <Section id="basis" icon={Scale} title="2. Legal Basis for Processing (GDPR Art. 6)">
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { color: 'green', title: 'Consent (Art. 6(1)(a))', items: ['Marketing communications', 'Non-essential cookies', 'Wellness data with explicit consent'] },
+                  { color: 'blue', title: 'Contractual Necessity', items: ['Providing booked services', 'Processing payments', 'Customer support'] },
+                  { color: 'purple', title: 'Legal Obligations', items: ['Tax and accounting', 'Health & safety requirements', 'Data retention rules'] },
+                  { color: 'orange', title: 'Legitimate Interests', items: ['Service improvement', 'Fraud prevention', 'Statistical analysis'] },
+                ].map(({ color, title, items }) => (
+                  <div key={title} className={`rounded-xl border border-${color}-100 bg-${color}-50/30 p-5`}>
+                    <p className="font-semibold text-gray-800 text-sm mb-2">{title}</p>
+                    <ul className="space-y-1 text-sm text-gray-600">
+                      {items.map(item => <li key={item} className="flex items-center gap-2"><span className={`w-1 h-1 rounded-full bg-${color}-400 flex-shrink-0`}/>{item}</li>)}
                     </ul>
                   </div>
-                </div>
+                ))}
+              </div>
+            </Section>
 
-                {/* Data Controller */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    Data Controller
-                  </h2>
-                  <div className="bg-gray-50 rounded-2xl p-6 space-y-4">
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Name:</span>
-                      <span className="text-gray-700">Olena Kucherova Dryzhak (EKA Balance)</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Address:</span>
-                      <span className="text-gray-700">Calle Plata 1, 08191 Rubí, Barcelona, Spain</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Phone:</span>
-                      <span className="text-gray-700">+34 658 867 133</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Email:</span>
-                      <a href="mailto:legal@ekabalance.com" className="text-blue-600 hover:text-blue-800 transition-colors">
-                        legal@ekabalance.com
-                      </a>
-                    </div>
+            <Section id="rights" icon={ShieldCheck} title="3. Your Rights Under GDPR (Arts. 12–22)">
+              <div className="space-y-3">
+                {[
+                  { right: 'Access (Art. 15)', desc: 'Request a copy of all personal data we hold about you. We respond within 30 days.' },
+                  { right: 'Erasure (Art. 17)', desc: 'Request deletion of your data when there is no longer a lawful basis to retain it.' },
+                  { right: 'Rectification (Art. 16)', desc: 'Request correction of inaccurate or incomplete personal data.' },
+                  { right: 'Portability (Art. 20)', desc: 'Receive your data in a structured, machine-readable format.' },
+                  { right: 'Objection (Art. 21)', desc: 'Object to processing based on legitimate interests or for direct marketing.' },
+                ].map(({ right, desc }) => (
+                  <div key={right} className="flex gap-4 rounded-xl bg-gray-50 p-4 border border-gray-100">
+                    <span className="font-semibold text-gray-800 text-sm w-36 flex-shrink-0">{right}</span>
+                    <span className="text-sm text-gray-600">{desc}</span>
                   </div>
+                ))}
+              </div>
+              <div className="rounded-xl bg-primary/5 border border-primary/10 p-5 text-sm">
+                <p className="font-semibold text-gray-800 mb-1">To exercise your rights, contact:</p>
+                <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline">dpo@ekabalance.com</a>
+              </div>
+            </Section>
+
+            <Section id="contact" icon={Mail} title="Contact & Supervisory Authority">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-xl bg-gray-50 border border-gray-100 p-5 text-sm space-y-2">
+                  <p className="font-semibold text-gray-800">DPO Contact</p>
+                  <p className="text-gray-600">Olena Kucherova Dryzhak</p>
+                  <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                 </div>
-
-                {/* Data Protection Officer */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    Data Protection Officer (DPO)
-                  </h2>
-                  <div className="bg-blue-50/50 rounded-2xl p-6 space-y-4 border border-blue-100">
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Name:</span>
-                      <span className="text-gray-700">Olena Kucherova Dryzhak</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Address:</span>
-                      <span className="text-gray-700">Calle Plata 1, 08191 Rubí, Barcelona, Spain</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Email:</span>
-                      <a href="mailto:dpo@ekabalance.com" className="text-blue-600 hover:text-blue-800 transition-colors">
-                        dpo@ekabalance.com
-                      </a>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <span className="font-medium text-gray-900 w-32 flex-shrink-0">Phone:</span>
-                      <span className="text-gray-700">+34 658 867 133</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mt-4 leading-relaxed font-light text-sm">
-                    You may contact our DPO directly for any privacy-related inquiries, complaints, or to exercise your data protection rights.
-                  </p>
+                <div className="rounded-xl bg-rose-50 border border-rose-100 p-5 text-sm space-y-2">
+                  <p className="font-semibold text-gray-800">Supervisory Authority</p>
+                  <p className="text-gray-600">Agencia Española de Protección de Datos (AEPD)</p>
+                  <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline block">www.aepd.es</a>
                 </div>
+              </div>
+            </Section>
 
-                {/* Data Collection */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    1. Data We Collect
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-8">
-                    We collect all types of personal, technical, behavioral, and sensitive data, including but not limited to the following:
-                  </p>
-
-                  <div className="space-y-8">
-                    <div className="border-l-4 border-blue-200 pl-6">
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">1.1 Personal Identification Data</h3>
-                      <ul className="space-y-3 text-gray-700">
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Full name
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Username
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Email address
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Phone number
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Postal address
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Date of birth
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="border-l-4 border-rose-200 pl-6">
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">1.2 Sensitive & Special Category Data</h3>
-                      <p className="text-gray-700 mb-4">We may collect special categories of personal data where permitted by law, including:</p>
-                      <ul className="space-y-3 text-gray-700">
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-rose-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Health information
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-rose-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Physical condition, pain indicators, wellness data
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-rose-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Biometric identifiers
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-rose-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          Mental and emotional health insights
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Legal Basis */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    2. Legal Basis for Processing (GDPR Article 6)
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    We process personal data based on the following legal grounds:
-                  </p>
-
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div className="bg-green-50/50 rounded-2xl p-6 border border-green-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">2.1 Consent (Article 6(1)(a))</h3>
-                      <p className="text-gray-700 mb-4 text-sm">We rely on your explicit consent for:</p>
-                      <ul className="space-y-2 text-gray-700 text-sm">
-                        <li>• Marketing communications</li>
-                        <li>• Non-essential cookies</li>
-                        <li>• Processing of special categories of health data</li>
-                        <li>• Automated decision-making</li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">2.2 Contractual Necessity</h3>
-                      <p className="text-gray-700 mb-4 text-sm">Processing is necessary for:</p>
-                      <ul className="space-y-2 text-gray-700 text-sm">
-                        <li>• Providing services</li>
-                        <li>• Processing payments</li>
-                        <li>• Managing your account</li>
-                        <li>• Customer support</li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-purple-50/50 rounded-2xl p-6 border border-purple-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">2.3 Legal Obligations</h3>
-                      <p className="text-gray-700 mb-4 text-sm">Processing is necessary to comply with:</p>
-                      <ul className="space-y-2 text-gray-700 text-sm">
-                        <li>• Tax and accounting regulations</li>
-                        <li>• Health and safety requirements</li>
-                        <li>• Consumer protection laws</li>
-                        <li>• Data retention obligations</li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-orange-50/50 rounded-2xl p-6 border border-orange-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">2.4 Legitimate Interests</h3>
-                      <p className="text-gray-700 mb-4 text-sm">We process data based on our legitimate interests:</p>
-                      <ul className="space-y-2 text-gray-700 text-sm">
-                        <li>• Improving services</li>
-                        <li>• Fraud prevention</li>
-                        <li>• Direct marketing (soft opt-in)</li>
-                        <li>• Statistical analysis</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* User Rights */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    3. Your Rights Under GDPR (Articles 12-22)
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-8">
-                    As a data subject, you have the following rights under the GDPR:
-                  </p>
-
-                  <div className="space-y-6">
-                    <div className="border border-gray-100 bg-gray-50/50 rounded-2xl p-6">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">3.1 Right of Access (Article 15)</h3>
-                      <p className="text-gray-700 mb-4">You have the right to obtain:</p>
-                      <ul className="space-y-2 text-gray-700 ml-4 list-disc">
-                        <li>Confirmation of whether we process your personal data</li>
-                        <li>Access to your personal data and information about processing purposes, categories, recipients, retention periods, and your rights</li>
-                      </ul>
-                      <div className="bg-white rounded-xl p-4 mt-4 border border-gray-100">
-                        <p className="text-sm text-gray-600"><strong>Response Time:</strong> We will respond within 30 days of receiving your request.</p>
-                      </div>
-                    </div>
-
-                    <div className="border border-gray-100 bg-gray-50/50 rounded-2xl p-6">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">3.2 Right to Erasure (Article 17)</h3>
-                      <p className="text-gray-700 mb-4">You have the right to obtain the erasure of personal data concerning you where one of the following grounds applies:</p>
-                      <ul className="space-y-2 text-gray-700 ml-4 list-disc">
-                        <li>The personal data is no longer necessary</li>
-                        <li>You withdraw consent and there is no other legal ground</li>
-                        <li>You object to processing and there are no overriding legitimate grounds</li>
-                        <li>The personal data has been unlawfully processed</li>
-                      </ul>
-                    </div>
-
-                    <div className="border border-gray-100 bg-gray-50/50 rounded-2xl p-6">
-                      <h3 className="text-lg font-medium text-gray-900 mb-3">3.3 Right to Data Portability (Article 20)</h3>
-                      <p className="text-gray-700 mb-4">You have the right to receive your personal data in a structured, commonly used, and machine-readable format.</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-blue-50/50 rounded-2xl p-6 mt-8 border border-blue-100">
-                    <h4 className="font-medium text-gray-900 mb-3">Exercising Your Rights</h4>
-                    <p className="text-gray-700 mb-4">To exercise any of your rights, please contact us:</p>
-                    <div className="space-y-2">
-                      <div className="flex flex-col sm:flex-row">
-                        <span className="font-medium text-gray-900 w-24">Email:</span>
-                        <a href="mailto:dpo@ekabalance.com" className="text-blue-600 hover:text-blue-800">dpo@ekabalance.com</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Contact Information */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    Contact Information and Complaints
-                  </h2>
-
-                  <div className="grid gap-6">
-                    <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">Data Protection Officer (DPO)</h3>
-                      <div className="space-y-3">
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Name:</span>
-                          <span className="text-gray-700">Olena Kucherova Dryzhak</span>
-                        </div>
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Email:</span>
-                          <a href="mailto:dpo@ekabalance.com" className="text-blue-600 hover:text-blue-800">dpo@ekabalance.com</a>
-                        </div>
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Phone:</span>
-                          <span className="text-gray-700">+34 658 867 133</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-rose-50 rounded-2xl p-6 border border-rose-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">Supervisory Authority</h3>
-                      <p className="text-gray-700 mb-4">
-                        If you are not satisfied with our response or believe your data protection rights have been violated, you have the right to lodge a complaint with the supervisory authority:
-                      </p>
-                      <div className="space-y-2">
-                        <div className="font-medium text-gray-900">Agencia Española de Protección de Datos (AEPD)</div>
-                        <div className="text-gray-700">C/ Jorge Juan, 6, 28001 Madrid, Spain</div>
-                        <div className="text-gray-700">
-                          Website: <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">www.aepd.es</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="border-t border-gray-100 pt-8 mt-12">
-                  <p className="text-center text-gray-400 text-sm">
-                    This Privacy Policy is provided in compliance with the General Data Protection Regulation (EU) 2016/679.
-                  </p>
-                </div>
-                </CardContent>
-            </Card>
+            <div className="border-t border-gray-100 pt-6 text-center text-xs text-gray-400">
+              This Privacy Policy complies with Regulation (EU) 2016/679 (GDPR).
+            </div>
+          </div>
         </div>
+      </div>
     </PageLayout>
   );
 }

@@ -55,7 +55,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 lg:px-8 lg:py-28">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8 lg:py-16">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -63,8 +63,8 @@ export default function HeroSection() {
             transition={{ duration: 0.85, ease: [0.215, 0.61, 0.355, 1] }}
           >
             {/* Badge */}
-            <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-300 backdrop-blur-sm">
-              <Sparkles className="h-3 w-3" aria-hidden="true" />
+            <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
+              <Sparkles className="h-3 w-3 text-gold" aria-hidden="true" />
               Integral Method · EKA Balance
             </span>
 
@@ -122,7 +122,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.6 }}
-            className="mt-20 max-w-2xl border-l-2 border-white/10 pl-5 text-sm italic leading-relaxed text-zinc-600 lg:mt-24"
+            className="mt-10 max-w-2xl border-l-2 border-gold/40 pl-5 text-sm italic leading-relaxed text-zinc-500 lg:mt-12"
           >
             &ldquo;{t('revision360.hero.quote')}&rdquo;
           </motion.blockquote>

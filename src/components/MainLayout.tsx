@@ -379,6 +379,9 @@ export default function MainLayout({
                 <Link href="/discounts" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
                   {t('footer.discounts')}
                 </Link>
+                <Link href="/disclaimer" className="text-amber-600 hover:text-amber-800 transition-colors duration-200 text-sm font-medium">
+                  Health Disclaimer
+                </Link>
                 <Link href="/privacy-policy" className="text-gray-500 hover:text-black transition-colors duration-200 text-sm">
                   {t('footer.privacyPolicy')}
                 </Link>

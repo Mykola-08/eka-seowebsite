@@ -2,163 +2,193 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { Card, CardContent } from '@/components/ui/card';
+import { AlertTriangle, Users, Layers, Ban, Phone } from 'lucide-react';
+
+const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.ElementType; title: string; children: React.ReactNode }) => (
+  <section id={id} className="scroll-mt-24">
+    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
+      <div className="w-9 h-9 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
+        <Icon className="w-4 h-4 text-primary" />
+      </div>
+      <h2 className="text-xl font-semibold text-gray-900 tracking-tight">{title}</h2>
+    </div>
+    <div className="space-y-4 text-gray-600 leading-relaxed">{children}</div>
+  </section>
+);
+
+const toc = [
+  { href: '#disclaimer', label: 'Health Disclaimer' },
+  { href: '#nature', label: 'Nature of Services' },
+  { href: '#acceptance', label: 'Acceptance' },
+  { href: '#eligibility', label: 'Eligibility' },
+  { href: '#limitations', label: 'Limitations' },
+  { href: '#contact', label: 'Contact' },
+];
 
 export default function TermsContent() {
   const { t } = useLanguage();
 
   return (
     <PageLayout
-        hero={{
-          title: t('footer.termsOfService') || 'Terms of Service',
-          subtitle: `${t('policy.lastUpdated') || 'Last Updated'}: November 15, 2025`
-        }}
+      hero={{ title: t('footer.termsOfService') || 'Terms of Service', subtitle: 'Last updated: November 15, 2025' }}
     >
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
-            <Card className="  bg-white overflow-hidden">
-                <CardContent className="p-8 md:p-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
-                {/* Introduction */}
-                <div className="mb-12">
-                  <p className="text-gray-700 leading-relaxed text-lg font-light">
-                    These Terms govern your access to and use of the EKA Balance website, applications, and services ("Services"). By using the Services, you agree to these Terms in full. If you do not agree, please discontinue use immediately.
-                  </p>
-                </div>
+          {/* Sticky TOC */}
+          <aside className="hidden lg:block w-52 flex-shrink-0 sticky top-24 self-start">
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contents</p>
+            <nav className="space-y-1">
+              {toc.map(item => (
+                <a key={item.href} href={item.href}
+                  className="block text-sm text-gray-500 hover:text-gray-900 py-1.5 border-l-2 border-gray-100 hover:border-primary pl-3 transition-colors duration-150">
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </aside>
 
-                {/* Acceptance and Consent */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    1. Acceptance and Consent
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. Your use of the Services constitutes explicit consent to:
+          {/* Main content */}
+          <div className="flex-1 min-w-0 space-y-14">
+
+            {/* Medical disclaimer — always first, always prominent */}
+            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+              <div className="flex items-start gap-4">
+                <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h2 className="text-lg font-bold text-amber-900 mb-3">Alternative Therapy Disclaimer</h2>
+                  <p className="text-amber-800 mb-4 font-medium">
+                    EKA Balance provides complementary and alternative wellness services. These services are <strong>not medical treatment, diagnosis, or a substitute for licensed healthcare</strong>.
                   </p>
-                  <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
-                    <li>The collection, processing, and storage of your personal data as described in our Privacy Policy</li>
-                    <li>The use of cookies and similar technologies as described in our Cookie Policy</li>
-                    <li>International transfers of your data as outlined in our Privacy Policy</li>
-                    <li>Our data processing activities for the purposes described in our Privacy Policy</li>
+                  <ul className="space-y-2 text-amber-800 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      <strong>Consult your doctor before making any health decision.</strong> <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      Do not stop, reduce, or change prescribed medications or medical treatment based on any content or session received at EKA Balance.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      Results from complementary therapy vary by person. No specific outcome is guaranteed.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      EKA Balance accepts no liability for health decisions made without consulting a licensed physician.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                      In any medical emergency, call <strong>112</strong> immediately.
+                    </li>
                   </ul>
-                  <p className="text-gray-700 leading-relaxed">
-                    If you do not agree to these Terms or our Privacy Policy, you must not access or use our Services.
+                  <p className="mt-4 text-xs text-amber-700">
+                    Read the full <a href="/disclaimer" className="underline font-medium hover:text-amber-900">Alternative Therapy Disclaimer</a>.
                   </p>
                 </div>
+              </div>
+            </div>
 
-                {/* Eligibility and Age Requirements */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    2. Eligibility and Age Requirements
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    By using the Services, you confirm that:
-                  </p>
-                  <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
-                    <li>You are at least 18 years old, or if you are 16-18 years old, you have obtained parental consent to use our Services</li>
-                    <li>You have the legal capacity to enter into binding agreements</li>
-                    <li>You will provide accurate and complete information</li>
-                    <li>You will comply with all applicable laws and regulations, including data protection laws</li>
-                    <li>You understand and accept our data processing practices as described in our Privacy Policy</li>
-                  </ul>
-                  <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
-                    <p className="text-gray-700">
-                      <strong>Parental Consent:</strong> If you are under 16 years of age, you may not use our Services. If you are between 16-18 years of age, you may only use our Services with the consent of your parent or legal guardian who must review and accept these Terms and our Privacy Policy on your behalf.
-                    </p>
-                  </div>
+            <Section id="nature" icon={Layers} title="1. Nature of Services">
+              <p>
+                EKA Balance provides complementary and integrative wellness services including therapeutic massage, kinesiology, nutritional guidance, somatic education, and bodywork. These services are:
+              </p>
+              <ul className="space-y-2 ml-1">
+                {[
+                  'Supportive and educational in nature',
+                  'Complementary — not primary or medical care',
+                  'Not intended to diagnose, treat, cure, or prevent any disease or condition',
+                  'Not a substitute for licensed medical, psychiatric, or mental-health care',
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="rounded-xl bg-blue-50/50 border border-blue-100 p-5 text-sm">
+                <p className="text-blue-800">
+                  <strong>Important:</strong> Continue following your physician's recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
+                </p>
+              </div>
+            </Section>
+
+            <Section id="acceptance" icon={Users} title="2. Acceptance of Terms">
+              <p>
+                By booking, accessing, or using EKA Balance services, you confirm that you have read, understood, and agree to these Terms and our Privacy Policy.
+              </p>
+              <p>Your use constitutes explicit consent to:</p>
+              <ul className="space-y-2 ml-1">
+                {[
+                  'The collection and processing of personal data as described in our Privacy Policy',
+                  'The use of cookies as described in our Cookie Policy',
+                  'The nature of complementary wellness services as described in these Terms',
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+
+            <Section id="eligibility" icon={Users} title="3. Eligibility">
+              <p>By using our services, you confirm that:</p>
+              <ul className="space-y-2 ml-1">
+                {[
+                  'You are at least 18 years old, or have parental consent if between 16–18',
+                  'You have the legal capacity to enter into binding agreements',
+                  'You will provide accurate and complete information',
+                  'You will comply with all applicable laws',
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+
+            <Section id="limitations" icon={Ban} title="4. Limitations of Liability">
+              <p>
+                EKA Balance and its practitioners are not liable for any health outcome, direct or indirect, arising from:
+              </p>
+              <ul className="space-y-2 ml-1">
+                {[
+                  'Decisions made without consulting a licensed physician',
+                  'Stopping or modifying prescribed medical treatment',
+                  'Any pre-existing medical condition not disclosed prior to sessions',
+                  'Individual variation in response to complementary therapy',
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-rose-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+
+            <Section id="contact" icon={Phone} title="5. Contact">
+              <div className="grid gap-4 sm:grid-cols-2 text-sm">
+                <div className="rounded-xl bg-blue-50/50 border border-blue-100 p-5 space-y-1">
+                  <p className="font-semibold text-gray-800">Legal Inquiries</p>
+                  <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline block">legal@ekabalance.com</a>
+                  <p className="text-gray-500">Calle Plata 1, 08191 Rubí, Barcelona</p>
                 </div>
-
-                {/* Nature of Services */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    3. Nature of Services
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    EKA Balance provides complementary wellness and bodywork services. Our services are:
-                  </p>
-                  <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
-                    <li>Educational and supportive in nature</li>
-                    <li>Complementary and non-medical</li>
-                    <li>Not intended to diagnose, treat, cure, or prevent disease</li>
-                    <li>Not a substitute for licensed medical or mental-health care</li>
-                  </ul>
-                  <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
-                    <p className="text-gray-700">
-                      <strong>Important:</strong> Keep following your physician or licensed clinician recommendations. If you have urgent symptoms, contact emergency services immediately.
-                    </p>
-                  </div>
+                <div className="rounded-xl bg-gray-50 border border-gray-100 p-5 space-y-1">
+                  <p className="font-semibold text-gray-800">Data Protection Officer</p>
+                  <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
+                  <p className="text-gray-500">+34 658 867 133</p>
                 </div>
+              </div>
+            </Section>
 
-                {/* Complementary Methods Disclaimer */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    4. Complementary Methods Disclaimer
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    Our approach is complementary. We support wellbeing through somatic education, movement, touch-based techniques, and lifestyle guidance.
-                  </p>
-                  <ul className="space-y-3 text-gray-700 mb-6 list-disc ml-5">
-                    <li>We do not provide medical diagnosis, prescriptions, or medical treatment.</li>
-                    <li>We do not advise stopping prescribed medication or medical care.</li>
-                    <li>Outcomes vary by person, context, and consistency of practice.</li>
-                    <li>For physical or psychological emergencies, seek immediate licensed medical care.</li>
-                  </ul>
-                </div>
-
-                {/* Contact Information */}
-                <div className="mb-12">
-                  <h2 className="text-xl font-medium text-gray-900 mb-6 border-b border-gray-200 pb-4">
-                    18. Contact Information and Data Protection Inquiries
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    For questions about these Terms, privacy matters, or data protection inquiries:
-                  </p>
-
-                  <div className="grid gap-6">
-                    <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">Data Protection Officer (DPO)</h3>
-                      <div className="space-y-3">
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Name:</span>
-                          <span className="text-gray-700">Olena Kucherova Dryzhak</span>
-                        </div>
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Email:</span>
-                          <a href="mailto:dpo@ekabalance.com" className="text-blue-600 hover:text-blue-800">dpo@ekabalance.com</a>
-                        </div>
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Phone:</span>
-                          <span className="text-gray-700">+34 658 867 133</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mt-4 text-sm">
-                        The DPO is your primary contact for all data protection matters, privacy inquiries, and exercising your data subject rights.
-                      </p>
-                    </div>
-
-                    <div className="bg-gray-50 rounded-2xl p-6">
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">Legal and General Inquiries</h3>
-                      <div className="space-y-3">
-                        <div className="flex flex-col sm:flex-row">
-                          <span className="font-medium text-gray-900 w-20">Email:</span>
-                          <a href="mailto:legal@ekabalance.com" className="text-blue-600 hover:text-blue-800">legal@ekabalance.com</a>
-                        </div>
-                        <div className="flex flex-col sm:flex-row">
-                            <span className="font-medium text-gray-900 w-20">Address:</span>
-                            <span className="text-gray-700">Calle Plata 1, 08191 Rubí, Barcelona, Spain</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="border-t border-gray-100 pt-8 mt-12">
-                  <p className="text-center text-gray-400 text-sm">
-                    These Terms of Service are provided in compliance with applicable data protection regulations and consumer protection laws.
-                  </p>
-                </div>
-                </CardContent>
-            </Card>
+            <div className="border-t border-gray-100 pt-6 text-center text-xs text-gray-400">
+              These Terms comply with applicable EU and Spanish consumer protection and data protection laws.
+            </div>
+          </div>
         </div>
+      </div>
     </PageLayout>
   );
 }

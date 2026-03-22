@@ -36,7 +36,7 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-gold-dark uppercase bg-gold-light/30 rounded-full border border-gold/30">
             {t('revision360.benefits.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.benefits.title')}</h2>
@@ -47,14 +47,14 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className={`group rounded-[2rem] p-8 bg-white border border-gray-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 relative overflow-hidden ${index === 0 || index === 4 || index === 8 ? 'md:col-span-2 xl:col-span-1 bg-gradient-to-br from-blue-50/50 to-white' : ''}`}
+              className={`group rounded-[2rem] p-8 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 transition-all duration-500 relative overflow-hidden ${index === 0 || index === 4 || index === 8 ? 'md:col-span-2 xl:col-span-1 bg-gradient-to-br from-gold-light/10 to-white' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 group-hover:scale-110 transition-transform duration-500 relative z-10">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-light/30 text-gold-dark group-hover:scale-110 transition-transform duration-500 relative z-10">
                 {benefit.icon}
               </div>
               <h3 className="mt-6 text-xl font-semibold text-gray-900 tracking-tight relative z-10">{benefit.title}</h3>
@@ -62,7 +62,7 @@ export default function BenefitsSection() {
               
               {benefit.science && (
                 <div className="mt-6 border-t border-gray-100 pt-4 relative z-10">
-                  <p className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-2">Science</p>
+                  <p className="text-xs uppercase tracking-wider text-gold-dark font-bold mb-2">Science</p>
                   <p className="text-sm text-gray-500 italic font-medium">{benefit.science}</p>
                 </div>
               )}

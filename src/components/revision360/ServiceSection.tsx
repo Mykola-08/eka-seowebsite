@@ -98,7 +98,7 @@ export default function ServiceSection() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
                 <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-6 relative z-10">
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-blue-600 font-semibold bg-blue-50 border border-blue-100 px-3 py-1 inline-block rounded-full mb-4">
+                  <div className="text-xs uppercase tracking-wider text-gold-dark font-semibold bg-gold-light/30 border border-gold/30 px-3 py-1 inline-block rounded-full mb-4">
                     {t('revision360.service.step')} {step.number}
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900">{step.title}</h3>
@@ -115,7 +115,7 @@ export default function ServiceSection() {
                 <ul className="space-y-3">
                   {step.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start gap-3 text-sm text-gray-600 font-medium">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -126,7 +126,7 @@ export default function ServiceSection() {
         </div>
 
         <motion.div
-          className="mt-12 rounded-[24px] bg-secondary p-8 border border-gray-100/50 text-center"
+          className="mt-12 rounded-[24px] bg-secondary p-8 border border-gold/20 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

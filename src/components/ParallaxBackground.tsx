@@ -39,8 +39,9 @@ export default function ParallaxBackground({
           alt={alt}
           fill
           className="object-cover"
-          priority
+          loading="lazy"
           sizes="100vw"
+          quality={75}
         />
         <div
             className="absolute inset-0 bg-black transition-opacity duration-500"

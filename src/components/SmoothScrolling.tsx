@@ -1,8 +1,21 @@
 'use client';
 
 import { ReactNode, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function SmoothScrolling({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+
+  // Scroll to top instantly on every route change
+  useEffect(() => {
+    const lenis = (window as Window & { lenis?: { scrollTo: (target: number, opts?: { immediate?: boolean }) => void } }).lenis;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [pathname]);
+
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;

@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
 import ScrollProgress from '@/components/ScrollProgress';
 import { usePathname } from 'next/navigation';
@@ -16,11 +15,10 @@ import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { Button } from '@/components/ui/button';
-
-const ToastContainer = dynamic(() => import('@/components/Toast'), { ssr: false });
-const LanguagePopup = dynamic(() => import('@/components/LanguagePopup'), { ssr: false });
-const CookieBanner = dynamic(() => import('./CookieBanner'), { ssr: false });
-const FooterPillMenu = dynamic(() => import('@/components/FooterPillMenu'), { ssr: false });
+import ToastContainer from '@/components/Toast';
+import LanguagePopup from '@/components/LanguagePopup';
+import CookieBanner from './CookieBanner';
+import FooterPillMenu from '@/components/FooterPillMenu';
 
 export default function MainLayout({
   children

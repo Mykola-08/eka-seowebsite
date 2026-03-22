@@ -64,7 +64,7 @@ export default function Why360Section() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700">
+            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold-light/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-dark">
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
               {t('revision360.why360.badge')}
             </span>

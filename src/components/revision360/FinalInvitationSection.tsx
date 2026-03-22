@@ -22,6 +22,10 @@ export default function FinalInvitationSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
+            <CalendarCheck2 className="h-3 w-3" aria-hidden="true" />
+            EKA Balance · 360° Integral Method
+          </span>
           <h2 className="text-4xl sm:text-6xl font-semibold text-white tracking-tight mb-6">
             {t('revision360.final.title')}
           </h2>
@@ -34,7 +38,7 @@ export default function FinalInvitationSection() {
               asChild
               size="xl"
               variant="default"
-              className="px-10 py-6 text-lg h-auto bg-white text-black hover:bg-gray-100 border-none"
+              className="px-10 py-6 text-lg h-auto bg-gold text-black hover:bg-gold/90 border-none shadow-lg shadow-gold/30"
             >
               <a
                 href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}

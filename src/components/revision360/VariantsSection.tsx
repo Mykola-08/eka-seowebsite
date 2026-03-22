@@ -144,7 +144,7 @@ export default function VariantsSection() {
                 'group text-left rounded-[2rem] p-7 transition-all duration-500 relative overflow-hidden flex flex-col h-full',
                 'hover:-translate-y-1 active:scale-[0.98]',
                 variant.highlight
-                  ? 'bg-white/10 border border-white/20 hover:bg-white/[0.13] hover:border-white/30 shadow-xl shadow-black/20'
+                  ? 'bg-white/8 border border-gold/40 hover:bg-white/[0.12] hover:border-gold/60 shadow-xl shadow-gold/10'
                   : 'bg-white/5 border border-white/10 hover:bg-white/8 hover:border-white/20',
               ].join(' ')}
               initial={{ opacity: 0, y: 20 }}
@@ -153,7 +153,7 @@ export default function VariantsSection() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
             >
               {variant.highlight && (
-                <div className="absolute top-4 right-4 rounded-full bg-blue-500/20 border border-blue-400/30 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-300">
+                <div className="absolute top-4 right-4 rounded-full bg-gold/15 border border-gold/40 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold">
                   Popular
                 </div>
               )}

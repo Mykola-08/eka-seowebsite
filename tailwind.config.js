@@ -1,3 +1,18 @@
+import plugin from 'tailwindcss/plugin';
+
+const squirclePlugin = plugin(function({ addUtilities }) {
+  addUtilities({
+    /* Explicit squircle radius utilities — corner-shape is set globally via @supports,
+       these just provide semantic, size-named radius tokens */
+    '.squircle-xs':  { 'border-radius': '10px' },
+    '.squircle-sm':  { 'border-radius': '16px' },
+    '.squircle':     { 'border-radius': '24px' },
+    '.squircle-md':  { 'border-radius': '28px' },
+    '.squircle-lg':  { 'border-radius': '40px' },
+    '.squircle-xl':  { 'border-radius': '56px' },
+    '.squircle-2xl': { 'border-radius': '72px' },
+  });
+});
 
 const config = {
   content: [
@@ -131,7 +146,7 @@ const config = {
     },
   },
   darkMode: 'class',
-  plugins: [],
+  plugins: [squirclePlugin],
 }
 
 export default config

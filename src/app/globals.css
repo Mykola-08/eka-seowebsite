@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Squircle corners (CSS Borders Level 4, Chrome 133+) ──────────────────
+   One rule makes every rounded element use smooth iOS-style squircle corners.
+   Falls back to standard border-radius on unsupported browsers with no change.
+   ──────────────────────────────────────────────────────────────────────── */
+@supports (corner-shape: squircle) {
+  *,
+  *::before,
+  *::after {
+    corner-shape: squircle;
+  }
+}
+
 :root {
   /* Font Weights */
   --font-weight-light: 300;
@@ -14,10 +26,10 @@
   --apple-gray-dark: #1d1d1f;
   --apple-blue: #0071e3;
   --apple-purple: #5856d6;
-  --apple-border-radius: 32px;
+  --apple-border-radius: 36px;
   --apple-border-radius-small: 9999px;
-  --apple-border-radius-large: 48px;
-  --apple-border-radius-xl: 64px;
+  --apple-border-radius-large: 52px;
+  --apple-border-radius-xl: 68px;
   --apple-shadow: 0 0 0 0 transparent;
   --apple-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
   --apple-shadow-large: 0 8px 24px rgba(0, 0, 0, 0.05);

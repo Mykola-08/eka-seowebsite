@@ -89,6 +89,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ca" className={inter.variable} suppressHydrationWarning>
+      <head>
+        {/* Preconnect to external image hosts to reduce network chain depth */}
+        <link rel="preconnect" href="https://images.pexels.com" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
+        {/* Preload the LCP hero image (first slideshow image) */}
+        <link
+          rel="preload"
+          as="image"
+          href="https://images.pexels.com/photos/3760262/pexels-photo-3760262.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          fetchPriority="high"
+        />
+      </head>
       <body className="font-sans text-gray-900 bg-white overflow-x-hidden">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-blue-600 focus:font-medium">
           Skip to main content

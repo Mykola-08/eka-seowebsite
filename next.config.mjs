@@ -2,9 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  compress: true,
   allowedDevOrigins: ['http://192.168.31.121:3000'],
   experimental: {
     turbopackUseSystemTlsCerts: true,
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-slot'],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
@@ -27,6 +29,20 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        // Aggressive caching for immutable static assets (hashed filenames)
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
+        // Cache public images for 1 year
+        source: '/images/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [

@@ -48,26 +48,26 @@ export default function AppleHero() {
 
       {/* Content Layer - Centered Text */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-12 sm:mb-16">
-        <AnimateIn delay={0.1} duration={0.8} from="bottom">
+        <AnimateIn delay={0} duration={0.3} from="bottom">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60  backdrop-blur-md mb-8">
             <Sparkles className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-medium text-gray-800 tracking-wide">EKA Balance Method</span>
           </div>
         </AnimateIn>
 
-        <AnimateIn delay={0.2} duration={0.8} from="bottom">
+        <AnimateIn delay={0.05} duration={0.3} from="bottom">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-gray-900 ">
             {t('hero.title')}
           </h1>
         </AnimateIn>
 
-        <AnimateIn delay={0.3} duration={0.8} from="bottom">
+        <AnimateIn delay={0.1} duration={0.3} from="bottom">
           <p className="text-xl md:text-2xl font-medium text-gray-500 max-w-2xl mx-auto mb-10 text-balance leading-relaxed">
             {t('hero.subtitle')}
           </p>
         </AnimateIn>
 
-        <AnimateIn delay={0.4} duration={0.8} from="bottom">
+        <AnimateIn delay={0.15} duration={0.3} from="bottom">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Primary Button */}
             <Button
@@ -117,8 +117,7 @@ export default function AppleHero() {
                 src={image}
                 alt={`Wellness atmosphere ${index + 1}`}
                 fill
-                priority={index === 0}
-                loading={index === 0 ? 'eager' : 'lazy'}
+                priority={index <= 2}
                 className={`object-cover transition-transform duration-[7500ms] ease-out ${
                   index === currentImageIndex ? 'scale-105' : 'scale-100'
                 }`}

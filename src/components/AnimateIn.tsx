@@ -9,32 +9,32 @@ interface AnimateInProps {
   duration?: number;
   className?: string;
   from?: 'bottom' | 'left' | 'right' | 'top';
-  amount?: number; // Distance to move
+  amount?: number;
 }
 
-export default function AnimateIn({ 
-  children, 
-  delay = 0, 
-  duration = 0.6, 
+export default function AnimateIn({
+  children,
+  delay = 0,
+  duration = 0.3,
   className = "",
   from = 'bottom',
-  amount = 20
+  amount = 12
 }: AnimateInProps) {
-  
+
   const variants: Variants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 1,
       y: from === 'bottom' ? amount : from === 'top' ? -amount : 0,
       x: from === 'left' ? -amount : from === 'right' ? amount : 0,
     },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       x: 0,
       transition: {
         duration: duration,
         delay: delay,
-        ease: [0.25, 0.46, 0.45, 0.94] // ease-out-quad
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };

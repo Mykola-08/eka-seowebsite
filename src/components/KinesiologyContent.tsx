@@ -23,30 +23,30 @@ export default function KinesiologiaContent() {
         items: [
           {
             titleKey: 'services.kinesiology.subtitle',
-            descriptionKey: 'services.kinesiology.subtitle',
-            detailsKey: 'kinesiology.benefits.balance.details',
-            image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2070', // yoga / balance
+            descriptionKey: 'kinesiology.bento.balance.desc',
+            detailsKey: 'services.kinesiology.description',
+            image: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800',
             colSpan: 1
           },
           {
             titleKey: 'kinesiology.benefits.posture',
-            descriptionKey: 'kinesiology.benefits.posture',
-            detailsKey: 'kinesiology.benefits.posture.details',
-            image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=2070',
+            descriptionKey: 'kinesiology.bento.posture.desc',
+            detailsKey: 'services.kinesiology.description',
+            image: 'https://images.pexels.com/photos/5793981/pexels-photo-5793981.jpeg?auto=compress&cs=tinysrgb&w=1200',
             colSpan: 2
           },
           {
             titleKey: 'kinesiology.benefits.stress',
-            descriptionKey: 'kinesiology.benefits.stress',
-            detailsKey: 'kinesiology.benefits.stress.details',
-            image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=2070', // calm meditation
+            descriptionKey: 'kinesiology.bento.stress.desc',
+            detailsKey: 'services.kinesiology.description',
+            image: 'https://images.pexels.com/photos/3865523/pexels-photo-3865523.jpeg?auto=compress&cs=tinysrgb&w=1200',
             colSpan: 2
           },
           {
             titleKey: 'kinesiology.benefits.energy',
-            descriptionKey: 'kinesiology.benefits.energy',
-            detailsKey: 'kinesiology.benefits.energy.details',
-            image: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&q=80&w=2070', // hiking enjoying nature / vital energy
+            descriptionKey: 'kinesiology.bento.energy.desc',
+            detailsKey: 'services.kinesiology.description',
+            image: 'https://images.pexels.com/photos/3760270/pexels-photo-3760270.jpeg?auto=compress&cs=tinysrgb&w=800',
             colSpan: 1
           }
         ]
@@ -60,10 +60,10 @@ export default function KinesiologiaContent() {
         titleKey: 'kinesiology.page.benefitsTitle',
         subtitleKey: 'kinesiology.page.benefitsSubtitle',
         benefits: [
-          'services.kinesiology.subtitle',
           'kinesiology.benefits.posture',
           'kinesiology.benefits.stress',
-          'kinesiology.benefits.energy'
+          'kinesiology.benefits.energy',
+          'services.kinesiology.shortDesc'
         ]
       }}
       pricing={{

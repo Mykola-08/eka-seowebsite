@@ -188,11 +188,11 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'discovery.tension.lumbar': 'Lower back',
     'discovery.tension.neck': 'Neck and shoulders',
     'discovery.tension.none': 'No main tension',
-    'elena.approach': 'I help you listen to your body and restore natural balance.',
+    'elena.approach': 'Together, we listen to what your body is telling you — and create the conditions for it to heal.',
     'footer.readyToBegin': 'Ready to begin?',
-    'hero.badge': 'Somatic wellness and integrative support',
+    'hero.badge': 'Somatic wellness & integrative therapy',
     'hero.subtitle': 'Personalized somatic and wellness support to improve mobility, reduce stress, and restore everyday balance.',
-    'hero.firstTime': 'First wellness session',
+    'hero.firstTime': 'First time? Start here',
     'kinesiology.page.availableToday': 'Available today',
     'kinesiology.page.bookSession': 'Book your session',
     'kinesiology.page.durationsTitle': 'Available durations',
@@ -2433,16 +2433,16 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.name': 'Elena Kucherova',
 
     // Hero section
-    'hero.badge': 'Integrative somatic therapy',
+    'hero.badge': 'Somatic wellness & integrative therapy',
     'hero.title': 'EKA Balance',
-    'hero.subtitle': 'We help you feel comfortable in your body again. Through personalized massage and practical therapies, we find what is causing your discomfort and help you recover your energy for daily life.',
-    'hero.firstTime': 'Is it your first time?',
-    'hero.dontKnowWhatToChoose': 'Request diagnostic guidance',
-    'hero.discoverServices': 'View therapeutic protocols',
-    'hero.stats.sessions': 'Therapeutic sessions',
-    'hero.stats.clients': 'Successful cases',
-    'hero.stats.experience': 'Years of expertise',
-    'hero.stats.countries': 'International certifications',
+    'hero.subtitle': 'Feel at home in your body again. We combine massage, kinesiology, and somatic therapy to find the root of your discomfort and help you move, rest, and live better.',
+    'hero.firstTime': 'First time? Start here',
+    'hero.dontKnowWhatToChoose': 'Help me choose',
+    'hero.discoverServices': 'Explore our services',
+    'hero.stats.sessions': 'Sessions delivered',
+    'hero.stats.clients': 'Satisfied clients',
+    'hero.stats.experience': 'Years of practice',
+    'hero.stats.countries': 'Countries studied in',
 
     // Footer
     'footer.address': 'Carrer Pelai, 12, 08001 Barcelona, Spain',
@@ -2467,12 +2467,12 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step.description.placeholder': 'Ex: i have had back pain for weeks...',
 
     // Services
-    'services.massage.title': 'Advanced manual therapy',
-    'services.massage.subtitle': 'Structural integration & myofascial release',
-    'services.massage.description': 'Therapeutic Approach to musculoskeletal dysfunction. We utilize deep tissue mobilization and neuromuscular techniques to restore range of motion and eliminate chronic pain patterns.',
+    'services.massage.title': 'Massage therapy',
+    'services.massage.subtitle': 'Deep tissue, sports & relaxation',
+    'services.massage.description': 'Release chronic tension and restore natural movement. We combine deep tissue work and myofascial release to address the root cause of pain and help your body recover fully.',
     'services.kinesiology.title': 'Holistic kinesiology',
-    'services.kinesiology.subtitle': 'Neuromuscular biofeedback diagnosis',
-    'services.kinesiology.description': 'Precision diagnostic methodology using muscle response testing to identify physiological, structural, and emotional stressors affecting your systemic health.',
+    'services.kinesiology.subtitle': 'Body, mind & emotional balance',
+    'services.kinesiology.description': 'Using muscle response testing, we identify what\'s behind your pain, stress, or imbalance — and correct it gently at the source for lasting change.',
 
     // New Content Translations
     'adult.kinesiology.badge': 'Integral Balance',
@@ -2522,13 +2522,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About Elena
     'elena.greeting': "Hello, I'm Elena",
-    'elena.role': 'Specialist in somatic healing & body practices',
-    'elena.bio': 'I have dedicated my life to exploring the depths of therapeutic disciplines, crafting a unique, integrative Approach that honors the whole person.',
-    'elena.work.title': 'My Approach',
-    'elena.description1': 'I am a body therapist specializing in therapeutic massage, kinesiology, and mind-body integration. My work is grounded in the belief that True healing comes from listening to the body.',
-    'elena.description2': 'My goal is simple: to help you release the weight of tension and reclaim your physical and emotional well-being, so you can move through life with lightness and renewed energy.',
+    'elena.role': 'Body therapist & somatic healing specialist',
+    'elena.bio': 'For over a decade, I\'ve worked with hundreds of people to help them reconnect with their bodies and resolve the pain, tension, and imbalance that gets in the way of living fully.',
+    'elena.work.title': 'My approach',
+    'elena.description1': 'I specialize in therapeutic massage, kinesiology, and somatic integration. My work is built on a simple belief: real healing happens when you treat the whole person, not just the symptom.',
+    'elena.description2': 'My goal is to help you release the weight you\'ve been carrying — physically and emotionally — and move through life with ease, energy, and a renewed sense of yourself.',
     'elena.knowMore': 'Read my full story',
-    'elena.quote': "The body has the innate capability to heal itself; my job is to remind it how to do so.",
+    'elena.quote': "The body knows how to heal. My job is to remove what\'s in the way.",
 
     // Stats
     'stats.sessions': 'Sessions given',

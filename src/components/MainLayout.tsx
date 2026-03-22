@@ -4,7 +4,6 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FooterUncover from '@/components/FooterUncover';
-import ScrollProgress from '@/components/ScrollProgress';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -304,7 +303,6 @@ export default function MainLayout({
 
   return (
     <>
-      <ScrollProgress />
       <FooterUncover
         footer={
           <>

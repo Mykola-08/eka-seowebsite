@@ -1,11 +1,9 @@
 'use client';
 
-import { Heart, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Heart } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import ServiceCard from '@/components/ServiceCard';
 import PageLayout from './PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';

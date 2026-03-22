@@ -39,7 +39,7 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
         touchMultiplier: 2,
       });
       // Expose globally for hooks like useScrollLock to access .stop() and .start()
-      (window as any).lenis = lenis;
+      (window as Window & { lenis?: typeof lenis }).lenis = lenis;
 
       const raf = (time: number) => {
         lenis?.raf(time);

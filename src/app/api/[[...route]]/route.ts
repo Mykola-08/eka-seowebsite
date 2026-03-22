@@ -49,7 +49,7 @@ app.post('/contact', zValidator('json', ContactFormSchema), async (c) => {
       return c.json({ error: 'Too many submissions. Please try again later.' }, 429);
     }
 
-    // Trigger validation but we don't need the data for now since we just return success
+    const data = c.req.valid('json');
     // TODO: integrate with an email service or external storage
     console.log('[contact] New submission received:', {
       service: data.service,

@@ -212,9 +212,3 @@
   }
 }
 
-/* Scroll-progress indicator */
-@property --scroll-pct {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0;
-}

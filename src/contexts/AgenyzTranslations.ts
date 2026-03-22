@@ -301,9 +301,9 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'vip.pricing.title': 'Membership Plans',
     'vip.pricing.subtitle': 'Choose the level of care that suits you',
     'vip.cta.select': 'Select Plan',
-    'services.featuredTitle': 'Featured Services',
-    'services.featuredSubtitle': 'Discover our most popular offerings',
-    'services.viewAll': 'View All Services',
+    'services.featuredTitle': 'Our services',
+    'services.featuredSubtitle': 'Personalized therapy sessions designed to bring you lasting relief and real results',
+    'services.viewAll': 'View all services',
   
     
   

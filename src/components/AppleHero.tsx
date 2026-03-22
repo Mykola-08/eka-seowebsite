@@ -99,7 +99,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-0 rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
         {/* Only render current + next images to minimize requests */}
         {heroImages.map((image, index) => {
           const next = (currentImageIndex + 1) % heroImages.length;

@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { BentoCard } from '@/components/ui/bento-card';
 
-import dynamic from 'next/dynamic';
 import AppleHero from '@/components/AppleHero';
 
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -14,10 +13,9 @@ import { SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/components/ServiceCard';
 
 import SEOUpdater from '@/components/SEOUpdater';
-
-const CasosSection = dynamic(() => import('@/components/CasosSection'));
-const FAQ = dynamic(() => import('@/components/FAQ'));
-const CTASection = dynamic(() => import('@/components/CTASection'));
+import CasosSection from '@/components/CasosSection';
+import FAQ from '@/components/FAQ';
+import CTASection from '@/components/CTASection';
 
 export default function HomeContent() {
   const { t } = useLanguage();
@@ -76,6 +74,7 @@ export default function HomeContent() {
                 src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="Integrative Wellness"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -97,6 +96,7 @@ export default function HomeContent() {
                   src="https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Kinesiology"
                   fill
+                  priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                   className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply"
                 />
@@ -119,6 +119,7 @@ export default function HomeContent() {
                 src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="Healthy Lifestyle"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, 300px"
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -167,6 +168,7 @@ export default function HomeContent() {
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
                   fill
+                  priority
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
                 />

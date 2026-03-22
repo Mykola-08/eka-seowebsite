@@ -39,10 +39,8 @@ export default function ParallaxBackground({
           alt={alt}
           fill
           className="object-cover"
-          priority={false}
+          priority
           sizes="100vw"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
         <div
             className="absolute inset-0 bg-black transition-opacity duration-500"

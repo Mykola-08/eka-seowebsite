@@ -8,6 +8,7 @@ import { BookingProvider } from '@/components/BookingProvider';
 import SmoothScrolling from "@/components/SmoothScrolling";
 import JsonLd from "@/components/JsonLd";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ImagePreloader from "@/components/ImagePreloader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -93,6 +94,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <SmoothScrolling>
+          <ImagePreloader />
           <LanguageProvider>
             <DiscountProvider>
               <BookingProvider>

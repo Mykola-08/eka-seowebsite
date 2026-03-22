@@ -55,7 +55,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 lg:px-8 lg:py-28">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8 lg:py-16">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -122,7 +122,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.6 }}
-            className="mt-20 max-w-2xl border-l-2 border-white/10 pl-5 text-sm italic leading-relaxed text-zinc-600 lg:mt-24"
+            className="mt-10 max-w-2xl border-l-2 border-white/10 pl-5 text-sm italic leading-relaxed text-zinc-600 lg:mt-12"
           >
             &ldquo;{t('revision360.hero.quote')}&rdquo;
           </motion.blockquote>

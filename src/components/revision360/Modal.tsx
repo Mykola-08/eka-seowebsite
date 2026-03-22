@@ -37,20 +37,21 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[90] overflow-y-auto">
+        <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 sm:p-6 lg:p-8">
           <motion.div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={onClose}
           />
-          <div 
-            className="flex min-h-full items-center justify-center p-4 sm:p-6 lg:p-8"
+          <div
+            className="relative flex items-center justify-center w-full max-h-[90vh]"
             onClick={onClose}
           >
             <motion.div
-              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-2xl bg-white border border-gray-200  `}
+              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-2xl bg-white border border-gray-200 max-h-[90vh] overflow-y-auto`}
               onClick={(e) => e.stopPropagation()}
               initial={{
                 opacity: 0, 

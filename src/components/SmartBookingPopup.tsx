@@ -109,7 +109,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
   useEffect(() => setMounted(true), []);
 
   return mounted && typeof document !== 'undefined' ? createPortal(
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] flex items-center justify-center p-4" onClick={onClose} role="presentation">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
       <motion.div
         ref={dialogRef}
         role="dialog"
@@ -118,7 +118,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white dark:bg-zinc-900 rounded-3xl max-w-lg w-full overflow-hidden relative"
+        className="bg-white dark:bg-zinc-900 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button

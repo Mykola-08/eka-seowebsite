@@ -1,16 +1,11 @@
 
-> eka-seowebsite@1.0.0 dev
-> next dev
+> eka-seowebsite@1.0.0 start
+> next start
 
-▲ Next.js 16.1.6 (Turbopack)
+▲ Next.js 16.2.0
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-- Environments: .env
-- Experiments (use with caution):
-  ✓ turbopackUseSystemTlsCerts
-
-✓ Starting...
-✓ Ready in 922ms
-○ Compiling / ...
- GET / 200 in 7.7s (compile: 6.8s, render: 852ms)
- GET / 200 in 193ms (compile: 8ms, render: 185ms)
+✓ Ready in 207ms
+⚠ Invalid next.config.mjs options detected:
+⚠     Unrecognized key(s) in object: 'turbopackUseSystemTlsCerts' at "experimental"
+⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config

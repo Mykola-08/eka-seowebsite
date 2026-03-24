@@ -352,11 +352,30 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
 
     // Testimonials
     'massage.testimonial.1.text': 'Arribo tens i amb nusos. Surto totalment relaxat. Així de simple. Dura dies.',
-    'massage.testimonial.2.text': 'El millor massatge que he rebut. Realment sap el que fa. L\'espai també és genial.',
-    'kinesiology.testimonial.1.text': 'La kinesiologia m\'ha ajudat a entendre millor el meu cos i les meves emocions. Ara tinc més energia i claredat mental.',
-    'kinesiology.testimonial.2.text': 'Després de les sessions de kinesiologia he notat una millora increïble en la meva postura i coordinació. Ho recomano totalment.',
-    'nutrition.testimonial.1.text': 'L\'assessorament nutricional ha canviat completament la meva relació amb el menjar. Ara tinc més energia i em sento molt millor.',
-    'nutrition.testimonial.2.text': 'Els consells personalitzats m\'han ajudat a crear hàbits saludables que puc mantenir fàcilment. Resultat: més vitalitat cada dia.',
+    'massage.testimonial.2.text': 'El millor massatge que he rebut. Realment sap el que fa. L\'espai és fantàstic.',
+    'kinesiology.testimonial.1.text': 'La kinesiologia amb Elena m\'ha ajudat a entendre els patrons emocionals que causaven el meu dolor d\'esquena. En tres sessions, vaig sentir un canvi profund.',
+    'kinesiology.testimonial.2.text': 'Era escèptic al principi, però els resultats van parlar per si sols. La meva postura, coordinació i energia han millorat significativament.',
+    'nutrition.testimonial.1.text': 'L\'assessorament nutricional ha canviat completament la meva relació amb el menjar. Ara tinc energia sostinguda tot el dia i em sento genuïnament bé.',
+    'nutrition.testimonial.2.text': 'El pla personalitzat era fàcil de seguir i tenia sentit per al meu estil de vida. Ja fa sis mesos que mantinc hàbits més saludables.',
+
+    // Massage Bento Grid
+    'massage.bento.title': 'Les nostres tècniques terapèutiques',
+    'massage.bento.subtitle': 'Cada sessió s\'adapta al teu cos i als teus objectius',
+    'massage.techniques.deepTissue': 'Teràpia de teixit profund',
+    'massage.techniques.deepTissue.desc': 'Treballa les capes musculars profundes per alliberar tensió crònica, restaurar la mobilitat i eliminar el dolor persistent.',
+    'massage.techniques.deepTissue.details': 'Pressions sostingudes i moviments lents que arriben a les capes profundes del múscul i el teixit conjuntiu. Ideal per al dolor crònic, rigidesa i recuperació de lesions.',
+    'massage.techniques.recovery': 'Recuperació esportiva',
+    'massage.techniques.recovery.desc': 'Dissenyat per a cossos actius — accelera la reparació tissular, redueix les agulletes i prevé futures lesions.',
+    'massage.techniques.recovery.details': 'Combina pressió localitzada, estiraments passius i tècniques limfàtiques per optimitzar la recuperació muscular i millorar el rendiment.',
+    'massage.techniques.relaxation': 'Relaxació de cos complet',
+    'massage.techniques.relaxation.desc': 'Un reinici profund de ment i cos — desfà l\'estrès, millora el son i restaura el benestar.',
+    'massage.techniques.relaxation.details': 'Moviments fluids i rítmics per tot el cos que promouen la relaxació profunda, redueixen el cortisol i restableixen el sistema nerviós per a una calma duradora.',
+
+    // Kinesiology Bento Grid descriptions
+    'kinesiology.bento.balance.desc': 'Identifica i corregeix desequilibris estructurals, bioquímics i emocionals usant la intel·ligència neuromuscular del propi cos.',
+    'kinesiology.bento.posture.desc': 'Revela les causes arrel de la compensació postural i els patrons de moviment disfuncionals — i els corregeix a l\'origen.',
+    'kinesiology.bento.stress.desc': 'Regula el sistema nerviós autònom per reduir les respostes d\'estrès crònic, millorar el son i restaurar la resiliència emocional.',
+    'kinesiology.bento.energy.desc': 'Elimina les interferències neurològiques que bloquegen la vitalitat natural, deixant-te amb energia sostinguda i major consciència corporal.',
 
     // 360 Revision
     'hero.title': 'Revisió corporal 360°',
@@ -1085,11 +1104,30 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
 
     // Testimonials
     'massage.testimonial.1.text': 'I come in tight and knotted. Leave totally loose. That\'s it. Simple. Lasts for days.',
-    'massage.testimonial.2.text': 'Best massage i\'ve had. Really knows what she\'s doing. The space feels great too.',
-    'kinesiology.testimonial.1.text': 'Kinesiology has helped me better understand my body and emotions. Now I have more energy and mental clarity.',
-    'kinesiology.testimonial.2.text': 'After the kinesiology sessions i noticed an incredible improvement in my posture and coordination. I totally recommend it.',
-    'nutrition.testimonial.1.text': 'Nutritional counseling has completely changed my relationship with food. Now I have more energy and feel much better.',
-    'nutrition.testimonial.2.text': 'Personalized advice has helped me create healthy habits that I can easily maintain. Result: more vitality every day.',
+    'massage.testimonial.2.text': 'Best massage I\'ve had. She really knows what she\'s doing. The space feels great too.',
+    'kinesiology.testimonial.1.text': 'Kinesiology with Elena helped me understand the emotional patterns behind my recurring back pain. Within three sessions, I felt a profound shift.',
+    'kinesiology.testimonial.2.text': 'I was skeptical at first, but the results spoke for themselves. My posture, coordination, and energy levels have all improved significantly.',
+    'nutrition.testimonial.1.text': 'The nutritional guidance completely changed my relationship with food. I have more sustained energy throughout the day and feel genuinely well.',
+    'nutrition.testimonial.2.text': 'The personalized plan was easy to follow and actually made sense for my lifestyle. I\'ve maintained healthier habits for over six months now.',
+
+    // Massage Bento Grid
+    'massage.bento.title': 'Our therapeutic techniques',
+    'massage.bento.subtitle': 'Each session is tailored to your body and your goals',
+    'massage.techniques.deepTissue': 'Deep tissue therapy',
+    'massage.techniques.deepTissue.desc': 'Targets deep muscle layers to release chronic tension, restore mobility, and eliminate recurring pain patterns.',
+    'massage.techniques.deepTissue.details': 'Using sustained pressure and slow strokes, deep tissue massage reaches the inner layers of muscle and connective tissue. Ideal for chronic pain, stiffness, and post-injury recovery.',
+    'massage.techniques.recovery': 'Sports & recovery',
+    'massage.techniques.recovery.desc': 'Designed for active bodies — accelerates tissue repair, reduces soreness, and prevents future injuries.',
+    'massage.techniques.recovery.details': 'Combines targeted pressure, passive stretching, and lymphatic techniques to optimize muscular recovery, enhance performance, and keep you moving at your best.',
+    'massage.techniques.relaxation': 'Full-body relaxation',
+    'massage.techniques.relaxation.desc': 'A complete mind and body reset — melts away stress, improves sleep, and restores your sense of well-being.',
+    'massage.techniques.relaxation.details': 'Flowing, rhythmic strokes across the whole body promote deep relaxation, lower cortisol, improve circulation, and reset your nervous system for lasting calm.',
+
+    // Kinesiology Bento Grid descriptions
+    'kinesiology.bento.balance.desc': 'Identifies and corrects imbalances across structural, biochemical, and emotional systems using the body\'s own neuromuscular intelligence.',
+    'kinesiology.bento.posture.desc': 'Reveals the root causes of postural compensation and dysfunctional movement patterns — then corrects them at the source.',
+    'kinesiology.bento.stress.desc': 'Regulates the autonomic nervous system to reduce chronic stress responses, improve sleep quality, and restore emotional resilience.',
+    'kinesiology.bento.energy.desc': 'Removes neurological interference that blocks your natural vitality, leaving you with sustained energy and heightened body awareness.',
 
     // 360 Revision
     'hero.title': '360° body review',
@@ -1708,9 +1746,28 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
 
     // Testimonials
     'massage.testimonial.1.text': 'Llego tenso y con nudos. Salgo totalmente relajado. Así de simple. Dura días.',
-    'massage.testimonial.2.text': 'El mejor masaje que he recibido. Realmente sabe lo que hace. El espacio también es genial.',
-    'kinesiology.testimonial.1.text': 'La kinesiología me ha ayudado a entender mejor mi cuerpo y mis emociones. Ahora tengo más energía y claridad mental.',
-    'kinesiology.testimonial.2.text': 'Después de las sesiones de kinesiología he notado una mejora increíble en mi postura y coordinación. Lo recomiendo totalmente.',
+    'massage.testimonial.2.text': 'El mejor masaje que he recibido. Realmente sabe lo que hace. El espacio es fantástico.',
+    'kinesiology.testimonial.1.text': 'La kinesiología con Elena me ayudó a entender los patrones emocionales detrás de mi dolor de espalda recurrente. En tres sesiones, sentí un cambio profundo.',
+    'kinesiology.testimonial.2.text': 'Era escéptico al principio, pero los resultados hablaron por sí solos. Mi postura, coordinación y niveles de energía han mejorado notablemente.',
+
+    // Massage Bento Grid
+    'massage.bento.title': 'Nuestras técnicas terapéuticas',
+    'massage.bento.subtitle': 'Cada sesión se adapta a tu cuerpo y a tus objetivos',
+    'massage.techniques.deepTissue': 'Terapia de tejido profundo',
+    'massage.techniques.deepTissue.desc': 'Trabaja las capas musculares profundas para liberar tensión crónica, restaurar la movilidad y eliminar el dolor persistente.',
+    'massage.techniques.deepTissue.details': 'Presiones sostenidas y movimientos lentos que llegan a las capas profundas del músculo y el tejido conjuntivo. Ideal para dolor crónico, rigidez y recuperación de lesiones.',
+    'massage.techniques.recovery': 'Recuperación deportiva',
+    'massage.techniques.recovery.desc': 'Diseñado para cuerpos activos — acelera la reparación tisular, reduce las agujetas y previene futuras lesiones.',
+    'massage.techniques.recovery.details': 'Combina presión localizada, estiramientos pasivos y técnicas linfáticas para optimizar la recuperación muscular y mejorar el rendimiento.',
+    'massage.techniques.relaxation': 'Relajación de cuerpo completo',
+    'massage.techniques.relaxation.desc': 'Un reinicio profundo de mente y cuerpo — deshace el estrés, mejora el sueño y restaura el bienestar.',
+    'massage.techniques.relaxation.details': 'Movimientos fluidos y rítmicos por todo el cuerpo que promueven la relajación profunda, reducen el cortisol y restablecen el sistema nervioso para una calma duradera.',
+
+    // Kinesiology Bento Grid descriptions
+    'kinesiology.bento.balance.desc': 'Identifica y corrige desequilibrios estructurales, bioquímicos y emocionales usando la inteligencia neuromuscular del propio cuerpo.',
+    'kinesiology.bento.posture.desc': 'Revela las causas raíz de la compensación postural y los patrones de movimiento disfuncionales — y los corrige en su origen.',
+    'kinesiology.bento.stress.desc': 'Regula el sistema nervioso autónomo para reducir las respuestas de estrés crónico, mejorar el sueño y restaurar la resiliencia emocional.',
+    'kinesiology.bento.energy.desc': 'Elimina las interferencias neurológicas que bloquean la vitalidad natural, dejándote con energía sostenida y mayor consciencia corporal.',
     'nutrition.testimonial.1.text': 'El asesoramiento nutricional ha cambiado completamente mi relación con la comida. Ahora tengo más energía y me siento mucho mejor.',
     'nutrition.testimonial.2.text': 'Los consejos personalizados me han ayudado a crear hábitos saludables que puedo mantener fácilmente. Resultado: más vitalidad cada día.',
 
@@ -2283,12 +2340,31 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'recommendations.supplements.description': 'Передовое клеточное питание для повышения вашей повседневной продуктивности.',
 
     // Testimonials
-    'massage.testimonial.1.text': 'Прихожу напряженным и с узлами. ухожу полностью расслабленным. все просто. эффект длится днями.',
-    'massage.testimonial.2.text': 'Лучший массаж, который у меня был. она действительно знает, что делает. пространство тоже отличное.',
-    'kinesiology.testimonial.1.text': 'Кинезиология помогла мне лучше понять свое тело и эмоции. теперь у меня больше энергии и ясности ума.',
-    'kinesiology.testimonial.2.text': 'После сеансов кинезиологии я заметил невероятное улучшение осанки и координации. очень рекомендую.',
-    'nutrition.testimonial.1.text': 'Консультации по питанию полностью изменили мое отношение к еде. теперь у меня больше энергии, и я чувствую себя намного лучше.',
-    'nutrition.testimonial.2.text': 'Персонализированные советы помогли мне создать здоровые привычки, которые я легко могу поддерживать. результат: больше жизненной силы каждый день.',
+    'massage.testimonial.1.text': 'Прихожу с напряжением и узлами — ухожу полностью расслабленным. Всё просто. Эффект держится несколько дней.',
+    'massage.testimonial.2.text': 'Лучший массаж в моей жизни. Она действительно знает своё дело. Атмосфера в студии замечательная.',
+    'kinesiology.testimonial.1.text': 'Кинезиология с Еленой помогла мне понять эмоциональные паттерны, стоящие за хронической болью в спине. Уже через три сеанса я ощутил глубокий сдвиг.',
+    'kinesiology.testimonial.2.text': 'Поначалу был скептически настроен, но результаты говорят сами за себя. Осанка, координация и уровень энергии значительно улучшились.',
+    'nutrition.testimonial.1.text': 'Консультации по питанию полностью изменили моё отношение к еде. Теперь у меня устойчивая энергия на протяжении всего дня.',
+    'nutrition.testimonial.2.text': 'Персонализированный план было легко соблюдать, и он действительно подходил моему образу жизни. Уже полгода поддерживаю более здоровые привычки.',
+
+    // Massage Bento Grid
+    'massage.bento.title': 'Наши терапевтические техники',
+    'massage.bento.subtitle': 'Каждый сеанс адаптируется под ваше тело и ваши цели',
+    'massage.techniques.deepTissue': 'Глубокотканная терапия',
+    'massage.techniques.deepTissue.desc': 'Воздействует на глубокие мышечные слои для снятия хронического напряжения, восстановления подвижности и устранения постоянной боли.',
+    'massage.techniques.deepTissue.details': 'Устойчивое давление и медленные движения достигают глубоких слоёв мышц и соединительной ткани. Идеально при хронической боли, скованности и реабилитации после травм.',
+    'massage.techniques.recovery': 'Спортивное восстановление',
+    'massage.techniques.recovery.desc': 'Разработан для активных людей — ускоряет регенерацию тканей, снимает крепатуру и предотвращает будущие травмы.',
+    'massage.techniques.recovery.details': 'Сочетает направленное давление, пассивное растяжение и лимфодренажные техники для оптимального восстановления мышц и улучшения результатов.',
+    'massage.techniques.relaxation': 'Расслабление всего тела',
+    'massage.techniques.relaxation.desc': 'Полная перезагрузка ума и тела — снимает стресс, улучшает сон и восстанавливает ощущение благополучия.',
+    'massage.techniques.relaxation.details': 'Плавные ритмичные движения по всему телу способствуют глубокому расслаблению, снижают уровень кортизола и восстанавливают нервную систему для продолжительного спокойствия.',
+
+    // Kinesiology Bento Grid descriptions
+    'kinesiology.bento.balance.desc': 'Выявляет и корректирует структурные, биохимические и эмоциональные дисбалансы с помощью нейромышечного интеллекта тела.',
+    'kinesiology.bento.posture.desc': 'Раскрывает первопричины постуральных компенсаций и дисфункциональных паттернов движения — и устраняет их у истока.',
+    'kinesiology.bento.stress.desc': 'Регулирует вегетативную нервную систему для снижения хронического стресса, улучшения сна и восстановления эмоциональной устойчивости.',
+    'kinesiology.bento.energy.desc': 'Устраняет неврологические помехи, блокирующие естественную жизненную силу, наделяя вас устойчивой энергией и повышенным телесным осознанием.',
 
     // 360 Revision
     'hero.title': 'Телесный обзор 360°',

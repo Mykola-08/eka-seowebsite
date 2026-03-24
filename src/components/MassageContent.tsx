@@ -25,21 +25,21 @@ export default function MassageContent() {
             titleKey: 'massage.techniques.deepTissue',
             descriptionKey: 'massage.techniques.deepTissue.desc',
             detailsKey: 'massage.techniques.deepTissue.details',
-            image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=2070',
+            image: 'https://images.pexels.com/photos/3760262/pexels-photo-3760262.jpeg?auto=compress&cs=tinysrgb&w=1200',
             colSpan: 2
           },
           {
             titleKey: 'massage.techniques.recovery',
             descriptionKey: 'massage.techniques.recovery.desc',
             detailsKey: 'massage.techniques.recovery.details',
-            image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2070',
+            image: 'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=800',
             colSpan: 1
           },
           {
             titleKey: 'massage.techniques.relaxation',
             descriptionKey: 'massage.techniques.relaxation.desc',
             detailsKey: 'massage.techniques.relaxation.details',
-            image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=2070',
+            image: 'https://images.pexels.com/photos/3865803/pexels-photo-3865803.jpeg?auto=compress&cs=tinysrgb&w=1200',
             colSpan: 3
           }
         ]
@@ -54,9 +54,9 @@ export default function MassageContent() {
         subtitleKey: 'massage.page.benefitsSubtitle',
         benefits: [
           'massage.benefits.pain',
-          'services.massage.subtitle',
           'massage.benefits.circulation',
-          'massage.benefits.wellbeing'
+          'massage.benefits.wellbeing',
+          'services.benefits.relaxation'
         ]
       }}
       pricing={{

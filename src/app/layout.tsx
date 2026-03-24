@@ -9,6 +9,8 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import JsonLd from "@/components/JsonLd";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ImagePreloader from "@/components/ImagePreloader";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -120,6 +122,8 @@ export default function RootLayout({
             </DiscountProvider>
           </LanguageProvider>
         </SmoothScrolling>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

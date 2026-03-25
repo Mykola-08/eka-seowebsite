@@ -434,10 +434,10 @@ export default function MainLayout({
       {/* Navigation with scroll effect - Liquid Glass Style */}
       <nav className={`sticky top-0 z-[100] transition duration-500 border-b border-transparent ${headerSurfaceClass}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
-            {/* Logo Only - Left Side - INCREASED SIZE */}
-            <Link href="/" className="flex items-center flex-shrink-0 group relative opacity-90 hover:opacity-100 transition-opacity">
-              <div className="relative w-8 h-8"> {/* Increased from w-5 h-5 */}
+          <div className="flex items-center h-14 relative">
+            {/* Logo Only - Left Side */}
+            <Link href="/" className="flex items-center flex-shrink-0 group relative opacity-90 hover:opacity-100 transition-opacity z-10">
+              <div className="relative w-8 h-8">
                 <Image
                   src="/images/eka_logo.png"
                   alt="EKA Balance Logo"
@@ -448,8 +448,8 @@ export default function MainLayout({
               </div>
             </Link>
 
-            {/* Desktop Navigation - Centered - Apple Style */}
-            <div ref={navBarRef} className="hidden md:flex items-center justify-center space-x-8 relative">
+            {/* Desktop Navigation — absolutely centered in the full nav bar width */}
+            <div ref={navBarRef} className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 z-10">
               {navigation.map(item => {
                 const isNavItemActive = pathname === item.href ||
                   (item.href !== '/' && pathname.startsWith(item.href));
@@ -589,8 +589,8 @@ export default function MainLayout({
               })}
             </div>
 
-            {/* Right side actions - Search/Bag style icons usually, here just Booking CTA but simpler */}
-            <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
+            {/* Right side actions */}
+            <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0 ml-auto z-10">
 
               {/* Reserva Button - Visible on mobile now */}
               <Button

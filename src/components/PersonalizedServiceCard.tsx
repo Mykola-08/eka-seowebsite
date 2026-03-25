@@ -13,48 +13,44 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t } = useLanguage();
 
   const details = (
-     <>
-       {service.benefitsKeys && service.benefitsKeys.length > 0 && (
-         <div className="mb-6 sm:mb-8">
-           <h4 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 mb-3 sm:mb-4">{t('services.mainBenefits') || 'Main Benefits'}</h4>
-           <ul className="space-y-2 sm:space-y-3">
-             {service.benefitsKeys.map((key, i) => (
-               <li key={i} className="flex items-start text-base sm:text-lg text-gray-600">
-                 <span className="w-2 h-2 rounded-full bg-black mt-2 sm:mt-2.5 mr-3 flex-shrink-0" />
-                 {t(key)}
-               </li>
-             ))}
-           </ul>
-         </div>
-       )}
+    <>
+      {service.benefitsKeys && service.benefitsKeys.length > 0 && (
+        <div className="mb-4">
+          <h4 className="text-sm font-semibold tracking-wider text-gray-400 uppercase mb-2.5">{t('services.mainBenefits') || 'Main Benefits'}</h4>
+          <ul className="space-y-1.5">
+            {service.benefitsKeys.map((key, i) => (
+              <li key={i} className="flex items-start text-sm text-gray-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 mr-2.5 flex-shrink-0" />
+                {t(key)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-       {service.resultKey && (
-         <div className="bg-gray-50 rounded-2xl p-5 sm:p-6 mb-6 sm:mb-8 border border-gray-100">
-            <div className="flex flex-col gap-2">
-                 <span className="text-xs sm:text-sm font-semibold text-gray-400 uppercase tracking-widest">
-                     {t('common.expectedResult') || 'Expected Result'}
-                 </span>
-                 <p className="text-lg sm:text-xl font-semibold text-gray-900">
-                     {t(service.resultKey)}
-                 </p>
-            </div>
-         </div>
-       )}
+      {service.resultKey && (
+        <div className="bg-gray-50 rounded-xl p-4 mb-4 border border-gray-100">
+          <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block mb-1">
+            {t('common.expectedResult') || 'Expected Result'}
+          </span>
+          <p className="text-sm font-semibold text-gray-900">{t(service.resultKey)}</p>
+        </div>
+      )}
 
-       <div className="flex items-center justify-between mt-auto p-5 sm:p-6 bg-gray-50 border border-gray-100 rounded-2xl">
-          <div className="flex flex-col gap-1">
-             <span className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-widest">{t('common.duration') || 'Duration'}</span>
-             <div className="flex items-center gap-1.5 sm:gap-2">
-                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                 <span className="text-base sm:text-lg font-semibold text-gray-900">{service.duration ? `${service.duration} ${t('common.minutes') || 'min'}` : `60 ${t('common.minutes') || 'min'}`}</span>
-             </div>
+      <div className="flex items-center justify-between p-4 bg-gray-50 border border-gray-100 rounded-xl mt-auto">
+        <div className="flex flex-col gap-0.5">
+          <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">{t('common.duration') || 'Duration'}</span>
+          <div className="flex items-center gap-1.5">
+            <Clock className="w-4 h-4 text-gray-400" />
+            <span className="text-sm font-semibold text-gray-900">{service.duration ? `${service.duration} ${t('common.minutes') || 'min'}` : `60 ${t('common.minutes') || 'min'}`}</span>
           </div>
-          <div className="flex flex-col items-end gap-1">
-             <span className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-widest">{t('common.price') || 'Price'}</span>
-             <span className="text-lg sm:text-xl font-semibold text-gray-900">{service.price ? `${service.price} €` : t('common.consultPrice')}</span>
-          </div>
-       </div>
-     </>
+        </div>
+        <div className="flex flex-col items-end gap-0.5">
+          <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">{t('common.price') || 'Price'}</span>
+          <span className="text-base font-semibold text-gray-900">{service.price ? `${service.price} €` : t('common.consultPrice')}</span>
+        </div>
+      </div>
+    </>
   );
 
   return (

@@ -53,7 +53,7 @@ export default function Why360Section() {
   ];
 
   return (
-    <section className="relative py-24 bg-secondary">
+    <section className="relative py-24 bg-[#f5f5f7]">
       <div className="section-container">
         <div className="grid gap-16 lg:grid-cols-12 items-start">
           {/* Sticky intro column */}

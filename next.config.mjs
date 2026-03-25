@@ -5,8 +5,7 @@ const nextConfig = {
   compress: true,
   allowedDevOrigins: ['http://192.168.31.121:3000'],
   experimental: {
-    turbopackUseSystemTlsCerts: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-slot'],
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-slot'],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,

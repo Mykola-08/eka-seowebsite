@@ -98,20 +98,19 @@ export default function MainLayout({
   const [dropdownPosition, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number } | null>(null);
 
   // Calculate where the dropdown should appear relative to the nav bar container
-  const computeDropdownPosition = useCallback((triggerElement: HTMLElement) => {
+  const computeDropdownPosition = useCallback((triggerElement: HTMLElement, panelWidth: number = 280) => {
     if (!triggerElement) return;
     const triggerRect = triggerElement.getBoundingClientRect();
-    const dropdownWidth = 280; // width of the dropdown panel
 
     // Center the dropdown under the trigger
     const triggerCenter = triggerRect.left + triggerRect.width / 2;
-    const idealLeft = triggerCenter - dropdownWidth / 2;
+    const idealLeft = triggerCenter - panelWidth / 2;
 
     // Viewport constraints
     const pad = 16;
     const minLeft = pad;
-    const maxLeft = document.documentElement.clientWidth - dropdownWidth - pad;
-    
+    const maxLeft = document.documentElement.clientWidth - panelWidth - pad;
+
     const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
 
     // Make it attach completely flush with the main header
@@ -119,28 +118,28 @@ export default function MainLayout({
     const top = navRect ? navRect.bottom : triggerRect.bottom + 8;
 
     // Compute transform-origin X percentage based on where the trigger center falls inside the dropdown
-    const originX = ((triggerCenter - clampedLeft) / dropdownWidth) * 100;
-    
-    setDropdownPosition({ 
-      left: clampedLeft, 
+    const originX = ((triggerCenter - clampedLeft) / panelWidth) * 100;
+
+    setDropdownPosition({
+      left: clampedLeft,
       top: top,
       triggerBottom: triggerRect.bottom,
       originX: Math.max(10, Math.min(90, originX)),
-      width: dropdownWidth
+      width: panelWidth
     });
   }, []);
 
-  const openDropdown = (e: React.MouseEvent | React.FocusEvent | undefined, id: string) => {
+  const openDropdown = (e: React.MouseEvent | React.FocusEvent | undefined, id: string, panelWidth: number = 280) => {
     if (hideTimeoutRef.current) {
       clearTimeout(hideTimeoutRef.current);
       hideTimeoutRef.current = null;
     }
-    
+
     // Check if triggered from an event
     if (e && e.currentTarget) {
       activeTriggerRef.current = e.currentTarget as HTMLElement;
     }
-    
+
     if (showTimeoutRef.current) {
       clearTimeout(showTimeoutRef.current);
       showTimeoutRef.current = null;
@@ -150,7 +149,7 @@ export default function MainLayout({
     if (activeDropdown) {
       setActiveDropdown(id);
       if (activeTriggerRef.current) {
-        computeDropdownPosition(activeTriggerRef.current);
+        computeDropdownPosition(activeTriggerRef.current, panelWidth);
       }
       return;
     }
@@ -158,7 +157,7 @@ export default function MainLayout({
     showTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(id);
       if (activeTriggerRef.current) {
-        computeDropdownPosition(activeTriggerRef.current);
+        computeDropdownPosition(activeTriggerRef.current, panelWidth);
       }
     }, 200); // Short delay to prevent accidental activation
   };
@@ -254,7 +253,9 @@ export default function MainLayout({
     name: string;
     href: string;
     hasDropdown?: boolean;
-    dropdownItems?: { name: string; href: string }[];
+    dropdownType?: 'services' | 'agenyz';
+    dropdownWidth?: number;
+    dropdownItems?: { name: string; href: string; image?: string; subtitle?: string }[];
     isGold?: boolean;
     isExternal?: boolean;
   }
@@ -278,6 +279,8 @@ export default function MainLayout({
       name: t('nav.services'),
       href: '/services',
       hasDropdown: true,
+      dropdownType: 'services',
+      dropdownWidth: 460,
       dropdownItems: [
         { name: t('services.massage.title') || 'Massage', href: '/services/massage' },
         { name: t('services.kinesiology.title') || 'Kinesiology', href: '/services/kinesiology' },
@@ -289,7 +292,30 @@ export default function MainLayout({
     },
     {
       name: 'Agenyz',
-      href: '/agenyz'
+      href: '/agenyz',
+      hasDropdown: true,
+      dropdownType: 'agenyz',
+      dropdownWidth: 380,
+      dropdownItems: [
+        {
+          name: 'CellGenetiX',
+          href: '/agenyz/CellGenetiX',
+          image: 'https://storage.agenyz.eu/y1/f3/_En.vgnko1s5plrh7vau2elp51f9jzgl.png',
+          subtitle: 'DNA cell support'
+        },
+        {
+          name: 'OctoMagnesium',
+          href: '/agenyz/Octomagnesium-XBi-A',
+          image: 'https://storage.agenyz.eu/bs/rq/1240340_OCTOMAGNESIUMXBi-A.4z7ynoqb1iqdyexcgpej.jpg',
+          subtitle: '8-form magnesium'
+        },
+        {
+          name: '3D-Matrix',
+          href: '/agenyz/3D-Matrix',
+          image: 'https://storage.agenyz.eu/sc/w8/3dMatrix_En.6o8ovei0rtlqdqm6cixc1ff6mj.png',
+          subtitle: 'Triple protein matrix'
+        },
+      ]
     },
     {
       name: t('nav.revision360'),
@@ -461,9 +487,9 @@ export default function MainLayout({
                       <Link
                         href={item.href}
                         className={`nav-trigger py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-black' : 'text-gray-500 hover:text-black'}`}
-                        onMouseEnter={(e) => openDropdown(e, item.name)}
+                        onMouseEnter={(e) => openDropdown(e, item.name, item.dropdownWidth)}
                         onMouseLeave={scheduleHide}
-                        onFocus={(e) => openDropdown(e, item.name)}
+                        onFocus={(e) => openDropdown(e, item.name, item.dropdownWidth)}
                         onBlur={scheduleHide}
                         aria-expanded={activeDropdown === item.name}
                         aria-haspopup="true"
@@ -519,44 +545,101 @@ export default function MainLayout({
                             aria-label={`${item.name} submenu`}
                           >
                             {/* Inner content wrapper with the actual visual styling */}
-                            <div className="w-[280px] mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-white/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-white/60 ring-1 ring-black/[0.04]">
-                              {/* Subtle blend line at the top connection point */}
+                            <div
+                              className="mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-white/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-white/60 ring-1 ring-black/[0.04]"
+                              style={{ width: dropdownPosition.width }}
+                            >
                               <div className="absolute inset-x-0 top-0 h-[1px] bg-white/40" />
 
-                              <div className="py-2 px-1.5 relative z-20">
-                              {item.dropdownItems?.map((dropdownItem, idx) => (
-                                <motion.div
-                                  key={dropdownItem.name}
-                                  initial={{ opacity: 0, y: 4 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ duration: 0.18, delay: idx * 0.035 }}
-                                >
-                                  <Link
-                                    href={dropdownItem.href}
-                                    onClick={() => setActiveDropdown(null)}
-                                    className="group/item flex items-center gap-3 px-3 py-3 mx-0.5 rounded-xl text-sm text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
-                                    role="menuitem"
-                                    suppressHydrationWarning
-                                  >
-                                    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100/80 text-gray-500 group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 flex-shrink-0">
-                                      {serviceIcons[dropdownItem.href] || <Hand className="w-4 h-4" />}
-                                    </span>
-                                    <span className="font-medium">{dropdownItem.name}</span>
-                                  </Link>
-                                </motion.div>
-                              ))}
-                            </div>
-
-                            {/* View all services link at the bottom */}
-                            <div className="border-t border-gray-200/50 px-3 py-2.5 relative z-20">
-                              <Link
-                                href={item.href}
-                                onClick={() => setActiveDropdown(null)}
-                                className="flex items-center justify-between text-sm text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
-                              >
-                                <span>{t('nav.services')} →</span>
-                              </Link>
-                            </div>
+                              {item.dropdownType === 'agenyz' ? (
+                                /* Agenyz: product image cards */
+                                <>
+                                  <div className="py-4 px-3">
+                                    <p className="text-[10px] text-gray-400 tracking-[0.18em] uppercase px-2 mb-3 font-medium">Cellular health. Designed for you.</p>
+                                    <div className="grid grid-cols-3 gap-2">
+                                      {item.dropdownItems?.map((product, idx) => (
+                                        <motion.div
+                                          key={product.name}
+                                          initial={{ opacity: 0, y: 4 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          transition={{ duration: 0.18, delay: idx * 0.04 }}
+                                        >
+                                          <Link
+                                            href={product.href}
+                                            onClick={() => setActiveDropdown(null)}
+                                            className="group/prod flex flex-col items-center p-2 rounded-xl hover:bg-gray-50 transition-colors"
+                                            role="menuitem"
+                                          >
+                                            <div className="w-full aspect-square mb-2 relative bg-gray-50 rounded-xl overflow-hidden">
+                                              {product.image && (
+                                                <Image src={product.image} alt={product.name} fill className="object-contain p-1 group-hover/prod:scale-105 transition-transform duration-300" sizes="100px" />
+                                              )}
+                                            </div>
+                                            <span className="text-xs font-semibold text-gray-800 text-center leading-tight">{product.name}</span>
+                                            {product.subtitle && <span className="text-[10px] text-gray-400 text-center mt-0.5 leading-tight">{product.subtitle}</span>}
+                                          </Link>
+                                        </motion.div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  <div className="border-t border-gray-100 px-4 py-2.5 flex items-center justify-between">
+                                    <Link
+                                      href={item.href}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="text-sm text-gray-500 hover:text-gray-900 font-medium transition-colors"
+                                    >
+                                      View catalogue →
+                                    </Link>
+                                    <a
+                                      href="https://agenyz.es"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="text-xs text-gray-400 hover:text-black transition-colors"
+                                    >
+                                      agenyz.es ↗
+                                    </a>
+                                  </div>
+                                </>
+                              ) : (
+                                /* Services: 2-column icon grid */
+                                <>
+                                  <div className="py-3 px-2 relative z-20">
+                                    <div className="grid grid-cols-2 gap-0.5">
+                                      {item.dropdownItems?.map((dropdownItem, idx) => (
+                                        <motion.div
+                                          key={dropdownItem.name}
+                                          initial={{ opacity: 0, y: 4 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          transition={{ duration: 0.18, delay: idx * 0.03 }}
+                                        >
+                                          <Link
+                                            href={dropdownItem.href}
+                                            onClick={() => setActiveDropdown(null)}
+                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-xl text-sm text-gray-600 hover:text-gray-900 hover:bg-black/[0.04] active:bg-black/[0.07] transition-all duration-150 tracking-tight"
+                                            role="menuitem"
+                                            suppressHydrationWarning
+                                          >
+                                            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100/80 text-gray-500 group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 flex-shrink-0">
+                                              {serviceIcons[dropdownItem.href] || <Hand className="w-4 h-4" />}
+                                            </span>
+                                            <span className="font-medium">{dropdownItem.name}</span>
+                                          </Link>
+                                        </motion.div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  <div className="border-t border-gray-200/50 px-3 py-2.5 relative z-20">
+                                    <Link
+                                      href={item.href}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="flex items-center text-sm text-gray-400 hover:text-primary font-medium transition-colors duration-150 px-1.5"
+                                    >
+                                      <span>{t('nav.services')} →</span>
+                                    </Link>
+                                  </div>
+                                </>
+                              )}
                             </div>
                           </motion.div>
                         )}

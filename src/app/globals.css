@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 /* ─── Squircle corners (CSS Borders Level 4, Chrome 133+) ──────────────────
-   One rule makes every rounded element use smooth iOS-style squircle corners.
-   Falls back to standard border-radius on unsupported browsers with no change.
+   Applied only to large card-level elements for smooth iOS-style corners.
+   Buttons, inputs, badges and small elements keep standard rounded corners.
+   Falls back to standard border-radius on unsupported browsers.
    ──────────────────────────────────────────────────────────────────────── */
 @supports (corner-shape: squircle) {
-  *,
-  *::before,
-  *::after {
+  .apple-card,
+  .squircle,
+  .squircle-md,
+  .squircle-lg,
+  .squircle-xl,
+  .squircle-2xl,
+  .rounded-apple,
+  .rounded-apple-lg,
+  .rounded-apple-xl,
+  .rounded-3xl,
+  .rounded-2xl {
     corner-shape: squircle;
   }
 }

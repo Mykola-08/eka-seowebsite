@@ -29,10 +29,24 @@ export default function AppleHero() {
   const { t } = useLanguage();
   const { logEvent } = useAnalytics();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // Track which image indices have ever been rendered — once in DOM, never unmount
+  // This prevents the white-flash blink caused by the outgoing image being removed
+  // from the DOM before the incoming image finishes fading in.
+  const [mountedIndices, setMountedIndices] = useState<Set<number>>(() => new Set([0, 1]));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex(prev => (prev + 1) % heroImages.length);
+      setCurrentImageIndex(prev => {
+        const next = (prev + 1) % heroImages.length;
+        const upcoming = (next + 1) % heroImages.length;
+        setMountedIndices(s => {
+          if (s.has(upcoming)) return s;
+          const ns = new Set(s);
+          ns.add(upcoming);
+          return ns;
+        });
+        return next;
+      });
     }, 7000);
     return () => clearInterval(interval);
   }, []);
@@ -100,11 +114,8 @@ export default function AppleHero() {
 
       {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
       <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
-        {/* Only render current + next images to minimize requests */}
         {heroImages.map((image, index) => {
-          const next = (currentImageIndex + 1) % heroImages.length;
-          const isVisible = index === currentImageIndex || index === next;
-          if (!isVisible) return null;
+          if (!mountedIndices.has(index)) return null;
           return (
             <div
               key={image}

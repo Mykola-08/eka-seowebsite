@@ -5,8 +5,7 @@ const nextConfig = {
   compress: true,
   allowedDevOrigins: ['http://192.168.31.121:3000'],
   experimental: {
-    turbopackUseSystemTlsCerts: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-slot'],
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-slot'],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
@@ -22,6 +21,8 @@ const nextConfig = {
       { protocol: 'https', hostname: 'mocha-cdn.com' },
       { protocol: 'https', hostname: '5tghbndjb61dnqaj.public.blob.vercel-storage.com' },
       { protocol: 'https', hostname: 'front.agenyz.eu' },
+      { protocol: 'https', hostname: 'storage.agenyz.eu' },
+      { protocol: 'https', hostname: 'front.agenyz.ru' },
     ],
   },
   typescript: {

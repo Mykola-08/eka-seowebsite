@@ -27,7 +27,7 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="relative py-24 bg-white border-t border-gray-100">
+    <section className="relative py-28 bg-white">
       <div className="section-container">
         <motion.div
           className="max-w-3xl mx-auto text-center"
@@ -43,11 +43,11 @@ export default function BenefitsSection() {
           <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.benefits.subtitle')}</p>
         </motion.div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className={`group rounded-[2rem] p-8 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 transition-all duration-500 relative overflow-hidden ${index === 0 || index === 4 || index === 8 ? 'md:col-span-2 xl:col-span-1 bg-gradient-to-br from-gold-light/10 to-white' : ''}`}
+              className="group rounded-[2rem] p-7 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

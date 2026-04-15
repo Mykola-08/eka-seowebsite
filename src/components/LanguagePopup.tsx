@@ -1,8 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/contexts/LanguageTypes';
-import { X, Globe } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Cancel01Icon, GlobeIcon } from '@hugeicons/core-free-icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollLock } from '@/hooks/useScrollLock';
+import { Button } from '@/components/ui/button';
 
 export default function LanguagePopup() {
     const { showLanguagePopup, setShowLanguagePopup, confirmLanguage, t } = useLanguage();
@@ -24,7 +26,7 @@ export default function LanguagePopup() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+                className="fixed inset-0 z-90 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs"
                 onClick={() => setShowLanguagePopup(false)}
             >
                 <motion.div
@@ -34,17 +36,19 @@ export default function LanguagePopup() {
                     className="bg-white rounded-3xl  max-w-md w-full p-8 relative border border-gray-100"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <button
+                    <Button
                         onClick={() => setShowLanguagePopup(false)}
-                        className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
+                        variant="ghost"
+                        size="icon"
+                        className="absolute top-4 right-4 rounded-full"
                         aria-label="Close"
                     >
-                        <X className="w-5 h-5" aria-hidden="true" />
-                    </button>
+                        <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5" aria-hidden="true"  />
+                    </Button>
 
                     <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <Globe className="w-8 h-8 text-primary" />
+                            <HugeiconsIcon icon={GlobeIcon} className="w-8 h-8 text-primary"  />
                         </div>
                         <h2 className="text-2xl font-semibold text-gray-900 mb-2">
                             {t('language.popup.title')}
@@ -56,16 +60,17 @@ export default function LanguagePopup() {
 
                     <div className="grid grid-cols-1 gap-3">
                         {languages.map((lang) => (
-                            <button
+                            <Button
                                 key={lang.code}
                                 onClick={() => confirmLanguage(lang.code)}
-                                className="flex items-center p-4 rounded-xl border-2 border-gray-100 hover:border-primary hover:bg-primary/5 transition duration-200 group"
+                                variant="outline-solid"
+                                className="justify-start h-auto p-4 rounded-xl"
                             >
                                 <span className="text-2xl mr-4">{lang.flag}</span>
-                                <span className="font-medium text-gray-700 group-hover:text-primary">
+                                <span className="font-medium">
                                     {lang.label}
                                 </span>
-                            </button>
+                            </Button>
                         ))}
                     </div>
                 </motion.div>

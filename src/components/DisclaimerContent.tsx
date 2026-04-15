@@ -1,11 +1,12 @@
 'use client';
 
 import PageLayout from '@/components/PageLayout';
-import { AlertTriangle, Stethoscope, Heart, Phone, ShieldOff, Info } from 'lucide-react';
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
+import { Alert01Icon, CallIcon, FavouriteIcon, InformationCircleIcon, ShieldBanIcon, StethoscopeIcon } from '@hugeicons/core-free-icons';
 import Link from 'next/link';
 
 const Block = ({ icon: Icon, title, children, color = 'amber' }: {
-  icon: React.ElementType;
+  icon: IconSvgElement;
   title: string;
   children: React.ReactNode;
   color?: 'amber' | 'blue' | 'rose' | 'gray';
@@ -25,8 +26,8 @@ const Block = ({ icon: Icon, title, children, color = 'amber' }: {
   return (
     <div className={`rounded-2xl border p-6 sm:p-8 ${styles[color]}`}>
       <div className="flex items-start gap-4">
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${iconStyles[color]}`}>
-          <Icon className="w-5 h-5" />
+        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${iconStyles[color]}`}>
+          <HugeiconsIcon icon={Icon} className="w-5 h-5" />
         </div>
         <div>
           <h3 className="text-base font-bold text-gray-900 mb-3">{title}</h3>
@@ -50,7 +51,7 @@ export default function DisclaimerContent() {
         {/* Top alert */}
         <div className="rounded-2xl border-2 border-amber-300 bg-amber-50 p-6 sm:p-8">
           <div className="flex items-start gap-4">
-            <AlertTriangle className="w-7 h-7 text-amber-600 flex-shrink-0 mt-0.5" />
+            <HugeiconsIcon icon={Alert01Icon} className="w-7 h-7 text-amber-600 shrink-0 mt-0.5"  />
             <div>
               <p className="text-xl font-bold text-amber-900 mb-3">
                 These are not medical services.
@@ -69,7 +70,7 @@ export default function DisclaimerContent() {
         </div>
 
         {/* What EKA Balance is */}
-        <Block icon={Heart} title="What EKA Balance Is" color="blue">
+        <Block icon={FavouriteIcon} title="What EKA Balance Is" color="blue">
           <p>
             EKA Balance offers complementary and alternative wellness services, including therapeutic massage, kinesiology, nutritional coaching, somatic bodywork, and integrative wellness sessions.
           </p>
@@ -79,7 +80,7 @@ export default function DisclaimerContent() {
         </Block>
 
         {/* What it is NOT */}
-        <Block icon={ShieldOff} title="What EKA Balance Is Not" color="rose">
+        <Block icon={ShieldBanIcon} title="What EKA Balance Is Not" color="rose">
           <ul className="space-y-2">
             {[
               'EKA Balance does not provide medical diagnosis of any disease, disorder, or condition.',
@@ -89,7 +90,7 @@ export default function DisclaimerContent() {
               'EKA Balance does not claim to treat, cure, prevent, or mitigate any medical condition.',
             ].map(item => (
               <li key={item} className="flex items-start gap-2.5">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 flex-shrink-0" />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
                 {item}
               </li>
             ))}
@@ -97,7 +98,7 @@ export default function DisclaimerContent() {
         </Block>
 
         {/* Doctor consultation */}
-        <Block icon={Stethoscope} title="Always Consult Your Doctor First" color="amber">
+        <Block icon={StethoscopeIcon} title="Always Consult Your Doctor First" color="amber">
           <p className="font-semibold text-amber-900">
             Before beginning any complementary or alternative therapy, consult your licensed physician, especially if you:
           </p>
@@ -111,7 +112,7 @@ export default function DisclaimerContent() {
               'Are under the care of a specialist (cardiologist, oncologist, psychiatrist, etc.)',
             ].map(item => (
               <li key={item} className="flex items-start gap-2.5">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
                 {item}
               </li>
             ))}
@@ -122,7 +123,7 @@ export default function DisclaimerContent() {
         </Block>
 
         {/* No liability */}
-        <Block icon={Info} title="Limitation of Liability" color="gray">
+        <Block icon={InformationCircleIcon} title="Limitation of Liability" color="gray">
           <p>
             EKA Balance and its practitioners accept <strong>no medical or legal responsibility</strong> for any health outcomes — positive or negative — arising from:
           </p>
@@ -134,7 +135,7 @@ export default function DisclaimerContent() {
               'Pre-existing conditions not disclosed prior to sessions',
             ].map(item => (
               <li key={item} className="flex items-start gap-2.5">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-500 flex-shrink-0" />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-500 shrink-0" />
                 {item}
               </li>
             ))}
@@ -145,7 +146,7 @@ export default function DisclaimerContent() {
         </Block>
 
         {/* Emergency */}
-        <Block icon={Phone} title="Medical Emergency" color="rose">
+        <Block icon={CallIcon} title="Medical Emergency" color="rose">
           <p className="font-bold text-rose-800 text-base">
             If you are experiencing a medical emergency, call emergency services immediately.
           </p>

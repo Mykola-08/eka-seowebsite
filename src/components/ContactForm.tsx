@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Calendar01Icon, CallIcon, CheckmarkCircle01Icon, Clock01Icon, GlobeIcon, HelpCircleIcon, Loading01Icon, Location01Icon, MailIcon, Message01Icon, SentIcon, Share01Icon, Shield01Icon, UserGroupIcon, UserIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion } from 'framer-motion';
@@ -73,10 +74,10 @@ export default function ContactFormOptimized() {
   ];
 
   const sources = [
-    { value: 'google', label: t('contact.form.source.google'), icon: Globe },
-    { value: 'social', label: t('contact.form.source.social'), icon: Instagram },
-    { value: 'friend', label: t('contact.form.source.friend'), icon: Users },
-    { value: 'other', label: t('contact.form.source.other'), icon: HelpCircle },
+    { value: 'google', label: t('contact.form.source.google'), icon: GlobeIcon },
+    { value: 'social', label: t('contact.form.source.social'), icon: Share01Icon },
+    { value: 'friend', label: t('contact.form.source.friend'), icon: UserGroupIcon },
+    { value: 'other', label: t('contact.form.source.other'), icon: HelpCircleIcon },
   ];
 
   const validateField = (name: keyof ContactFormData, value: unknown) => {
@@ -168,14 +169,14 @@ export default function ContactFormOptimized() {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-2xl mx-auto"
       >
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center border border-green-100 ">
+        <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center border border-green-100 ">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8"
           >
-            <CheckCircle className="w-12 h-12 text-green-600" />
+            <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-12 h-12 text-green-600"  />
           </motion.div>
           <h3 className="text-3xl font-light text-gray-900 mb-4">
             {t('contact.success.title')}
@@ -215,9 +216,9 @@ export default function ContactFormOptimized() {
 
           <div className="space-y-6">
             {[
-              { icon: Phone, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), iconBg: "bg-blue-50", iconText: "text-blue-600", linkHover: "hover:text-blue-600" },
-              { icon: Mail, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), iconBg: "bg-purple-50", iconText: "text-purple-600", linkHover: "hover:text-purple-600" },
-              { icon: MapPin, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", link: undefined, sub: t('contact.info.metro'), iconBg: "bg-green-50", iconText: "text-green-600", linkHover: "hover:text-green-600" }
+              { icon: CallIcon, title: t('contact.info.phone'), content: "+34 658 867 133", link: "tel:+34658867133", sub: t('contact.info.whatsapp'), iconBg: "bg-blue-50", iconText: "text-blue-600", linkHover: "hover:text-blue-600" },
+              { icon: MailIcon, title: t('contact.info.email'), content: "contact@ekabalance.com", link: "mailto:contact@ekabalance.com", sub: t('contact.info.response'), iconBg: "bg-purple-50", iconText: "text-purple-600", linkHover: "hover:text-purple-600" },
+              { icon: Location01Icon, title: t('contact.info.location'), content: "Carrer Pelai, 12, 08001 Barcelona", link: undefined, sub: t('contact.info.metro'), iconBg: "bg-green-50", iconText: "text-green-600", linkHover: "hover:text-green-600" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -226,8 +227,8 @@ export default function ContactFormOptimized() {
                 transition={{ delay: index * 0.1 }}
                 className="flex items-start space-x-4 p-6 bg-white rounded-2xl border border-gray-100 transition-shadow duration-300"
               >
-                <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                  <item.icon className={`w-6 h-6 ${item.iconText}`} />
+                <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center shrink-0`}>
+                  <HugeiconsIcon icon={item.icon} className={`w-6 h-6 ${item.iconText}`}  />
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-1">{item.title}</h4>
@@ -250,10 +251,10 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100"
+            className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100"
           >
             <div className="flex items-start space-x-3">
-              <Clock className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+              <HugeiconsIcon icon={Clock01Icon} className="w-6 h-6 text-blue-600 mt-1 shrink-0"  />
               <div>
                 <h4 className="font-medium text-gray-900 mb-3 text-lg">{t('contact.hours.title')}</h4>
                 <div className="space-y-2 text-sm">
@@ -300,7 +301,7 @@ export default function ContactFormOptimized() {
                     animate={{ opacity: 1, height: 'auto' }}
                     className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center"
                   >
-                    <Shield className="w-5 h-5 text-red-500 mr-3" />
+                    <HugeiconsIcon icon={Shield01Icon} className="w-5 h-5 text-red-500 mr-3"  />
                     <p className="text-red-600 text-sm">{serverError}</p>
                   </motion.div>
                 )}
@@ -311,7 +312,7 @@ export default function ContactFormOptimized() {
                       {t('contact.form.name')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <User className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
+                      <HugeiconsIcon icon={UserIcon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
                       <input
                         type="text"
                         id="name"
@@ -330,7 +331,7 @@ export default function ContactFormOptimized() {
                       {t('contact.form.email')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
+                      <HugeiconsIcon icon={MailIcon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
                       <input
                         type="email"
                         id="email"
@@ -351,7 +352,7 @@ export default function ContactFormOptimized() {
                       {t('contact.form.phone')}
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
+                      <HugeiconsIcon icon={CallIcon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
                       <input
                         type="tel"
                         id="phone"
@@ -415,9 +416,9 @@ export default function ContactFormOptimized() {
                     </label>
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        { value: 'email', label: 'Email', icon: Mail },
-                        { value: 'phone', label: t('contact.form.phone'), icon: Phone },
-                        { value: 'whatsapp', label: 'WhatsApp', icon: MessageCircle }
+                        { value: 'email', label: 'Email', icon: MailIcon },
+                        { value: 'phone', label: t('contact.form.phone'), icon: CallIcon },
+                        { value: 'whatsapp', label: 'WhatsApp', icon: Message01Icon }
                       ].map((option) => (
                         <label
                           key={option.value}
@@ -435,7 +436,7 @@ export default function ContactFormOptimized() {
                             onChange={handleChange}
                             className="sr-only"
                           />
-                          <option.icon className={`w-5 h-5 mb-1 ${formData.preferred_contact === option.value ? 'text-blue-600' : 'text-gray-500'}`} />
+                          <HugeiconsIcon icon={option.icon} className={`w-5 h-5 mb-1 ${formData.preferred_contact === option.value ? 'text-blue-600' : 'text-gray-500'}`}  />
                           <span className="text-xs font-medium">{option.label}</span>
                         </label>
                       ))}
@@ -447,7 +448,7 @@ export default function ContactFormOptimized() {
                       {t('contact.form.preferredTime')}
                     </label>
                     <div className="relative">
-                      <Calendar className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
+                      <HugeiconsIcon icon={Calendar01Icon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
                       <select
                         id="preferred_time"
                         name="preferred_time"
@@ -519,12 +520,12 @@ export default function ContactFormOptimized() {
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                      <HugeiconsIcon icon={Loading01Icon} className="w-5 h-5 animate-spin mr-2"  />
                       {t('contact.form.submitting')}
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5 mr-2" />
+                      <HugeiconsIcon icon={SentIcon} className="w-5 h-5 mr-2"  />
                       {t('contact.form.submit')}
                     </>
                   )}
@@ -541,16 +542,16 @@ export default function ContactFormOptimized() {
                     href="https://wa.me/34658867133"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-[44px]"
+                    className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-11"
                   >
-                    <MessageCircle className="w-4 h-4 mr-2" />
+                    <HugeiconsIcon icon={Message01Icon} className="w-4 h-4 mr-2"  />
                     WhatsApp
                   </a>
                   <a
                     href="tel:+34658867133"
-                    className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-[44px]"
+                    className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-11"
                   >
-                    <Phone className="w-4 h-4 mr-2" />
+                    <HugeiconsIcon icon={CallIcon} className="w-4 h-4 mr-2"  />
                     {t('contact.quick.call')}
                   </a>
                 </div>

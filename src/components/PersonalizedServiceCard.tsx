@@ -3,8 +3,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
-import { Clock } from 'lucide-react';
-
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Clock01Icon } from '@hugeicons/core-free-icons';
 interface PersonalizedServiceCardProps {
   service: PersonalizedServiceItem;
 }
@@ -20,7 +20,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <ul className="space-y-1.5">
             {service.benefitsKeys.map((key, i) => (
               <li key={i} className="flex items-start text-sm text-gray-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 mr-2.5 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 mr-2.5 shrink-0" />
                 {t(key)}
               </li>
             ))}
@@ -41,7 +41,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
         <div className="flex flex-col gap-0.5">
           <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">{t('common.duration') || 'Duration'}</span>
           <div className="flex items-center gap-1.5">
-            <Clock className="w-4 h-4 text-gray-400" />
+            <HugeiconsIcon icon={Clock01Icon} className="w-4 h-4 text-gray-400"  />
             <span className="text-sm font-semibold text-gray-900">{service.duration ? `${service.duration} ${t('common.minutes') || 'min'}` : `60 ${t('common.minutes') || 'min'}`}</span>
           </div>
         </div>

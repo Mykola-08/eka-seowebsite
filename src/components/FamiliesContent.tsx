@@ -3,6 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import { shimmerBlurDataURL } from '@/lib/image-utils';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import SEOUpdater from '@/components/SEOUpdater';
@@ -34,8 +35,8 @@ export default function FamiliesContent() {
   };
 
   const Hero = (
-      <section className="py-12 sm:py-20 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+      <section className="py-12 sm:py-20 bg-linear-to-br from-white via-green-50/30 to-emerald-50/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center mask-[linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -54,7 +55,7 @@ export default function FamiliesContent() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/booking">
-                   <Button size="xl" variant="default" className="px-8 py-4 normal-case">
+                   <Button size="xl" variant="default">
                       {t('common.reserveSession')}
                    </Button>
                 </Link>
@@ -62,13 +63,15 @@ export default function FamiliesContent() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="relative w-full h-[400px] sm:h-[500px]">
+              <div className="relative w-full h-100 sm:h-125">
                 <Image
                   src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1920&h=1080&fit=crop"
                   alt={t('elena.target.families.title')}
                   fill
                   className="object-cover rounded-apple-xl  rotate-1 hover:rotate-0 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  placeholder="blur"
+                  blurDataURL={shimmerBlurDataURL()}
                 />
               </div>
             </div>
@@ -89,8 +92,8 @@ export default function FamiliesContent() {
       {Hero}
       
       {/* Recommended Services - Added for better UX */}
-      <section className="py-24 bg-[#fbfbfd]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+      <section className="py-24 bg-muted/30">
+        <div className="max-w-350 mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-gray-900 tracking-tighter">
                 {t('families.recommended')}
@@ -100,7 +103,7 @@ export default function FamiliesContent() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-300 mx-auto">
                <ServiceBentoItem 
                   title={t(familyKinesiology.titleKey)} 
                   description={t(familyKinesiology.descriptionKey)} 

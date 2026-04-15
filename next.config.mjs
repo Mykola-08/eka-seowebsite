@@ -5,12 +5,23 @@ const nextConfig = {
   compress: true,
   allowedDevOrigins: ['http://192.168.31.121:3000'],
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-slot'],
+    optimizePackageImports: [
+      '@hugeicons/react',
+      '@hugeicons/core-free-icons',
+      '@radix-ui/react-slot',
+      'framer-motion',
+      '@use-gesture/react',
+    ],
+    staleTimes: {
+      dynamic: 30,
+      static: 180,
+    },
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
   },
   images: {
+    qualities: [75, 85],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -31,15 +42,8 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // Aggressive caching for immutable static assets (hashed filenames)
-        source: '/_next/static/(.*)',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-        ],
-      },
-      {
         // Cache public images for 1 year
-        source: '/images/(.*)',
+        source: '/images/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],

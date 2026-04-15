@@ -1,6 +1,10 @@
-import { Button, ButtonProps } from '@/components/ui/button';
-import { Loader2 } from 'lucide-react';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { type VariantProps } from 'class-variance-authority';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Loading01Icon } from '@hugeicons/core-free-icons';
 import { cn } from '@/lib/utils';
+
+type ButtonProps = React.ComponentProps<"button"> & VariantProps<typeof buttonVariants> & { asChild?: boolean };
 
 export interface LoadingButtonProps extends ButtonProps {
   loading?: boolean;
@@ -21,7 +25,7 @@ export default function LoadingButton({
     >
       {loading ? (
         <>
-          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+          <HugeiconsIcon icon={Loading01Icon} className="w-5 h-5 mr-2 animate-spin"  />
           {children}
         </>
       ) : (
@@ -42,7 +46,7 @@ export function SaveButton({
   return (
     <LoadingButton
       {...props}
-      variant={saved ? "outline" : (props.variant || "default")}
+      variant={saved ? "outline-solid" : (props.variant || "default")}
       loading={loading}
     >
       {saved ? '✓ Desat' : (loading ? 'Desant...' : (children || 'Desar'))}

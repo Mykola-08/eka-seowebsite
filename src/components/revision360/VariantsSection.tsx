@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Compass, MapPin, RotateCcw, Sparkles, CheckCircle2 } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon, CheckmarkCircle01Icon, Compass01Icon, Location01Icon, RotateLeft01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -27,7 +28,7 @@ export default function VariantsSection() {
 
   const variants: Variant[] = [
     {
-      icon: <RotateCcw className="w-6 h-6" />,
+      icon: <HugeiconsIcon icon={RotateLeft01Icon} className="w-6 h-6"  />,
       title: t('revision360.variants.reset.title'),
       subtitle: t('revision360.variants.reset.subtitle'),
       description: t('revision360.variants.reset.description'),
@@ -49,7 +50,7 @@ export default function VariantsSection() {
       borderColor: 'hover:border-blue-500/30',
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
+      icon: <HugeiconsIcon icon={Location01Icon} className="w-6 h-6"  />,
       title: t('revision360.variants.mapping.title'),
       subtitle: t('revision360.variants.mapping.subtitle'),
       description: t('revision360.variants.mapping.description'),
@@ -71,7 +72,7 @@ export default function VariantsSection() {
       borderColor: 'hover:border-indigo-500/30',
     },
     {
-      icon: <Compass className="w-6 h-6" />,
+      icon: <HugeiconsIcon icon={Compass01Icon} className="w-6 h-6"  />,
       title: t('revision360.variants.alignment.title'),
       subtitle: t('revision360.variants.alignment.subtitle'),
       description: t('revision360.variants.alignment.description'),
@@ -93,7 +94,7 @@ export default function VariantsSection() {
       borderColor: 'hover:border-violet-500/30',
     },
     {
-      icon: <Sparkles className="w-6 h-6" />,
+      icon: <HugeiconsIcon icon={SparklesIcon} className="w-6 h-6"  />,
       title: t('revision360.variants.integral.title'),
       subtitle: t('revision360.variants.integral.subtitle'),
       description: t('revision360.variants.integral.description'),
@@ -118,11 +119,11 @@ export default function VariantsSection() {
   ];
 
   return (
-    <section className="relative py-28 bg-[#09090f] overflow-hidden">
+    <section className="relative py-28 bg-background overflow-hidden">
       {/* Ambient blobs */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-blue-600/6 blur-[140px]" />
-        <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-indigo-700/5 blur-[120px]" />
+        <div className="absolute top-0 left-1/3 h-125 w-125 rounded-full bg-blue-600/6 blur-[140px]" />
+        <div className="absolute bottom-0 right-1/4 h-100 w-100 rounded-full bg-indigo-700/5 blur-[120px]" />
       </div>
 
       <div className="section-container relative z-10">
@@ -153,11 +154,11 @@ export default function VariantsSection() {
               type="button"
               onClick={() => setSelectedVariant(variant)}
               className={[
-                'group text-left rounded-[2rem] p-8 lg:p-10 transition-all duration-500 relative overflow-hidden flex flex-col',
+                'group text-left rounded-4xl p-8 lg:p-10 transition-all duration-500 relative overflow-hidden flex flex-col',
                 'hover:-translate-y-1 active:scale-[0.98]',
                 variant.highlight
                   ? `bg-white/[0.07] border border-gold/30 ${variant.borderColor} shadow-xl shadow-gold/5`
-                  : `bg-white/[0.04] border border-white/8 ${variant.borderColor}`,
+                  : `bg-white/4 border border-white/8 ${variant.borderColor}`,
               ].join(' ')}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +172,7 @@ export default function VariantsSection() {
               )}
 
               {/* Corner glow */}
-              <div className="absolute top-0 right-0 h-48 w-48 rounded-full bg-gradient-to-bl from-white/[0.04] to-transparent blur-2xl -mr-12 -mt-12 pointer-events-none" aria-hidden="true" />
+              <div className="absolute top-0 right-0 h-48 w-48 rounded-full bg-linear-to-bl from-white/4 to-transparent blur-2xl -mr-12 -mt-12 pointer-events-none" aria-hidden="true" />
 
               {/* Icon */}
               <span className={`relative z-10 mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 transition-colors duration-300 ${variant.accentColor}`}>
@@ -193,7 +194,7 @@ export default function VariantsSection() {
               <ul className="relative z-10 space-y-1.5 mb-6">
                 {variant.includes.slice(0, 3).map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-xs text-zinc-500">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-500/70 mt-0.5 shrink-0" />
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-blue-500/70 mt-0.5 shrink-0"  />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -206,7 +207,7 @@ export default function VariantsSection() {
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="text-xl font-bold text-white">{variant.price}</span>
-                  <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all duration-200" />
+                  <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all duration-200"  />
                 </div>
               </div>
             </motion.button>
@@ -246,7 +247,7 @@ export default function VariantsSection() {
                 <ul className="space-y-2">
                   {selectedVariant.includes.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-gray-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
+                      <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"  />
                       <span>{item}</span>
                     </li>
                   ))}

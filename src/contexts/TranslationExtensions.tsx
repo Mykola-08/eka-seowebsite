@@ -1174,7 +1174,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'prompt.layeredProcesses': 'Layered processes',
     'prompt.layeredDesc': 'Release tension, reorder patterns and consolidate new bodily and emotional habits',
     'prompt.session': 'Session',
-    'prompt.firstVisit': 'First visit with diagnosis and gentle work. From here, i outline the',
+    'prompt.firstVisit': 'First visit with diagnosis and gentle work. From here, i outline-solid the',
     'prompt.personalPlan': 'Personal plan',
     'prompt.sessionsRange': '(usually 3–6 sessions) to go layer by layer',
     'prompt.forWho': 'Who it\'s for',

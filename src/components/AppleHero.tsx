@@ -7,7 +7,9 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import AnimateIn from './AnimateIn';
-import { Sparkles } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { SparklesIcon } from '@hugeicons/core-free-icons';
+import { shimmerBlurDataURL } from '@/lib/image-utils';
 
 // Verified massage therapy in beautiful spa environments — all URLs confirmed on Pexels
 const heroImages = [
@@ -52,10 +54,10 @@ export default function AppleHero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[100svh] md:h-[100svh] bg-[#fdfdfd] flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-24 pb-8 sm:pb-10 overflow-hidden">
+    <section className="relative w-full min-h-svh md:h-svh bg-background flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-24 pb-8 sm:pb-10 overflow-hidden">
 
       {/* Subtle background glows — hidden on mobile to protect performance */}
-      <div className="hidden sm:block absolute top-0 left-0 w-full h-[500px] overflow-hidden pointer-events-none">
+      <div className="hidden sm:block absolute top-0 left-0 w-full h-125 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-[80px] mix-blend-multiply" />
         <div className="absolute top-[10%] right-[-5%] w-[30%] h-[30%] bg-purple-100/40 rounded-full blur-[60px] mix-blend-multiply" />
       </div>
@@ -64,7 +66,7 @@ export default function AppleHero() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-6 sm:mb-8 md:mb-6">
         <AnimateIn delay={0} duration={0.3} from="bottom">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60  backdrop-blur-md mb-8">
-            <Sparkles className="w-4 h-4 text-blue-600" />
+            <HugeiconsIcon icon={SparklesIcon} className="w-4 h-4 text-blue-600"  />
             <span className="text-sm font-medium text-gray-800 tracking-wide">EKA Balance Method</span>
           </div>
         </AnimateIn>
@@ -88,7 +90,7 @@ export default function AppleHero() {
               asChild
               variant="default"
               size="xl"
-              className="px-8 py-6 text-lg h-auto rounded-full w-full sm:w-auto   transition-all duration-300"
+              className="w-full sm:w-auto"
               onClick={() => logEvent('hero_first_time_click')}
             >
               <Link href="/first-time">
@@ -101,7 +103,7 @@ export default function AppleHero() {
               asChild
               variant="outline"
               size="xl"
-              className="px-8 py-6 text-lg h-auto rounded-full w-full sm:w-auto backdrop-blur-md bg-white/50 border-gray-300 hover:bg-white/80 transition-all duration-300"
+              className="w-full sm:w-auto"
               onClick={() => logEvent('hero_services_click')}
             >
               <Link href="/services">
@@ -113,13 +115,13 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (
             <div
               key={image}
-              className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
                 index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
             >
@@ -129,14 +131,16 @@ export default function AppleHero() {
                 fill
                 priority={index === 0}
                 loading={index === 0 ? 'eager' : 'lazy'}
-                className={`object-cover transition-transform duration-[7500ms] ease-out ${
+                placeholder="blur"
+                blurDataURL={shimmerBlurDataURL(1200, 800)}
+                className={`object-cover transition-transform duration-7500 ease-out ${
                   index === currentImageIndex ? 'scale-105' : 'scale-100'
                 }`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 quality={85}
               />
               {/* Subtle Gradient Overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-gray-900/20 via-transparent to-transparent pointer-events-none" />
             </div>
           );
         })}

@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Music } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { MusicNote01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
@@ -45,7 +46,7 @@ export default function ForMusiciansContent() {
     <PersonalizedServiceTemplate
       serviceId="musicians"
       translationKey="personalized.musicians"
-      Icon={Music}
+      Icon={MusicNote01Icon}
       seoKeys={{
         title: 'seo.musicians.title',
         description: 'seo.musicians.description',

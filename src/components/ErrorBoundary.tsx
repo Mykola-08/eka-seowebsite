@@ -2,8 +2,8 @@
 
 import { Component, ReactNode, ErrorInfo } from 'react';
 import { Button } from '@/components/ui/button';
-import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
-
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Alert01Icon, Home01Icon, Refresh01Icon } from '@hugeicons/core-free-icons';
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
@@ -55,7 +55,7 @@ export default class ErrorBoundary extends Component<Props, State> {
         <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl  max-w-md w-full p-8 text-center">
             <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <AlertTriangle className="w-10 h-10 text-red-500" />
+              <HugeiconsIcon icon={Alert01Icon} className="w-10 h-10 text-red-500"  />
             </div>
             
             <h1 className="text-2xl font-bold text-gray-900 mb-4">
@@ -88,7 +88,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                 variant="default"
                 className="w-full sm:w-auto"
               >
-                <RefreshCw className="w-4 h-4 mr-2" />
+                <HugeiconsIcon icon={Refresh01Icon} className="w-4 h-4 mr-2"  />
                 Tornar a intentar
               </Button>
               
@@ -97,7 +97,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                 variant="outline"
                 className="w-full sm:w-auto"
               >
-                <Home className="w-4 h-4 mr-2" />
+                <HugeiconsIcon icon={Home01Icon} className="w-4 h-4 mr-2"  />
                 Anar a l'inici
               </Button>
             </div>
@@ -121,7 +121,7 @@ export function ErrorFallback({
   return (
     <div className="p-8 bg-red-50 border border-red-200 rounded-2xl">
       <div className="flex items-center mb-4">
-        <AlertTriangle className="w-6 h-6 text-red-500 mr-3" />
+        <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-red-500 mr-3"  />
         <h2 className="text-lg font-medium text-red-900">
           Error en aquesta secció
         </h2>
@@ -131,12 +131,13 @@ export function ErrorFallback({
         S'ha produït un error en aquesta part de l'aplicació.
       </p>
       
-      <button
+      <Button
         onClick={resetError}
-        className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
+        variant="destructive"
+        size="sm"
       >
         Tornar a intentar
-      </button>
+      </Button>
       
       {process.env.NODE_ENV === 'development' && (
         <details className="mt-4">

@@ -12,3 +12,8 @@ out/
 .env.local
 .env.production
 .env.*.local
+
+# Generated files
+public/output.css
+test-results/
+*.log

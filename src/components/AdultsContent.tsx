@@ -32,8 +32,8 @@ export default function AdultsContent() {
   };
 
   const HeroCustom = (
-      <section className="py-20 sm:py-28 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+      <section className="py-20 sm:py-28 bg-linear-to-br from-white via-amber-50/30 to-orange-50/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center mask-[linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 flex flex-col items-center text-center">
             <h1 className="heading-1 mb-6 max-w-4xl">
@@ -56,7 +56,7 @@ export default function AdultsContent() {
       <PageLayout>
       {HeroCustom}
       
-      <section className="py-24 bg-[#fbfbfd] relative z-10 -mt-10 rounded-t-[3rem] ">
+      <section className="py-24 bg-muted/30 relative z-10 -mt-10 rounded-t-[3rem] ">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-gray-900 tracking-tighter">

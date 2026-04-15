@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CalendarCheck2, MessageCircle } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { CalendarCheckIn01Icon, Message01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ParallaxBackground from '@/components/ParallaxBackground';
@@ -22,8 +23,8 @@ export default function FinalInvitationSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
-            <CalendarCheck2 className="h-3 w-3" aria-hidden="true" />
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-xs">
+            <HugeiconsIcon icon={CalendarCheckIn01Icon} className="h-3 w-3" aria-hidden="true"  />
             EKA Balance · 360° Integral Method
           </span>
           <h2 className="text-4xl sm:text-6xl font-semibold text-white tracking-tight mb-6">
@@ -45,7 +46,7 @@ export default function FinalInvitationSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <CalendarCheck2 className="w-5 h-5 mr-2" />
+                <HugeiconsIcon icon={CalendarCheckIn01Icon} className="w-5 h-5 mr-2"  />
                 {t('common.bookNow')}
               </a>
             </Button>
@@ -61,16 +62,16 @@ export default function FinalInvitationSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                 {t('cta.scheduleDiscoveryCall')}
               </a>
             </Button>
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-3 sm:gap-4 text-sm text-gray-300">
-            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2">{t('labels.noInsuranceNeeded')}</span>
-            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2">{t('labels.flexibleSchedules')}</span>
-            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2">{t('labels.personalizedApproach')}</span>
+            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-xs px-4 py-2">{t('labels.noInsuranceNeeded')}</span>
+            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-xs px-4 py-2">{t('labels.flexibleSchedules')}</span>
+            <span className="rounded-full border border-white/20 bg-white/10 backdrop-blur-xs px-4 py-2">{t('labels.personalizedApproach')}</span>
           </div>
         </motion.div>
       </div>

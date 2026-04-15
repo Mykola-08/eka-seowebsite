@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Brain } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Brain01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CoreServiceTemplate from '@/components/templates/CoreServiceTemplate';
 
@@ -15,7 +16,7 @@ export default function KinesiologiaContent() {
         titleKey: 'services.kinesiology.title',
         subtitleKey: 'services.kinesiology.description',
         badgeKey: 'services.kinesiology.subtitle',
-        icon: Brain
+        icon: Brain01Icon
       }}
       bentoGrid={{
         titleKey: 'kinesiology.page.benefitsTitle',

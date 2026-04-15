@@ -12,7 +12,7 @@ type WindowWithLenis = Window & { lenis?: { stop: () => void; start: () => void 
 export function useScrollLock(isLocked: boolean) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const win = window as WindowWithLenis;
+    const win = window as unknown as WindowWithLenis;
 
     if (isLocked) {
       // Pause Lenis smooth scrolling if it exists globally

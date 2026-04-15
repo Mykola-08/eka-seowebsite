@@ -2,7 +2,8 @@
 
 
 import { useState, useEffect, useCallback } from 'react';
-import { CheckCircle, AlertCircle, Info, X } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { AlertCircleIcon, Cancel01Icon, CheckmarkCircle01Icon, InformationCircleIcon } from '@hugeicons/core-free-icons';
 import { cn } from '@/lib/utils';
 
 declare global {
@@ -72,14 +73,14 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   const getIcon = () => {
     switch (toast.type) {
       case 'success':
-        return <CheckCircle className="w-5 h-5 text-green-600" />;
+        return <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-green-600"  />;
       case 'error':
-        return <AlertCircle className="w-5 h-5 text-red-600" />;
+        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-red-600"  />;
       case 'warning':
-        return <AlertCircle className="w-5 h-5 text-yellow-600" />;
+        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-yellow-600"  />;
       case 'info':
       default:
-        return <Info className="w-5 h-5 text-blue-600" />;
+        return <HugeiconsIcon icon={InformationCircleIcon} className="w-5 h-5 text-blue-600"  />;
     }
   };
 
@@ -95,14 +96,14 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden max-w-md w-full rounded-lg border  backdrop-blur-sm transition duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
+        "relative overflow-hidden max-w-md w-full rounded-lg border  backdrop-blur-xs transition duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
         getVariantStyles(),
         isVisible && !isExiting
           ? 'translate-x-0 opacity-100 scale-100'
           : 'translate-x-full opacity-0 scale-95'
       )}
     >
-      <div className="flex-shrink-0 mt-0.5">
+      <div className="shrink-0 mt-0.5">
         {getIcon()}
       </div>
       
@@ -132,7 +133,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
         aria-label="Close notification"
         className="absolute top-4 right-4 text-current opacity-70 hover:opacity-100 transition-opacity p-0.5 rounded-full hover:bg-black/5"
       >
-        <X className="w-4 h-4" />
+        <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4"  />
       </button>
 
       {/* Progress bar for duration */}
@@ -186,7 +187,7 @@ export default function ToastContainer() {
   }, []);
 
   return (
-    <div className="fixed top-4 right-4 z-[100] space-y-4 pointer-events-none">
+    <div className="fixed top-4 right-4 z-(--z-toast) space-y-4 pointer-events-none">
       <div className="space-y-3">
         {toasts.map(toast => (
           <div key={toast.id} className="pointer-events-auto">

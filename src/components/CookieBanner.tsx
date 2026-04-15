@@ -2,7 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, Cookie, Shield, FileText, AlertTriangle, ScrollText } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Alert01Icon, Cancel01Icon, CookieIcon, File01Icon, GraduationScrollIcon, Shield01Icon } from '@hugeicons/core-free-icons';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -56,10 +57,10 @@ export default function CookieBanner() {
   };
 
   const policies = [
-    { href: '/cookie-policy', label: t('cookies.learnMore'), icon: Cookie },
-    { href: '/privacy-policy', label: t('footer.privacyPolicy'), icon: Shield },
-    { href: '/terms-of-service', label: t('footer.termsOfService'), icon: ScrollText },
-    { href: '/disclaimer', label: 'Disclaimer', icon: AlertTriangle },
+    { href: '/cookie-policy', label: t('cookies.learnMore'), icon: CookieIcon },
+    { href: '/privacy-policy', label: t('footer.privacyPolicy'), icon: Shield01Icon },
+    { href: '/terms-of-service', label: t('footer.termsOfService'), icon: GraduationScrollIcon },
+    { href: '/disclaimer', label: 'Disclaimer', icon: Alert01Icon },
   ];
 
   return (
@@ -70,7 +71,7 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-[60] px-3 pt-3 pb-24 md:px-6 md:pb-6"
+          className="fixed bottom-0 left-0 right-0 z-[var(--z-toast)] px-3 pt-3 pb-24 md:px-6 md:pb-6"
         >
           <div className="max-w-4xl mx-auto">
             <div className="bg-white/97 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
@@ -79,7 +80,7 @@ export default function CookieBanner() {
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center shrink-0">
-                      <Cookie className="w-4.5 h-4.5 text-gray-600" style={{ width: 18, height: 18 }} />
+                      <HugeiconsIcon icon={CookieIcon} className="w-4.5 h-4.5 text-gray-600" style={{ width: 18, height: 18 }}  />
                     </div>
                     <h3 className="text-base font-semibold text-gray-900 tracking-tight">
                       {t('cookies.title')}
@@ -90,7 +91,7 @@ export default function CookieBanner() {
                     className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-1.5 transition-colors shrink-0"
                     aria-label="Reject cookies and close"
                   >
-                    <X className="w-4 h-4" />
+                    <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4"  />
                   </button>
                 </div>
 
@@ -108,7 +109,7 @@ export default function CookieBanner() {
                         href={href}
                         className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-blue-600 transition-colors duration-200"
                       >
-                        <Icon className="w-3 h-3" />
+                        <HugeiconsIcon icon={Icon} className="w-3 h-3" />
                         <span className="underline underline-offset-2 decoration-dotted">{label}</span>
                       </Link>
                     ))}
@@ -119,8 +120,9 @@ export default function CookieBanner() {
                 <div className="flex flex-wrap items-center gap-2.5 pl-12">
                   <Button
                     onClick={acceptCookies}
+                    variant="gold"
                     size="sm"
-                    className="bg-gold hover:brightness-90 text-eka-dark font-medium rounded-full px-6 hover:shadow-md transition-all duration-200"
+                    className="rounded-full px-6"
                   >
                     {t('cookies.accept')}
                   </Button>
@@ -129,17 +131,19 @@ export default function CookieBanner() {
                     onClick={rejectCookies}
                     variant="outline"
                     size="sm"
-                    className="font-medium rounded-full px-5 border-gray-200 text-gray-600 hover:bg-gray-100 transition-all"
+                    className="rounded-full px-5"
                   >
                     {t('cookies.reject') || 'Rebutjar'}
                   </Button>
 
-                  <button
+                  <Button
                     onClick={() => setShowLanguagePopup(true)}
-                    className="text-gray-400 hover:text-blue-600 text-xs transition-colors duration-200 underline decoration-dotted underline-offset-2 ml-auto"
+                    variant="link"
+                    size="xs"
+                    className="ml-auto"
                   >
                     {t('cookies.wrongLanguage')}
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

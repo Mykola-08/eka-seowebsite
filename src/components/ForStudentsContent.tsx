@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Brain } from 'lucide-react';
-
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Brain01Icon } from '@hugeicons/core-free-icons';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForStudentsContent() {
@@ -10,7 +10,7 @@ export default function ForStudentsContent() {
     <PersonalizedServiceTemplate
       serviceId="students"
       translationKey="personalized.students"
-      Icon={Brain}
+      Icon={Brain01Icon}
       seoKeys={{
         title: 'seo.students.title',
         description: 'seo.students.description',

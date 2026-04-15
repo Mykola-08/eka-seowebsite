@@ -1,6 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface ModalProps {
@@ -37,9 +38,9 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="fixed inset-0 z-90 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -85,7 +86,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
                       onClick={onClose}
                       className="rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
                     >
-                      <X className="h-5 w-5" />
+                      <HugeiconsIcon icon={Cancel01Icon} className="h-5 w-5"  />
                     </button>
                   </div>
                 )}
@@ -99,7 +100,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
                     onClick={onClose}
                     className="absolute right-6 top-6 rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
                   >
-                    <X className="h-5 w-5" />
+                    <HugeiconsIcon icon={Cancel01Icon} className="h-5 w-5"  />
                   </button>
                 )}
               </div>

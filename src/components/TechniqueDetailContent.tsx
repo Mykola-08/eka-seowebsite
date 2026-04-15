@@ -2,7 +2,8 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft01Icon } from '@hugeicons/core-free-icons';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
 
@@ -44,7 +45,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
           href="/#techniques" 
           className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors mb-8 group"
         >
-          <ArrowLeft className="w-5 h-5 mr-2 transition-colors" />
+          <HugeiconsIcon icon={ArrowLeft01Icon} className="w-5 h-5 mr-2 transition-colors"  />
           {t('common.back')}
         </Link>
         
@@ -53,7 +54,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-gray-900 via-blue-800 to-gray-900 mb-6">
             {t(`${baseKey}.title`)}
           </h1>
           

@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft01Icon, Cancel01Icon, File01Icon, Message01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -106,7 +107,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
   if (!isOpen) return null;
 
   return typeof document !== 'undefined' ? createPortal(
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-90 flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
       <motion.div
         ref={dialogRef}
         role="dialog"
@@ -123,7 +124,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
           aria-label={t('booking.smart.close') || 'Close'}
           className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 flex items-center justify-center transition-colors z-10"
         >
-          <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+          <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5 text-gray-600 dark:text-gray-300"  />
         </button>
 
         <div className="p-5 sm:p-8">
@@ -148,10 +149,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 <div className="grid gap-4">
                   <button
                     onClick={handleQuickWhatsApp}
-                    className="flex items-center p-4 rounded-2xl border-2 border-green-100 hover:border-green-500 bg-green-50/50 hover:bg-green-50 transition duration-200 group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-2xl border-2 border-green-100 hover:border-green-500 bg-green-50/50 hover:bg-green-50 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4 transition-colors">
-                      <MessageCircle className="w-6 h-6 text-green-600" />
+                      <HugeiconsIcon icon={Message01Icon} className="w-6 h-6 text-green-600"  />
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-900 dark:text-gray-100">
@@ -165,10 +166,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     onClick={() => setStep('form')}
-                    className="flex items-center p-4 rounded-2xl border-2 border-blue-100 hover:border-blue-500 bg-blue-50/50 hover:bg-blue-50 transition duration-200 group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-2xl border-2 border-blue-100 hover:border-blue-500 bg-blue-50/50 hover:bg-blue-50 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 transition-colors">
-                      <FileText className="w-6 h-6 text-blue-600" />
+                      <HugeiconsIcon icon={File01Icon} className="w-6 h-6 text-blue-600"  />
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-900 dark:text-gray-100">
@@ -194,7 +195,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                     onClick={() => setStep('choice')}
                     className="mr-4 p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-full transition-colors"
                   >
-                    <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                    <HugeiconsIcon icon={ArrowLeft01Icon} className="w-5 h-5 text-gray-600 dark:text-gray-300"  />
                   </button>
                   <h2 className="text-xl font-medium text-gray-900 dark:text-white">
                     {t('booking.smart.form')}
@@ -212,7 +213,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-none transition"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
                     />
                   </div>
 
@@ -224,7 +225,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       id="booking-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-none transition"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
                     >
                       <option value="">{t('booking.smart.service.placeholder')}</option>
                       {services.map((s) => (
@@ -243,7 +244,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       placeholder={t('booking.smart.time.placeholder')}
                       value={formData.timePreference}
                       onChange={(e) => setFormData({ ...formData, timePreference: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-none transition"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
                     />
                   </div>
 
@@ -251,7 +252,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                     type="submit"
                     className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium   transition-colors flex items-center justify-center"
                   >
-                    <MessageCircle className="w-5 h-5 mr-2" />
+                    <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.smart.send')}
                   </button>
                 </form>

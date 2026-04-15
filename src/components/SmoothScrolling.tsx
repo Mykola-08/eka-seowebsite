@@ -8,7 +8,7 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
 
   // Scroll to top instantly on every route change
   useEffect(() => {
-    const lenis = (window as Window & { lenis?: { scrollTo: (target: number, opts?: { immediate?: boolean }) => void } }).lenis;
+    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, opts?: { immediate?: boolean }) => void } }).lenis;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
@@ -52,7 +52,7 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
         touchMultiplier: 2,
       });
       // Expose globally for hooks like useScrollLock to access .stop() and .start()
-      (window as Window & { lenis?: typeof lenis }).lenis = lenis;
+      (window as unknown as { lenis?: typeof lenis }).lenis = lenis;
 
       const raf = (time: number) => {
         lenis?.raf(time);

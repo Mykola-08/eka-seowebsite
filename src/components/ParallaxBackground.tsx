@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import { shimmerBlurDataURL } from '@/lib/image-utils';
 
 interface ParallaxBackgroundProps {
   src: string;
@@ -40,6 +41,8 @@ export default function ParallaxBackground({
           fill
           className="object-cover"
           loading="lazy"
+          placeholder="blur"
+          blurDataURL={shimmerBlurDataURL()}
           sizes="100vw"
           quality={75}
         />

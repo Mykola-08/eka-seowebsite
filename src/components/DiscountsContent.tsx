@@ -3,7 +3,8 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useDiscount } from '@/contexts/DiscountContext';
-import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Cancel01Icon, GiftIcon, PercentIcon, Tag01Icon, Tick01Icon, UserGroupIcon } from '@hugeicons/core-free-icons';
 import { useState } from 'react';
 import PageLayout from './PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -38,7 +39,7 @@ export default function DiscountsContent() {
         title: t('discounts.title') || "Descomptes Exclusius",
         subtitle: t('discounts.subtitle') || "Aprofita les nostres ofertes especials per cuidar-te millor.",
         badge: t('discounts.badge') || "Ofertes Especials",
-        icon: <Tag className="w-4 h-4" />
+        icon: <HugeiconsIcon icon={Tag01Icon} className="w-4 h-4"  />
       }}
     >
       {/* Success Notification */}
@@ -48,9 +49,9 @@ export default function DiscountsContent() {
             initial={{ opacity: 0, y: -20, x: 20 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-2xl  flex items-center space-x-3"
+            className="fixed top-24 right-4 z-(--z-toast) bg-green-500 text-white px-6 py-4 rounded-2xl  flex items-center space-x-3"
           >
-            <Check className="w-5 h-5" />
+            <HugeiconsIcon icon={Tick01Icon} className="w-5 h-5"  />
             <span className="font-medium">{t('discounts.success') || "Descompte aplicat correctament!"}</span>
           </motion.div>
         )}
@@ -67,7 +68,7 @@ export default function DiscountsContent() {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <Check className="w-5 h-5" />
+                <HugeiconsIcon icon={Tick01Icon} className="w-5 h-5"  />
                 <span className="font-medium">
                   {selectedDiscount.name} {t('discounts.active', { percentage: selectedDiscount.percentage })}
                 </span>
@@ -76,7 +77,7 @@ export default function DiscountsContent() {
                 onClick={removeDiscount}
                 className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full transition-colors text-sm"
               >
-                <X className="w-4 h-4" />
+                <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4"  />
                 <span>{t('discounts.remove') || "Remove"}</span>
               </button>
             </div>
@@ -98,12 +99,12 @@ export default function DiscountsContent() {
                 className="group relative bg-white rounded-3xl p-8   transition duration-300 border border-gray-100 overflow-hidden"
               >
                 {/* Background Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-br from-blue-50/50 via-white to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Header */}
                 <div className="relative flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center text-blue-600 transition-colors duration-300">
-                    <Percent className="w-7 h-7" />
+                  <div className="w-14 h-14 bg-linear-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center text-blue-600 transition-colors duration-300">
+                    <HugeiconsIcon icon={PercentIcon} className="w-7 h-7"  />
                   </div>
                   {discount.isActive && (
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
@@ -128,7 +129,7 @@ export default function DiscountsContent() {
                     <div className="relative space-y-3">
                       <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200 border-dashed group-hover:border-blue-200 transition-colors">
                          <div className="flex items-center space-x-2 overflow-hidden">
-                            <Gift className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                            <HugeiconsIcon icon={GiftIcon} className="w-4 h-4 text-blue-500 shrink-0"  />
                             <code className="text-sm font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded truncate">
                                {discount.code}
                             </code>
@@ -143,7 +144,7 @@ export default function DiscountsContent() {
 
                       {selectedDiscount?.code === discount.code ? (
                         <div className="w-full py-3 bg-green-50 text-green-700 font-medium rounded-xl text-center text-sm flex items-center justify-center gap-2 border border-green-100">
-                          <Check className="w-4 h-4" />
+                          <HugeiconsIcon icon={Tick01Icon} className="w-4 h-4"  />
                           {t('discounts.activeBadge') || "Descompte actiu"}
                         </div>
                       ) : (
@@ -173,9 +174,9 @@ export default function DiscountsContent() {
 
              <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 {[
-                  { icon: <Users />, title: t('discounts.step1.title') || "1. Tria el teu servei", desc: t('discounts.step1.description') || "Navega pels nostres serveis i tria el que més et convingui." },
-                  { icon: <Tag />, title: t('discounts.step2.title') || "2. Aplica el codi", desc: t('discounts.step2.description') || "Introdueix el codi de descompte al moment de fer la reserva." },
-                  { icon: <Percent />, title: t('discounts.step3.title') || "3. Gaudeix", desc: t('discounts.step3.description') || "Gaudeix del teu servei amb el preu reduït." }
+                  { icon: <HugeiconsIcon icon={UserGroupIcon} />, title: t('discounts.step1.title') || "1. Tria el teu servei", desc: t('discounts.step1.description') || "Navega pels nostres serveis i tria el que més et convingui." },
+                  { icon: <HugeiconsIcon icon={Tag01Icon} />, title: t('discounts.step2.title') || "2. Aplica el codi", desc: t('discounts.step2.description') || "Introdueix el codi de descompte al moment de fer la reserva." },
+                  { icon: <HugeiconsIcon icon={PercentIcon} />, title: t('discounts.step3.title') || "3. Gaudeix", desc: t('discounts.step3.description') || "Gaudeix del teu servei amb el preu reduït." }
                 ].map((step, idx) => (
                   <div key={idx} className="text-center p-6">
                      <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 ">

@@ -1,7 +1,8 @@
 'use client';
 
 import ContactFormOptimized from '@/components/ContactForm';
-import { MessageCircle } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Message01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 import PageLayout from './PageLayout';
@@ -23,7 +24,7 @@ export default function ContactContent() {
           title: t('contact.hero.title') || "Contacta amb nosaltres",
           subtitle: t('contact.hero.description') || "Estem aquí per ajudar-te. Envia'ns un missatge i et respondrem el més aviat possible.",
           badge: t('contact.hero.badge') || "Contacte",
-          icon: <MessageCircle className="w-4 h-4" />
+          icon: <HugeiconsIcon icon={Message01Icon} className="w-4 h-4"  />
         }}
       >
           {/* Contact Layout Section */}

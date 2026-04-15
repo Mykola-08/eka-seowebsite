@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Clock3 } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Clock01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ServiceStep {
@@ -96,7 +97,7 @@ export default function ServiceSection() {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Vertical connecting line */}
-            <div className="absolute left-7 top-14 bottom-14 w-px bg-gradient-to-b from-blue-100 via-blue-200 to-transparent hidden sm:block" aria-hidden="true" />
+            <div className="absolute left-7 top-14 bottom-14 w-px bg-linear-to-b from-blue-100 via-blue-200 to-transparent hidden sm:block" aria-hidden="true" />
 
             <div className="space-y-6">
               {steps.map((step, index) => (
@@ -110,13 +111,13 @@ export default function ServiceSection() {
                 >
                   {/* Step number circle */}
                   <div className="hidden sm:flex flex-col items-center shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 shadow-sm z-10">
+                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 shadow-xs z-10">
                       <span className="text-sm font-bold text-blue-500">{step.number}</span>
                     </div>
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 rounded-[2rem] bg-white border border-gray-100 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 overflow-hidden">
+                  <div className="flex-1 rounded-4xl bg-white border border-gray-100 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 overflow-hidden">
                     {/* Top strip */}
                     <div className="flex items-center justify-between px-7 pt-6 pb-5 border-b border-gray-50">
                       {/* Mobile step number */}
@@ -133,7 +134,7 @@ export default function ServiceSection() {
                         </div>
                       </div>
                       <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 whitespace-nowrap ml-4 shrink-0">
-                        <Clock3 className="h-3.5 w-3.5" />
+                        <HugeiconsIcon icon={Clock01Icon} className="h-3.5 w-3.5"  />
                         {step.duration}
                       </div>
                     </div>
@@ -151,7 +152,7 @@ export default function ServiceSection() {
                       </div>
                       {/* Mobile duration badge */}
                       <div className="sm:hidden mt-4 inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600">
-                        <Clock3 className="h-3.5 w-3.5" />
+                        <HugeiconsIcon icon={Clock01Icon} className="h-3.5 w-3.5"  />
                         {step.duration}
                       </div>
                     </div>
@@ -163,7 +164,7 @@ export default function ServiceSection() {
 
           {/* Total duration summary */}
           <motion.div
-            className="mt-10 rounded-[1.5rem] bg-gray-50 p-7 border border-gold/20"
+            className="mt-10 rounded-3xl bg-gray-50 p-7 border border-gold/20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

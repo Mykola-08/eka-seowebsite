@@ -2,8 +2,9 @@
 
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import { cn } from '@/shared/utils';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowDown01Icon } from '@hugeicons/core-free-icons';
+import { cn } from '@/lib/utils';
 
 interface AccordionContextValue {
   value: string | string[] | undefined;
@@ -100,19 +101,19 @@ export function AccordionTrigger({ children, className, value: itemValue }: Acco
   return (
     <button
       className={cn(
-        'group flex w-full flex-1 items-center justify-between py-4 text-left font-medium transition focus:outline-none',
+        'group flex w-full flex-1 items-center justify-between py-4 text-left font-medium transition focus:outline-hidden',
         className
       )}
       onClick={() => context.onValueChange(itemValue!)}
       aria-expanded={isOpen}
     >
       {children}
-      <ChevronDown
+      <HugeiconsIcon icon={ArrowDown01Icon}
         className={cn(
-          'h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-300',
+          'h-5 w-5 shrink-0 text-gray-400 transition-transform duration-300',
           isOpen && 'rotate-180 text-blue-600'
         )}
-      />
+       />
     </button>
   );
 }

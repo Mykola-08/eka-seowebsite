@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import SEOUpdater from '@/components/SEOUpdater';
 import Image from 'next/image';
+import { shimmerBlurDataURL } from '@/lib/image-utils';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Heart, Star } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { FavouriteIcon, StarIcon } from '@hugeicons/core-free-icons';
 import CTASection from '@/components/CTASection';
 import PageLayout from '@/components/PageLayout';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
@@ -114,11 +116,11 @@ export default function AboutElenaContent() {
            className="flex flex-wrap justify-center gap-4"
         >
             <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full border border-gray-200/50">
-               <Star className="w-4 h-4 text-yellow-500 mr-2" />
+               <HugeiconsIcon icon={StarIcon} className="w-4 h-4 text-yellow-500 mr-2"  />
                <span className="text-gray-700 font-medium">15+ {t('hero.stats.experience')}</span>
             </div>
             <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full border border-gray-200/50">
-               <Heart className="w-4 h-4 text-red-500 mr-2" />
+               <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-red-500 mr-2"  />
                <span className="text-gray-700 font-medium">96% {t('hero.stats.clients')}</span>
             </div>
         </motion.div>
@@ -174,7 +176,7 @@ export default function AboutElenaContent() {
         </section>
 
         {/* Target Audience Bento */}
-        <section className="py-24 bg-[#fbfbfd]">
+        <section className="py-24 bg-muted/30">
           <div className="section-container relative z-10">
             <div className="text-center mb-16">
                <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight">
@@ -182,7 +184,7 @@ export default function AboutElenaContent() {
                </h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-300 mx-auto">
                <div className="md:col-span-2 lg:col-span-1">
                  <ServiceBentoItem 
                    title={t('elena.target.adults.title')}

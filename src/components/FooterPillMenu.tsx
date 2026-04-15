@@ -2,16 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Sparkles, Calendar, Briefcase } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Briefcase01Icon, Calendar01Icon, Home01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { cn } from '@/shared/utils';
+import { cn } from '@/lib/utils';
 
 const items = [
-  { href: '/', icon: Home, labelKey: 'nav.home', exact: true },
-  { href: '/services', icon: Sparkles, labelKey: 'nav.services', exact: false },
-  { href: '/for-business', icon: Briefcase, labelKey: 'personalizedServices.business', exact: false },
-  { href: '/booking', icon: Calendar, labelKey: 'nav.bookNow', exact: true },
+  { href: '/', icon: Home01Icon, labelKey: 'nav.home', exact: true },
+  { href: '/services', icon: SparklesIcon, labelKey: 'nav.services', exact: false },
+  { href: '/for-business', icon: Briefcase01Icon, labelKey: 'personalizedServices.business', exact: false },
+  { href: '/booking', icon: Calendar01Icon, labelKey: 'nav.bookNow', exact: true },
 ] as const;
 
 export default function FooterPillMenu() {
@@ -21,7 +22,7 @@ export default function FooterPillMenu() {
   return (
     /* Sits flush at bottom; padding accounts for iOS home-indicator safe area */
     <div
-      className="fixed bottom-0 left-0 right-0 z-[115] flex justify-center px-4"
+      className="fixed bottom-0 left-0 right-0 z-(--z-modal) flex justify-center px-4"
       style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}
     >
       <nav
@@ -33,7 +34,7 @@ export default function FooterPillMenu() {
           'flex items-stretch gap-0.5',
           /* Soft lift shadow that matches dropdown panels */
           'shadow-[0_8px_30px_rgba(0,0,0,0.07)]',
-          'ring-1 ring-black/[0.04]',
+          'ring-1 ring-black/4',
           'w-full',
         ].join(' ')}
         style={{ maxWidth: 'min(400px, 100%)' }}
@@ -60,17 +61,16 @@ export default function FooterPillMenu() {
               {isActive && (
                 <motion.div
                   layoutId="pill-active-bg"
-                  className="absolute inset-0 rounded-xl bg-[#1d1d1f]"
+                  className="absolute inset-0 rounded-xl bg-primary"
                   transition={{ type: 'spring', stiffness: 420, damping: 38 }}
                 />
               )}
 
               <span className="relative z-10 flex flex-col items-center gap-[3px]">
-                <item.icon
+                <HugeiconsIcon icon={item.icon}
                   className="w-[18px] h-[18px]"
-                  strokeWidth={isActive ? 2.25 : 1.75}
                   aria-hidden="true"
-                />
+                 />
                 <span className="text-[10px] font-medium leading-none whitespace-nowrap tracking-tight">
                   {label}
                 </span>

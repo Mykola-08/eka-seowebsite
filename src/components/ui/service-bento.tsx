@@ -4,7 +4,9 @@ import React, { useState, useEffect, MouseEvent } from 'react';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { X, ArrowRight } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon, Cancel01Icon } from '@hugeicons/core-free-icons';
+import { shimmerBlurDataURL } from '@/lib/image-utils';
 import Link from 'next/link';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
@@ -59,11 +61,11 @@ export function ServiceBentoItem({
         <button
           onClick={() => setIsOpen(true)}
           onMouseMove={handleMouseMove}
-          className="relative text-left flex flex-col justify-end w-full h-full min-h-[260px] md:min-h-[400px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group outline-none isolate border border-secondary/50 bg-[#fbfbfd] transition-all duration-300 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          className="relative text-left flex flex-col justify-end w-full h-full min-h-65 md:min-h-100 rounded-4xl md:rounded-[2.5rem] overflow-hidden group outline-hidden isolate border border-secondary/50 bg-muted/30 transition-all duration-300 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           {/* Spotlight overlay */}
           <motion.div
-            className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-[60] mix-blend-overlay"
+            className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-60 mix-blend-overlay"
             style={{
               background: useMotionTemplate`
                 radial-gradient(
@@ -78,11 +80,11 @@ export function ServiceBentoItem({
           {/* Background Image */}
           {image ? (
             <div className="absolute inset-0 z-0">
-               <Image src={image} fill alt={title} className="object-cover  transition-transform duration-[2s] ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 transition-opacity duration-500 group-hover:opacity-100" />
+               <Image src={image} fill alt={title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px" className="object-cover  transition-transform duration-[2s] ease-[cubic-bezier(0.16,1,0.3,1)]" placeholder="blur" blurDataURL={shimmerBlurDataURL(600, 400)} />
+                 <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-black/10 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           ) : (
-            <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-50" />
+            <div className="absolute inset-0 z-0 bg-linear-to-br from-gray-50 to-gray-100 opacity-50" />
           )}
           
           <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col justify-end h-full w-full">
@@ -92,7 +94,7 @@ export function ServiceBentoItem({
                <h3 className={`text-2xl sm:text-3xl font-semibold mb-3 tracking-tight ${image ? 'text-white drop-shadow-md' : 'text-black'}`}>
                   {title}
                </h3>
-                 <p className={`text-base tracking-tight leading-relaxed line-clamp-4 md:line-clamp-none mt-2 ${image ? 'text-white/95 drop-shadow-sm' : 'text-gray-600'}`}>
+                 <p className={`text-base tracking-tight leading-relaxed line-clamp-4 md:line-clamp-none mt-2 ${image ? 'text-white/95 drop-shadow-xs' : 'text-gray-600'}`}>
                   {description}
                </p>
                {benefits && benefits.length > 0 && (
@@ -119,7 +121,7 @@ export function ServiceBentoItem({
       {mounted && typeof document !== 'undefined' ? createPortal(
         <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 lg:p-6" onClick={() => setIsOpen(false)}>
+          <div className="fixed inset-0 z-(--z-modal) flex items-end sm:items-center justify-center p-0 sm:p-4 lg:p-6" onClick={() => setIsOpen(false)}>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -131,7 +133,7 @@ export function ServiceBentoItem({
                animate={{ opacity: 1, y: 0 }}
                exit={{ opacity: 0, y: "100%" }}
                transition={{ type: "spring", bounce: 0, duration: 0.5 }}
-               className="relative w-full max-w-6xl bg-white rounded-t-[2rem] sm:rounded-[2.5rem] overflow-hidden z-10 h-[96svh] sm:h-[90vh] flex flex-col"
+               className="relative w-full max-w-6xl bg-white rounded-t-4xl sm:rounded-[2.5rem] overflow-hidden z-10 h-[96svh] sm:h-[90vh] flex flex-col"
                onClick={(e) => e.stopPropagation()}
             >
                {/* Mobile drag handle */}
@@ -143,7 +145,7 @@ export function ServiceBentoItem({
                   onClick={() => setIsOpen(false)}
                   className="absolute top-4 sm:top-5 right-4 sm:right-5 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-xl transition-colors text-white"
                >
-                 <X size={18} />
+                 <HugeiconsIcon icon={Cancel01Icon} size={18}  />
                </button>
 
                <div className="flex flex-col md:flex-row w-full h-full min-h-0">
@@ -151,8 +153,8 @@ export function ServiceBentoItem({
                     <>
                       {/* Image panel */}
                       <div className="relative w-full md:w-[42%] h-[22vh] sm:h-[26vh] md:h-full shrink-0 flex flex-col justify-end">
-                         <Image src={image} fill alt={title} className="object-cover" />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                         <Image src={image} fill alt={title} sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" placeholder="blur" blurDataURL={shimmerBlurDataURL()} />
+                         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
                          <div className="relative z-10 p-5 sm:p-7 flex flex-col justify-end w-full">
                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight">{title}</h2>
                            {/* CTA buttons inside image (desktop only) */}
@@ -167,7 +169,7 @@ export function ServiceBentoItem({
                               {readMoreUrl && (
                                   <Link href={readMoreUrl}>
                                       <span className="flex items-center justify-center w-full px-5 py-2.5 bg-black/40 text-white backdrop-blur-md rounded-full font-medium text-sm hover:bg-black/60 transition border border-white/20">
-                                          {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+                                          {readMoreText} <HugeiconsIcon icon={ArrowRight01Icon} className="ml-1.5 w-3.5 h-3.5"  />
                                       </span>
                                   </Link>
                               )}
@@ -194,7 +196,7 @@ export function ServiceBentoItem({
                             {readMoreUrl && (
                                 <Link href={readMoreUrl} className="w-full">
                                     <span className="flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-black rounded-full font-medium text-sm hover:bg-gray-200 transition">
-                                        {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5 inline" />
+                                        {readMoreText} <HugeiconsIcon icon={ArrowRight01Icon} className="ml-1.5 w-3.5 h-3.5 inline"  />
                                     </span>
                                 </Link>
                             )}
@@ -220,7 +222,7 @@ export function ServiceBentoItem({
                           {readMoreUrl && (
                               <Link href={readMoreUrl} className="flex-1">
                                   <span className="flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-black rounded-full font-medium text-sm hover:bg-gray-200 transition">
-                                      {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5 inline" />
+                                      {readMoreText} <HugeiconsIcon icon={ArrowRight01Icon} className="ml-1.5 w-3.5 h-3.5 inline"  />
                                   </span>
                               </Link>
                           )}

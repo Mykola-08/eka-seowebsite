@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Globe } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowDown01Icon, GlobeIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/contexts/LanguageTypes';
 
@@ -49,9 +50,9 @@ export default function LanguageSelector() {
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-md hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200 shadow-sm"
+        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-md hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200 shadow-xs"
       >
-        <Globe className="w-4 h-4" />
+        <HugeiconsIcon icon={GlobeIcon} className="w-4 h-4"  />
         <span className="text-sm font-medium">
           {currentLanguage?.flag} {currentLanguage ? t(currentLanguage.name) : 'Català'}
         </span>
@@ -59,14 +60,14 @@ export default function LanguageSelector() {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown className="w-4 h-4" />
+          <HugeiconsIcon icon={ArrowDown01Icon} className="w-4 h-4"  />
         </motion.div>
       </motion.button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute bottom-full right-0 mb-3 w-48 bg-zinc-900/85 backdrop-blur-xl border border-amber-500/30 rounded-xl overflow-hidden z-[100] shadow-2xl ring-1 ring-white/5"
+            className="absolute bottom-full right-0 mb-3 w-48 bg-zinc-900/85 backdrop-blur-xl border border-amber-500/30 rounded-xl overflow-hidden z-(--z-dropdown) shadow-2xl ring-1 ring-white/5"
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}

@@ -3,7 +3,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Sparkles, ExternalLink } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon, CheckmarkCircle01Icon, LinkSquare01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
+import { shimmerBlurDataURL } from '@/lib/image-utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -41,8 +43,8 @@ export default function AgenyzContent() {
             <section className="relative bg-black min-h-[88svh] flex flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-24">
                 {/* Subtle radial glow */}
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-3xl" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-white/[0.04] to-transparent" />
+                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-white/3 blur-3xl" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-200 h-75 bg-linear-to-t from-white/4 to-transparent" />
                 </div>
 
                 <motion.div
@@ -74,7 +76,7 @@ export default function AgenyzContent() {
                         >
                             <Link href="#catalogue">
                                 {t('agenyz.catalogue.title') || 'View Products'}
-                                <ArrowRight className="w-4 h-4 ml-2" />
+                                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
                             </Link>
                         </Button>
                         <a
@@ -88,7 +90,7 @@ export default function AgenyzContent() {
                                 className="rounded-full border-white/20 text-white/80 hover:bg-white/10 hover:text-white bg-transparent px-8"
                             >
                                 Visit agenyz.es
-                                <ExternalLink className="w-4 h-4 ml-2" />
+                                <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2"  />
                             </Button>
                         </a>
                     </div>
@@ -101,13 +103,13 @@ export default function AgenyzContent() {
                     transition={{ delay: 1.2, duration: 0.6 }}
                     className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
                 >
-                    <div className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent" />
+                    <div className="w-px h-8 bg-linear-to-b from-white/20 to-transparent" />
                     <p className="text-white/20 text-[10px] tracking-widest uppercase">Scroll</p>
                 </motion.div>
             </section>
 
             {/* ── XBi-A Technology Stats ── */}
-            <section className="bg-black border-t border-white/[0.06] py-16">
+            <section className="bg-black border-t border-white/6 py-16">
                 <div className="max-w-5xl mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 16 }}
@@ -124,7 +126,7 @@ export default function AgenyzContent() {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/6 rounded-2xl overflow-hidden">
                         {stats.map((stat, i) => (
                             <motion.div
                                 key={stat.label}
@@ -144,11 +146,11 @@ export default function AgenyzContent() {
             </section>
 
             {/* ── Dark to light transition ── */}
-            <div className="h-16 bg-gradient-to-b from-black to-[#f9f9fb]" aria-hidden="true" />
+            <div className="h-16 bg-linear-to-b from-black to-[#f9f9fb]" aria-hidden="true" />
 
             {/* ── Featured Products Bento ── */}
             <section className="py-20 bg-[#f9f9fb]">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -175,7 +177,7 @@ export default function AgenyzContent() {
                             >
                                 <Link
                                     href={`/agenyz/${product.id}`}
-                                    className="group block h-full bg-white rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 border border-gray-100"
+                                    className="group block h-full bg-white rounded-4xl overflow-hidden hover:shadow-xl hover:shadow-black/6 transition-all duration-500 border border-gray-100"
                                 >
                                     <div className={`relative w-full bg-zinc-50 flex items-center justify-center ${idx === 0 ? 'h-72 md:h-80' : 'h-64'}`}>
                                         {product.image ? (
@@ -185,9 +187,11 @@ export default function AgenyzContent() {
                                                 fill
                                                 className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
                                                 sizes="(max-width: 768px) 100vw, 50vw"
+                                                placeholder="blur"
+                                                blurDataURL={shimmerBlurDataURL()}
                                             />
                                         ) : (
-                                            <Sparkles className="w-12 h-12 text-gray-200" />
+                                            <HugeiconsIcon icon={SparklesIcon} className="w-12 h-12 text-gray-200"  />
                                         )}
                                     </div>
                                     <div className="p-6 md:p-8">
@@ -202,7 +206,7 @@ export default function AgenyzContent() {
                                             <ul className="mt-4 space-y-1.5">
                                                 {product.benefits.slice(0, 3).map((b, i) => (
                                                     <li key={i} className="flex items-center text-sm text-gray-600 gap-2">
-                                                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                                                        <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-emerald-500 shrink-0"  />
                                                         {getLocalized(b, language)}
                                                     </li>
                                                 ))}
@@ -210,7 +214,7 @@ export default function AgenyzContent() {
                                         )}
                                         <div className="mt-5 flex items-center text-sm font-semibold text-gray-900 group-hover:gap-2 transition-all gap-1">
                                             {t('agenyz.viewDetails') || 'View details'}
-                                            <ArrowRight className="w-4 h-4" />
+                                            <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4"  />
                                         </div>
                                     </div>
                                 </Link>
@@ -241,8 +245,8 @@ export default function AgenyzContent() {
                             <button
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
-                                className={`px-5 py-2.5 min-h-[40px] rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
-                                    ? 'bg-black text-white shadow-sm scale-105'
+                                className={`px-5 py-2.5 min-h-10 rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
+                                    ? 'bg-black text-white shadow-xs scale-105'
                                     : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                                     }`}
                             >
@@ -262,10 +266,10 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ duration: 0.35 }}
-                                        className="bg-zinc-50 border border-gray-100 rounded-[2.5rem] p-7 flex flex-col h-full hover:shadow-xl hover:shadow-black/[0.05] transition-all duration-400"
+                                        className="bg-zinc-50 border border-gray-100 rounded-[2.5rem] p-7 flex flex-col h-full hover:shadow-xl hover:shadow-black/5 transition-all duration-400"
                                     >
                                         <div className="mb-5">
-                                            <span className="px-3.5 py-1.5 bg-white text-gray-500 text-xs font-bold rounded-full uppercase tracking-widest border border-gray-100 shadow-sm">
+                                            <span className="px-3.5 py-1.5 bg-white text-gray-500 text-xs font-bold rounded-full uppercase tracking-widest border border-gray-100 shadow-xs">
                                                 {t(`agenyz.category.${product.category}`) || product.category}
                                             </span>
                                         </div>
@@ -279,11 +283,13 @@ export default function AgenyzContent() {
                                                         fill
                                                         className="object-contain"
                                                         sizes="(max-width: 768px) 100vw, 33vw"
+                                                        placeholder="blur"
+                                                        blurDataURL={shimmerBlurDataURL()}
                                                     />
                                                 </div>
                                             ) : (
                                                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gray-200 border border-gray-50">
-                                                    <Sparkles className="w-8 h-8" />
+                                                    <HugeiconsIcon icon={SparklesIcon} className="w-8 h-8"  />
                                                 </div>
                                             )}
                                         </div>
@@ -292,7 +298,7 @@ export default function AgenyzContent() {
                                             {getLocalized(product.name, language)}
                                         </h3>
 
-                                        <p className="text-gray-500 mb-5 flex-grow leading-relaxed text-sm line-clamp-3">
+                                        <p className="text-gray-500 mb-5 grow leading-relaxed text-sm line-clamp-3">
                                             {getLocalized(product.shortDescription || product.description, language)}
                                         </p>
 
@@ -300,8 +306,8 @@ export default function AgenyzContent() {
                                             <span className="text-sm font-bold text-gray-400 group-hover:text-gray-900 transition-colors">
                                                 {t('agenyz.viewDetails') || 'View details'}
                                             </span>
-                                            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-sm group-hover:bg-black group-hover:text-white transition-all duration-300">
-                                                <ArrowRight className="w-4 h-4" />
+                                            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-xs group-hover:bg-black group-hover:text-white transition-all duration-300">
+                                                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4"  />
                                             </div>
                                         </div>
                                     </motion.div>
@@ -333,7 +339,7 @@ export default function AgenyzContent() {
                             className="rounded-full bg-white text-black hover:bg-white/90 font-semibold px-10 shadow-none"
                         >
                             Shop at agenyz.es
-                            <ExternalLink className="w-4 h-4 ml-2" />
+                            <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2"  />
                         </Button>
                     </a>
                 </motion.div>

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
-import { ArrowRight, Star } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon, StarIcon } from '@hugeicons/core-free-icons';
 import { motion } from 'framer-motion';
 
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
@@ -26,7 +27,7 @@ export default function PersonalizedServicesContent() {
           title: t('personalizedServices.title'),
           subtitle: t('personalizedServices.subtitle'),
           badge: t('services.therapiesFor'),
-          icon: <Star className="w-4 h-4" />
+          icon: <HugeiconsIcon icon={StarIcon} className="w-4 h-4"  />
         }}
         className="bg-white"
       >
@@ -41,7 +42,7 @@ export default function PersonalizedServicesContent() {
                       className="px-8 py-4 "
                   >
                       {t('personalizedServices.cta')}
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                      <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 w-5 h-5"  />
                   </Button>
                 </Link>
             </div>

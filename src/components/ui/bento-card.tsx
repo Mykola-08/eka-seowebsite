@@ -42,11 +42,11 @@ export function BentoCard({
         <Link 
           href={href} 
           onMouseMove={handleMouseMove}
-          className="relative block w-full h-full rounded-3xl overflow-hidden group outline-none isolate  border border-secondary/50 bg-[#fbfbfd]  transition-shadow duration-500"
+          className="relative block w-full h-full rounded-3xl overflow-hidden group outline-hidden isolate  border border-secondary/50 bg-muted/30  transition-shadow duration-500"
         >
           {/* Spotlight overlay */}
           <motion.div
-            className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-[60] mix-blend-overlay"
+            className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-60 mix-blend-overlay"
             style={{
               background: useMotionTemplate`
                 radial-gradient(

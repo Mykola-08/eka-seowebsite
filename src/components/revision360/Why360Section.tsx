@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Sparkles, Wind, Activity, Heart } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Activity01Icon, FastWindIcon, FavouriteIcon, Layers01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -19,7 +20,7 @@ export default function Why360Section() {
     {
       name: t('revision360.why360.layers.physical'),
       description: t('revision360.why360.physical.desc'),
-      icon: Activity,
+      icon: Activity01Icon,
       color: 'bg-orange-50 text-orange-600',
       accent: 'from-orange-400/8',
       image:
@@ -28,7 +29,7 @@ export default function Why360Section() {
     {
       name: t('revision360.why360.layers.structural'),
       description: t('revision360.why360.structural.desc'),
-      icon: Layers,
+      icon: Layers01Icon,
       color: 'bg-blue-50 text-blue-600',
       accent: 'from-blue-400/8',
       image: '',
@@ -36,7 +37,7 @@ export default function Why360Section() {
     {
       name: t('revision360.why360.layers.emotional'),
       description: t('revision360.why360.emotional.desc'),
-      icon: Heart,
+      icon: FavouriteIcon,
       color: 'bg-rose-50 text-rose-600',
       accent: 'from-rose-400/8',
       image:
@@ -45,7 +46,7 @@ export default function Why360Section() {
     {
       name: t('revision360.why360.layers.energetic'),
       description: t('revision360.why360.energetic.desc'),
-      icon: Wind,
+      icon: FastWindIcon,
       color: 'bg-teal-50 text-teal-600',
       accent: 'from-teal-400/8',
       image: '',
@@ -65,7 +66,7 @@ export default function Why360Section() {
             transition={{ duration: 0.5 }}
           >
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold-light/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-dark">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+              <HugeiconsIcon icon={SparklesIcon} className="h-3.5 w-3.5" aria-hidden="true"  />
               {t('revision360.why360.badge')}
             </span>
 
@@ -95,7 +96,7 @@ export default function Why360Section() {
                 <motion.div
                   key={layer.name}
                   className={[
-                    'group relative rounded-[2rem] bg-white border border-gray-100 overflow-hidden',
+                    'group relative rounded-4xl bg-white border border-gray-100 overflow-hidden',
                     'flex flex-col justify-between p-7',
                     'transition-all duration-500',
                     'hover:shadow-xl hover:shadow-blue-500/5 hover:border-gray-200',
@@ -119,13 +120,13 @@ export default function Why360Section() {
                         placeholder="blur"
                         blurDataURL={BLUR_URL}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/65 to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-linear-to-t from-white via-white/65 to-transparent pointer-events-none" />
                     </>
                   )}
 
                   {/* Corner accent glow */}
                   <div
-                    className={`absolute top-0 right-0 h-32 w-32 rounded-full bg-gradient-to-bl ${layer.accent} to-transparent blur-3xl -mr-10 -mt-10 pointer-events-none transition-transform group-hover:scale-150 duration-700`}
+                    className={`absolute top-0 right-0 h-32 w-32 rounded-full bg-linear-to-bl ${layer.accent} to-transparent blur-3xl -mr-10 -mt-10 pointer-events-none transition-transform group-hover:scale-150 duration-700`}
                     aria-hidden="true"
                   />
 
@@ -134,7 +135,7 @@ export default function Why360Section() {
                     <div
                       className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${layer.color} transition-transform group-hover:scale-110 duration-500`}
                     >
-                      <layer.icon className="h-5 w-5" aria-hidden="true" />
+                      <HugeiconsIcon icon={layer.icon} className="h-5 w-5" aria-hidden="true"  />
                     </div>
                   </div>
 

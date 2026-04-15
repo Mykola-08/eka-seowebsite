@@ -2,7 +2,9 @@
 
 
 import { useState } from 'react';
-import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList, type LucideIcon } from 'lucide-react';
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
+import { ArrowLeft01Icon, ArrowRight01Icon, Brain01Icon, CheckmarkCircle01Icon, ClipboardIcon, FavouriteIcon, GlobeIcon, Location01Icon, Message01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -23,7 +25,7 @@ interface Recommendation {
   price: string;
   duration: string;
   benefits: string[];
-  icon: LucideIcon;
+  icon: IconSvgElement;
   color: string;
   analysis?: {
     problem?: string;
@@ -128,9 +130,9 @@ export default function DiscoveryContent() {
   // But since 't' is from hook, we can keep them inside or use useMemo
   // For simplicity and clarity, I'll use useMemo for large arrays
   const locations = [
-    { id: 'barcelona', title: t('discovery.location.barcelona'), icon: MapPin },
-    { id: 'rubi', title: t('discovery.location.rubi'), icon: MapPin },
-    { id: 'online', title: t('discovery.location.online'), icon: Globe },
+    { id: 'barcelona', title: t('discovery.location.barcelona'), icon: Location01Icon },
+    { id: 'rubi', title: t('discovery.location.rubi'), icon: Location01Icon },
+    { id: 'online', title: t('discovery.location.online'), icon: GlobeIcon },
   ];
 
   const userTypes = [
@@ -248,7 +250,7 @@ export default function DiscoveryContent() {
           t('discovery.recommendation.online.benefit3'),
           t('discovery.recommendation.online.benefit4')
         ],
-        icon: Globe,
+        icon: GlobeIcon,
         color: 'blue'
       };
     }
@@ -425,7 +427,7 @@ export default function DiscoveryContent() {
           t('discovery.recommendation.integrative.benefit3'),
           t('discovery.recommendation.integrative.benefit4')
         ]),
-        icon: Sparkles,
+        icon: SparklesIcon,
         color: 'blue',
         analysis,
         diagnosis
@@ -444,7 +446,7 @@ export default function DiscoveryContent() {
           t('discovery.recommendation.emotional.benefit3'),
           t('discovery.recommendation.emotional.benefit4')
         ]),
-        icon: Brain,
+        icon: Brain01Icon,
         color: 'purple',
         analysis,
         diagnosis
@@ -468,7 +470,7 @@ export default function DiscoveryContent() {
           t('discovery.recommendation.manual.benefit3'),
           t('discovery.recommendation.manual.benefit4')
         ]),
-        icon: Heart,
+        icon: FavouriteIcon,
         color: 'orange',
         analysis,
         diagnosis
@@ -487,7 +489,7 @@ export default function DiscoveryContent() {
         t('discovery.recommendation.relax.benefit3'),
         t('discovery.recommendation.relax.benefit4')
       ]),
-      icon: Heart,
+      icon: FavouriteIcon,
       color: 'green',
       analysis,
       diagnosis
@@ -562,11 +564,11 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
       <>
         {/* Replaced SEOHead with metadata in page.tsx */}
 
-        <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
+        <section className="py-16 sm:py-24 bg-linear-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center px-6 py-3 bg-green-100 rounded-full mb-8">
-                <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
+                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-green-600 mr-2"  />
                 <span className="text-green-700 font-medium">{t('discovery.recommendation.badge')}</span>
               </div>
 
@@ -598,20 +600,22 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
               {/* Toggle */}
               <div className="inline-flex bg-gray-100 p-1 rounded-xl mb-8">
-                <button
+                <Button
                   onClick={() => setViewMode('basic')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'basic' ? 'bg-white text-gray-900 ' : 'text-gray-500 hover:text-gray-700'
-                    }`}
+                  variant={viewMode === 'basic' ? 'white' : 'ghost'}
+                  size="sm"
+                  className="rounded-lg"
                 >
                   {t('discovery.view.basic')}
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => setViewMode('advanced')}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition ${viewMode === 'advanced' ? 'bg-white text-gray-900 ' : 'text-gray-500 hover:text-gray-700'
-                    }`}
+                  variant={viewMode === 'advanced' ? 'white' : 'ghost'}
+                  size="sm"
+                  className="rounded-lg"
                 >
                   {t('discovery.view.advanced')}
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -620,7 +624,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="text-center mb-8">
                   {Icon && (
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ">
-                      <Icon className="w-10 h-10 text-gray-700" />
+                      <HugeiconsIcon icon={Icon} className="w-10 h-10 text-gray-700" />
                     </div>
                   )}
 
@@ -648,7 +652,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <div className="grid grid-cols-2 gap-3">
                       {recommendation.benefits.map((benefit, index) => (
                         <div key={index} className="flex items-center text-gray-700">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 shrink-0"></div>
                           {benefit}
                         </div>
                       ))}
@@ -681,25 +685,27 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
+                  <Button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center  "
+                    variant="whatsapp"
+                    size="xl"
                   >
-                    <MessageCircle className="w-5 h-5 mr-2" />
+                    <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.direct.button')}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => setShowRecommendation(false)}
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                    variant="secondary"
+                    size="xl"
                   >
                     {t('discovery.recommendation.restart')}
-                  </button>
+                  </Button>
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-3xl  border border-gray-200 p-8 sm:p-12 mb-8">
+              <div className="bg-white rounded-3xl border border-gray-200 p-8 sm:p-12 mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center justify-center">
-                  <ClipboardList className="w-6 h-6 mr-3 text-blue-600" />
+                  <HugeiconsIcon icon={ClipboardIcon} className="w-6 h-6 mr-3 text-blue-600"  />
                   {t('discovery.diagnosis.title')}
                 </h2>
 
@@ -743,19 +749,21 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
+                  <Button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center  "
+                    variant="whatsapp"
+                    size="xl"
                   >
-                    <MessageCircle className="w-5 h-5 mr-2" />
+                    <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.direct.button')}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => setShowRecommendation(false)}
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                    variant="secondary"
+                    size="xl"
                   >
                     {t('discovery.recommendation.restart')}
-                  </button>
+                  </Button>
                 </div>
               </div>
             )}
@@ -777,12 +785,12 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
   return (
     <>
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
+      <section className="py-16 sm:py-24 bg-linear-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-8">
-              <Sparkles className="w-5 h-5 text-blue-600 mr-2" />
+              <HugeiconsIcon icon={SparklesIcon} className="w-5 h-5 text-blue-600 mr-2"  />
               <span className="text-blue-700 font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
 
@@ -822,7 +830,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {locations.map((loc) => {
-                    const LocIcon = loc.icon;
+                    
                     return (
                       <button
                         key={loc.id}
@@ -834,7 +842,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       >
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
                           }`}>
-                          <LocIcon className="w-6 h-6" />
+                          <HugeiconsIcon icon={loc.icon} className="w-6 h-6"  />
                         </div>
                         <h3 className="font-semibold text-gray-900">{loc.title}</h3>
                       </button>
@@ -916,7 +924,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-gray-900">{option}</span>
                         {formData.tensionAreas.includes(option) && (
-                          <CheckCircle className="w-5 h-5 text-blue-600" />
+                          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-blue-600"  />
                         )}
                       </div>
                     </button>
@@ -1005,17 +1013,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
             {/* Navigation */}
             <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
-              <button
+              <Button
                 onClick={handleBack}
-                className={`flex items-center px-6 py-3 rounded-full font-medium transition-colors duration-200 ${currentStep === 0
-                  ? 'text-gray-400 cursor-not-allowed'
-                  : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
-                  }`}
+                variant="ghost"
                 disabled={currentStep === 0}
               >
-                <ArrowLeft className="w-4 h-4 mr-2" />
+                <HugeiconsIcon icon={ArrowLeft01Icon} className="w-4 h-4 mr-2"  />
                 {t('discovery.back')}
-              </button>
+              </Button>
 
               <span className="text-sm text-gray-500">
                 {t('common.step')} {currentStep + 1} {t('common.of')} 7
@@ -1028,7 +1033,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 className="w-auto"
               >
                 {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
               </Button>
             </div>
           </div>

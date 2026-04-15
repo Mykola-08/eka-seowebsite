@@ -3,10 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import {
-  Crown, Home, Clock, Sparkles, Check,
-  Shield, Star, Award, Zap, Globe, Diamond
-} from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Award01Icon, Clock01Icon, CrownIcon, Diamond01Icon, FlashIcon, GlobeIcon, Home01Icon, Shield01Icon, SparklesIcon, StarIcon, Tick01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOUpdater from '@/components/SEOUpdater';
 import CTASection from '@/components/CTASection';
@@ -45,22 +43,22 @@ const defaultPlans = [
 
 const defaultLuxuryFeatures = [
   {
-    icon: Diamond,
+    icon: Diamond01Icon,
     title: 'vip.mostExclusive',
     description: 'vip.experienceDescription'
   },
   {
-    icon: Award,
+    icon: Award01Icon,
     title: 'vip.voicesOfExcellence',
     description: 'vip.testimonialsSubtitle'
   },
   {
-    icon: Globe,
+    icon: GlobeIcon,
     title: 'vip.benefits.barcelona',
     description: 'vip.benefits.barcelonaDesc'
   },
   {
-    icon: Zap,
+    icon: FlashIcon,
     title: 'vip.service.priority.title',
     description: 'vip.service.priority.description'
   }
@@ -68,25 +66,25 @@ const defaultLuxuryFeatures = [
 
 const vipServices = [
   {
-    icon: Home,
+    icon: Home01Icon,
     title: 'vip.service.displacements.title',
     description: 'vip.service.displacements.description',
     features: ['vip.benefits.barcelona', 'vip.stats.concierge', 'vip.service.priority.title', 'vip.benefits.transferable']
   },
   {
-    icon: Clock,
+    icon: Clock01Icon,
     title: 'vip.service.health.title',
     description: 'vip.service.health.description',
     features: ['vip.benefits.monthly', 'vip.benefits.monthlyDesc', 'vip.stats.control', 'vip.benefits.sessions']
   },
   {
-    icon: Sparkles,
+    icon: SparklesIcon,
     title: 'vip.service.family.title',
     description: 'vip.service.family.description',
     features: ['vip.stats.family', 'vip.benefits.transferable', 'vip.benefits.transferableDesc', 'vip.service.family.title']
   },
   {
-    icon: Shield,
+    icon: Shield01Icon,
     title: 'vip.service.priority.title',
     description: 'vip.service.priority.description',
     features: ['vip.stats.concierge', 'vip.service.priority.title', 'vip.service.priority.description', 'vip.stats.exclusivity']
@@ -165,7 +163,7 @@ const ComparativeTable = () => {
 
   const renderValue = (val: string | boolean) => {
     if (typeof val === 'boolean') {
-      return val ? <Check className="w-5 h-5 text-amber-600 mx-auto" /> : <div className="w-1.5 h-1.5 bg-gray-300 rounded-full mx-auto" />;
+      return val ? <HugeiconsIcon icon={Tick01Icon} className="w-5 h-5 text-amber-600 mx-auto"  /> : <div className="w-1.5 h-1.5 bg-gray-300 rounded-full mx-auto" />;
     }
     return <span className="text-gray-600 font-medium">{val}</span>;
   };
@@ -175,12 +173,12 @@ const ComparativeTable = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
-            <span className={`text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 ${isShining ? 'animate-pulse' : ''}`}>{t('vip.table.title')}</span>
+            <span className={`text-transparent bg-clip-text bg-linear-to-r from-amber-600 via-yellow-500 to-amber-600 ${isShining ? 'animate-pulse' : ''}`}>{t('vip.table.title')}</span>
           </h2>
         </div>
         
         <div className="overflow-x-auto rounded-3xl  bg-white border border-gray-100">
-          <table className="w-full min-w-[600px] border-collapse">
+          <table className="w-full min-w-150 border-collapse">
             <thead>
               <tr className="bg-gray-50/50">
                 <th className="p-6 text-left text-gray-400 font-light w-1/3"></th>
@@ -226,8 +224,8 @@ export default function VIPContent() {
       />
       
       {/* Hero Section */}
-      <div className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-amber-50/30">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+      <div className="relative pt-32 pb-24 overflow-hidden bg-linear-to-br from-gray-50 via-white to-amber-50/30">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30 mask-[linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         
         <div className="relative max-w-7xl mx-auto px-6 text-center z-10">
           <motion.div
@@ -236,12 +234,12 @@ export default function VIPContent() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200  mb-8">
-              <Crown className="w-5 h-5 text-amber-500" />
+              <HugeiconsIcon icon={CrownIcon} className="w-5 h-5 text-amber-500"  />
               <span className="text-amber-800 font-medium tracking-wide">VIP CLUB</span>
             </div>
 
             <h1 className="text-6xl md:text-8xl font-sans text-gray-900 mb-8 tracking-tight">
-               <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">
+               <span className="bg-clip-text text-transparent bg-linear-to-r from-gray-900 via-gray-700 to-gray-900">
                 {t('vip.hero.title')}
                </span>
             </h1>
@@ -252,7 +250,7 @@ export default function VIPContent() {
 
             <Link href="#pricing">
               <button 
-                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium   transition duration-300"
+                 className="bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium   transition duration-300"
               >
                 {t('vip.cta.apply')}
               </button>
@@ -266,11 +264,11 @@ export default function VIPContent() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {defaultLuxuryFeatures.map((feature, idx) => {
-              const Icon = feature.icon || Diamond;
+              const icon = feature.icon || Diamond01Icon;
               return (
                 <div key={idx} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-amber-100 transition-colors group">
                   <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 transition-colors ">
-                    <Icon className="w-7 h-7 text-amber-600" />
+                    <HugeiconsIcon icon={icon} className="w-7 h-7 text-amber-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{t(feature.title)}</h3>
                   <p className="text-gray-600 leading-relaxed">{t(feature.description)}</p>
@@ -293,8 +291,8 @@ export default function VIPContent() {
                {vipServices.map((service, idx) => (
                  <div key={idx} className="bg-white rounded-apple-xl p-10  border border-gray-100  transition-shadow duration-300">
                     <div className="flex items-start gap-6">
-                       <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center flex-shrink-0">
-                          <service.icon className="w-8 h-8 text-amber-600" />
+                       <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0">
+                          <HugeiconsIcon icon={service.icon} className="w-8 h-8 text-amber-600"  />
                        </div>
                        <div>
                           <h3 className="text-2xl font-bold text-gray-900 mb-4">{t(service.title)}</h3>
@@ -347,7 +345,7 @@ export default function VIPContent() {
                  <div className="space-y-4 mb-8">
                     {plan.features.map((feature: string, i: number) => (
                       <div key={i} className="flex items-start gap-3">
-                         <Check className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                         <HugeiconsIcon icon={Tick01Icon} className="w-5 h-5 text-amber-500 shrink-0 mt-0.5"  />
                          <span className="text-gray-700 text-sm">{t(feature)}</span>
                       </div>
                     ))}
@@ -383,7 +381,7 @@ export default function VIPContent() {
                   <div key={i} className="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10">
                      <div className="flex gap-1 mb-6">
                         {[...Array(test.rating)].map((_, j) => (
-                           <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                           <HugeiconsIcon icon={StarIcon} key={j} className="w-4 h-4 fill-amber-400 text-amber-400"  />
                         ))}
                      </div>
                      <p className="text-gray-300 mb-8 italic leading-relaxed">"{t(test.comment)}"</p>

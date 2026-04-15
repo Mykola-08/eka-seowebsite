@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { CallIcon, FavouriteIcon, Location01Icon, MailIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 
@@ -56,7 +57,7 @@ export default function Footer() {
             <div 
               className="flex items-center space-x-2 text-amber-200"
             >
-              <Heart className="w-4 h-4" />
+              <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4"  />
               <span className="text-sm italic">{t('revision360.footer.healingWithIntention')}</span>
             </div>
           </motion.div>
@@ -85,7 +86,7 @@ export default function Footer() {
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <Phone className="w-5 h-5 text-amber-400 transition-colors duration-200" />
+                <HugeiconsIcon icon={CallIcon} className="w-5 h-5 text-amber-400 transition-colors duration-200"  />
                 <span>+34 658 867 133</span>
               </motion.a>
               
@@ -98,7 +99,7 @@ export default function Footer() {
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <Mail className="w-5 h-5 text-amber-400 transition-colors duration-200" />
+                <HugeiconsIcon icon={MailIcon} className="w-5 h-5 text-amber-400 transition-colors duration-200"  />
                 <span>contact@ekabalance.com</span>
               </motion.a>
               
@@ -109,7 +110,7 @@ export default function Footer() {
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <MapPin className="w-5 h-5 text-amber-400 mt-0.5" />
+                <HugeiconsIcon icon={Location01Icon} className="w-5 h-5 text-amber-400 mt-0.5"  />
                 <div>
                   <p>{t('revision360.labels.presentialConsultations')}</p>
                   <p className="text-sm text-zinc-400">{t('revision360.labels.onlineSessionsAvailable')}</p>
@@ -179,7 +180,7 @@ export default function Footer() {
             transition={{ duration: 0.2 }}
           >
             <span>{t('revision360.footer.madeWith')}</span>
-            <Heart className="w-4 h-4 text-red-400" />
+            <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-red-400"  />
             <span>{t('revision360.footer.forHealing')}</span>
           </motion.div>
         </motion.div>

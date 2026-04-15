@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from 'lucide-react';
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
+import { Activity01Icon, ArrowRight01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Search01Icon, Shield01Icon, StethoscopeIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
@@ -14,7 +15,7 @@ interface Problem {
   title: string;
   category: string;
   description: string;
-  icon: React.ElementType;
+  icon: IconSvgElement;
   color: string;
   href: string;
 }
@@ -49,7 +50,7 @@ export default function CasosContent() {
       title: t('casos.problems.backPain.title'),
       category: 'fisic',
       description: t('casos.problems.backPain.description'),
-      icon: Activity,
+      icon: Activity01Icon,
       color: 'blue',
       href: '/services/massage'
     },
@@ -58,7 +59,7 @@ export default function CasosContent() {
       title: t('casos.problems.stress.title'),
       category: 'emocional',
       description: t('casos.problems.stress.description'),
-      icon: Brain,
+      icon: Brain01Icon,
       color: 'purple',
       href: '/services/kinesiology'
     },
@@ -67,7 +68,7 @@ export default function CasosContent() {
       title: t('casos.problems.digestive.title'),
       category: 'fisic',
       description: t('casos.problems.digestive.description'),
-      icon: Heart,
+      icon: FavouriteIcon,
       color: 'green',
       href: '/services/nutrition'
     },
@@ -76,7 +77,7 @@ export default function CasosContent() {
       title: t('casos.problems.migraines.title'),
       category: 'fisic',
       description: t('casos.problems.migraines.description'),
-      icon: Brain,
+      icon: Brain01Icon,
       color: 'red',
       href: '/services/massage'
     },
@@ -85,7 +86,7 @@ export default function CasosContent() {
       title: t('casos.problems.lowEnergy.title'),
       category: 'energia',
       description: t('casos.problems.lowEnergy.description'),
-      icon: Zap,
+      icon: FlashIcon,
       color: 'orange',
       href: '/services/kinesiology'
     },
@@ -94,7 +95,7 @@ export default function CasosContent() {
       title: t('casos.problems.hormonal.title'),
       category: 'hormonal',
       description: t('casos.problems.hormonal.description'),
-      icon: Shield,
+      icon: Shield01Icon,
       color: 'pink',
       href: '/services/kinesiology'
     },
@@ -103,7 +104,7 @@ export default function CasosContent() {
       title: t('casos.problems.sleep.title'),
       category: 'son',
       description: t('casos.problems.sleep.description'),
-      icon: Moon,
+      icon: Moon01Icon,
       color: 'indigo',
       href: '/services/kinesiology'
     },
@@ -112,7 +113,7 @@ export default function CasosContent() {
       title: t('casos.problems.recovery.title'),
       category: 'recuperacio',
       description: t('casos.problems.recovery.description'),
-      icon: Stethoscope,
+      icon: StethoscopeIcon,
       color: 'red',
       href: '/services/massage'
     }
@@ -130,7 +131,7 @@ export default function CasosContent() {
           title: t('casos.title'),
           subtitle: t('casos.subtitle'),
           badge: t('casos.hero.badge') || "Solutions",
-          icon: <Search className="w-4 h-4" />
+          icon: <HugeiconsIcon icon={Search01Icon} className="w-4 h-4"  />
         }}
         className="bg-secondary"
       >
@@ -153,7 +154,7 @@ export default function CasosContent() {
                   className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50   transition duration-300 active:scale-[0.97]"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 text-gray-900">
-                    <Icon className="w-7 h-7" />
+                    <HugeiconsIcon icon={Icon} className="w-7 h-7" />
                   </div>
                   
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -166,7 +167,7 @@ export default function CasosContent() {
                   
                   <div className="mt-auto flex items-center text-sm font-medium text-blue-600">
                     <span>{t('casos.seeDetails')}</span>
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
                   </div>
                 </Link>
               );

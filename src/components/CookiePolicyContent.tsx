@@ -2,13 +2,13 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { AlertTriangle, Cookie, Settings, BarChart2 } from 'lucide-react';
-
-const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.ElementType; title: string; children: React.ReactNode }) => (
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
+import { Alert01Icon, BarChartIcon, CookieIcon, Settings01Icon } from '@hugeicons/core-free-icons';
+const Section = ({ id, icon: Icon, title, children }: { id: string; icon: IconSvgElement; title: string; children: React.ReactNode }) => (
   <section id={id} className="scroll-mt-24">
     <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-      <div className="w-9 h-9 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-4 h-4 text-primary" />
+      <div className="w-9 h-9 rounded-xl bg-primary/8 flex items-center justify-center shrink-0">
+        <HugeiconsIcon icon={Icon} className="w-4 h-4 text-primary" />
       </div>
       <h2 className="text-xl font-semibold text-gray-900 tracking-tight">{title}</h2>
     </div>
@@ -34,7 +34,7 @@ export default function CookiePolicyContent() {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
           {/* Sticky TOC */}
-          <aside className="hidden lg:block w-52 flex-shrink-0 sticky top-24 self-start">
+          <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contents</p>
             <nav className="space-y-1">
               {toc.map(item => (
@@ -52,7 +52,7 @@ export default function CookiePolicyContent() {
             {/* Health notice */}
             <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6">
               <div className="flex items-start gap-4">
-                <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                <HugeiconsIcon icon={Alert01Icon} className="w-5 h-5 text-amber-600 shrink-0 mt-0.5"  />
                 <div>
                   <p className="font-bold text-amber-900 mb-1">Complementary Wellness Notice</p>
                   <p className="text-amber-800 text-sm">
@@ -67,13 +67,13 @@ export default function CookiePolicyContent() {
               </div>
             </div>
 
-            <Section id="what" icon={Cookie} title="1. What Are Cookies (GDPR Art. 4(11))">
+            <Section id="what" icon={CookieIcon} title="1. What Are Cookies (GDPR Art. 4(11))">
               <p>
                 Cookies are small text files placed on your device when you visit our website. They help us provide a functional, secure, and improved experience. Cookies may be first-party (set by us) or third-party (set by external services like analytics).
               </p>
             </Section>
 
-            <Section id="types" icon={BarChart2} title="2. Cookies We Use">
+            <Section id="types" icon={BarChartIcon} title="2. Cookies We Use">
               <div className="grid gap-4">
                 {[
                   {
@@ -108,7 +108,7 @@ export default function CookiePolicyContent() {
               </div>
             </Section>
 
-            <Section id="manage" icon={Settings} title="3. Managing Cookies">
+            <Section id="manage" icon={Settings01Icon} title="3. Managing Cookies">
               <p>
                 You can manage, restrict, or delete cookies at any time through your browser settings. Disabling non-essential cookies will not affect core website functionality.
               </p>
@@ -119,7 +119,7 @@ export default function CookiePolicyContent() {
                 <p className="font-semibold text-gray-800 mb-2">Browser Cookie Settings</p>
                 <ul className="space-y-1 text-gray-600">
                   {['Chrome: Settings → Privacy → Cookies', 'Firefox: Options → Privacy → Cookies', 'Safari: Preferences → Privacy', 'Edge: Settings → Privacy → Cookies'].map(item => (
-                    <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"/>{item}</li>
+                    <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-gray-400 shrink-0"/>{item}</li>
                   ))}
                 </ul>
               </div>

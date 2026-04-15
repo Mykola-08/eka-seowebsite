@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from 'lucide-react';
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
+import { Activity01Icon, ArrowRight01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Moon01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimateIn from './AnimateIn';
 
@@ -9,7 +10,7 @@ interface Problem {
   id: string;
   titleKey: string;
   descriptionKey: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: IconSvgElement;
   color: string;
   href: string;
 }
@@ -22,7 +23,7 @@ export default function CasosSection() {
       id: 'back-pain',
       titleKey: 'casos.problems.backPain.title',
       descriptionKey: 'casos.problems.backPain.description',
-      icon: Activity,
+      icon: Activity01Icon,
       color: 'blue',
       href: '/cases/back-pain'
     },
@@ -30,7 +31,7 @@ export default function CasosSection() {
       id: 'stress-anxiety',
       titleKey: 'casos.problems.stress.title',
       descriptionKey: 'casos.problems.stress.description',
-      icon: Brain,
+      icon: Brain01Icon,
       color: 'purple',
       href: '/cases/stress-anxiety'
     },
@@ -38,7 +39,7 @@ export default function CasosSection() {
       id: 'digestive-problems',
       titleKey: 'casos.problems.digestive.title',
       descriptionKey: 'casos.problems.digestive.description',
-      icon: Heart,
+      icon: FavouriteIcon,
       color: 'green',
       href: '/cases/digestive-problems'
     },
@@ -46,7 +47,7 @@ export default function CasosSection() {
       id: 'migraines',
       titleKey: 'casos.problems.migraines.title',
       descriptionKey: 'casos.problems.migraines.description',
-      icon: Brain,
+      icon: Brain01Icon,
       color: 'red',
       href: '/cases/migraines'
     },
@@ -54,7 +55,7 @@ export default function CasosSection() {
       id: 'low-energy',
       titleKey: 'casos.problems.lowEnergy.title',
       descriptionKey: 'casos.problems.lowEnergy.description',
-      icon: Zap,
+      icon: FlashIcon,
       color: 'orange',
       href: '/cases/low-energy'
     },
@@ -62,7 +63,7 @@ export default function CasosSection() {
       id: 'sleep-difficulties',
       titleKey: 'casos.problems.sleep.title',
       descriptionKey: 'casos.problems.sleep.description',
-      icon: Moon,
+      icon: Moon01Icon,
       color: 'indigo',
       href: '/cases/sleep-difficulties'
     }
@@ -87,7 +88,7 @@ export default function CasosSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {featuredProblems.map((problem, index) => {
-            const ProblemIcon = problem.icon;
+            
             return (
               <AnimateIn key={problem.id} delay={index * 0.05}>
                 <Link
@@ -95,7 +96,7 @@ export default function CasosSection() {
                   className="group block h-full apple-card p-8 transition-colors duration-300"
                 >
                   <div className="w-12 h-12 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600">
-                    <ProblemIcon className="w-6 h-6 stroke-[1.5px]" />
+                    <HugeiconsIcon icon={problem.icon} className="w-6 h-6 stroke-[1.5px]"  />
                   </div>
 
                   <h3 className="text-xl font-semibold text-gray-900 mb-3 apple-title">
@@ -108,7 +109,7 @@ export default function CasosSection() {
 
                   <div className="flex items-center text-blue-600 font-medium text-sm mt-auto">
                     {t('casos.section.readMore')}
-                    <ArrowRight className="w-4 h-4 ml-1 transition-colors duration-200" />
+                    <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-1 transition-colors duration-200"  />
                   </div>
                 </Link>
               </AnimateIn>
@@ -143,7 +144,7 @@ export default function CasosSection() {
               className="inline-flex items-center bg-primary hover:bg-primary-600 text-white font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
             >
               {t('casos.section.viewAll')}
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <HugeiconsIcon icon={ArrowRight01Icon} className="w-5 h-5 ml-2"  />
             </Link>
             <Link
               href="/first-time"

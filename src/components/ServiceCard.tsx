@@ -19,7 +19,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
            <ul className="space-y-3">
              {service.benefitsKeys.map((key, i) => (
                <li key={i} className="flex items-start text-lg text-gray-600">
-                 <span className="w-2 h-2 rounded-full bg-black mt-2.5 mr-3 flex-shrink-0" />
+                 <span className="w-2 h-2 rounded-full bg-black mt-2.5 mr-3 shrink-0" />
                  {t(key)}
                </li>
              ))}

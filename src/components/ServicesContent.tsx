@@ -1,6 +1,7 @@
 'use client';
 
-import { Heart } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { FavouriteIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
@@ -24,9 +25,9 @@ export default function ServicesContent() {
           badge: t('services.integralWellbeingFor'),
           title: `${t('services.ourServices')} ${t('services.ourServices2')}`.trim(),
           subtitle: t('services.wellnessPath'),
-          icon: <Heart className="w-4 h-4" />
+          icon: <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4"  />
         }}
-        className="bg-[#fbfbfd]"
+        className="bg-muted/30"
         mainClassName="bg-transparent"
       >
         {/* Services Grid (Core) - Transparent Background */}

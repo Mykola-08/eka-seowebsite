@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Activity, Brain, Compass, Heart, Moon, Shield, Smile, Sparkles, Zap } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Activity01Icon, Brain01Icon, Compass01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Shield01Icon, SmileIcon, SparklesIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Benefit {
@@ -15,15 +16,15 @@ export default function BenefitsSection() {
   const { t } = useLanguage();
 
   const benefits: Benefit[] = [
-    { icon: <Brain className="w-5 h-5" />, title: t('revision360.benefits.benefit1.title'), description: t('revision360.benefits.benefit1.description'), science: t('revision360.benefits.benefit1.science') },
-    { icon: <Heart className="w-5 h-5" />, title: t('revision360.benefits.benefit2.title'), description: t('revision360.benefits.benefit2.description'), science: t('revision360.benefits.benefit2.science') },
-    { icon: <Zap className="w-5 h-5" />, title: t('revision360.benefits.benefit3.title'), description: t('revision360.benefits.benefit3.description'), science: t('revision360.benefits.benefit3.science') },
-    { icon: <Shield className="w-5 h-5" />, title: t('revision360.benefits.benefit4.title'), description: t('revision360.benefits.benefit4.description'), science: t('revision360.benefits.benefit4.science') },
-    { icon: <Moon className="w-5 h-5" />, title: t('revision360.benefits.benefit5.title'), description: t('revision360.benefits.benefit5.description'), science: t('revision360.benefits.benefit5.science') },
-    { icon: <Smile className="w-5 h-5" />, title: t('revision360.benefits.benefit6.title'), description: t('revision360.benefits.benefit6.description'), science: t('revision360.benefits.benefit6.science') },
-    { icon: <Activity className="w-5 h-5" />, title: t('revision360.benefits.benefit7.title'), description: t('revision360.benefits.benefit7.description'), science: t('revision360.benefits.benefit7.science') },
-    { icon: <Compass className="w-5 h-5" />, title: t('revision360.benefits.benefit8.title'), description: t('revision360.benefits.benefit8.description'), science: t('revision360.benefits.benefit8.science') },
-    { icon: <Sparkles className="w-5 h-5" />, title: t('revision360.benefits.benefit9.title'), description: t('revision360.benefits.benefit9.description'), science: t('revision360.benefits.benefit9.science') },
+    { icon: <HugeiconsIcon icon={Brain01Icon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit1.title'), description: t('revision360.benefits.benefit1.description'), science: t('revision360.benefits.benefit1.science') },
+    { icon: <HugeiconsIcon icon={FavouriteIcon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit2.title'), description: t('revision360.benefits.benefit2.description'), science: t('revision360.benefits.benefit2.science') },
+    { icon: <HugeiconsIcon icon={FlashIcon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit3.title'), description: t('revision360.benefits.benefit3.description'), science: t('revision360.benefits.benefit3.science') },
+    { icon: <HugeiconsIcon icon={Shield01Icon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit4.title'), description: t('revision360.benefits.benefit4.description'), science: t('revision360.benefits.benefit4.science') },
+    { icon: <HugeiconsIcon icon={Moon01Icon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit5.title'), description: t('revision360.benefits.benefit5.description'), science: t('revision360.benefits.benefit5.science') },
+    { icon: <HugeiconsIcon icon={SmileIcon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit6.title'), description: t('revision360.benefits.benefit6.description'), science: t('revision360.benefits.benefit6.science') },
+    { icon: <HugeiconsIcon icon={Activity01Icon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit7.title'), description: t('revision360.benefits.benefit7.description'), science: t('revision360.benefits.benefit7.science') },
+    { icon: <HugeiconsIcon icon={Compass01Icon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit8.title'), description: t('revision360.benefits.benefit8.description'), science: t('revision360.benefits.benefit8.science') },
+    { icon: <HugeiconsIcon icon={SparklesIcon} className="w-5 h-5"  />, title: t('revision360.benefits.benefit9.title'), description: t('revision360.benefits.benefit9.description'), science: t('revision360.benefits.benefit9.science') },
   ];
 
   return (
@@ -47,7 +48,7 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="group rounded-[2rem] p-7 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
+              className="group rounded-4xl p-7 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

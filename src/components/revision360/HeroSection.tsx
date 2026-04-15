@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, CheckCircle2, Sparkles } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowDown01Icon, CheckmarkCircle01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -20,12 +21,12 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#09090f]">
+    <section className="relative min-h-svh flex flex-col justify-center overflow-hidden bg-background">
       {/* Ambient gradient blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-32 left-1/4 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[140px]" />
-        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-indigo-700/8 blur-[120px]" />
-        <div className="absolute bottom-1/3 left-0 h-[300px] w-[300px] rounded-full bg-blue-400/5 blur-[100px]" />
+        <div className="absolute -top-32 left-1/4 h-150 w-150 rounded-full bg-blue-600/10 blur-[140px]" />
+        <div className="absolute bottom-0 right-0 h-125 w-125 rounded-full bg-indigo-700/8 blur-[120px]" />
+        <div className="absolute bottom-1/3 left-0 h-75 w-75 rounded-full bg-blue-400/5 blur-[100px]" />
       </div>
 
       {/* Background image */}
@@ -40,8 +41,8 @@ export default function HeroSection() {
           placeholder="blur"
           blurDataURL={BLUR_URL}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#09090f] via-[#09090f]/96 to-[#0d0d1a]/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#09090f] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-br from-background via-background/96 to-muted/90" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent" />
       </div>
 
       {/* Large decorative 360° */}
@@ -49,7 +50,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0 flex select-none items-center justify-end overflow-hidden pr-4"
         aria-hidden="true"
       >
-        <span className="text-[clamp(160px,28vw,440px)] font-black leading-none tracking-tighter text-white/[0.025]">
+        <span className="text-[clamp(160px,28vw,440px)] font-black leading-none tracking-tighter text-white/2.5">
           360°
         </span>
       </div>
@@ -63,8 +64,8 @@ export default function HeroSection() {
             transition={{ duration: 0.85, ease: [0.215, 0.61, 0.355, 1] }}
           >
             {/* Badge */}
-            <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
-              <Sparkles className="h-3 w-3 text-gold" aria-hidden="true" />
+            <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-xs">
+              <HugeiconsIcon icon={SparklesIcon} className="h-3 w-3 text-gold" aria-hidden="true"  />
               Integral Method · EKA Balance
             </span>
 
@@ -83,9 +84,9 @@ export default function HeroSection() {
               {trustPills.map((label) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-sm"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-xs"
                 >
-                  <CheckCircle2 className="h-3 w-3 text-blue-400" aria-hidden="true" />
+                  <HugeiconsIcon icon={CheckmarkCircle01Icon} className="h-3 w-3 text-blue-400" aria-hidden="true"  />
                   {label}
                 </span>
               ))}
@@ -109,7 +110,7 @@ export default function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-sm hover:bg-white/10 active:scale-[0.97] transition-transform"
+                  className="h-14 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-xs hover:bg-white/10 active:scale-[0.97] transition-transform"
                 >
                   {t('revision360.service.title')}
                 </Button>
@@ -136,7 +137,7 @@ export default function HeroSection() {
         transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
         aria-hidden="true"
       >
-        <ArrowDown className="h-5 w-5 text-white/20" />
+        <HugeiconsIcon icon={ArrowDown01Icon} className="h-5 w-5 text-white/20"  />
       </motion.div>
     </section>
   );

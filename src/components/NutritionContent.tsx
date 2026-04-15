@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Leaf } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Leaf01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CoreServiceTemplate from '@/components/templates/CoreServiceTemplate';
 
@@ -18,7 +19,7 @@ export default function NutritionContent() {
         titleKey: 'services.nutrition.title',
         subtitleKey: 'services.nutrition.description',
         badgeKey: 'services.nutrition.subtitle',
-        icon: Leaf
+        icon: Leaf01Icon
       }}
       bentoGrid={{
         titleKey: 'nutrition.page.benefitsTitle',

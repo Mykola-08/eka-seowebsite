@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Calendar, MessageCircle, X } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Calendar01Icon, Cancel01Icon, Message01Icon } from '@hugeicons/core-free-icons';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -124,7 +125,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
         title: t('booking.hero.title') || "Reserva la teva cita",
         subtitle: t('booking.hero.subtitle') || "Tria l'opció que et sigui més còmoda per començar el teu camí cap al benestar.",
         badge: t('booking.badge') || "Reserves",
-        icon: <Calendar className="w-4 h-4" />
+        icon: <HugeiconsIcon icon={Calendar01Icon} className="w-4 h-4"  />
       }}
       className="bg-secondary"
     >
@@ -136,9 +137,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
             <motion.div
               initial={{ opacity: 0, y: 20 }}
             >
-            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50   transition duration-300 h-full">
+            <Card className="rounded-3xl p-8 sm:p-12 text-center border-gray-100/50 transition duration-300 h-full">
               <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="w-8 h-8 text-green-600 stroke-[2px]" />
+                <HugeiconsIcon icon={Message01Icon} className="w-8 h-8 text-green-600 stroke-[2px]"  />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-3 tracking-tight">
                 {t('booking.direct.title')}
@@ -152,7 +153,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="default" size="xl" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white border-transparent">
+                <Button variant="whatsapp" size="xl" className="w-full">
                   {t('booking.direct.button')}
                 </Button>
               </a>
@@ -166,9 +167,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50   transition duration-300 h-full">
+            <Card className="rounded-3xl p-8 sm:p-12 text-center border-gray-100/50 transition duration-300 h-full">
               <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Calendar className="w-8 h-8 text-blue-600 stroke-[2px]" />
+                <HugeiconsIcon icon={Calendar01Icon} className="w-8 h-8 text-blue-600 stroke-[2px]"  />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-3 tracking-tight">
                 {t('booking.form.title')}
@@ -181,7 +182,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                   logEvent('booking_page_toggle_form', { show: !showForm });
                   setShowForm(!showForm);
                 }}
-                variant={showForm ? "outline" : "default"}
+                variant={showForm ? "outline-solid" : "default"}
                 size="xl"
                 className="w-full"
               >
@@ -201,18 +202,19 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 exit={{ opacity: 0, height: 0, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-              <Card className="rounded-[32px]   border border-gray-100 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
+              <Card className="rounded-3xl border border-gray-100 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
                 <div className="flex justify-between items-center mb-10">
                   <h3 className="text-2xl font-semibold text-gray-900 tracking-tight">
                     {t('booking.form.quickTitle')}
                   </h3>
-                  <button
+                  <Button
                     onClick={() => setShowForm(false)}
-                    className="p-2 text-gray-400 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-50"
+                    variant="ghost"
+                    size="icon"
                     aria-label={t('booking.form.close')}
                   >
-                    <X className="w-6 h-6" />
-                  </button>
+                    <HugeiconsIcon icon={Cancel01Icon} className="w-6 h-6"  />
+                  </Button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -238,7 +240,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.service}
                       onChange={(e) => handleFormChange('service', e.target.value)}
-                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-none"
+                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.servicePlaceholder')}</option>
                       {services.map((service) => (
@@ -257,7 +259,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.location}
                       onChange={(e) => handleFormChange('location', e.target.value)}
-                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-none"
+                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.locationPlaceholder')}</option>
                       {locations.map((location) => (
@@ -276,7 +278,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.timeSlot}
                       onChange={(e) => handleFormChange('timeSlot', e.target.value)}
-                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-none"
+                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.timeSlotPlaceholder')}</option>
                       {timeSlots.map((slot) => (
@@ -295,7 +297,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.availability}
                       onChange={(e) => handleFormChange('availability', e.target.value)}
-                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-none"
+                      className="flex h-12 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-gray-600 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.availabilityPlaceholder')}</option>
                       {availabilityOptions.map((option) => (
@@ -323,10 +325,11 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
 
                 <Button
                   onClick={handleFormSubmit}
+                  variant="whatsapp"
                   size="xl"
-                  className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white border-transparent"
+                  className="w-full"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                   {t('booking.form.submit')}
                 </Button>
               </Card>
@@ -344,9 +347,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white p-8 rounded-[32px] border border-gray-100 ">
+            <div className="bg-white p-8 rounded-3xl border border-gray-100">
               <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
-                <MessageCircle className="w-6 h-6" />
+                <HugeiconsIcon icon={Message01Icon} className="w-6 h-6"  />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">{t('booking.help.contactDirect')}</h4>
               <div className="space-y-1 text-gray-500 text-sm">
@@ -355,9 +358,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-[32px] border border-gray-100 ">
+            <div className="bg-white p-8 rounded-3xl border border-gray-100">
               <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
-                <Calendar className="w-6 h-6" />
+                <HugeiconsIcon icon={Calendar01Icon} className="w-6 h-6"  />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">{t('booking.help.hours')}</h4>
               <div className="space-y-1 text-gray-500 text-sm">

@@ -60,9 +60,9 @@ const themeConfig: Record<string, {
 }> = {
   orange: {
     bg: 'bg-orange-50/50',
-    border: 'border-orange-100',
+    border: 'border-0',
     text: 'text-orange-900',
-    subtext: 'text-gray-700',
+    subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
     dots: 'bg-orange-400',
     stepsBg: 'bg-orange-50/30',
@@ -75,9 +75,9 @@ const themeConfig: Record<string, {
   },
   purple: {
     bg: 'bg-purple-50/50',
-    border: 'border-purple-100',
+    border: 'border-0',
     text: 'text-purple-900',
-    subtext: 'text-gray-700',
+    subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
     dots: 'bg-purple-400',
     stepsBg: 'bg-purple-50/30',
@@ -90,9 +90,9 @@ const themeConfig: Record<string, {
   },
   blue: {
     bg: 'bg-blue-50/50',
-    border: 'border-blue-100',
+    border: 'border-0',
     text: 'text-blue-900',
-    subtext: 'text-gray-700',
+    subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
     dots: 'bg-blue-400',
     stepsBg: 'bg-blue-50/30',
@@ -105,9 +105,9 @@ const themeConfig: Record<string, {
   },
   green: {
     bg: 'bg-emerald-50/50',
-    border: 'border-emerald-100',
+    border: 'border-0',
     text: 'text-emerald-900',
-    subtext: 'text-gray-700',
+    subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
     dots: 'bg-emerald-400',
     stepsBg: 'bg-emerald-50/30',
@@ -120,9 +120,9 @@ const themeConfig: Record<string, {
   },
   pink: {
     bg: 'bg-pink-50/50',
-    border: 'border-pink-100',
+    border: 'border-0',
     text: 'text-pink-900',
-    subtext: 'text-gray-700',
+    subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
     dots: 'bg-pink-400',
     stepsBg: 'bg-pink-50/30',
@@ -135,9 +135,9 @@ const themeConfig: Record<string, {
   },
   amber: {
     bg: 'bg-amber-50/50',
-    border: 'border-amber-100',
+    border: 'border-0',
     text: 'text-amber-900',
-    subtext: 'text-gray-700',
+    subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
     dots: 'bg-amber-400',
     stepsBg: 'bg-amber-50/30',
@@ -211,7 +211,7 @@ export default function PersonalizedServiceTemplate({
             <Button
               size="xl"
               variant="outline"
-              className="bg-white/90 backdrop-blur-xs text-gray-800 border-gray-200 hover:bg-white"
+              className="bg-white/90 backdrop-blur-xs text-foreground border-0 hover:bg-white"
             >
               {t('common.askQuestions')}
             </Button>
@@ -229,12 +229,12 @@ export default function PersonalizedServiceTemplate({
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-350 mx-auto">
               {/* Description 1 - Large box */}
-              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-4xl sm:rounded-[2.5rem] bg-white border border-gray-100   transition-all duration-500 relative overflow-hidden group">
+              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-4xl sm:rounded-[2.5rem] bg-white  border-0   transition-all duration-500 relative overflow-hidden group">
                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
-                 <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 font-medium leading-tight relative z-10 text-balance">
+                 <p className="text-xl sm:text-2xl md:text-3xl text-foreground font-medium leading-tight relative z-10 text-balance">
                     {t(`${translationKey}.understanding.description1`)}
                  </p>
-                 <p className="mt-6 sm:mt-8 text-base sm:text-lg text-gray-500 leading-relaxed max-w-2xl font-medium relative z-10">
+                 <p className="mt-6 sm:mt-8 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl font-medium relative z-10">
                     {t(`${translationKey}.understanding.description2`)}
                  </p>
                  <div className="mt-6 sm:mt-8 relative z-10">
@@ -273,14 +273,14 @@ export default function PersonalizedServiceTemplate({
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                 {validSteps.map((step, index) => (
-                    <div key={index} className={`rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 ${theme.stepsBg}  group  transition-all duration-500`}>
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                    <div key={index} className={`rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10  border-0 ${theme.stepsBg}  group  transition-all duration-500`}>
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-3xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-500`}>
                       {index + 1}
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-900 tracking-tight leading-tight">
+                    <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-foreground tracking-tight leading-tight">
                       {step.title}
                     </h3>
-                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
+                    <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-medium">
                       {step.description}
                     </p>
                   </div>
@@ -297,7 +297,7 @@ export default function PersonalizedServiceTemplate({
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-3 sm:mb-4 text-black">
                 {t(`${translationKey}.services.title`)}
               </h2>
-              <p className="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
                 {t(`${translationKey}.services.subtitle`)}
               </p>
             </div>
@@ -305,10 +305,10 @@ export default function PersonalizedServiceTemplate({
             <div className={`grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5 sm:gap-6 md:gap-8`}>
               {recommendedServices.map((service, index) => {
                 const details = (
-                  <div className="flex items-center gap-6 mt-8 p-6 bg-gray-50 rounded-2xl">
+                  <div className="flex items-center gap-6 mt-8 p-6 bg-muted/40 rounded-3xl">
                     <div className="flex flex-col">
-                      <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">{t('common.duration') || 'Duration'}</span>
-                      <span className="text-xl font-semibold text-gray-900">{service.duration || '60-90 min'}</span>
+                      <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('common.duration') || 'Duration'}</span>
+                      <span className="text-xl font-semibold text-foreground">{service.duration || '60-90 min'}</span>
                     </div>
                   </div>
                 );

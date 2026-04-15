@@ -15,10 +15,10 @@ export function Guarantee({ problem }: GuaranteeProps) {
   const content = FUNNEL_DATA[problem];
 
   return (
-    <section className="bg-muted py-24 border-t border-border">
+    <section className="bg-muted py-24  border-0">
       <div className="container mx-auto px-4 max-w-4xl text-center">
         <div className="flex justify-center mb-8">
-          <div className="p-4 rounded-full bg-background shadow-md border border-border">
+          <div className="p-4 rounded-full bg-background   border-0">
              <HugeiconsIcon icon={SecurityCheckIcon} className="w-12 h-12 text-primary" />
           </div>
         </div>
@@ -32,7 +32,7 @@ export function Guarantee({ problem }: GuaranteeProps) {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="w-full sm:w-auto h-14 text-lg font-bold px-8 rounded-full shadow-lg hover:scale-105 transition-transform">
+          <Button size="lg" className="w-full sm:w-auto h-14 text-lg font-bold px-8 rounded-full  hover:scale-105 transition-transform">
             Book Your Assessment Now
           </Button>
           <p className="text-sm text-muted-foreground mt-4 sm:mt-0 sm:ml-4">

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { FUNNEL_DATA, type ProblemState } from '@/lib/funnel-data';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface AdaptiveMethodologyProps {
   currentProblem: ProblemState;
@@ -14,11 +15,12 @@ interface AdaptiveMethodologyProps {
 export function AdaptiveMethodology({ currentProblem, className }: AdaptiveMethodologyProps) {
   const content = FUNNEL_DATA[currentProblem];
   const Icon = content.methodologyIcon;
+  const { t } = useLanguage();
 
   return (
     <section id="solutions" className={cn("py-20 md:py-28 bg-background relative scroll-mt-20", className)}>
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-sm font-semibold tracking-wide text-primary uppercase mb-3">Our Approach</h2>
+        <h2 className="text-sm font-semibold tracking-wide text-primary uppercase mb-3">{t('funnel.approach') || 'Our Approach'}</h2>
         
         <AnimatePresence mode="wait">
           <motion.div
@@ -29,43 +31,47 @@ export function AdaptiveMethodology({ currentProblem, className }: AdaptiveMetho
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-8 shadow-sm">
-              <HugeiconsIcon icon={Icon} size={32} />
+            <div className="w-20 h-20 rounded-[2rem] bg-primary/5 text-primary flex items-center justify-center mb-8">
+              <HugeiconsIcon icon={Icon} size={40} />
             </div>
             
-            <h3 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-balance">
-              {content.methodologyTitle}
+            <h3 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-balance text-foreground">
+              {t(content.methodologyTitle)}
             </h3>
             
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed text-balance max-w-3xl">
-              {content.methodologyText}
+              {t(content.methodologyText)}
             </p>
 
-            <div className="mt-12 p-6 md:p-8 bg-muted/60 rounded-2xl border border-border shadow-sm max-w-2xl text-left mx-auto">
-                <p className="font-bold text-primary mb-3 text-xs uppercase tracking-widest bg-background border border-border rounded-full px-3 py-1 inline-block">Clinical Approach</p>
-                <p className="text-foreground leading-relaxed font-medium text-lg">
-                  "{content.authoritativeMethod}"
+            <div className="mt-16 p-8 md:p-12 bg-muted/30 rounded-[3rem] border max-w-3xl text-left mx-auto relative shadow-sm">
+                <div className="absolute -top-4 left-8 md:left-12">
+                   <p className="font-bold text-primary text-xs uppercase tracking-widest bg-background border-0 rounded-full px-4 py-2 inline-block">
+                     {t('funnel.clinicalApproach') || 'Clinical Approach'}
+                   </p>
+                </div>
+                <p className="text-foreground leading-relaxed font-medium text-lg md:text-xl">
+                  "{t(content.authoritativeMethod)}"
                 </p>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-24 pt-12 border-t border-border/40">
-          <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20 md:mt-32 pt-16 border-t border-muted/50">
+          <div className="flex flex-col gap-3">
             <span className="text-4xl font-bold tracking-tight tabular-nums">1,500+</span>
-            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Sessions</span>
+            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{t('stats.sessions') || 'Sessions'}</span>
           </div>
           <div className="flex flex-col gap-2">
             <span className="text-4xl font-bold tracking-tight tabular-nums">10+</span>
-            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Years Experience</span>
+            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{t('stats.experience') || 'Years Experience'}</span>
           </div>
           <div className="flex flex-col gap-2">
             <span className="text-4xl font-bold tracking-tight tabular-nums">96%</span>
-            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Client Satisfaction</span>
+            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{t('stats.satisfaction') || 'Client Satisfaction'}</span>
           </div>
           <div className="flex flex-col gap-2">
             <span className="text-4xl font-bold tracking-tight tabular-nums">9</span>
-            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Countries Served</span>
+            <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{t('stats.countries') || 'Countries Served'}</span>
           </div>
         </div>
       </div>

@@ -2,16 +2,10 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { FUNNEL_DATA, type ProblemState } from '@/lib/funnel-data';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FunnelHeroProps {
   currentProblem: ProblemState;
@@ -21,6 +15,7 @@ interface FunnelHeroProps {
 
 export function FunnelHero({ currentProblem, onProblemChange, className }: FunnelHeroProps) {
   const content = FUNNEL_DATA[currentProblem];
+  const { t } = useLanguage();
 
   return (
     <section className={cn("relative min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden", className)}>
@@ -38,41 +33,43 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
             className="max-w-4xl mx-auto space-y-6"
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground text-balance">
-              {content.heroHeadline}
+              {t(content.heroHeadline)}
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance">
-              {content.heroSubheadline}
+              {t(content.heroSubheadline)}
             </p>
           </motion.div>
         </AnimatePresence>
 
-        {/* Interactive Sentence */}
+        {/* Interactive Options */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 sm:mt-24 p-6 sm:p-8 bg-background/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-lg max-w-3xl w-full flex flex-col sm:flex-row items-center justify-center gap-4 text-xl sm:text-2xl font-medium"
+          className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto flex flex-col items-center justify-center gap-6"
         >
-          <span className="shrink-0">I am looking for help with</span>
-          <Select 
-            value={currentProblem} 
-            onValueChange={(v) => onProblemChange(v as ProblemState)}
-          >
-            <SelectTrigger className="h-auto py-3 px-5 text-xl sm:text-2xl bg-muted/50 border-primary/20 hover:border-primary/50 transition-colors w-full sm:w-auto font-medium shadow-none focus:ring-primary/20 whitespace-normal text-left min-h-12 rounded-xl">
-              <SelectValue placeholder="Select an option" />
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-border/50 shadow-xl overflow-hidden p-1 min-w-70 max-w-[95vw]">
-              {Object.entries(FUNNEL_DATA).map(([key, data]) => (
-                <SelectItem 
-                  key={key} 
-                  value={key} 
-                  className="text-base font-medium py-3 px-4 cursor-pointer data-highlighted:bg-muted/80 rounded-lg transition-colors whitespace-normal"
+          <span className="text-xl sm:text-2xl font-medium text-muted-foreground">
+            {t('funnel.hero.iAmLookingFor') || 'I am looking for help with...'}
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {Object.entries(FUNNEL_DATA).map(([key, data]) => {
+              const isSelected = currentProblem === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => onProblemChange(key as ProblemState)}
+                  className={cn(
+                    "px-6 py-3 rounded-full text-base sm:text-lg font-medium transition-all duration-200 border-2",
+                    isSelected 
+                      ? "border-primary bg-primary text-primary-foreground shadow-md scale-105" 
+                      : "border-muted/50 bg-background text-foreground hover:border-primary/50 hover:bg-muted/30"
+                  )}
                 >
-                  ...{data.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+                  {t(data.label)}
+                </button>
+              );
+            })}
+          </div>
         </motion.div>
 
         {/* Action Button */}
@@ -82,8 +79,8 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-12"
         >
-          <Button size="lg" className="rounded-full px-8 py-6 text-lg h-auto shadow-md hover:shadow-lg transition-all" asChild>
-            <a href="#solutions">See The Solution</a>
+          <Button size="lg" className="rounded-full px-10 py-8 text-xl font-bold bg-primary text-primary-foreground hover:bg-primary/90 transition-all border-0 -none h-auto" asChild>
+            <a href="#solutions">{t('funnel.hero.seeSolution') || 'See The Solution'}</a>
           </Button>
         </motion.div>
       </div>

@@ -58,27 +58,27 @@ export default function AppleHero() {
 
       {/* Subtle background glows — hidden on mobile to protect performance */}
       <div className="hidden sm:block absolute top-0 left-0 w-full h-125 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-[80px] mix-blend-multiply" />
-        <div className="absolute top-[10%] right-[-5%] w-[30%] h-[30%] bg-purple-100/40 rounded-full blur-[60px] mix-blend-multiply" />
+        <div className="absolute top-[-10%] left-[-10%] w-2/5 h-2/5 bg-blue-100/50 rounded-full blur-3xl mix-blend-multiply" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-2/5 h-2/5 bg-purple-100/50 rounded-full blur-3xl mix-blend-multiply" />
       </div>
 
       {/* Content Layer - Centered Text */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-6 sm:mb-8 md:mb-6">
         <AnimateIn delay={0} duration={0.3} from="bottom">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60  backdrop-blur-md mb-8">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60  border-0  backdrop-blur-md mb-8">
             <HugeiconsIcon icon={SparklesIcon} className="w-4 h-4 text-blue-600"  />
-            <span className="text-sm font-medium text-gray-800 tracking-wide">EKA Balance Method</span>
+            <span className="text-sm font-medium text-foreground tracking-wide">EKA Balance Method</span>
           </div>
         </AnimateIn>
 
         <AnimateIn delay={0.05} duration={0.3} from="bottom">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-gray-900 ">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-foreground ">
             {t('hero.title')}
           </h1>
         </AnimateIn>
 
         <AnimateIn delay={0.1} duration={0.3} from="bottom">
-          <p className="text-xl md:text-2xl font-medium text-gray-500 max-w-2xl mx-auto mb-10 text-balance leading-relaxed">
+          <p className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl mx-auto mb-10 text-balance leading-relaxed">
             {t('hero.subtitle')}
           </p>
         </AnimateIn>
@@ -115,7 +115,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Soft Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-3xl md:rounded-[2.5rem] overflow-hidden mx-auto group shadow-2xl backdrop-blur-sm">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-3xl md:rounded-[2.5rem] overflow-hidden mx-auto group  backdrop-blur-sm">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (

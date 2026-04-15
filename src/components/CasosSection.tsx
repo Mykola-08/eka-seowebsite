@@ -73,15 +73,15 @@ export default function CasosSection() {
     <section className="py-24 bg-secondary">
       <div className="section-container">
         <div className="text-center mb-20 max-w-4xl mx-auto">
-          <span className="inline-block py-1 px-3 rounded-full bg-white border border-gray-200/50 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-white  border-0 text-foreground/80 text-xs font-semibold uppercase tracking-wider mb-6">
             {t('casos.section.badge')}
           </span>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-6 tracking-tight">
             {t('casos.section.title')}
           </h2>
 
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-normal leading-relaxed text-balance">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-normal leading-relaxed text-balance">
             {t('casos.section.subtitle')}
           </p>
         </div>
@@ -95,15 +95,15 @@ export default function CasosSection() {
                   href={problem.href}
                   className="group block h-full apple-card p-8 transition-colors duration-300"
                 >
-                  <div className="w-12 h-12 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600">
+                  <div className="w-12 h-12 rounded-full bg-muted/40 text-foreground flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600">
                     <HugeiconsIcon icon={problem.icon} className="w-6 h-6 stroke-[1.5px]"  />
                   </div>
 
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 apple-title">
+                  <h3 className="text-xl font-semibold text-foreground mb-3 apple-title">
                     {t(problem.titleKey)}
                   </h3>
 
-                  <p className="text-gray-500 mb-6 leading-relaxed line-clamp-3 font-normal text-base">
+                  <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3 font-normal text-base">
                     {t(problem.descriptionKey)}
                   </p>
 
@@ -119,7 +119,7 @@ export default function CasosSection() {
 
         {/* Other Cases List */}
         <div className="max-w-4xl mx-auto mb-20 text-center">
-          <h3 className="text-2xl font-medium text-gray-900 mb-8">{t('casos.other.title')}</h3>
+          <h3 className="text-2xl font-medium text-foreground mb-8">{t('casos.other.title')}</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               'casos.other.money',
@@ -129,7 +129,7 @@ export default function CasosSection() {
               'casos.other.work',
               'casos.other.trauma'
             ].map((key) => (
-              <span key={key} className="px-5 py-2.5 bg-white border border-gray-200/60 rounded-full text-gray-600 text-sm font-medium hover:border-blue-200 hover:text-blue-600 transition-colors duration-200 cursor-default">
+              <span key={key} className="px-5 py-2.5 bg-white  border-0 rounded-full text-foreground/80 text-sm font-medium hover:border-0 hover:text-blue-600 transition-colors duration-200 cursor-default">
                 {t(key)}
               </span>
             ))}
@@ -148,7 +148,7 @@ export default function CasosSection() {
             </Link>
             <Link
               href="/first-time"
-              className="inline-flex items-center bg-transparent border border-primary text-primary hover:bg-primary/5 font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
+              className="inline-flex items-center bg-transparent  border-0 text-primary hover:bg-primary/5 font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
             >
               {t('casos.section.findYourCase')}
             </Link>

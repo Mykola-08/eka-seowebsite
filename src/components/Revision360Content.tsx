@@ -17,21 +17,9 @@ export default function Revision360Content() {
         keywordsKey="revision360.seo.keywords"
       />
       <HeroSection />
-
-      {/* Dark → Light transition */}
-      <div className="h-16 bg-linear-to-b from-background to-muted" aria-hidden="true" />
-
       <Why360Section />
       <ServiceSection />
-
-      {/* Light → Dark transition */}
-      <div className="h-16 bg-linear-to-b from-white to-background" aria-hidden="true" />
-
       <VariantsSection />
-
-      {/* Dark → Light transition */}
-      <div className="h-16 bg-linear-to-b from-background to-white" aria-hidden="true" />
-
       <BenefitsSection />
       <FinalInvitationSection />
     </div>

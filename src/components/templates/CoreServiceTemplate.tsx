@@ -119,7 +119,7 @@ export default function CoreServiceTemplate({
                 {t(bentoGrid.titleKey)}
               </h2>
               {bentoGrid.subtitleKey && (
-                <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto tracking-tight font-medium">
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto tracking-tight font-medium">
                   {t(bentoGrid.subtitleKey)}
                 </p>
               )}
@@ -159,7 +159,7 @@ export default function CoreServiceTemplate({
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
               {t(features.titleKey)}
             </h2>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
               {t(features.subtitleKey)}
             </p>
           </div>
@@ -170,15 +170,15 @@ export default function CoreServiceTemplate({
                 return (
                   <div
                     key={index}
-                    className="p-6 sm:p-8 md:p-10 rounded-4xl sm:rounded-[2.5rem] bg-white border border-gray-100   transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-45"
+                    className="p-6 sm:p-8 md:p-10 rounded-4xl sm:rounded-[2.5rem] bg-white  border-0   transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-45"
                   >
                     <div className="absolute -top-4 -right-4 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500 transform group-hover:scale-110">
                       <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-40 h-40"  />
                     </div>
-                      <div className={`w-12 h-12 rounded-xl sm:rounded-2xl flex items-center justify-center mb-6 relative z-10 bg-gray-50 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
+                      <div className={`w-12 h-12 rounded-3xl sm:rounded-3xl flex items-center justify-center mb-6 relative z-10 bg-muted/40 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
                       <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 sm:w-6 sm:h-6"  />
                     </div>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 tracking-tight leading-[1.2] relative z-10 w-[95%]">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tracking-tight leading-[1.2] relative z-10 w-[95%]">
                       {title}
                     </h3>
                   </div>
@@ -195,39 +195,39 @@ export default function CoreServiceTemplate({
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
               {t(pricing.titleKey)}
             </h2>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto tracking-tight font-medium">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
               {t(pricing.subtitleKey)}
             </p>
           </div>
 
           <div className={`grid gap-6 md:gap-8 max-w-300 mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {pricing.options.map((option, index) => (
-                <div key={index} className="bg-muted/30 rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 hover:border-gray-200   transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gray-100 rounded-bl-full z-0 opacity-50 group-hover:bg-blue-50 transition-colors duration-500" />
+                <div key={index} className="bg-muted/30 rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10  border-0 hover:border-0   transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-muted rounded-bl-full z-0 opacity-50 group-hover:bg-blue-50 transition-colors duration-500" />
                 
                 <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[1.25rem] bg-white  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
                   <HugeiconsIcon icon={Clock01Icon} className="w-7 h-7"  />
                 </div>
 
                 {option.nameKey && (
-                    <h3 className="text-lg font-medium text-gray-500 tracking-tight mb-2 relative z-10">
+                    <h3 className="text-lg font-medium text-muted-foreground tracking-tight mb-2 relative z-10">
                          {t(option.nameKey) !== option.nameKey ? t(option.nameKey) : option.nameKey}
                     </h3>
                 )}
 
-                <h3 className="text-4xl md:text-5xl font-semibold text-gray-900 tracking-tighter mb-4 relative z-10">
+                <h3 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tighter mb-4 relative z-10">
                   {typeof option.duration === 'number' ? `${option.duration}'` : option.duration}
                 </h3>
 
                 {option.descriptionKey && (
-                    <p className="text-gray-500 mb-8 font-medium leading-relaxed text-sm max-w-62.5 relative z-10">
+                    <p className="text-muted-foreground mb-8 font-medium leading-relaxed text-sm max-w-62.5 relative z-10">
                         {t(option.descriptionKey)}
                     </p>
                 )}
 
                 {option.price && (
                    <div className="mb-8 relative z-10">
-                      <span className="text-4xl font-semibold tracking-tighter text-gray-900">{option.price}€</span>
+                      <span className="text-4xl font-semibold tracking-tighter text-foreground">{option.price}€</span>
                    </div>
                 )}
 
@@ -254,14 +254,14 @@ export default function CoreServiceTemplate({
                 <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     {testimonials.items.map((testimonial, i) => (
-                        <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 h-full flex flex-col hover:bg-white  transition duration-300">
+                        <div key={i} className="bg-muted/40 p-8 rounded-3xl  border-0 h-full flex flex-col hover:bg-white  transition duration-300">
                              <div className="flex gap-1 mb-4 text-yellow-400">
                                 {[...Array(testimonial.rating)].map((_, i) => (
                                     <HugeiconsIcon icon={StarIcon} key={i} className="w-5 h-5 fill-current"  />
                                 ))}
                              </div>
-                             <p className="text-lg text-gray-600 mb-6 italic grow">&ldquo;{testimonial.text}&rdquo;</p>
-                             <div className="font-semibold text-gray-900 mt-auto">{testimonial.name}</div>
+                             <p className="text-lg text-foreground/80 mb-6 italic grow">&ldquo;{testimonial.text}&rdquo;</p>
+                             <div className="font-semibold text-foreground mt-auto">{testimonial.name}</div>
                         </div>
                     ))}
                 </div>

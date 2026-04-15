@@ -52,30 +52,30 @@ export default class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-muted/40 flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl  max-w-md w-full p-8 text-center">
             <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <HugeiconsIcon icon={Alert01Icon} className="w-10 h-10 text-red-500"  />
             </div>
             
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            <h1 className="text-2xl font-bold text-foreground mb-4">
               Ups! Alguna cosa ha anat malament
             </h1>
             
-            <p className="text-gray-600 mb-8">
+            <p className="text-foreground/80 mb-8">
               Ho sentim, s'ha produït un error inesperat. Prova de recarregar la pàgina o torna a l'inici.
             </p>
 
             {this.state.error && process.env.NODE_ENV === 'development' && (
               <details className="mb-6 text-left">
-                <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700 font-medium">
+                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground/80 font-medium">
                   Detalls de l&apos;error
                 </summary>
-                <div className="mt-4 p-4 bg-gray-100 rounded-lg border border-gray-200">
+                <div className="mt-4 p-4 bg-muted rounded-lg  border-0">
                   <p className="font-mono text-sm font-bold text-red-700 mb-2">
                     {this.state.error.name}: {this.state.error.message}
                   </p>
-                  <pre className="text-xs text-gray-700 whitespace-pre-wrap overflow-auto max-h-60">
+                  <pre className="text-xs text-foreground/80 whitespace-pre-wrap overflow-auto max-h-60">
                     {this.state.errorInfo?.componentStack}
                   </pre>
                 </div>
@@ -119,7 +119,7 @@ export function ErrorFallback({
   resetError: () => void; 
 }) {
   return (
-    <div className="p-8 bg-red-50 border border-red-200 rounded-2xl">
+    <div className="p-8 bg-red-50  border-0 rounded-3xl">
       <div className="flex items-center mb-4">
         <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-red-500 mr-3"  />
         <h2 className="text-lg font-medium text-red-900">

@@ -83,21 +83,21 @@ export default function CookieBanner() {
           className="fixed bottom-0 left-0 right-0 z-(--z-toast) px-3 pt-3 pb-24 md:px-6 md:pb-6"
         >
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/97 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
+            <div className="bg-white/97 backdrop-blur-xl  border-0 rounded-3xl  -black/10 overflow-hidden">
               <div className="p-5 sm:p-6">
                 {/* Header row */}
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center shrink-0">
-                      <HugeiconsIcon icon={CookieIcon} className="w-4.5 h-4.5 text-gray-600" style={{ width: 18, height: 18 }}  />
+                    <div className="w-9 h-9 bg-muted rounded-full flex items-center justify-center shrink-0">
+                      <HugeiconsIcon icon={CookieIcon} className="w-4.5 h-4.5 text-foreground/80" style={{ width: 18, height: 18 }}  />
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900 tracking-tight">
+                    <h3 className="text-base font-semibold text-foreground tracking-tight">
                       {t('cookies.title')}
                     </h3>
                   </div>
                   <button
                     onClick={rejectCookies}
-                    className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-1.5 transition-colors shrink-0"
+                    className="text-muted-foreground hover:text-foreground/80 hover:bg-muted rounded-full p-1.5 transition-colors shrink-0"
                     aria-label="Reject cookies and close"
                   >
                     <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4"  />
@@ -105,7 +105,7 @@ export default function CookieBanner() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-500 text-sm leading-relaxed mb-4 pl-12">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4 pl-12">
                   {t('cookies.description')}
                 </p>
 
@@ -116,7 +116,7 @@ export default function CookieBanner() {
                       <Link
                         key={href}
                         href={href}
-                        className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-blue-600 transition-colors duration-200"
+                        className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-blue-600 transition-colors duration-200"
                       >
                         <HugeiconsIcon icon={Icon} className="w-3 h-3" />
                         <span className="underline underline-offset-2 decoration-dotted">{label}</span>

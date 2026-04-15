@@ -59,23 +59,23 @@ const FAQ = ({ items, title, subtitle }: FAQProps) => {
     <section className="py-24 bg-white">
       <div className="section-container max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-foreground mb-6 tracking-tight">
             {title || t('faq.title')}
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-normal leading-relaxed">
             {subtitle || t('faq.subtitle')}
           </p>
         </div>
 
-        <div className="border-t border-gray-100">
-          <Accordion type="single" collapsible defaultValue="item-1">
+        <div className="w-full">
+          <Accordion type="single" collapsible defaultValue="item-1" className="flex flex-col gap-4">
             {faqItems.map((item) => (
-              <AccordionItem key={item.id} value={item.id} className="border-b border-gray-100 px-0">
-                <AccordionTrigger className="text-lg sm:text-xl font-medium text-gray-900 hover:text-blue-600 hover:no-underline py-6 text-left transition-colors duration-200">
+              <AccordionItem key={item.id} value={item.id} className="bg-muted/40 rounded-3xl px-6 sm:px-8 border-none transition-all duration-300">
+                <AccordionTrigger className="text-lg sm:text-xl font-medium text-foreground hover:text-blue-600 hover:no-underline py-6 text-left transition-colors duration-200">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-lg leading-relaxed text-gray-500 pb-6 pr-4 font-normal">
+                  <p className="text-lg leading-relaxed text-muted-foreground pb-6 pr-4 font-normal">
                     {item.answer}
                   </p>
                 </AccordionContent>

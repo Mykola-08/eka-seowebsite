@@ -15,6 +15,7 @@ export type Product = {
     usage?: LocalizedString;
     price?: string;
     image?: string;
+    imageLayout?: 'portrait' | 'banner';
 };
 
 export function getLocalized(content: LocalizedString | undefined, lang: string): string {
@@ -66,7 +67,8 @@ export const products: Product[] = [
             ru: '1 капсула в день во время еды (желательно с жирами).',
             ca: '1 càpsula al dia amb un àpat gras.'
         },
-        image: 'https://front.agenyz.ru/resize/w1413/f9/yh/VitaminD3_1.72cbzz0zfx80c69v1cwvdl.jpg'
+        image: 'https://images.unsplash.com/photo-1550572017-edb7df08c350?w=1000&auto=format&fit=crop&q=80',
+        imageLayout: 'portrait'
     },
     {
         id: 'Octomagnesium-XBi-A',
@@ -107,7 +109,8 @@ export const products: Product[] = [
             { en: '8. Magnesium Salicylate', es: '8. Salicilato de Magnesio', ru: '8. Салицилат магния', ca: '8. Salicilat de Magnesi' },
             { en: 'Vitamin B6 (P5P Active Form)', es: 'Vitamina B6 (Forma Activa P5P)', ru: 'Витамин B6 (Активная форма P5P)', ca: 'Vitamina B6 (Forma Activa P5P)' }
         ],
-        image: 'https://storage.agenyz.eu/bs/rq/1240340_OCTOMAGNESIUMXBi-A.4z7ynoqb1iqdyexcgpej.jpg'
+        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1000&auto=format&fit=crop&q=80',
+        imageLayout: 'portrait'
     },
     {
         id: '3D-Matrix',
@@ -143,7 +146,8 @@ export const products: Product[] = [
             { en: 'Vitamin C & Hesperidin', es: 'Vitamina C y Hesperidina', ru: 'Витамин C и Гесперидин', ca: 'Vitamina C i Hesperidina' },
             { en: 'Ginkgo Biloba Extract', es: 'Extracto de Ginkgo Biloba', ru: 'Экстракт Гинкго Билоба', ca: 'Extracte de Ginkgo Biloba' }
         ],
-        image: 'https://storage.agenyz.eu/sc/w8/3dMatrix_En.6o8ovei0rtlqdqm6cixc1ff6mj.png'
+        image: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=1000&auto=format&fit=crop&q=80',
+        imageLayout: 'portrait'
     },
     {
         id: 'FungoMax-XBi-A',
@@ -180,7 +184,8 @@ export const products: Product[] = [
             { en: 'Adaptogenic: Helps body resist stress.', es: 'Adaptogénico: Ayuda al cuerpo a resistir el estrés.', ru: 'Адаптоген: Помогает организму противостоять стрессу.', ca: 'Adaptogènic: Ajuda el cos a resistir l\'estrès.' },
             { en: 'Antioxidant: Neutralizes free radicals.', es: 'Antioxidante: Neutraliza radicales libres.', ru: 'Антиоксидант: Нейтрализует свободные радикалы.', ca: 'Antioxidant: Neutralitza radicals lliures.' }
         ],
-        image: 'https://front.agenyz.ru/resize/w1413/ky/gs/2026_02_13_AgenyzEU_Fungomax_2000x2000.dwqde2wfnjwcpqgx2akv61r.png'
+        image: 'https://front.agenyz.ru/resize/w1413/ky/gs/2026_02_13_AgenyzEU_Fungomax_2000x2000.dwqde2wfnjwcpqgx2akv61r.png',
+        imageLayout: 'portrait'
     },
     {
         id: 'FerBoost-XBi-A',

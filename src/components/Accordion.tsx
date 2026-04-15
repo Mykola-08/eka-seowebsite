@@ -110,7 +110,7 @@ export function AccordionTrigger({ children, className, value: itemValue }: Acco
       {children}
       <HugeiconsIcon icon={ArrowDown01Icon}
         className={cn(
-          'h-5 w-5 shrink-0 text-gray-400 transition-transform duration-300',
+          'h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300',
           isOpen && 'rotate-180 text-blue-600'
         )}
        />

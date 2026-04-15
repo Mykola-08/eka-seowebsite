@@ -55,7 +55,7 @@ export default function PersonalizedServicesContent() {
             <h2 className="heading-2 mb-4 text-black">
               {t('personalizedServices.choose.title')}
             </h2>
-            <p className="text-body-lg text-gray-500">
+            <p className="text-body-lg text-muted-foreground">
               {t('personalizedServices.choose.subtitle')}
             </p>
           </div>

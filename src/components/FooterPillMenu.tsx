@@ -29,11 +29,11 @@ export default function FooterPillMenu() {
         className={[
           /* Match the scrolled header's glass style exactly */
           'bg-white/90 backdrop-blur-2xl',
-          'border border-gray-200/50',
-          'rounded-2xl p-1.5',
+          ' border-0',
+          'rounded-3xl p-1.5',
           'flex items-stretch gap-0.5',
-          /* Soft lift shadow that matches dropdown panels */
-          'shadow-[0_8px_30px_rgba(0,0,0,0.07)]',
+          /* Soft lift  that matches dropdown panels */
+          '-[0_8px_30px_rgba(0,0,0,0.07)]',
           'ring-1 ring-black/4',
           'w-full',
         ].join(' ')}
@@ -52,16 +52,16 @@ export default function FooterPillMenu() {
               href={item.href}
               aria-current={isActive ? 'page' : undefined}
               className={cn(
-                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-xl',
+                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-3xl',
                 'transition-colors duration-150 active:scale-[0.93] select-none',
-                isActive ? 'text-white' : 'text-gray-400 hover:text-gray-700',
+                isActive ? 'text-white' : 'text-muted-foreground hover:text-foreground/80',
               )}
             >
               {/* Sliding dark-pill active background — animates between tabs */}
               {isActive && (
                 <motion.div
                   layoutId="pill-active-bg"
-                  className="absolute inset-0 rounded-xl bg-primary"
+                  className="absolute inset-0 rounded-3xl bg-primary"
                   transition={{ type: 'spring', stiffness: 420, damping: 38 }}
                 />
               )}

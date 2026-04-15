@@ -6,13 +6,13 @@ import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
 import { Alert01Icon, File01Icon, JusticeScale01Icon, MailIcon, SecurityCheckIcon, UserCheck01Icon } from '@hugeicons/core-free-icons';
 const Section = ({ id, icon: Icon, title, children }: { id: string; icon: IconSvgElement; title: string; children: React.ReactNode }) => (
   <section id={id} className="scroll-mt-24">
-    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-      <div className="w-9 h-9 rounded-xl bg-primary/8 flex items-center justify-center shrink-0">
+    <div className="flex items-center gap-3 mb-6 pb-4  border-0">
+      <div className="w-9 h-9 rounded-3xl bg-primary/8 flex items-center justify-center shrink-0">
         <HugeiconsIcon icon={Icon} className="w-4 h-4 text-primary" />
       </div>
-      <h2 className="text-xl font-semibold text-gray-900 tracking-tight">{title}</h2>
+      <h2 className="text-xl font-semibold text-foreground tracking-tight">{title}</h2>
     </div>
-    <div className="space-y-4 text-gray-600 leading-relaxed">{children}</div>
+    <div className="space-y-4 text-foreground/80 leading-relaxed">{children}</div>
   </section>
 );
 
@@ -37,11 +37,11 @@ export default function PrivacyPolicyContent() {
 
           {/* Sticky TOC */}
           <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contents</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
             <nav className="space-y-1">
               {toc.map(item => (
                 <a key={item.href} href={item.href}
-                  className="block text-sm text-gray-500 hover:text-gray-900 py-1.5 border-l-2 border-gray-100 hover:border-primary pl-3 transition-colors duration-150">
+                  className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-0 border-0 hover:border-primary pl-3 transition-colors duration-150">
                   {item.label}
                 </a>
               ))}
@@ -52,7 +52,7 @@ export default function PrivacyPolicyContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer — always first, always prominent */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-3xl  border-0 bg-amber-50 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-amber-600 shrink-0 mt-0.5"  />
                 <div>
@@ -86,7 +86,7 @@ export default function PrivacyPolicyContent() {
             </div>
 
             <Section id="controller" icon={UserCheck01Icon} title="Data Controller">
-              <div className="bg-gray-50 rounded-2xl p-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="bg-muted/40 rounded-3xl p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 {[
                   ['Name', 'Olena Kucherova Dryzhak (EKA Balance)'],
                   ['Address', 'Calle Plata 1, 08191 Rubí, Barcelona, Spain'],
@@ -94,12 +94,12 @@ export default function PrivacyPolicyContent() {
                   ['Email', 'legal@ekabalance.com'],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <span className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">{label}</span>
-                    <span className="text-gray-800">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">{label}</span>
+                    <span className="text-foreground">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-2xl border border-blue-100 bg-blue-50/50 p-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="mt-4 rounded-3xl  border-0 bg-blue-50/50 p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="sm:col-span-2"><span className="text-xs font-bold uppercase tracking-wider text-blue-500">Data Protection Officer (DPO)</span></div>
                 {[
                   ['Name', 'Olena Kucherova Dryzhak'],
@@ -107,8 +107,8 @@ export default function PrivacyPolicyContent() {
                   ['Phone', '+34 658 867 133'],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <span className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">{label}</span>
-                    <span className="text-gray-800">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">{label}</span>
+                    <span className="text-foreground">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
                   </div>
                 ))}
               </div>
@@ -117,17 +117,17 @@ export default function PrivacyPolicyContent() {
             <Section id="data" icon={File01Icon} title="1. Data We Collect">
               <p>We collect personal data necessary to provide our wellness services, including:</p>
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="rounded-xl border border-blue-100 bg-blue-50/30 p-5">
-                  <p className="font-semibold text-gray-800 text-sm mb-2">Personal Identification</p>
-                  <ul className="space-y-1 text-sm text-gray-600">
+                <div className="rounded-3xl  border-0 bg-blue-50/30 p-5">
+                  <p className="font-semibold text-foreground text-sm mb-2">Personal Identification</p>
+                  <ul className="space-y-1 text-sm text-foreground/80">
                     {['Full name', 'Email address', 'Phone number', 'Postal address', 'Date of birth'].map(item => (
                       <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-blue-400 shrink-0"/>{item}</li>
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-xl border border-rose-100 bg-rose-50/30 p-5">
-                  <p className="font-semibold text-gray-800 text-sm mb-2">Wellness & Health Data</p>
-                  <ul className="space-y-1 text-sm text-gray-600">
+                <div className="rounded-3xl  border-0 bg-rose-50/30 p-5">
+                  <p className="font-semibold text-foreground text-sm mb-2">Wellness & Health Data</p>
+                  <ul className="space-y-1 text-sm text-foreground/80">
                     {['Physical condition & wellbeing notes', 'Pain or discomfort indicators', 'Session history and preferences', 'Emotional wellbeing notes (with consent)'].map(item => (
                       <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-rose-400 shrink-0"/>{item}</li>
                     ))}
@@ -144,9 +144,9 @@ export default function PrivacyPolicyContent() {
                   { color: 'purple', title: 'Legal Obligations', items: ['Tax and accounting', 'Health & safety requirements', 'Data retention rules'] },
                   { color: 'orange', title: 'Legitimate Interests', items: ['Service improvement', 'Fraud prevention', 'Statistical analysis'] },
                 ].map(({ color, title, items }) => (
-                  <div key={title} className={`rounded-xl border border-${color}-100 bg-${color}-50/30 p-5`}>
-                    <p className="font-semibold text-gray-800 text-sm mb-2">{title}</p>
-                    <ul className="space-y-1 text-sm text-gray-600">
+                  <div key={title} className={`rounded-3xl border border-${color}-100 bg-${color}-50/30 p-5`}>
+                    <p className="font-semibold text-foreground text-sm mb-2">{title}</p>
+                    <ul className="space-y-1 text-sm text-foreground/80">
                       {items.map(item => <li key={item} className="flex items-center gap-2"><span className={`w-1 h-1 rounded-full bg-${color}-400 shrink-0`}/>{item}</li>)}
                     </ul>
                   </div>
@@ -163,34 +163,34 @@ export default function PrivacyPolicyContent() {
                   { right: 'Portability (Art. 20)', desc: 'Receive your data in a structured, machine-readable format.' },
                   { right: 'Objection (Art. 21)', desc: 'Object to processing based on legitimate interests or for direct marketing.' },
                 ].map(({ right, desc }) => (
-                  <div key={right} className="flex gap-4 rounded-xl bg-gray-50 p-4 border border-gray-100">
-                    <span className="font-semibold text-gray-800 text-sm w-36 shrink-0">{right}</span>
-                    <span className="text-sm text-gray-600">{desc}</span>
+                  <div key={right} className="flex gap-4 rounded-3xl bg-muted/40 p-4  border-0">
+                    <span className="font-semibold text-foreground text-sm w-36 shrink-0">{right}</span>
+                    <span className="text-sm text-foreground/80">{desc}</span>
                   </div>
                 ))}
               </div>
-              <div className="rounded-xl bg-primary/5 border border-primary/10 p-5 text-sm">
-                <p className="font-semibold text-gray-800 mb-1">To exercise your rights, contact:</p>
+              <div className="rounded-3xl bg-primary/5  border-0 p-5 text-sm">
+                <p className="font-semibold text-foreground mb-1">To exercise your rights, contact:</p>
                 <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline">dpo@ekabalance.com</a>
               </div>
             </Section>
 
             <Section id="contact" icon={MailIcon} title="Contact & Supervisory Authority">
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl bg-gray-50 border border-gray-100 p-5 text-sm space-y-2">
-                  <p className="font-semibold text-gray-800">DPO Contact</p>
-                  <p className="text-gray-600">Olena Kucherova Dryzhak</p>
+                <div className="rounded-3xl bg-muted/40  border-0 p-5 text-sm space-y-2">
+                  <p className="font-semibold text-foreground">DPO Contact</p>
+                  <p className="text-foreground/80">Olena Kucherova Dryzhak</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                 </div>
-                <div className="rounded-xl bg-rose-50 border border-rose-100 p-5 text-sm space-y-2">
-                  <p className="font-semibold text-gray-800">Supervisory Authority</p>
-                  <p className="text-gray-600">Agencia Española de Protección de Datos (AEPD)</p>
+                <div className="rounded-3xl bg-rose-50  border-0 p-5 text-sm space-y-2">
+                  <p className="font-semibold text-foreground">Supervisory Authority</p>
+                  <p className="text-foreground/80">Agencia Española de Protección de Datos (AEPD)</p>
                   <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline block">www.aepd.es</a>
                 </div>
               </div>
             </Section>
 
-            <div className="border-t border-gray-100 pt-6 text-center text-xs text-gray-400">
+            <div className=" border-0 pt-6 text-center text-xs text-muted-foreground">
               This Privacy Policy complies with Regulation (EU) 2016/679 (GDPR).
             </div>
           </div>

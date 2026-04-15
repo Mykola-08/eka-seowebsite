@@ -71,10 +71,10 @@ export default function ForBusinessContent() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-6">
                 {t('personalized.business.bento.title')}
               </h2>
-              <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
                 {t('personalized.business.bento.subtitle')}
               </p>
             </motion.div>
@@ -88,8 +88,8 @@ export default function ForBusinessContent() {
                 className="md:col-span-2"
                 details={
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box1.details.title")}</h4>
-                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box1.details.desc")}</p>
+                    <h4 className="text-xl font-bold text-foreground">{t("personalized.business.bento.box1.details.title")}</h4>
+                    <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box1.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/booking?subject=teams"
@@ -104,8 +104,8 @@ export default function ForBusinessContent() {
                 delay={0.1}
                 details={
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box2.details.title")}</h4>
-                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box2.details.desc")}</p>
+                    <h4 className="text-xl font-bold text-foreground">{t("personalized.business.bento.box2.details.title")}</h4>
+                    <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box2.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/booking?subject=office"
@@ -120,8 +120,8 @@ export default function ForBusinessContent() {
                 delay={0.2}
                 details={
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box3.details.title")}</h4>
-                    <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box3.details.desc")}</p>
+                    <h4 className="text-xl font-bold text-foreground">{t("personalized.business.bento.box3.details.title")}</h4>
+                    <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box3.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/booking?subject=teams"
@@ -136,8 +136,8 @@ export default function ForBusinessContent() {
                 delay={0.3}
                 details={
                   <div className="space-y-4">
-                     <h4 className="text-xl font-bold text-gray-900">{t("personalized.business.bento.box4.details.title")}</h4>
-                     <p className="text-gray-600 leading-relaxed">{t("personalized.business.bento.box4.details.desc")}</p>
+                     <h4 className="text-xl font-bold text-foreground">{t("personalized.business.bento.box4.details.title")}</h4>
+                     <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box4.details.desc")}</p>
                   </div>
                 }
                 bookUrl="/booking?subject=office"
@@ -151,10 +151,10 @@ export default function ForBusinessContent() {
         <section className="py-24 bg-white relative overflow-hidden" id="plans">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-6">
                 {t('personalized.business.plans.title')}
               </h2>
-              <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
                   {t("personalized.business.plans.subtitle")}
                 </p>
             </div>
@@ -164,79 +164,79 @@ export default function ForBusinessContent() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-150 bg-blue-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
               {/* Plan 1 - Teams */}
-              <div className="bg-white rounded-4xl p-8 sm:p-10 border border-gray-100 shadow-xl shadow-gray-200/20 relative transition-all duration-300 flex flex-col h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-blue-400 pointer-events-none" />
-                <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
-                <p className="text-gray-500 font-medium mb-8 grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
+              <div className="bg-card text-card-foreground shadow border border-border rounded-4xl p-8 sm:p-10 relative transition-all duration-300 flex flex-col h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-primary pointer-events-none" />
+                <h3 className="text-3xl font-semibold tracking-tight text-foreground mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
+                <p className="text-muted-foreground font-medium mb-8 grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold text-gray-900 tracking-tighter">€100</span>
-                    <span className="text-xl text-gray-500 font-medium">/mo</span>
+                    <span className="text-5xl font-bold text-foreground tracking-tighter">€100</span>
+                    <span className="text-xl text-muted-foreground font-medium">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-400 mt-1 font-medium">{t("personalized.business.plans.teams.price")}</div>
+                  <div className="text-sm text-muted-foreground mt-1 font-medium">{t("personalized.business.plans.teams.price")}</div>
                 </div>
 
                 <ul className="space-y-5 mb-10 relative z-10 grow">
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-500 mr-3 shrink-0"  />
-                    <span className="text-gray-700 leading-snug">{t("personalized.business.plans.teams.feature1")}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary mr-3 shrink-0"  />
+                    <span className="text-foreground/80 leading-snug">{t("personalized.business.plans.teams.feature1")}</span>
                   </li>
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-500 mr-3 shrink-0"  />
-                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature2')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary mr-3 shrink-0"  />
+                    <span className="text-foreground/80 leading-snug">{t('personalized.business.plans.teams.feature2')}</span>
                   </li>
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-500 mr-3 shrink-0"  />
-                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature3')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary mr-3 shrink-0"  />
+                    <span className="text-foreground/80 leading-snug">{t('personalized.business.plans.teams.feature3')}</span>
                   </li>
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-500 mr-3 shrink-0"  />
-                    <span className="text-gray-700 leading-snug">{t('personalized.business.plans.teams.feature4')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary mr-3 shrink-0"  />
+                    <span className="text-foreground/80 leading-snug">{t('personalized.business.plans.teams.feature4')}</span>
                   </li>
                 </ul>
 
-                <Button asChild variant="dark" size="xl" className="w-full">
+                <Button asChild variant="default" size="xl" className="w-full">
                   <Link href="/booking?subject=teams">{t('common.getStarted')}</Link>
                 </Button>
               </div>
 
               {/* Plan 2 - Office */}
-              <div className="bg-gray-900 rounded-4xl p-8 sm:p-10 shadow-2xl relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
+              <div className="bg-primary text-primary-foreground shadow rounded-4xl p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-white pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-blue-500 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-white pointer-events-none" />
                 
-                <h3 className="text-3xl font-semibold tracking-tight text-white mb-3 relative z-10">{t('personalized.business.plans.enterprise.title')}</h3>
-                <p className="text-gray-300 font-medium mb-8 grow relative z-10">{t('personalized.business.plans.enterprise.desc')}</p>
+                <h3 className="text-3xl font-semibold tracking-tight text-primary-foreground mb-3 relative z-10">{t('personalized.business.plans.enterprise.title')}</h3>
+                <p className="text-primary-foreground/80 font-medium mb-8 grow relative z-10">{t('personalized.business.plans.enterprise.desc')}</p>
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold text-white tracking-tighter">€500</span>
-                    <span className="text-xl text-gray-400 font-medium">/mo</span>
+                    <span className="text-5xl font-bold text-primary-foreground tracking-tighter">€500</span>
+                    <span className="text-xl text-primary-foreground/80 font-medium">/mo</span>
                   </div>
-                  <div className="text-sm text-gray-500 mt-1 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
+                  <div className="text-sm text-primary-foreground/80 mt-1 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
                 </div>
 
                 <ul className="space-y-5 mb-10 relative z-10 grow">
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-400 mr-3 shrink-0"  />
-                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature1')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary-foreground mr-3 shrink-0"  />
+                    <span className="text-primary-foreground/90 leading-snug">{t('personalized.business.plans.enterprise.feature1')}</span>
                   </li>
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-400 mr-3 shrink-0"  />
-                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature2')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary-foreground mr-3 shrink-0"  />
+                    <span className="text-primary-foreground/90 leading-snug">{t('personalized.business.plans.enterprise.feature2')}</span>
                   </li>
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-400 mr-3 shrink-0"  />
-                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature3')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary-foreground mr-3 shrink-0"  />
+                    <span className="text-primary-foreground/90 leading-snug">{t('personalized.business.plans.enterprise.feature3')}</span>
                   </li>
                   <li className="flex items-start">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-blue-400 mr-3 shrink-0"  />
-                    <span className="text-gray-100 leading-snug">{t('personalized.business.plans.enterprise.feature4')}</span>
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary-foreground mr-3 shrink-0"  />
+                    <span className="text-primary-foreground/90 leading-snug">{t('personalized.business.plans.enterprise.feature4')}</span>
                   </li>
                 </ul>
 
-                <Button asChild variant="dark-inverted" size="xl" className="w-full">
+                <Button asChild variant="secondary" size="xl" className="w-full text-primary">
                   <Link href="/booking?subject=office">{t('common.getStarted')}</Link>
                 </Button>
               </div>

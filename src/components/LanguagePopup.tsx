@@ -33,7 +33,7 @@ export default function LanguagePopup() {
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
-                    className="bg-white rounded-3xl  max-w-md w-full p-8 relative border border-gray-100"
+                    className="bg-white rounded-3xl  max-w-md w-full p-8 relative  border-0"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <Button
@@ -50,10 +50,10 @@ export default function LanguagePopup() {
                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                             <HugeiconsIcon icon={GlobeIcon} className="w-8 h-8 text-primary"  />
                         </div>
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                        <h2 className="text-2xl font-semibold text-foreground mb-2">
                             {t('language.popup.title')}
                         </h2>
-                        <p className="text-gray-600">
+                        <p className="text-foreground/80">
                             {t('language.popup.subtitle')}
                         </p>
                     </div>
@@ -64,7 +64,7 @@ export default function LanguagePopup() {
                                 key={lang.code}
                                 onClick={() => confirmLanguage(lang.code)}
                                 variant="outline-solid"
-                                className="justify-start h-auto p-4 rounded-xl"
+                                className="justify-start h-auto p-4 rounded-3xl"
                             >
                                 <span className="text-2xl mr-4">{lang.flag}</span>
                                 <span className="font-medium">

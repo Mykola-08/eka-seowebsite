@@ -2,66 +2,107 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
-import { ServiceBentoItem } from '@/components/ui/service-bento';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Clock01Icon } from '@hugeicons/core-free-icons';
+import { Clock01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import Image from 'next/image';
+import Link from 'next/link';
+
 interface PersonalizedServiceCardProps {
   service: PersonalizedServiceItem;
 }
 
 export default function PersonalizedServiceCard({ service }: PersonalizedServiceCardProps) {
-  const { t } = useLanguage();
-
-  const details = (
-    <>
-      {service.benefitsKeys && service.benefitsKeys.length > 0 && (
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold tracking-wider text-gray-400 uppercase mb-2.5">{t('services.mainBenefits') || 'Main Benefits'}</h4>
-          <ul className="space-y-1.5">
-            {service.benefitsKeys.map((key, i) => (
-              <li key={i} className="flex items-start text-sm text-gray-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 mr-2.5 shrink-0" />
-                {t(key)}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {service.resultKey && (
-        <div className="bg-gray-50 rounded-xl p-4 mb-4 border border-gray-100">
-          <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block mb-1">
-            {t('common.expectedResult') || 'Expected Result'}
-          </span>
-          <p className="text-sm font-semibold text-gray-900">{t(service.resultKey)}</p>
-        </div>
-      )}
-
-      <div className="flex items-center justify-between p-4 bg-gray-50 border border-gray-100 rounded-xl mt-auto">
-        <div className="flex flex-col gap-0.5">
-          <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">{t('common.duration') || 'Duration'}</span>
-          <div className="flex items-center gap-1.5">
-            <HugeiconsIcon icon={Clock01Icon} className="w-4 h-4 text-gray-400"  />
-            <span className="text-sm font-semibold text-gray-900">{service.duration ? `${service.duration} ${t('common.minutes') || 'min'}` : `60 ${t('common.minutes') || 'min'}`}</span>
-          </div>
-        </div>
-        <div className="flex flex-col items-end gap-0.5">
-          <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">{t('common.price') || 'Price'}</span>
-          <span className="text-base font-semibold text-gray-900">{service.price ? `${service.price} €` : t('common.consultPrice')}</span>
-        </div>
-      </div>
-    </>
-  );
+  const { t, language } = useLanguage();
 
   return (
-    <ServiceBentoItem 
-        title={t(service.titleKey)}
-        description={t(service.descriptionKey)}
-        image={service.image}
-        details={details}
-        bookUrl={`/booking?service=${encodeURIComponent(t(service.titleKey))}`}
-        bookText={t('nav.bookNow') || 'Book Now'}
-        readMoreUrl={service.href}
-    />
+    <Card className="flex flex-col h-full overflow-hidden transition-all hover:shadow-md border-border/50 group">
+      {service.image && (
+        <div className="relative w-full h-48 overflow-hidden bg-muted">
+          <Image 
+            src={service.image} 
+            alt={t(service.titleKey)}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
+        </div>
+      )}
+      <CardHeader className={service.image ? 'pt-4 relative z-10' : ''}>
+        <div className="flex justify-between items-start gap-4 mb-2">
+          <CardTitle className="text-2xl font-bold leading-tight">
+            {t(service.titleKey)}
+          </CardTitle>
+          <Badge variant="secondary" className="whitespace-nowrap">
+            {service.price ? `${service.price} €` : t('common.consultPrice') || 'Consult'}
+          </Badge>
+        </div>
+        <CardDescription className="text-base text-muted-foreground line-clamp-2">
+          {t(service.descriptionKey)}
+        </CardDescription>
+      </CardHeader>
+      
+      <CardContent className="grow space-y-6">
+        {service.resultKey && (
+          <div className="bg-muted/40 p-4 rounded-xl mb-4 border border-border/40">
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest block mb-1">
+              {t('common.expectedResult') || 'Expected Result'}
+            </span>
+            <p className="text-sm font-medium text-foreground">{t(service.resultKey)}</p>
+          </div>
+        )}
+
+        {service.benefitsKeys && service.benefitsKeys.length > 0 && (
+          <div className="space-y-3">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              {t('services.mainBenefits') || 'Main Benefits'}
+            </h4>
+            <ul className="space-y-2">
+              {service.benefitsKeys.slice(0, 3).map((key, i) => (
+                <li key={i} className="flex items-start text-sm text-foreground/80 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 mr-3 shrink-0" />
+                  {t(key)}
+                </li>
+              ))}
+              {service.benefitsKeys.length > 3 && (
+                <li className="flex items-start text-sm text-muted-foreground italic pl-4.5">
+                  + {service.benefitsKeys.length - 3} {language === 'ru' ? 'еще' : language === 'es' ? 'más' : language === 'ca' ? 'més' : 'more'}
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
+
+        <div className="flex items-center justify-between text-sm pt-4 border-t border-border/50">
+          <div className="flex items-center gap-2 text-muted-foreground font-medium">
+            <HugeiconsIcon icon={Clock01Icon} className="w-4 h-4 text-primary/70" />
+            <span>
+              {service.duration 
+                ? `${service.duration} ${t('common.minutes') || 'min'}` 
+                : `60 ${t('common.minutes') || 'min'}`}
+            </span>
+          </div>
+        </div>
+      </CardContent>
+
+      <CardFooter className="pt-0 flex flex-col sm:flex-row gap-3">
+        <Button asChild className="w-full sm:flex-1 rounded-full">
+          <Link href={service.bookUrl || `/booking?service=${encodeURIComponent(t(service.titleKey))}`}>
+            {t('nav.bookNow') || 'Book Now'}
+          </Link>
+        </Button>
+        {service.href && (
+          <Button asChild variant="outline" className="w-full sm:flex-1 rounded-full group/btn">
+            <Link href={service.href}>
+              {t('common.readMore') || 'Details'}
+              <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+        )}
+      </CardFooter>
+    </Card>
   );
 }

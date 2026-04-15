@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -39,12 +39,11 @@ export default function AgenyzContent() {
                 keywordsKey="agenyz.seo.keywords"
             />
 
-            {/* ── Dark Hero ── */}
-            <section className="relative bg-black min-h-[88svh] flex flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-24">
-                {/* Subtle radial glow */}
+            {/* ── Standard Hero ── */}
+            <section className="relative bg-background border-b border-border min-h-[85svh] flex flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-24">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-white/3 blur-3xl" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-200 h-75 bg-linear-to-t from-white/4 to-transparent" />
+                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-primary/5 blur-3xl" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-200 h-75 bg-linear-to-t from-primary/5 to-transparent" />
                 </div>
 
                 <motion.div
@@ -53,63 +52,61 @@ export default function AgenyzContent() {
                     transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
                     className="relative z-10 text-center max-w-4xl mx-auto"
                 >
-                    {/* Wordmark */}
-                    <p className="text-white/30 text-xs tracking-[0.35em] uppercase mb-6 font-medium">
+                    <p className="text-muted-foreground text-xs tracking-[0.35em] uppercase mb-6 font-medium">
                         Agenyz — Bio Innovation
                     </p>
 
-                    {/* Main headline */}
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.95] mb-8">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tighter leading-[0.95] mb-8">
                         Cellular health.<br />
-                        <span className="text-white/60">Designed for you.</span>
+                        <span className="text-foreground/60">Designed for you.</span>
                     </h1>
 
-                    <p className="text-white/50 text-lg md:text-xl max-w-xl mx-auto mb-12 leading-relaxed font-light">
+                    <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-12 leading-relaxed font-light">
                         {t('agenyz.page.subtitle') || 'Bio-available supplements with patented XBi-A® technology — engineered for optimal absorption at the cellular level.'}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button
+                         <Button
                             asChild
                             size="lg"
-                            className="rounded-full bg-white text-black hover:bg-white/90 font-semibold px-8 shadow-none"
+                            className="rounded-full px-6 sm:px-8 shadow-sm font-semibold h-auto py-3 whitespace-nowrap"
                         >
                             <Link href="#catalogue">
                                 {t('agenyz.catalogue.title') || 'View Products'}
-                                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
+                                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2 shrink-0"  />
                             </Link>
                         </Button>
                         <a
                             href="https://agenyz.es"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="inline-block"
                         >
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="rounded-full border-white/20 text-white/80 hover:bg-white/10 hover:text-white bg-transparent px-8"
+                                className="w-full rounded-full px-6 sm:px-8 bg-transparent h-auto py-3 whitespace-nowrap"
                             >
                                 Visit agenyz.es
-                                <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2"  />
+                                <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2 shrink-0"  />
                             </Button>
                         </a>
                     </div>
                 </motion.div>
 
-                {/* Scroll indicator */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
                     className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
                 >
-                    <div className="w-px h-8 bg-linear-to-b from-white/20 to-transparent" />
-                    <p className="text-white/20 text-[10px] tracking-widest uppercase">Scroll</p>
+                    <div className="w-px h-8 bg-linear-to-b from-border to-transparent" />
+                    <p className="text-muted-foreground text-[10px] tracking-widest uppercase">Scroll</p>
                 </motion.div>
             </section>
 
             {/* ── XBi-A Technology Stats ── */}
-            <section className="bg-black border-t border-white/6 py-16">
+            <section className="bg-muted/10 border-b border-border py-16">
                 <div className="max-w-5xl mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 16 }}
@@ -117,16 +114,16 @@ export default function AgenyzContent() {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <span className="text-white/30 text-xs tracking-[0.3em] uppercase font-medium">Technology</span>
-                        <h2 className="text-white text-3xl md:text-4xl font-bold tracking-tight mt-2">
-                            XBi-A<sup className="text-base text-white/40">™</sup> Technology
+                        <span className="text-muted-foreground text-xs tracking-[0.3em] uppercase font-medium">Technology</span>
+                        <h2 className="text-foreground text-3xl md:text-4xl font-bold tracking-tight mt-2">
+                            XBi-A<sup className="text-base text-muted-foreground">™</sup> Technology
                         </h2>
-                        <p className="text-white/40 mt-3 max-w-md mx-auto text-sm leading-relaxed">
+                        <p className="text-muted-foreground mt-3 max-w-md mx-auto text-sm leading-relaxed">
                             Patented bioavailability complex that enhances nutrient absorption up to 60% compared to standard supplements.
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/6 rounded-2xl overflow-hidden">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-3xl overflow-hidden">
                         {stats.map((stat, i) => (
                             <motion.div
                                 key={stat.label}
@@ -134,22 +131,19 @@ export default function AgenyzContent() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.08 }}
-                                className="bg-black px-6 py-8 text-center"
+                                className="bg-background px-6 py-8 text-center"
                             >
-                                <p className="text-4xl md:text-5xl font-bold text-white tracking-tight">{stat.value}</p>
-                                <p className="text-white/80 font-semibold mt-1 text-sm">{stat.label}</p>
-                                <p className="text-white/30 text-xs mt-0.5">{stat.sub}</p>
+                                <p className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">{stat.value}</p>
+                                <p className="text-foreground/80 font-semibold mt-1 text-sm">{stat.label}</p>
+                                <p className="text-muted-foreground text-xs mt-0.5">{stat.sub}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── Dark to light transition ── */}
-            <div className="h-16 bg-linear-to-b from-black to-[#f9f9fb]" aria-hidden="true" />
-
             {/* ── Featured Products Bento ── */}
-            <section className="py-20 bg-[#f9f9fb]">
+            <section className="py-20 bg-muted/30">
                 <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -157,10 +151,10 @@ export default function AgenyzContent() {
                         viewport={{ once: true }}
                         className="text-center mb-14"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-gray-900 mb-4">
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground mb-4">
                             {t('agenyz.bento.title') || 'Smart Cell Food'}
                         </h2>
-                        <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-xl mx-auto">
+                        <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-xl mx-auto">
                             {t('agenyz.bento.subtitle') || 'The next generation of bio-innovation for your longevity and health.'}
                         </p>
                     </motion.div>
@@ -177,42 +171,42 @@ export default function AgenyzContent() {
                             >
                                 <Link
                                     href={`/agenyz/${product.id}`}
-                                    className="group block h-full bg-white rounded-4xl overflow-hidden hover:shadow-xl hover:shadow-black/6 transition-all duration-500 border border-gray-100"
+                                    className="group flex flex-col h-full bg-card text-card-foreground rounded-4xl overflow-hidden hover:shadow-md transition-all border border-border"
                                 >
-                                    <div className={`relative w-full bg-zinc-50 flex items-center justify-center ${idx === 0 ? 'h-72 md:h-80' : 'h-64'}`}>
+                                    <div className={`relative w-full bg-muted/20 flex shrink-0 items-center justify-center overflow-hidden border-b border-border ${product.imageLayout === 'banner' ? 'p-0' : 'p-6'} ${idx === 0 ? 'h-72 md:h-80' : 'h-64'}`}>
                                         {product.image ? (
                                             <Image
                                                 src={product.image}
                                                 alt={getLocalized(product.name, language)}
                                                 fill
-                                                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+                                                className={`transition-transform duration-700 group-hover:scale-105 ${product.imageLayout === 'banner' ? 'object-cover object-center' : 'object-contain object-center p-6'}`}
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                                 placeholder="blur"
                                                 blurDataURL={shimmerBlurDataURL()}
                                             />
                                         ) : (
-                                            <HugeiconsIcon icon={SparklesIcon} className="w-12 h-12 text-gray-200"  />
+                                            <HugeiconsIcon icon={SparklesIcon} className="w-12 h-12 text-muted-foreground"  />
                                         )}
                                     </div>
-                                    <div className="p-6 md:p-8">
-                                        <span className="text-xs font-bold text-gray-400 tracking-widest uppercase">{product.category}</span>
-                                        <h3 className="text-2xl font-bold text-gray-900 tracking-tight mt-1 mb-2">
+                                    <div className="p-6 md:p-8 flex flex-col grow">
+                                        <span className="text-xs font-bold text-muted-foreground tracking-widest uppercase">{product.category}</span>
+                                        <h3 className="text-2xl font-bold tracking-tight mt-1 mb-2 line-clamp-2 min-h-12">
                                             {getLocalized(product.name, language)}
                                         </h3>
-                                        <p className="text-gray-500 leading-relaxed line-clamp-2 text-sm">
+                                        <p className="text-muted-foreground leading-relaxed line-clamp-2 text-sm grow">
                                             {getLocalized(product.shortDescription || product.description, language)}
                                         </p>
                                         {product.benefits && (
-                                            <ul className="mt-4 space-y-1.5">
+                                            <ul className="mt-4 space-y-1.5 shrink-0">
                                                 {product.benefits.slice(0, 3).map((b, i) => (
-                                                    <li key={i} className="flex items-center text-sm text-gray-600 gap-2">
-                                                        <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-emerald-500 shrink-0"  />
-                                                        {getLocalized(b, language)}
+                                                    <li key={i} className="flex items-center text-sm gap-2">
+                                                        <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-primary shrink-0"  />
+                                                        <span className="truncate">{getLocalized(b, language)}</span>
                                                     </li>
                                                 ))}
                                             </ul>
                                         )}
-                                        <div className="mt-5 flex items-center text-sm font-semibold text-gray-900 group-hover:gap-2 transition-all gap-1">
+                                        <div className="mt-5 flex items-center text-sm font-semibold group-hover:gap-2 transition-all gap-1 shrink-0 text-primary">
                                             {t('agenyz.viewDetails') || 'View details'}
                                             <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4"  />
                                         </div>
@@ -225,37 +219,36 @@ export default function AgenyzContent() {
             </section>
 
             {/* ── Full Catalogue ── */}
-            <section className="py-24 bg-white" id="catalogue">
+            <section className="py-24 bg-background" id="catalogue">
                 <div className="max-w-7xl mx-auto px-4 sm:px-8">
                     <div className="text-center mb-14">
-                        <span className="text-gray-400 font-semibold tracking-widest uppercase text-xs mb-3 block">
+                        <span className="text-muted-foreground font-semibold tracking-widest uppercase text-xs mb-3 block">
                             {t('agenyz.catalogue.subtitle') || 'Our Collection'}
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-5">
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
                             {t('agenyz.catalogue.title') || 'Agenyz Product Catalogue'}
                         </h2>
-                        <p className="text-lg text-gray-500 font-medium max-w-xl mx-auto">
+                        <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto">
                             {t('agenyz.catalogue.desc') || 'Explore our range of bio-additives designed for your cellular health.'}
                         </p>
                     </div>
 
-                    {/* Category Filter */}
                     <div className="flex flex-wrap justify-center gap-2 mb-14">
                         {categories.map((category) => (
                             <button
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
-                                className={`px-5 py-2.5 min-h-10 rounded-full text-sm font-semibold transition-all duration-200 ${selectedCategory === category
-                                    ? 'bg-black text-white shadow-xs scale-105'
-                                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                                    }`}
+                                className={`px-5 py-2.5 min-h-10 rounded-full text-sm font-semibold transition-all duration-200 ${
+                                  selectedCategory === category
+                                    ? 'bg-primary text-primary-foreground shadow-sm scale-105'
+                                    : 'bg-muted text-muted-foreground hover:bg-foreground/5'
+                                }`}
                             >
                                 {t(`agenyz.category.${category}`) || category}
                             </button>
                         ))}
                     </div>
 
-                    {/* Products Grid */}
                     <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <AnimatePresence mode="popLayout">
                             {filteredProducts.map((product) => (
@@ -266,47 +259,47 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ duration: 0.35 }}
-                                        className="bg-zinc-50 border border-gray-100 rounded-[2.5rem] p-7 flex flex-col h-full hover:shadow-xl hover:shadow-black/5 transition-all duration-400"
+                                        className="bg-card text-card-foreground border border-border rounded-3xl p-7 flex flex-col h-full hover:shadow-md transition-all duration-400"
                                     >
-                                        <div className="mb-5">
-                                            <span className="px-3.5 py-1.5 bg-white text-gray-500 text-xs font-bold rounded-full uppercase tracking-widest border border-gray-100 shadow-xs">
+                                        <div className="mb-5 flex items-center justify-between">
+                                            <span className="px-3.5 py-1.5 bg-muted text-muted-foreground text-xs font-bold rounded-full uppercase tracking-widest truncate max-w-[80%]">
                                                 {t(`agenyz.category.${product.category}`) || product.category}
                                             </span>
                                         </div>
 
-                                        <div className="relative w-full h-56 mb-6 flex items-center justify-center p-4 group-hover:scale-105 transition-transform duration-400">
+                                        <div className={`relative w-full h-64 mb-6 shrink-0 flex items-center justify-center p-0 rounded-2xl overflow-hidden border border-border ${product.imageLayout === 'banner' ? 'bg-background' : 'bg-muted/10'}`}>
                                             {product.image ? (
-                                                <div className="relative w-full h-full drop-shadow-xl">
+                                                <div className={`relative w-full h-full ${product.imageLayout === 'banner' ? 'p-0' : 'p-4'}`}>
                                                     <Image
                                                         src={product.image}
                                                         alt={getLocalized(product.name, language)}
                                                         fill
-                                                        className="object-contain"
+                                                        className={`transition-transform duration-700 group-hover:scale-105 ${product.imageLayout === 'banner' ? 'object-cover object-center' : 'object-contain object-center p-2'}`}
                                                         sizes="(max-width: 768px) 100vw, 33vw"
                                                         placeholder="blur"
                                                         blurDataURL={shimmerBlurDataURL()}
                                                     />
                                                 </div>
                                             ) : (
-                                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gray-200 border border-gray-50">
+                                                <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center text-muted-foreground shadow-sm">
                                                     <HugeiconsIcon icon={SparklesIcon} className="w-8 h-8"  />
                                                 </div>
                                             )}
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight group-hover:text-black transition-colors">
+                                        <h3 className="text-xl font-bold mb-2 tracking-tight group-hover:text-primary transition-colors line-clamp-2 min-h-14">
                                             {getLocalized(product.name, language)}
                                         </h3>
 
-                                        <p className="text-gray-500 mb-5 grow leading-relaxed text-sm line-clamp-3">
+                                        <p className="text-muted-foreground mb-5 grow leading-relaxed text-sm line-clamp-3">
                                             {getLocalized(product.shortDescription || product.description, language)}
                                         </p>
 
-                                        <div className="pt-5 border-t border-gray-100 flex items-center justify-between mt-auto">
-                                            <span className="text-sm font-bold text-gray-400 group-hover:text-gray-900 transition-colors">
+                                        <div className="pt-5 border-t border-border flex items-center justify-between mt-auto">
+                                            <span className="text-sm font-bold text-muted-foreground group-hover:text-foreground transition-colors">
                                                 {t('agenyz.viewDetails') || 'View details'}
                                             </span>
-                                            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-xs group-hover:bg-black group-hover:text-white transition-all duration-300">
+                                            <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                                                 <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4"  />
                                             </div>
                                         </div>
@@ -319,24 +312,24 @@ export default function AgenyzContent() {
             </section>
 
             {/* ── Bottom CTA ── */}
-            <section className="bg-black py-20 px-6 text-center">
+            <section className="bg-muted/50 border-t border-border py-20 px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="max-w-xl mx-auto"
                 >
-                    <p className="text-white/30 text-xs tracking-[0.3em] uppercase mb-4">Agenyz Store</p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                    <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase mb-4">Agenyz Store</p>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                         Ready to elevate your cellular health?
                     </h2>
-                    <p className="text-white/50 mb-8 text-sm leading-relaxed">
+                    <p className="text-muted-foreground mb-8 text-sm leading-relaxed">
                         Purchase directly from the official Agenyz store with worldwide shipping.
                     </p>
                     <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
                         <Button
                             size="lg"
-                            className="rounded-full bg-white text-black hover:bg-white/90 font-semibold px-10 shadow-none"
+                            className="rounded-full font-semibold px-10 shadow-sm"
                         >
                             Shop at agenyz.es
                             <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2"  />

@@ -52,7 +52,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
             onClick={onClose}
           >
             <motion.div
-              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-2xl bg-white border border-gray-200 max-h-[90vh] overflow-y-auto`}
+              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-3xl bg-white  border-0 max-h-[90vh] overflow-y-auto`}
               onClick={(e) => e.stopPropagation()}
               initial={{
                 opacity: 0, 
@@ -79,26 +79,26 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
               <div className="relative p-6 sm:p-8 lg:p-10">
                 {title && (
                   <div className="mb-6 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                    <h3 className="text-2xl font-bold text-foreground leading-tight">
                       {title}
                     </h3>
                     <button
                       onClick={onClose}
-                      className="rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                      className="rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     >
                       <HugeiconsIcon icon={Cancel01Icon} className="h-5 w-5"  />
                     </button>
                   </div>
                 )}
                 
-                <div className="text-gray-600">
+                <div className="text-foreground/80">
                   {children}
                 </div>
                 
                 {!title && (
                   <button
                     onClick={onClose}
-                    className="absolute right-6 top-6 rounded-full bg-gray-100 p-2 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                    className="absolute right-6 top-6 rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   >
                     <HugeiconsIcon icon={Cancel01Icon} className="h-5 w-5"  />
                   </button>

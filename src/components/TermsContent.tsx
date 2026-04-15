@@ -6,13 +6,13 @@ import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
 import { Alert01Icon, BlockedIcon, CallIcon, Layers01Icon, UserGroupIcon } from '@hugeicons/core-free-icons';
 const Section = ({ id, icon: Icon, title, children }: { id: string; icon: IconSvgElement; title: string; children: React.ReactNode }) => (
   <section id={id} className="scroll-mt-24">
-    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-      <div className="w-9 h-9 rounded-xl bg-primary/8 flex items-center justify-center shrink-0">
+    <div className="flex items-center gap-3 mb-6 pb-4  border-0">
+      <div className="w-9 h-9 rounded-3xl bg-primary/8 flex items-center justify-center shrink-0">
         <HugeiconsIcon icon={Icon} className="w-4 h-4 text-primary" />
       </div>
-      <h2 className="text-xl font-semibold text-gray-900 tracking-tight">{title}</h2>
+      <h2 className="text-xl font-semibold text-foreground tracking-tight">{title}</h2>
     </div>
-    <div className="space-y-4 text-gray-600 leading-relaxed">{children}</div>
+    <div className="space-y-4 text-foreground/80 leading-relaxed">{children}</div>
   </section>
 );
 
@@ -37,11 +37,11 @@ export default function TermsContent() {
 
           {/* Sticky TOC */}
           <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contents</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
             <nav className="space-y-1">
               {toc.map(item => (
                 <a key={item.href} href={item.href}
-                  className="block text-sm text-gray-500 hover:text-gray-900 py-1.5 border-l-2 border-gray-100 hover:border-primary pl-3 transition-colors duration-150">
+                  className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-0 border-0 hover:border-primary pl-3 transition-colors duration-150">
                   {item.label}
                 </a>
               ))}
@@ -52,7 +52,7 @@ export default function TermsContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer — always first, always prominent */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-3xl  border-0 bg-amber-50 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-amber-600 shrink-0 mt-0.5"  />
                 <div>
@@ -106,7 +106,7 @@ export default function TermsContent() {
                   </li>
                 ))}
               </ul>
-              <div className="rounded-xl bg-blue-50/50 border border-blue-100 p-5 text-sm">
+              <div className="rounded-3xl bg-blue-50/50  border-0 p-5 text-sm">
                 <p className="text-blue-800">
                   <strong>Important:</strong> Continue following your physician's recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
                 </p>
@@ -170,20 +170,20 @@ export default function TermsContent() {
 
             <Section id="contact" icon={CallIcon} title="5. Contact">
               <div className="grid gap-4 sm:grid-cols-2 text-sm">
-                <div className="rounded-xl bg-blue-50/50 border border-blue-100 p-5 space-y-1">
-                  <p className="font-semibold text-gray-800">Legal Inquiries</p>
+                <div className="rounded-3xl bg-blue-50/50  border-0 p-5 space-y-1">
+                  <p className="font-semibold text-foreground">Legal Inquiries</p>
                   <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline block">legal@ekabalance.com</a>
-                  <p className="text-gray-500">Calle Plata 1, 08191 Rubí, Barcelona</p>
+                  <p className="text-muted-foreground">Calle Plata 1, 08191 Rubí, Barcelona</p>
                 </div>
-                <div className="rounded-xl bg-gray-50 border border-gray-100 p-5 space-y-1">
-                  <p className="font-semibold text-gray-800">Data Protection Officer</p>
+                <div className="rounded-3xl bg-muted/40  border-0 p-5 space-y-1">
+                  <p className="font-semibold text-foreground">Data Protection Officer</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
-                  <p className="text-gray-500">+34 658 867 133</p>
+                  <p className="text-muted-foreground">+34 658 867 133</p>
                 </div>
               </div>
             </Section>
 
-            <div className="border-t border-gray-100 pt-6 text-center text-xs text-gray-400">
+            <div className=" border-0 pt-6 text-center text-xs text-muted-foreground">
               These Terms comply with applicable EU and Spanish consumer protection and data protection laws.
             </div>
           </div>

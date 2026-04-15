@@ -59,14 +59,14 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   const getVariantStyles = () => {
     switch (toast.type) {
       case 'success':
-        return 'bg-green-50 border-green-200 text-green-900';
+        return 'bg-green-50 border-0 text-green-900';
       case 'error':
-        return 'bg-red-50 border-red-200 text-red-900';
+        return 'bg-red-50 border-0 text-red-900';
       case 'warning':
-        return 'bg-yellow-50 border-yellow-200 text-yellow-900';
+        return 'bg-yellow-50 border-0 text-yellow-900';
       case 'info':
       default:
-        return 'bg-blue-50 border-blue-200 text-blue-900';
+        return 'bg-blue-50 border-0 text-blue-900';
     }
   };
 

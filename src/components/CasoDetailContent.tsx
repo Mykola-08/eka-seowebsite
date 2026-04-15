@@ -85,10 +85,10 @@ export default function CasoDetailContent() {
   const results = t(`casos.problems.${config.key}.results`);
 
   const Hero = (
-     <div className="relative pt-32 pb-24 bg-secondary border-b border-gray-200">
+     <div className="relative pt-32 pb-24 bg-secondary  border-0">
         <div className="section-container text-center max-w-4xl mx-auto">
           
-          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-black mb-10 transition-colors">
+          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-black mb-10 transition-colors">
             <HugeiconsIcon icon={ArrowLeft01Icon} className="w-4 h-4 mr-1"  />
             {t('casos.title')}
           </Link>
@@ -97,11 +97,11 @@ export default function CasoDetailContent() {
             <HugeiconsIcon icon={Icon} className="w-12 h-12" />
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 mb-8 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-8 tracking-tight leading-tight">
             {t(`casos.problems.${config.key}.title`)}
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-normal max-w-2xl mx-auto text-balance">
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-normal max-w-2xl mx-auto text-balance">
             {t(`casos.problems.${config.key}.description`)}
           </p>
         </div>
@@ -116,14 +116,14 @@ export default function CasoDetailContent() {
 
             {/* Symptoms */}
             <div>
-              <h2 className="text-3xl font-semibold text-gray-900 mb-8 tracking-tight flex items-center gap-3">
+              <h2 className="text-3xl font-semibold text-foreground mb-8 tracking-tight flex items-center gap-3">
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-black text-white text-sm font-bold">1</span>
                 {t('casos.symptoms')}
               </h2>
               <ul className="space-y-4">
                 {symptoms.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-2xl bg-gray-50 border border-gray-100/50">
-                    <p className="text-gray-700 text-lg leading-relaxed">{item}</p>
+                  <li key={idx} className="p-6 rounded-3xl bg-muted/40  border-0">
+                    <p className="text-foreground/80 text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}
               </ul>
@@ -131,14 +131,14 @@ export default function CasoDetailContent() {
 
             {/* Causes */}
             <div>
-              <h2 className="text-3xl font-semibold text-gray-900 mb-8 tracking-tight flex items-center gap-3">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-gray-900 text-sm font-bold">2</span>
+              <h2 className="text-3xl font-semibold text-foreground mb-8 tracking-tight flex items-center gap-3">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-foreground text-sm font-bold">2</span>
                 {t('casos.causes')}
               </h2>
               <ul className="space-y-4">
                 {causes.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-2xl bg-white border border-gray-100 ">
-                    <p className="text-gray-600 text-lg leading-relaxed">{item}</p>
+                  <li key={idx} className="p-6 rounded-3xl bg-white  border-0 ">
+                    <p className="text-foreground/80 text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}
               </ul>
@@ -148,7 +148,7 @@ export default function CasoDetailContent() {
           {/* Treatment & Results - Highlight Section */}
           <div className="bg-black rounded-[40px] p-8 md:p-16 text-white relative overflow-hidden">
               {/* Subtle mesh gradient background */}
-              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-150 h-150 bg-blue-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
                   <div>
@@ -156,7 +156,7 @@ export default function CasoDetailContent() {
                           <HugeiconsIcon icon={Activity01Icon} className="w-6 h-6 text-blue-400"  />
                           {t('casos.treatment')}
                       </h2>
-                      <p className="text-gray-300 leading-relaxed text-xl font-light">
+                      <p className="text-muted-foreground leading-relaxed text-xl font-light">
                           {treatment}
                       </p>
                   </div>
@@ -166,13 +166,13 @@ export default function CasoDetailContent() {
                           <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-green-400"  />
                           {t('casos.results')}
                       </h2>
-                      <p className="text-gray-300 leading-relaxed text-xl font-light">
+                      <p className="text-muted-foreground leading-relaxed text-xl font-light">
                           {results}
                       </p>
                   </div>
               </div>
 
-              <div className="mt-16 text-center pt-8 border-t border-white/10">
+              <div className="mt-16 text-center pt-8  border-0">
                   <Link href={config.href}>
                       <Button
                           size="xl"

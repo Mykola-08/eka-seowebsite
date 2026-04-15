@@ -50,7 +50,7 @@ export default function ChildrenContent() {
                 {t('elena.target.children.title')}
               </h1>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
+              <p className="text-xl text-foreground/80 mb-8 leading-relaxed font-light">
                 {t('elena.target.children.desc')}
               </p>
 
@@ -96,10 +96,10 @@ export default function ChildrenContent() {
       <section className="py-24 bg-muted/30">
         <div className="max-w-350 mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl tracking-tighter font-semibold mb-4 text-gray-900">
+              <h2 className="text-4xl md:text-5xl tracking-tighter font-semibold mb-4 text-foreground">
                 {t('children.recommended')}
               </h2>
-              <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium">
                 {t('children.recommended.desc')}
               </p>
             </div>

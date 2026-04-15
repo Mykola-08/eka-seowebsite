@@ -7,6 +7,8 @@ import { SERVICES_DATA, PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
 import ServiceCard from '@/components/ServiceCard';
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { ServiceItem, PersonalizedServiceItem } from '@/shared/types';
 
 interface AdaptiveServicesProps {
   currentProblem: ProblemState;
@@ -15,6 +17,7 @@ interface AdaptiveServicesProps {
 
 export function AdaptiveServices({ currentProblem, className }: AdaptiveServicesProps) {
   const content = FUNNEL_DATA[currentProblem];
+  const { t } = useLanguage();
   
   // Find recommended services across both constants
   const recommendedItems = content.recommendedServices.map(id => {
@@ -28,14 +31,14 @@ export function AdaptiveServices({ currentProblem, className }: AdaptiveServices
   }).filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
-    <section className={cn("py-16 md:py-24 bg-muted/10 relative", className)}>
+    <section className={cn("py-20 md:py-32 bg-background relative", className)}>
       <div className="container px-4 md:px-6">
-        <div className="mb-12 md:mb-16 md:text-center max-w-2xl md:mx-auto text-left">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-balance">
-            Your Recommended Solutions
+        <div className="mb-16 md:mb-20 md:text-center max-w-3xl md:mx-auto text-left">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance text-foreground">
+            {t('funnel.recommendedSolutions') || 'Your Recommended Solutions'}
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Based on your selection, these are the best paths forward to help you achieve your goals.
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            {t('funnel.basedOnSelection') || 'Based on your selection, these are the best paths forward to help you achieve your goals.'}
           </p>
         </div>
 
@@ -56,9 +59,9 @@ export function AdaptiveServices({ currentProblem, className }: AdaptiveServices
                 )}
               >
                 {item.type === 'standard' ? (
-                  <ServiceCard service={item.data as any} />
+                  <ServiceCard service={item.data as ServiceItem} />
                 ) : (
-                  <PersonalizedServiceCard service={item.data as any} />
+                  <PersonalizedServiceCard service={item.data as PersonalizedServiceItem} />
                 )}
               </motion.div>
             ))}

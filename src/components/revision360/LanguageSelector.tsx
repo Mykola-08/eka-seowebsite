@@ -50,7 +50,7 @@ export default function LanguageSelector() {
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-md hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200 shadow-xs"
+        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border-0 text-amber-200 rounded-lg backdrop-blur-md hover:bg-zinc-800/80 transition duration-200 shadow-sm"
       >
         <HugeiconsIcon icon={GlobeIcon} className="w-4 h-4"  />
         <span className="text-sm font-medium">
@@ -67,7 +67,7 @@ export default function LanguageSelector() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute bottom-full right-0 mb-3 w-48 bg-zinc-900/85 backdrop-blur-xl border border-amber-500/30 rounded-xl overflow-hidden z-(--z-dropdown) shadow-2xl ring-1 ring-white/5"
+            className="absolute bottom-full right-0 mb-3 w-48 bg-zinc-900/85 backdrop-blur-xl border-0 rounded-3xl overflow-hidden z-(--z-dropdown)  ring-1 ring-white/5"
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}

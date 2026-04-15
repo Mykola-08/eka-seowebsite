@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Activity01Icon, Brain01Icon, Compass01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Shield01Icon, SmileIcon, SparklesIcon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 
 interface Benefit {
   icon: React.ReactNode;
@@ -28,57 +30,58 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="relative py-28 bg-white">
+    <section className="relative bg-muted/10 py-28">
       <div className="section-container">
         <motion.div
-          className="max-w-3xl mx-auto text-center"
+          className="mx-auto max-w-3xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-gold-dark uppercase bg-gold-light/30 rounded-full border border-gold/30">
+          <Badge variant="secondary" className="mb-6 inline-block rounded-full bg-gold-light/30 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold-dark">
             {t('revision360.benefits.badge')}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight mb-4">{t('revision360.benefits.title')}</h2>
-          <p className="text-lg text-gray-500 font-normal leading-relaxed">{t('revision360.benefits.subtitle')}</p>
+          </Badge>
+          <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{t('revision360.benefits.title')}</h2>
+          <p className="text-balance text-lg font-normal leading-relaxed text-muted-foreground">{t('revision360.benefits.subtitle')}</p>
         </motion.div>
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <motion.article
+            <motion.div
               key={`${benefit.title}-${index}`}
-              className="group rounded-4xl p-7 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              transition={{ duration: 0.5, delay: index * 0.05, ease: [0.215, 0.61, 0.355, 1] }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-light/30 text-gold-dark group-hover:scale-110 transition-transform duration-500 relative z-10">
-                {benefit.icon}
-              </div>
-              <h3 className="mt-6 text-xl font-semibold text-gray-900 tracking-tight relative z-10">{benefit.title}</h3>
-              <p className="mt-3 text-base text-gray-600 leading-relaxed font-medium relative z-10">{benefit.description}</p>
-              
-              {benefit.science && (
-                <div className="mt-6 border-t border-gray-100 pt-4 relative z-10">
-                  <p className="text-xs uppercase tracking-wider text-gold-dark font-bold mb-2">Science</p>
-                  <p className="text-sm text-gray-500 italic font-medium">{benefit.science}</p>
+              <Card className="group relative overflow-hidden rounded-4xl border-0 p-7 shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover h-full flex flex-col items-start bg-card">
+                <div className="pointer-events-none absolute -mr-16 -mt-16 right-0 top-0 h-32 w-32 rounded-full bg-gold/5 blur-3xl transition-transform duration-700 group-hover:scale-150" />
+                <div className="relative z-10 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gold-light/30 text-gold-dark transition-transform duration-500 group-hover:scale-110">
+                  {benefit.icon}
                 </div>
-              )}
-            </motion.article>
+                <h3 className="relative z-10 mt-6 text-xl font-semibold tracking-tight text-foreground">{benefit.title}</h3>
+                <p className="relative z-10 mt-3 text-base font-medium leading-relaxed text-muted-foreground flex-1">{benefit.description}</p>
+                
+                {benefit.science && (
+                  <div className="relative z-10 mt-6 pt-4 border-t border-border w-full">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wider text-gold-dark">Science</p>
+                    <p className="text-sm font-medium italic text-muted-foreground">{benefit.science}</p>
+                  </div>
+                )}
+              </Card>
+            </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-16 max-w-4xl mx-auto text-center"
+          className="mx-auto mt-16 max-w-4xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
         >
-          <blockquote className="text-xl sm:text-2xl text-gray-800 font-light italic leading-relaxed">
+          <blockquote className="text-balance text-xl font-light italic leading-relaxed text-foreground sm:text-2xl">
             "{t('revision360.benefits.philosophy')}"
           </blockquote>
         </motion.div>

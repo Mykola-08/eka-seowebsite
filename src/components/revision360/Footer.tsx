@@ -8,7 +8,7 @@ export default function Footer() {
   const { t } = useLanguage();
   return (
     <motion.footer 
-      className="bg-black border-t border-white/10 relative overflow-hidden"
+      className="bg-black  border-0 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
@@ -160,7 +160,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <motion.div 
-          className="mt-8 lg:mt-12 pt-6 lg:pt-8 border-t border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="mt-8 lg:mt-12 pt-6 lg:pt-8  border-0 flex flex-col sm:flex-row items-center justify-between gap-4"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}

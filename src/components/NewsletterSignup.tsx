@@ -62,7 +62,7 @@ export default function NewsletterSignup() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder={t('newsletter.placeholder')}
-        className="bg-gray-50 border-gray-200 text-sm h-10"
+        className="bg-muted/40 border-0 text-sm h-10"
         disabled={status === 'loading'}
       />
       <Button

@@ -34,10 +34,10 @@ export default function ServicesContent() {
         <section className="py-16">
           <div className="section-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6 tracking-tight">
                 {t('services.coreTitle') || t('services.exploreOurServices') || 'Integral Therapies'}
               </h2>
-              <p className="text-lg text-gray-500 max-w-2xl mx-auto font-normal leading-relaxed">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-normal leading-relaxed">
                 {t('services.coreDesc') || t('services.descriptionPrefix') || 'From relaxing massages to specialized kinesiology therapies.'}
               </p>
             </div>
@@ -62,9 +62,9 @@ export default function ServicesContent() {
         <section className="py-16 bg-transparent">
           <div className="section-container">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="bg-white p-8 rounded-3xl border border-gray-200/50 ">
-                <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                  <span className="font-semibold text-gray-900 block mb-2 text-base">{t('services.disclaimerPrefix')}:</span>
+              <div className="bg-white p-8 rounded-3xl  border-0 ">
+                <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                  <span className="font-semibold text-foreground block mb-2 text-base">{t('services.disclaimerPrefix')}:</span>
                   {t('services.disclaimerBody')}
                 </p>
               </div>

@@ -179,7 +179,7 @@ export default function ContactFormOptimized() {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-2xl mx-auto"
       >
-        <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center border border-green-100 ">
+        <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center  border-0 ">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -188,10 +188,10 @@ export default function ContactFormOptimized() {
           >
             <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-12 h-12 text-green-600"  />
           </motion.div>
-          <h3 className="text-3xl font-light text-gray-900 mb-4">
+          <h3 className="text-3xl font-light text-foreground mb-4">
             {t('contact.success.title')}
           </h3>
-          <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+          <p className="text-foreground/80 mb-8 leading-relaxed text-lg">
             {t('contact.success.message')}
           </p>
           <Button
@@ -216,10 +216,10 @@ export default function ContactFormOptimized() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-light text-gray-900 mb-6">
+            <h2 className="text-4xl font-light text-foreground mb-6">
               {t('contact.info.title')}
             </h2>
-            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+            <p className="text-foreground/80 mb-8 leading-relaxed text-lg">
               {t('contact.info.subtitle')}
             </p>
           </motion.div>
@@ -235,14 +235,14 @@ export default function ContactFormOptimized() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start space-x-4 p-6 bg-white rounded-2xl border border-gray-100 transition-shadow duration-300"
+                className="flex items-start space-x-4 p-6 bg-white rounded-3xl  border-0 transition- duration-300"
               >
-                <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center shrink-0`}>
+                <div className={`w-12 h-12 ${item.iconBg} rounded-3xl flex items-center justify-center shrink-0`}>
                   <HugeiconsIcon icon={item.icon} className={`w-6 h-6 ${item.iconText}`}  />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">{item.title}</h4>
-                  <p className="text-gray-600 mb-2">
+                  <h4 className="font-medium text-foreground mb-1">{item.title}</h4>
+                  <p className="text-foreground/80 mb-2">
                     {item.link ? (
                       <a href={item.link} className={`${item.linkHover} transition-colors text-lg font-medium`}>
                         {item.content}
@@ -251,7 +251,7 @@ export default function ContactFormOptimized() {
                       <span className="text-lg">{item.content}</span>
                     )}
                   </p>
-                  <p className="text-sm text-gray-500">{item.sub}</p>
+                  <p className="text-sm text-muted-foreground">{item.sub}</p>
                 </div>
               </motion.div>
             ))}
@@ -261,24 +261,24 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100"
+            className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-3xl p-6  border-0"
           >
             <div className="flex items-start space-x-3">
               <HugeiconsIcon icon={Clock01Icon} className="w-6 h-6 text-blue-600 mt-1 shrink-0"  />
               <div>
-                <h4 className="font-medium text-gray-900 mb-3 text-lg">{t('contact.hours.title')}</h4>
+                <h4 className="font-medium text-foreground mb-3 text-lg">{t('contact.hours.title')}</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">{t('contact.hours.weekdays')}:</span>
-                    <span className="font-medium text-gray-900 bg-white px-2 py-1 rounded-md ">9:00 - 20:00</span>
+                    <span className="text-foreground/80">{t('contact.hours.weekdays')}:</span>
+                    <span className="font-medium text-foreground bg-white px-2 py-1 rounded-md ">9:00 - 20:00</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">{t('contact.hours.saturday')}:</span>
-                    <span className="font-medium text-gray-900 bg-white px-2 py-1 rounded-md ">9:00 - 18:00</span>
+                    <span className="text-foreground/80">{t('contact.hours.saturday')}:</span>
+                    <span className="font-medium text-foreground bg-white px-2 py-1 rounded-md ">9:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">{t('contact.hours.sunday')}:</span>
-                    <span className="font-medium text-gray-900 bg-white px-2 py-1 rounded-md ">10:00 - 16:00</span>
+                    <span className="text-foreground/80">{t('contact.hours.sunday')}:</span>
+                    <span className="font-medium text-foreground bg-white px-2 py-1 rounded-md ">10:00 - 16:00</span>
                   </div>
                 </div>
               </div>
@@ -292,15 +292,15 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-3xl border border-gray-200  overflow-hidden"
+            className="bg-white rounded-3xl  border-0  overflow-hidden"
           >
             <div className="p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                  <h3 className="text-3xl font-light text-gray-900 mb-2">
+                  <h3 className="text-3xl font-light text-foreground mb-2">
                     {t('contact.form.title')}
                   </h3>
-                  <p className="text-gray-500">
+                  <p className="text-muted-foreground">
                     {t('contact.form.message.placeholder')}
                   </p>
                 </div>
@@ -309,7 +309,7 @@ export default function ContactFormOptimized() {
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
-                    className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center"
+                    className="bg-red-50  border-0 rounded-3xl p-4 flex items-center"
                   >
                     <HugeiconsIcon icon={Shield01Icon} className="w-5 h-5 text-red-500 mr-3"  />
                     <p className="text-red-600 text-sm">{serverError}</p>
@@ -318,18 +318,18 @@ export default function ContactFormOptimized() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground/80">
                       {t('contact.form.name')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={UserIcon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
+                      <HugeiconsIcon icon={UserIcon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
                       <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.name ? 'border-0 bg-red-50' : 'border-0'}`}
                         placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
@@ -337,18 +337,18 @@ export default function ContactFormOptimized() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground/80">
                       {t('contact.form.email')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={MailIcon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
+                      <HugeiconsIcon icon={MailIcon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-0 bg-red-50' : 'border-0'}`}
                         placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
@@ -358,18 +358,18 @@ export default function ContactFormOptimized() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground/80">
                       {t('contact.form.phone')}
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={CallIcon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
+                      <HugeiconsIcon icon={CallIcon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
                       <input
                         type="tel"
                         id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.phone ? 'border-0 bg-red-50' : 'border-0'}`}
                         placeholder="+34 123 456 789"
                       />
                     </div>
@@ -377,7 +377,7 @@ export default function ContactFormOptimized() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="service" className="block text-sm font-medium text-foreground/80">
                       {t('contact.form.service')}
                     </label>
                     <div className="relative">
@@ -386,7 +386,7 @@ export default function ContactFormOptimized() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        className={`w-full px-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-0 bg-red-50' : 'border-0'}`}
                       >
                         <option value="">{t('contact.form.service.placeholder')}</option>
                         {services.map((service) => (
@@ -396,7 +396,7 @@ export default function ContactFormOptimized() {
                         ))}
                       </select>
                       <div className="absolute right-4 top-3.5 pointer-events-none">
-                        <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                       </div>
                     </div>
                     {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service}</p>}
@@ -404,7 +404,7 @@ export default function ContactFormOptimized() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground/80">
                     {t('contact.form.message')} <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -413,7 +413,7 @@ export default function ContactFormOptimized() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-0 bg-red-50' : 'border-0'}`}
                     placeholder={t('contact.form.message.placeholder')}
                   />
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -421,7 +421,7 @@ export default function ContactFormOptimized() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">
-                    <label className="block text-sm font-medium text-gray-700">
+                    <label className="block text-sm font-medium text-foreground/80">
                       {t('contact.form.preferred')}
                     </label>
                     <div className="grid grid-cols-3 gap-3">
@@ -432,10 +432,10 @@ export default function ContactFormOptimized() {
                       ].map((option) => (
                         <label
                           key={option.value}
-                          className={`flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer transition duration-200 ${
+                          className={`flex flex-col items-center justify-center p-3 rounded-3xl border cursor-pointer transition duration-200 ${
                             formData.preferred_contact === option.value
-                              ? 'border-blue-500 bg-blue-50 text-blue-700'
-                              : 'border-gray-200 hover:border-blue-200 hover:bg-gray-50'
+                              ? 'border-0 bg-blue-50 text-blue-700'
+                              : 'border-0 hover:border-0 hover:bg-muted/40'
                           }`}
                         >
                           <input
@@ -446,7 +446,7 @@ export default function ContactFormOptimized() {
                             onChange={handleChange}
                             className="sr-only"
                           />
-                          <HugeiconsIcon icon={option.icon} className={`w-5 h-5 mb-1 ${formData.preferred_contact === option.value ? 'text-blue-600' : 'text-gray-500'}`}  />
+                          <HugeiconsIcon icon={option.icon} className={`w-5 h-5 mb-1 ${formData.preferred_contact === option.value ? 'text-blue-600' : 'text-muted-foreground'}`}  />
                           <span className="text-xs font-medium">{option.label}</span>
                         </label>
                       ))}
@@ -454,17 +454,17 @@ export default function ContactFormOptimized() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="preferred_time" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="preferred_time" className="block text-sm font-medium text-foreground/80">
                       {t('contact.form.preferredTime')}
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={Calendar01Icon} className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"  />
+                      <HugeiconsIcon icon={Calendar01Icon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
                       <select
                         id="preferred_time"
                         name="preferred_time"
                         value={formData.preferred_time}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
+                        className="w-full pl-12 pr-4 py-3  border-0 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
                       >
                         <option value="">{t('contact.form.selectTime')}</option>
                         {timeSlots.map((slot) => (
@@ -474,14 +474,14 @@ export default function ContactFormOptimized() {
                         ))}
                       </select>
                       <div className="absolute right-4 top-3.5 pointer-events-none">
-                        <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="source" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="source" className="block text-sm font-medium text-foreground/80">
                     {t('contact.form.source')}
                   </label>
                   <div className="relative">
@@ -490,7 +490,7 @@ export default function ContactFormOptimized() {
                       name="source"
                       value={formData.source}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
+                      className="w-full px-4 py-3  border-0 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
                     >
                       <option value="">{t('contact.form.source.placeholder')}</option>
                       {sources.map((source) => (
@@ -500,7 +500,7 @@ export default function ContactFormOptimized() {
                       ))}
                     </select>
                     <div className="absolute right-4 top-3.5 pointer-events-none">
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                      <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                   </div>
                 </div>
@@ -512,9 +512,9 @@ export default function ContactFormOptimized() {
                       name="privacy_policy"
                       checked={formData.privacy_policy}
                       onChange={handleChange}
-                      className="mt-1 w-5 h-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                      className="mt-1 w-5 h-5 text-blue-600 rounded border-0 focus:ring-blue-500"
                     />
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-foreground/80">
                       {t('contact.form.privacy')} <span className="text-red-500">*</span>
                     </span>
                   </label>
@@ -543,8 +543,8 @@ export default function ContactFormOptimized() {
               </form>
 
               {/* Quick Contact */}
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <p className="text-center text-gray-600 mb-4 text-sm">
+              <div className="mt-8 pt-8  border-0">
+                <p className="text-center text-foreground/80 mb-4 text-sm">
                   {t('contact.quick.title')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -559,7 +559,7 @@ export default function ContactFormOptimized() {
                   </a>
                   <a
                     href="tel:+34658867133"
-                    className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-11"
+                    className="inline-flex items-center justify-center bg-muted hover:bg-muted text-foreground/80 font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-11"
                   >
                     <HugeiconsIcon icon={CallIcon} className="w-4 h-4 mr-2"  />
                     {t('contact.quick.call')}

@@ -139,8 +139,8 @@ export default function CasosContent() {
       <div className="py-16 sm:py-24">
         <div className="section-container">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">{t('casos.frequentCases')}</h2>
-            <p className="text-xl text-gray-500 font-normal">{t('casos.frequentCasesSubtitle')}</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4 tracking-tight">{t('casos.frequentCases')}</h2>
+            <p className="text-xl text-muted-foreground font-normal">{t('casos.frequentCasesSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -151,17 +151,17 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50   transition duration-300 active:scale-[0.97]"
+                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full  border-0   transition duration-300 active:scale-[0.97]"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 text-gray-900">
+                  <div className="w-14 h-14 rounded-3xl bg-muted/40 flex items-center justify-center mb-6 text-foreground">
                     <HugeiconsIcon icon={Icon} className="w-7 h-7" />
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
                     {problem.title}
                   </h3>
                   
-                  <p className="text-gray-500 text-base leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-muted-foreground text-base leading-relaxed mb-6 line-clamp-3">
                     {problem.description}
                   </p>
                   
@@ -177,21 +177,21 @@ export default function CasosContent() {
       </div>
 
       {/* Additional Problems List - Modernized */}
-      <div className="bg-white py-24 border-t border-gray-100">
+      <div className="bg-white py-24  border-0">
         <div className="section-container max-w-5xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold text-gray-900 mb-4 tracking-tight">{t('casos.otherCases')}</h2>
-            <p className="text-xl text-gray-500 font-normal">{t('casos.otherCasesSubtitle')}</p>
+            <h2 className="text-3xl font-semibold text-foreground mb-4 tracking-tight">{t('casos.otherCases')}</h2>
+            <p className="text-xl text-muted-foreground font-normal">{t('casos.otherCasesSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {additionalProblemsKeys.map((key) => (
               <div 
                 key={key} 
-                className="flex items-center p-4 rounded-2xl bg-secondary hover:bg-gray-100 transition-colors duration-200 cursor-default"
+                className="flex items-center p-4 rounded-3xl bg-secondary hover:bg-muted transition-colors duration-200 cursor-default"
               >
                 <div className="w-2 h-2 rounded-full bg-blue-500 mr-4" />
-                <span className="text-gray-700 font-medium">
+                <span className="text-foreground/80 font-medium">
                   {t(key)}
                 </span>
               </div>
@@ -210,7 +210,7 @@ export default function CasosContent() {
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">
             {t('casos.ctaTitle')}
           </h2>
-          <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light leading-relaxed">
             {t('casos.ctaSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -218,7 +218,7 @@ export default function CasosContent() {
                 <Button 
                   size="xl" 
                   variant="default"
-                  className="bg-white text-black hover:bg-gray-100 border-none px-8 py-4 h-auto text-lg rounded-full"
+                  className="bg-white text-black hover:bg-muted border-none px-8 py-4 h-auto text-lg rounded-full"
                 >
                   {t('casos.bookSession')}
                 </Button>

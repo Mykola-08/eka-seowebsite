@@ -39,7 +39,7 @@ export default function AdultsContent() {
             <h1 className="heading-1 mb-6 max-w-4xl">
               {t('elena.target.adults.title')}
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl mb-12 font-light leading-relaxed">
+            <p className="text-xl sm:text-2xl text-foreground/80 max-w-2xl mb-12 font-light leading-relaxed">
               {t('elena.target.adults.desc')}
             </p>
         </div>
@@ -59,10 +59,10 @@ export default function AdultsContent() {
       <section className="py-24 bg-muted/30 relative z-10 -mt-10 rounded-t-[3rem] ">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-gray-900 tracking-tighter">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-foreground tracking-tighter">
                 {t('adult.recommended')}
               </h2>
-              <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium tracking-tight">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium tracking-tight">
                 {t('adult.recommended.desc')}
               </p>
             </div>
@@ -83,10 +83,10 @@ export default function AdultsContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted/40">
         <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="heading-2 mb-6 font-bold">{t('adult.cta.title')}</h2>
-            <p className="text-xl text-gray-600 mb-8 font-light">
+            <p className="text-xl text-foreground/80 mb-8 font-light">
                 {t('adult.cta.desc')}
             </p>
             <Link href="/booking">

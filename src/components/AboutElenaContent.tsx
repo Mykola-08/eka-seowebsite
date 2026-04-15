@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import SEOUpdater from '@/components/SEOUpdater';
 import Image from 'next/image';
-import { shimmerBlurDataURL } from '@/lib/image-utils';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -42,7 +41,7 @@ export default function AboutElenaContent() {
           <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
             {/* Subtle glow behind */}
             <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-3xl opacity-60 scale-110" />
-            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100 ">
+            <div className="relative rounded-full overflow-hidden w-full h-full ">
               <Image
                 src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}
@@ -62,18 +61,18 @@ export default function AboutElenaContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-gray-900 tracking-tight leading-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-foreground tracking-tight leading-tight">
             {t('elena.greeting')}
           </h1>
 
           <div className="space-y-4">
-            <p className="text-2xl sm:text-3xl text-gray-700 font-normal tracking-wide">
+            <p className="text-2xl sm:text-3xl text-foreground/80 font-normal tracking-wide">
               {t('elena.name')}
             </p>
-            <p className="text-xl sm:text-2xl text-gray-500 font-light tracking-wide">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light tracking-wide">
               {t('elena.role')}
             </p>
-            <p className="text-lg sm:text-xl text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-foreground/80 font-normal max-w-2xl mx-auto leading-relaxed">
               {t('elena.bio')}
             </p>
           </div>
@@ -102,7 +101,7 @@ export default function AboutElenaContent() {
 
           {/* Quote */}
           <div className="max-w-3xl mx-auto mt-16">
-            <blockquote className="text-xl sm:text-2xl text-gray-800 italic font-light leading-relaxed relative">
+            <blockquote className="text-xl sm:text-2xl text-foreground italic font-light leading-relaxed relative">
               <span className="relative z-10">"{t('elena.quote')}"</span>
             </blockquote>
           </div>
@@ -115,13 +114,13 @@ export default function AboutElenaContent() {
            transition={{ duration: 0.8, delay: 0.4 }}
            className="flex flex-wrap justify-center gap-4"
         >
-            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full border border-gray-200/50">
+            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
                <HugeiconsIcon icon={StarIcon} className="w-4 h-4 text-yellow-500 mr-2"  />
-               <span className="text-gray-700 font-medium">15+ {t('hero.stats.experience')}</span>
+               <span className="text-foreground/80 font-medium">15+ {t('hero.stats.experience')}</span>
             </div>
-            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full border border-gray-200/50">
+            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
                <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-red-500 mr-2"  />
-               <span className="text-gray-700 font-medium">96% {t('hero.stats.clients')}</span>
+               <span className="text-foreground/80 font-medium">96% {t('hero.stats.clients')}</span>
             </div>
         </motion.div>
       </div>
@@ -141,10 +140,10 @@ export default function AboutElenaContent() {
         <section className="py-24 bg-white rounded-t-[3rem]">
           <div className="section-container relative z-10 text-center">
             <div className="mb-20">
-              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6 tracking-tight">
                 {t('elena.approach.title')}
               </h2>
-              <p className="text-xl text-gray-500 max-w-3xl mx-auto font-normal leading-relaxed">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-normal leading-relaxed">
                 {t('elena.approach.desc')}
               </p>
             </div>
@@ -166,7 +165,7 @@ export default function AboutElenaContent() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 }
                   }}
-                  className="px-8 py-4 bg-secondary text-gray-700 rounded-2xl font-medium cursor-default border border-transparent hover:border-gray-200 transition-colors"
+                  className="px-8 py-4 bg-secondary text-foreground/80 rounded-3xl font-medium cursor-default hover: transition-"
                 >
                   {tech.name}
                 </motion.div>
@@ -179,7 +178,7 @@ export default function AboutElenaContent() {
         <section className="py-24 bg-muted/30">
           <div className="section-container relative z-10">
             <div className="text-center mb-16">
-               <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight">
+               <h2 className="text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
                  {t('elena.work.title')}
                </h2>
             </div>

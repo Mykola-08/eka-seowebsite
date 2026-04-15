@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Clock01Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 
 interface ServiceStep {
   number: string;
@@ -68,7 +70,7 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section id="process" className="relative py-28 bg-white overflow-hidden">
+    <section id="process" className="relative overflow-hidden bg-background py-28">
       {/* Subtle grid texture */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.015]"
         style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '32px 32px' }}
@@ -78,62 +80,62 @@ export default function ServiceSection() {
       <div className="section-container relative z-10">
         {/* Header */}
         <motion.div
-          className="max-w-2xl mx-auto text-center mb-20"
+          className="mx-auto mb-20 max-w-2xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
         >
-          <span className="inline-block px-3.5 py-1 mb-5 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+          <Badge variant="secondary" className="mb-5 inline-block rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             {t('revision360.service.badge')}
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 tracking-tight mb-4">
+          </Badge>
+          <h2 className="mb-4 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             {t('revision360.service.title')}
           </h2>
-          <p className="text-lg text-gray-500 leading-relaxed">{t('revision360.service.subtitle')}</p>
+          <p className="text-balance text-lg leading-relaxed text-muted-foreground">{t('revision360.service.subtitle')}</p>
         </motion.div>
 
         {/* Timeline steps */}
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto max-w-4xl">
           <div className="relative">
             {/* Vertical connecting line */}
-            <div className="absolute left-7 top-14 bottom-14 w-px bg-linear-to-b from-blue-100 via-blue-200 to-transparent hidden sm:block" aria-hidden="true" />
+            <div className="absolute bottom-14 left-7 top-14 hidden w-px bg-linear-to-b from-primary/20 via-primary/10 to-transparent sm:block" aria-hidden="true" />
 
             <div className="space-y-6">
               {steps.map((step, index) => (
                 <motion.div
                   key={step.number}
-                  className="relative flex gap-6 sm:gap-8 group"
+                  className="group relative flex gap-6 sm:gap-8"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
                 >
                   {/* Step number circle */}
-                  <div className="hidden sm:flex flex-col items-center shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 shadow-xs z-10">
-                      <span className="text-sm font-bold text-blue-500">{step.number}</span>
+                  <div className="hidden shrink-0 flex-col items-center sm:flex">
+                    <div className="z-10 flex h-14 w-14 items-center justify-center rounded-full bg-background border-2 border-primary/20 transition-colors duration-300 group-hover:border-primary">
+                      <span className="text-sm font-bold text-primary">{step.number}</span>
                     </div>
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 rounded-4xl bg-white border border-gray-100 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 overflow-hidden">
+                  <Card className="flex-1 overflow-hidden rounded-4xl border-0 shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover">
                     {/* Top strip */}
-                    <div className="flex items-center justify-between px-7 pt-6 pb-5 border-b border-gray-50">
+                    <div className="flex border-b border-border/50 items-center justify-between px-7 pb-5 pt-6">
                       {/* Mobile step number */}
                       <div className="flex items-center gap-3">
-                        <span className="sm:hidden inline-block text-xs font-bold uppercase tracking-widest text-blue-500 bg-blue-50 border border-blue-100 rounded-full px-2.5 py-1">
+                        <span className="inline-block rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold uppercase tracking-widest text-primary sm:hidden">
                           {step.number}
                         </span>
                         <div>
-                          <div className="text-xs uppercase tracking-widest text-gold-dark font-semibold bg-gold-light/30 border border-gold/20 px-2.5 py-0.5 inline-block rounded-full mb-1.5">
+                          <Badge variant="secondary" className="mb-1.5 inline-block rounded-full bg-gold-light/30 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest text-gold-dark">
                             {t('revision360.service.step')} {step.number}
-                          </div>
-                          <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 leading-tight">{step.title}</h3>
-                          <p className="mt-1.5 text-gray-500 text-sm leading-relaxed">{step.description}</p>
+                          </Badge>
+                          <h3 className="text-xl font-semibold leading-tight text-foreground sm:text-2xl">{step.title}</h3>
+                          <p className="mt-1.5 text-balance text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                         </div>
                       </div>
-                      <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 whitespace-nowrap ml-4 shrink-0">
+                      <div className="ml-4 hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-muted/40 px-3 py-1.5 text-xs font-medium text-foreground/80 sm:inline-flex">
                         <HugeiconsIcon icon={Clock01Icon} className="h-3.5 w-3.5"  />
                         {step.duration}
                       </div>
@@ -141,22 +143,22 @@ export default function ServiceSection() {
 
                     {/* Details grid */}
                     <div className="px-7 py-5">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">{t('revision360.service.expect')}</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                      <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('revision360.service.expect')}</p>
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
                         {step.details.map((detail, i) => (
-                          <div key={i} className="flex items-start gap-2.5 text-sm text-gray-600 font-medium">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                          <div key={i} className="flex items-start gap-2.5 font-medium text-sm text-foreground/80">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40" />
                             <span>{detail}</span>
                           </div>
                         ))}
                       </div>
                       {/* Mobile duration badge */}
-                      <div className="sm:hidden mt-4 inline-flex items-center gap-2 rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600">
+                      <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-muted/40 px-3 py-1.5 text-xs font-medium text-foreground/80 sm:hidden">
                         <HugeiconsIcon icon={Clock01Icon} className="h-3.5 w-3.5"  />
                         {step.duration}
                       </div>
                     </div>
-                  </div>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -164,18 +166,18 @@ export default function ServiceSection() {
 
           {/* Total duration summary */}
           <motion.div
-            className="mt-10 rounded-3xl bg-gray-50 p-7 border border-gold/20"
+            className="mt-10 rounded-3xl bg-muted/40 p-7 shadow-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
           >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div>
-                <p className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">{t('revision360.service.total.title')}</p>
-                <p className="text-2xl font-semibold text-gray-900">{t('revision360.service.total.duration')}</p>
+                <p className="mb-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('revision360.service.total.title')}</p>
+                <p className="text-2xl font-semibold text-foreground">{t('revision360.service.total.duration')}</p>
               </div>
-              <p className="text-gray-500 text-sm leading-relaxed max-w-md">{t('revision360.service.total.note')}</p>
+              <p className="max-w-md text-balance text-sm leading-relaxed text-muted-foreground">{t('revision360.service.total.note')}</p>
             </div>
           </motion.div>
         </div>

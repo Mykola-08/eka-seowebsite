@@ -551,10 +551,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
   const getColorClasses = (color: string) => {
     const colors = {
-      purple: 'bg-purple-50 border-purple-200 text-purple-700',
-      orange: 'bg-orange-50 border-orange-200 text-orange-700',
-      blue: 'bg-blue-50 border-blue-200 text-blue-700',
-      green: 'bg-green-50 border-green-200 text-green-700'
+      purple: 'bg-purple-50 border-0 text-purple-700',
+      orange: 'bg-orange-50 border-0 text-orange-700',
+      blue: 'bg-blue-50 border-0 text-blue-700',
+      green: 'bg-green-50 border-0 text-green-700'
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -572,17 +572,17 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <span className="text-green-700 font-medium">{t('discovery.recommendation.badge')}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-6 leading-tight">
                 {t('discovery.recommendation.title')}
               </h1>
 
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-foreground/80 mb-8">
                 {t('discovery.recommendation.subtitle')}
               </p>
 
               {recommendation.analysis && (
-                <div className="bg-blue-50 p-6 rounded-2xl mb-12 text-center max-w-2xl mx-auto border border-blue-100">
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="bg-blue-50 p-6 rounded-3xl mb-12 text-center max-w-2xl mx-auto  border-0">
+                  <p className="text-lg text-foreground/80 leading-relaxed">
                     {t('discovery.analysis.intro')}
                     {recommendation.analysis.problem && (
                       <span> {t('discovery.analysis.have')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.problem}</strong></span>
@@ -599,7 +599,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               )}
 
               {/* Toggle */}
-              <div className="inline-flex bg-gray-100 p-1 rounded-xl mb-8">
+              <div className="inline-flex bg-muted p-1 rounded-3xl mb-8">
                 <Button
                   onClick={() => setViewMode('basic')}
                   variant={viewMode === 'basic' ? 'white' : 'ghost'}
@@ -624,35 +624,35 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="text-center mb-8">
                   {Icon && (
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ">
-                      <HugeiconsIcon icon={Icon} className="w-10 h-10 text-gray-700" />
+                      <HugeiconsIcon icon={Icon} className="w-10 h-10 text-foreground/80" />
                     </div>
                   )}
 
-                  <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+                  <h2 className="text-3xl font-semibold text-foreground mb-4">
                     {recommendation.service}
                   </h2>
 
-                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                  <p className="text-lg text-foreground/80 leading-relaxed mb-8">
                     {recommendation.description}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div className="text-center p-4 bg-gray-50 rounded-2xl">
-                      <h4 className="font-semibold text-gray-900 mb-2">{t('common.price')}</h4>
-                      <p className="text-2xl font-bold text-gray-800">{recommendation.price}</p>
+                    <div className="text-center p-4 bg-muted/40 rounded-3xl">
+                      <h4 className="font-semibold text-foreground mb-2">{t('common.price')}</h4>
+                      <p className="text-2xl font-bold text-foreground">{recommendation.price}</p>
                     </div>
-                    <div className="text-center p-4 bg-gray-50 rounded-2xl">
-                      <h4 className="font-semibold text-gray-900 mb-2">{t('common.duration')}</h4>
-                      <p className="text-2xl font-bold text-gray-800">{recommendation.duration}</p>
+                    <div className="text-center p-4 bg-muted/40 rounded-3xl">
+                      <h4 className="font-semibold text-foreground mb-2">{t('common.duration')}</h4>
+                      <p className="text-2xl font-bold text-foreground">{recommendation.duration}</p>
                     </div>
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="font-semibold text-gray-900 mb-4">{t('common.benefits')}:</h4>
+                    <h4 className="font-semibold text-foreground mb-4">{t('common.benefits')}:</h4>
                     <div className="grid grid-cols-2 gap-3">
                       {recommendation.benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-center text-gray-700">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 shrink-0"></div>
+                        <div key={index} className="flex items-center text-foreground/80">
+                          <div className="w-2 h-2 bg-muted rounded-full mr-3 shrink-0"></div>
                           {benefit}
                         </div>
                       ))}
@@ -660,15 +660,15 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="font-semibold text-gray-900 mb-4">{t('booking.form.timeSlot')}:</h4>
+                    <h4 className="font-semibold text-foreground mb-4">{t('booking.form.timeSlot')}:</h4>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {['morning', 'noon', 'afternoon', 'evening'].map((slot) => (
                         <button
                           key={slot}
                           onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
-                          className={`py-2 px-4 rounded-xl border-2 transition duration-200 text-sm font-medium ${selectedTime === t(`booking.options.timeSlot.${slot}`)
-                            ? 'border-blue-500 bg-blue-50 text-blue-700'
-                            : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                          className={`py-2 px-4 rounded-3xl border-2 transition duration-200 text-sm font-medium ${selectedTime === t(`booking.options.timeSlot.${slot}`)
+                            ? 'border-0 bg-blue-50 text-blue-700'
+                            : 'border-0 text-foreground/80 hover:border-0'
                             }`}
                         >
                           {t(`booking.options.timeSlot.${slot}`)}
@@ -678,7 +678,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   </div>
 
                   {formData.location === 'online' && (
-                    <div className="bg-yellow-50 p-4 rounded-xl mb-6 text-yellow-800 text-sm">
+                    <div className="bg-yellow-50 p-4 rounded-3xl mb-6 text-yellow-800 text-sm">
                       {t('discovery.recommendation.online.note')}
                     </div>
                   )}
@@ -703,25 +703,25 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-3xl border border-gray-200 p-8 sm:p-12 mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center justify-center">
+              <div className="bg-white rounded-3xl  border-0 p-8 sm:p-12 mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-8 flex items-center justify-center">
                   <HugeiconsIcon icon={ClipboardIcon} className="w-6 h-6 mr-3 text-blue-600"  />
                   {t('discovery.diagnosis.title')}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   {/* Profile */}
-                  <div className="bg-gray-50 p-6 rounded-2xl">
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.profile')}</h3>
-                    <p className="text-lg font-medium text-gray-900">{recommendation.diagnosis?.profile}</p>
+                  <div className="bg-muted/40 p-6 rounded-3xl">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t('discovery.diagnosis.profile')}</h3>
+                    <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.profile}</p>
                   </div>
 
                   {/* Symptoms */}
-                  <div className="bg-gray-50 p-6 rounded-2xl">
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
+                  <div className="bg-muted/40 p-6 rounded-3xl">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
                     <div className="flex flex-wrap gap-2">
                       {recommendation.diagnosis?.symptoms.map((s, i) => (
-                        <span key={i} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700 ">
+                        <span key={i} className="px-3 py-1 bg-white  border-0 rounded-full text-sm text-foreground/80 ">
                           {s}
                         </span>
                       ))}
@@ -729,20 +729,20 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   </div>
 
                   {/* Root Cause */}
-                  <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                  <div className="bg-blue-50 p-6 rounded-3xl  border-0">
                     <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.rootCause')}</h3>
                     <p className="text-lg font-medium text-blue-900">{recommendation.diagnosis?.rootCause}</p>
                   </div>
 
                   {/* Strategy */}
-                  <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
+                  <div className="bg-purple-50 p-6 rounded-3xl  border-0">
                     <h3 className="text-sm font-semibold text-purple-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.strategy')}</h3>
                     <p className="text-lg font-medium text-purple-900">{recommendation.diagnosis?.strategy}</p>
                   </div>
                 </div>
 
                 {/* Frequency */}
-                <div className="mb-12 p-6 bg-green-50 rounded-2xl border border-green-100 text-center">
+                <div className="mb-12 p-6 bg-green-50 rounded-3xl  border-0 text-center">
                   <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
                   <p className="text-lg font-medium text-green-900">{recommendation.diagnosis?.frequency}</p>
                 </div>
@@ -768,7 +768,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               </div>
             )}
 
-            <div className="text-center text-gray-500">
+            <div className="text-center text-muted-foreground">
               <p className="mb-4">{t('discovery.recommendation.why')}</p>
               <Link
                 href="/booking"
@@ -794,14 +794,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <span className="text-blue-700 font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6 leading-tight flex items-center justify-center gap-3">
+            <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-6 leading-tight flex items-center justify-center gap-3">
               👋 {t('hero.title')}
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                 BETA
               </span>
             </h1>
 
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-foreground/80 mb-8">
               {t('discovery.recommendation.subtitle')}
             </p>
 
@@ -810,7 +810,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               {[0, 1, 2, 3, 4, 5, 6].map((step) => (
                 <div
                   key={step}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${step <= currentStep ? 'bg-blue-600' : 'bg-gray-200'
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${step <= currentStep ? 'bg-blue-600' : 'bg-muted'
                     }`}
                 />
               ))}
@@ -818,15 +818,15 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-3xl  border border-gray-100 p-8 sm:p-12">
+          <div className="bg-white rounded-3xl   border-0 p-8 sm:p-12">
 
             {/* Step 0: Location */}
             {currentStep === 0 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   📍 {t('discovery.step.location.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step.location.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step.location.subtitle')}</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {locations.map((loc) => {
@@ -835,16 +835,16 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       <button
                         key={loc.id}
                         onClick={() => setFormData({ ...formData, location: loc.id })}
-                        className={`text-center p-6 rounded-2xl border-2 transition duration-200  flex flex-col items-center justify-center ${formData.location === loc.id
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                        className={`text-center p-6 rounded-3xl border-2 transition duration-200  flex flex-col items-center justify-center ${formData.location === loc.id
+                          ? 'border-0 bg-blue-50'
+                          : 'border-0 hover:border-0'
                           }`}
                       >
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-blue-100 text-blue-600' : 'bg-muted text-foreground/80'
                           }`}>
                           <HugeiconsIcon icon={loc.icon} className="w-6 h-6"  />
                         </div>
-                        <h3 className="font-semibold text-gray-900">{loc.title}</h3>
+                        <h3 className="font-semibold text-foreground">{loc.title}</h3>
                       </button>
                     );
                   })}
@@ -855,18 +855,18 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             {/* Step 1: Description */}
             {currentStep === 1 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   📝 {t('discovery.step.description.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step.description.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step.description.subtitle')}</p>
 
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder={t('discovery.step.description.placeholder')}
-                  className="w-full h-40 p-4 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:ring-0 resize-none text-lg"
+                  className="w-full h-40 p-4 rounded-3xl border-2 border-0 focus:border-0 focus:ring-0 resize-none text-lg"
                 />
-                <p className="text-sm text-gray-500 mt-2 text-right">
+                <p className="text-sm text-muted-foreground mt-2 text-right">
                   {formData.description.length}/3 {t('discovery.step.description.minChars')}
                 </p>
               </div>
@@ -875,23 +875,23 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             {/* Step 2: User Type */}
             {currentStep === 2 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   💡 {t('discovery.step1.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step1.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step1.subtitle')}</p>
 
                 <div className="space-y-4">
                   {userTypes.map((type) => (
                     <button
                       key={type.id}
                       onClick={() => setFormData({ ...formData, userType: type.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.userType === type.id
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.userType === type.id
+                        ? 'border-0 bg-blue-50'
+                        : 'border-0 hover:border-0'
                         }`}
                     >
-                      <h3 className="font-semibold text-gray-900 mb-2">{type.title}</h3>
-                      <p className="text-gray-600 text-sm">{type.description}</p>
+                      <h3 className="font-semibold text-foreground mb-2">{type.title}</h3>
+                      <p className="text-foreground/80 text-sm">{type.description}</p>
                     </button>
                   ))}
                 </div>
@@ -901,10 +901,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             {/* Step 3: Tension Areas */}
             {currentStep === 3 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   📍 {t('discovery.step2.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step2.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step2.subtitle')}</p>
 
                 <div className="space-y-4">
                   {tensionOptions.map((option) => (
@@ -916,13 +916,13 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                           : [...formData.tensionAreas, option];
                         setFormData({ ...formData, tensionAreas: newAreas });
                       }}
-                      className={`w-full text-left p-4 rounded-2xl border-2 transition duration-200 ${formData.tensionAreas.includes(option)
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      className={`w-full text-left p-4 rounded-3xl border-2 transition duration-200 ${formData.tensionAreas.includes(option)
+                        ? 'border-0 bg-blue-50'
+                        : 'border-0 hover:border-0'
                         }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-medium text-gray-900">{option}</span>
+                        <span className="font-medium text-foreground">{option}</span>
                         {formData.tensionAreas.includes(option) && (
                           <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-blue-600"  />
                         )}
@@ -936,23 +936,23 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             {/* Step 4: Emotional State */}
             {currentStep === 4 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   🧘 {t('discovery.step4.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step4.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step4.subtitle')}</p>
 
                 <div className="space-y-4">
                   {emotionalStates.map((state) => (
                     <button
                       key={state.id}
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.emotionalState === state.id
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.emotionalState === state.id
+                        ? 'border-0 bg-blue-50'
+                        : 'border-0 hover:border-0'
                         }`}
                     >
-                      <h3 className="font-semibold text-gray-900 mb-2">{state.title}</h3>
-                      <p className="text-gray-600 text-sm">{state.description}</p>
+                      <h3 className="font-semibold text-foreground mb-2">{state.title}</h3>
+                      <p className="text-foreground/80 text-sm">{state.description}</p>
                     </button>
                   ))}
                 </div>
@@ -962,23 +962,23 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             {/* Step 5: Time Commitment */}
             {currentStep === 5 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   ⏰ {t('discovery.step5.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step5.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step5.subtitle')}</p>
 
                 <div className="space-y-4">
                   {timeCommitments.map((time) => (
                     <button
                       key={time.id}
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.timeCommitment === time.id
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.timeCommitment === time.id
+                        ? 'border-0 bg-blue-50'
+                        : 'border-0 hover:border-0'
                         }`}
                     >
-                      <h3 className="font-semibold text-gray-900 mb-2">{time.title}</h3>
-                      <p className="text-gray-600 text-sm">{time.description}</p>
+                      <h3 className="font-semibold text-foreground mb-2">{time.title}</h3>
+                      <p className="text-foreground/80 text-sm">{time.description}</p>
                     </button>
                   ))}
                 </div>
@@ -988,23 +988,23 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             {/* Step 6: Budget */}
             {currentStep === 6 && (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
                   💰 {t('discovery.step6.title')}
                 </h2>
-                <p className="text-gray-600 mb-8">{t('discovery.step6.subtitle')}</p>
+                <p className="text-foreground/80 mb-8">{t('discovery.step6.subtitle')}</p>
 
                 <div className="space-y-4">
                   {budgetOptions.map((budget) => (
                     <button
                       key={budget.id}
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
-                      className={`w-full text-left p-6 rounded-2xl border-2 transition duration-200  ${formData.budget === budget.id
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.budget === budget.id
+                        ? 'border-0 bg-blue-50'
+                        : 'border-0 hover:border-0'
                         }`}
                     >
-                      <h3 className="font-semibold text-gray-900 mb-2">{budget.title}</h3>
-                      <p className="text-gray-600 text-sm">{budget.description}</p>
+                      <h3 className="font-semibold text-foreground mb-2">{budget.title}</h3>
+                      <p className="text-foreground/80 text-sm">{budget.description}</p>
                     </button>
                   ))}
                 </div>
@@ -1012,7 +1012,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             )}
 
             {/* Navigation */}
-            <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
+            <div className="flex justify-between items-center mt-12 pt-8  border-0">
               <Button
                 onClick={handleBack}
                 variant="ghost"
@@ -1022,7 +1022,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 {t('discovery.back')}
               </Button>
 
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-muted-foreground">
                 {t('common.step')} {currentStep + 1} {t('common.of')} 7
               </span>
 

@@ -98,8 +98,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.pexels.com" />
         <meta name="wot-verification" content="96379ee3c82e2684e400"/>
       </head>
-      <body className="font-sans text-gray-900 bg-white overflow-x-hidden">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-(--z-toast) focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-blue-600 focus:font-medium">
+      <body className="font-sans overflow-x-hidden antialiased">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-(--z-toast) focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus: focus:text-blue-600 focus:font-medium">
           Skip to main content
         </a>
         <SmoothScrolling>

@@ -49,7 +49,7 @@ export default function DiscountsContent() {
             initial={{ opacity: 0, y: -20, x: 20 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 right-4 z-(--z-toast) bg-green-500 text-white px-6 py-4 rounded-2xl  flex items-center space-x-3"
+            className="fixed top-24 right-4 z-(--z-toast) bg-green-500 text-white px-6 py-4 rounded-3xl  flex items-center space-x-3"
           >
             <HugeiconsIcon icon={Tick01Icon} className="w-5 h-5"  />
             <span className="font-medium">{t('discounts.success') || "Descompte aplicat correctament!"}</span>
@@ -96,14 +96,14 @@ export default function DiscountsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-white rounded-3xl p-8   transition duration-300 border border-gray-100 overflow-hidden"
+                className="group relative bg-white rounded-3xl p-8   transition duration-300  border-0 overflow-hidden"
               >
                 {/* Background Gradient */}
                 <div className="absolute inset-0 bg-linear-to-br from-blue-50/50 via-white to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Header */}
                 <div className="relative flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 bg-linear-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center text-blue-600 transition-colors duration-300">
+                  <div className="w-14 h-14 bg-linear-to-br from-blue-100 to-blue-50 rounded-3xl flex items-center justify-center text-blue-600 transition-colors duration-300">
                     <HugeiconsIcon icon={PercentIcon} className="w-7 h-7"  />
                   </div>
                   {discount.isActive && (
@@ -114,12 +114,12 @@ export default function DiscountsContent() {
                 </div>
 
                 <div className="relative mb-6">
-                   <h3 className="text-xl font-bold text-gray-900 mb-2">{discount.name}</h3>
+                   <h3 className="text-xl font-bold text-foreground mb-2">{discount.name}</h3>
                    <div className="flex items-baseline mb-4">
                       <span className="text-4xl font-bold text-blue-600">{discount.percentage}%</span>
-                      <span className="ml-2 text-gray-500 font-medium">{t('discounts.off') || "OFF"}</span>
+                      <span className="ml-2 text-muted-foreground font-medium">{t('discounts.off') || "OFF"}</span>
                    </div>
-                   <p className="text-gray-600 leading-relaxed text-sm">
+                   <p className="text-foreground/80 leading-relaxed text-sm">
                       {discount.description}
                    </p>
                 </div>
@@ -127,7 +127,7 @@ export default function DiscountsContent() {
                 {/* Code & Action */}
                 {discount.code && (
                     <div className="relative space-y-3">
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200 border-dashed group-hover:border-blue-200 transition-colors">
+                      <div className="flex items-center justify-between p-3 bg-muted/40 rounded-3xl  border-0 border-dashed group-hover:border-0 transition-colors">
                          <div className="flex items-center space-x-2 overflow-hidden">
                             <HugeiconsIcon icon={GiftIcon} className="w-4 h-4 text-blue-500 shrink-0"  />
                             <code className="text-sm font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded truncate">
@@ -136,14 +136,14 @@ export default function DiscountsContent() {
                          </div>
                          <button
                            onClick={() => navigator.clipboard.writeText(discount.code || '')}
-                           className="text-xs font-medium text-gray-500 hover:text-blue-600 transition-colors px-2 py-1"
+                           className="text-xs font-medium text-muted-foreground hover:text-blue-600 transition-colors px-2 py-1"
                          >
                            {t('discounts.copy') || "Copia"}
                          </button>
                       </div>
 
                       {selectedDiscount?.code === discount.code ? (
-                        <div className="w-full py-3 bg-green-50 text-green-700 font-medium rounded-xl text-center text-sm flex items-center justify-center gap-2 border border-green-100">
+                        <div className="w-full py-3 bg-green-50 text-green-700 font-medium rounded-3xl text-center text-sm flex items-center justify-center gap-2  border-0">
                           <HugeiconsIcon icon={Tick01Icon} className="w-4 h-4"  />
                           {t('discounts.activeBadge') || "Descompte actiu"}
                         </div>
@@ -151,7 +151,7 @@ export default function DiscountsContent() {
                         <Button
                           onClick={() => handleApplyDiscount(discount.code || '')}
                           variant="default"
-                          className="w-full py-3 rounded-xl "
+                          className="w-full py-3 rounded-3xl "
                         >
                           {t('discounts.apply') || "Aplicar descompte"}
                         </Button>
@@ -168,8 +168,8 @@ export default function DiscountsContent() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-16 max-w-3xl mx-auto">
-               <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('discounts.howToUse.title') || "Com utilitzar els descomptes"}</h2>
-               <p className="text-gray-600">{t('discounts.howToUse.subtitle') || "És molt fàcil, només has de seguir aquests passos."}</p>
+               <h2 className="text-3xl font-bold text-foreground mb-4">{t('discounts.howToUse.title') || "Com utilitzar els descomptes"}</h2>
+               <p className="text-foreground/80">{t('discounts.howToUse.subtitle') || "És molt fàcil, només has de seguir aquests passos."}</p>
              </div>
 
              <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -179,11 +179,11 @@ export default function DiscountsContent() {
                   { icon: <HugeiconsIcon icon={PercentIcon} />, title: t('discounts.step3.title') || "3. Gaudeix", desc: t('discounts.step3.description') || "Gaudeix del teu servei amb el preu reduït." }
                 ].map((step, idx) => (
                   <div key={idx} className="text-center p-6">
-                     <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 ">
+                     <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 ">
                         {React.cloneElement(step.icon as React.ReactElement<{ className?: string }>, { className: "w-6 h-6" })}
                      </div>
-                     <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                     <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                     <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                     <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 ))}
              </div>

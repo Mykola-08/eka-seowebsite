@@ -2,14 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowDown01Icon, CheckmarkCircle01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
+import { CheckmarkCircle01Icon, SparklesIcon, Calendar01Icon, ArrowRight02Icon } from '@hugeicons/core-free-icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-
-// Minimal 1×1 blur placeholder for remote images
-const BLUR_URL =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
+import { Badge } from '@/components/ui/badge';
 
 export default function HeroSection() {
   const { t } = useLanguage();
@@ -21,124 +17,75 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-svh flex flex-col justify-center overflow-hidden bg-background">
-      {/* Ambient gradient blobs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-32 left-1/4 h-150 w-150 rounded-full bg-blue-600/10 blur-[140px]" />
-        <div className="absolute bottom-0 right-0 h-125 w-125 rounded-full bg-indigo-700/8 blur-[120px]" />
-        <div className="absolute bottom-1/3 left-0 h-75 w-75 rounded-full bg-blue-400/5 blur-[100px]" />
+    <section className="relative flex min-h-[85vh] flex-col justify-center overflow-hidden bg-background pb-16 pt-32">
+      {/* Refined Ambient Background: remove loud blob colors, use primary soft glow */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute left-1/2 top-1/4 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
       </div>
 
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="360° Integral Health Session"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-10 mix-blend-luminosity"
-          placeholder="blur"
-          blurDataURL={BLUR_URL}
-        />
-        <div className="absolute inset-0 bg-linear-to-br from-background via-background/96 to-muted/90" />
-        <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent" />
-      </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-6 text-center lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+          className="flex max-w-4xl flex-col items-center"
+        >
+          {/* Badge */}
+          <Badge variant="secondary" className="mb-8 gap-2 rounded-full border-0 bg-primary/10 px-4 py-1.5 text-[10px] font-semibold tracking-[0.35em] uppercase text-primary">
+            <HugeiconsIcon icon={SparklesIcon} className="h-3.5 w-3.5" />
+            Integral Method · EKA Balance
+          </Badge>
 
-      {/* Large decorative 360° */}
-      <div
-        className="pointer-events-none absolute inset-0 flex select-none items-center justify-end overflow-hidden pr-4"
-        aria-hidden="true"
-      >
-        <span className="text-[clamp(160px,28vw,440px)] font-black leading-none tracking-tighter text-white/2.5">
-          360°
-        </span>
-      </div>
+          {/* Headline */}
+          <h1 className="mb-6 text-balance text-6xl font-bold leading-[0.95] tracking-tighter text-foreground sm:text-7xl lg:text-[7rem]">
+            {t('revision360.hero.title')}
+          </h1>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8 lg:py-16">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease: [0.215, 0.61, 0.355, 1] }}
-          >
-            {/* Badge */}
-            <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-xs">
-              <HugeiconsIcon icon={SparklesIcon} className="h-3 w-3 text-gold" aria-hidden="true"  />
-              Integral Method · EKA Balance
-            </span>
+          {/* Sub-headline */}
+          <p className="mb-10 max-w-2xl text-balance text-xl font-light leading-relaxed text-muted-foreground sm:text-2xl">
+            {t('revision360.hero.subtitle')}
+          </p>
 
-            {/* Headline */}
-            <h1 className="mb-6 text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem]">
-              {t('revision360.hero.title')}
-            </h1>
-
-            {/* Sub-headline */}
-            <p className="mb-10 max-w-xl text-lg font-normal leading-relaxed text-zinc-400 sm:text-xl">
-              {t('revision360.hero.subtitle')}
-            </p>
-
-            {/* Trust pills */}
-            <div className="mb-12 flex flex-wrap gap-2.5">
-              {trustPills.map((label) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-xs"
-                >
-                  <HugeiconsIcon icon={CheckmarkCircle01Icon} className="h-3 w-3 text-blue-400" aria-hidden="true"  />
-                  {label}
-                </span>
-              ))}
-            </div>
-
-            {/* CTA buttons */}
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <a
-                href={`https://wa.me/34658867133?text=${encodeURIComponent(t('revision360.whatsapp.booking'))}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="lg"
-                  className="h-14 rounded-full bg-white px-8 text-base font-medium text-black shadow-xl shadow-white/10 hover:bg-white/90 active:scale-[0.97] transition-transform"
-                >
-                  {t('revision360.hero.cta')}
-                </Button>
+          {/* CTA buttons */}
+          <div className="mb-12 flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row">
+            <Button asChild size="lg" className="h-14 rounded-full px-8 text-base font-medium shadow-card hover:-translate-y-0.5 transition-all">
+              <a href={`https://wa.me/34658867133?text=${encodeURIComponent(t('revision360.whatsapp.booking'))}`} target="_blank" rel="noopener noreferrer">
+                <HugeiconsIcon icon={Calendar01Icon} className="mr-2 h-5 w-5" />
+                {t('revision360.hero.cta')}
               </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="h-14 rounded-full bg-background/50 px-8 text-base font-medium backdrop-blur-md shadow-sm hover:-translate-y-0.5 transition-all">
               <a href="#process">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-14 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-xs hover:bg-white/10 active:scale-[0.97] transition-transform"
-                >
-                  {t('revision360.service.title')}
-                </Button>
+                {t('revision360.service.title')}
+                <HugeiconsIcon icon={ArrowRight02Icon} className="ml-2 h-5 w-5" />
               </a>
-            </div>
-          </motion.div>
+            </Button>
+          </div>
 
-          {/* Quote */}
-          <motion.blockquote
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.6 }}
-            className="mt-10 max-w-2xl border-l-2 border-gold/40 pl-5 text-sm italic leading-relaxed text-zinc-500 lg:mt-12"
-          >
-            &ldquo;{t('revision360.hero.quote')}&rdquo;
-          </motion.blockquote>
-        </div>
+          {/* Trust pills */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
+            {trustPills.map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+              >
+                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="h-4 w-4 text-primary" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Quote */}
+        <motion.blockquote
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+          className="mt-16 max-w-2xl text-sm font-medium italic leading-relaxed text-muted-foreground"
+        >
+          &ldquo;{t('revision360.hero.quote')}&rdquo;
+        </motion.blockquote>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-        aria-hidden="true"
-      >
-        <HugeiconsIcon icon={ArrowDown01Icon} className="h-5 w-5 text-white/20"  />
-      </motion.div>
     </section>
   );
 }

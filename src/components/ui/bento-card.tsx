@@ -1,8 +1,8 @@
 'use client';
 
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export function BentoCard({ 
   href, 
@@ -15,19 +15,6 @@ export function BentoCard({
   children: React.ReactNode, 
   delay?: number
 }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({
-    currentTarget,
-    clientX,
-    clientY,
-  }: MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -41,22 +28,8 @@ export function BentoCard({
       >
         <Link 
           href={href} 
-          onMouseMove={handleMouseMove}
-          className="relative block w-full h-full rounded-3xl overflow-hidden group outline-hidden isolate  border border-secondary/50 bg-muted/30  transition-shadow duration-500"
+          className="relative block w-full h-full rounded-3xl overflow-hidden group outline-hidden isolate  hover: bg-white transition- duration-300"
         >
-          {/* Spotlight overlay */}
-          <motion.div
-            className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-60 mix-blend-overlay"
-            style={{
-              background: useMotionTemplate`
-                radial-gradient(
-                  600px circle at ${mouseX}px ${mouseY}px,
-                  rgba(255,255,255,0.4),
-                  transparent 40%
-                )
-              `,
-            }}
-          />
           {children}
         </Link>
       </motion.div>

@@ -1,10 +1,11 @@
 'use client';
 
-import PersonalizedOnboarding from '@/components/PersonalizedOnboarding';
 import PageLayout from '@/components/PageLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { SparklesIcon } from '@hugeicons/core-free-icons';
+import FirstTimeWizard from '@/components/FirstTimeWizard';
+
 export default function FirstTimeContent() {
   const { t } = useLanguage();
 
@@ -19,7 +20,7 @@ export default function FirstTimeContent() {
       className="bg-secondary"
     >
       <div className="section-container py-12 md:py-20 flex justify-center">
-        <PersonalizedOnboarding />
+        <FirstTimeWizard />
       </div>
     </PageLayout>
   );

@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import "./globals.css";
 import MainLayout from "@/components/MainLayout";
 import { LanguageProvider } from '@/contexts/LanguageContext';
@@ -95,13 +96,6 @@ export default function RootLayout({
         {/* Preconnect to external image hosts to reduce network chain depth */}
         <link rel="preconnect" href="https://images.pexels.com" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
-        {/* Preload the LCP hero image (first slideshow image) */}
-        <link
-          rel="preload"
-          as="image"
-          href="https://images.pexels.com/photos/3760262/pexels-photo-3760262.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          fetchPriority="high"
-        />
         <meta name="wot-verification" content="96379ee3c82e2684e400"/>
       </head>
       <body className="font-sans text-gray-900 bg-white overflow-x-hidden">
@@ -125,6 +119,14 @@ export default function RootLayout({
         </SmoothScrolling>
         <Analytics />
         <SpeedInsights />
+        {/* HubSpot tracking script — loads after cookie consent via CookieBanner */}
+        {process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID && process.env.NEXT_PUBLIC_HUBSPOT_TRACKING_ENABLED !== 'false' && (
+          <Script
+            id="hs-script-loader"
+            src={`//js.hs-scripts.com/${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}.js`}
+            strategy="lazyOnload"
+          />
+        )}
       </body>
     </html>
   );

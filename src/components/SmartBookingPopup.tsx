@@ -71,10 +71,16 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
   const handleQuickWhatsApp = useCallback(() => {
     logEvent('booking_whatsapp_click', { type: 'quick' });
+    // Track lead in HubSpot
+    fetch('/api/hubspot/track-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ service: preselectedService }),
+    }).catch(() => {});
     const message = encodeURIComponent(t('booking.whatsapp.greetingGeneric'));
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
-  }, [logEvent, t, onClose]);
+  }, [logEvent, t, onClose, preselectedService]);
 
   const handleFormSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
@@ -82,6 +88,16 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         type: 'form',
         service: formData.service 
     });
+    // Track lead in HubSpot
+    fetch('/api/hubspot/track-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        service: formData.service,
+        timePreference: formData.timePreference,
+      }),
+    }).catch(() => {});
     const message = encodeURIComponent(
       t('booking.whatsapp.greetingGeneric') + '\n\n' +
       t('booking.whatsapp.name') + `: ${formData.name}\n` +

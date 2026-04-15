@@ -85,6 +85,15 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Benestar somàtic i acompanyament integratiu',
     'hero.subtitle': "Acompanyament somàtic i de benestar per millorar la mobilitat, reduir l'estrès i recuperar equilibri.",
     'hero.firstTime': 'Primera sessió de benestar',
+    'hero.trust.experience': '15+ Anys d\'Experiència Clínica',
+    'hero.trust.clients': '1500+ Clients Satisfets',
+    'how.title': 'El teu camí cap a la recuperació',
+    'how.step1.title': '1. Anàlisi Profunda',
+    'how.step1.desc': 'Avaluem el teu cos de manera integral per descobrir l\'arrel del problema.',
+    'how.step2.title': '2. Tractament Efectiu',
+    'how.step2.desc': 'Tècniques precises per alliberar la tensió i restaurar el teu equilibri.',
+    'how.step3.title': '3. Resultats Duradors',
+    'how.step3.desc': 'Eines i orientació perquè et puguis sentir bé a llarg termini.',
     'kinesiology.page.availableToday': 'Disponible avui',
     'kinesiology.page.bookSession': 'Reserva la teva sessió',
     'kinesiology.page.durationsTitle': 'Durades disponibles',
@@ -193,6 +202,15 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Somatic wellness & integrative therapy',
     'hero.subtitle': 'Personalized somatic and wellness support to improve mobility, reduce stress, and restore everyday balance.',
     'hero.firstTime': 'First time? Start here',
+    'hero.trust.experience': '15+ Years Clinical Experience',
+    'hero.trust.clients': '1500+ Happy Clients',
+    'how.title': 'Your Path to Recovery',
+    'how.step1.title': '1. Deep Assessment',
+    'how.step1.desc': 'We evaluate your body holistically to uncover the root cause.',
+    'how.step2.title': '2. Targeted Healing',
+    'how.step2.desc': 'Precise techniques to release tension and restore balance.',
+    'how.step3.title': '3. Lasting Results',
+    'how.step3.desc': 'Tools and guidance so you stay feeling great long-term.',
     'kinesiology.page.availableToday': 'Available today',
     'kinesiology.page.bookSession': 'Book your session',
     'kinesiology.page.durationsTitle': 'Available durations',
@@ -300,6 +318,15 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Bienestar somático y acompañamiento integrativo',
     'hero.subtitle': 'Acompañamiento somático y de bienestar para mejorar movilidad, regular el estrés y recuperar equilibrio diario.',
     'hero.firstTime': '¿Es tu primera vez?',
+    'hero.trust.experience': '15+ Años de Experiencia Clínica',
+    'hero.trust.clients': '1500+ Clientes Satisfechos',
+    'how.title': 'Tu Camino hacia la Recuperación',
+    'how.step1.title': '1. Evaluación Profunda',
+    'how.step1.desc': 'Evaluamos tu cuerpo de forma integral para descubrir la raíz del problema.',
+    'how.step2.title': '2. Tratamiento Efectivo',
+    'how.step2.desc': 'Técnicas precisas para liberar la tensión y restaurar tu equilibrio.',
+    'how.step3.title': '3. Resultados Duraderos',
+    'how.step3.desc': 'Herramientas y orientación para que te sientas bien a largo plazo.',
     'kinesiology.page.availableToday': 'Disponible hoy',
     'kinesiology.page.bookSession': 'Reserva tu sesión',
     'kinesiology.page.durationsTitle': 'Duraciones disponibles',
@@ -468,6 +495,15 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Соматическое здоровье и интегративная поддержка',
     'hero.subtitle': 'Персонализированная соматическая поддержка для улучшения подвижности, снятия стресса и восстановления баланса.',
     'hero.firstTime': 'В первый раз?',
+    'hero.trust.experience': '15+ лет клинического опыта',
+    'hero.trust.clients': '1500+ довольных клиентов',
+    'how.title': 'Ваш путь к восстановлению',
+    'how.step1.title': '1. Глубокая оценка',
+    'how.step1.desc': 'Мы комплексно оцениваем ваше тело, чтобы выявить первопричину.',
+    'how.step2.title': '2. Целенаправленное лечение',
+    'how.step2.desc': 'Точные техники для снятия напряжения и восстановления баланса.',
+    'how.step3.title': '3. Долговечные результаты',
+    'how.step3.desc': 'Инструменты и рекомендации, чтобы вы чувствовали себя отлично в долгосрочной перспективе.',
     'kinesiology.page.availableToday': 'Доступно сегодня',
     'kinesiology.page.bookSession': 'Забронировать сессию',
     'kinesiology.page.durationsTitle': 'Доступная длительность',
@@ -2057,6 +2093,13 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': "Descomptes d'estiu",
 
+    // Newsletter
+    'newsletter.title': 'Subscriu-te al nostre butlletí',
+    'newsletter.placeholder': 'El teu correu electrònic',
+    'newsletter.button': 'Subscriu-te',
+    'newsletter.success': 'Gràcies per subscriure\'t!',
+    'newsletter.error': 'Error al subscriure. Torna-ho a provar.',
+
     'language.popup.title': 'Benvingut a EKA Balance',
     'language.popup.subtitle': 'Si us plau, selecciona el teu idioma preferit',
     'cookies.wrongLanguage': 'Sembla que estàs en un idioma diferent del teu navegador.',
@@ -2434,8 +2477,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero section
     'hero.badge': 'Somatic wellness & integrative therapy',
-    'hero.title': 'EKA Balance',
-    'hero.subtitle': 'Feel at home in your body again. We combine massage, kinesiology, and somatic therapy to find the root of your discomfort and help you move, rest, and live better.',
+    'hero.title': 'Live Pain-Free Again',
+    'hero.subtitle': 'Stop managing symptoms and start healing. We pinpoint the root cause of your chronic tension through somatic therapy and kinesiology, restoring your body’s true balance.',
     'hero.firstTime': 'First time? Start here',
     'hero.dontKnowWhatToChoose': 'Help me choose',
     'hero.discoverServices': 'Explore our services',
@@ -2450,6 +2493,13 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 EKA Balance. All rights reserved.',
     'footer.selectLanguage': 'Select language',
     'footer.discounts': 'Discounts',
+
+    // Newsletter
+    'newsletter.title': 'Subscribe to our newsletter',
+    'newsletter.placeholder': 'Your email address',
+    'newsletter.button': 'Subscribe',
+    'newsletter.success': 'Thanks for subscribing!',
+    'newsletter.error': 'Failed to subscribe. Please try again.',
 
     // Language Popup & Cookies
     'language.popup.title': 'Which language do you prefer?',
@@ -4256,10 +4306,10 @@ const translations: Record<Language, Record<string, string>> = {
     'about.cta': 'Descubre el método',
 
     // Hero Section
-    'hero.title': 'EKA Balance',
+    'hero.title': 'Vuelve a vivir sin dolor',
     'hero.title.part1': 'Encuentra alivio al',
     'hero.title.part2': 'dolor y estrés',
-    'hero.subtitle': 'Te ayudamos a sentirte a gusto en tu cuerpo otra vez. A través del masaje y terapias clínicas prácticas, encontramos la causa de tu malestar y te ayudamos a recuperar energía.',
+    'hero.subtitle': 'Deja atrás la tensión crónica. Combinamos terapia somática y kinesiología para encontrar la raíz de tu problema y no solo adormecer el síntoma, para que disfrutes de verdadera libertad.',
     'hero.cta.primary': 'Reserva tu sesión',
     'hero.cta.secondary': 'Descubre tu camino',
     'hero.badge': 'Excelencia en salud integrativa',
@@ -5690,6 +5740,13 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.selectLanguage': 'Selecciona idioma',
     'footer.discounts': 'Descuentos de verano',
 
+    // Newsletter
+    'newsletter.title': 'Suscríbete a nuestro boletín',
+    'newsletter.placeholder': 'Tu correo electrónico',
+    'newsletter.button': 'Suscribirse',
+    'newsletter.success': '¡Gracias por suscribirte!',
+    'newsletter.error': 'Error al suscribirse. Inténtalo de nuevo.',
+
     'language.popup.title': 'Bienvenido a EKA Balance',
     'language.popup.subtitle': 'Por favor, selecciona tu idioma preferido',
     'cookies.wrongLanguage': 'Parece que estás en un idioma diferente al de tu navegador.',
@@ -6025,8 +6082,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero section
     'hero.badge': 'Естественный способ исцеления',
-    'hero.title': 'EKA Balance',
-    'hero.subtitle': 'Мы поможем вам снова почувствовать себя комфортно. С помощью массажа и терапий мы находим причину дискомфорта и возвращаем вам энергию для ежедневной жизни.',
+    'hero.title': 'Жизнь без боли',
+    'hero.subtitle': 'Хватит бороться с симптомами, начните исцеление. Мы находим корень вашего дискомфорта с помощью соматической терапии и возвращаем вам истинную свободу в теле.',
     'hero.firstTime': 'Это ваш первый раз?',
     'hero.dontKnowWhatToChoose': 'Не знаете, с чего начать?',
     'hero.discoverServices': 'Откройте наши услуги',
@@ -6040,6 +6097,13 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 EKA Balance. Все права защищены.',
     'footer.selectLanguage': 'Выберите язык',
     'footer.discounts': 'Скидки',
+
+    // Newsletter
+    'newsletter.title': 'Подпишитесь на рассылку',
+    'newsletter.placeholder': 'Ваш email',
+    'newsletter.button': 'Подписаться',
+    'newsletter.success': 'Спасибо за подписку!',
+    'newsletter.error': 'Ошибка подписки. Попробуйте снова.',
 
     // Language Popup & Cookies
     'language.popup.title': 'Какой язык вы предпочитаете?',

@@ -1,0 +1,277 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - navigation [ref=e5]:
+        - generic [ref=e7]:
+          - link "EKA Balance Logo" [ref=e8] [cursor=pointer]:
+            - /url: /
+            - img "EKA Balance Logo" [ref=e10]
+          - generic [ref=e11]:
+            - link "Services" [ref=e13] [cursor=pointer]:
+              - /url: /services
+              - text: Services
+              - img [ref=e14]
+            - link "Agenyz" [ref=e17] [cursor=pointer]:
+              - /url: /agenyz
+              - text: Agenyz
+              - img [ref=e18]
+            - link "360° review" [ref=e21] [cursor=pointer]:
+              - /url: /360-revision
+            - link "For Businesses" [ref=e23] [cursor=pointer]:
+              - /url: /for-business
+          - link "Book now" [ref=e25] [cursor=pointer]:
+            - /url: /booking
+      - main [ref=e26]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - heading "Stop Living with Back Pain." [level=1] [ref=e31]
+            - paragraph [ref=e32]: Relieve tension and restore your body's natural mobility with targeted, professional care.
+          - generic [ref=e33]:
+            - generic [ref=e34]: I am looking for help with
+            - combobox [ref=e35]:
+              - generic: ...chronic back or neck pain
+              - img
+          - link "See The Solution" [ref=e37] [cursor=pointer]:
+            - /url: "#solutions"
+        - generic [ref=e39]:
+          - heading "Our Approach" [level=2] [ref=e40]
+          - generic [ref=e41]:
+            - img [ref=e43]
+            - heading "Targeting the Root of Your Pain" [level=3] [ref=e45]
+            - paragraph [ref=e46]: Physical pain often stems from deep-rooted tension and postural imbalances. Through advanced manual techniques and deep tissue massage, we release tight muscles and restore correct alignment.
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: 1,500+
+              - generic [ref=e50]: Sessions
+            - generic [ref=e51]:
+              - generic [ref=e52]: 10+
+              - generic [ref=e53]: Years Experience
+            - generic [ref=e54]:
+              - generic [ref=e55]: 96%
+              - generic [ref=e56]: Client Satisfaction
+            - generic [ref=e57]:
+              - generic [ref=e58]: "9"
+              - generic [ref=e59]: Countries Served
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - heading "Your Recommended Solutions" [level=2] [ref=e63]
+            - paragraph [ref=e64]: Based on your selection, these are the best paths forward to help you achieve your goals.
+          - generic [ref=e65]:
+            - button "Massage therapy Massage therapy Release chronic tension and restore natural movement. We combine deep tissue work and myofascial release to address the root cause of pain and help your body recover fully." [ref=e68]:
+              - img "Massage therapy" [ref=e70]
+              - generic [ref=e72]:
+                - generic [ref=e73]:
+                  - heading "Massage therapy" [level=3] [ref=e74]
+                  - paragraph [ref=e75]: Release chronic tension and restore natural movement. We combine deep tissue work and myofascial release to address the root cause of pain and help your body recover fully.
+                - img [ref=e77]
+            - button "360° comprehensive assessment 360° comprehensive assessment An exhaustive evaluation of your biomechanics, posture, and metabolic status. We generate a detailed wellness report and a personalized therapeutic roadmap." [ref=e81]:
+              - img "360° comprehensive assessment" [ref=e83]
+              - generic [ref=e85]:
+                - generic [ref=e86]:
+                  - heading "360° comprehensive assessment" [level=3] [ref=e87]
+                  - paragraph [ref=e88]: An exhaustive evaluation of your biomechanics, posture, and metabolic status. We generate a detailed wellness report and a personalized therapeutic roadmap.
+                - img [ref=e90]
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - heading "Real Stories, Real Results" [level=2] [ref=e95]
+            - paragraph [ref=e96]: Don't just take our word for it. Hear from people who have transformed their well-being.
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - img [ref=e100]
+                - img [ref=e102]
+                - img [ref=e104]
+                - img [ref=e106]
+                - img [ref=e108]
+              - blockquote [ref=e110]: "\"My lower back pain disappeared after just two sessions. I had been suffering for months, and Elena knew exactly where the problem was. Magic hands!\""
+              - generic [ref=e111]:
+                - generic [ref=e112]: CM
+                - generic [ref=e113]:
+                  - generic [ref=e114]: Carlos M.
+                  - generic [ref=e115]: Verified Client
+            - generic [ref=e116]:
+              - generic [ref=e117]:
+                - img [ref=e118]
+                - img [ref=e120]
+                - img [ref=e122]
+                - img [ref=e124]
+                - img [ref=e126]
+              - blockquote [ref=e128]: "\"The neck and shoulder tension from working at a desk was unbearable. The massage therapy here completely transformed my daily comfort and focus.\""
+              - generic [ref=e129]:
+                - generic [ref=e130]: AR
+                - generic [ref=e131]:
+                  - generic [ref=e132]: Anna R.
+                  - generic [ref=e133]: Verified Client
+        - generic [ref=e136]:
+          - img "Elena, EKA Balance body therapist" [ref=e139]
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - generic [ref=e142]: Body therapist & somatic healing specialist
+              - heading "Hello, I'm Elena" [level=2] [ref=e143]
+            - generic [ref=e144]:
+              - paragraph [ref=e145]: For over a decade, I've worked with hundreds of people to help them reconnect with their bodies and resolve the pain, tension, and imbalance that gets in the way of living fully.
+              - paragraph [ref=e146]: Together, we listen to what your body is telling you — and create the conditions for it to heal.
+            - link "Read more" [ref=e147] [cursor=pointer]:
+              - /url: /about-elena
+              - button "Read more" [ref=e148]
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - generic [ref=e152]: Real problems, effective solutions
+            - heading "Problems we solve" [level=2] [ref=e153]
+            - paragraph [ref=e154]: Hundreds of people have reclaimed their well-being with us. Discover how we can help you too.
+          - generic [ref=e155]:
+            - link "Chronic musculoskeletal pain Therapeutic management of cervicalgia, lumbar pathology, and myofascial pain syndromes. We address the structural and Functional root causes of persistent discomfort. Read more" [ref=e157] [cursor=pointer]:
+              - /url: /cases/back-pain
+              - img [ref=e159]
+              - heading "Chronic musculoskeletal pain" [level=3] [ref=e162]
+              - paragraph [ref=e163]: Therapeutic management of cervicalgia, lumbar pathology, and myofascial pain syndromes. We address the structural and Functional root causes of persistent discomfort.
+              - generic [ref=e164]:
+                - text: Read more
+                - img [ref=e165]
+            - link "Autonomic dysregulation Therapeutic intervention for high-stress states, anxiety, and sympathetic dominance. We restore vagal tone and promote physiological equilibrium. Read more" [ref=e168] [cursor=pointer]:
+              - /url: /cases/stress-anxiety
+              - img [ref=e170]
+              - heading "Autonomic dysregulation" [level=3] [ref=e172]
+              - paragraph [ref=e173]: Therapeutic intervention for high-stress states, anxiety, and sympathetic dominance. We restore vagal tone and promote physiological equilibrium.
+              - generic [ref=e174]:
+                - text: Read more
+                - img [ref=e175]
+            - link "Visceral dysfunction Integrative treatment for Functional gastrointestinal disorders. We optimize the gut-brain axis to resolve bloating, motility issues, and systemic inflammation. Read more" [ref=e178] [cursor=pointer]:
+              - /url: /cases/digestive-problems
+              - img [ref=e180]
+              - heading "Visceral dysfunction" [level=3] [ref=e182]
+              - paragraph [ref=e183]: Integrative treatment for Functional gastrointestinal disorders. We optimize the gut-brain axis to resolve bloating, motility issues, and systemic inflammation.
+              - generic [ref=e184]:
+                - text: Read more
+                - img [ref=e185]
+            - link "Cephalalgia & migraine Neuro-vascular regulation for chronic headaches. We treat cervical triggers and cranial tension patterns to reduce frequency and intensity. Read more" [ref=e188] [cursor=pointer]:
+              - /url: /cases/migraines
+              - img [ref=e190]
+              - heading "Cephalalgia & migraine" [level=3] [ref=e192]
+              - paragraph [ref=e193]: Neuro-vascular regulation for chronic headaches. We treat cervical triggers and cranial tension patterns to reduce frequency and intensity.
+              - generic [ref=e194]:
+                - text: Read more
+                - img [ref=e195]
+            - link "Systemic fatigue Metabolic and adrenal support for chronic exhaustion. We identify and treat the underlying bio-energetic depletions restoring vitality. Read more" [ref=e198] [cursor=pointer]:
+              - /url: /cases/low-energy
+              - img [ref=e200]
+              - heading "Systemic fatigue" [level=3] [ref=e202]
+              - paragraph [ref=e203]: Metabolic and adrenal support for chronic exhaustion. We identify and treat the underlying bio-energetic depletions restoring vitality.
+              - generic [ref=e204]:
+                - text: Read more
+                - img [ref=e205]
+            - link "Circadian rhythm disorders Restoration of sleep architecture. We treat the nervous system hyperarousal that prevents deep, restorative rest. Read more" [ref=e208] [cursor=pointer]:
+              - /url: /cases/sleep-difficulties
+              - img [ref=e210]
+              - heading "Circadian rhythm disorders" [level=3] [ref=e215]
+              - paragraph [ref=e216]: Restoration of sleep architecture. We treat the nervous system hyperarousal that prevents deep, restorative rest.
+              - generic [ref=e217]:
+                - text: Read more
+                - img [ref=e218]
+          - generic [ref=e220]:
+            - heading "Other areas we treat" [level=3] [ref=e221]
+            - generic [ref=e222]:
+              - generic [ref=e223]: Money & finances
+              - generic [ref=e224]: Relationships & couple
+              - generic [ref=e225]: Self-worth & realization
+              - generic [ref=e226]: Family conflicts
+              - generic [ref=e227]: Professional guidance
+              - generic [ref=e228]: Emotional trauma
+          - generic [ref=e230]:
+            - link "View all cases" [ref=e231] [cursor=pointer]:
+              - /url: /cases
+              - text: View all cases
+              - img [ref=e232]
+            - link "Find your case" [ref=e234] [cursor=pointer]:
+              - /url: /first-time
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - heading "Frequently asked questions" [level=2] [ref=e238]
+            - paragraph [ref=e239]: Find answers to the most common questions about our services
+          - generic [ref=e241]:
+            - generic [ref=e242]:
+              - button "How long does a typical session last?" [expanded] [ref=e243]:
+                - text: How long does a typical session last?
+                - img [ref=e244]
+              - paragraph [ref=e248]: Sessions usually last between 60 and 90 minutes, depending on the chosen treatment and your specific needs.
+            - button "Do i need prior experience?" [ref=e250]:
+              - text: Do i need prior experience?
+              - img [ref=e251]
+            - button "How often should i come?" [ref=e254]:
+              - text: How often should i come?
+              - img [ref=e255]
+            - button "What payment methods do you accept?" [ref=e258]:
+              - text: What payment methods do you accept?
+              - img [ref=e259]
+            - button "Can i cancel or reschedule my appointment?" [ref=e262]:
+              - text: Can i cancel or reschedule my appointment?
+              - img [ref=e263]
+        - generic [ref=e267]:
+          - img "Background image" [ref=e269]
+          - generic [ref=e272]:
+            - heading "Ready to start your journey?" [level=2] [ref=e273]
+            - paragraph [ref=e274]: Book a consultation today and take the first step towards better health and wellbeing.
+            - generic [ref=e275]:
+              - button "Book now" [ref=e276]:
+                - text: Book now
+                - img
+              - link "Contact us" [ref=e277] [cursor=pointer]:
+                - /url: /booking
+                - button "Contact us" [ref=e278]
+    - contentinfo [ref=e280]:
+      - generic [ref=e281]:
+        - link "EKA Balance Logo EKA Balance" [ref=e282] [cursor=pointer]:
+          - /url: /
+          - img "EKA Balance Logo" [ref=e284]
+          - generic [ref=e285]: EKA Balance
+        - generic [ref=e286]:
+          - paragraph [ref=e287]: Carrer Pelai, 12, 08001 Barcelona
+          - paragraph [ref=e288]: contact@ekabalance.com
+        - generic [ref=e290]:
+          - generic [ref=e291]:
+            - heading "Services" [level=4] [ref=e292]
+            - link "Services" [ref=e293] [cursor=pointer]:
+              - /url: /services
+            - link "Personalized services" [ref=e294] [cursor=pointer]:
+              - /url: /personalized-services
+            - link "For Businesses" [ref=e295] [cursor=pointer]:
+              - /url: /for-business
+            - link "VIP" [ref=e296] [cursor=pointer]:
+              - /url: /vip
+          - generic [ref=e297]:
+            - heading "EKA Balance" [level=4] [ref=e298]
+            - link "360° review" [ref=e299] [cursor=pointer]:
+              - /url: /360-revision
+            - link "First time? Start here" [ref=e300] [cursor=pointer]:
+              - /url: /first-time
+          - generic [ref=e301]:
+            - heading "About Elena" [level=4] [ref=e302]
+            - link "About Elena" [ref=e303] [cursor=pointer]:
+              - /url: /about-elena
+            - link "Book now" [ref=e304] [cursor=pointer]:
+              - /url: /booking
+          - generic [ref=e305]:
+            - heading "Legal" [level=4] [ref=e306]
+            - link "Discounts" [ref=e307] [cursor=pointer]:
+              - /url: /discounts
+            - link "Health Disclaimer" [ref=e308] [cursor=pointer]:
+              - /url: /disclaimer
+            - link "Privacy policy" [ref=e309] [cursor=pointer]:
+              - /url: /privacy-policy
+            - link "Cookie policy" [ref=e310] [cursor=pointer]:
+              - /url: /cookie-policy
+            - link "Terms of service" [ref=e311] [cursor=pointer]:
+              - /url: /terms-of-service
+        - generic [ref=e312]:
+          - generic [ref=e313]:
+            - img [ref=e314]
+            - generic [ref=e319]: Select language
+          - generic [ref=e320]:
+            - button "Catalan" [ref=e321]
+            - button "English" [ref=e322]
+            - button "Spanish" [ref=e323]
+            - button "Russian" [ref=e324]
+        - paragraph [ref=e326]: © 2024 EKA Balance. All rights reserved.
+  - alert [ref=e327]

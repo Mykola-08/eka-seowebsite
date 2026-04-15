@@ -114,6 +114,17 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
       location: formData.location
     });
 
+    // Track lead in HubSpot
+    fetch('/api/hubspot/track-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        service: formData.service,
+        location: formData.location,
+        timePreference: formData.timeSlot || formData.availability,
+      }),
+    }).catch(() => {});
 
     const whatsappUrl = `https://wa.me/34658867133?text=${generateWhatsAppMessage()}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -149,7 +160,15 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               </p>
               <a
                 href="https://wa.me/34658867133"
-                onClick={() => logEvent('booking_page_whatsapp_click')}
+                onClick={() => {
+                  logEvent('booking_page_whatsapp_click');
+                  // Track lead in HubSpot
+                  fetch('/api/hubspot/track-booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({}),
+                  }).catch(() => {});
+                }}
                 target="_blank"
                 rel="noopener noreferrer"
               >

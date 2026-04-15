@@ -3,6 +3,8 @@ import { handle } from 'hono/vercel';
 import { cors } from 'hono/cors';
 import { zValidator } from '@hono/zod-validator';
 import { ContactFormSchema } from '@/shared/types';
+import { z } from 'zod';
+import { createOrUpdateContact, trackBookingLead, subscribeContact, submitToHubSpotForm } from '@/lib/hubspot';
 
 const app = new Hono().basePath('/api');
 
@@ -50,7 +52,7 @@ app.post('/contact', zValidator('json', ContactFormSchema), async (c) => {
     }
 
     const data = c.req.valid('json');
-    // TODO: integrate with an email service or external storage
+
     console.log('[contact] New submission received:', {
       service: data.service,
       preferred_contact: data.preferred_contact || 'email',
@@ -58,10 +60,104 @@ app.post('/contact', zValidator('json', ContactFormSchema), async (c) => {
       ts: new Date().toISOString(),
     });
 
+    // Push to HubSpot CRM (non-blocking — failure doesn't affect user)
+    createOrUpdateContact({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      service: data.service,
+      message: data.message,
+      preferred_contact: data.preferred_contact,
+      preferred_time: data.preferred_time,
+      source: data.source,
+      lead_source_type: 'contact_form',
+    }).catch((err) => console.error('[contact] HubSpot push failed:', err));
+
+    // Also submit via HubSpot Forms API for attribution analytics
+    const formGuid = process.env.NEXT_PUBLIC_HUBSPOT_CONTACT_FORM_GUID;
+    if (formGuid) {
+      submitToHubSpotForm(
+        formGuid,
+        [
+          { name: 'firstname', value: data.name.split(' ')[0] },
+          { name: 'lastname', value: data.name.split(' ').slice(1).join(' ') },
+          { name: 'email', value: data.email },
+          { name: 'phone', value: data.phone },
+          { name: 'message', value: data.message },
+        ],
+        {
+          pageUri: c.req.header('referer') || 'https://ekabalance.com/contact',
+          pageName: 'Contact Form',
+        }
+      ).catch((err) => console.error('[contact] HubSpot form submission failed:', err));
+    }
+
     return c.json({ success: true });
   } catch (error) {
     console.error('Error processing contact form:', error);
     return c.json({ error: 'Failed to process contact form' }, 500);
+  }
+});
+
+// --- HubSpot Booking Lead Tracking ---
+const BookingLeadSchema = z.object({
+  name: z.string().optional(),
+  service: z.string().optional(),
+  location: z.string().optional(),
+  timePreference: z.string().optional(),
+});
+
+app.post('/hubspot/track-booking', zValidator('json', BookingLeadSchema), async (c) => {
+  try {
+    const data = c.req.valid('json');
+
+    console.log('[booking-lead] Tracking WhatsApp booking lead:', {
+      service: data.service,
+      ts: new Date().toISOString(),
+    });
+
+    // Push to HubSpot (non-blocking)
+    trackBookingLead(data).catch((err) =>
+      console.error('[booking-lead] HubSpot push failed:', err)
+    );
+
+    return c.json({ success: true });
+  } catch (error) {
+    console.error('Error tracking booking lead:', error);
+    return c.json({ error: 'Failed to track booking' }, 500);
+  }
+});
+
+// --- HubSpot Newsletter Subscribe ---
+const SubscribeSchema = z.object({
+  email: z.string().email(),
+  name: z.string().optional(),
+  language: z.string().optional(),
+});
+
+app.post('/hubspot/subscribe', zValidator('json', SubscribeSchema), async (c) => {
+  try {
+    const clientIp = c.req.header('x-forwarded-for') || c.req.header('x-real-ip') || 'unknown';
+    if (!checkRateLimit(clientIp)) {
+      return c.json({ error: 'Too many submissions. Please try again later.' }, 429);
+    }
+
+    const data = c.req.valid('json');
+
+    console.log('[subscribe] New newsletter subscription:', {
+      email: data.email,
+      ts: new Date().toISOString(),
+    });
+
+    // Push to HubSpot
+    subscribeContact(data).catch((err) =>
+      console.error('[subscribe] HubSpot push failed:', err)
+    );
+
+    return c.json({ success: true });
+  } catch (error) {
+    console.error('Error processing subscription:', error);
+    return c.json({ error: 'Failed to process subscription' }, 500);
   }
 });
 

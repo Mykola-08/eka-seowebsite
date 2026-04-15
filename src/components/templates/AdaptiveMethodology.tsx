@@ -40,6 +40,13 @@ export function AdaptiveMethodology({ currentProblem, className }: AdaptiveMetho
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed text-balance max-w-3xl">
               {content.methodologyText}
             </p>
+
+            <div className="mt-12 p-6 md:p-8 bg-muted/60 rounded-2xl border border-border shadow-sm max-w-2xl text-left mx-auto">
+                <p className="font-bold text-primary mb-3 text-xs uppercase tracking-widest bg-background border border-border rounded-full px-3 py-1 inline-block">Clinical Approach</p>
+                <p className="text-foreground leading-relaxed font-medium text-lg">
+                  "{content.authoritativeMethod}"
+                </p>
+            </div>
           </motion.div>
         </AnimatePresence>
 

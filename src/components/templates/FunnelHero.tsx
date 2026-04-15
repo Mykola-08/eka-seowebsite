@@ -58,15 +58,15 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
             value={currentProblem} 
             onValueChange={(v) => onProblemChange(v as ProblemState)}
           >
-            <SelectTrigger className="h-auto py-3 px-5 text-xl sm:text-2xl bg-muted/50 border-primary/20 hover:border-primary/50 transition-colors w-full sm:w-auto font-medium shadow-none focus:ring-primary/20 whitespace-normal text-left h-auto min-h-12 rounded-xl">
+            <SelectTrigger className="h-auto py-3 px-5 text-xl sm:text-2xl bg-muted/50 border-primary/20 hover:border-primary/50 transition-colors w-full sm:w-auto font-medium shadow-none focus:ring-primary/20 whitespace-normal text-left min-h-12 rounded-xl">
               <SelectValue placeholder="Select an option" />
             </SelectTrigger>
-            <SelectContent className="rounded-xl border-border/50 shadow-xl overflow-hidden p-1 min-w-[280px] max-w-[95vw]">
+            <SelectContent className="rounded-xl border-border/50 shadow-xl overflow-hidden p-1 min-w-70 max-w-[95vw]">
               {Object.entries(FUNNEL_DATA).map(([key, data]) => (
                 <SelectItem 
                   key={key} 
                   value={key} 
-                  className="text-base font-medium py-3 px-4 cursor-pointer data-[highlighted]:bg-muted/80 rounded-lg transition-colors whitespace-normal"
+                  className="text-base font-medium py-3 px-4 cursor-pointer data-highlighted:bg-muted/80 rounded-lg transition-colors whitespace-normal"
                 >
                   ...{data.label}
                 </SelectItem>

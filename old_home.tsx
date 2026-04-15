@@ -3,29 +3,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { BentoCard } from '@/components/ui/bento-card';
-import { shimmerBlurDataURL } from '@/lib/image-utils';
+
 import AppleHero from '@/components/AppleHero';
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import { SERVICES_DATA } from '@/shared/constants';
+import ServiceCard from '@/components/ServiceCard';
 
 import SEOUpdater from '@/components/SEOUpdater';
 import CasosSection from '@/components/CasosSection';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 
-import React, { useState } from 'react';
-import { type ProblemState, FUNNEL_DATA } from '@/lib/funnel-data';
-import { FunnelHero } from '@/components/templates/FunnelHero';
-import { AdaptiveMethodology } from '@/components/templates/AdaptiveMethodology';
-import { AdaptiveServices } from '@/components/templates/AdaptiveServices';
-import { FunnelReviews } from '@/components/templates/FunnelReviews';
-
 export default function HomeContent() {
   const { t } = useLanguage();
-  const [problem, setProblem] = useState<ProblemState>('back_pain');
 
   const stats = [
     { value: 1500, suffix: '+', label: t('hero.stats.sessions') },
@@ -41,8 +34,7 @@ export default function HomeContent() {
         descriptionKey="seo.home.description"
         keywordsKey="seo.home.keywords"
       />
-
-            {/* Hero Section */}
+      {/* Hero Section */}
       <AppleHero />
 
       {/* Stats Section - Minimalist Redesign */}
@@ -55,12 +47,12 @@ export default function HomeContent() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
-              <Card key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl border-0 shadow-sm backdrop-blur-xs bg-white/70 hover:shadow-md transition-colors duration-300">
+              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl transition-colors duration-300">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
                   {stat.value}{stat.suffix}
                 </div>
                 <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</span>
-              </Card>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -88,7 +80,7 @@ export default function HomeContent() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col items-start">
-                <span className="text-white inline-flex items-center px-4 py-1.5 rounded-full bg-black/20 backdrop-blur-lg shadow-sm font-semibold mb-4 border border-white/30 text-xs truncate">
+                <span className="text-white inline-flex items-center px-4 py-1.5 rounded-full bg-black/30 backdrop-blur-md text-xs font-semibold mb-4 border border-white/20 truncate">
                   {t('home.bento.featured')}
                 </span>
                 <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-tight ">{t('home.bento.equilibri.title')}</h3>
@@ -158,17 +150,6 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Casos Section */}
-      <CasosSection />
-
-      {/* How It Works Section - INSERT YOUR NEW COMPONENT HERE */}
-      {/* <HowItWorks /> */}
-
-      <FunnelHero currentProblem={problem} onProblemChange={setProblem} />
-      <AdaptiveMethodology currentProblem={problem} />
-      <AdaptiveServices currentProblem={problem} />
-      <FunnelReviews testimonials={FUNNEL_DATA[problem].testimonials} />
-
       {/* Elena Introduction Section - REDESIGNED */}
       <section className="py-24 relative overflow-hidden bg-secondary">
         <div className="section-container relative z-10">
@@ -182,7 +163,7 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-4/5 rounded-4xl overflow-hidden shadow-xl bg-white">
+              <div className="relative w-full max-w-md aspect-4/5 rounded-[40px] overflow-hidden  bg-white">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
@@ -190,8 +171,6 @@ export default function HomeContent() {
                   priority
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
-                  placeholder="blur"
-                  blurDataURL={shimmerBlurDataURL(500, 625)}
                 />
               </div>
             </motion.div>
@@ -205,7 +184,7 @@ export default function HomeContent() {
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-                <span className="inline-block py-1 px-3 rounded-full bg-white/80 border border-gray-100 shadow-sm backdrop-blur-md text-gray-900 text-xs font-semibold uppercase tracking-wider">
+                <span className="inline-block py-1 px-3 rounded-full bg-white border border-gray-200 text-gray-900 text-xs font-semibold uppercase tracking-wider">
                   {t('elena.role') || 'Lead Therapist'}
                 </span>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
@@ -223,7 +202,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block pt-4">
-                <Button variant="default" size="xl">
+                <Button variant="default" size="xl" className="px-10 py-6 text-lg h-auto shadow-sm">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -231,6 +210,46 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+
+      {/* Featured Services Section */}
+      <section className="py-32 bg-white">
+        <div className="section-container">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
+              {t('services.featuredTitle')}
+            </h2>
+            <p className="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+              {t('services.featuredSubtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {SERVICES_DATA.slice(0, 4).map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="h-full"
+              >
+                <ServiceCard service={service} />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link href="/services">
+              <Button variant="default" size="xl" className="px-10 py-6 text-lg h-auto">
+                {t('services.viewAll')}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Casos Section */}
+      <CasosSection />
 
       {/* FAQ Section */}
       <FAQ />

@@ -20,6 +20,7 @@ import ToastContainer from '@/components/Toast';
 import LanguagePopup from '@/components/LanguagePopup';
 import CookieBanner from './CookieBanner';
 import FooterPillMenu from '@/components/FooterPillMenu';
+import NewsletterSignup from '@/components/NewsletterSignup';
 
 export default function MainLayout({
   children
@@ -421,6 +422,12 @@ export default function MainLayout({
             </div>
           </div>
 
+          {/* Newsletter Signup */}
+          <div className="mb-10 flex flex-col items-center">
+            <h4 className="text-sm font-semibold text-gray-900 mb-3">{t('newsletter.title')}</h4>
+            <NewsletterSignup />
+          </div>
+
           {/* Language Selector */}
           <div className="mb-8">
             <div className="flex items-center justify-center space-x-2 mb-4">
@@ -734,7 +741,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-[32px] shadow-lg overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-4xl shadow-lg overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}

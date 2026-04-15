@@ -12,7 +12,7 @@ import { ServiceBentoItem } from '@/components/ui/service-bento';
 import Link from 'next/link';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon, CheckmarkCircle01Icon } from '@hugeicons/core-free-icons';
-export default function ForBusinessContent() {
+export default function PersonalizedOnboarding() {
   const { t } = useLanguage();
 
   const faqItems = [

@@ -27,6 +27,9 @@ export default function CookieBanner() {
           analytics_storage: 'granted',
         });
       }
+      // Grant HubSpot cookie consent
+      const _hsp = (window as any)._hsp = (window as any)._hsp || [];
+      _hsp.push(['showBanner', false]);
     }
   }, []);
 
@@ -40,6 +43,9 @@ export default function CookieBanner() {
         analytics_storage: 'granted',
       });
     }
+    // Grant HubSpot cookie consent
+    const _hsp = (window as any)._hsp = (window as any)._hsp || [];
+    _hsp.push(['showBanner', false]);
     setIsVisible(false);
   };
 
@@ -53,6 +59,9 @@ export default function CookieBanner() {
         analytics_storage: 'denied',
       });
     }
+    // Revoke HubSpot cookie consent
+    const _hsp = (window as any)._hsp = (window as any)._hsp || [];
+    _hsp.push(['revokeCookieConsent']);
     setIsVisible(false);
   };
 
@@ -71,7 +80,7 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-[var(--z-toast)] px-3 pt-3 pb-24 md:px-6 md:pb-6"
+          className="fixed bottom-0 left-0 right-0 z-(--z-toast) px-3 pt-3 pb-24 md:px-6 md:pb-6"
         >
           <div className="max-w-4xl mx-auto">
             <div className="bg-white/97 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">

@@ -140,6 +140,16 @@ export default function ContactFormOptimized() {
 
       if (response.ok) {
         setIsSubmitted(true);
+
+        // Identify visitor in HubSpot tracking
+        if (typeof window !== 'undefined') {
+          const _hsq = (window as Window & { _hsq?: Array<unknown[]> })._hsq;
+          if (_hsq) {
+            _hsq.push(['identify', { email: formData.email, firstname: formData.name.split(' ')[0] }]);
+            _hsq.push(['trackPageView']);
+          }
+        }
+
         setFormData({
           name: '',
           email: '',

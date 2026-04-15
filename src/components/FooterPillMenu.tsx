@@ -66,9 +66,9 @@ export default function FooterPillMenu() {
                 />
               )}
 
-              <span className="relative z-10 flex flex-col items-center gap-[3px]">
+              <span className="relative z-10 flex flex-col items-center gap-0.75">
                 <HugeiconsIcon icon={item.icon}
-                  className="w-[18px] h-[18px]"
+                  className="w-4.5 h-4.5"
                   aria-hidden="true"
                  />
                 <span className="text-[10px] font-medium leading-none whitespace-nowrap tracking-tight">

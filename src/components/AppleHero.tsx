@@ -90,7 +90,7 @@ export default function AppleHero() {
               asChild
               variant="default"
               size="xl"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto rounded-full"
               onClick={() => logEvent('hero_first_time_click')}
             >
               <Link href="/first-time">
@@ -103,7 +103,7 @@ export default function AppleHero() {
               asChild
               variant="outline"
               size="xl"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto rounded-full"
               onClick={() => logEvent('hero_services_click')}
             >
               <Link href="/services">
@@ -114,8 +114,8 @@ export default function AppleHero() {
         </AnimateIn>
       </div>
 
-      {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-apple md:rounded-apple-lg overflow-hidden mx-auto group shadow-[0_20px_60px_rgba(0,0,0,0.10)]">
+      {/* Image Container - Rounded Soft Style, fills remaining viewport on desktop */}
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-3xl md:rounded-[2.5rem] overflow-hidden mx-auto group shadow-2xl backdrop-blur-sm">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (

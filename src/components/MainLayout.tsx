@@ -114,7 +114,7 @@ export default function MainLayout({
 
     const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
 
-    // Connected to header — small gap so dropdown feels part of nav
+    // Small gap between header and dropdown for visual separation
     const top = triggerRect.bottom + 4;
 
     // Compute transform-origin X percentage based on where the trigger center falls inside the dropdown

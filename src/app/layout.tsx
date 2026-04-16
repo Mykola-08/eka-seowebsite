@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     "massatge terapèutic",
     "benestar"
   ],
-  authors: [{ name: "Elena Kucherova", url: "https://ekabalance.com/about-elena" }],
+  authors: [{ name: "Elena Kucherova", url: "/about-elena" }],
   creator: "EKA Balance",
   alternates: {
     canonical: "/",

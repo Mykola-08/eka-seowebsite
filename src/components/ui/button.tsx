@@ -5,39 +5,25 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-4xl border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-medium tracking-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] tap-highlight-transparent",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/80",
-        outline:
-          "border-border bg-input/30 hover:bg-input/50 hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground",
-        "outline-solid":
-          "border-border bg-background hover:bg-muted hover:text-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
-        ghost:
-          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
-        destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
-        white: "bg-white text-gray-900 hover:bg-gray-100",
-        whatsapp: "bg-[var(--brand-whatsapp)] text-white hover:brightness-90",
-        dark: "bg-gray-900 text-white hover:bg-black",
-        "dark-inverted": "bg-white text-gray-900 hover:bg-gray-100 border-gray-200",
-        gold: "bg-gold text-eka-dark hover:brightness-90",
+        default: "bg-[#0071e3] text-white hover:bg-[#005bb5]",
+        destructive: "bg-red-500 text-white hover:bg-red-600",
+        outline: "border-[1.5px] border-gray-200 bg-transparent text-gray-900 hover:bg-gray-50/50 hover:border-gray-300",
+        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+        ghost: "hover:bg-gray-100 text-gray-900",
+        link: "text-blue-500 underline-offset-4 hover:underline",
+        white: "bg-white text-black hover:bg-gray-50",
+        "white-outline": "bg-transparent text-white border-[1.5px] border-white/40 hover:bg-white/10 hover:border-white",
       },
       size: {
-        default:
-          "h-9 gap-1.5 px-3 has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5",
-        xs: "h-6 gap-1 px-2.5 text-xs has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 gap-1 px-3 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        lg: "h-10 gap-1.5 px-4 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
-        xl: "h-14 gap-2 px-8 text-lg font-semibold rounded-full",
-        icon: "size-9",
-        "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm": "size-8",
-        "icon-lg": "size-10",
+        default: "h-12 px-6", // Premium default touch area
+        sm: "h-9 px-4 text-sm", // Compact but clickable
+        lg: "h-14 px-8 text-lg", // Large
+        xl: "h-16 px-10 text-xl font-semibold", // Hero size
+        icon: "h-12 w-12",
       },
     },
     defaultVariants: {

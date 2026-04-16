@@ -2,8 +2,7 @@
 
 
 import { useState, useEffect, useCallback } from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { AlertCircleIcon, Cancel01Icon, CheckmarkCircle01Icon, InformationCircleIcon } from '@hugeicons/core-free-icons';
+import { CheckCircle, AlertCircle, Info, X } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
 declare global {

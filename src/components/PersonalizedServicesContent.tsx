@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon, StarIcon } from '@hugeicons/core-free-icons';
+import { ArrowRight, Star } from '@/lib/icons';
 import { motion } from 'framer-motion';
 
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
@@ -39,7 +38,7 @@ export default function PersonalizedServicesContent() {
                   <Button
                       size="xl"
                       variant="default"
-                      className="px-8 py-4 "
+                      className="px-8 py-4"
                   >
                       {t('personalizedServices.cta')}
                       <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 w-5 h-5"  />

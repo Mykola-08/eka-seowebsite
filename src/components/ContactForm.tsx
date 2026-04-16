@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Calendar01Icon, CallIcon, CheckmarkCircle01Icon, Clock01Icon, GlobeIcon, HelpCircleIcon, Loading01Icon, Location01Icon, MailIcon, Message01Icon, SentIcon, Share01Icon, Shield01Icon, UserGroupIcon, UserIcon } from '@hugeicons/core-free-icons';
+import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion } from 'framer-motion';
@@ -179,7 +178,7 @@ export default function ContactFormOptimized() {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-2xl mx-auto"
       >
-        <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center  border-0 ">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center border border-green-100">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -196,7 +195,7 @@ export default function ContactFormOptimized() {
           </p>
           <Button
             onClick={() => setIsSubmitted(false)}
-            className="bg-green-600 hover:bg-green-700 text-white   hover:-translate-y-0.5"
+            className="bg-green-600 hover:bg-green-700 text-white hover:-translate-y-0.5"
             size="lg"
           >
             {t('contact.success.button')}
@@ -235,7 +234,7 @@ export default function ContactFormOptimized() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start space-x-4 p-6 bg-white rounded-3xl  border-0 transition- duration-300"
+                className="flex items-start space-x-4 p-6 bg-white rounded-2xl border border-gray-100 transition- duration-300"
               >
                 <div className={`w-12 h-12 ${item.iconBg} rounded-3xl flex items-center justify-center shrink-0`}>
                   <HugeiconsIcon icon={item.icon} className={`w-6 h-6 ${item.iconText}`}  />
@@ -269,16 +268,16 @@ export default function ContactFormOptimized() {
                 <h4 className="font-medium text-foreground mb-3 text-lg">{t('contact.hours.title')}</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80">{t('contact.hours.weekdays')}:</span>
-                    <span className="font-medium text-foreground bg-white px-2 py-1 rounded-md ">9:00 - 20:00</span>
+                    <span className="text-gray-600">{t('contact.hours.weekdays')}:</span>
+                    <span className="font-medium text-gray-900 bg-white px-2 py-1 rounded-md">9:00 - 20:00</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80">{t('contact.hours.saturday')}:</span>
-                    <span className="font-medium text-foreground bg-white px-2 py-1 rounded-md ">9:00 - 18:00</span>
+                    <span className="text-gray-600">{t('contact.hours.saturday')}:</span>
+                    <span className="font-medium text-gray-900 bg-white px-2 py-1 rounded-md">9:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80">{t('contact.hours.sunday')}:</span>
-                    <span className="font-medium text-foreground bg-white px-2 py-1 rounded-md ">10:00 - 16:00</span>
+                    <span className="text-gray-600">{t('contact.hours.sunday')}:</span>
+                    <span className="font-medium text-gray-900 bg-white px-2 py-1 rounded-md">10:00 - 16:00</span>
                   </div>
                 </div>
               </div>
@@ -292,7 +291,7 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-3xl  border-0  overflow-hidden"
+            className="bg-white rounded-3xl border border-gray-200 overflow-hidden"
           >
             <div className="p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -524,7 +523,7 @@ export default function ContactFormOptimized() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full   hover:-translate-y-0.5"
+                  className="w-full hover:-translate-y-0.5"
                   variant="default"
                   size="xl"
                 >

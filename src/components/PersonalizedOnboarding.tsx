@@ -10,9 +10,9 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import Link from 'next/link';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon, CheckmarkCircle01Icon } from '@hugeicons/core-free-icons';
-export default function PersonalizedOnboarding() {
+import { CheckCircle, ArrowRight } from '@/lib/icons';
+
+export default function ForBusinessContent() {
   const { t } = useLanguage();
 
   const faqItems = [
@@ -49,13 +49,13 @@ export default function PersonalizedOnboarding() {
         }}
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 mb-20 relative z-20">
-          <Button asChild size="xl">
+          <Button asChild size="xl" className="rounded-full transition-all px-8">
             <Link href="/booking">
               {t('nav.bookNow')}
               <HugeiconsIcon icon={ArrowRight01Icon} className="w-5 h-5 ml-2"  />
             </Link>
           </Button>
-          <Button asChild size="xl" variant="white">
+          <Button asChild size="xl" variant="outline" className="rounded-full backdrop-blur-sm px-8">
             <Link href="/booking">
               {t('common.askQuestions')}
             </Link>
@@ -164,10 +164,10 @@ export default function PersonalizedOnboarding() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-150 bg-blue-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
               {/* Plan 1 - Teams */}
-              <div className="bg-card text-card-foreground shadow border border-border rounded-4xl p-8 sm:p-10 relative transition-all duration-300 flex flex-col h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-primary pointer-events-none" />
-                <h3 className="text-3xl font-semibold tracking-tight text-foreground mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
-                <p className="text-muted-foreground font-medium mb-8 grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
+              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 relative transition-all duration-300 flex flex-col h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-blue-400 pointer-events-none" />
+                <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
+                <p className="text-gray-500 font-medium mb-8 flex-grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
@@ -196,13 +196,13 @@ export default function PersonalizedOnboarding() {
                   </li>
                 </ul>
 
-                <Button asChild variant="default" size="xl" className="w-full">
+                <Button asChild className="w-full rounded-2xl py-6 relative z-10">
                   <Link href="/booking?subject=teams">{t('common.getStarted')}</Link>
                 </Button>
               </div>
 
               {/* Plan 2 - Office */}
-              <div className="bg-primary text-primary-foreground shadow rounded-4xl p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
+              <div className="bg-gray-900 rounded-[2rem] p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-white pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-white pointer-events-none" />
                 
@@ -236,7 +236,7 @@ export default function PersonalizedOnboarding() {
                   </li>
                 </ul>
 
-                <Button asChild variant="secondary" size="xl" className="w-full text-primary">
+                <Button asChild className="w-full rounded-2xl py-6 relative z-10">
                   <Link href="/booking?subject=office">{t('common.getStarted')}</Link>
                 </Button>
               </div>

@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { Activity01Icon, ArrowRight01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Moon01Icon } from '@hugeicons/core-free-icons';
+import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimateIn from './AnimateIn';
 

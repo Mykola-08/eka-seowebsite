@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { CalendarCheckIn01Icon, Message01Icon } from '@hugeicons/core-free-icons';
+import { CalendarCheck2, MessageCircle } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ParallaxBackground from '@/components/ParallaxBackground';
@@ -39,8 +38,9 @@ export default function FinalInvitationSection() {
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               asChild
-              size="lg"
-              className="h-16 rounded-full bg-white px-10 text-base font-medium text-black shadow-xl transition-all hover:-translate-y-0.5 hover:bg-white/90"
+              size="xl"
+              variant="default"
+              className="px-10 py-6 h-auto"
             >
               <a
                 href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
@@ -56,7 +56,7 @@ export default function FinalInvitationSection() {
               asChild
               size="lg"
               variant="outline"
-              className="h-16 rounded-full border-white/20 bg-black/20 px-10 text-base font-medium text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-white hover:text-black"
+              className="px-10 py-6 h-auto"
             >
               <a
                 href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"

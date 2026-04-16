@@ -1,7 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Cancel01Icon } from '@hugeicons/core-free-icons';
+import { X } from '@/lib/icons';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface ModalProps {

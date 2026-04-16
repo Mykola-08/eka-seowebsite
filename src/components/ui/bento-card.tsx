@@ -28,7 +28,8 @@ export function BentoCard({
       >
         <Link 
           href={href} 
-          className="relative block w-full h-full rounded-3xl overflow-hidden group outline-hidden isolate  hover: bg-white transition- duration-300"
+          onMouseMove={handleMouseMove}
+          className="relative block w-full h-full rounded-[32px] overflow-hidden group outline-none isolate bg-[#fbfbfd] transition-all duration-500"
         >
           {children}
         </Link>

@@ -1,7 +1,5 @@
-import { Button, buttonVariants } from '@/components/ui/button';
-import { type VariantProps } from 'class-variance-authority';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Loading01Icon } from '@hugeicons/core-free-icons';
+import { Button, ButtonProps } from '@/components/ui/button';
+import { Loader2 } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
 type ButtonProps = React.ComponentProps<"button"> & VariantProps<typeof buttonVariants> & { asChild?: boolean };

@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Activity01Icon, FastWindIcon, FavouriteIcon, Layers01Icon, SparklesIcon, ArrowRight02Icon } from '@hugeicons/core-free-icons';
+import { Layers, Sparkles, Wind, Activity, Heart } from '@/lib/icons';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';

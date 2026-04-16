@@ -2,8 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Briefcase01Icon, Calendar01Icon, Home01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
+import { Home, Sparkles, Calendar, Briefcase } from '@/lib/icons';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';

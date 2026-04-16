@@ -1,8 +1,7 @@
 'use client';
 
 import PageLayout from '@/components/PageLayout';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { Alert01Icon, CallIcon, FavouriteIcon, InformationCircleIcon, ShieldBanIcon, StethoscopeIcon } from '@hugeicons/core-free-icons';
+import { AlertTriangle, Stethoscope, Heart, Phone, ShieldOff, Info } from '@/lib/icons';
 import Link from 'next/link';
 
 const Block = ({ icon: Icon, title, children, color = 'amber' }: {

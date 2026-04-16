@@ -2,8 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowLeft01Icon } from '@hugeicons/core-free-icons';
+import { ArrowLeft } from '@/lib/icons';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
 
@@ -64,9 +63,9 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
             </p>
           </div>
           
-          <div className="mt-12 p-8 bg-white rounded-3xl   border-0">
-             <h3 className="text-xl font-semibold text-foreground mb-4">{t('technique.why')}</h3>
-             <p className="text-foreground/80">
+          <div className="mt-12 p-8 bg-white rounded-3xl border border-orange-100">
+             <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('technique.why')}</h3>
+             <p className="text-gray-600">
                 {t(`${baseKey}.why`)}
              </p>
           </div>

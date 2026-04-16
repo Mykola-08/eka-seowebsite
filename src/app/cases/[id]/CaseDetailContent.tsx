@@ -1,8 +1,7 @@
 'use client';
  
 import Link from 'next/link';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { Activity01Icon, ArrowLeft01Icon, ArrowRight01Icon, Brain01Icon, CheckmarkCircle01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Shield01Icon, StethoscopeIcon } from '@hugeicons/core-free-icons';
+import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 
@@ -81,8 +80,8 @@ export default function CaseDetailContent({ id }: { id: string }) {
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40" />
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
 
-          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-blue-600 mb-8 transition-colors bg-white px-4 py-2 rounded-full -xs hover: border border-border">
-            <HugeiconsIcon icon={ArrowLeft01Icon} className="w-4 h-4 mr-2"  />
+          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 mb-8 transition-colors bg-white px-4 py-2 rounded-full border border-gray-100">
+            <ArrowLeft className="w-4 h-4 mr-2" />
             {t('casos.title')}
           </Link>
 
@@ -139,7 +138,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
         </div>
 
         {/* Treatment & Results */}
-        <div className="bg-primary text-primary-foreground rounded-apple-xl p-8 md:p-12 relative overflow-hidden ">
+        <div className="bg-gray-900 rounded-apple-xl p-8 md:p-12 text-white relative overflow-hidden">
           <div className={`absolute top-0 right-0 w-96 h-96 ${colorClass.bg.replace('bg-', 'bg-')} opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2`} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
@@ -169,7 +168,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
               <Button
                 size="xl"
                 variant="white"
-                className="font-bold px-8 py-4 border-none "
+                className="font-bold px-8 py-4"
               >
                 {t('common.bookNow')}
                 <HugeiconsIcon icon={ArrowRight01Icon} className="w-5 h-5 ml-2"  />

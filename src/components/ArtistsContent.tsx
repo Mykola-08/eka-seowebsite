@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { PaintBoardIcon } from '@hugeicons/core-free-icons';
+import { Palette } from '@/lib/icons';
+
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ArtistsContent() {

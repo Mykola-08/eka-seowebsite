@@ -2,9 +2,9 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { Alert01Icon, File01Icon, JusticeScale01Icon, MailIcon, SecurityCheckIcon, UserCheck01Icon } from '@hugeicons/core-free-icons';
-const Section = ({ id, icon: Icon, title, children }: { id: string; icon: IconSvgElement; title: string; children: React.ReactNode }) => (
+import { Scale, ShieldCheck, UserCheck, Mail, AlertTriangle, FileText } from '@/lib/icons';
+
+const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.ElementType; title: string; children: React.ReactNode }) => (
   <section id={id} className="scroll-mt-24">
     <div className="flex items-center gap-3 mb-6 pb-4  border-0">
       <div className="w-9 h-9 rounded-3xl bg-primary/8 flex items-center justify-center shrink-0">

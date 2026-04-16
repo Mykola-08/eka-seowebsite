@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { Activity01Icon, ArrowRight01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Search01Icon, Shield01Icon, StethoscopeIcon } from '@hugeicons/core-free-icons';
+import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
@@ -151,7 +150,7 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full  border-0   transition duration-300 active:scale-[0.97]"
+                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50 transition duration-300 active:scale-[0.97]"
                 >
                   <div className="w-14 h-14 rounded-3xl bg-muted/40 flex items-center justify-center mb-6 text-foreground">
                     <HugeiconsIcon icon={Icon} className="w-7 h-7" />
@@ -218,7 +217,7 @@ export default function CasosContent() {
                 <Button 
                   size="xl" 
                   variant="default"
-                  className="bg-white text-black hover:bg-muted border-none px-8 py-4 h-auto text-lg rounded-full"
+                  className="px-8 py-4 h-auto rounded-full"
                 >
                   {t('casos.bookSession')}
                 </Button>
@@ -227,7 +226,7 @@ export default function CasosContent() {
                 <Button 
                   size="xl" 
                   variant="outline"
-                  className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white px-8 py-4 h-auto text-lg rounded-full"
+                  className="px-8 py-4 h-auto rounded-full"
                 >
                   {t('casos.discoverIdeal')}
                 </Button>

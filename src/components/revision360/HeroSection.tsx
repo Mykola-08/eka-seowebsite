@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { CheckmarkCircle01Icon, SparklesIcon, Calendar01Icon, ArrowRight02Icon } from '@hugeicons/core-free-icons';
+import { ArrowDown, CheckCircle, Sparkles } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -46,18 +45,53 @@ export default function HeroSection() {
             {t('revision360.hero.subtitle')}
           </p>
 
-          {/* CTA buttons */}
-          <div className="mb-12 flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row">
-            <Button asChild size="lg" className="h-14 rounded-full px-8 text-base font-medium shadow-card hover:-translate-y-0.5 transition-all">
-              <a href={`https://wa.me/34658867133?text=${encodeURIComponent(t('revision360.whatsapp.booking'))}`} target="_blank" rel="noopener noreferrer">
-                <HugeiconsIcon icon={Calendar01Icon} className="mr-2 h-5 w-5" />
-                {t('revision360.hero.cta')}
+            {/* Headline */}
+            <h1 className="mb-6 text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem]">
+              {t('revision360.hero.title')}
+            </h1>
+
+            {/* Sub-headline */}
+            <p className="mb-10 max-w-xl text-lg font-normal leading-relaxed text-zinc-400 sm:text-xl">
+              {t('revision360.hero.subtitle')}
+            </p>
+
+            {/* Trust pills */}
+            <div className="mb-12 flex flex-wrap gap-2.5">
+              {trustPills.map((label) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-sm"
+                >
+                  <CheckCircle className="h-3 w-3 text-blue-400" aria-hidden="true" />
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA buttons */}
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a
+                href={`https://wa.me/34658867133?text=${encodeURIComponent(t('revision360.whatsapp.booking'))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  className="h-14 rounded-full px-8 font-medium active:scale-[0.97] transition-transform"
+                >
+                  {t('revision360.hero.cta')}
+                </Button>
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="h-14 rounded-full bg-background/50 px-8 text-base font-medium backdrop-blur-md shadow-sm hover:-translate-y-0.5 transition-all">
               <a href="#process">
-                {t('revision360.service.title')}
-                <HugeiconsIcon icon={ArrowRight02Icon} className="ml-2 h-5 w-5" />
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-14 rounded-full /20 px-8 font-medium backdrop-blur-sm active:scale-[0.97] transition-transform"
+                >
+                  {t('revision360.service.title')}
+                </Button>
               </a>
             </Button>
           </div>

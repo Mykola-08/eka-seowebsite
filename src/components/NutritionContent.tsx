@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Leaf01Icon } from '@hugeicons/core-free-icons';
+import { Leaf } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CoreServiceTemplate from '@/components/templates/CoreServiceTemplate';
 

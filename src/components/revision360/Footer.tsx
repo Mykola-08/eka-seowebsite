@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { CallIcon, FavouriteIcon, Location01Icon, MailIcon } from '@hugeicons/core-free-icons';
+import { Heart, Mail, Phone, MapPin } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 

@@ -2,9 +2,7 @@
 
 
 import { useState } from 'react';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { ArrowLeft01Icon, ArrowRight01Icon, Brain01Icon, CheckmarkCircle01Icon, ClipboardIcon, FavouriteIcon, GlobeIcon, Location01Icon, Message01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
-
+import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList, type LucideIcon } from '@/lib/icons';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -623,8 +621,8 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <div className={`bg-white rounded-3xl  border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
                 <div className="text-center mb-8">
                   {Icon && (
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 ">
-                      <HugeiconsIcon icon={Icon} className="w-10 h-10 text-foreground/80" />
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-10 h-10 text-gray-700" />
                     </div>
                   )}
 
@@ -687,8 +685,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleBooking}
-                    variant="whatsapp"
-                    size="xl"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                   >
                     <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.direct.button')}
@@ -703,9 +700,9 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-3xl  border-0 p-8 sm:p-12 mb-8">
-                <h2 className="text-2xl font-semibold text-foreground mb-8 flex items-center justify-center">
-                  <HugeiconsIcon icon={ClipboardIcon} className="w-6 h-6 mr-3 text-blue-600"  />
+              <div className="bg-white rounded-3xl border border-gray-200 p-8 sm:p-12 mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center justify-center">
+                  <ClipboardList className="w-6 h-6 mr-3 text-blue-600" />
                   {t('discovery.diagnosis.title')}
                 </h2>
 
@@ -721,7 +718,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
                     <div className="flex flex-wrap gap-2">
                       {recommendation.diagnosis?.symptoms.map((s, i) => (
-                        <span key={i} className="px-3 py-1 bg-white  border-0 rounded-full text-sm text-foreground/80 ">
+                        <span key={i} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700">
                           {s}
                         </span>
                       ))}
@@ -751,8 +748,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleBooking}
-                    variant="whatsapp"
-                    size="xl"
+                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                   >
                     <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.direct.button')}
@@ -818,7 +814,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-3xl   border-0 p-8 sm:p-12">
+          <div className="bg-white rounded-3xl border border-gray-100 p-8 sm:p-12">
 
             {/* Step 0: Location */}
             {currentStep === 0 && (

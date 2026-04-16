@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Activity01Icon, Brain01Icon, Compass01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Shield01Icon, SmileIcon, SparklesIcon } from '@hugeicons/core-free-icons';
+import { Activity, Brain, Compass, Heart, Moon, Shield, Smile, Sparkles, Zap } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -50,6 +49,7 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={`${benefit.title}-${index}`}
+              className="group rounded-[2rem] p-7 bg-white border border-gray-100 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

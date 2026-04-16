@@ -7,9 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import AnimateIn from './AnimateIn';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { SparklesIcon } from '@hugeicons/core-free-icons';
-import { shimmerBlurDataURL } from '@/lib/image-utils';
+import { Sparkles } from '@/lib/icons';
 
 // Verified massage therapy in beautiful spa environments — all URLs confirmed on Pexels
 const heroImages = [
@@ -65,14 +63,14 @@ export default function AppleHero() {
       {/* Content Layer - Centered Text */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-6 sm:mb-8 md:mb-6">
         <AnimateIn delay={0} duration={0.3} from="bottom">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60  border-0  backdrop-blur-md mb-8">
-            <HugeiconsIcon icon={SparklesIcon} className="w-4 h-4 text-blue-600"  />
-            <span className="text-sm font-medium text-foreground tracking-wide">EKA Balance Method</span>
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60 backdrop-blur-md mb-8">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span className="text-sm font-medium text-gray-800 tracking-wide">EKA Balance Method</span>
           </div>
         </AnimateIn>
 
         <AnimateIn delay={0.05} duration={0.3} from="bottom">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-foreground ">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-gray-900">
             {t('hero.title')}
           </h1>
         </AnimateIn>
@@ -90,7 +88,7 @@ export default function AppleHero() {
               asChild
               variant="default"
               size="xl"
-              className="w-full sm:w-auto rounded-full"
+              className="px-8 py-6 h-auto rounded-full w-full sm:w-auto transition-all duration-300"
               onClick={() => logEvent('hero_first_time_click')}
             >
               <Link href="/first-time">
@@ -103,7 +101,7 @@ export default function AppleHero() {
               asChild
               variant="outline"
               size="xl"
-              className="w-full sm:w-auto rounded-full"
+              className="px-8 py-6 h-auto rounded-full w-full sm:w-auto backdrop-blur-md transition-all duration-300"
               onClick={() => logEvent('hero_services_click')}
             >
               <Link href="/services">
@@ -114,8 +112,8 @@ export default function AppleHero() {
         </AnimateIn>
       </div>
 
-      {/* Image Container - Rounded Soft Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-3xl md:rounded-[2.5rem] overflow-hidden mx-auto group  backdrop-blur-sm">
+      {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-[32px] overflow-hidden mx-auto group">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (

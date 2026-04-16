@@ -2,13 +2,8 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Clock01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
-import Image from 'next/image';
-import Link from 'next/link';
+import { ServiceBentoItem } from '@/components/ui/service-bento';
+import { Clock } from '@/lib/icons';
 
 interface PersonalizedServiceCardProps {
   service: PersonalizedServiceItem;

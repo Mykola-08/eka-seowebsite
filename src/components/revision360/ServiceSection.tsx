@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Clock01Icon } from '@hugeicons/core-free-icons';
+import { Clock3 } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -112,14 +111,14 @@ export default function ServiceSection() {
                   transition={{ duration: 0.5, delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
                 >
                   {/* Step number circle */}
-                  <div className="hidden shrink-0 flex-col items-center sm:flex">
-                    <div className="z-10 flex h-14 w-14 items-center justify-center rounded-full bg-background border-2 border-primary/20 transition-colors duration-300 group-hover:border-primary">
-                      <span className="text-sm font-bold text-primary">{step.number}</span>
+                  <div className="hidden sm:flex flex-col items-center shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 z-10">
+                      <span className="text-sm font-bold text-blue-500">{step.number}</span>
                     </div>
                   </div>
 
                   {/* Card */}
-                  <Card className="flex-1 overflow-hidden rounded-4xl border-0 shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover">
+                  <div className="flex-1 rounded-[2rem] bg-white border border-gray-100 hover:border-blue-100 transition-all duration-500 overflow-hidden">
                     {/* Top strip */}
                     <div className="flex border-b border-border/50 items-center justify-between px-7 pb-5 pt-6">
                       {/* Mobile step number */}

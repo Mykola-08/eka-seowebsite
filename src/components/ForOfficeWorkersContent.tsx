@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ComputerIcon } from '@hugeicons/core-free-icons';
+import { Monitor } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

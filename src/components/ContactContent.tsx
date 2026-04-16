@@ -1,8 +1,7 @@
 'use client';
 
 import ContactFormOptimized from '@/components/ContactForm';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Message01Icon } from '@hugeicons/core-free-icons';
+import { MessageCircle } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 import PageLayout from './PageLayout';

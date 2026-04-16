@@ -6,8 +6,8 @@ import Image from 'next/image';
 import FooterUncover from '@/components/FooterUncover';
 import { shimmerBlurDataURL } from '@/lib/image-utils';
 import { usePathname } from 'next/navigation';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Apple01Icon, ArrowDown01Icon, Brain01Icon, Cancel01Icon, GlobeIcon, Medicine01Icon, Menu01Icon, NeuralNetworkIcon, RotateLeft01Icon, TouchInteraction01Icon } from '@hugeicons/core-free-icons';
+import { createPortal } from 'react-dom';
+import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from '@/lib/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Language } from '@/contexts/LanguageTypes';
@@ -582,12 +582,56 @@ export default function MainLayout({
                       >
                         {/* Inner content wrapper with the actual visual styling */}
                         <div
-                          className="mx-auto overflow-hidden drop-shadow-2xl shadow-black/10 relative bg-white/95 backdrop-blur-2xl rounded-3xl border border-white/40 ring-1 ring-black/5"
-                          style={{ width: dropdownPosition.width }}
-                        >
-                          <div className="absolute inset-x-0 top-0 h-px bg-white/60" />
+                          className="fixed z-[101]"
+                          style={{
+                            top: dropdownPosition.triggerBottom - 15,
+                            left: dropdownPosition.left - 30,
+                            width: dropdownPosition.width + 60,
+                            height: dropdownPosition.top - dropdownPosition.triggerBottom + 30,
+                          }}
+                          onMouseEnter={() => keepMenuOpen(item.name)}
+                          onMouseLeave={scheduleHide}
+                          aria-hidden="true"
+                        />
+                      )}
 
-                          {item.dropdownType === 'agenyz' ? (
+                      {/* Dropdown — positioned relative to viewport, flush with header */}
+                      <AnimatePresence>
+                        {activeDropdown === item.name && dropdownPosition && (
+                          <motion.div
+                              initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
+                              animate={{ opacity: 1, scaleY: 1, y: 0 }}
+                              exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
+                              transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+                            className="fixed z-[110]"
+                            style={{
+                              top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger
+                              left: dropdownPosition.left - 40, // Add large invisible left padding zone
+                              width: dropdownPosition.width + 80, // Expand width by total horizontal padding
+                                transformOrigin: `${40 + (dropdownPosition.originX / 100 * dropdownPosition.width)}px top`,
+                              paddingTop: Math.max(0, dropdownPosition.top - dropdownPosition.triggerBottom),
+                              paddingLeft: 40, // Left invisible safe zone
+                              paddingRight: 40, // Right invisible safe zone
+                              paddingBottom: 40, // Bottom invisible safe zone
+                            }}
+                            onMouseEnter={() => keepMenuOpen(item.name)}
+                            onMouseLeave={scheduleHide}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Escape') {
+                                setActiveDropdown(null);
+                              }
+                            }}
+                            role="menu"
+                            aria-label={`${item.name} submenu`}
+                          >
+                            {/* Inner content wrapper with the actual visual styling */}
+                            <div
+                              className="mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-white/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-white/60 ring-1 ring-black/[0.04]"
+                              style={{ width: dropdownPosition.width }}
+                            >
+                              <div className="absolute inset-x-0 top-0 h-[1px] bg-white/40" />
+
+                              {item.dropdownType === 'agenyz' ? (
                                 /* Agenyz: product image cards */
                                 <>
                                   <div className="py-4 px-3">
@@ -692,7 +736,7 @@ export default function MainLayout({
                 asChild
                 variant="default"
                 size="sm"
-                className="inline-flex rounded-full"
+                className="inline-flex sm: font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}
@@ -745,7 +789,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-4xl  overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-secondary/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] 0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}
@@ -766,7 +810,7 @@ export default function MainLayout({
               <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5"  />
             </Button>
             <div className="p-6 pb-24 space-y-4">
-              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl  border-0 -xs">
+              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40">
                 {/* Home */}
                 <div className=" border-0 pb-2">
                   <Link
@@ -817,8 +861,8 @@ export default function MainLayout({
               </div>
 
               {/* Additional App Links */}
-              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl  border-0 -xs">
-                <div className=" border-0 pb-2">
+              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40">
+                <div className="border-b border-gray-100 pb-2">
                   <Link
                     href="/360-revision"
                     onClick={() => setIsMenuOpen(false)}
@@ -840,7 +884,7 @@ export default function MainLayout({
 
               {/* Mobile Reserva */}
               <div className="pt-4 pb-12">
-                <Button asChild variant="default" size="xl" className="w-full">
+                <Button asChild variant="default" size="lg" className="w-full font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform">
                   <Link
                     href="/booking"
                     onClick={() => setIsMenuOpen(false)}

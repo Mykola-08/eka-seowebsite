@@ -3,8 +3,7 @@
  
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import { Activity01Icon, ArrowLeft01Icon, ArrowRight01Icon, Brain01Icon, CheckmarkCircle01Icon, FavouriteIcon, FlashIcon, Moon01Icon, Shield01Icon, StethoscopeIcon } from '@hugeicons/core-free-icons';
+import { ArrowLeft, ArrowRight, CheckCircle, Activity, Brain, Heart, Zap, Moon, Shield, Stethoscope } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
@@ -137,8 +136,8 @@ export default function CasoDetailContent() {
               </h2>
               <ul className="space-y-4">
                 {causes.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-3xl bg-white  border-0 ">
-                    <p className="text-foreground/80 text-lg leading-relaxed">{item}</p>
+                  <li key={idx} className="p-6 rounded-2xl bg-white border border-gray-100">
+                    <p className="text-gray-600 text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}
               </ul>
@@ -177,7 +176,7 @@ export default function CasoDetailContent() {
                       <Button
                           size="xl"
                           variant="white"
-                          className="px-10 py-6 h-auto text-xl rounded-full font-medium"
+                          className="px-10 py-6 h-auto rounded-full font-medium"
                       >
                           {t('common.bookNow')}
                           <HugeiconsIcon icon={ArrowRight01Icon} className="w-6 h-6 ml-2"  />

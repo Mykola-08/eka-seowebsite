@@ -3,9 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon, CheckmarkCircle01Icon, LinkSquare01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
-import { shimmerBlurDataURL } from '@/lib/image-utils';
+import { ArrowRight, CheckCircle, Sparkles, ExternalLink } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -69,7 +67,7 @@ export default function AgenyzContent() {
                          <Button
                             asChild
                             size="lg"
-                            className="rounded-full px-6 sm:px-8 shadow-sm font-semibold h-auto py-3 whitespace-nowrap"
+                            className="rounded-full font-semibold px-8"
                         >
                             <Link href="#catalogue">
                                 {t('agenyz.catalogue.title') || 'View Products'}
@@ -85,7 +83,7 @@ export default function AgenyzContent() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="w-full rounded-full px-6 sm:px-8 bg-transparent h-auto py-3 whitespace-nowrap"
+                                className="rounded-full /20 px-8"
                             >
                                 Visit agenyz.es
                                 <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2 shrink-0"  />
@@ -171,7 +169,7 @@ export default function AgenyzContent() {
                             >
                                 <Link
                                     href={`/agenyz/${product.id}`}
-                                    className="group flex flex-col h-full bg-card text-card-foreground rounded-4xl overflow-hidden hover:shadow-md transition-all border border-border"
+                                      className="group block h-full bg-white rounded-[2rem] overflow-hidden transition-all duration-500 border border-gray-100 hover:border-gray-200"
                                 >
                                     <div className={`relative w-full bg-muted/20 flex shrink-0 items-center justify-center overflow-hidden border-b border-border ${product.imageLayout === 'banner' ? 'p-0' : 'p-6'} ${idx === 0 ? 'h-72 md:h-80' : 'h-64'}`}>
                                         {product.image ? (
@@ -199,9 +197,9 @@ export default function AgenyzContent() {
                                         {product.benefits && (
                                             <ul className="mt-4 space-y-1.5 shrink-0">
                                                 {product.benefits.slice(0, 3).map((b, i) => (
-                                                    <li key={i} className="flex items-center text-sm gap-2">
-                                                        <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-primary shrink-0"  />
-                                                        <span className="truncate">{getLocalized(b, language)}</span>
+                                                    <li key={i} className="flex items-center text-sm text-gray-600 gap-2">
+                                                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                                                        {getLocalized(b, language)}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -259,17 +257,17 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ duration: 0.35 }}
-                                        className="bg-card text-card-foreground border border-border rounded-3xl p-7 flex flex-col h-full hover:shadow-md transition-all duration-400"
+                                          className="bg-zinc-50 border border-gray-100/80 rounded-[2.5rem] p-7 flex flex-col h-full transition-all duration-400 hover:bg-zinc-100/50"
                                     >
-                                        <div className="mb-5 flex items-center justify-between">
-                                            <span className="px-3.5 py-1.5 bg-muted text-muted-foreground text-xs font-bold rounded-full uppercase tracking-widest truncate max-w-[80%]">
+                                        <div className="mb-5">
+                                            <span className="px-3.5 py-1.5 bg-white text-gray-500 text-xs font-bold rounded-full uppercase tracking-widest border border-gray-100">
                                                 {t(`agenyz.category.${product.category}`) || product.category}
                                             </span>
                                         </div>
 
                                         <div className={`relative w-full h-64 mb-6 shrink-0 flex items-center justify-center p-0 rounded-2xl overflow-hidden border border-border ${product.imageLayout === 'banner' ? 'bg-background' : 'bg-muted/10'}`}>
                                             {product.image ? (
-                                                <div className={`relative w-full h-full ${product.imageLayout === 'banner' ? 'p-0' : 'p-4'}`}>
+                                                  <div className="relative w-full h-full">
                                                     <Image
                                                         src={product.image}
                                                         alt={getLocalized(product.name, language)}
@@ -299,8 +297,8 @@ export default function AgenyzContent() {
                                             <span className="text-sm font-bold text-muted-foreground group-hover:text-foreground transition-colors">
                                                 {t('agenyz.viewDetails') || 'View details'}
                                             </span>
-                                            <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                                                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4"  />
+                                            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-gray-100 group-hover:bg-black group-hover:text-white transition-all duration-300">
+                                                <ArrowRight className="w-4 h-4" />
                                             </div>
                                         </div>
                                     </motion.div>
@@ -329,7 +327,7 @@ export default function AgenyzContent() {
                     <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
                         <Button
                             size="lg"
-                            className="rounded-full font-semibold px-10 shadow-sm"
+                            className="rounded-full font-semibold px-10"
                         >
                             Shop at agenyz.es
                             <HugeiconsIcon icon={LinkSquare01Icon} className="w-4 h-4 ml-2"  />

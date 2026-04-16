@@ -1,5 +1,4 @@
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ChartDecreaseIcon, ChartIncreaseIcon, StarIcon } from '@hugeicons/core-free-icons';
+import { TrendingDown, TrendingUp, Star } from '@/lib/icons';
 import { useDiscount } from '@/contexts/DiscountContext';
 
 interface PriceDisplayProps {

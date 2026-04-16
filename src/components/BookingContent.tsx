@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Calendar01Icon, Cancel01Icon, Message01Icon } from '@hugeicons/core-free-icons';
+import { Calendar, MessageCircle, X } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -148,7 +147,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
             <motion.div
               initial={{ opacity: 0, y: 20 }}
             >
-            <Card className="rounded-3xl p-8 sm:p-12 text-center border-0 transition duration-300 h-full">
+            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50 transition duration-300 h-full">
               <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <HugeiconsIcon icon={Message01Icon} className="w-8 h-8 text-green-600 stroke-[2px]"  />
               </div>
@@ -172,7 +171,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="whatsapp" size="xl" className="w-full">
+                <Button variant="default" size="xl" className="w-full ] ]">
                   {t('booking.direct.button')}
                 </Button>
               </a>
@@ -186,7 +185,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-            <Card className="rounded-3xl p-8 sm:p-12 text-center border-0 transition duration-300 h-full">
+            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50 transition duration-300 h-full">
               <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <HugeiconsIcon icon={Calendar01Icon} className="w-8 h-8 text-blue-600 stroke-[2px]"  />
               </div>
@@ -221,7 +220,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 exit={{ opacity: 0, height: 0, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-              <Card className="rounded-3xl  border-0 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
+              <Card className="rounded-[32px] border border-gray-100 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
                 <div className="flex justify-between items-center mb-10">
                   <h3 className="text-2xl font-semibold text-foreground tracking-tight">
                     {t('booking.form.quickTitle')}
@@ -346,7 +345,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                   onClick={handleFormSubmit}
                   variant="whatsapp"
                   size="xl"
-                  className="w-full"
+                  className="w-full ] ]"
                 >
                   <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                   {t('booking.form.submit')}
@@ -366,9 +365,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white p-8 rounded-3xl  border-0">
-              <div className="w-12 h-12 bg-muted/40 rounded-full flex items-center justify-center mx-auto mb-6 text-foreground/80">
-                <HugeiconsIcon icon={Message01Icon} className="w-6 h-6"  />
+            <div className="bg-white p-8 rounded-[32px] border border-gray-100">
+              <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
+                <MessageCircle className="w-6 h-6" />
               </div>
               <h4 className="text-lg font-semibold text-foreground mb-2">{t('booking.help.contactDirect')}</h4>
               <div className="space-y-1 text-muted-foreground text-sm">
@@ -377,9 +376,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl  border-0">
-              <div className="w-12 h-12 bg-muted/40 rounded-full flex items-center justify-center mx-auto mb-6 text-foreground/80">
-                <HugeiconsIcon icon={Calendar01Icon} className="w-6 h-6"  />
+            <div className="bg-white p-8 rounded-[32px] border border-gray-100">
+              <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
+                <Calendar className="w-6 h-6" />
               </div>
               <h4 className="text-lg font-semibold text-foreground mb-2">{t('booking.help.hours')}</h4>
               <div className="space-y-1 text-muted-foreground text-sm">

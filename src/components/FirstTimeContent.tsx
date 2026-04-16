@@ -2,9 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { SparklesIcon } from '@hugeicons/core-free-icons';
-import FirstTimeWizard from '@/components/FirstTimeWizard';
+import { Sparkles } from '@/lib/icons';
 
 export default function FirstTimeContent() {
   const { t } = useLanguage();

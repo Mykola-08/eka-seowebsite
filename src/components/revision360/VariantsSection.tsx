@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon, CheckmarkCircle01Icon, Compass01Icon, Location01Icon, RotateLeft01Icon, SparklesIcon } from '@hugeicons/core-free-icons';
+import { ArrowRight, Compass, MapPin, RotateCcw, Sparkles, CheckCircle } from '@/lib/icons';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -174,9 +173,36 @@ export default function VariantsSection() {
                 {/* Corner glow */}
                 <div className="pointer-events-none absolute -mr-12 -mt-12 right-0 top-0 h-48 w-48 rounded-full bg-linear-to-bl from-primary/5 to-transparent blur-2xl" aria-hidden="true" />
 
-                {/* Icon */}
-                <span className={`relative z-10 mb-6 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl transition-colors duration-300 ${variant.accentColor}`}>
-                  {variant.icon}
+              {/* Icon */}
+              <span className={`relative z-10 mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 transition-colors duration-300 ${variant.accentColor}`}>
+                {variant.icon}
+              </span>
+
+              {/* Title block */}
+              <div className="relative z-10 mb-4">
+                <h3 className="text-2xl font-semibold text-white leading-tight">{variant.title}</h3>
+                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-blue-400">{variant.subtitle}</p>
+              </div>
+
+              {/* Description */}
+              <p className="relative z-10 text-sm leading-relaxed text-zinc-400 font-normal mb-6 flex-1">
+                {variant.description}
+              </p>
+
+              {/* Includes preview — top 3 */}
+              <ul className="relative z-10 space-y-1.5 mb-6">
+                {variant.includes.slice(0, 3).map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-xs text-zinc-500">
+                    <CheckCircle className="w-3.5 h-3.5 text-blue-500/70 mt-0.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Footer */}
+              <div className="relative z-10 flex items-center justify-between border-t border-white/[0.07] pt-5">
+                <span className="text-xs uppercase tracking-wider text-zinc-500 font-medium">
+                  {variant.duration}
                 </span>
 
                 {/* Title block */}
@@ -247,8 +273,8 @@ export default function VariantsSection() {
                 </p>
                 <ul className="space-y-2">
                   {selectedVariant.includes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-foreground/80">
-                      <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"  />
+                    <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-gray-700">
+                      <CheckCircle className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}

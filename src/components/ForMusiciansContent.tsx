@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { MusicNote01Icon } from '@hugeicons/core-free-icons';
+import { Music } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

@@ -55,8 +55,8 @@ export default function HomeContent() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center justify-center text-center p-8 md:p-10 rounded-[3rem] border-0 bg-muted/40 transition-colors duration-300">
-                <div className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground tracking-tight mb-4 tabular-nums">
+              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-[32px] transition-colors duration-300">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
                   {stat.value}{stat.suffix}
                 </div>
                 <span className="text-xs md:text-sm font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</span>
@@ -91,8 +91,8 @@ export default function HomeContent() {
                 <span className="text-white inline-flex items-center px-4 py-1.5 rounded-full bg-black/20 backdrop-blur-lg  font-semibold mb-4 text-xs truncate">
                   {t('home.bento.featured')}
                 </span>
-                <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-tight ">{t('home.bento.equilibri.title')}</h3>
-                <p className="text-white/95 text-lg md:text-xl font-medium max-w-md ">{t('home.bento.equilibri.desc')}</p>
+                <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-tight">{t('home.bento.equilibri.title')}</h3>
+                <p className="text-white/95 text-lg md:text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
               </div>
             </BentoCard>
 
@@ -133,8 +133,8 @@ export default function HomeContent() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent z-10"></div>
               <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">
-                <h3 className="text-white text-2xl font-bold mb-2 tracking-tight ">{t('home.bento.nutrition.title')}</h3>
-                <p className="text-white/90 text-sm font-medium ">{t('home.bento.nutrition.desc')}</p>
+                <h3 className="text-white text-2xl font-bold mb-2 tracking-tight">{t('home.bento.nutrition.title')}</h3>
+                <p className="text-white/90 text-sm font-medium">{t('home.bento.nutrition.desc')}</p>
               </div>
             </BentoCard>
 
@@ -179,7 +179,7 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-4/5 rounded-[4rem] overflow-hidden border-0 bg-muted">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-[32px] overflow-hidden bg-white">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
@@ -220,7 +220,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block pt-4">
-                <Button variant="default" size="xl">
+                <Button variant="default" size="xl" className="px-10 py-6 h-auto">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -228,6 +228,46 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+
+      {/* Featured Services Section */}
+      <section className="py-32 bg-white">
+        <div className="section-container">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
+              {t('services.featuredTitle')}
+            </h2>
+            <p className="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+              {t('services.featuredSubtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {SERVICES_DATA.slice(0, 4).map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="h-full"
+              >
+                <ServiceCard service={service} />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link href="/services">
+              <Button variant="default" size="xl" className="px-10 py-6 h-auto">
+                {t('services.viewAll')}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Casos Section */}
+      <CasosSection />
 
       {/* FAQ Section */}
       <FAQ />

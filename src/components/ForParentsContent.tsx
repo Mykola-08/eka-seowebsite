@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { UserGroupIcon } from '@hugeicons/core-free-icons';
+import { Users } from '@/lib/icons';
+
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForParentsContent() {

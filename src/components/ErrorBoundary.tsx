@@ -2,7 +2,7 @@
 
 import { Component, ReactNode, ErrorInfo } from 'react';
 import { Button } from '@/components/ui/button';
-import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
+import { AlertTriangle, RefreshCw, Home } from '@/lib/icons';
 
 interface Props {
   children: ReactNode;
@@ -53,7 +53,7 @@ export default class ErrorBoundary extends Component<Props, State> {
 
       return (
         <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl  max-w-md w-full p-8 text-center">
+          <div className="bg-white rounded-3xl max-w-md w-full p-8 text-center">
             <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <AlertTriangle className="w-10 h-10 text-red-500" />
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import ContactFormOptimized from '@/components/ContactForm';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 import PageLayout from './PageLayout';

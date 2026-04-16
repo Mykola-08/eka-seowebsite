@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Clock3 } from 'lucide-react';
+import { Clock3 } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ServiceStep {
@@ -110,13 +110,13 @@ export default function ServiceSection() {
                 >
                   {/* Step number circle */}
                   <div className="hidden sm:flex flex-col items-center shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 shadow-sm z-10">
+                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 z-10">
                       <span className="text-sm font-bold text-blue-500">{step.number}</span>
                     </div>
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 rounded-[2rem] bg-white border border-gray-100 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 overflow-hidden">
+                  <div className="flex-1 rounded-[2rem] bg-white border border-gray-100 hover:border-blue-100 transition-all duration-500 overflow-hidden">
                     {/* Top strip */}
                     <div className="flex items-center justify-between px-7 pt-6 pb-5 border-b border-gray-50">
                       {/* Mobile step number */}

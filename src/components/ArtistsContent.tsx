@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Palette } from 'lucide-react';
+import { Palette } from '@/lib/icons';
 
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

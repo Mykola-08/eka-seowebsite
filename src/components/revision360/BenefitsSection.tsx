@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Activity, Brain, Compass, Heart, Moon, Shield, Smile, Sparkles, Zap } from 'lucide-react';
+import { Activity, Brain, Compass, Heart, Moon, Shield, Smile, Sparkles, Zap } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Benefit {
@@ -47,7 +47,7 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.article
               key={`${benefit.title}-${index}`}
-              className="group rounded-[2rem] p-7 bg-white border border-gray-100 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
+              className="group rounded-[2rem] p-7 bg-white border border-gray-100 hover:border-gold/20 transition-all duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

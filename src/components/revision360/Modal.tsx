@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X } from '@/lib/icons';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface ModalProps {

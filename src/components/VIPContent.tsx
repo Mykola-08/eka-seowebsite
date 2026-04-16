@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import {
   Crown, Home, Clock, Sparkles, Check,
   Shield, Star, Award, Zap, Globe, Diamond
-} from 'lucide-react';
+} from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOUpdater from '@/components/SEOUpdater';
 import CTASection from '@/components/CTASection';
@@ -179,7 +179,7 @@ const ComparativeTable = () => {
           </h2>
         </div>
         
-        <div className="overflow-x-auto rounded-3xl  bg-white border border-gray-100">
+        <div className="overflow-x-auto rounded-3xl bg-white border border-gray-100">
           <table className="w-full min-w-[600px] border-collapse">
             <thead>
               <tr className="bg-gray-50/50">
@@ -235,7 +235,7 @@ export default function VIPContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200  mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200 mb-8">
               <Crown className="w-5 h-5 text-amber-500" />
               <span className="text-amber-800 font-medium tracking-wide">VIP CLUB</span>
             </div>
@@ -252,7 +252,7 @@ export default function VIPContent() {
 
             <Link href="#pricing">
               <button 
-                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium   transition duration-300"
+                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium transition duration-300"
               >
                 {t('vip.cta.apply')}
               </button>
@@ -269,7 +269,7 @@ export default function VIPContent() {
               const Icon = feature.icon || Diamond;
               return (
                 <div key={idx} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-amber-100 transition-colors group">
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 transition-colors ">
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 transition-colors">
                     <Icon className="w-7 h-7 text-amber-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{t(feature.title)}</h3>
@@ -291,7 +291,7 @@ export default function VIPContent() {
 
             <div className="grid lg:grid-cols-2 gap-12">
                {vipServices.map((service, idx) => (
-                 <div key={idx} className="bg-white rounded-apple-xl p-10  border border-gray-100  transition-shadow duration-300">
+                 <div key={idx} className="bg-white rounded-apple-xl p-10 border border-gray-100 transition- duration-300">
                     <div className="flex items-start gap-6">
                        <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center flex-shrink-0">
                           <service.icon className="w-8 h-8 text-amber-600" />
@@ -330,7 +330,7 @@ export default function VIPContent() {
                  className={`relative bg-white rounded-apple-xl p-8 border ${plan.popular ? 'border-amber-400  ' : 'border-gray-200 '}`}
                >
                  {plan.popular && (
-                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide ">
+                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide">
                      MOST POPULAR
                    </div>
                  )}

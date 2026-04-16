@@ -1,7 +1,7 @@
 'use client';
 
 import PageLayout from '@/components/PageLayout';
-import { AlertTriangle, Stethoscope, Heart, Phone, ShieldOff, Info } from 'lucide-react';
+import { AlertTriangle, Stethoscope, Heart, Phone, ShieldOff, Info } from '@/lib/icons';
 import Link from 'next/link';
 
 const Block = ({ icon: Icon, title, children, color = 'amber' }: {

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from '@/lib/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Language } from '@/contexts/LanguageTypes';
@@ -502,7 +503,7 @@ export default function MainLayout({
                       {/* Hover bridge — spans full width of dropdown zone for seamless mouse travel, enlarged for wider safe zone */}
                       {activeDropdown === item.name && dropdownPosition && (
                         <div
-                          className="fixed z-[49]"
+                          className="fixed z-[101]"
                           style={{
                             top: dropdownPosition.triggerBottom - 15,
                             left: dropdownPosition.left - 30,
@@ -523,7 +524,7 @@ export default function MainLayout({
                               animate={{ opacity: 1, scaleY: 1, y: 0 }}
                               exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
                               transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-                            className="fixed z-40"
+                            className="fixed z-[110]"
                             style={{
                               top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger
                               left: dropdownPosition.left - 40, // Add large invisible left padding zone
@@ -680,7 +681,7 @@ export default function MainLayout({
                 asChild
                 variant="default"
                 size="sm"
-                className="inline-flex text-xs sm:text-sm font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
+                className="inline-flex sm: font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}
@@ -731,7 +732,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-secondary/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-secondary/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] 0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}
@@ -750,7 +751,7 @@ export default function MainLayout({
               <X className="w-5 h-5" />
             </button>
             <div className="p-6 pb-24 space-y-4">
-              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
+              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40">
                 {/* Home */}
                 <div className="border-b border-gray-100 pb-2">
                   <Link
@@ -801,7 +802,7 @@ export default function MainLayout({
               </div>
 
               {/* Additional App Links */}
-              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-sm">
+              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40">
                 <div className="border-b border-gray-100 pb-2">
                   <Link
                     href="/360-revision"
@@ -824,7 +825,7 @@ export default function MainLayout({
 
               {/* Mobile Reserva */}
               <div className="pt-4 pb-12">
-                <Button asChild variant="default" size="lg" className="w-full text-lg font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform shadow-md">
+                <Button asChild variant="default" size="lg" className="w-full font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform">
                   <Link
                     href="/booking"
                     onClick={() => setIsMenuOpen(false)}

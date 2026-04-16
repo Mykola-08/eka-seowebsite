@@ -3,7 +3,7 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useDiscount } from '@/contexts/DiscountContext';
-import { Tag, Users, Percent, Gift, Check, X } from 'lucide-react';
+import { Tag, Users, Percent, Gift, Check, X } from '@/lib/icons';
 import { useState } from 'react';
 import PageLayout from './PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -48,7 +48,7 @@ export default function DiscountsContent() {
             initial={{ opacity: 0, y: -20, x: 20 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-2xl  flex items-center space-x-3"
+            className="fixed top-24 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-2xl flex items-center space-x-3"
           >
             <Check className="w-5 h-5" />
             <span className="font-medium">{t('discounts.success') || "Descompte aplicat correctament!"}</span>
@@ -95,7 +95,7 @@ export default function DiscountsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-white rounded-3xl p-8   transition duration-300 border border-gray-100 overflow-hidden"
+                className="group relative bg-white rounded-3xl p-8 transition duration-300 border border-gray-100 overflow-hidden"
               >
                 {/* Background Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -150,7 +150,7 @@ export default function DiscountsContent() {
                         <Button
                           onClick={() => handleApplyDiscount(discount.code || '')}
                           variant="default"
-                          className="w-full py-3 rounded-xl "
+                          className="w-full py-3 rounded-xl"
                         >
                           {t('discounts.apply') || "Aplicar descompte"}
                         </Button>
@@ -178,7 +178,7 @@ export default function DiscountsContent() {
                   { icon: <Percent />, title: t('discounts.step3.title') || "3. Gaudeix", desc: t('discounts.step3.description') || "Gaudeix del teu servei amb el preu reduït." }
                 ].map((step, idx) => (
                   <div key={idx} className="text-center p-6">
-                     <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 ">
+                     <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         {React.cloneElement(step.icon as React.ReactElement<{ className?: string }>, { className: "w-6 h-6" })}
                      </div>
                      <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>

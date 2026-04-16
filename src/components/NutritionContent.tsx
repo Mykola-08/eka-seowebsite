@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Leaf } from 'lucide-react';
+import { Leaf } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CoreServiceTemplate from '@/components/templates/CoreServiceTemplate';
 

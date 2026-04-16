@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from '@/lib/icons';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
@@ -210,7 +210,7 @@ export default function PersonalizedServiceTemplate({
             <Button
               size="xl"
               variant="outline"
-              className="bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200 hover:bg-white"
+              className="backdrop-blur-sm"
             >
               {t('common.askQuestions')}
             </Button>
@@ -228,7 +228,7 @@ export default function PersonalizedServiceTemplate({
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-[1400px] mx-auto">
               {/* Description 1 - Large box */}
-              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100   transition-all duration-500 relative overflow-hidden group">
+              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 transition-all duration-500 relative overflow-hidden group">
                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
                  <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 font-medium leading-tight relative z-10 text-balance">
                     {t(`${translationKey}.understanding.description1`)}

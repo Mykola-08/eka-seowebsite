@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star } from '@/lib/icons';
 import { motion } from 'framer-motion';
 
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
@@ -38,7 +38,7 @@ export default function PersonalizedServicesContent() {
                   <Button
                       size="xl"
                       variant="default"
-                      className="px-8 py-4 "
+                      className="px-8 py-4"
                   >
                       {t('personalizedServices.cta')}
                       <ArrowRight className="ml-2 w-5 h-5" />

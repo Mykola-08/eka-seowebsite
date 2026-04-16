@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CalendarCheck2, MessageCircle } from 'lucide-react';
+import { CalendarCheck2, MessageCircle } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ParallaxBackground from '@/components/ParallaxBackground';
@@ -38,7 +38,7 @@ export default function FinalInvitationSection() {
               asChild
               size="xl"
               variant="default"
-              className="px-10 py-6 text-lg h-auto bg-gold text-black hover:bg-gold/90 border-none shadow-lg shadow-gold/30"
+              className="px-10 py-6 h-auto"
             >
               <a
                 href={`https://wa.me/34658867133?text=${encodeURIComponent(t('whatsapp.booking'))}`}
@@ -54,7 +54,7 @@ export default function FinalInvitationSection() {
               asChild
               size="xl"
               variant="outline"
-              className="px-10 py-6 text-lg h-auto text-white border-white hover:bg-white/10"
+              className="px-10 py-6 h-auto"
             >
               <a
                 href="https://wa.me/34658867133?text=Hola%2C%20m%27agradaria%20programar%20una%20trucada%20de%20descobriment.%20Podr%C3%ADem%20parlar%3F"

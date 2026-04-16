@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Heart, Star } from 'lucide-react';
+import { Heart, Star } from '@/lib/icons';
 import CTASection from '@/components/CTASection';
 import PageLayout from '@/components/PageLayout';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
@@ -40,7 +40,7 @@ export default function AboutElenaContent() {
           <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
             {/* Subtle glow behind */}
             <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-3xl opacity-60 scale-110" />
-            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100 ">
+            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100">
               <Image
                 src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}

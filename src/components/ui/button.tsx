@@ -5,29 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-transform duration-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-medium tracking-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] tap-highlight-transparent",
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-white hover:bg-primary-600  border border-transparent",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 ",
-        outline:
-          "border border-primary bg-transparent text-primary hover:bg-primary/5 ",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80  border border-transparent",
-        ghost: "hover:bg-accent hover:text-accent-foreground ",
-        link: "text-primary underline-offset-4 hover:underline ",
-        white: "bg-white text-black hover:bg-gray-100  border-transparent",
-        "white-outline": "bg-transparent text-white border border-white hover:bg-white/10 ",
+        default: "bg-[#0071e3] text-white hover:bg-[#005bb5]",
+        destructive: "bg-red-500 text-white hover:bg-red-600",
+        outline: "border-[1.5px] border-gray-200 bg-transparent text-gray-900 hover:bg-gray-50/50 hover:border-gray-300",
+        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+        ghost: "hover:bg-gray-100 text-gray-900",
+        link: "text-blue-500 underline-offset-4 hover:underline",
+        white: "bg-white text-black hover:bg-gray-50",
+        "white-outline": "bg-transparent text-white border-[1.5px] border-white/40 hover:bg-white/10 hover:border-white",
       },
       size: {
-        default: "h-10 px-5 py-2.5", // slightly larger touch target
-        sm: "h-8 rounded-full px-3 text-xs",
-        lg: "h-12 rounded-full px-8 text-base",
-        xl: "h-14 rounded-full px-10 text-lg font-medium",
-        icon: "h-10 w-10",
+        default: "h-12 px-6", // Premium default touch area
+        sm: "h-9 px-4 text-sm", // Compact but clickable
+        lg: "h-14 px-8 text-lg", // Large
+        xl: "h-16 px-10 text-xl font-semibold", // Hero size
+        icon: "h-12 w-12",
       },
     },
     defaultVariants: {

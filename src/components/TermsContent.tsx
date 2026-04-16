@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { AlertTriangle, Users, Layers, Ban, Phone } from 'lucide-react';
+import { AlertTriangle, Users, Layers, Ban, Phone } from '@/lib/icons';
 
 const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.ElementType; title: string; children: React.ReactNode }) => (
   <section id={id} className="scroll-mt-24">

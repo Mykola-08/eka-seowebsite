@@ -1,4 +1,4 @@
-import { TrendingDown, TrendingUp, Star } from 'lucide-react';
+import { TrendingDown, TrendingUp, Star } from '@/lib/icons';
 import { useDiscount } from '@/contexts/DiscountContext';
 
 interface PriceDisplayProps {

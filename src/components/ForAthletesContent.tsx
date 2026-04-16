@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Zap } from 'lucide-react';
+import { Zap } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

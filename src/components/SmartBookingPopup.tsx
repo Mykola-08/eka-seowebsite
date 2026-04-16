@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { X, MessageCircle, FileText, ArrowLeft } from 'lucide-react';
+import { X, MessageCircle, FileText, ArrowLeft } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -154,7 +154,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       <MessageCircle className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-gray-900 dark:text-gray-100">
+                      <h3 className="font-normal text-gray-900 dark:text-gray-100">
                         {t('booking.smart.quick')}
                       </h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -171,7 +171,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       <FileText className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-gray-900 dark:text-gray-100">
+                      <h3 className="font-normal text-gray-900 dark:text-gray-100">
                         {t('booking.smart.form')}
                       </h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -196,14 +196,14 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                   >
                     <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                   </button>
-                  <h2 className="text-xl font-medium text-gray-900 dark:text-white">
+                  <h2 className="text-xl font-normal text-gray-900 dark:text-white">
                     {t('booking.smart.form')}
                   </h2>
                 </div>
 
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="booking-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-name" className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1">
                       {t('booking.smart.name')}
                     </label>
                     <input
@@ -217,7 +217,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                   </div>
 
                   <div>
-                    <label htmlFor="booking-service" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-service" className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1">
                       {t('booking.smart.service')}
                     </label>
                     <select
@@ -234,7 +234,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                   </div>
 
                   <div>
-                    <label htmlFor="booking-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-time" className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1">
                       {t('booking.smart.time')}
                     </label>
                     <input
@@ -249,7 +249,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium   transition-colors flex items-center justify-center"
+                    className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-normal transition-colors flex items-center justify-center"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {t('booking.smart.send')}

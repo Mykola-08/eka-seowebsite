@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from '@/lib/icons';
 import Link from 'next/link';
 import ParallaxBackground from '@/components/ParallaxBackground';
 
@@ -30,7 +30,7 @@ export default function CTASection() {
               <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                className="w-full sm:w-auto px-10 py-7 text-lg rounded-full h-auto bg-white text-black hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
+                className="w-full sm:w-auto px-10 py-7 text-lg rounded-full h-auto bg-white text-black hover:bg-gray-100 hover:scale-105 transition-all duration-300"
               >
                 {t('common.bookNow')}
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -39,7 +39,7 @@ export default function CTASection() {
                 <Button
                   size="xl"
                   variant="outline"
-                  className="w-full sm:w-auto px-10 py-7 text-lg rounded-full h-auto text-white border-white/30 backdrop-blur hover:bg-white/10 hover:border-white transition-all duration-300"
+                  className="w-full sm:w-auto px-10 py-7 rounded-full h-auto /30 backdrop-blur hover: transition-all duration-300"
                 >
                   {t('common.contactUs') || 'Contact Us'}
                 </Button>

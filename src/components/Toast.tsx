@@ -2,7 +2,7 @@
 
 
 import { useState, useEffect, useCallback } from 'react';
-import { CheckCircle, AlertCircle, Info, X } from 'lucide-react';
+import { CheckCircle, AlertCircle, Info, X } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
 declare global {

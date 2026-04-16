@@ -125,12 +125,10 @@
   .apple-card {
     @apply bg-white transition-all duration-300;
     border-radius: var(--apple-border-radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     border: 1px solid rgba(0,0,0,0.04);
   }
 
   .apple-card:hover {
-    box-shadow: var(--apple-shadow-hover);
     transform: scale(1.01);
   }
 

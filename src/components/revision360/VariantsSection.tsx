@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Compass, MapPin, RotateCcw, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Compass, MapPin, RotateCcw, Sparkles, CheckCircle } from '@/lib/icons';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -193,7 +193,7 @@ export default function VariantsSection() {
               <ul className="relative z-10 space-y-1.5 mb-6">
                 {variant.includes.slice(0, 3).map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-xs text-zinc-500">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-500/70 mt-0.5 shrink-0" />
+                    <CheckCircle className="w-3.5 h-3.5 text-blue-500/70 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -246,7 +246,7 @@ export default function VariantsSection() {
                 <ul className="space-y-2">
                   {selectedVariant.includes.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-gray-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
+                      <CheckCircle className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}

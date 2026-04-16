@@ -3,7 +3,7 @@
 import PersonalizedOnboarding from '@/components/PersonalizedOnboarding';
 import PageLayout from '@/components/PageLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from '@/lib/icons';
 
 export default function FirstTimeContent() {
   const { t } = useLanguage();

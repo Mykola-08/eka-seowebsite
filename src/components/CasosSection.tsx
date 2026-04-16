@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from 'lucide-react';
+import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimateIn from './AnimateIn';
 

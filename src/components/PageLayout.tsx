@@ -59,7 +59,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0 }}
-                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full "
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full"
                 >
                   {heroData.icon && <span className="mr-2 text-white">{heroData.icon}</span>}
                   {heroData.badge}
@@ -105,7 +105,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0 }}
-                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6 bg-white/50 backdrop-blur-md border border-gray-200 px-4 py-1.5 rounded-full "
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6 bg-white/50 backdrop-blur-md border border-gray-200 px-4 py-1.5 rounded-full"
                 >
                   {heroData.icon && <span className="mr-2 text-gray-700">{heroData.icon}</span>}
                   {heroData.badge}

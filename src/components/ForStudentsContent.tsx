@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Brain } from 'lucide-react';
+import { Brain } from '@/lib/icons';
 
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

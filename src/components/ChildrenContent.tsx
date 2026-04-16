@@ -68,7 +68,7 @@ export default function ChildrenContent() {
                   src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?w=1920&h=1080&fit=crop"
                   alt={t('elena.target.children.title')}
                   fill
-                  className="object-cover rounded-apple-xl  -rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="object-cover rounded-apple-xl -rotate-1 hover:rotate-0 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

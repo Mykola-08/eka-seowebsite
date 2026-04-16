@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
-import { Clock } from 'lucide-react';
+import { Clock } from '@/lib/icons';
 
 interface PersonalizedServiceCardProps {
   service: PersonalizedServiceItem;

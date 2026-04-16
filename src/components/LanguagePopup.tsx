@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/contexts/LanguageTypes';
-import { X, Globe } from 'lucide-react';
+import { X, Globe } from '@/lib/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
@@ -31,7 +31,7 @@ export default function LanguagePopup() {
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
-                    className="bg-white rounded-3xl  max-w-md w-full p-8 relative border border-gray-100"
+                    className="bg-white rounded-3xl max-w-md w-full p-8 relative border border-gray-100"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <button

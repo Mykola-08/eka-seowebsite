@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import Link from 'next/link';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight } from '@/lib/icons';
 
 export default function ForBusinessContent() {
   const { t } = useLanguage();
@@ -49,13 +49,13 @@ export default function ForBusinessContent() {
         }}
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 mb-20 relative z-20">
-          <Button asChild size="xl" className="rounded-full shadow-md hover:shadow-lg transition-all px-8">
+          <Button asChild size="xl" className="rounded-full transition-all px-8">
             <Link href="/booking">
               {t('nav.bookNow')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>
-          <Button asChild size="xl" variant="outline" className="rounded-full bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200 hover:bg-gray-50 px-8">
+          <Button asChild size="xl" variant="outline" className="rounded-full backdrop-blur-sm px-8">
             <Link href="/booking">
               {t('common.askQuestions')}
             </Link>
@@ -164,7 +164,7 @@ export default function ForBusinessContent() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[600px] bg-blue-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
               {/* Plan 1 - Teams */}
-              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-xl shadow-gray-200/20 relative transition-all duration-300 flex flex-col h-full">
+              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 relative transition-all duration-300 flex flex-col h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-blue-400 pointer-events-none" />
                 <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
                 <p className="text-gray-500 font-medium mb-8 flex-grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
@@ -196,13 +196,13 @@ export default function ForBusinessContent() {
                   </li>
                 </ul>
 
-                <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-gray-900 hover:bg-black text-white">
+                <Button asChild className="w-full rounded-2xl py-6 relative z-10">
                   <Link href="/booking?subject=teams">{t('common.getStarted')}</Link>
                 </Button>
               </div>
 
               {/* Plan 2 - Office */}
-              <div className="bg-gray-900 rounded-[2rem] p-8 sm:p-10 shadow-2xl relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
+              <div className="bg-gray-900 rounded-[2rem] p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-white pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-blue-500 pointer-events-none" />
                 
@@ -236,7 +236,7 @@ export default function ForBusinessContent() {
                   </li>
                 </ul>
 
-                <Button asChild className="w-full rounded-2xl py-6 text-lg relative z-10 bg-white text-black hover:bg-gray-100">
+                <Button asChild className="w-full rounded-2xl py-6 relative z-10">
                   <Link href="/booking?subject=office">{t('common.getStarted')}</Link>
                 </Button>
               </div>

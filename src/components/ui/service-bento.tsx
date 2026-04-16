@@ -4,7 +4,7 @@ import React, { useState, useEffect, MouseEvent } from 'react';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { X, ArrowRight } from 'lucide-react';
+import { X, ArrowRight } from '@/lib/icons';
 import Link from 'next/link';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
@@ -78,7 +78,7 @@ export function ServiceBentoItem({
           {/* Background Image */}
           {image ? (
             <div className="absolute inset-0 z-0">
-               <Image src={image} fill alt={title} className="object-cover  transition-transform duration-[2s] ease-[cubic-bezier(0.16,1,0.3,1)]" />
+               <Image src={image} fill alt={title} className="object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.16,1,0.3,1)]" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           ) : (
@@ -159,14 +159,14 @@ export function ServiceBentoItem({
                            <div className="hidden md:flex flex-col gap-2.5 mt-3 w-full">
                               {bookUrl && (
                                   <Link href={bookUrl}>
-                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-100 transition shadow-lg">
+                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-100 transition">
                                           {bookText}
                                       </span>
                                   </Link>
                               )}
                               {readMoreUrl && (
                                   <Link href={readMoreUrl}>
-                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-black/40 text-white backdrop-blur-md rounded-full font-medium text-sm hover:bg-black/60 transition border border-white/20">
+                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-blue-600 text-white backdrop-blur-md rounded-full font-medium text-sm hover:bg-blue-700 transition border border-transparent shadow-sm">       
                                           {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                                       </span>
                                   </Link>
@@ -176,9 +176,9 @@ export function ServiceBentoItem({
                       </div>
 
                       {/* Content panel — scrollable only if content overflows */}
-                      <div className="flex-1 min-h-0 flex flex-col p-5 sm:p-6 md:p-8 overflow-y-auto overscroll-contain">
+                      <div className="flex-1 min-h-0 flex flex-col items-center text-center p-5 sm:p-6 md:p-8 overflow-y-auto overscroll-contain">
                          <p className="text-base sm:text-lg leading-relaxed font-medium text-gray-900 mb-4">{description}</p>
-                         <div className="flex-1 min-h-0">
+                         <div className="flex-1 min-h-0 flex flex-col items-center w-full">
                            {details}
                          </div>
 
@@ -193,7 +193,7 @@ export function ServiceBentoItem({
                             )}
                             {readMoreUrl && (
                                 <Link href={readMoreUrl} className="w-full">
-                                    <span className="flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-black rounded-full font-medium text-sm hover:bg-gray-200 transition">
+                                    <span className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-full font-medium text-sm hover:bg-blue-700 transition shadow-sm border border-transparent">
                                         {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5 inline" />
                                     </span>
                                 </Link>
@@ -202,10 +202,10 @@ export function ServiceBentoItem({
                       </div>
                     </>
                  ) : (
-                    <div className="flex-1 min-h-0 flex flex-col p-5 sm:p-7 overflow-y-auto overscroll-contain pt-10 sm:pt-7">
+                    <div className="flex-1 min-h-0 flex flex-col items-center text-center p-5 sm:p-7 overflow-y-auto overscroll-contain pt-10 sm:pt-7">
                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black mb-3">{title}</h2>
                        <p className="text-base sm:text-lg leading-relaxed font-medium text-gray-900 mb-4">{description}</p>
-                       <div className="flex-1 min-h-0">
+                       <div className="flex-1 min-h-0 flex flex-col items-center w-full">
                          {details}
                        </div>
 
@@ -219,7 +219,7 @@ export function ServiceBentoItem({
                           )}
                           {readMoreUrl && (
                               <Link href={readMoreUrl} className="flex-1">
-                                  <span className="flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-black rounded-full font-medium text-sm hover:bg-gray-200 transition">
+                                  <span className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-full font-medium text-sm hover:bg-blue-700 transition shadow-sm border border-transparent">
                                       {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5 inline" />
                                   </span>
                               </Link>

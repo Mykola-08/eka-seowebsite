@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowDown, CheckCircle, Sparkles } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -85,7 +85,7 @@ export default function HeroSection() {
                   key={label}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-sm"
                 >
-                  <CheckCircle2 className="h-3 w-3 text-blue-400" aria-hidden="true" />
+                  <CheckCircle className="h-3 w-3 text-blue-400" aria-hidden="true" />
                   {label}
                 </span>
               ))}
@@ -100,7 +100,7 @@ export default function HeroSection() {
               >
                 <Button
                   size="lg"
-                  className="h-14 rounded-full bg-white px-8 text-base font-medium text-black shadow-xl shadow-white/10 hover:bg-white/90 active:scale-[0.97] transition-transform"
+                  className="h-14 rounded-full px-8 font-medium active:scale-[0.97] transition-transform"
                 >
                   {t('revision360.hero.cta')}
                 </Button>
@@ -109,7 +109,7 @@ export default function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-sm hover:bg-white/10 active:scale-[0.97] transition-transform"
+                  className="h-14 rounded-full /20 px-8 font-medium backdrop-blur-sm active:scale-[0.97] transition-transform"
                 >
                   {t('revision360.service.title')}
                 </Button>

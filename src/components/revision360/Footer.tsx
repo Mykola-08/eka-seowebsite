@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { Heart, Mail, Phone, MapPin } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 

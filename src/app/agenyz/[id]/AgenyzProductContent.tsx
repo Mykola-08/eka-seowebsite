@@ -5,7 +5,7 @@ import { products, getLocalized } from '@/app/agenyz/products';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck, Zap, Microscope } from 'lucide-react';
+import { ArrowLeft, Check, ShoppingBag, MessageCircle, Leaf, Clock, ShieldCheck, Zap, Microscope } from '@/lib/icons';
 import { motion } from 'framer-motion';
 
 export default function AgenyzProductContent({ id }: { id: string }) {
@@ -38,7 +38,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
             {/* Sticky Mobile CTA */}
             <div className='fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-lg border-t border-gray-100 z-50 md:hidden'>
                 <a href={getStoreUrl(product.slug)} target='_blank' rel='noopener noreferrer' className='block w-full'>
-                    <Button size='lg' className='w-full shadow-xl bg-black text-white hover:bg-gray-900 rounded-full h-14 text-lg font-semibold'>
+                    <Button size='lg' className="w-full rounded-full h-14 font-semibold">
                         {t('agenyz.buyNow') || 'Buy Now'}
                     </Button>
                 </a>
@@ -46,7 +46,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
 
             {/* Back Button */}
             <div className='absolute top-24 left-4 md:left-8 z-20'>
-                <Link href='/agenyz' className='group inline-flex items-center text-gray-500 hover:text-black transition-colors bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-gray-100 shadow-sm hover:shadow-md'>
+                <Link href='/agenyz' className='group inline-flex items-center text-gray-500 hover:text-black transition-colors bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-gray-100'>
                     <ArrowLeft className='w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform' />
                     <span className='font-semibold text-sm tracking-tight'>{t('common.back') || 'Back'}</span>
                 </Link>
@@ -71,13 +71,13 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                 <img
                                     src={imageUrl}
                                     alt={translatedName}
-                                    className='relative w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)] z-10 hover:scale-105 transition-transform duration-700 ease-out'
+                                    className='relative w-full h-full object-contain drop-0_20px_50px_rgba(0,0,0,0.15)] z-10 hover:scale-105 transition-transform duration-700 ease-out'
                                 />
                                 <motion.div
                                     initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.6 }}
-                                    className='absolute -bottom-4 right-0 md:bottom-12 md:-right-4 bg-white/90 backdrop-blur-xl border border-white/20 p-5 rounded-[2rem] shadow-2xl z-20 flex items-center gap-4'
+                                    className='absolute -bottom-4 right-0 md:bottom-12 md:-right-4 bg-white/90 backdrop-blur-xl border border-white/20 p-5 rounded-[2rem] z-20 flex items-center gap-4'
                                 >
                                     <div className='w-12 h-12 flex items-center justify-center bg-primary-50 rounded-2xl text-primary-600'>
                                         <Leaf className='w-6 h-6' />
@@ -152,13 +152,13 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                 className='flex flex-col sm:flex-row gap-4'
                             >
                                 <a href={getStoreUrl(product.slug)} target='_blank' rel='noopener noreferrer' className='flex-1 sm:flex-none'>
-                                    <Button size='xl' className='w-full sm:w-auto px-10 py-7 bg-black text-white hover:bg-gray-900 rounded-full text-lg font-bold shadow-2xl shadow-black/10 transition-all'>
+                                    <Button size='xl' className="w-full sm:w-auto px-10 py-7 rounded-full font-bold transition-all">
                                         <ShoppingBag className='mr-3 w-6 h-6' />
                                         {t('agenyz.buyNow') || 'Order Now'}
                                     </Button>
                                 </a>
                                 <Link href='/booking' className='flex-1 sm:flex-none'>
-                                    <Button size='xl' variant='outline' className='w-full sm:w-auto border-gray-200 hover:bg-gray-50 text-gray-900 px-10 py-7 rounded-full text-lg font-bold transition-all'>
+                                    <Button size='xl' variant='outline' className="w-full sm:w-auto px-10 py-7 rounded-full font-bold transition-all">
                                         <MessageCircle className='mr-3 w-6 h-6' />
                                         {t('common.askQuestions') || 'Consult Expert'}
                                     </Button>
@@ -175,7 +175,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                     <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
 
                         <div className='lg:col-span-2 space-y-8'>
-                            <div className='bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100'>
+                            <div className='bg-white rounded-3xl p-8 md:p-10 border border-gray-100'>
                                 <h3 className='text-2xl font-light text-gray-900 mb-6'>{t('agenyz.aboutProduct') || 'About the Formula'}</h3>
                                 <div className='prose prose-lg text-gray-600 font-light leading-relaxed max-w-none'>
                                     <p>{translatedDesc}</p>
@@ -183,7 +183,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                             </div>
 
                             {translatedIngredients.length > 0 && (
-                                <div className='bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100'>
+                                <div className='bg-white rounded-3xl p-8 md:p-10 border border-gray-100'>
                                     <h3 className='text-2xl font-light text-gray-900 mb-8 flex items-center'>
                                         <Leaf className='w-6 h-6 text-green-500 mr-3' />
                                         {t('agenyz.ingredients') || 'Active Interactions'}
@@ -202,7 +202,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
 
                         <div className='space-y-8'>
                             {translatedBenefits.length > 0 && (
-                                <div className='bg-gradient-to-br from-[#000035] to-[#000060] rounded-3xl p-8 text-white shadow-xl relative overflow-hidden'>
+                                <div className='bg-gradient-to-br from-[#000035] to-[#000060] rounded-3xl p-8 text-white relative overflow-hidden'>
                                     <div className='absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl' />
                                     <h3 className='text-xl font-medium mb-6 relative z-10 flex items-center'>
                                         <Zap className='w-5 h-5 text-yellow-400 mr-2' />

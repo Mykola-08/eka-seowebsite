@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Sparkles, Wind, Activity, Heart } from 'lucide-react';
+import { Layers, Sparkles, Wind, Activity, Heart } from '@/lib/icons';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';

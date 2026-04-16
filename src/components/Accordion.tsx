@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from '@/lib/icons';
 import { cn } from '@/shared/utils';
 
 interface AccordionContextValue {

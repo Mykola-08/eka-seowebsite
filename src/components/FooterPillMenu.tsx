@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Sparkles, Calendar, Briefcase } from 'lucide-react';
+import { Home, Sparkles, Calendar, Briefcase } from '@/lib/icons';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/shared/utils';

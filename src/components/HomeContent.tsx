@@ -93,7 +93,7 @@ export default function HomeContent() {
                   {t('home.bento.featured')}
                 </span>
                 <h3 className="text-white text-3xl sm:text-4xl font-medium mb-3 tracking-tight">{t('home.bento.equilibri.title')}</h3>
-                <p className="text-whited:text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
+                <p className="text-white/80 text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
               </div>
             </BentoCard>
 
@@ -135,7 +135,7 @@ export default function HomeContent() {
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent z-10"></div>
               <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">
                 <h3 className="text-white text-2xl font-medium mb-2 tracking-tight">{t('home.bento.nutrition.title')}</h3>
-                <p className="text-whiteont-medium">{t('home.bento.nutrition.desc')}</p>
+                <p className="text-white/80 font-medium">{t('home.bento.nutrition.desc')}</p>
               </div>
             </BentoCard>
 

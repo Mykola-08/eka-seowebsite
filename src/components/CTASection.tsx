@@ -39,7 +39,7 @@ export default function CTASection() {
                 <Button
                   size="xl"
                   variant="outline"
-                  className="w-full sm:w-auto px-10 py-7 rounded-full h-auto /30 backdrop-blur hover: transition-all duration-300"
+                  className="w-full sm:w-auto px-10 py-7 rounded-full h-auto border-white/30 text-white backdrop-blur hover:bg-white/10 transition-all duration-300"
                 >
                   {t('common.contactUs') || 'Contact Us'}
                 </Button>

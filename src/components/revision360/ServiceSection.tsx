@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Clock3 } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
 
 interface ServiceStep {
   number: string;
@@ -118,7 +117,7 @@ export default function ServiceSection() {
                   </div>
 
                   {/* Card */}
-                  <div className="flex-1 rounded-[2rem] bg-white border border-gray-100 hover:border-blue-100 transition-all duration-500 overflow-hidden">
+                  <div className="flex-1 rounded-[2rem] bg-card border border-border hover:border-primary/20 transition-all duration-500 overflow-hidden">
                     {/* Top strip */}
                     <div className="flex border-b border-border/50 items-center justify-between px-7 pb-5 pt-6">
                       {/* Mobile step number */}
@@ -127,7 +126,7 @@ export default function ServiceSection() {
                           {step.number}
                         </span>
                         <div>
-                          <Badge variant="secondary" className="mb-1.5 inline-block rounded-full bg-gold-light/30 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest text-gold-dark">
+                          <Badge variant="secondary" className="mb-1.5 inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest text-primary">
                             {t('revision360.service.step')} {step.number}
                           </Badge>
                           <h3 className="text-xl font-semibold leading-tight text-foreground sm:text-2xl">{step.title}</h3>
@@ -135,7 +134,7 @@ export default function ServiceSection() {
                         </div>
                       </div>
                       <div className="ml-4 hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-muted/40 px-3 py-1.5 text-xs font-medium text-foreground/80 sm:inline-flex">
-                        <HugeiconsIcon icon={Clock01Icon} className="h-3.5 w-3.5"  />
+                        <Clock3 className="h-3.5 w-3.5" />
                         {step.duration}
                       </div>
                     </div>
@@ -153,11 +152,11 @@ export default function ServiceSection() {
                       </div>
                       {/* Mobile duration badge */}
                       <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-muted/40 px-3 py-1.5 text-xs font-medium text-foreground/80 sm:hidden">
-                        <HugeiconsIcon icon={Clock01Icon} className="h-3.5 w-3.5"  />
+                        <Clock3 className="h-3.5 w-3.5" />
                         {step.duration}
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 </motion.div>
               ))}
             </div>

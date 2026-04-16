@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from '@/lib/icons';
-import { cn } from '@/shared/utils';
+import { cn } from '@/lib/utils';
 
 interface AccordionContextValue {
   value: string | string[] | undefined;

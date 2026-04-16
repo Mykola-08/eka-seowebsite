@@ -22,16 +22,16 @@ export default function FinalInvitationSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-black/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.35em] text-white backdrop-blur-md">
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-foreground/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.35em] text-primary-foreground backdrop-blur-md">
             <HugeiconsIcon icon={CalendarCheckIn01Icon} className="h-3.5 w-3.5" aria-hidden="true"  />
             EKA Balance · 360° Integral Method
           </span>
           
-          <h2 className="mb-8 text-balance text-6xl font-bold leading-[0.95] tracking-tighter text-white sm:text-7xl lg:text-[7rem]">
+          <h2 className="mb-8 text-balance text-6xl font-bold leading-[0.95] tracking-tighter text-primary-foreground sm:text-7xl lg:text-[7rem]">
             {t('revision360.final.title')}
           </h2>
           
-          <p className="mx-auto mb-12 max-w-3xl text-xl font-light leading-relaxed text-white/80 sm:text-3xl">
+          <p className="mx-auto mb-12 max-w-3xl text-xl font-light leading-relaxed text-primary-foreground/80 sm:text-3xl">
             {t('revision360.final.subtitle')}
           </p>
 
@@ -70,9 +70,9 @@ export default function FinalInvitationSection() {
           </div>
 
           <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-4">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">{t('labels.noInsuranceNeeded')}</span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">{t('labels.flexibleSchedules')}</span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">{t('labels.personalizedApproach')}</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">{t('labels.noInsuranceNeeded')}</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">{t('labels.flexibleSchedules')}</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">{t('labels.personalizedApproach')}</span>
           </div>
         </motion.div>
       </div>

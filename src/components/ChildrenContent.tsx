@@ -42,8 +42,8 @@ export default function ChildrenContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-                <span className="text-blue-700 font-medium text-sm">{t('nav.personalizedServices')}</span>
+              <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full mb-6">
+                <span className="text-primary font-medium text-sm">{t('nav.personalizedServices')}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark mb-6 leading-tight">

@@ -68,14 +68,14 @@ export default function CasoDetailContent() {
 
   // Clean color mapping for minimal accents
   const accentColorClass = {
-    blue: 'text-blue-600 bg-blue-50',
-    purple: 'text-purple-600 bg-purple-50',
-    green: 'text-green-600 bg-green-50',
-    orange: 'text-orange-600 bg-orange-50',
-    indigo: 'text-indigo-600 bg-indigo-50',
+    blue: 'text-primary bg-primary/5',
+    purple: 'text-primary bg-primary/5',
+    green: 'text-primary bg-primary/5',
+    orange: 'text-gold-dark bg-gold/5',
+    indigo: 'text-primary bg-primary/5',
     pink: 'text-pink-600 bg-pink-50',
-    red: 'text-red-600 bg-red-50'
-  }[config.color] || 'text-blue-600 bg-blue-50';
+    red: 'text-destructive bg-destructive/5'
+  }[config.color] || 'text-primary bg-primary/5';
 
   // Data
   const symptoms = getArray(`casos.problems.${config.key}.symptom`);
@@ -87,7 +87,7 @@ export default function CasoDetailContent() {
      <div className="relative pt-32 pb-24 bg-secondary  border-0">
         <div className="section-container text-center max-w-4xl mx-auto">
           
-          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-black mb-10 transition-colors">
+          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground mb-10 transition-colors">
             <HugeiconsIcon icon={ArrowLeft01Icon} className="w-4 h-4 mr-1"  />
             {t('casos.title')}
           </Link>
@@ -109,14 +109,14 @@ export default function CasoDetailContent() {
 
   return (
     <PageLayout hero={Hero}>
-      <div className="bg-white py-24">
+      <div className="bg-card py-24">
         <div className="section-container max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
 
             {/* Symptoms */}
             <div>
               <h2 className="text-3xl font-semibold text-foreground mb-8 tracking-tight flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-black text-white text-sm font-bold">1</span>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-foreground text-primary-foreground text-sm font-bold">1</span>
                 {t('casos.symptoms')}
               </h2>
               <ul className="space-y-4">
@@ -136,8 +136,8 @@ export default function CasoDetailContent() {
               </h2>
               <ul className="space-y-4">
                 {causes.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-2xl bg-white border border-gray-100">
-                    <p className="text-gray-600 text-lg leading-relaxed">{item}</p>
+                  <li key={idx} className="p-6 rounded-2xl bg-card border border-border">
+                    <p className="text-muted-foreground text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}
               </ul>
@@ -145,14 +145,14 @@ export default function CasoDetailContent() {
           </div>
 
           {/* Treatment & Results - Highlight Section */}
-          <div className="bg-black rounded-[40px] p-8 md:p-16 text-white relative overflow-hidden">
+          <div className="bg-foreground rounded-[40px] p-8 md:p-16 text-primary-foreground relative overflow-hidden">
               {/* Subtle mesh gradient background */}
-              <div className="absolute top-0 right-0 w-150 h-150 bg-blue-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-150 h-150 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
                   <div>
-                      <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-                          <HugeiconsIcon icon={Activity01Icon} className="w-6 h-6 text-blue-400"  />
+                      <h2 className="text-2xl font-semibold text-primary-foreground mb-6 flex items-center gap-3">
+                          <HugeiconsIcon icon={Activity01Icon} className="w-6 h-6 text-primary/80"  />
                           {t('casos.treatment')}
                       </h2>
                       <p className="text-muted-foreground leading-relaxed text-xl font-light">
@@ -161,8 +161,8 @@ export default function CasoDetailContent() {
                   </div>
 
                   <div>
-                      <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-                          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-green-400"  />
+                      <h2 className="text-2xl font-semibold text-primary-foreground mb-6 flex items-center gap-3">
+                          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary/80"  />
                           {t('casos.results')}
                       </h2>
                       <p className="text-muted-foreground leading-relaxed text-xl font-light">
@@ -175,7 +175,7 @@ export default function CasoDetailContent() {
                   <Link href={config.href}>
                       <Button
                           size="xl"
-                          variant="white"
+                          variant="secondary"
                           className="px-10 py-6 h-auto rounded-full font-medium"
                       >
                           {t('common.bookNow')}

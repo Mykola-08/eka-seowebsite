@@ -28,7 +28,7 @@ export default function PersonalizedServicesContent() {
           badge: t('services.therapiesFor'),
           icon: <HugeiconsIcon icon={StarIcon} className="w-4 h-4"  />
         }}
-        className="bg-white"
+        className="bg-card"
       >
         {/* Intro / CTA Section */}
         <div className="text-center -mt-8 mb-16 animate-fade-in relative z-20 px-6">
@@ -51,7 +51,7 @@ export default function PersonalizedServicesContent() {
       <section className="bg-secondary py-16 sm:py-24">
         <div className="section-container">
            <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="heading-2 mb-4 text-black">
+            <h2 className="heading-2 mb-4 text-foreground">
               {t('personalizedServices.choose.title')}
             </h2>
             <p className="text-body-lg text-muted-foreground">

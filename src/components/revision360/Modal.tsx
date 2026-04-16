@@ -39,7 +39,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
       {isOpen && (
         <div className="fixed inset-0 z-90 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
+            className="fixed inset-0 bg-foreground/60 backdrop-blur-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -51,7 +51,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'md' }:
             onClick={onClose}
           >
             <motion.div
-              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-3xl bg-white  border-0 max-h-[90vh] overflow-y-auto`}
+              className={`relative w-full ${sizeClasses[size === 'lg' ? 'lg' : size === 'xl' ? 'xl' : size]} transform rounded-3xl bg-card  border-0 max-h-[90vh] overflow-y-auto`}
               onClick={(e) => e.stopPropagation()}
               initial={{
                 opacity: 0, 

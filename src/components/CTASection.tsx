@@ -20,17 +20,17 @@ export default function CTASection() {
             overlayOpacity={0.65}
         >
           <div className="section-container relative z-10 text-center px-4">
-            <h2 className="text-5xl sm:text-6xl mb-6 font-semibold text-white tracking-tight text-balance font-serif">
+            <h2 className="text-5xl sm:text-6xl mb-6 font-semibold text-primary-foreground tracking-tight text-balance font-serif">
               {t('common.readyToStart') || 'Ready to start your journey?'}
             </h2>
-            <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-xl sm:text-2xl text-primary-foreground/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
               {t('common.bookConsultation') || 'Book a consultation today and take the first step towards better health and wellbeing.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                className="w-full sm:w-auto px-10 py-7 text-lg rounded-full h-auto bg-white text-black hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto px-10 py-7 text-lg rounded-full h-auto bg-card text-foreground hover:bg-muted hover:scale-105 transition-all duration-300"
               >
                 {t('common.bookNow')}
                 <HugeiconsIcon icon={ArrowRight01Icon} className="w-5 h-5 ml-2"  />

@@ -28,7 +28,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
     return (
       <div className="min-h-screen pt-32 px-4 text-center">
         <h1 className="text-2xl font-bold text-foreground">Technique not found</h1>
-        <Link href="/" className="text-blue-600 hover:text-blue-700 mt-4 inline-block">
+        <Link href="/" className="text-primary hover:text-primary mt-4 inline-block">
           {t('common.back')}
         </Link>
       </div>
@@ -42,7 +42,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
       <div className="max-w-4xl mx-auto">
         <Link 
           href="/#techniques" 
-          className="inline-flex items-center text-foreground/80 hover:text-blue-600 transition-colors mb-8 group"
+          className="inline-flex items-center text-foreground/80 hover:text-primary transition-colors mb-8 group"
         >
           <HugeiconsIcon icon={ArrowLeft01Icon} className="w-5 h-5 mr-2 transition-colors"  />
           {t('common.back')}
@@ -63,9 +63,9 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
             </p>
           </div>
           
-          <div className="mt-12 p-8 bg-white rounded-3xl border border-orange-100">
-             <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('technique.why')}</h3>
-             <p className="text-gray-600">
+          <div className="mt-12 p-8 bg-card rounded-3xl border border-orange-100">
+             <h3 className="text-xl font-semibold text-foreground mb-4">{t('technique.why')}</h3>
+             <p className="text-muted-foreground">
                 {t(`${baseKey}.why`)}
              </p>
           </div>

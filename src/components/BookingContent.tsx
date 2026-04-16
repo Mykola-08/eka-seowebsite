@@ -147,9 +147,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
             <motion.div
               initial={{ opacity: 0, y: 20 }}
             >
-            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50 transition duration-300 h-full">
-              <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <HugeiconsIcon icon={Message01Icon} className="w-8 h-8 text-green-600 stroke-[2px]"  />
+            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-border/50 transition duration-300 h-full">
+              <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                <HugeiconsIcon icon={Message01Icon} className="w-8 h-8 text-primary stroke-[2px]"  />
               </div>
               <h3 className="text-2xl font-semibold text-foreground mb-3 tracking-tight">
                 {t('booking.direct.title')}
@@ -185,9 +185,9 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-gray-100/50 transition duration-300 h-full">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <HugeiconsIcon icon={Calendar01Icon} className="w-8 h-8 text-blue-600 stroke-[2px]"  />
+            <Card className="rounded-[32px] p-8 sm:p-12 text-center border-border/50 transition duration-300 h-full">
+              <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                <HugeiconsIcon icon={Calendar01Icon} className="w-8 h-8 text-primary stroke-[2px]"  />
               </div>
               <h3 className="text-2xl font-semibold text-foreground mb-3 tracking-tight">
                 {t('booking.form.title')}
@@ -200,7 +200,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                   logEvent('booking_page_toggle_form', { show: !showForm });
                   setShowForm(!showForm);
                 }}
-                variant={showForm ? "outline-solid" : "default"}
+                variant={showForm ? "outline" : "default"}
                 size="xl"
                 className="w-full"
               >
@@ -220,7 +220,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                 exit={{ opacity: 0, height: 0, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-              <Card className="rounded-[32px] border border-gray-100 p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
+              <Card className="rounded-[32px] border border-border p-8 sm:p-12 overflow-hidden max-w-3xl mx-auto">
                 <div className="flex justify-between items-center mb-10">
                   <h3 className="text-2xl font-semibold text-foreground tracking-tight">
                     {t('booking.form.quickTitle')}
@@ -246,7 +246,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                       value={formData.name}
                       onChange={(e) => handleFormChange('name', e.target.value)}
                       placeholder={t('booking.form.namePlaceholder')}
-                      className="bg-muted/40 border-0 focus:bg-white"
+                      className="bg-muted/40 border-0 focus:bg-card"
                     />
                   </div>
 
@@ -258,7 +258,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.service}
                       onChange={(e) => handleFormChange('service', e.target.value)}
-                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
+                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-card focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.servicePlaceholder')}</option>
                       {services.map((service) => (
@@ -277,7 +277,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.location}
                       onChange={(e) => handleFormChange('location', e.target.value)}
-                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
+                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-card focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.locationPlaceholder')}</option>
                       {locations.map((location) => (
@@ -296,7 +296,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.timeSlot}
                       onChange={(e) => handleFormChange('timeSlot', e.target.value)}
-                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
+                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-card focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.timeSlotPlaceholder')}</option>
                       {timeSlots.map((slot) => (
@@ -315,7 +315,7 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                     <select
                       value={formData.availability}
                       onChange={(e) => handleFormChange('availability', e.target.value)}
-                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
+                      className="flex h-12 w-full rounded-3xl  border-0 bg-muted/40 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:bg-card focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors text-foreground/80 appearance-none outline-hidden"
                     >
                       <option value="">{t('booking.form.availabilityPlaceholder')}</option>
                       {availabilityOptions.map((option) => (
@@ -336,14 +336,14 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
                       value={formData.objective}
                       onChange={(e) => handleFormChange('objective', e.target.value)}
                       placeholder={t('booking.form.objectivePlaceholder')}
-                      className="bg-muted/40 border-0 focus:bg-white"
+                      className="bg-muted/40 border-0 focus:bg-card"
                     />
                   </div>
                 </div>
 
                 <Button
                   onClick={handleFormSubmit}
-                  variant="whatsapp"
+                  variant="default"
                   size="xl"
                   className="w-full ] ]"
                 >
@@ -365,8 +365,8 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white p-8 rounded-[32px] border border-gray-100">
-              <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
+            <div className="bg-card p-8 rounded-[32px] border border-border">
+              <div className="w-12 h-12 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-6 text-muted-foreground">
                 <MessageCircle className="w-6 h-6" />
               </div>
               <h4 className="text-lg font-semibold text-foreground mb-2">{t('booking.help.contactDirect')}</h4>
@@ -376,8 +376,8 @@ ${t('booking.whatsapp.time', { time: formData.timeSlot })}`;
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-[32px] border border-gray-100">
-              <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
+            <div className="bg-card p-8 rounded-[32px] border border-border">
+              <div className="w-12 h-12 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-6 text-muted-foreground">
                 <Calendar className="w-6 h-6" />
               </div>
               <h4 className="text-lg font-semibold text-foreground mb-2">{t('booking.help.hours')}</h4>

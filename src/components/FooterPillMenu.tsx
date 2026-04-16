@@ -27,7 +27,7 @@ export default function FooterPillMenu() {
       <nav
         className={[
           /* Match the scrolled header's glass style exactly */
-          'bg-white/90 backdrop-blur-2xl',
+          'bg-card/90 backdrop-blur-2xl',
           ' border-0',
           'rounded-3xl p-1.5',
           'flex items-stretch gap-0.5',
@@ -53,7 +53,7 @@ export default function FooterPillMenu() {
               className={cn(
                 'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-3xl',
                 'transition-colors duration-150 active:scale-[0.93] select-none',
-                isActive ? 'text-white' : 'text-muted-foreground hover:text-foreground/80',
+                isActive ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground/80',
               )}
             >
               {/* Sliding dark-pill active background — animates between tabs */}

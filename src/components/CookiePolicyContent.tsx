@@ -98,7 +98,7 @@ export default function CookiePolicyContent() {
                   <div key={title} className={`rounded-3xl border border-${color}-100 bg-${color}-50/30 p-5`}>
                     <div className="flex items-center justify-between mb-2">
                       <p className="font-semibold text-foreground text-sm">{title}</p>
-                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${required ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'}`}>
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${required ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}>
                         {required ? 'Always Active' : 'Optional'}
                       </span>
                     </div>

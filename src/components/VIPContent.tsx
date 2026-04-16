@@ -179,7 +179,7 @@ const ComparativeTable = () => {
           </h2>
         </div>
         
-        <div className="overflow-x-auto rounded-3xl bg-white border border-gray-100">
+        <div className="overflow-x-auto rounded-3xl bg-card border border-border">
           <table className="w-full min-w-[600px] border-collapse">
             <thead>
               <tr className="bg-muted/40/50">
@@ -218,7 +218,7 @@ export default function VIPContent() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-white text-foreground font-sans selection:bg-amber-100 selection:text-amber-900">
+    <div className="min-h-screen bg-card text-foreground font-sans selection:bg-amber-100 selection:text-amber-900">
       <SEOUpdater 
         titleKey="seo.vip.title"
         descriptionKey="seo.vip.description"
@@ -235,7 +235,7 @@ export default function VIPContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-amber-200 mb-8">
               <Crown className="w-5 h-5 text-amber-500" />
               <span className="text-amber-800 font-medium tracking-wide">VIP CLUB</span>
             </div>
@@ -252,7 +252,7 @@ export default function VIPContent() {
 
             <Link href="#pricing">
               <button 
-                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-none px-10 h-16 rounded-full text-lg font-medium transition duration-300"
+                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-primary-foreground border-none px-10 h-16 rounded-full text-lg font-medium transition duration-300"
               >
                 {t('vip.cta.apply')}
               </button>
@@ -262,14 +262,14 @@ export default function VIPContent() {
       </div>
 
       {/* Luxury Features Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {defaultLuxuryFeatures.map((feature, idx) => {
               const icon = feature.icon || Diamond01Icon;
               return (
-                <div key={idx} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-amber-100 transition-colors group">
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 transition-colors">
+                <div key={idx} className="p-8 rounded-3xl bg-muted/50 border border-border hover:border-amber-100 transition-colors group">
+                  <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 transition-colors">
                     <Icon className="w-7 h-7 text-amber-600" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{t(feature.title)}</h3>
@@ -291,7 +291,7 @@ export default function VIPContent() {
 
             <div className="grid lg:grid-cols-2 gap-12">
                {vipServices.map((service, idx) => (
-                 <div key={idx} className="bg-white rounded-apple-xl p-10 border border-gray-100 transition- duration-300">
+                 <div key={idx} className="bg-card rounded-apple-xl p-10 border border-border transition- duration-300">
                     <div className="flex items-start gap-6">
                        <div className="w-16 h-16 rounded-3xl bg-amber-50 flex items-center justify-center shrink-0">
                           <HugeiconsIcon icon={service.icon} className="w-8 h-8 text-amber-600"  />
@@ -316,7 +316,7 @@ export default function VIPContent() {
       </section>
 
       {/* Pricing / Tiers */}
-      <section id="pricing" className="py-24 bg-white">
+      <section id="pricing" className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-6">
            <div className="text-center mb-20">
              <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6">{t('vip.pricing.title')}</h2>
@@ -327,10 +327,10 @@ export default function VIPContent() {
              {defaultPlans.map((plan) => (
                <div 
                  key={plan.tier}
-                 className={`relative bg-white rounded-apple-xl p-8 border ${plan.popular ? 'border-0  ' : 'border-0 '}`}
+                 className={`relative bg-card rounded-apple-xl p-8 border ${plan.popular ? 'border-0  ' : 'border-0 '}`}
                >
                  {plan.popular && (
-                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide">
+                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-primary-foreground px-6 py-2 rounded-full text-sm font-bold tracking-wide">
                      MOST POPULAR
                    </div>
                  )}
@@ -356,7 +356,7 @@ export default function VIPContent() {
                  <button 
                    className={`w-full h-14 rounded-3xl text-lg font-bold border-none transition ${
                      plan.popular 
-                       ? 'bg-amber-500 hover:bg-amber-600 text-white' 
+                       ? 'bg-amber-500 hover:bg-amber-600 text-primary-foreground' 
                        : 'bg-muted hover:bg-muted text-foreground'
                    }`}
                  >
@@ -371,7 +371,7 @@ export default function VIPContent() {
       <ComparativeTable />
 
       {/* Testimonials */}
-      <section className="py-24 bg-black text-white overflow-hidden relative">
+      <section className="py-24 bg-foreground text-primary-foreground overflow-hidden relative">
          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-16">
@@ -380,7 +380,7 @@ export default function VIPContent() {
 
             <div className="grid md:grid-cols-3 gap-8">
                {testimonials.map((test, i) => (
-                  <div key={i} className="bg-white/5 backdrop-blur-md rounded-3xl p-8  border-0">
+                  <div key={i} className="bg-card/5 backdrop-blur-md rounded-3xl p-8  border-0">
                      <div className="flex gap-1 mb-6">
                         {[...Array(test.rating)].map((_, j) => (
                            <HugeiconsIcon icon={StarIcon} key={j} className="w-4 h-4 fill-amber-400 text-amber-400"  />
@@ -388,7 +388,7 @@ export default function VIPContent() {
                      </div>
                      <p className="text-muted-foreground mb-8 italic leading-relaxed">"{t(test.comment)}"</p>
                      <div>
-                        <p className="text-white font-bold">{test.name}</p>
+                        <p className="text-primary-foreground font-bold">{test.name}</p>
                         <p className="text-amber-400/80 text-sm">{t(test.role)}</p>
                      </div>
                   </div>

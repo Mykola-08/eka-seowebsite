@@ -89,23 +89,23 @@ export function ServiceBentoItem({
              <motion.div
                className="transform transition-transform duration-500 group-hover:-translate-y-3 md:pr-20"
              >
-               <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 tracking-tight ${image ? 'text-white' : 'text-foreground'}`}>
+               <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 tracking-tight ${image ? 'text-primary-foreground' : 'text-foreground'}`}>
                   {title}
                </h3>
-                 <p className={`text-base sm:text-lg tracking-tight leading-relaxed line-clamp-3 md:line-clamp-4 mt-2 ${image ? 'text-white/95' : 'text-muted-foreground'}`}>
+                 <p className={`text-base sm:text-lg tracking-tight leading-relaxed line-clamp-3 md:line-clamp-4 mt-2 ${image ? 'text-primary-foreground/95' : 'text-muted-foreground'}`}>
                   {description}
                </p>
                {benefits && benefits.length > 0 && (
                  <div className="flex flex-wrap gap-2 mt-5 opacity-90">
                    {benefits.slice(0, 3).map((benefit, i) => (
-                     <span key={i} className={`text-xs font-bold px-4 py-2 rounded-full border-0 ${image ? 'text-white bg-black/40' : 'text-foreground bg-background'} backdrop-blur-md`}>
+                     <span key={i} className={`text-xs font-bold px-4 py-2 rounded-full border-0 ${image ? 'text-primary-foreground bg-foreground/40' : 'text-foreground bg-background'} backdrop-blur-md`}>
                        {benefit}
                      </span>
                    ))}
                  </div>
                )}
              </motion.div>
-             <div className={`absolute bottom-8 right-8 flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-md border-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-opacity-100 z-20 ${image ? 'bg-white/20 text-white group-hover:bg-white group-hover:text-black' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'}`}
+             <div className={`absolute bottom-8 right-8 flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-md border-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-opacity-100 z-20 ${image ? 'bg-card/20 text-primary-foreground group-hover:bg-card group-hover:text-foreground' : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'}`}
              >
                 <svg className="w-6 h-6 transition-transform duration-500 group-hover:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -124,24 +124,24 @@ export function ServiceBentoItem({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-foreground/60 backdrop-blur-md"
             />
             <motion.div
                initial={{ opacity: 0, y: "100%" }}
                animate={{ opacity: 1, y: 0 }}
                exit={{ opacity: 0, y: "100%" }}
                transition={{ type: "spring", bounce: 0, duration: 0.5 }}
-               className="relative w-full max-w-6xl bg-white rounded-t-4xl sm:rounded-4xl overflow-hidden z-10 max-h-[96svh] sm:max-h-[90vh] h-auto min-h-[60vh] flex flex-col shadow-2xl"
+               className="relative w-full max-w-6xl bg-card rounded-t-4xl sm:rounded-4xl overflow-hidden z-10 max-h-[96svh] sm:max-h-[90vh] h-auto min-h-[60vh] flex flex-col shadow-2xl"
                onClick={(e) => e.stopPropagation()}
             >
                {/* Mobile drag handle */}
                <div className="w-full flex justify-center pt-3 pb-1 sm:hidden absolute top-0 z-30 pointer-events-none">
-                 <div className="w-10 h-1 bg-black/20 rounded-full" />
+                 <div className="w-10 h-1 bg-foreground/20 rounded-full" />
                </div>
 
                <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-4 sm:top-5 right-4 sm:right-5 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-xl transition-colors text-white"
+                  className="absolute top-4 sm:top-5 right-4 sm:right-5 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-foreground/20 hover:bg-foreground/40 backdrop-blur-xl transition-colors text-primary-foreground"
                >
                  <HugeiconsIcon icon={Cancel01Icon} size={18}  />
                </button>
@@ -154,19 +154,19 @@ export function ServiceBentoItem({
                          <Image src={image} fill alt={title} sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" placeholder="blur" blurDataURL={shimmerBlurDataURL()} />
                          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
                          <div className="relative z-10 p-5 sm:p-7 flex flex-col justify-end w-full">
-                           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight">{title}</h2>
+                           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-primary-foreground mb-2 leading-tight">{title}</h2>
                            {/* CTA buttons inside image (desktop only) */}
                            <div className="hidden md:flex flex-col gap-2.5 mt-3 w-full">
                               {bookUrl && (
                                   <Link href={bookUrl}>
-                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-100 transition">
+                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-card text-foreground rounded-full font-medium text-sm hover:bg-muted transition">
                                           {bookText}
                                       </span>
                                   </Link>
                               )}
                               {readMoreUrl && (
                                   <Link href={readMoreUrl}>
-                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-blue-600 text-white backdrop-blur-md rounded-full font-medium text-sm hover:bg-blue-700 transition border border-transparent shadow-sm">       
+                                      <span className="flex items-center justify-center w-full px-5 py-2.5 bg-primary text-primary-foreground backdrop-blur-md rounded-full font-medium text-sm hover:bg-primary/80 transition border border-transparent shadow-sm">       
                                           {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                                       </span>
                                   </Link>
@@ -177,7 +177,7 @@ export function ServiceBentoItem({
 
                       {/* Content panel — scrollable only if content overflows */}
                       <div className="flex-1 min-h-0 flex flex-col items-center text-center p-5 sm:p-6 md:p-8 overflow-y-auto overscroll-contain">
-                         <p className="text-base sm:text-lg leading-relaxed font-medium text-gray-900 mb-4">{description}</p>
+                         <p className="text-base sm:text-lg leading-relaxed font-medium text-foreground mb-4">{description}</p>
                          <div className="flex-1 min-h-0 flex flex-col items-center w-full">
                            {details}
                          </div>
@@ -186,14 +186,14 @@ export function ServiceBentoItem({
                          <div className="flex md:hidden flex-col gap-2.5 pt-4 mt-3  border-0 shrink-0">
                             {bookUrl && (
                                 <Link href={bookUrl} className="w-full">
-                                    <span className="flex items-center justify-center w-full px-6 py-3 bg-black text-white rounded-full font-medium text-sm hover:bg-black/80 transition">
+                                    <span className="flex items-center justify-center w-full px-6 py-3 bg-foreground text-primary-foreground rounded-full font-medium text-sm hover:bg-foreground/80 transition">
                                         {bookText}
                                     </span>
                                 </Link>
                             )}
                             {readMoreUrl && (
                                 <Link href={readMoreUrl} className="w-full">
-                                    <span className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-full font-medium text-sm hover:bg-blue-700 transition shadow-sm border border-transparent">
+                                    <span className="flex items-center justify-center w-full px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium text-sm hover:bg-primary/80 transition shadow-sm border border-transparent">
                                         {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5 inline" />
                                     </span>
                                 </Link>
@@ -203,8 +203,8 @@ export function ServiceBentoItem({
                     </>
                  ) : (
                     <div className="flex-1 min-h-0 flex flex-col items-center text-center p-5 sm:p-7 overflow-y-auto overscroll-contain pt-10 sm:pt-7">
-                       <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-black mb-3">{title}</h2>
-                       <p className="text-base sm:text-lg leading-relaxed font-medium text-gray-900 mb-4">{description}</p>
+                       <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-3">{title}</h2>
+                       <p className="text-base sm:text-lg leading-relaxed font-medium text-foreground mb-4">{description}</p>
                        <div className="flex-1 min-h-0 flex flex-col items-center w-full">
                          {details}
                        </div>
@@ -212,14 +212,14 @@ export function ServiceBentoItem({
                        <div className="flex flex-col sm:flex-row gap-2.5 pt-4 mt-3  border-0 shrink-0">
                           {bookUrl && (
                               <Link href={bookUrl} className="flex-1">
-                                  <span className="flex items-center justify-center w-full px-6 py-3 bg-black text-white rounded-full font-medium text-sm hover:bg-black/80 transition">
+                                  <span className="flex items-center justify-center w-full px-6 py-3 bg-foreground text-primary-foreground rounded-full font-medium text-sm hover:bg-foreground/80 transition">
                                       {bookText}
                                   </span>
                               </Link>
                           )}
                           {readMoreUrl && (
                               <Link href={readMoreUrl} className="flex-1">
-                                  <span className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-full font-medium text-sm hover:bg-blue-700 transition shadow-sm border border-transparent">
+                                  <span className="flex items-center justify-center w-full px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium text-sm hover:bg-primary/80 transition shadow-sm border border-transparent">
                                       {readMoreText} <ArrowRight className="ml-1.5 w-3.5 h-3.5 inline" />
                                   </span>
                               </Link>

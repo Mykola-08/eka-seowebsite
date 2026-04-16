@@ -56,7 +56,7 @@ const FAQ = ({ items, title, subtitle }: FAQProps) => {
   if (faqItems.length === 0) return null;
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-card">
       <div className="section-container max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-semibold text-foreground mb-6 tracking-tight">
@@ -71,7 +71,7 @@ const FAQ = ({ items, title, subtitle }: FAQProps) => {
           <Accordion type="single" collapsible defaultValue="item-1" className="flex flex-col gap-4">
             {faqItems.map((item) => (
               <AccordionItem key={item.id} value={item.id} className="bg-muted/40 rounded-3xl px-6 sm:px-8 border-none transition-all duration-300">
-                <AccordionTrigger className="text-lg sm:text-xl font-medium text-foreground hover:text-blue-600 hover:no-underline py-6 text-left transition-colors duration-200">
+                <AccordionTrigger className="text-lg sm:text-xl font-medium text-foreground hover:text-primary hover:no-underline py-6 text-left transition-colors duration-200">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent>

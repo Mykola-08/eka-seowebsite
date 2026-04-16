@@ -111,8 +111,8 @@ export default function ServiceSection() {
                 >
                   {/* Step number circle */}
                   <div className="hidden sm:flex flex-col items-center shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-100 group-hover:border-blue-300 flex items-center justify-center transition-colors duration-300 z-10">
-                      <span className="text-sm font-bold text-blue-500">{step.number}</span>
+                    <div className="w-14 h-14 rounded-full bg-card border-2 border-primary/10 group-hover:border-primary/30 flex items-center justify-center transition-colors duration-300 z-10">
+                      <span className="text-sm font-bold text-primary">{step.number}</span>
                     </div>
                   </div>
 

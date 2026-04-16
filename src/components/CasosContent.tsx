@@ -150,7 +150,7 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative bg-white rounded-[32px] p-8 flex flex-col h-full border border-gray-100/50 transition duration-300 active:scale-[0.97]"
+                  className="group relative bg-card rounded-[32px] p-8 flex flex-col h-full border border-border/50 transition duration-300 active:scale-[0.97]"
                 >
                   <div className="w-14 h-14 rounded-3xl bg-muted/40 flex items-center justify-center mb-6 text-foreground">
                     <HugeiconsIcon icon={Icon} className="w-7 h-7" />
@@ -164,7 +164,7 @@ export default function CasosContent() {
                     {problem.description}
                   </p>
                   
-                  <div className="mt-auto flex items-center text-sm font-medium text-blue-600">
+                  <div className="mt-auto flex items-center text-sm font-medium text-primary">
                     <span>{t('casos.seeDetails')}</span>
                     <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
                   </div>
@@ -176,7 +176,7 @@ export default function CasosContent() {
       </div>
 
       {/* Additional Problems List - Modernized */}
-      <div className="bg-white py-24  border-0">
+      <div className="bg-card py-24  border-0">
         <div className="section-container max-w-5xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold text-foreground mb-4 tracking-tight">{t('casos.otherCases')}</h2>
@@ -189,7 +189,7 @@ export default function CasosContent() {
                 key={key} 
                 className="flex items-center p-4 rounded-3xl bg-secondary hover:bg-muted transition-colors duration-200 cursor-default"
               >
-                <div className="w-2 h-2 rounded-full bg-blue-500 mr-4" />
+                <div className="w-2 h-2 rounded-full bg-primary mr-4" />
                 <span className="text-foreground/80 font-medium">
                   {t(key)}
                 </span>
@@ -206,7 +206,7 @@ export default function CasosContent() {
         overlayOpacity={0.6}
       >
         <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-semibold text-primary-foreground mb-6 tracking-tight">
             {t('casos.ctaTitle')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light leading-relaxed">

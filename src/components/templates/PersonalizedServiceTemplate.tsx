@@ -58,49 +58,49 @@ const themeConfig: Record<string, {
   serviceLinkText: string;
 }> = {
   orange: {
-    bg: 'bg-orange-50/50',
+    bg: 'bg-gold/5/50',
     border: 'border-0',
-    text: 'text-orange-900',
+    text: 'text-foreground',
     subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
-    dots: 'bg-orange-400',
-    stepsBg: 'bg-orange-50/30',
-    stepsIconBg: 'bg-orange-100',
-    stepsIconText: 'text-orange-600',
+    dots: 'bg-gold',
+    stepsBg: 'bg-gold/5/30',
+    stepsIconBg: 'bg-gold/10',
+    stepsIconText: 'text-gold-dark',
     servicesBgFrom: 'from-transparent',
     servicesBgTo: 'to-orange-50/30',
-    serviceCardHoverText: 'group-hover:text-orange-700',
-    serviceLinkText: 'text-orange-600'
+    serviceCardHoverText: 'group-hover:text-gold-dark',
+    serviceLinkText: 'text-gold-dark'
   },
   purple: {
-    bg: 'bg-purple-50/50',
+    bg: 'bg-primary/5/50',
     border: 'border-0',
-    text: 'text-purple-900',
+    text: 'text-foreground',
     subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
-    dots: 'bg-purple-400',
-    stepsBg: 'bg-purple-50/30',
-    stepsIconBg: 'bg-purple-100',
-    stepsIconText: 'text-purple-600',
+    dots: 'bg-primary/40',
+    stepsBg: 'bg-primary/5/30',
+    stepsIconBg: 'bg-primary/10',
+    stepsIconText: 'text-primary',
     servicesBgFrom: 'from-transparent',
     servicesBgTo: 'to-purple-50/30',
-    serviceCardHoverText: 'group-hover:text-purple-700',
-    serviceLinkText: 'text-purple-600'
+    serviceCardHoverText: 'group-hover:text-primary',
+    serviceLinkText: 'text-primary'
   },
   blue: {
-    bg: 'bg-blue-50/50',
+    bg: 'bg-primary/5/50',
     border: 'border-0',
-    text: 'text-blue-900',
+    text: 'text-foreground',
     subtext: 'text-foreground/80',
     accent: 'text-eka-dark',
-    dots: 'bg-blue-400',
-    stepsBg: 'bg-blue-50/30',
-    stepsIconBg: 'bg-blue-100',
-    stepsIconText: 'text-blue-600',
+    dots: 'bg-primary/30',
+    stepsBg: 'bg-primary/5/30',
+    stepsIconBg: 'bg-primary/10',
+    stepsIconText: 'text-primary',
     servicesBgFrom: 'from-transparent',
     servicesBgTo: 'to-blue-50/30',
-    serviceCardHoverText: 'group-hover:text-blue-700',
-    serviceLinkText: 'text-blue-600'
+    serviceCardHoverText: 'group-hover:text-primary',
+    serviceLinkText: 'text-primary'
   },
   green: {
     bg: 'bg-emerald-50/50',
@@ -221,14 +221,14 @@ export default function PersonalizedServiceTemplate({
         <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-muted/30">
           <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
                 {t(`${translationKey}.understanding.title`)}
               </h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-350 mx-auto">
               {/* Description 1 - Large box */}
-              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 transition-all duration-500 relative overflow-hidden group">
+              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group">
                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
                  <p className="text-xl sm:text-2xl md:text-3xl text-foreground font-medium leading-tight relative z-10 text-balance">
                     {t(`${translationKey}.understanding.description1`)}
@@ -265,9 +265,9 @@ export default function PersonalizedServiceTemplate({
 
         {/* Methodology Section - Apple Bento layout */}
         {showMethodology && validSteps.length > 0 && (
-          <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+          <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card">
             <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-12 sm:mb-16 text-center text-black">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-12 sm:mb-16 text-center text-foreground">
                 {t(`${translationKey}.method.title`)}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
@@ -293,7 +293,7 @@ export default function PersonalizedServiceTemplate({
         <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-muted/30">
           <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-3 sm:mb-4 text-black">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-3 sm:mb-4 text-foreground">
                 {t(`${translationKey}.services.title`)}
               </h2>
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">

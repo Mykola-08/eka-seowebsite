@@ -38,7 +38,7 @@ export function FunnelReviews({ testimonials, className }: FunnelReviewsProps) {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="bg-background rounded-3xl p-8   border-0 flex flex-col justify-between"
               >
-                <div className="flex gap-1 mb-6 text-yellow-500">
+                <div className="flex gap-1 mb-6 text-gold">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <HugeiconsIcon key={star} icon={StarIcon} size={20} className="fill-current" />
                   ))}

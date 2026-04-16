@@ -556,53 +556,10 @@ export default function MainLayout({
                   <AnimatePresence>
                     {activeDropdown === item.name && dropdownPosition && (
                       <motion.div
-                          initial={{ opacity: 0, scale: 0.95, y: -8 }}
-                          animate={{ opacity: 1, scale: 1, y: 0 }}
-                          exit={{ opacity: 0, scale: 0.95, y: -4 }}
+                          initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
+                          animate={{ opacity: 1, scaleY: 1, y: 0 }}
+                          exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
                           transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-                        className="fixed z-40"
-                        style={{
-                          top: dropdownPosition.top, // Start floating menu at the top spacing
-                          left: dropdownPosition.left - 40, // Add large invisible left padding zone
-                          width: dropdownPosition.width + 80, // Expand width by total horizontal padding
-                          transformOrigin: `${40 + (dropdownPosition.originX / 100 * dropdownPosition.width)}px top`,
-                          paddingLeft: 40, // Left invisible safe zone
-                          paddingRight: 40, // Right invisible safe zone
-                          paddingBottom: 40, // Bottom invisible safe zone
-                        }}
-                        onMouseEnter={() => keepMenuOpen(item.name)}
-                        onMouseLeave={scheduleHide}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Escape') {
-                            setActiveDropdown(null);
-                          }
-                        }}
-                        role="menu"
-                        aria-label={`${item.name} submenu`}
-                      >
-                        {/* Inner content wrapper with the actual visual styling */}
-                        <div
-                          className="fixed z-[101]"
-                          style={{
-                            top: dropdownPosition.triggerBottom - 15,
-                            left: dropdownPosition.left - 30,
-                            width: dropdownPosition.width + 60,
-                            height: dropdownPosition.top - dropdownPosition.triggerBottom + 30,
-                          }}
-                          onMouseEnter={() => keepMenuOpen(item.name)}
-                          onMouseLeave={scheduleHide}
-                          aria-hidden="true"
-                        />
-                      )}
-
-                      {/* Dropdown — positioned relative to viewport, flush with header */}
-                      <AnimatePresence>
-                        {activeDropdown === item.name && dropdownPosition && (
-                          <motion.div
-                              initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
-                              animate={{ opacity: 1, scaleY: 1, y: 0 }}
-                              exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
-                              transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
                             className="fixed z-[110]"
                             style={{
                               top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger

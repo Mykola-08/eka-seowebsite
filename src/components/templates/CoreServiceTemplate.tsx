@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CheckCircle, Star, Clock } from '@/lib/icons';
+import { CheckCircle, Clock01Icon, StarIcon } from '@/lib/icons';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
@@ -11,7 +11,6 @@ import SEOUpdater from '@/components/SEOUpdater';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { SERVICES_DATA } from '@/shared/constants';
-
 interface PricingOption {
   duration: number | string;
   price?: number;
@@ -31,7 +30,7 @@ interface CoreServiceTemplateProps {
     titleKey: string;
     subtitleKey: string;
     badgeKey: string;
-    icon?: IconSvgElement;
+    icon?: React.ComponentType<{ className?: string }>;
   };
   bentoGrid?: {
     titleKey: string;
@@ -169,7 +168,7 @@ export default function CoreServiceTemplate({
                 return (
                   <div
                     key={index}
-                    className="p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-[180px]"
+                    className="p-6 sm:p-8 md:p-10 rounded-3xl sm:rounded-3xl bg-card border border-border transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-45"
                   >
                     <div className="absolute -top-4 -right-4 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500 transform group-hover:scale-110">
                       <CheckCircle className="w-40 h-40" />
@@ -201,11 +200,11 @@ export default function CoreServiceTemplate({
 
           <div className={`grid gap-6 md:gap-8 max-w-300 mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {pricing.options.map((option, index) => (
-                <div key={index} className="bg-muted/30 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-border hover:border-border transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
+                <div key={index} className="bg-muted/30 rounded-3xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-border hover:border-border transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-muted rounded-bl-full z-0 opacity-50 group-hover:bg-primary/5 transition-colors duration-500" />
                 
-                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[1.25rem] bg-card  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
-                  <HugeiconsIcon icon={Clock01Icon} className="w-7 h-7"  />
+                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-2xl bg-card  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
+                  <Clock01Icon className="w-7 h-7" />
                 </div>
 
                 {option.nameKey && (
@@ -256,7 +255,7 @@ export default function CoreServiceTemplate({
                         <div key={i} className="bg-muted/50 p-8 rounded-3xl border border-border h-full flex flex-col hover:bg-card transition duration-300">
                              <div className="flex gap-1 mb-4 text-gold">
                                 {[...Array(testimonial.rating)].map((_, i) => (
-                                    <HugeiconsIcon icon={StarIcon} key={i} className="w-5 h-5 fill-current"  />
+                                    <StarIcon key={i} className="w-5 h-5 fill-current" />
                                 ))}
                              </div>
                              <p className="text-lg text-foreground/80 mb-6 italic grow">&ldquo;{testimonial.text}&rdquo;</p>

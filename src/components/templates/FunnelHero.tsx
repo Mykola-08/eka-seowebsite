@@ -32,7 +32,7 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="max-w-4xl mx-auto space-y-6"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground text-balance">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-foreground text-balance">
               {t(content.heroHeadline)}
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance">
@@ -61,7 +61,7 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
                   className={cn(
                     "px-6 py-3 rounded-full text-base sm:text-lg font-medium transition-all duration-200 border-2",
                     isSelected 
-                      ? "border-primary bg-primary text-primary-foreground shadow-md scale-105" 
+                      ? "border-primary bg-primary text-primary-foreground scale-105" 
                       : "border-muted/50 bg-background text-foreground hover:border-primary/50 hover:bg-muted/30"
                   )}
                 >
@@ -79,7 +79,7 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-12"
         >
-          <Button size="lg" className="rounded-full px-10 py-8 text-xl font-bold bg-primary text-primary-foreground hover:bg-primary/90 transition-all border-0 -none h-auto" asChild>
+          <Button size="lg" className="rounded-full px-10 py-8 text-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all border-0 -none h-auto" asChild>
             <a href="#solutions">{t('funnel.hero.seeSolution') || 'See The Solution'}</a>
           </Button>
         </motion.div>

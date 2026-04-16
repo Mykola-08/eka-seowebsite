@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Heart, Star } from '@/lib/icons';
+import { StarIcon, FavouriteIcon } from '@/lib/icons';
 import CTASection from '@/components/CTASection';
 import PageLayout from '@/components/PageLayout';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
@@ -39,7 +39,7 @@ export default function AboutElenaContent() {
         >
           <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
             {/* Subtle glow behind */}
-            <div className="absolute inset-0 bg-primary/10/50 rounded-full blur-3xl opacity-60 scale-110" />
+            <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl opacity-60 scale-110" />
             <div className="relative rounded-full overflow-hidden w-full h-full border border-border">
               <Image
                 src="/images/therapist_photo.jpg"
@@ -114,11 +114,11 @@ export default function AboutElenaContent() {
            className="flex flex-wrap justify-center gap-4"
         >
             <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
-               <HugeiconsIcon icon={StarIcon} className="w-4 h-4 text-gold mr-2"  />
+               <StarIcon className="w-4 h-4 text-gold mr-2" />
                <span className="text-foreground/80 font-medium">15+ {t('hero.stats.experience')}</span>
             </div>
             <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
-               <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-destructive mr-2"  />
+               <FavouriteIcon className="w-4 h-4 text-destructive mr-2" />
                <span className="text-foreground/80 font-medium">96% {t('hero.stats.clients')}</span>
             </div>
         </motion.div>

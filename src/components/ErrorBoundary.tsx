@@ -2,7 +2,7 @@
 
 import { Component, ReactNode, ErrorInfo } from 'react';
 import { Button } from '@/components/ui/button';
-import { AlertTriangle, RefreshCw, Home } from '@/lib/icons';
+import { AlertTriangle, Refresh01Icon, Home01Icon, Alert01Icon } from '@/lib/icons';
 
 interface Props {
   children: ReactNode;
@@ -55,10 +55,10 @@ export default class ErrorBoundary extends Component<Props, State> {
         <div className="min-h-screen bg-muted/50 flex items-center justify-center p-4">
           <div className="bg-card rounded-3xl max-w-md w-full p-8 text-center">
             <div className="w-20 h-20 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <HugeiconsIcon icon={Alert01Icon} className="w-10 h-10 text-destructive"  />
+              <AlertTriangle className="w-10 h-10 text-destructive" />
             </div>
             
-            <h1 className="text-2xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl font-medium text-foreground mb-4">
               Ups! Alguna cosa ha anat malament
             </h1>
             
@@ -71,8 +71,8 @@ export default class ErrorBoundary extends Component<Props, State> {
                 <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground/80 font-medium">
                   Detalls de l&apos;error
                 </summary>
-                <div className="mt-4 p-4 bg-muted rounded-lg  border-0">
-                  <p className="font-mono text-sm font-bold text-destructive mb-2">
+                <div className="mt-4 p-4 bg-muted rounded-lg">
+                  <p className="font-mono text-sm font-medium text-destructive mb-2">
                     {this.state.error.name}: {this.state.error.message}
                   </p>
                   <pre className="text-xs text-foreground/80 whitespace-pre-wrap overflow-auto max-h-60">
@@ -88,7 +88,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                 variant="default"
                 className="w-full sm:w-auto"
               >
-                <HugeiconsIcon icon={Refresh01Icon} className="w-4 h-4 mr-2"  />
+                <Refresh01Icon className="w-4 h-4 mr-2" />
                 Tornar a intentar
               </Button>
               
@@ -97,7 +97,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                 variant="outline"
                 className="w-full sm:w-auto"
               >
-                <HugeiconsIcon icon={Home01Icon} className="w-4 h-4 mr-2"  />
+                <Home01Icon className="w-4 h-4 mr-2" />
                 Anar a l'inici
               </Button>
             </div>
@@ -119,9 +119,9 @@ export function ErrorFallback({
   resetError: () => void; 
 }) {
   return (
-    <div className="p-8 bg-destructive/5  border-0 rounded-3xl">
+    <div className="p-8 bg-destructive/5 rounded-3xl">
       <div className="flex items-center mb-4">
-        <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-destructive mr-3"  />
+        <Alert01Icon className="w-6 h-6 text-destructive mr-3" />
         <h2 className="text-lg font-medium text-foreground">
           Error en aquesta secció
         </h2>

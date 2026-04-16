@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Sparkles, Calendar, Briefcase } from '@/lib/icons';
+import { Home01Icon, SparklesIcon, Briefcase01Icon, Calendar01Icon } from '@/lib/icons';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
@@ -27,13 +27,10 @@ export default function FooterPillMenu() {
       <nav
         className={[
           /* Match the scrolled header's glass style exactly */
-          'bg-card/90 backdrop-blur-2xl',
-          ' border-0',
+          'bg-background/90 backdrop-blur-xl',
+          'border border-border/60',
           'rounded-3xl p-1.5',
           'flex items-stretch gap-0.5',
-          /* Soft lift  that matches dropdown panels */
-          '-[0_8px_30px_rgba(0,0,0,0.07)]',
-          'ring-1 ring-black/4',
           'w-full',
         ].join(' ')}
         style={{ maxWidth: 'min(400px, 100%)' }}
@@ -66,10 +63,9 @@ export default function FooterPillMenu() {
               )}
 
               <span className="relative z-10 flex flex-col items-center gap-0.75">
-                <HugeiconsIcon icon={item.icon}
+                <item.icon
                   className="w-4.5 h-4.5"
-                  aria-hidden="true"
-                 />
+                  aria-hidden="true" />
                 <span className="text-[10px] font-medium leading-none whitespace-nowrap tracking-tight">
                   {label}
                 </span>

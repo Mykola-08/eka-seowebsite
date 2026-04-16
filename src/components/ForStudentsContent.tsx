@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Brain } from '@/lib/icons';
+import { Brain01Icon } from '@/lib/icons';
 
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

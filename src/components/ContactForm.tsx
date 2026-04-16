@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { Send, Phone, Mail, MapPin, CheckCircle, Loader2, Clock, MessageCircle, User, Calendar, HelpCircle, Shield, Globe, Instagram, Users } from '@/lib/icons';
+import { CheckmarkCircle01Icon, Clock01Icon, Shield01Icon, UserIcon, MailIcon, CallIcon, Calendar01Icon, Loading01Icon, SentIcon, Message01Icon, GlobeIcon, Share01Icon, UserGroupIcon, HelpCircleIcon, Location01Icon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion } from 'framer-motion';
@@ -178,14 +178,14 @@ export default function ContactFormOptimized() {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-2xl mx-auto"
       >
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-12 text-center border border-green-100">
+        <div className="bg-muted/40 rounded-3xl p-12 text-center border border-border">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8"
           >
-            <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-12 h-12 text-primary"  />
+            <CheckmarkCircle01Icon className="w-12 h-12 text-primary" />
           </motion.div>
           <h3 className="text-3xl font-light text-foreground mb-4">
             {t('contact.success.title')}
@@ -237,7 +237,7 @@ export default function ContactFormOptimized() {
                 className="flex items-start space-x-4 p-6 bg-card rounded-2xl border border-border transition- duration-300"
               >
                 <div className={`w-12 h-12 ${item.iconBg} rounded-3xl flex items-center justify-center shrink-0`}>
-                  <HugeiconsIcon icon={item.icon} className={`w-6 h-6 ${item.iconText}`}  />
+                  <item.icon className={`w-6 h-6 ${item.iconText}`} />
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground mb-1">{item.title}</h4>
@@ -260,10 +260,10 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-3xl p-6  border-0"
+            className="bg-muted/40 border border-border rounded-3xl p-6"
           >
             <div className="flex items-start space-x-3">
-              <HugeiconsIcon icon={Clock01Icon} className="w-6 h-6 text-primary mt-1 shrink-0"  />
+              <Clock01Icon className="w-6 h-6 text-primary mt-1 shrink-0" />
               <div>
                 <h4 className="font-medium text-foreground mb-3 text-lg">{t('contact.hours.title')}</h4>
                 <div className="space-y-2 text-sm">
@@ -308,9 +308,9 @@ export default function ContactFormOptimized() {
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
-                    className="bg-destructive/5  border-0 rounded-3xl p-4 flex items-center"
+                    className="bg-destructive/5 rounded-3xl p-4 flex items-center"
                   >
-                    <HugeiconsIcon icon={Shield01Icon} className="w-5 h-5 text-destructive mr-3"  />
+                    <Shield01Icon className="w-5 h-5 text-destructive mr-3" />
                     <p className="text-destructive text-sm">{serverError}</p>
                   </motion.div>
                 )}
@@ -321,14 +321,14 @@ export default function ContactFormOptimized() {
                       {t('contact.form.name')} <span className="text-destructive">*</span>
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={UserIcon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
+                      <UserIcon className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground" />
                       <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.name ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.name ? 'border-0 bg-destructive/5' : 'border-0'}`}
                         placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
@@ -340,14 +340,14 @@ export default function ContactFormOptimized() {
                       {t('contact.form.email')} <span className="text-destructive">*</span>
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={MailIcon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
+                      <MailIcon className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground" />
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.email ? 'border-0 bg-destructive/5' : 'border-0'}`}
                         placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
@@ -361,14 +361,14 @@ export default function ContactFormOptimized() {
                       {t('contact.form.phone')}
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={CallIcon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
+                      <CallIcon className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground" />
                       <input
                         type="tel"
                         id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ${errors.phone ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.phone ? 'border-0 bg-destructive/5' : 'border-0'}`}
                         placeholder="+34 123 456 789"
                       />
                     </div>
@@ -385,7 +385,7 @@ export default function ContactFormOptimized() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full px-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-0 bg-destructive/5' : 'border-0'}`}
                       >
                         <option value="">{t('contact.form.service.placeholder')}</option>
                         {services.map((service) => (
@@ -412,7 +412,7 @@ export default function ContactFormOptimized() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                    className={`w-full px-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-0 bg-destructive/5' : 'border-0'}`}
                     placeholder={t('contact.form.message.placeholder')}
                   />
                   {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
@@ -434,7 +434,7 @@ export default function ContactFormOptimized() {
                           className={`flex flex-col items-center justify-center p-3 rounded-3xl border cursor-pointer transition duration-200 ${
                             formData.preferred_contact === option.value
                               ? 'border-0 bg-primary/5 text-primary'
-                              : 'border-0 hover:border-0 hover:bg-muted/40'
+                              : ' hover:bg-muted/40'
                           }`}
                         >
                           <input
@@ -445,7 +445,7 @@ export default function ContactFormOptimized() {
                             onChange={handleChange}
                             className="sr-only"
                           />
-                          <HugeiconsIcon icon={option.icon} className={`w-5 h-5 mb-1 ${formData.preferred_contact === option.value ? 'text-primary' : 'text-muted-foreground'}`}  />
+                          <option.icon className={`w-5 h-5 mb-1 ${formData.preferred_contact === option.value ? 'text-primary' : 'text-muted-foreground'}`} />
                           <span className="text-xs font-medium">{option.label}</span>
                         </label>
                       ))}
@@ -457,13 +457,13 @@ export default function ContactFormOptimized() {
                       {t('contact.form.preferredTime')}
                     </label>
                     <div className="relative">
-                      <HugeiconsIcon icon={Calendar01Icon} className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground"  />
+                      <Calendar01Icon className="absolute left-4 top-3.5 w-5 h-5 text-muted-foreground" />
                       <select
                         id="preferred_time"
                         name="preferred_time"
                         value={formData.preferred_time}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-3  border-0 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
+                        className="w-full pl-12 pr-4 py-3 rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none"
                       >
                         <option value="">{t('contact.form.selectTime')}</option>
                         {timeSlots.map((slot) => (
@@ -489,7 +489,7 @@ export default function ContactFormOptimized() {
                       name="source"
                       value={formData.source}
                       onChange={handleChange}
-                      className="w-full px-4 py-3  border-0 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none"
+                      className="w-full px-4 py-3 rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none"
                     >
                       <option value="">{t('contact.form.source.placeholder')}</option>
                       {sources.map((source) => (
@@ -511,7 +511,7 @@ export default function ContactFormOptimized() {
                       name="privacy_policy"
                       checked={formData.privacy_policy}
                       onChange={handleChange}
-                      className="mt-1 w-5 h-5 text-primary rounded border-0 focus:ring-blue-500"
+                      className="mt-1 w-5 h-5 text-primary rounded border-0 focus-visible:ring-ring"
                     />
                     <span className="text-sm text-foreground/80">
                       {t('contact.form.privacy')} <span className="text-destructive">*</span>
@@ -529,12 +529,12 @@ export default function ContactFormOptimized() {
                 >
                   {isSubmitting ? (
                     <>
-                      <HugeiconsIcon icon={Loading01Icon} className="w-5 h-5 animate-spin mr-2"  />
+                      <Loading01Icon className="w-5 h-5 animate-spin mr-2" />
                       {t('contact.form.submitting')}
                     </>
                   ) : (
                     <>
-                      <HugeiconsIcon icon={SentIcon} className="w-5 h-5 mr-2"  />
+                      <SentIcon className="w-5 h-5 mr-2" />
                       {t('contact.form.submit')}
                     </>
                   )}
@@ -542,7 +542,7 @@ export default function ContactFormOptimized() {
               </form>
 
               {/* Quick Contact */}
-              <div className="mt-8 pt-8  border-0">
+              <div className="mt-8 pt-8">
                 <p className="text-center text-foreground/80 mb-4 text-sm">
                   {t('contact.quick.title')}
                 </p>
@@ -553,14 +553,14 @@ export default function ContactFormOptimized() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center bg-primary hover:bg-primary/80 text-primary-foreground font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-11"
                   >
-                    <HugeiconsIcon icon={Message01Icon} className="w-4 h-4 mr-2"  />
+                    <Message01Icon className="w-4 h-4 mr-2" />
                     WhatsApp
                   </a>
                   <a
                     href="tel:+34658867133"
                     className="inline-flex items-center justify-center bg-muted hover:bg-muted text-foreground/80 font-medium px-4 py-3 rounded-lg transition-colors duration-200 text-sm min-h-11"
                   >
-                    <HugeiconsIcon icon={CallIcon} className="w-4 h-4 mr-2"  />
+                    <CallIcon className="w-4 h-4 mr-2" />
                     {t('contact.quick.call')}
                   </a>
                 </div>

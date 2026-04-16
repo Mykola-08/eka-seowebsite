@@ -2,7 +2,8 @@
 
 import PageLayout from '@/components/PageLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Sparkles } from '@/lib/icons';
+import { SparklesIcon } from '@/lib/icons';
+import FirstTimeWizard from './FirstTimeWizard';
 
 export default function FirstTimeContent() {
   const { t } = useLanguage();
@@ -13,7 +14,7 @@ export default function FirstTimeContent() {
         title: t('onboarding.welcome.title') || "Primera Visita",
         subtitle: t('onboarding.welcome.description') || "Descubre tu plan personalizado respondiendo unas breves preguntas.",
         badge: t('hero.firstTime') || "First Time",
-        icon: <HugeiconsIcon icon={SparklesIcon} className="w-4 h-4"  />
+        icon: <SparklesIcon className="w-4 h-4" />
       }}
       className="bg-secondary"
     >

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
-import { ArrowRight, Star } from '@/lib/icons';
+import { StarIcon, ArrowRight01Icon } from '@/lib/icons';
 import { motion } from 'framer-motion';
 
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
@@ -26,7 +26,7 @@ export default function PersonalizedServicesContent() {
           title: t('personalizedServices.title'),
           subtitle: t('personalizedServices.subtitle'),
           badge: t('services.therapiesFor'),
-          icon: <HugeiconsIcon icon={StarIcon} className="w-4 h-4"  />
+          icon: <StarIcon className="w-4 h-4" />
         }}
         className="bg-card"
       >
@@ -41,7 +41,7 @@ export default function PersonalizedServicesContent() {
                       className="px-8 py-4"
                   >
                       {t('personalizedServices.cta')}
-                      <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 w-5 h-5"  />
+                      <ArrowRight01Icon className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
             </div>

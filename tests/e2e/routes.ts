@@ -1,0 +1,28 @@
+// Canonical list of all public routes in the EKA Balance site.
+// Kept in a dedicated module so smoke/header/i18n specs share one source.
+export const ROUTES: readonly string[] = [
+  '/',
+  '/services',
+  '/services/massage',
+  '/services/kinesiology',
+  '/services/nutrition',
+  '/cases',
+  '/agenyz',
+  '/360-revision',
+  '/about-elena',
+  '/booking',
+  '/discovery',
+  '/first-time',
+  '/personalized-services',
+  '/vip',
+  '/for-business',
+  '/for-athletes',
+  '/for-musicians',
+  '/for-students',
+  '/for-office-workers',
+  '/discounts',
+  '/privacy-policy',
+  '/cookie-policy',
+  '/terms-of-service',
+  '/disclaimer',
+] as const;

@@ -1,8 +1,9 @@
-import { Button, ButtonProps } from '@/components/ui/button';
-import { Loader2 } from '@/lib/icons';
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Loading01Icon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
-type ButtonProps = React.ComponentProps<"button"> & VariantProps<typeof buttonVariants> & { asChild?: boolean };
+type ButtonProps = React.ComponentProps<typeof Button>;
 
 export interface LoadingButtonProps extends ButtonProps {
   loading?: boolean;
@@ -23,7 +24,7 @@ export default function LoadingButton({
     >
       {loading ? (
         <>
-          <HugeiconsIcon icon={Loading01Icon} className="w-5 h-5 mr-2 animate-spin"  />
+          <Loading01Icon className="w-5 h-5 mr-2 animate-spin" />
           {children}
         </>
       ) : (

@@ -2,11 +2,10 @@
 
 
 import { useState } from 'react';
-import { ArrowRight, ArrowLeft, Heart, Brain, Sparkles, CheckCircle, MapPin, Globe, MessageCircle, ClipboardList, type LucideIcon } from '@/lib/icons';
+import { ClipboardList, CheckmarkCircle01Icon, Message01Icon, SparklesIcon, ArrowLeft01Icon, ArrowRight01Icon, Location01Icon, GlobeIcon, Brain01Icon, FavouriteIcon } from '@/lib/icons';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 interface FormData {
   location: string;
   description: string;
@@ -23,7 +22,7 @@ interface Recommendation {
   price: string;
   duration: string;
   benefits: string[];
-  icon: IconSvgElement;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   analysis?: {
     problem?: string;
@@ -562,11 +561,11 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
       <>
         {/* Replaced SEOHead with metadata in page.tsx */}
 
-        <section className="py-16 sm:py-24 bg-linear-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
+        <section className="py-16 sm:py-24 bg-muted/30 min-h-screen">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center px-6 py-3 bg-primary/10 rounded-full mb-8">
-                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-primary mr-2"  />
+                <CheckmarkCircle01Icon className="w-5 h-5 text-primary mr-2" />
                 <span className="text-primary font-medium">{t('discovery.recommendation.badge')}</span>
               </div>
 
@@ -579,7 +578,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               </p>
 
               {recommendation.analysis && (
-                <div className="bg-primary/5 p-6 rounded-3xl mb-12 text-center max-w-2xl mx-auto  border-0">
+                <div className="bg-primary/5 p-6 rounded-3xl mb-12 text-center max-w-2xl mx-auto">
                   <p className="text-lg text-foreground/80 leading-relaxed">
                     {t('discovery.analysis.intro')}
                     {recommendation.analysis.problem && (
@@ -600,7 +599,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <div className="inline-flex bg-muted p-1 rounded-3xl mb-8">
                 <Button
                   onClick={() => setViewMode('basic')}
-                  variant={viewMode === 'basic' ? 'white' : 'ghost'}
+                  variant={viewMode === 'basic' ? 'secondary' : 'ghost'}
                   size="sm"
                   className="rounded-lg"
                 >
@@ -608,7 +607,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 </Button>
                 <Button
                   onClick={() => setViewMode('advanced')}
-                  variant={viewMode === 'advanced' ? 'white' : 'ghost'}
+                  variant={viewMode === 'advanced' ? 'secondary' : 'ghost'}
                   size="sm"
                   className="rounded-lg"
                 >
@@ -637,11 +636,11 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div className="text-center p-4 bg-muted/40 rounded-3xl">
                       <h4 className="font-semibold text-foreground mb-2">{t('common.price')}</h4>
-                      <p className="text-2xl font-bold text-foreground">{recommendation.price}</p>
+                      <p className="text-2xl font-medium text-foreground">{recommendation.price}</p>
                     </div>
                     <div className="text-center p-4 bg-muted/40 rounded-3xl">
                       <h4 className="font-semibold text-foreground mb-2">{t('common.duration')}</h4>
-                      <p className="text-2xl font-bold text-foreground">{recommendation.duration}</p>
+                      <p className="text-2xl font-medium text-foreground">{recommendation.duration}</p>
                     </div>
                   </div>
 
@@ -685,9 +684,9 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleBooking}
-                    className="bg-brand-whatsapp hover:bg-brand-whatsapp/80 text-primary-foreground font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
+                    className="bg-brand-whatsapp hover:bg-brand-whatsapp/80 text-primary-foreground font-medium px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                   >
-                    <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
+                    <Message01Icon className="w-5 h-5 mr-2" />
                     {t('booking.direct.button')}
                   </Button>
                   <Button
@@ -726,20 +725,20 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   </div>
 
                   {/* Root Cause */}
-                  <div className="bg-primary/5 p-6 rounded-3xl  border-0">
+                  <div className="bg-primary/5 p-6 rounded-3xl">
                     <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{t('discovery.diagnosis.rootCause')}</h3>
                     <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.rootCause}</p>
                   </div>
 
                   {/* Strategy */}
-                  <div className="bg-primary/5 p-6 rounded-3xl  border-0">
+                  <div className="bg-primary/5 p-6 rounded-3xl">
                     <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{t('discovery.diagnosis.strategy')}</h3>
                     <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.strategy}</p>
                   </div>
                 </div>
 
                 {/* Frequency */}
-                <div className="mb-12 p-6 bg-primary/5 rounded-3xl  border-0 text-center">
+                <div className="mb-12 p-6 bg-primary/5 rounded-3xl text-center">
                   <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
                   <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.frequency}</p>
                 </div>
@@ -748,9 +747,9 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleBooking}
-                    className="bg-brand-whatsapp hover:bg-brand-whatsapp/80 text-primary-foreground font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
+                    className="bg-brand-whatsapp hover:bg-brand-whatsapp/80 text-primary-foreground font-medium px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                   >
-                    <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
+                    <Message01Icon className="w-5 h-5 mr-2" />
                     {t('booking.direct.button')}
                   </Button>
                   <Button
@@ -781,12 +780,12 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
   return (
     <>
-      <section className="py-16 sm:py-24 bg-linear-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
+      <section className="py-16 sm:py-24 bg-muted/30 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-6 py-3 bg-primary/10 rounded-full mb-8">
-              <HugeiconsIcon icon={SparklesIcon} className="w-5 h-5 text-primary mr-2"  />
+              <SparklesIcon className="w-5 h-5 text-primary mr-2" />
               <span className="text-primary font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
 
@@ -833,12 +832,12 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         onClick={() => setFormData({ ...formData, location: loc.id })}
                         className={`text-center p-6 rounded-3xl border-2 transition duration-200  flex flex-col items-center justify-center ${formData.location === loc.id
                           ? 'border-0 bg-primary/5'
-                          : 'border-0 hover:border-0'
+                          : ''
                           }`}
                       >
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-primary/10 text-primary' : 'bg-muted text-foreground/80'
                           }`}>
-                          <HugeiconsIcon icon={loc.icon} className="w-6 h-6"  />
+                          <loc.icon className="w-6 h-6" />
                         </div>
                         <h3 className="font-semibold text-foreground">{loc.title}</h3>
                       </button>
@@ -860,7 +859,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder={t('discovery.step.description.placeholder')}
-                  className="w-full h-40 p-4 rounded-3xl border-2 border-0 focus:border-0 focus:ring-0 resize-none text-lg"
+                  className="w-full h-40 p-4 rounded-3xl border-0 focus:border-0 focus-visible:ring-2 focus-visible:ring-ring resize-none text-lg"
                 />
                 <p className="text-sm text-muted-foreground mt-2 text-right">
                   {formData.description.length}/3 {t('discovery.step.description.minChars')}
@@ -883,7 +882,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       onClick={() => setFormData({ ...formData, userType: type.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.userType === type.id
                         ? 'border-0 bg-primary/5'
-                        : 'border-0 hover:border-0'
+                        : ''
                         }`}
                     >
                       <h3 className="font-semibold text-foreground mb-2">{type.title}</h3>
@@ -914,13 +913,13 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       }}
                       className={`w-full text-left p-4 rounded-3xl border-2 transition duration-200 ${formData.tensionAreas.includes(option)
                         ? 'border-0 bg-primary/5'
-                        : 'border-0 hover:border-0'
+                        : ''
                         }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-foreground">{option}</span>
                         {formData.tensionAreas.includes(option) && (
-                          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-primary"  />
+                          <CheckmarkCircle01Icon className="w-5 h-5 text-primary" />
                         )}
                       </div>
                     </button>
@@ -944,7 +943,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.emotionalState === state.id
                         ? 'border-0 bg-primary/5'
-                        : 'border-0 hover:border-0'
+                        : ''
                         }`}
                     >
                       <h3 className="font-semibold text-foreground mb-2">{state.title}</h3>
@@ -970,7 +969,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.timeCommitment === time.id
                         ? 'border-0 bg-primary/5'
-                        : 'border-0 hover:border-0'
+                        : ''
                         }`}
                     >
                       <h3 className="font-semibold text-foreground mb-2">{time.title}</h3>
@@ -996,7 +995,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.budget === budget.id
                         ? 'border-0 bg-primary/5'
-                        : 'border-0 hover:border-0'
+                        : ''
                         }`}
                     >
                       <h3 className="font-semibold text-foreground mb-2">{budget.title}</h3>
@@ -1008,13 +1007,13 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             )}
 
             {/* Navigation */}
-            <div className="flex justify-between items-center mt-12 pt-8  border-0">
+            <div className="flex justify-between items-center mt-12 pt-8">
               <Button
                 onClick={handleBack}
                 variant="ghost"
                 disabled={currentStep === 0}
               >
-                <HugeiconsIcon icon={ArrowLeft01Icon} className="w-4 h-4 mr-2"  />
+                <ArrowLeft01Icon className="w-4 h-4 mr-2" />
                 {t('discovery.back')}
               </Button>
 
@@ -1029,7 +1028,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 className="w-auto"
               >
                 {currentStep === 6 ? t('discovery.seeRecommendation') : t('discovery.next')}
-                <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
+                <ArrowRight01Icon className="w-4 h-4 ml-2" />
               </Button>
             </div>
           </div>

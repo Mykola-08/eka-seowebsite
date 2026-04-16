@@ -1,14 +1,5 @@
-import { HugeiconsIcon } from '@hugeicons/react';
-import { 
-  BodyPartMuscleIcon, 
-  BrainIcon, 
-  FirstAidKitIcon, 
-  IdeaIcon, 
-  AppleIcon,
-  Moon01Icon,
-  Activity01Icon,
-  FlashIcon
-} from '@hugeicons/core-free-icons';
+import type { IconComp } from '@/lib/icons';
+import { BodyPartMuscleIcon, BrainIcon, IdeaIcon, AppleIcon, Moon01Icon, Activity01Icon, FlashIcon } from '@/lib/icons';
 
 export type ProblemState = 
   | 'back_pain'
@@ -38,7 +29,7 @@ export interface FunnelContent {
   authoritativeMethod: string;
   methodologyTitle: string;
   methodologyText: string;
-  methodologyIcon: any;
+  methodologyIcon: IconComp;
   testimonials: Testimonial[];
   recommendedServices: string[];
 }

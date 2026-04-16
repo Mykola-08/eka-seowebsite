@@ -1,11 +1,9 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ProblemState, FUNNEL_DATA } from '@/lib/funnel-data';
 import { Button } from '@/components/ui/button';
-import { SecurityCheckIcon } from '@hugeicons/core-free-icons';
-import { HugeiconsIcon } from '@hugeicons/react';
+import { SecurityCheckIcon } from '@/lib/icons';
 
 interface GuaranteeProps {
   problem: ProblemState;
@@ -15,11 +13,11 @@ export function Guarantee({ problem }: GuaranteeProps) {
   const content = FUNNEL_DATA[problem];
 
   return (
-    <section className="bg-muted py-24  border-0">
+    <section className="bg-muted py-24">
       <div className="container mx-auto px-4 max-w-4xl text-center">
         <div className="flex justify-center mb-8">
-          <div className="p-4 rounded-full bg-background   border-0">
-             <HugeiconsIcon icon={SecurityCheckIcon} className="w-12 h-12 text-primary" />
+          <div className="p-4 rounded-full bg-background">
+             <SecurityCheckIcon className="w-12 h-12 text-primary" />
           </div>
         </div>
 
@@ -32,7 +30,7 @@ export function Guarantee({ problem }: GuaranteeProps) {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="w-full sm:w-auto h-14 text-lg font-bold px-8 rounded-full  hover:scale-105 transition-transform">
+          <Button size="lg" className="w-full sm:w-auto h-14 text-lg px-8 rounded-full hover:scale-105 transition-transform">
             Book Your Assessment Now
           </Button>
           <p className="text-sm text-muted-foreground mt-4 sm:mt-0 sm:ml-4">

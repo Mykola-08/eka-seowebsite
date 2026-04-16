@@ -1,12 +1,12 @@
 'use client';
  
+import type React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle, Heart, Brain, Zap, Moon, Activity, Stethoscope, Shield } from '@/lib/icons';
+import { ArrowLeft, ArrowLeft01Icon, ArrowRight01Icon, Activity01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Shield01Icon, Moon01Icon, StethoscopeIcon, CheckmarkCircle01Icon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-
 interface ProblemConfig {
-  icon: IconSvgElement;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   href: string;
   key: string;
@@ -44,10 +44,10 @@ export default function CaseDetailContent({ id }: { id: string }) {
   if (!config) {
     return (
       <div className="py-20 text-center">
-        <h1 className="text-2xl font-bold mb-4">{t('common.notFound') || 'Case not found'}</h1>
+        <h1 className="text-2xl font-medium mb-4">{t('common.notFound') || 'Case not found'}</h1>
         <Link href="/cases">
           <Button variant="outline">
-            <HugeiconsIcon icon={ArrowLeft01Icon} className="mr-2 h-4 w-4"  />
+            <ArrowLeft01Icon className="mr-2 h-4 w-4" />
             {t('common.back') || 'Back'}
           </Button>
         </Link>
@@ -76,7 +76,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
     <div className="min-h-screen bg-card">
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 overflow-hidden bg-linear-to-b from-gray-50 to-white border-b border-border/50">
+      <div className="relative pt-32 pb-20 overflow-hidden bg-muted/30 border-b border-border/50">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40" />
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
 
@@ -86,7 +86,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
           </Link>
 
           <div className={`w-20 h-20 mx-auto rounded-3xl ${colorClass.bg} flex items-center justify-center mb-6 `}>
-            <HugeiconsIcon icon={Icon} className={`w-10 h-10 ${colorClass.text}`} />
+            <Icon className={`w-10 h-10 ${colorClass.text}`} />
           </div>
 
           <h1 className="text-4xl md:text-5xl font-light text-foreground mb-6 tracking-tight">
@@ -104,9 +104,9 @@ export default function CaseDetailContent({ id }: { id: string }) {
 
           {/* Symptoms */}
           <div className="relative">
-            <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-red-200 to-transparent rounded-full opacity-50" />
+            <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-destructive/40 to-transparent rounded-full opacity-50" />
             <h2 className="text-2xl font-light text-foreground mb-6 flex items-center">
-              <span className="w-8 h-8 rounded-full bg-destructive/5 text-destructive flex items-center justify-center mr-3 text-sm font-bold">1</span>
+              <span className="w-8 h-8 rounded-full bg-destructive/5 text-destructive flex items-center justify-center mr-3 text-sm font-medium">1</span>
               {t('casos.symptoms')}
             </h2>
             <ul className="space-y-4">
@@ -121,9 +121,9 @@ export default function CaseDetailContent({ id }: { id: string }) {
 
           {/* Causes */}
           <div className="relative">
-            <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-orange-200 to-transparent rounded-full opacity-50" />
+            <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-warning/40 to-transparent rounded-full opacity-50" />
             <h2 className="text-2xl font-light text-foreground mb-6 flex items-center">
-              <span className="w-8 h-8 rounded-full bg-gold/5 text-gold flex items-center justify-center mr-3 text-sm font-bold">2</span>
+              <span className="w-8 h-8 rounded-full bg-gold/5 text-gold flex items-center justify-center mr-3 text-sm font-medium">2</span>
               {t('casos.causes')}
             </h2>
             <ul className="space-y-4">
@@ -144,7 +144,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
             <div>
               <h2 className="text-2xl font-light text-primary-foreground mb-6 flex items-center">
-                <HugeiconsIcon icon={Activity01Icon} className="w-6 h-6 text-primary-foreground/80 mr-3"  />
+                <Activity01Icon className="w-6 h-6 text-primary-foreground/80 mr-3" />
                 {t('casos.treatment')}
               </h2>
               <p className="text-primary-foreground/90 leading-relaxed text-lg font-light">
@@ -154,7 +154,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
 
             <div>
               <h2 className="text-2xl font-light text-primary-foreground mb-6 flex items-center">
-                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary/80 mr-3"  />
+                <CheckmarkCircle01Icon className="w-6 h-6 text-primary/80 mr-3" />
                 {t('casos.results')}
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg font-light">
@@ -168,10 +168,10 @@ export default function CaseDetailContent({ id }: { id: string }) {
               <Button
                 size="xl"
                 variant="secondary"
-                className="font-bold px-8 py-4"
+                className="font-medium px-8 py-4"
               >
                 {t('common.bookNow')}
-                <HugeiconsIcon icon={ArrowRight01Icon} className="w-5 h-5 ml-2"  />
+                <ArrowRight01Icon className="w-5 h-5 ml-2" />
               </Button>
             </Link>
           </div>

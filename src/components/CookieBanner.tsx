@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, Cookie, Shield, FileText, AlertTriangle, ScrollText } from '@/lib/icons';
+import { X, Cookie } from '@/lib/icons';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -65,85 +65,86 @@ export default function CookieBanner() {
   };
 
   const policies = [
-    { href: '/cookie-policy', label: t('cookies.learnMore'), icon: CookieIcon },
-    { href: '/privacy-policy', label: t('footer.privacyPolicy'), icon: Shield01Icon },
-    { href: '/terms-of-service', label: t('footer.termsOfService'), icon: GraduationScrollIcon },
-    { href: '/disclaimer', label: 'Disclaimer', icon: Alert01Icon },
+    { href: '/cookie-policy', label: t('cookies.learnMore') },
+    { href: '/privacy-policy', label: t('footer.privacyPolicy') },
+    { href: '/terms-of-service', label: t('footer.termsOfService') },
+    { href: '/disclaimer', label: 'Disclaimer' },
   ];
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ y: 20, opacity: 0, scale: 0.95 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: 20, opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-[60] p-4 pb-24 md:p-6 md:left-auto md:w-[480px] lg:right-6 lg:bottom-6"
+          initial={{ y: 16, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 16, opacity: 0 }}
+          transition={{ duration: 0.25, ease: [0.165, 0.84, 0.44, 1] }}
+          className="fixed bottom-0 left-0 right-0 z-60 p-4 pb-24 md:pb-6 md:p-6 md:left-auto md:right-6 md:bottom-6 md:w-105"
+          data-testid="cookie-banner"
         >
-          <div className="bg-card/95 backdrop-blur-2xl border border-border/60 shadow-2xl rounded-3xl overflow-hidden pointer-events-auto">
-            <div className="p-6">
+          <div className="bg-background/95 backdrop-blur-xl border border-border rounded-3xl overflow-hidden pointer-events-auto">
+            <div className="p-5 sm:p-6">
               {/* Header */}
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/5 text-primary rounded-full flex items-center justify-center shrink-0">
-                    <Cookie className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground tracking-tight">
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="flex items-center gap-2.5">
+                  <Cookie className="w-5 h-5 text-muted-foreground shrink-0" />
+                  <h3 className="text-base font-medium text-foreground tracking-tight">
                     {t('cookies.title')}
                   </h3>
                 </div>
                 <button
                   onClick={rejectCookies}
-                  className="text-muted-foreground/70 hover:text-foreground hover:bg-muted rounded-full p-2 transition-colors shrink-0"
+                  className="text-muted-foreground hover:text-foreground hover:bg-muted rounded-full p-1.5 transition-colors shrink-0 -mr-1 -mt-1"
                   aria-label="Reject cookies and close"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
 
               {/* Description */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4 font-light">
                 {t('cookies.description')}
               </p>
 
-              {/* Links */}
-              <div className="mb-6 bg-muted/30 rounded-2xl p-4 border border-border/50">
-                <div className="flex flex-wrap gap-x-5 gap-y-3">
-                  {policies.map(({ href, label, icon: Icon }) => (
+              {/* Inline policy links */}
+              <div className="mb-5 text-xs text-muted-foreground leading-relaxed">
+                {policies.map(({ href, label }, idx) => (
+                  <span key={href}>
+                    {idx > 0 && <span className="mx-1.5 opacity-50">·</span>}
                     <Link
-                      key={href}
                       href={href}
-                      className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
+                      className="hover:text-foreground transition-colors underline-offset-4 hover:underline"
                     >
-                      <Icon className="w-4 h-4" />
-                      <span>{label}</span>
+                      {label}
                     </Link>
-                  ))}
-                </div>
+                  </span>
+                ))}
               </div>
 
               {/* Actions */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <div className="flex items-center gap-2">
                 <Button
                   onClick={acceptCookies}
-                  className="flex-1 rounded-full font-medium py-6 bg-primary hover:bg-primary/80 text-primary-foreground shadow-sm transition-all"
+                  size="sm"
+                  className="flex-1"
+                  data-testid="cookie-accept"
                 >
                   {t('cookies.accept')}
                 </Button>
                 <Button
                   onClick={rejectCookies}
-                  variant="outline"
-                  className="flex-1 rounded-full font-medium py-6 border-border text-foreground/80 hover:bg-muted/50 transition-all"
+                  variant="ghost"
+                  size="sm"
+                  className="flex-1"
                 >
                   {t('cookies.reject') || 'Rebutjar'}
                 </Button>
               </div>
-              
-              <div className="mt-4 text-center">
+
+              <div className="mt-3 text-center">
                 <button
                   onClick={() => setShowLanguagePopup(true)}
-                  className="text-muted-foreground/70 hover:text-primary text-xs font-medium transition-colors underline decoration-dashed underline-offset-4"
+                  className="text-muted-foreground/70 hover:text-foreground text-xs font-normal transition-colors"
                 >
                   {t('cookies.wrongLanguage')}
                 </button>

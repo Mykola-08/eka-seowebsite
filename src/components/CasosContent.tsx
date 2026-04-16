@@ -1,20 +1,20 @@
 'use client';
 
+import type React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Activity, Brain, Heart, Moon, Shield, Stethoscope, Zap, Search } from '@/lib/icons';
+import { Search01Icon, ArrowRight01Icon, Activity01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Shield01Icon, Moon01Icon, StethoscopeIcon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import SEOUpdater from '@/components/SEOUpdater';
 
 import ParallaxBackground from '@/components/ParallaxBackground';
-
 interface Problem {
   id: string;
   title: string;
   category: string;
   description: string;
-  icon: IconSvgElement;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   href: string;
 }
@@ -130,7 +130,7 @@ export default function CasosContent() {
           title: t('casos.title'),
           subtitle: t('casos.subtitle'),
           badge: t('casos.hero.badge') || "Solutions",
-          icon: <HugeiconsIcon icon={Search01Icon} className="w-4 h-4"  />
+          icon: <Search01Icon className="w-4 h-4" />
         }}
         className="bg-secondary"
       >
@@ -150,10 +150,10 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative bg-card rounded-[32px] p-8 flex flex-col h-full border border-border/50 transition duration-300 active:scale-[0.97]"
+                  className="group relative bg-card rounded-3xl p-8 flex flex-col h-full border border-border/50 transition duration-300 active:scale-[0.97]"
                 >
                   <div className="w-14 h-14 rounded-3xl bg-muted/40 flex items-center justify-center mb-6 text-foreground">
-                    <HugeiconsIcon icon={Icon} className="w-7 h-7" />
+                    <Icon className="w-7 h-7" />
                   </div>
                   
                   <h3 className="text-xl font-semibold text-foreground mb-3">
@@ -166,7 +166,7 @@ export default function CasosContent() {
                   
                   <div className="mt-auto flex items-center text-sm font-medium text-primary">
                     <span>{t('casos.seeDetails')}</span>
-                    <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2"  />
+                    <ArrowRight01Icon className="w-4 h-4 ml-2" />
                   </div>
                 </Link>
               );
@@ -176,7 +176,7 @@ export default function CasosContent() {
       </div>
 
       {/* Additional Problems List - Modernized */}
-      <div className="bg-card py-24  border-0">
+      <div className="bg-card py-24">
         <div className="section-container max-w-5xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold text-foreground mb-4 tracking-tight">{t('casos.otherCases')}</h2>
@@ -206,7 +206,7 @@ export default function CasosContent() {
         overlayOpacity={0.6}
       >
         <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-4xl md:text-6xl font-semibold text-primary-foreground mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">
             {t('casos.ctaTitle')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light leading-relaxed">

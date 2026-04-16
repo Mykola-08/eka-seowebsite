@@ -41,7 +41,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
         <PageLayout>
             {/* Sticky Mobile CTA */}
             <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-md border-t border-border z-50 md:hidden">
-                <Button asChild size="lg" className="w-full rounded-full h-14 font-semibold">
+                <Button asChild size="lg" className="w-full rounded-full h-14">
                     <a href={getStoreUrl(product.slug)} target="_blank" rel="noopener noreferrer">
                         {t('agenyz.buyNow') || 'Buy Now'}
                     </a>
@@ -86,7 +86,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="inline-flex items-center px-4 py-1.5 bg-muted border border-border text-muted-foreground rounded-full text-[10px] font-bold uppercase tracking-[0.2em]"
+                                className="inline-flex items-center px-4 py-1.5 bg-muted border border-border text-muted-foreground rounded-full text-[10px] font-medium uppercase tracking-[0.2em]"
                             >
                                 {t('agenyz.label.bioactive') || 'Bio-Active'}
                             </motion.div>
@@ -115,13 +115,13 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                 transition={{ delay: 0.4 }}
                                 className="flex flex-col sm:flex-row gap-4"
                             >
-                                <Button asChild size="xl" className="sm:w-auto px-10 py-7 rounded-full font-bold">
+                                <Button asChild size="xl" className="sm:w-auto px-10 py-7 rounded-full">
                                     <a href={getStoreUrl(product.slug)} target="_blank" rel="noopener noreferrer">
                                         <ShoppingBag className="mr-3 w-6 h-6" />
                                         {t('agenyz.buyNow') || 'Order Now'}
                                     </a>
                                 </Button>
-                                <Button asChild size="xl" variant="outline" className="sm:w-auto px-10 py-7 rounded-full font-bold">
+                                <Button asChild size="xl" variant="outline" className="sm:w-auto px-10 py-7 rounded-full">
                                     <Link href="/booking">
                                         <MessageCircle className="mr-3 w-6 h-6" />
                                         {t('common.askQuestions') || 'Consult Expert'}
@@ -156,7 +156,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                             <Accordion type="single" collapsible defaultValue="ingredients" className="w-full bg-card rounded-3xl border border-border shadow-none">
                                 {translatedIngredients.length > 0 && (
                                     <AccordionItem value="ingredients" className="border-b border-border px-6">
-                                        <AccordionTrigger className="text-lg font-bold hover:no-underline py-5">
+                                        <AccordionTrigger className="text-lg font-medium hover:no-underline py-5">
                                             {t('agenyz.ingredients') || 'Active Ingredients'}
                                         </AccordionTrigger>
                                         <AccordionContent className="pb-6">
@@ -173,7 +173,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                 )}
                                 {translatedUsage && (
                                     <AccordionItem value="usage" className="border-0 px-6">
-                                        <AccordionTrigger className="text-lg font-bold hover:no-underline py-5">
+                                        <AccordionTrigger className="text-lg font-medium hover:no-underline py-5">
                                             {t('agenyz.usage') || 'How to Use'}
                                         </AccordionTrigger>
                                         <AccordionContent className="pb-6">
@@ -192,7 +192,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                             {translatedBenefits.length > 0 && (
                                 <Card className="bg-primary/10 border-primary/20 shadow-none overflow-hidden relative rounded-3xl">
                                     <CardHeader className="pb-4">
-                                        <CardTitle className="text-xl font-bold flex items-center gap-2 text-primary relative z-10">
+                                        <CardTitle className="text-xl font-medium flex items-center gap-2 text-primary relative z-10">
                                             <Zap className="w-5 h-5" />
                                             {t('agenyz.benefits') || 'Key Benefits'}
                                         </CardTitle>
@@ -215,25 +215,25 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                     <div className="mx-auto w-10 h-10 bg-muted rounded-full flex items-center justify-center mb-3 text-muted-foreground">
                                         <ShieldCheck className="w-5 h-5" />
                                     </div>
-                                    <p className="text-xs font-bold text-foreground uppercase tracking-widest">{t('agenyz.label.quality') || 'Quality'}</p>
+                                    <p className="text-xs font-medium text-foreground uppercase tracking-widest">{t('agenyz.label.quality') || 'Quality'}</p>
                                 </div>
                                 <div className="text-center p-2">
                                     <div className="mx-auto w-10 h-10 bg-muted rounded-full flex items-center justify-center mb-3 text-muted-foreground">
                                         <Leaf className="w-5 h-5" />
                                     </div>
-                                    <p className="text-xs font-bold text-foreground uppercase tracking-widest">{t('agenyz.label.natural') || 'Natural'}</p>
+                                    <p className="text-xs font-medium text-foreground uppercase tracking-widest">{t('agenyz.label.natural') || 'Natural'}</p>
                                 </div>
                                 <div className="text-center p-2">
                                     <div className="mx-auto w-10 h-10 bg-muted rounded-full flex items-center justify-center mb-3 text-muted-foreground">
                                         <Microscope className="w-5 h-5" />
                                     </div>
-                                    <p className="text-xs font-bold text-foreground uppercase tracking-widest">{t('agenyz.label.labTested') || 'Lab Tested'}</p>
+                                    <p className="text-xs font-medium text-foreground uppercase tracking-widest">{t('agenyz.label.labTested') || 'Lab Tested'}</p>
                                 </div>
                                 <div className="text-center p-2">
                                     <div className="mx-auto w-10 h-10 bg-muted rounded-full flex items-center justify-center mb-3 text-muted-foreground">
                                         <Zap className="w-5 h-5" />
                                     </div>
-                                    <p className="text-xs font-bold text-foreground uppercase tracking-widest">{t('agenyz.label.highBioavailability') || 'Bioavailable'}</p>
+                                    <p className="text-xs font-medium text-foreground uppercase tracking-widest">{t('agenyz.label.highBioavailability') || 'Bioavailable'}</p>
                                 </div>
                             </div>
                         </div>

@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { BentoCard } from '@/components/ui/bento-card';
 import { shimmerBlurDataURL } from '@/lib/image-utils';
 import AppleHero from '@/components/AppleHero';
+import ServiceCard from '@/components/ServiceCard';
+import { SERVICES_DATA } from '@/shared/constants';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -55,11 +56,11 @@ export default function HomeContent() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-[32px] transition-colors duration-300">
+              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl transition-colors duration-300">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-3 tabular-nums">
                   {stat.value}{stat.suffix}
                 </div>
-                <span className="text-xs md:text-sm font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</span>
+                <span className="text-xs md:text-sm font-medium text-muted-foreground uppercase tracking-widest">{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -88,11 +89,11 @@ export default function HomeContent() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col items-start">
-                <span className="text-primary-foreground inline-flex items-center px-4 py-1.5 rounded-full bg-foreground/20 backdrop-blur-lg  font-semibold mb-4 text-xs truncate">
+                <span className="text-white inline-flex items-center px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-lg  font-medium mb-4 text-xs truncate">
                   {t('home.bento.featured')}
                 </span>
-                <h3 className="text-primary-foreground text-3xl sm:text-4xl font-bold mb-3 tracking-tight">{t('home.bento.equilibri.title')}</h3>
-                <p className="text-primary-foreground/95 text-lg md:text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
+                <h3 className="text-white text-3xl sm:text-4xl font-medium mb-3 tracking-tight">{t('home.bento.equilibri.title')}</h3>
+                <p className="text-whited:text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
               </div>
             </BentoCard>
 
@@ -112,9 +113,9 @@ export default function HomeContent() {
               </div>
               <div className="absolute inset-0 flex items-center p-8 md:p-10 z-20">
                 <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%]">
-                  <h3 className="text-foreground text-2xl font-bold mb-3 tracking-tight">{t('home.bento.kinesiology.title')}</h3>
+                  <h3 className="text-foreground text-2xl font-medium mb-3 tracking-tight">{t('home.bento.kinesiology.title')}</h3>
                   <p className="text-foreground/80 font-medium mb-6 text-sm md:text-base leading-relaxed">{t('home.bento.kinesiology.desc')}</p>
-                  <span className="inline-flex items-center text-sm font-bold text-primary group-hover:text-primary-600 transition-colors">
+                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:text-primary-600 transition-colors">
                     {t('home.bento.explore')}
                   </span>
                 </div>
@@ -133,8 +134,8 @@ export default function HomeContent() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent z-10"></div>
               <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">
-                <h3 className="text-primary-foreground text-2xl font-bold mb-2 tracking-tight">{t('home.bento.nutrition.title')}</h3>
-                <p className="text-primary-foreground/90 text-sm font-medium">{t('home.bento.nutrition.desc')}</p>
+                <h3 className="text-white text-2xl font-medium mb-2 tracking-tight">{t('home.bento.nutrition.title')}</h3>
+                <p className="text-whiteont-medium">{t('home.bento.nutrition.desc')}</p>
               </div>
             </BentoCard>
 
@@ -179,7 +180,7 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-[32px] overflow-hidden bg-card">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-card">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
@@ -202,7 +203,7 @@ export default function HomeContent() {
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-                <span className="inline-block py-1 px-3 rounded-full bg-card/80  backdrop-blur-md text-foreground text-xs font-semibold uppercase tracking-wider">
+                <span className="inline-block py-1 px-3 rounded-full bg-card/80  backdrop-blur-md text-foreground text-xs font-medium uppercase tracking-wider">
                   {t('elena.role') || 'Lead Therapist'}
                 </span>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight leading-[1.1]">

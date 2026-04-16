@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { X, MessageCircle, FileText, ArrowLeft } from '@/lib/icons';
+import { Message01Icon, File01Icon, Cancel01Icon, ArrowLeft01Icon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -122,7 +122,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
   if (!isOpen) return null;
 
   return typeof document !== 'undefined' ? createPortal(
-    <div className="fixed inset-0 bg-foreground/60 backdrop-blur-xs z-90 flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-90 flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
       <motion.div
         ref={dialogRef}
         role="dialog"
@@ -131,7 +131,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-card dark:bg-foreground rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative"
+              className="bg-card/90 backdrop-blur-xl rounded-[2.5rem] max-w-lg w-full max-h-[90vh] overflow-y-auto relative shadow-apple-xl ring-1 ring-white/10 border border-border/30"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -139,7 +139,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
           aria-label={t('booking.smart.close') || 'Close'}
           className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted dark:bg-foreground/90 hover:bg-muted dark:hover:bg-muted-foreground flex items-center justify-center transition-colors z-10"
         >
-          <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5 text-foreground/80 dark:text-muted-foreground"  />
+          <Cancel01Icon className="w-5 h-5 text-foreground/80 dark:text-muted-foreground" />
         </button>
 
         <div className="p-5 sm:p-8">
@@ -164,10 +164,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 <div className="grid gap-4">
                   <button
                     onClick={handleQuickWhatsApp}
-                    className="flex items-center p-4 rounded-3xl border-2 border-0 hover:border-0 bg-primary/5/50 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-3xl border-2  bg-primary/5 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 transition-colors">
-                      <HugeiconsIcon icon={Message01Icon} className="w-6 h-6 text-primary"  />
+                      <Message01Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-normal text-foreground dark:text-muted-foreground/30">
@@ -181,10 +181,10 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     onClick={() => setStep('form')}
-                    className="flex items-center p-4 rounded-3xl border-2 border-0 hover:border-0 bg-primary/5/50 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-3xl border-2  bg-primary/5 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 transition-colors">
-                      <HugeiconsIcon icon={File01Icon} className="w-6 h-6 text-primary"  />
+                      <File01Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-normal text-foreground dark:text-muted-foreground/30">
@@ -210,7 +210,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                     onClick={() => setStep('choice')}
                     className="mr-4 p-2 hover:bg-muted dark:hover:bg-foreground/90 rounded-full transition-colors"
                   >
-                    <HugeiconsIcon icon={ArrowLeft01Icon} className="w-5 h-5 text-foreground/80 dark:text-muted-foreground"  />
+                    <ArrowLeft01Icon className="w-5 h-5 text-foreground/80 dark:text-muted-foreground" />
                   </button>
                   <h2 className="text-xl font-normal text-foreground dark:text-primary-foreground">
                     {t('booking.smart.form')}
@@ -228,7 +228,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-foreground/90 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-3xl dark:border-0 bg-muted/40 dark:bg-foreground/90 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
                     />
                   </div>
 
@@ -240,7 +240,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       id="booking-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-foreground/90 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-3xl dark:border-0 bg-muted/40 dark:bg-foreground/90 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
                     >
                       <option value="">{t('booking.smart.service.placeholder')}</option>
                       {services.map((s) => (
@@ -259,7 +259,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       placeholder={t('booking.smart.time.placeholder')}
                       value={formData.timePreference}
                       onChange={(e) => setFormData({ ...formData, timePreference: e.target.value })}
-                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-foreground/90 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-3xl dark:border-0 bg-muted/40 dark:bg-foreground/90 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
                     />
                   </div>
 
@@ -267,7 +267,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                     type="submit"
                     className="w-full py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-xl font-normal transition-colors flex items-center justify-center"
                   >
-                    <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
+                    <Message01Icon className="w-5 h-5 mr-2" />
                     {t('booking.smart.send')}
                   </button>
                 </form>

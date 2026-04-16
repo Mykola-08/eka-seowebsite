@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from '@/lib/icons';
+import { ArrowLeft01Icon } from '@/lib/icons';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
 
@@ -27,7 +27,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
   if (!techniqueMap[id]) {
     return (
       <div className="min-h-screen pt-32 px-4 text-center">
-        <h1 className="text-2xl font-bold text-foreground">Technique not found</h1>
+        <h1 className="text-2xl font-medium text-foreground">Technique not found</h1>
         <Link href="/" className="text-primary hover:text-primary mt-4 inline-block">
           {t('common.back')}
         </Link>
@@ -44,7 +44,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
           href="/#techniques" 
           className="inline-flex items-center text-foreground/80 hover:text-primary transition-colors mb-8 group"
         >
-          <HugeiconsIcon icon={ArrowLeft01Icon} className="w-5 h-5 mr-2 transition-colors"  />
+          <ArrowLeft01Icon className="w-5 h-5 mr-2 transition-colors" />
           {t('common.back')}
         </Link>
         
@@ -53,7 +53,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-gray-900 via-blue-800 to-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-medium text-foreground mb-6">
             {t(`${baseKey}.title`)}
           </h1>
           

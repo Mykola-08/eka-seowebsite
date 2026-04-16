@@ -47,7 +47,7 @@ export default function ParallaxBackground({
           quality={75}
         />
         <div
-            className="absolute inset-0 bg-foreground transition-opacity duration-500"
+            className="absolute inset-0 bg-black transition-opacity duration-500"
             style={{ opacity: overlayOpacity }}
         />
       </motion.div>

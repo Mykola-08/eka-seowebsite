@@ -1,4 +1,4 @@
-import { TrendingDown, TrendingUp, Star } from '@/lib/icons';
+import { ChartDecreaseIcon, ChartIncreaseIcon, StarIcon } from '@/lib/icons';
 import { useDiscount } from '@/contexts/DiscountContext';
 
 interface PriceDisplayProps {
@@ -46,7 +46,7 @@ export default function PriceDisplay({
         <div className="flex items-center space-x-1">
           {hasDiscount && (
             <>
-              <HugeiconsIcon icon={ChartDecreaseIcon} className="w-4 h-4 text-primary"  />
+              <ChartDecreaseIcon className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground dark:text-muted-foreground line-through">
                 {formatPrice(basePriceCents)}
               </span>
@@ -55,7 +55,7 @@ export default function PriceDisplay({
           
           {hasSurcharge && (
             <>
-              <HugeiconsIcon icon={ChartIncreaseIcon} className="w-4 h-4 text-gold"  />
+              <ChartIncreaseIcon className="w-4 h-4 text-gold" />
               <span className="text-sm text-muted-foreground dark:text-muted-foreground line-through">
                 {formatPrice(basePriceCents)}
               </span>
@@ -67,7 +67,7 @@ export default function PriceDisplay({
       {/* Special Badge */}
       {hasDiscount && selectedDiscount && (
         <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/10 text-primary dark:text-primary/80">
-          <HugeiconsIcon icon={StarIcon} className="w-3 h-3 mr-1"  />
+          <StarIcon className="w-3 h-3 mr-1" />
           {selectedDiscount.name} -{selectedDiscount.percentage}%
         </div>
       )}

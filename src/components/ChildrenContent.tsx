@@ -36,7 +36,7 @@ export default function ChildrenContent() {
   };
 
   const Hero = (
-      <section className="py-12 sm:py-20 bg-linear-to-br from-white via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
+      <section className="py-12 sm:py-20 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center mask-[linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
@@ -46,7 +46,7 @@ export default function ChildrenContent() {
                 <span className="text-primary font-medium text-sm">{t('nav.personalizedServices')}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-eka-dark mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-foreground mb-6 leading-tight">
                 {t('elena.target.children.title')}
               </h1>
 

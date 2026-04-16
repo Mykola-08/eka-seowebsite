@@ -72,14 +72,14 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   const getIcon = () => {
     switch (toast.type) {
       case 'success':
-        return <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-primary"  />;
+        return <CheckCircle className="w-5 h-5 text-primary" />;
       case 'error':
-        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-destructive"  />;
+        return <AlertCircle className="w-5 h-5 text-destructive" />;
       case 'warning':
-        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-gold"  />;
+        return <AlertCircle className="w-5 h-5 text-gold" />;
       case 'info':
       default:
-        return <HugeiconsIcon icon={InformationCircleIcon} className="w-5 h-5 text-primary"  />;
+        return <Info className="w-5 h-5 text-primary" />;
     }
   };
 
@@ -132,7 +132,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
         aria-label="Close notification"
         className="absolute top-4 right-4 text-current opacity-70 hover:opacity-100 transition-opacity p-0.5 rounded-full hover:bg-foreground/5"
       >
-        <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4"  />
+        <X className="w-4 h-4" />
       </button>
 
       {/* Progress bar for duration */}

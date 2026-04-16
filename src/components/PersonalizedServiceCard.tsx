@@ -1,9 +1,13 @@
 'use client';
 
+import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PersonalizedServiceItem } from '@/shared/types';
-import { ServiceBentoItem } from '@/components/ui/service-bento';
-import { Clock } from '@/lib/icons';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Clock01Icon, ArrowRight01Icon } from '@/lib/icons';
 
 interface PersonalizedServiceCardProps {
   service: PersonalizedServiceItem;
@@ -13,7 +17,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t, language } = useLanguage();
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-all hover:shadow-md border-border/50 group">
+    <Card className="flex flex-col h-full overflow-hidden transition-all hover:bg-surface-muted border-border/60 group">
       {service.image && (
         <div className="relative w-full h-48 overflow-hidden bg-muted">
           <Image 
@@ -28,7 +32,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
       )}
       <CardHeader className={service.image ? 'pt-4 relative z-10' : ''}>
         <div className="flex justify-between items-start gap-4 mb-2">
-          <CardTitle className="text-2xl font-bold leading-tight">
+          <CardTitle className="text-2xl font-medium leading-tight">
             {t(service.titleKey)}
           </CardTitle>
           <Badge variant="secondary" className="whitespace-nowrap">
@@ -73,7 +77,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
 
         <div className="flex items-center justify-between text-sm pt-4 border-t border-border/50">
           <div className="flex items-center gap-2 text-muted-foreground font-medium">
-            <HugeiconsIcon icon={Clock01Icon} className="w-4 h-4 text-primary/70" />
+            <Clock01Icon className="w-4 h-4 text-primary/70" />
             <span>
               {service.duration 
                 ? `${service.duration} ${t('common.minutes') || 'min'}` 
@@ -85,7 +89,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
 
       <CardFooter className="pt-0 flex flex-col sm:flex-row gap-3">
         <Button asChild className="w-full sm:flex-1 rounded-full">
-          <Link href={service.bookUrl || `/booking?service=${encodeURIComponent(t(service.titleKey))}`}>
+          <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey))}`}>
             {t('nav.bookNow') || 'Book Now'}
           </Link>
         </Button>
@@ -93,7 +97,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
           <Button asChild variant="outline" className="w-full sm:flex-1 rounded-full group/btn">
             <Link href={service.href}>
               {t('common.readMore') || 'Details'}
-              <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              <ArrowRight01Icon className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
             </Link>
           </Button>
         )}

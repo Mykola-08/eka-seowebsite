@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Users } from '@/lib/icons';
+import { UserGroupIcon } from '@/lib/icons';
 
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

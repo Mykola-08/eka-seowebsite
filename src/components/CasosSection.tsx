@@ -1,15 +1,16 @@
 'use client';
 
+import type React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Activity, Brain, Heart, Zap, Moon } from '@/lib/icons';
+import { ArrowRight01Icon, Activity01Icon, Brain01Icon, FavouriteIcon, FlashIcon, Moon01Icon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
 import AnimateIn from './AnimateIn';
-
 interface Problem {
   id: string;
   titleKey: string;
   descriptionKey: string;
-  icon: IconSvgElement;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   href: string;
 }
@@ -72,7 +73,7 @@ export default function CasosSection() {
     <section className="py-24 bg-secondary">
       <div className="section-container">
         <div className="text-center mb-20 max-w-4xl mx-auto">
-          <span className="inline-block py-1 px-3 rounded-full bg-card  border-0 text-foreground/80 text-xs font-semibold uppercase tracking-wider mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-card text-foreground/80 text-xs font-medium uppercase tracking-wider mb-6">
             {t('casos.section.badge')}
           </span>
 
@@ -95,7 +96,7 @@ export default function CasosSection() {
                   className="group block h-full apple-card p-8 transition-colors duration-300"
                 >
                   <div className="w-12 h-12 rounded-full bg-muted/40 text-foreground flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
-                    <HugeiconsIcon icon={problem.icon} className="w-6 h-6 stroke-[1.5px]"  />
+                    <problem.icon className="w-6 h-6 stroke-[1.5px]" />
                   </div>
 
                   <h3 className="text-xl font-semibold text-foreground mb-3 apple-title">
@@ -108,7 +109,7 @@ export default function CasosSection() {
 
                   <div className="flex items-center text-primary font-medium text-sm mt-auto">
                     {t('casos.section.readMore')}
-                    <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-1 transition-colors duration-200"  />
+                    <ArrowRight01Icon className="w-4 h-4 ml-1 transition-colors duration-200" />
                   </div>
                 </Link>
               </AnimateIn>
@@ -128,7 +129,7 @@ export default function CasosSection() {
               'casos.other.work',
               'casos.other.trauma'
             ].map((key) => (
-              <span key={key} className="px-5 py-2.5 bg-card  border-0 rounded-full text-foreground/80 text-sm font-medium hover:border-0 hover:text-primary transition-colors duration-200 cursor-default">
+              <span key={key} className="px-5 py-2.5 bg-card rounded-full text-foreground/80 text-sm font-medium hover:border-0 hover:text-primary transition-colors duration-200 cursor-default">
                 {t(key)}
               </span>
             ))}
@@ -138,19 +139,17 @@ export default function CasosSection() {
         {/* View All Cases */}
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/cases"
-              className="inline-flex items-center bg-primary hover:bg-primary-600 text-primary-foreground font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
-            >
-              {t('casos.section.viewAll')}
-              <HugeiconsIcon icon={ArrowRight01Icon} className="w-5 h-5 ml-2"  />
-            </Link>
-            <Link
-              href="/first-time"
-              className="inline-flex items-center bg-transparent  border-0 text-primary hover:bg-primary/5 font-medium px-8 py-4 rounded-full transition duration-200 active:scale-[0.97]"
-            >
-              {t('casos.section.findYourCase')}
-            </Link>
+            <Button asChild size="lg">
+              <Link href="/cases">
+                {t('casos.section.viewAll')}
+                <ArrowRight01Icon className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="lg">
+              <Link href="/first-time">
+                {t('casos.section.findYourCase')}
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

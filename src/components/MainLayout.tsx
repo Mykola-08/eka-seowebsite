@@ -4,10 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FooterUncover from '@/components/FooterUncover';
-import { shimmerBlurDataURL } from '@/lib/image-utils';
 import { usePathname } from 'next/navigation';
-import { createPortal } from 'react-dom';
-import { Menu, X, Globe, Hand, Brain, Apple, Pill, Network, RotateCcw, ChevronDown } from '@/lib/icons';
+import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, Medicine01Icon, NeuralNetworkIcon, RotateLeft01Icon, GlobeIcon, Cancel01Icon, Menu01Icon, ArrowDown01Icon } from '@/lib/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Language } from '@/contexts/LanguageTypes';
@@ -263,17 +261,17 @@ export default function MainLayout({
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-card/70 backdrop-blur-2xl border-0 '
-    : 'bg-transparent';
+    ? 'bg-background/70 backdrop-blur-xl border border-border/30 shadow-apple-md mt-4 rounded-full'
+    : 'bg-transparent border border-transparent backdrop-blur-none mt-4';
 
   // Icon map for dropdown items
   const serviceIcons: Record<string, React.ReactNode> = {
-    '/services/massage': <HugeiconsIcon icon={TouchInteraction01Icon} className="w-4 h-4"  />,
-    '/services/kinesiology': <HugeiconsIcon icon={Brain01Icon} className="w-4 h-4"  />,
-    '/services/nutrition': <HugeiconsIcon icon={Apple01Icon} className="w-4 h-4"  />,
-    '/services/supplements': <HugeiconsIcon icon={Medicine01Icon} className="w-4 h-4"  />,
-    '/services/systemic': <HugeiconsIcon icon={NeuralNetworkIcon} className="w-4 h-4"  />,
-    '/360-revision': <HugeiconsIcon icon={RotateLeft01Icon} className="w-4 h-4"  />,
+    '/services/massage': <TouchInteraction01Icon className="w-4 h-4" />,
+    '/services/kinesiology': <Brain01Icon className="w-4 h-4" />,
+    '/services/nutrition': <Apple01Icon className="w-4 h-4" />,
+    '/services/supplements': <Medicine01Icon className="w-4 h-4" />,
+    '/services/systemic': <NeuralNetworkIcon className="w-4 h-4" />,
+    '/360-revision': <RotateLeft01Icon className="w-4 h-4" />,
   };
 
   const navigation: NavItem[] = [
@@ -335,7 +333,7 @@ export default function MainLayout({
         footer={
           <>
           {/* Footer */}
-      <footer className="py-12 sm:py-16 bg-secondary text-foreground  border-0">
+      <footer className="py-12 sm:py-16 bg-secondary text-foreground">
         <div className="max-w-5xl mx-auto px-6 text-center">
           {/* Logo */}
           <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
@@ -405,7 +403,7 @@ export default function MainLayout({
                 <Link href="/discounts" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('footer.discounts')}
                 </Link>
-                <Link href="/disclaimer" className="text-amber-600 hover:text-amber-800 transition-colors duration-200 text-sm font-medium">
+                <Link href="/disclaimer" className="text-primary hover:text-primary/80 transition-colors duration-200 text-sm font-medium">
                   Health Disclaimer
                 </Link>
                 <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
@@ -430,7 +428,7 @@ export default function MainLayout({
           {/* Language Selector */}
           <div className="mb-8">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <HugeiconsIcon icon={GlobeIcon} className="w-3 h-3 text-muted-foreground"  />
+              <GlobeIcon className="w-3 h-3 text-muted-foreground" />
               <span className="text-xs text-muted-foreground">{t('footer.selectLanguage')}</span>
             </div>
             <div className="flex justify-center space-x-2">
@@ -464,8 +462,8 @@ export default function MainLayout({
         {/* Main Content Container inside Uncover */}
 
       {/* Navigation with scroll effect - Liquid Glass Style */}
-      <nav className={`sticky top-0 z-(--z-dropdown) transition duration-500  border-0 ${headerSurfaceClass}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav className={`fixed top-0 left-0 right-0 z-(--z-dropdown) transition-all duration-500 ease-out flex justify-center pointer-events-none px-4 sm:px-6`}>
+        <div className={`pointer-events-auto transition-all duration-500 max-w-7xl w-full mx-auto px-6 lg:px-8 ${headerSurfaceClass}`}>
           <div className="flex items-center h-14 relative">
             {/* Logo Only - Left Side */}
             <Link href="/" className="flex items-center shrink-0 group relative opacity-90 hover:opacity-100 transition-opacity z-10">
@@ -492,7 +490,7 @@ export default function MainLayout({
                   {item.hasDropdown ? (
                     <Link
                       href={item.href}
-                      className={`nav-trigger py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`nav-trigger py-4 px-4 -mx-4 text-sm font-normal transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                       onMouseEnter={(e) => openDropdown(e, item.name, item.dropdownWidth)}
                       onMouseLeave={scheduleHide}
                       onFocus={(e) => openDropdown(e, item.name, item.dropdownWidth)}
@@ -502,13 +500,13 @@ export default function MainLayout({
                       suppressHydrationWarning
                     >
                       {item.name}
-                      <HugeiconsIcon icon={ArrowDown01Icon} className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-foreground/80' : isNavItemActive ? 'text-muted-foreground' : 'text-muted-foreground group-hover/trigger:translate-y-px'}`}  />
+                      <ArrowDown01Icon className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-foreground/80' : isNavItemActive ? 'text-muted-foreground' : 'text-muted-foreground group-hover/trigger:translate-y-px'}`} />
                     </Link>
                   ) : item.isExternal ? (
                     <a
                       href={item.href}
                       rel="noopener noreferrer"
-                      className={`py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`py-4 px-4 -mx-4 text-sm font-normal transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                       onClick={(e) => {
                         e.preventDefault();
                         window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -520,7 +518,7 @@ export default function MainLayout({
                   ) : (
                     <Link
                       href={item.href}
-                      className={`py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`py-4 px-4 -mx-4 text-sm font-normal transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                       suppressHydrationWarning
                     >
                       {item.name}
@@ -560,7 +558,7 @@ export default function MainLayout({
                           animate={{ opacity: 1, scaleY: 1, y: 0 }}
                           exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
                           transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-                            className="fixed z-[110]"
+                            className="fixed z-110"
                             style={{
                               top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger
                               left: dropdownPosition.left - 40, // Add large invisible left padding zone
@@ -583,10 +581,10 @@ export default function MainLayout({
                           >
                             {/* Inner content wrapper with the actual visual styling */}
                             <div
-                              className="mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-card/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-border/60 ring-1 ring-black/[0.04]"
+                              className="mx-auto overflow-hidden relative bg-background/95 backdrop-blur-xl rounded-b-2xl border border-t-0 border-border/60"
                               style={{ width: dropdownPosition.width }}
                             >
-                              <div className="absolute inset-x-0 top-0 h-[1px] bg-card/40" />
+                              <div className="absolute inset-x-0 top-0 h-px bg-card/40" />
 
                               {item.dropdownType === 'agenyz' ? (
                                 /* Agenyz: product image cards */
@@ -612,7 +610,7 @@ export default function MainLayout({
                                                 <Image src={product.image} alt={product.name} fill className="object-contain p-1 group-hover/prod:scale-105 transition-transform duration-300" sizes="100px" />
                                               )}
                                             </div>
-                                            <span className="text-xs font-semibold text-foreground text-center leading-tight">{product.name}</span>
+                                            <span className="text-xs font-medium text-foreground text-center leading-tight">{product.name}</span>
                                             {product.subtitle && <span className="text-[10px] text-muted-foreground text-center mt-0.5 leading-tight">{product.subtitle}</span>}
                                           </Link>
                                         </motion.div>
@@ -658,7 +656,7 @@ export default function MainLayout({
                                             suppressHydrationWarning
                                           >
                                             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/80 text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 shrink-0">
-                                              {serviceIcons[dropdownItem.href] || <HugeiconsIcon icon={TouchInteraction01Icon} className="w-4 h-4"  />}
+                                              {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
                                             </span>
                                             <span className="font-medium">{dropdownItem.name}</span>
                                           </Link>
@@ -717,9 +715,9 @@ export default function MainLayout({
                     transition={{ duration: 0.2 }}
                   >
                     {isMenuOpen ? (
-                      <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5"  />
+                      <Cancel01Icon className="w-5 h-5" />
                     ) : (
-                      <HugeiconsIcon icon={Menu01Icon} className="w-5 h-5"  />
+                      <Menu01Icon className="w-5 h-5" />
                     )}
                   </motion.div>
                 </AnimatePresence>
@@ -746,7 +744,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-[100dvh] bg-secondary/90 backdrop-blur-xl z-[110] overflow-y-auto pt-[60px] rounded-t-[32px] 0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-110 overflow-y-auto pt-15 rounded-t-3xl 0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}
@@ -764,7 +762,7 @@ export default function MainLayout({
               className="absolute top-4 right-6 rounded-full"
               aria-label="Close menu"
             >
-              <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5"  />
+              <Cancel01Icon className="w-5 h-5" />
             </Button>
             <div className="p-6 pb-24 space-y-4">
               <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-3xl border border-border/40">
@@ -797,7 +795,7 @@ export default function MainLayout({
                         className="flex items-center gap-3 py-2 text-lg text-muted-foreground font-medium active:scale-[0.98] transition-transform"
                       >
                         <span className="flex items-center justify-center w-8 h-8 rounded-3xl bg-muted/40 text-muted-foreground">
-                          {serviceIcons[dropdownItem.href] || <HugeiconsIcon icon={TouchInteraction01Icon} className="w-4 h-4"  />}
+                          {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
                         </span>
                         {dropdownItem.name}
                       </Link>
@@ -841,7 +839,7 @@ export default function MainLayout({
 
               {/* Mobile Reserva */}
               <div className="pt-4 pb-12">
-                <Button asChild variant="default" size="lg" className="w-full font-semibold rounded-2xl h-14 active:scale-[0.97] transition-transform">
+                <Button asChild variant="default" size="lg" className="w-full rounded-2xl h-14 active:scale-[0.97] transition-transform">
                   <Link
                     href="/booking"
                     onClick={() => setIsMenuOpen(false)}

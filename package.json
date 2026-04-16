@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
+    "@playwright/test": "^1.59.1",
     "@stripe/stripe-js": "9.2.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/node": "^25.0.10",
@@ -53,7 +54,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install --with-deps chromium webkit"
   },
   "type": "module",
   "version": "1.0.0",

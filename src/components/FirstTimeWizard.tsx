@@ -6,16 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { 
-  SmileIcon, FavouriteIcon, ZapIcon, Moon02Icon, Money01Icon, 
-  Location01Icon, LaptopProgrammingIcon, ArrowRight01Icon, ArrowLeft01Icon, CheckmarkCircle01Icon,
-  BodyPartMuscleIcon, HeadsetIcon, UserIcon, Home01Icon, Brain01Icon,
-  Activity01Icon
-} from '@hugeicons/core-free-icons';
+import { ArrowRight01Icon, ArrowLeft01Icon, SmileIcon, FavouriteIcon, ZapIcon, Moon02Icon, Money01Icon, Location01Icon, LaptopProgrammingIcon, BodyPartMuscleIcon, UserIcon, Home01Icon, Brain01Icon, Activity01Icon } from '@/lib/icons';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { ServiceBentoItem } from '@/components/ui/service-bento';
 
 // -------------------------------------------------------------------------------- //
 // DATA & TYPES
@@ -27,7 +20,7 @@ type Location = 'barcelona' | 'rubi' | 'online';
 interface GoalMeta {
   id: Goal;
   translationKey: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   category: 'physical' | 'mental' | 'systemic';
 }
 
@@ -44,7 +37,7 @@ const GOALS: GoalMeta[] = [
   { id: 'money', translationKey: 'onboarding.goals.money', icon: Money01Icon, category: 'systemic' },
 ];
 
-const LOCATIONS: { id: Location; labelKey?: string, fallback: string; icon: any; available: boolean }[] = [
+const LOCATIONS: { id: Location; labelKey?: string, fallback: string; icon: React.ComponentType<{ className?: string }>; available: boolean }[] = [
   { id: 'barcelona', fallback: 'Barcelona (Sant Gervasi)', icon: Location01Icon, available: true },
   { id: 'rubi', fallback: 'Rubí (Bosc Tancat)', icon: Location01Icon, available: true },
   { id: 'online', fallback: 'Online / Remote', icon: LaptopProgrammingIcon, available: true },
@@ -237,11 +230,11 @@ export default function FirstTimeWizard() {
                       className={cn(
                         "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all duration-200 text-center gap-3 h-32 outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                         isSelected 
-                          ? "border-primary bg-primary/5 text-primary shadow-xs" 
+                          ? "border-primary bg-primary/5 text-primary" 
                           : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
                       )}
                     >
-                      <HugeiconsIcon icon={Icon} className={cn("w-8 h-8", isSelected ? "text-primary" : "text-muted-foreground")} />
+                      <Icon className={cn("w-8 h-8", isSelected ? "text-primary" : "text-muted-foreground")} />
                       <span className="text-sm font-medium leading-tight">
                         {t(goal.translationKey)}
                       </span>
@@ -257,7 +250,7 @@ export default function FirstTimeWizard() {
                   className="gap-2"
                   size="lg"
                 >
-                  Continue <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" />
+                  Continue <ArrowRight01Icon className="w-4 h-4" />
                 </Button>
               </div>
             </motion.div>
@@ -294,7 +287,7 @@ export default function FirstTimeWizard() {
                       className={cn(
                         "flex flex-col items-center p-8 rounded-2xl border-2 transition-all duration-200 gap-4 text-center outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                         isSelected 
-                          ? "border-primary bg-primary/5 text-primary shadow-xs" 
+                          ? "border-primary bg-primary/5 text-primary" 
                           : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
                       )}
                     >
@@ -302,7 +295,7 @@ export default function FirstTimeWizard() {
                         "w-16 h-16 rounded-full flex items-center justify-center mb-2",
                         isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                       )}>
-                        <HugeiconsIcon icon={Icon} className="w-8 h-8" />
+                        <Icon className="w-8 h-8" />
                       </div>
                       <span className="text-lg font-medium">
                         {loc.labelKey ? t(loc.labelKey) : loc.fallback}
@@ -314,7 +307,7 @@ export default function FirstTimeWizard() {
 
               <div className="flex justify-between mt-8">
                 <Button variant="outline" onClick={handleBack} className="gap-2">
-                  <HugeiconsIcon icon={ArrowLeft01Icon} className="w-4 h-4" /> Back
+                  <ArrowLeft01Icon className="w-4 h-4" /> Back
                 </Button>
                 <Button 
                   onClick={handleNext} 
@@ -322,7 +315,7 @@ export default function FirstTimeWizard() {
                   className="gap-2"
                   size="lg"
                 >
-                  See Recommendation <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" />
+                  See Recommendation <ArrowRight01Icon className="w-4 h-4" />
                 </Button>
               </div>
             </motion.div>
@@ -353,7 +346,7 @@ export default function FirstTimeWizard() {
                 {(() => {
                   const recommendation = getRecommendation(selectedGoals, selectedLocation);
                   return (
-                    <Card className="overflow-hidden border-border/50 shadow-lg hover:shadow-xl transition-all flex flex-col group">
+                    <Card className="overflow-hidden border-border/60 transition-all flex flex-col group hover:bg-surface-muted">
                       <div className="aspect-4/3 relative overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img 
@@ -362,7 +355,7 @@ export default function FirstTimeWizard() {
                           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 text-primary-foreground">
-                          <h3 className="text-2xl font-serif font-medium mb-1 drop-shadow-md">
+                          <h3 className="text-2xl font-serif font-medium mb-1">
                             {t(recommendation.titleKey) || recommendation.titleKey}
                           </h3>
                         </div>
@@ -389,7 +382,7 @@ export default function FirstTimeWizard() {
                         <Button asChild size="lg" className="w-full mt-2 group/btn">
                           <Link href={`/booking?service=${recommendation.id}`}>
                             Book First Session
-                            <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                            <ArrowRight01Icon className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                           </Link>
                         </Button>
                       </div>

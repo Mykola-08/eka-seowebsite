@@ -2,15 +2,15 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { AlertTriangle, Users, Layers, Ban, Phone } from '@/lib/icons';
+import { AlertTriangle, Users, Layers, XCircle, Phone } from '@/lib/icons';
 
 const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.ElementType; title: string; children: React.ReactNode }) => (
   <section id={id} className="scroll-mt-24">
-    <div className="flex items-center gap-3 mb-6 pb-4  border-0">
-      <div className="w-9 h-9 rounded-3xl bg-primary/8 flex items-center justify-center shrink-0">
-        <HugeiconsIcon icon={Icon} className="w-4 h-4 text-primary" />
+    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/60">
+      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+        <Icon className="w-4 h-4 text-primary" />
       </div>
-      <h2 className="text-xl font-semibold text-foreground tracking-tight">{title}</h2>
+      <h2 className="text-xl font-medium text-foreground tracking-tight">{title}</h2>
     </div>
     <div className="space-y-4 text-foreground/80 leading-relaxed">{children}</div>
   </section>
@@ -37,11 +37,11 @@ export default function TermsContent() {
 
           {/* Sticky TOC */}
           <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
             <nav className="space-y-1">
               {toc.map(item => (
                 <a key={item.href} href={item.href}
-                  className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-0 border-0 hover:border-primary pl-3 transition-colors duration-150">
+                  className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border hover:border-primary pl-3 transition-colors duration-150">
                   {item.label}
                 </a>
               ))}
@@ -52,44 +52,44 @@ export default function TermsContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer — always first, always prominent */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-3xl  border-0 bg-amber-50 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-3xl border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
-                <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-amber-600 shrink-0 mt-0.5"  />
+                <AlertTriangle className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
-                  <h2 className="text-lg font-bold text-amber-900 mb-3">Alternative Therapy Disclaimer</h2>
-                  <p className="text-amber-800 mb-4 font-medium">
+                  <h2 className="text-lg font-medium text-foreground mb-3">Alternative Therapy Disclaimer</h2>
+                  <p className="text-foreground/90 mb-4 font-medium">
                     EKA Balance provides complementary and alternative wellness services. These services are <strong>not medical treatment, diagnosis, or a substitute for licensed healthcare</strong>.
                   </p>
-                  <ul className="space-y-2 text-amber-800 text-sm">
+                  <ul className="space-y-2 text-foreground/80 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       <strong>Consult your doctor before making any health decision.</strong> <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       Do not stop, reduce, or change prescribed medications or medical treatment based on any content or session received at EKA Balance.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       Results from complementary therapy vary by person. No specific outcome is guaranteed.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       EKA Balance accepts no liability for health decisions made without consulting a licensed physician.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       In any medical emergency, call <strong>112</strong> immediately.
                     </li>
                   </ul>
-                  <p className="mt-4 text-xs text-amber-700">
-                    Read the full <a href="/disclaimer" className="underline font-medium hover:text-amber-900">Alternative Therapy Disclaimer</a>.
+                  <p className="mt-4 text-xs text-muted-foreground">
+                    Read the full <a href="/disclaimer" className="underline font-medium hover:text-foreground">Alternative Therapy Disclaimer</a>.
                   </p>
                 </div>
               </div>
             </div>
 
-            <Section id="nature" icon={Layers01Icon} title="1. Nature of Services">
+            <Section id="nature" icon={Layers} title="1. Nature of Services">
               <p>
                 EKA Balance provides complementary and integrative wellness services including therapeutic massage, kinesiology, nutritional guidance, somatic education, and bodywork. These services are:
               </p>
@@ -106,14 +106,14 @@ export default function TermsContent() {
                   </li>
                 ))}
               </ul>
-              <div className="rounded-3xl bg-primary/5/50  border-0 p-5 text-sm">
-                <p className="text-primary">
-                  <strong>Important:</strong> Continue following your physician's recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
+              <div className="rounded-2xl bg-primary/5 border border-border p-5 text-sm">
+                <p className="text-foreground">
+                  <strong>Important:</strong> Continue following your physician&apos;s recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
                 </p>
               </div>
             </Section>
 
-            <Section id="acceptance" icon={UserGroupIcon} title="2. Acceptance of Terms">
+            <Section id="acceptance" icon={Users} title="2. Acceptance of Terms">
               <p>
                 By booking, accessing, or using EKA Balance services, you confirm that you have read, understood, and agree to these Terms and our Privacy Policy.
               </p>
@@ -132,7 +132,7 @@ export default function TermsContent() {
               </ul>
             </Section>
 
-            <Section id="eligibility" icon={UserGroupIcon} title="3. Eligibility">
+            <Section id="eligibility" icon={Users} title="3. Eligibility">
               <p>By using our services, you confirm that:</p>
               <ul className="space-y-2 ml-1">
                 {[
@@ -149,7 +149,7 @@ export default function TermsContent() {
               </ul>
             </Section>
 
-            <Section id="limitations" icon={BlockedIcon} title="4. Limitations of Liability">
+            <Section id="limitations" icon={XCircle} title="4. Limitations of Liability">
               <p>
                 EKA Balance and its practitioners are not liable for any health outcome, direct or indirect, arising from:
               </p>
@@ -161,29 +161,29 @@ export default function TermsContent() {
                   'Individual variation in response to complementary therapy',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-muted-foreground/60 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </Section>
 
-            <Section id="contact" icon={CallIcon} title="5. Contact">
+            <Section id="contact" icon={Phone} title="5. Contact">
               <div className="grid gap-4 sm:grid-cols-2 text-sm">
-                <div className="rounded-3xl bg-primary/5/50  border-0 p-5 space-y-1">
-                  <p className="font-semibold text-foreground">Legal Inquiries</p>
+                <div className="rounded-2xl bg-primary/5 border border-border p-5 space-y-1">
+                  <p className="font-medium text-foreground">Legal Inquiries</p>
                   <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline block">legal@ekabalance.com</a>
                   <p className="text-muted-foreground">Calle Plata 1, 08191 Rubí, Barcelona</p>
                 </div>
-                <div className="rounded-3xl bg-muted/40  border-0 p-5 space-y-1">
-                  <p className="font-semibold text-foreground">Data Protection Officer</p>
+                <div className="rounded-2xl bg-muted/40 border border-border p-5 space-y-1">
+                  <p className="font-medium text-foreground">Data Protection Officer</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                   <p className="text-muted-foreground">+34 658 867 133</p>
                 </div>
               </div>
             </Section>
 
-            <div className=" border-0 pt-6 text-center text-xs text-muted-foreground">
+            <div className="border-t border-border/60 pt-6 text-center text-xs text-muted-foreground">
               These Terms comply with applicable EU and Spanish consumer protection and data protection laws.
             </div>
           </div>

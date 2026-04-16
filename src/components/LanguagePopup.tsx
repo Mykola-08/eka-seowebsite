@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/contexts/LanguageTypes';
-import { X, Globe } from '@/lib/icons';
+import { Cancel01Icon, GlobeIcon } from '@/lib/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { Button } from '@/components/ui/button';
@@ -25,7 +25,7 @@ export default function LanguagePopup() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-90 flex items-center justify-center p-4 bg-foreground/40 backdrop-blur-xs"
+                className="fixed inset-0 z-90 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs"
                 onClick={() => setShowLanguagePopup(false)}
             >
                 <motion.div
@@ -42,12 +42,12 @@ export default function LanguagePopup() {
                         className="absolute top-4 right-4 rounded-full"
                         aria-label="Close"
                     >
-                        <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5" aria-hidden="true"  />
+                        <Cancel01Icon className="w-5 h-5" aria-hidden="true" />
                     </Button>
 
                     <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <HugeiconsIcon icon={GlobeIcon} className="w-8 h-8 text-primary"  />
+                            <GlobeIcon className="w-8 h-8 text-primary" />
                         </div>
                         <h2 className="text-2xl font-semibold text-foreground mb-2">
                             {t('language.popup.title')}

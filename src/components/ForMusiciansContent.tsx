@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Music } from '@/lib/icons';
+import { MusicNote01Icon } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 

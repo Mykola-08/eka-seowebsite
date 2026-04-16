@@ -2579,7 +2579,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.description1': 'I specialize in therapeutic massage, kinesiology, and somatic integration. My work is built on a simple belief: real healing happens when you treat the whole person, not just the symptom.',
     'elena.description2': 'My goal is to help you release the weight you\'ve been carrying — physically and emotionally — and move through life with ease, energy, and a renewed sense of yourself.',
     'elena.knowMore': 'Read my full story',
-    'elena.quote': "The body knows how to heal. My job is to remove what\'s in the way.",
+    'elena.quote': "The body knows how to heal. My job is to remove what's in the way.",
 
     // Stats
     'stats.sessions': 'Sessions given',

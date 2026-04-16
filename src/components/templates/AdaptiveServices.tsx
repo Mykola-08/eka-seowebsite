@@ -34,7 +34,7 @@ export function AdaptiveServices({ currentProblem, className }: AdaptiveServices
     <section className={cn("py-20 md:py-32 bg-background relative", className)}>
       <div className="container px-4 md:px-6">
         <div className="mb-16 md:mb-20 md:text-center max-w-3xl md:mx-auto text-left">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance text-foreground">
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 text-balance text-foreground">
             {t('funnel.recommendedSolutions') || 'Your Recommended Solutions'}
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">

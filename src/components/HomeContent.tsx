@@ -159,9 +159,6 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Casos Section */}
-      <CasosSection />
-
       <FunnelHero currentProblem={problem} onProblemChange={setProblem} />
       <AdaptiveMethodology currentProblem={problem} />
       <AdaptiveServices currentProblem={problem} />

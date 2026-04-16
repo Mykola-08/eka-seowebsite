@@ -20,7 +20,7 @@ export default function CTASection() {
             overlayOpacity={0.65}
         >
           <div className="section-container relative z-10 text-center px-4">
-            <h2 className="text-5xl sm:text-6xl mb-6 font-semibold text-white tracking-tight text-balance font-serif">
+            <h2 className="text-5xl sm:text-6xl mb-6 font-semibold text-white tracking-tight text-balance">
               {t('common.readyToStart') || 'Ready to start your journey?'}
             </h2>
             <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">

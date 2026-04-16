@@ -581,7 +581,7 @@ export default function MainLayout({
                           >
                             {/* Inner content wrapper with the actual visual styling */}
                             <div
-                              className="mx-auto overflow-hidden relative bg-background/90 backdrop-blur-xl rounded-2xl border border-border/40 shadow-apple-lg"
+                              className="mx-auto overflow-hidden relative bg-background/90 backdrop-blur-xl rounded-2xl border border-border/40"
                               style={{ width: dropdownPosition.width }}
                             >
                               <div className="absolute inset-x-0 top-0 h-px bg-card/40" />

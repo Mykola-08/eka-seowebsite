@@ -21,12 +21,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/personalized-services`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/agenyz`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
     
+    // Service detail pages
+    { url: `${BASE_URL}/services/massage`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/services/kinesiology`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/services/nutrition`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    
     // Audience-specific pages
     { url: `${BASE_URL}/for-athletes`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/for-business`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/for-musicians`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/for-office-workers`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/for-students`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    
+    // Service audience pages
+    { url: `${BASE_URL}/services/adults`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/children`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/families`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/athletes`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/artists`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/musicians`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/students`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/office-workers`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/services/parents`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     
     // Technique pages
     { url: `${BASE_URL}/technique`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
@@ -35,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/terms-of-service`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/disclaimer`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
   return staticPages;

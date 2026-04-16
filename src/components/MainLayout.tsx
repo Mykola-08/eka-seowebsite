@@ -691,7 +691,7 @@ export default function MainLayout({
                 asChild
                 variant="default"
                 size="sm"
-                className="inline-flex sm: font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
+                className="inline-flex font-medium rounded-full h-9 px-4 sm:px-5"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}

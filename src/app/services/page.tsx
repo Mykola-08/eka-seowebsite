@@ -2,13 +2,16 @@ import { Metadata } from 'next';
 import ServicesContent from '@/components/ServicesContent';
 
 export const metadata: Metadata = {
-  title: "Serveis i Teràpies Somàtiques | EKA Balance",
-  description: "Teràpies integratives per a l'equilibri físic i emocional: Movement Lesson, JKA, Kinesiologia, i més.",
-  keywords: ["Teràpies Somàtiques", "Serveis", "EKA Balance", "Benestar", "Integració", "Movement Lesson", "JKA"],
+  title: "Wellness Services & Somatic Therapies | EKA Balance Barcelona",
+  description: "Explore our integrative wellness services: therapeutic massage, holistic kinesiology, nutrition counseling, and movement therapy. Personalized care in Barcelona.",
+  keywords: ["somatic therapies", "wellness services Barcelona", "integrative therapy", "massage therapy", "kinesiology", "nutrition", "movement lesson"],
   openGraph: {
-    title: "Serveis i Teràpies Somàtiques | EKA Balance",
-    description: "Descobreix els nostres serveis de benestar integratiu.",
+    title: "Wellness Services & Somatic Therapies | EKA Balance",
+    description: "Explore our integrative wellness services in Barcelona: massage, kinesiology, nutrition, and movement therapy.",
     type: 'website',
+  },
+  alternates: {
+    canonical: 'https://ekabalance.com/services',
   }
 };
 

@@ -28,7 +28,7 @@ export default function AboutElenaContent() {
 
   // Custom Hero for Elena's page matched to Apple style
   const CustomHero = (
-    <section className="relative pt-32 pb-24 overflow-hidden bg-white">
+    <section className="relative pt-32 pb-24 overflow-hidden bg-card">
       <div className="section-container relative z-10 text-center">
         {/* Profile Image with Glow */}
         <motion.div
@@ -39,8 +39,8 @@ export default function AboutElenaContent() {
         >
           <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
             {/* Subtle glow behind */}
-            <div className="absolute inset-0 bg-blue-100/50 rounded-full blur-3xl opacity-60 scale-110" />
-            <div className="relative rounded-full overflow-hidden w-full h-full border border-gray-100">
+            <div className="absolute inset-0 bg-primary/10/50 rounded-full blur-3xl opacity-60 scale-110" />
+            <div className="relative rounded-full overflow-hidden w-full h-full border border-border">
               <Image
                 src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}
@@ -114,11 +114,11 @@ export default function AboutElenaContent() {
            className="flex flex-wrap justify-center gap-4"
         >
             <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
-               <HugeiconsIcon icon={StarIcon} className="w-4 h-4 text-yellow-500 mr-2"  />
+               <HugeiconsIcon icon={StarIcon} className="w-4 h-4 text-gold mr-2"  />
                <span className="text-foreground/80 font-medium">15+ {t('hero.stats.experience')}</span>
             </div>
             <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
-               <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-red-500 mr-2"  />
+               <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-destructive mr-2"  />
                <span className="text-foreground/80 font-medium">96% {t('hero.stats.clients')}</span>
             </div>
         </motion.div>
@@ -136,7 +136,7 @@ export default function AboutElenaContent() {
       
       <PageLayout hero={CustomHero} className="bg-secondary">
         {/* Techniques Section */}
-        <section className="py-24 bg-white rounded-t-[3rem]">
+        <section className="py-24 bg-card rounded-t-[3rem]">
           <div className="section-container relative z-10 text-center">
             <div className="mb-20">
               <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6 tracking-tight">

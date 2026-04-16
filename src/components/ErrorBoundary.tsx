@@ -52,10 +52,10 @@ export default class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-8 text-center">
-            <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <HugeiconsIcon icon={Alert01Icon} className="w-10 h-10 text-red-500"  />
+        <div className="min-h-screen bg-muted/50 flex items-center justify-center p-4">
+          <div className="bg-card rounded-3xl max-w-md w-full p-8 text-center">
+            <div className="w-20 h-20 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <HugeiconsIcon icon={Alert01Icon} className="w-10 h-10 text-destructive"  />
             </div>
             
             <h1 className="text-2xl font-bold text-foreground mb-4">
@@ -72,7 +72,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                   Detalls de l&apos;error
                 </summary>
                 <div className="mt-4 p-4 bg-muted rounded-lg  border-0">
-                  <p className="font-mono text-sm font-bold text-red-700 mb-2">
+                  <p className="font-mono text-sm font-bold text-destructive mb-2">
                     {this.state.error.name}: {this.state.error.message}
                   </p>
                   <pre className="text-xs text-foreground/80 whitespace-pre-wrap overflow-auto max-h-60">
@@ -119,15 +119,15 @@ export function ErrorFallback({
   resetError: () => void; 
 }) {
   return (
-    <div className="p-8 bg-red-50  border-0 rounded-3xl">
+    <div className="p-8 bg-destructive/5  border-0 rounded-3xl">
       <div className="flex items-center mb-4">
-        <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-red-500 mr-3"  />
-        <h2 className="text-lg font-medium text-red-900">
+        <HugeiconsIcon icon={Alert01Icon} className="w-6 h-6 text-destructive mr-3"  />
+        <h2 className="text-lg font-medium text-foreground">
           Error en aquesta secció
         </h2>
       </div>
       
-      <p className="text-red-700 mb-4">
+      <p className="text-destructive mb-4">
         S'ha produït un error en aquesta part de l'aplicació.
       </p>
       
@@ -141,10 +141,10 @@ export function ErrorFallback({
       
       {process.env.NODE_ENV === 'development' && (
         <details className="mt-4">
-          <summary className="cursor-pointer text-sm text-red-600">
+          <summary className="cursor-pointer text-sm text-destructive">
             Detalls de l'error
           </summary>
-          <pre className="mt-2 text-xs text-red-800 whitespace-pre-wrap">
+          <pre className="mt-2 text-xs text-destructive whitespace-pre-wrap">
             {error.message}
           </pre>
         </details>

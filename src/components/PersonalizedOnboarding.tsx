@@ -148,7 +148,7 @@ export default function ForBusinessContent() {
         </section>
 
         {/* Tiers / Plans Section - Rounded Style */}
-        <section className="py-24 bg-white relative overflow-hidden" id="plans">
+        <section className="py-24 bg-card relative overflow-hidden" id="plans">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-6">
@@ -161,13 +161,13 @@ export default function ForBusinessContent() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
               {/* Background gradient blur */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-150 bg-blue-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-150 bg-primary/10/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
               {/* Plan 1 - Teams */}
-              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 relative transition-all duration-300 flex flex-col h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-blue-400 pointer-events-none" />
-                <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
-                <p className="text-gray-500 font-medium mb-8 flex-grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
+              <div className="bg-card rounded-[2rem] p-8 sm:p-10 border border-border relative transition-all duration-300 flex flex-col h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-primary/30 pointer-events-none" />
+                <h3 className="text-3xl font-semibold tracking-tight text-foreground mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
+                <p className="text-muted-foreground font-medium mb-8 flex-grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
@@ -202,9 +202,9 @@ export default function ForBusinessContent() {
               </div>
 
               {/* Plan 2 - Office */}
-              <div className="bg-gray-900 rounded-[2rem] p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-white pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-white pointer-events-none" />
+              <div className="bg-foreground rounded-[2rem] p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-card pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-card pointer-events-none" />
                 
                 <h3 className="text-3xl font-semibold tracking-tight text-primary-foreground mb-3 relative z-10">{t('personalized.business.plans.enterprise.title')}</h3>
                 <p className="text-primary-foreground/80 font-medium mb-8 grow relative z-10">{t('personalized.business.plans.enterprise.desc')}</p>

@@ -106,8 +106,8 @@ export default function TermsContent() {
                   </li>
                 ))}
               </ul>
-              <div className="rounded-3xl bg-blue-50/50  border-0 p-5 text-sm">
-                <p className="text-blue-800">
+              <div className="rounded-3xl bg-primary/5/50  border-0 p-5 text-sm">
+                <p className="text-primary">
                   <strong>Important:</strong> Continue following your physician's recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default function TermsContent() {
 
             <Section id="contact" icon={CallIcon} title="5. Contact">
               <div className="grid gap-4 sm:grid-cols-2 text-sm">
-                <div className="rounded-3xl bg-blue-50/50  border-0 p-5 space-y-1">
+                <div className="rounded-3xl bg-primary/5/50  border-0 p-5 space-y-1">
                   <p className="font-semibold text-foreground">Legal Inquiries</p>
                   <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline block">legal@ekabalance.com</a>
                   <p className="text-muted-foreground">Calle Plata 1, 08191 Rubí, Barcelona</p>

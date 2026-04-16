@@ -29,7 +29,7 @@ export function BentoCard({
         <Link 
           href={href} 
           onMouseMove={handleMouseMove}
-          className="relative block w-full h-full rounded-[32px] overflow-hidden group outline-none isolate bg-[#fbfbfd] transition-all duration-500"
+          className="relative block w-full h-full rounded-[32px] overflow-hidden group outline-none isolate bg-muted/30 transition-all duration-500"
         >
           {children}
         </Link>

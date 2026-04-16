@@ -48,7 +48,7 @@ export default function NewsletterSignup() {
 
   if (status === 'success') {
     return (
-      <p className="text-sm text-green-600 font-medium">
+      <p className="text-sm text-primary font-medium">
         {t('newsletter.success')}
       </p>
     );
@@ -77,7 +77,7 @@ export default function NewsletterSignup() {
           : t('newsletter.button')}
       </Button>
       {status === 'error' && (
-        <p className="text-xs text-red-500 mt-1">
+        <p className="text-xs text-destructive mt-1">
           {t('newsletter.error')}
         </p>
       )}

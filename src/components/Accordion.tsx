@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from '@/lib/icons';
-import { cn } from '@/shared/utils';
+import { cn } from '@/lib/utils';
 
 interface AccordionContextValue {
   value: string | string[] | undefined;
@@ -107,10 +107,10 @@ export function AccordionTrigger({ children, className, value: itemValue }: Acco
       aria-expanded={isOpen}
     >
       {children}
-      <HugeiconsIcon icon={ArrowDown01Icon}
+      <ChevronDown
         className={cn(
           'h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300',
-          isOpen && 'rotate-180 text-blue-600'
+          isOpen && 'rotate-180 text-primary'
         )}
        />
     </button>

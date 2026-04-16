@@ -57,13 +57,13 @@ export default function CaseDetailContent({ id }: { id: string }) {
 
   const Icon = config.icon;
   const colors = {
-    blue: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
-    purple: { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200' },
-    green: { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200' },
-    orange: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' },
-    indigo: { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' },
+    blue: { bg: 'bg-primary/5', text: 'text-primary', border: 'border-primary/20' },
+    purple: { bg: 'bg-primary/5', text: 'text-primary', border: 'border-purple-200' },
+    green: { bg: 'bg-primary/5', text: 'text-primary', border: 'border-primary/20' },
+    orange: { bg: 'bg-gold/5', text: 'text-gold-dark', border: 'border-orange-200' },
+    indigo: { bg: 'bg-primary/5', text: 'text-primary', border: 'border-primary/20' },
     pink: { bg: 'bg-pink-50', text: 'text-pink-700', border: 'border-pink-200' },
-    red: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' }
+    red: { bg: 'bg-destructive/5', text: 'text-destructive', border: 'border-destructive/20' }
   };
   const colorClass = colors[config.color as keyof typeof colors] || colors.blue;
 
@@ -73,14 +73,14 @@ export default function CaseDetailContent({ id }: { id: string }) {
   const results = t(`casos.problems.${config.key}.results`);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
 
       {/* Hero Section */}
       <div className="relative pt-32 pb-20 overflow-hidden bg-linear-to-b from-gray-50 to-white border-b border-border/50">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40" />
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
 
-          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 mb-8 transition-colors bg-white px-4 py-2 rounded-full border border-gray-100">
+          <Link href="/cases" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 transition-colors bg-card px-4 py-2 rounded-full border border-border">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('casos.title')}
           </Link>
@@ -106,13 +106,13 @@ export default function CaseDetailContent({ id }: { id: string }) {
           <div className="relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-red-200 to-transparent rounded-full opacity-50" />
             <h2 className="text-2xl font-light text-foreground mb-6 flex items-center">
-              <span className="w-8 h-8 rounded-full bg-red-50 text-red-500 flex items-center justify-center mr-3 text-sm font-bold">1</span>
+              <span className="w-8 h-8 rounded-full bg-destructive/5 text-destructive flex items-center justify-center mr-3 text-sm font-bold">1</span>
               {t('casos.symptoms')}
             </h2>
             <ul className="space-y-4">
               {symptoms.map((item, idx) => (
                 <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-3xl">
-                  <span className="w-1.5 h-1.5 mt-2 rounded-full bg-red-400 mr-3 shrink-0" />
+                  <span className="w-1.5 h-1.5 mt-2 rounded-full bg-destructive/60 mr-3 shrink-0" />
                   <span className="text-foreground/80">{item}</span>
                 </li>
               ))}
@@ -123,13 +123,13 @@ export default function CaseDetailContent({ id }: { id: string }) {
           <div className="relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-orange-200 to-transparent rounded-full opacity-50" />
             <h2 className="text-2xl font-light text-foreground mb-6 flex items-center">
-              <span className="w-8 h-8 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center mr-3 text-sm font-bold">2</span>
+              <span className="w-8 h-8 rounded-full bg-gold/5 text-gold flex items-center justify-center mr-3 text-sm font-bold">2</span>
               {t('casos.causes')}
             </h2>
             <ul className="space-y-4">
               {causes.map((item, idx) => (
                 <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-3xl">
-                  <span className="w-1.5 h-1.5 mt-2 rounded-full bg-orange-400 mr-3 shrink-0" />
+                  <span className="w-1.5 h-1.5 mt-2 rounded-full bg-gold mr-3 shrink-0" />
                   <span className="text-foreground/80">{item}</span>
                 </li>
               ))}
@@ -138,7 +138,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
         </div>
 
         {/* Treatment & Results */}
-        <div className="bg-gray-900 rounded-apple-xl p-8 md:p-12 text-white relative overflow-hidden">
+        <div className="bg-foreground rounded-apple-xl p-8 md:p-12 text-primary-foreground relative overflow-hidden">
           <div className={`absolute top-0 right-0 w-96 h-96 ${colorClass.bg.replace('bg-', 'bg-')} opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2`} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
@@ -153,8 +153,8 @@ export default function CaseDetailContent({ id }: { id: string }) {
             </div>
 
             <div>
-              <h2 className="text-2xl font-light text-white mb-6 flex items-center">
-                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-green-400 mr-3"  />
+              <h2 className="text-2xl font-light text-primary-foreground mb-6 flex items-center">
+                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-6 h-6 text-primary/80 mr-3"  />
                 {t('casos.results')}
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg font-light">
@@ -163,11 +163,11 @@ export default function CaseDetailContent({ id }: { id: string }) {
             </div>
           </div>
 
-          <div className="mt-12 text-center pt-8 border-t border-white/10">
+          <div className="mt-12 text-center pt-8 border-t border-border/10">
             <Link href={config.href}>
               <Button
                 size="xl"
-                variant="white"
+                variant="secondary"
                 className="font-bold px-8 py-4"
               >
                 {t('common.bookNow')}

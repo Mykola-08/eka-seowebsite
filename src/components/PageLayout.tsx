@@ -19,7 +19,7 @@ interface PageLayoutProps {
   mainClassName?: string;
 }
 
-export default function PageLayout({ children, hero, className = '', mainClassName = 'bg-white rounded-t-[3rem]' }: PageLayoutProps) {
+export default function PageLayout({ children, hero, className = '', mainClassName = 'bg-card rounded-t-[3rem]' }: PageLayoutProps) {
   const isCustomHero = React.isValidElement(hero);
   const heroData = !isCustomHero ? (hero as {
     title: string;
@@ -61,9 +61,9 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0 }}
-                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full"
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-primary-foreground/90 mb-6 bg-foreground/30 backdrop-blur-md border border-border/20 px-4 py-1.5 rounded-full"
                 >
-                  {heroData.icon && <span className="mr-2 text-white">{heroData.icon}</span>}
+                  {heroData.icon && <span className="mr-2 text-primary-foreground">{heroData.icon}</span>}
                   {heroData.badge}
                 </motion.div>
               )}
@@ -72,7 +72,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                 initial={{ opacity: 1, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.05 }}
-                className="text-4xl sm:text-6xl lg:text-[5.5rem] font-semibold text-white mb-6 tracking-tighter text-balance pb-2 leading-[1.05]"
+                className="text-4xl sm:text-6xl lg:text-[5.5rem] font-semibold text-primary-foreground mb-6 tracking-tighter text-balance pb-2 leading-[1.05]"
               >
                 {heroData.title}
               </motion.h1>
@@ -82,7 +82,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
-                  className="text-lg sm:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed text-balance font-medium tracking-tight"
+                  className="text-lg sm:text-2xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed text-balance font-medium tracking-tight"
                 >
                   {heroData.subtitle}
                 </motion.p>
@@ -94,8 +94,8 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
               animate={{ opacity: 1 }}
               className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center justify-center animate-bounce"
             >
-               <div className="w-7.5 h-12.5 rounded-full border-2 border-white/50 flex justify-center p-2">
-                 <div className="w-1.5 h-3 bg-white rounded-full"></div>
+               <div className="w-7.5 h-12.5 rounded-full border-2 border-border/50 flex justify-center p-2">
+                 <div className="w-1.5 h-3 bg-card rounded-full"></div>
                </div>
             </motion.div>
           </section>
@@ -107,7 +107,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0 }}
-                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6 bg-white/50 backdrop-blur-md border border-gray-200 px-4 py-1.5 rounded-full"
+                  className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 bg-card/50 backdrop-blur-md border border-border px-4 py-1.5 rounded-full"
                 >
                   {heroData.icon && <span className="mr-2 text-foreground/80">{heroData.icon}</span>}
                   {heroData.badge}
@@ -118,7 +118,7 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
                 initial={{ opacity: 1, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.05 }}
-                className="text-4xl sm:text-6xl lg:text-[5.5rem] font-semibold text-black mb-6 tracking-tighter text-balance pb-2 leading-[1.05]"
+                className="text-4xl sm:text-6xl lg:text-[5.5rem] font-semibold text-foreground mb-6 tracking-tighter text-balance pb-2 leading-[1.05]"
               >
                 {heroData.title}
               </motion.h1>

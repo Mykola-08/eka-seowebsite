@@ -58,37 +58,37 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   const getVariantStyles = () => {
     switch (toast.type) {
       case 'success':
-        return 'bg-green-50 border-0 text-green-900';
+        return 'bg-primary/5 border-0 text-foreground';
       case 'error':
-        return 'bg-red-50 border-0 text-red-900';
+        return 'bg-destructive/5 border-0 text-foreground';
       case 'warning':
-        return 'bg-yellow-50 border-0 text-yellow-900';
+        return 'bg-gold/5 border-0 text-foreground';
       case 'info':
       default:
-        return 'bg-blue-50 border-0 text-blue-900';
+        return 'bg-primary/5 border-0 text-foreground';
     }
   };
 
   const getIcon = () => {
     switch (toast.type) {
       case 'success':
-        return <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-green-600"  />;
+        return <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-primary"  />;
       case 'error':
-        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-red-600"  />;
+        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-destructive"  />;
       case 'warning':
-        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-yellow-600"  />;
+        return <HugeiconsIcon icon={AlertCircleIcon} className="w-5 h-5 text-gold"  />;
       case 'info':
       default:
-        return <HugeiconsIcon icon={InformationCircleIcon} className="w-5 h-5 text-blue-600"  />;
+        return <HugeiconsIcon icon={InformationCircleIcon} className="w-5 h-5 text-primary"  />;
     }
   };
 
   const progressBarColor = () => {
     switch (toast.type) {
-      case 'success': return 'bg-green-600';
-      case 'error': return 'bg-red-600';
-      case 'warning': return 'bg-yellow-600';
-      case 'info': default: return 'bg-blue-600';
+      case 'success': return 'bg-primary';
+      case 'error': return 'bg-destructive';
+      case 'warning': return 'bg-gold';
+      case 'info': default: return 'bg-primary';
     }
   };
 
@@ -130,14 +130,14 @@ function ToastComponent({ toast, onClose }: ToastProps) {
       <button
         onClick={handleClose}
         aria-label="Close notification"
-        className="absolute top-4 right-4 text-current opacity-70 hover:opacity-100 transition-opacity p-0.5 rounded-full hover:bg-black/5"
+        className="absolute top-4 right-4 text-current opacity-70 hover:opacity-100 transition-opacity p-0.5 rounded-full hover:bg-foreground/5"
       >
         <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4"  />
       </button>
 
       {/* Progress bar for duration */}
       {toast.duration && toast.duration > 0 && (
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/5">
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-foreground/5">
           <div
             className={cn("h-full transition ease-out", progressBarColor())}
             style={{

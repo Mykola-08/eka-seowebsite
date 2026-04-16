@@ -56,21 +56,21 @@ export default function AppleHero() {
 
       {/* Subtle background glows — hidden on mobile to protect performance */}
       <div className="hidden sm:block absolute top-0 left-0 w-full h-125 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-2/5 h-2/5 bg-blue-100/50 rounded-full blur-3xl mix-blend-multiply" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-2/5 h-2/5 bg-purple-100/50 rounded-full blur-3xl mix-blend-multiply" />
+        <div className="absolute top-[-10%] left-[-10%] w-2/5 h-2/5 bg-primary/10/50 rounded-full blur-3xl mix-blend-multiply" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-2/5 h-2/5 bg-primary/5 rounded-full blur-3xl mix-blend-multiply" />
       </div>
 
       {/* Content Layer - Centered Text */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-6 sm:mb-8 md:mb-6">
         <AnimateIn delay={0} duration={0.3} from="bottom">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/60 border border-gray-200/60 backdrop-blur-md mb-8">
-            <Sparkles className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-medium text-gray-800 tracking-wide">EKA Balance Method</span>
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-card/60 border border-border/60 backdrop-blur-md mb-8">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-foreground tracking-wide">EKA Balance Method</span>
           </div>
         </AnimateIn>
 
         <AnimateIn delay={0.05} duration={0.3} from="bottom">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-gray-900">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-foreground">
             {t('hero.title')}
           </h1>
         </AnimateIn>

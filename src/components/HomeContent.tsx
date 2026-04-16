@@ -56,7 +56,7 @@ export default function HomeContent() {
           >
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-[32px] transition-colors duration-300">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight mb-3 tabular-nums">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-3 tabular-nums">
                   {stat.value}{stat.suffix}
                 </div>
                 <span className="text-xs md:text-sm font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</span>
@@ -88,11 +88,11 @@ export default function HomeContent() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col items-start">
-                <span className="text-white inline-flex items-center px-4 py-1.5 rounded-full bg-black/20 backdrop-blur-lg  font-semibold mb-4 text-xs truncate">
+                <span className="text-primary-foreground inline-flex items-center px-4 py-1.5 rounded-full bg-foreground/20 backdrop-blur-lg  font-semibold mb-4 text-xs truncate">
                   {t('home.bento.featured')}
                 </span>
-                <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-tight">{t('home.bento.equilibri.title')}</h3>
-                <p className="text-white/95 text-lg md:text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
+                <h3 className="text-primary-foreground text-3xl sm:text-4xl font-bold mb-3 tracking-tight">{t('home.bento.equilibri.title')}</h3>
+                <p className="text-primary-foreground/95 text-lg md:text-xl font-medium max-w-md">{t('home.bento.equilibri.desc')}</p>
               </div>
             </BentoCard>
 
@@ -133,17 +133,17 @@ export default function HomeContent() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent z-10"></div>
               <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">
-                <h3 className="text-white text-2xl font-bold mb-2 tracking-tight">{t('home.bento.nutrition.title')}</h3>
-                <p className="text-white/90 text-sm font-medium">{t('home.bento.nutrition.desc')}</p>
+                <h3 className="text-primary-foreground text-2xl font-bold mb-2 tracking-tight">{t('home.bento.nutrition.title')}</h3>
+                <p className="text-primary-foreground/90 text-sm font-medium">{t('home.bento.nutrition.desc')}</p>
               </div>
             </BentoCard>
 
             {/* Bottom right split - 2 */}
             <BentoCard href="/cases" delay={0.3} className="md:col-span-1 md:row-span-1">
-              <div className="absolute inset-0 z-0 bg-[#fff5f5]"></div>
+              <div className="absolute inset-0 z-0 bg-destructive/5"></div>
               <div className="absolute inset-0 p-8 z-20 flex flex-col">
                 <div className="flex-1">
-                  <svg className="w-8 h-8 text-red-400 mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-destructive/70 mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="text-foreground text-lg font-medium leading-snug">{t('home.bento.testimonial.quote')}</p>
@@ -179,7 +179,7 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-[32px] overflow-hidden bg-white">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-[32px] overflow-hidden bg-card">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
@@ -202,7 +202,7 @@ export default function HomeContent() {
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-                <span className="inline-block py-1 px-3 rounded-full bg-white/80  backdrop-blur-md text-foreground text-xs font-semibold uppercase tracking-wider">
+                <span className="inline-block py-1 px-3 rounded-full bg-card/80  backdrop-blur-md text-foreground text-xs font-semibold uppercase tracking-wider">
                   {t('elena.role') || 'Lead Therapist'}
                 </span>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight leading-[1.1]">
@@ -230,13 +230,13 @@ export default function HomeContent() {
       </section>
 
       {/* Featured Services Section */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-card">
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-6 tracking-tight">
               {t('services.featuredTitle')}
             </h2>
-            <p className="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               {t('services.featuredSubtitle')}
             </p>
           </div>

@@ -180,7 +180,7 @@
 }
 
 @utility text-body-lg {
-  @apply text-base sm:text-lg text-gray-600 leading-relaxed;
+  @apply text-base sm:text-lg text-muted-foreground leading-relaxed;
 }
 
 @utility rounded-apple {

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Compass, MapPin, RotateCcw, Sparkles, CheckCircle } from '@/lib/icons';
+import { cn } from '@/lib/utils';
 import Modal from './Modal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -29,7 +30,7 @@ export default function VariantsSection() {
 
   const variants: Variant[] = [
     {
-      icon: <HugeiconsIcon icon={RotateLeft01Icon} className="w-6 h-6"  />,
+      icon: <RotateCcw className="w-6 h-6" />,
       title: t('revision360.variants.reset.title'),
       subtitle: t('revision360.variants.reset.subtitle'),
       description: t('revision360.variants.reset.description'),
@@ -51,7 +52,7 @@ export default function VariantsSection() {
       borderColor: 'border-transparent',
     },
     {
-      icon: <HugeiconsIcon icon={Location01Icon} className="h-6 w-6"  />,
+      icon: <MapPin className="h-6 w-6" />,
       title: t('revision360.variants.mapping.title'),
       subtitle: t('revision360.variants.mapping.subtitle'),
       description: t('revision360.variants.mapping.description'),
@@ -73,7 +74,7 @@ export default function VariantsSection() {
       borderColor: 'border-transparent',
     },
     {
-      icon: <HugeiconsIcon icon={Compass01Icon} className="h-6 w-6"  />,
+      icon: <Compass className="h-6 w-6" />,
       title: t('revision360.variants.alignment.title'),
       subtitle: t('revision360.variants.alignment.subtitle'),
       description: t('revision360.variants.alignment.description'),
@@ -95,7 +96,7 @@ export default function VariantsSection() {
       borderColor: 'border-transparent',
     },
     {
-      icon: <HugeiconsIcon icon={SparklesIcon} className="h-6 w-6"  />,
+      icon: <Sparkles className="h-6 w-6" />,
       title: t('revision360.variants.integral.title'),
       subtitle: t('revision360.variants.integral.subtitle'),
       description: t('revision360.variants.integral.description'),
@@ -158,10 +159,10 @@ export default function VariantsSection() {
               transition={{ duration: 0.55, delay: index * 0.09, ease: [0.215, 0.61, 0.355, 1] }}
             >
               <Card
-                className={[
-                  'group text-left p-8 lg:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover overflow-hidden flex flex-col h-full items-start cursor-pointer border rounded-4xl bg-card border-border shadow-card',
-                  variant.highlight ? 'border-gold/30' : ''
-                ].join(' ')}
+                className={cn(
+                  'group relative text-left p-8 lg:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover overflow-hidden flex flex-col h-full items-start cursor-pointer border rounded-4xl bg-card border-border shadow-card',
+                  variant.highlight && 'border-gold/30',
+                )}
                 onClick={() => setSelectedVariant(variant)}
               >
                 {variant.highlight && (
@@ -173,36 +174,9 @@ export default function VariantsSection() {
                 {/* Corner glow */}
                 <div className="pointer-events-none absolute -mr-12 -mt-12 right-0 top-0 h-48 w-48 rounded-full bg-linear-to-bl from-primary/5 to-transparent blur-2xl" aria-hidden="true" />
 
-              {/* Icon */}
-              <span className={`relative z-10 mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 transition-colors duration-300 ${variant.accentColor}`}>
-                {variant.icon}
-              </span>
-
-              {/* Title block */}
-              <div className="relative z-10 mb-4">
-                <h3 className="text-2xl font-semibold text-white leading-tight">{variant.title}</h3>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-blue-400">{variant.subtitle}</p>
-              </div>
-
-              {/* Description */}
-              <p className="relative z-10 text-sm leading-relaxed text-zinc-400 font-normal mb-6 flex-1">
-                {variant.description}
-              </p>
-
-              {/* Includes preview — top 3 */}
-              <ul className="relative z-10 space-y-1.5 mb-6">
-                {variant.includes.slice(0, 3).map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-zinc-500">
-                    <CheckCircle className="w-3.5 h-3.5 text-blue-500/70 mt-0.5 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Footer */}
-              <div className="relative z-10 flex items-center justify-between border-t border-white/[0.07] pt-5">
-                <span className="text-xs uppercase tracking-wider text-zinc-500 font-medium">
-                  {variant.duration}
+                {/* Icon */}
+                <span className={`relative z-10 mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-border transition-colors duration-300 ${variant.accentColor}`}>
+                  {variant.icon}
                 </span>
 
                 {/* Title block */}
@@ -220,7 +194,7 @@ export default function VariantsSection() {
                 <ul className="relative z-10 mb-6 w-full space-y-1.5">
                   {variant.includes.slice(0, 3).map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                      <HugeiconsIcon icon={CheckmarkCircle01Icon} className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary"  />
+                      <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -233,7 +207,7 @@ export default function VariantsSection() {
                   </span>
                   <div className="flex items-center gap-2">
                     <span className="text-xl font-bold text-foreground">{variant.price}</span>
-                    <HugeiconsIcon icon={ArrowRight01Icon} className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-primary"  />
+                    <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
                   </div>
                 </div>
               </Card>
@@ -261,7 +235,7 @@ export default function VariantsSection() {
                 <ul className="space-y-2">
                   {selectedVariant.idealFor.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-foreground/80">
-                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -273,15 +247,15 @@ export default function VariantsSection() {
                 </p>
                 <ul className="space-y-2">
                   {selectedVariant.includes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-gray-700">
-                      <CheckCircle className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
+                    <li key={i} className="flex items-start gap-2.5 text-sm font-medium text-foreground/80">
+                      <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-            <div className="rounded-3xl border-0 bg-muted/40 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex flex-col gap-4 rounded-3xl border-0 bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   {t('revision360.variants.sessionDuration')}
@@ -296,7 +270,7 @@ export default function VariantsSection() {
               </div>
             </div>
             <div className="flex justify-center pt-1">
-              <Button asChild size="lg" className="rounded-full px-8 h-12">
+              <Button asChild size="lg" className="h-12 rounded-full px-8">
                 <a
                   href={`https://wa.me/34658867133?text=${encodeURIComponent(t('revision360.whatsapp.booking'))}`}
                   target="_blank"

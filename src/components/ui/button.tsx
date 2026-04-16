@@ -9,14 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#0071e3] text-white hover:bg-[#005bb5]",
-        destructive: "bg-red-500 text-white hover:bg-red-600",
-        outline: "border-[1.5px] border-gray-200 bg-transparent text-gray-900 hover:bg-gray-50/50 hover:border-gray-300",
-        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-        ghost: "hover:bg-gray-100 text-gray-900",
-        link: "text-blue-500 underline-offset-4 hover:underline",
-        white: "bg-white text-black hover:bg-gray-50",
-        "white-outline": "bg-transparent text-white border-[1.5px] border-white/40 hover:bg-white/10 hover:border-white",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-white hover:bg-destructive/90",
+        outline: "border-[1.5px] border-border bg-transparent text-foreground hover:bg-accent/50 hover:border-border/80",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent text-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-12 px-6", // Premium default touch area

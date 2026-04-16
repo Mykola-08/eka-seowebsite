@@ -12,13 +12,13 @@ const Block = ({ icon: Icon, title, children, color = 'amber' }: {
 }) => {
   const styles: Record<string, string> = {
     amber: 'border-0 bg-amber-50',
-    blue: 'border-0 bg-blue-50/40',
+    blue: 'border-0 bg-primary/5/40',
     rose: 'border-0 bg-rose-50/40',
     gray: 'border-0 bg-muted/40',
   };
   const iconStyles: Record<string, string> = {
     amber: 'text-amber-600 bg-amber-100',
-    blue: 'text-blue-600 bg-blue-100',
+    blue: 'text-primary bg-primary/10',
     rose: 'text-rose-600 bg-rose-100',
     gray: 'text-foreground/80 bg-muted',
   };
@@ -155,7 +155,7 @@ export default function DisclaimerContent() {
               { country: 'General Emergency', number: '112' },
               { country: 'Crisis Line (ES)', number: '024' },
             ].map(({ country, number }) => (
-              <div key={country} className="bg-white rounded-3xl  border-0 p-3 text-center">
+              <div key={country} className="bg-card rounded-3xl  border-0 p-3 text-center">
                 <p className="text-2xl font-bold text-rose-600">{number}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{country}</p>
               </div>

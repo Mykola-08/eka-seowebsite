@@ -263,7 +263,7 @@ export default function MainLayout({
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-white/70 backdrop-blur-2xl border-0 '
+    ? 'bg-card/70 backdrop-blur-2xl border-0 '
     : 'bg-transparent';
 
   // Icon map for dropdown items
@@ -363,16 +363,16 @@ export default function MainLayout({
               {/* Column 1: Core Services */}
               <div className="flex flex-col space-y-3">
                 <h4 className="font-semibold text-foreground mb-2">{t('nav.services')}</h4>
-                <Link href="/services" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('nav.services')}
                 </Link>
-                <Link href="/personalized-services" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/personalized-services" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('nav.personalizedServices')}
                 </Link>
-                <Link href="/for-business" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/for-business" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('personalizedServices.business')}
                 </Link>
-                <Link href="/vip" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/vip" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('nav.vip')}
                 </Link>
               </div>
@@ -380,10 +380,10 @@ export default function MainLayout({
               {/* Column 2: Specific Modalities */}
               <div className="flex flex-col space-y-3">
                 <h4 className="font-semibold text-foreground mb-2">EKA Balance</h4>
-                <Link href="/360-revision" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/360-revision" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('nav.revision360')}
                 </Link>
-                <Link href="/first-time" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/first-time" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('hero.firstTime')}
                 </Link>
               </div>
@@ -391,10 +391,10 @@ export default function MainLayout({
               {/* Column 3: Company */}
               <div className="flex flex-col space-y-3">
                 <h4 className="font-semibold text-foreground mb-2">{t('nav.aboutElena')}</h4>
-                <Link href="/about-elena" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/about-elena" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('nav.aboutElena')}
                 </Link>
-                <Link href="/booking" className="hover:text-black transition-colors duration-200 text-sm font-medium text-primary">
+                <Link href="/booking" className="hover:text-foreground transition-colors duration-200 text-sm font-medium text-primary">
                   {t('nav.bookNow')}
                 </Link>
               </div>
@@ -402,19 +402,19 @@ export default function MainLayout({
               {/* Column 4: Resources */}
               <div className="flex flex-col space-y-3">
                 <h4 className="font-semibold text-foreground mb-2">Legal</h4>
-                <Link href="/discounts" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/discounts" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('footer.discounts')}
                 </Link>
                 <Link href="/disclaimer" className="text-amber-600 hover:text-amber-800 transition-colors duration-200 text-sm font-medium">
                   Health Disclaimer
                 </Link>
-                <Link href="/privacy-policy" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('footer.privacyPolicy')}
                 </Link>
-                <Link href="/cookie-policy" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/cookie-policy" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('footer.cookiePolicy')}
                 </Link>
-                <Link href="/terms-of-service" className="text-muted-foreground hover:text-black transition-colors duration-200 text-sm">
+                <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('footer.termsOfService')}
                 </Link>
               </div>
@@ -492,7 +492,7 @@ export default function MainLayout({
                   {item.hasDropdown ? (
                     <Link
                       href={item.href}
-                      className={`nav-trigger py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-black' : 'text-muted-foreground hover:text-black'}`}
+                      className={`nav-trigger py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                       onMouseEnter={(e) => openDropdown(e, item.name, item.dropdownWidth)}
                       onMouseLeave={scheduleHide}
                       onFocus={(e) => openDropdown(e, item.name, item.dropdownWidth)}
@@ -508,7 +508,7 @@ export default function MainLayout({
                     <a
                       href={item.href}
                       rel="noopener noreferrer"
-                      className={`py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-black' : 'text-muted-foreground hover:text-black'}`}
+                      className={`py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                       onClick={(e) => {
                         e.preventDefault();
                         window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -520,7 +520,7 @@ export default function MainLayout({
                   ) : (
                     <Link
                       href={item.href}
-                      className={`py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-black' : 'text-muted-foreground hover:text-black'}`}
+                      className={`py-4 px-4 -mx-4 text-sm font-medium transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                       suppressHydrationWarning
                     >
                       {item.name}
@@ -556,53 +556,10 @@ export default function MainLayout({
                   <AnimatePresence>
                     {activeDropdown === item.name && dropdownPosition && (
                       <motion.div
-                          initial={{ opacity: 0, scale: 0.95, y: -8 }}
-                          animate={{ opacity: 1, scale: 1, y: 0 }}
-                          exit={{ opacity: 0, scale: 0.95, y: -4 }}
+                          initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
+                          animate={{ opacity: 1, scaleY: 1, y: 0 }}
+                          exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
                           transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-                        className="fixed z-40"
-                        style={{
-                          top: dropdownPosition.top, // Start floating menu at the top spacing
-                          left: dropdownPosition.left - 40, // Add large invisible left padding zone
-                          width: dropdownPosition.width + 80, // Expand width by total horizontal padding
-                          transformOrigin: `${40 + (dropdownPosition.originX / 100 * dropdownPosition.width)}px top`,
-                          paddingLeft: 40, // Left invisible safe zone
-                          paddingRight: 40, // Right invisible safe zone
-                          paddingBottom: 40, // Bottom invisible safe zone
-                        }}
-                        onMouseEnter={() => keepMenuOpen(item.name)}
-                        onMouseLeave={scheduleHide}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Escape') {
-                            setActiveDropdown(null);
-                          }
-                        }}
-                        role="menu"
-                        aria-label={`${item.name} submenu`}
-                      >
-                        {/* Inner content wrapper with the actual visual styling */}
-                        <div
-                          className="fixed z-[101]"
-                          style={{
-                            top: dropdownPosition.triggerBottom - 15,
-                            left: dropdownPosition.left - 30,
-                            width: dropdownPosition.width + 60,
-                            height: dropdownPosition.top - dropdownPosition.triggerBottom + 30,
-                          }}
-                          onMouseEnter={() => keepMenuOpen(item.name)}
-                          onMouseLeave={scheduleHide}
-                          aria-hidden="true"
-                        />
-                      )}
-
-                      {/* Dropdown — positioned relative to viewport, flush with header */}
-                      <AnimatePresence>
-                        {activeDropdown === item.name && dropdownPosition && (
-                          <motion.div
-                              initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
-                              animate={{ opacity: 1, scaleY: 1, y: 0 }}
-                              exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
-                              transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
                             className="fixed z-[110]"
                             style={{
                               top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger
@@ -626,10 +583,10 @@ export default function MainLayout({
                           >
                             {/* Inner content wrapper with the actual visual styling */}
                             <div
-                              className="mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-white/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-white/60 ring-1 ring-black/[0.04]"
+                              className="mx-auto overflow-hidden drop-shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative bg-card/95 backdrop-blur-2xl rounded-b-2xl border border-t-0 border-border/60 ring-1 ring-black/[0.04]"
                               style={{ width: dropdownPosition.width }}
                             >
-                              <div className="absolute inset-x-0 top-0 h-[1px] bg-white/40" />
+                              <div className="absolute inset-x-0 top-0 h-[1px] bg-card/40" />
 
                               {item.dropdownType === 'agenyz' ? (
                                 /* Agenyz: product image cards */
@@ -675,7 +632,7 @@ export default function MainLayout({
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       onClick={() => setActiveDropdown(null)}
-                                      className="text-xs text-muted-foreground hover:text-black transition-colors"
+                                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                                     >
                                       agenyz.es ↗
                                     </a>
@@ -696,7 +653,7 @@ export default function MainLayout({
                                           <Link
                                             href={dropdownItem.href}
                                             onClick={() => setActiveDropdown(null)}
-                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-3xl text-sm text-foreground/80 hover:text-foreground hover:bg-black/4 active:bg-black/[0.07] transition-all duration-150 tracking-tight"
+                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-3xl text-sm text-foreground/80 hover:text-foreground hover:bg-foreground/4 active:bg-foreground/[0.07] transition-all duration-150 tracking-tight"
                                             role="menuitem"
                                             suppressHydrationWarning
                                           >
@@ -810,7 +767,7 @@ export default function MainLayout({
               <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5"  />
             </Button>
             <div className="p-6 pb-24 space-y-4">
-              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40">
+              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-3xl border border-border/40">
                 {/* Home */}
                 <div className=" border-0 pb-2">
                   <Link
@@ -861,8 +818,8 @@ export default function MainLayout({
               </div>
 
               {/* Additional App Links */}
-              <div className="flex flex-col space-y-2 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-white/40">
-                <div className="border-b border-gray-100 pb-2">
+              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-3xl border border-border/40">
+                <div className="border-b border-border pb-2">
                   <Link
                     href="/360-revision"
                     onClick={() => setIsMenuOpen(false)}

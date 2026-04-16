@@ -44,7 +44,7 @@ export function SaveButton({
   return (
     <LoadingButton
       {...props}
-      variant={saved ? "outline-solid" : (props.variant || "default")}
+      variant={saved ? "outline" : (props.variant || "default")}
       loading={loading}
     >
       {saved ? '✓ Desat' : (loading ? 'Desant...' : (children || 'Desar'))}

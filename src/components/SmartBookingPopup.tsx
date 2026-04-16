@@ -122,7 +122,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
   if (!isOpen) return null;
 
   return typeof document !== 'undefined' ? createPortal(
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-90 flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
+    <div className="fixed inset-0 bg-foreground/60 backdrop-blur-xs z-90 flex items-center justify-center p-4 overflow-y-hidden" onClick={onClose} role="presentation">
       <motion.div
         ref={dialogRef}
         role="dialog"
@@ -131,13 +131,13 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white dark:bg-zinc-900 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative"
+        className="bg-card dark:bg-foreground rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label={t('booking.smart.close') || 'Close'}
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted dark:bg-zinc-800 hover:bg-muted dark:hover:bg-zinc-700 flex items-center justify-center transition-colors z-10"
+          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted dark:bg-foreground/90 hover:bg-muted dark:hover:bg-muted-foreground flex items-center justify-center transition-colors z-10"
         >
           <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5 text-foreground/80 dark:text-muted-foreground"  />
         </button>
@@ -153,7 +153,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 className="space-y-8"
               >
                 <div className="text-center space-y-2">
-                  <h2 className="text-2xl font-light text-foreground dark:text-white">
+                  <h2 className="text-2xl font-light text-foreground dark:text-primary-foreground">
                     {t('booking.smart.title')}
                   </h2>
                   <p className="text-muted-foreground dark:text-muted-foreground">
@@ -164,13 +164,13 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 <div className="grid gap-4">
                   <button
                     onClick={handleQuickWhatsApp}
-                    className="flex items-center p-4 rounded-3xl border-2 border-0 hover:border-0 bg-green-50/50 hover:bg-green-50 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-3xl border-2 border-0 hover:border-0 bg-primary/5/50 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                   >
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4 transition-colors">
-                      <HugeiconsIcon icon={Message01Icon} className="w-6 h-6 text-green-600"  />
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 transition-colors">
+                      <HugeiconsIcon icon={Message01Icon} className="w-6 h-6 text-primary"  />
                     </div>
                     <div>
-                      <h3 className="font-normal text-gray-900 dark:text-gray-100">
+                      <h3 className="font-normal text-foreground dark:text-muted-foreground/30">
                         {t('booking.smart.quick')}
                       </h3>
                       <p className="text-sm text-muted-foreground dark:text-muted-foreground">
@@ -181,13 +181,13 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     onClick={() => setStep('form')}
-                    className="flex items-center p-4 rounded-3xl border-2 border-0 hover:border-0 bg-blue-50/50 hover:bg-blue-50 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-3xl border-2 border-0 hover:border-0 bg-primary/5/50 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
-                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 transition-colors">
-                      <HugeiconsIcon icon={File01Icon} className="w-6 h-6 text-blue-600"  />
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 transition-colors">
+                      <HugeiconsIcon icon={File01Icon} className="w-6 h-6 text-primary"  />
                     </div>
                     <div>
-                      <h3 className="font-normal text-gray-900 dark:text-gray-100">
+                      <h3 className="font-normal text-foreground dark:text-muted-foreground/30">
                         {t('booking.smart.form')}
                       </h3>
                       <p className="text-sm text-muted-foreground dark:text-muted-foreground">
@@ -208,18 +208,18 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 <div className="flex items-center mb-6">
                   <button 
                     onClick={() => setStep('choice')}
-                    className="mr-4 p-2 hover:bg-muted dark:hover:bg-zinc-800 rounded-full transition-colors"
+                    className="mr-4 p-2 hover:bg-muted dark:hover:bg-foreground/90 rounded-full transition-colors"
                   >
                     <HugeiconsIcon icon={ArrowLeft01Icon} className="w-5 h-5 text-foreground/80 dark:text-muted-foreground"  />
                   </button>
-                  <h2 className="text-xl font-normal text-gray-900 dark:text-white">
+                  <h2 className="text-xl font-normal text-foreground dark:text-primary-foreground">
                     {t('booking.smart.form')}
                   </h2>
                 </div>
 
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="booking-name" className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-name" className="block text-sm font-normal text-foreground/80 dark:text-muted-foreground/50 mb-1">
                       {t('booking.smart.name')}
                     </label>
                     <input
@@ -228,19 +228,19 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-foreground/90 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="booking-service" className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-service" className="block text-sm font-normal text-foreground/80 dark:text-muted-foreground/50 mb-1">
                       {t('booking.smart.service')}
                     </label>
                     <select
                       id="booking-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-foreground/90 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
                     >
                       <option value="">{t('booking.smart.service.placeholder')}</option>
                       {services.map((s) => (
@@ -250,7 +250,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                   </div>
 
                   <div>
-                    <label htmlFor="booking-time" className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="booking-time" className="block text-sm font-normal text-foreground/80 dark:text-muted-foreground/50 mb-1">
                       {t('booking.smart.time')}
                     </label>
                     <input
@@ -259,13 +259,13 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       placeholder={t('booking.smart.time.placeholder')}
                       value={formData.timePreference}
                       onChange={(e) => setFormData({ ...formData, timePreference: e.target.value })}
-                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-zinc-800 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-3xl  border-0 dark:border-0 bg-muted/40 dark:bg-foreground/90 focus:ring-2 focus:ring-amber-500 outline-hidden transition"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-normal transition-colors flex items-center justify-center"
+                    className="w-full py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-xl font-normal transition-colors flex items-center justify-center"
                   >
                     <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.smart.send')}

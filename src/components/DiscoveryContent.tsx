@@ -549,10 +549,10 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
   const getColorClasses = (color: string) => {
     const colors = {
-      purple: 'bg-purple-50 border-0 text-purple-700',
-      orange: 'bg-orange-50 border-0 text-orange-700',
-      blue: 'bg-blue-50 border-0 text-blue-700',
-      green: 'bg-green-50 border-0 text-green-700'
+      purple: 'bg-primary/5 border-0 text-primary',
+      orange: 'bg-gold/5 border-0 text-gold-dark',
+      blue: 'bg-primary/5 border-0 text-primary',
+      green: 'bg-primary/5 border-0 text-primary'
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -565,9 +565,9 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
         <section className="py-16 sm:py-24 bg-linear-to-br from-white via-gray-50/50 to-blue-50/30 min-h-screen">
           <div className="max-w-4xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-6 py-3 bg-green-100 rounded-full mb-8">
-                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-green-600 mr-2"  />
-                <span className="text-green-700 font-medium">{t('discovery.recommendation.badge')}</span>
+              <div className="inline-flex items-center px-6 py-3 bg-primary/10 rounded-full mb-8">
+                <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-primary mr-2"  />
+                <span className="text-primary font-medium">{t('discovery.recommendation.badge')}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-6 leading-tight">
@@ -579,17 +579,17 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               </p>
 
               {recommendation.analysis && (
-                <div className="bg-blue-50 p-6 rounded-3xl mb-12 text-center max-w-2xl mx-auto  border-0">
+                <div className="bg-primary/5 p-6 rounded-3xl mb-12 text-center max-w-2xl mx-auto  border-0">
                   <p className="text-lg text-foreground/80 leading-relaxed">
                     {t('discovery.analysis.intro')}
                     {recommendation.analysis.problem && (
-                      <span> {t('discovery.analysis.have')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.problem}</strong></span>
+                      <span> {t('discovery.analysis.have')} <strong className="text-primary font-semibold">{recommendation.analysis.problem}</strong></span>
                     )}
                     {recommendation.analysis.goal && (
-                      <span> {t('discovery.analysis.want')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.goal}</strong></span>
+                      <span> {t('discovery.analysis.want')} <strong className="text-primary font-semibold">{recommendation.analysis.goal}</strong></span>
                     )}
                     {recommendation.analysis.feeling && (
-                      <span> {t('discovery.analysis.feel')} <strong className="text-blue-800 font-semibold">{recommendation.analysis.feeling}</strong></span>
+                      <span> {t('discovery.analysis.feel')} <strong className="text-primary font-semibold">{recommendation.analysis.feeling}</strong></span>
                     )}
                     .
                   </p>
@@ -618,11 +618,11 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             </div>
 
             {viewMode === 'basic' ? (
-              <div className={`bg-white rounded-3xl  border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
+              <div className={`bg-card rounded-3xl  border-2 ${getColorClasses(recommendation.color)} p-8 sm:p-12 mb-8`}>
                 <div className="text-center mb-8">
                   {Icon && (
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Icon className="w-10 h-10 text-gray-700" />
+                    <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-10 h-10 text-foreground/80" />
                     </div>
                   )}
 
@@ -665,7 +665,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                           key={slot}
                           onClick={() => setSelectedTime(t(`booking.options.timeSlot.${slot}`))}
                           className={`py-2 px-4 rounded-3xl border-2 transition duration-200 text-sm font-medium ${selectedTime === t(`booking.options.timeSlot.${slot}`)
-                            ? 'border-0 bg-blue-50 text-blue-700'
+                            ? 'border-0 bg-primary/5 text-primary'
                             : 'border-0 text-foreground/80 hover:border-0'
                             }`}
                         >
@@ -676,7 +676,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   </div>
 
                   {formData.location === 'online' && (
-                    <div className="bg-yellow-50 p-4 rounded-3xl mb-6 text-yellow-800 text-sm">
+                    <div className="bg-gold/5 p-4 rounded-3xl mb-6 text-gold-dark text-sm">
                       {t('discovery.recommendation.online.note')}
                     </div>
                   )}
@@ -685,7 +685,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
+                    className="bg-brand-whatsapp hover:bg-brand-whatsapp/80 text-primary-foreground font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                   >
                     <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.direct.button')}
@@ -700,9 +700,9 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-3xl border border-gray-200 p-8 sm:p-12 mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center justify-center">
-                  <ClipboardList className="w-6 h-6 mr-3 text-blue-600" />
+              <div className="bg-card rounded-3xl border border-border p-8 sm:p-12 mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-8 flex items-center justify-center">
+                  <ClipboardList className="w-6 h-6 mr-3 text-primary" />
                   {t('discovery.diagnosis.title')}
                 </h2>
 
@@ -718,7 +718,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t('discovery.diagnosis.symptoms')}</h3>
                     <div className="flex flex-wrap gap-2">
                       {recommendation.diagnosis?.symptoms.map((s, i) => (
-                        <span key={i} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700">
+                        <span key={i} className="px-3 py-1 bg-card border border-border rounded-full text-sm text-foreground/80">
                           {s}
                         </span>
                       ))}
@@ -726,29 +726,29 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                   </div>
 
                   {/* Root Cause */}
-                  <div className="bg-blue-50 p-6 rounded-3xl  border-0">
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.rootCause')}</h3>
-                    <p className="text-lg font-medium text-blue-900">{recommendation.diagnosis?.rootCause}</p>
+                  <div className="bg-primary/5 p-6 rounded-3xl  border-0">
+                    <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{t('discovery.diagnosis.rootCause')}</h3>
+                    <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.rootCause}</p>
                   </div>
 
                   {/* Strategy */}
-                  <div className="bg-purple-50 p-6 rounded-3xl  border-0">
-                    <h3 className="text-sm font-semibold text-purple-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.strategy')}</h3>
-                    <p className="text-lg font-medium text-purple-900">{recommendation.diagnosis?.strategy}</p>
+                  <div className="bg-primary/5 p-6 rounded-3xl  border-0">
+                    <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{t('discovery.diagnosis.strategy')}</h3>
+                    <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.strategy}</p>
                   </div>
                 </div>
 
                 {/* Frequency */}
-                <div className="mb-12 p-6 bg-green-50 rounded-3xl  border-0 text-center">
-                  <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
-                  <p className="text-lg font-medium text-green-900">{recommendation.diagnosis?.frequency}</p>
+                <div className="mb-12 p-6 bg-primary/5 rounded-3xl  border-0 text-center">
+                  <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{t('discovery.diagnosis.frequency')}</h3>
+                  <p className="text-lg font-medium text-foreground">{recommendation.diagnosis?.frequency}</p>
                 </div>
 
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleBooking}
-                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
+                    className="bg-brand-whatsapp hover:bg-brand-whatsapp/80 text-primary-foreground font-semibold px-8 py-4 rounded-full transition-colors duration-200 flex items-center justify-center"
                   >
                     <HugeiconsIcon icon={Message01Icon} className="w-5 h-5 mr-2"  />
                     {t('booking.direct.button')}
@@ -768,7 +768,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               <p className="mb-4">{t('discovery.recommendation.why')}</p>
               <Link
                 href="/booking"
-                className="text-blue-600 hover:text-blue-700 font-medium"
+                className="text-primary hover:text-primary font-medium"
               >
                 {t('common.contact')}
               </Link>
@@ -785,14 +785,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-8">
-              <HugeiconsIcon icon={SparklesIcon} className="w-5 h-5 text-blue-600 mr-2"  />
-              <span className="text-blue-700 font-medium">{t('discovery.recommendation.badge')}</span>
+            <div className="inline-flex items-center px-6 py-3 bg-primary/10 rounded-full mb-8">
+              <HugeiconsIcon icon={SparklesIcon} className="w-5 h-5 text-primary mr-2"  />
+              <span className="text-primary font-medium">{t('discovery.recommendation.badge')}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-6 leading-tight flex items-center justify-center gap-3">
               👋 {t('hero.title')}
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
                 BETA
               </span>
             </h1>
@@ -806,7 +806,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
               {[0, 1, 2, 3, 4, 5, 6].map((step) => (
                 <div
                   key={step}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${step <= currentStep ? 'bg-blue-600' : 'bg-muted'
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${step <= currentStep ? 'bg-primary' : 'bg-muted'
                     }`}
                 />
               ))}
@@ -814,7 +814,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-3xl border border-gray-100 p-8 sm:p-12">
+          <div className="bg-card rounded-3xl border border-border p-8 sm:p-12">
 
             {/* Step 0: Location */}
             {currentStep === 0 && (
@@ -832,11 +832,11 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         key={loc.id}
                         onClick={() => setFormData({ ...formData, location: loc.id })}
                         className={`text-center p-6 rounded-3xl border-2 transition duration-200  flex flex-col items-center justify-center ${formData.location === loc.id
-                          ? 'border-0 bg-blue-50'
+                          ? 'border-0 bg-primary/5'
                           : 'border-0 hover:border-0'
                           }`}
                       >
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-blue-100 text-blue-600' : 'bg-muted text-foreground/80'
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${formData.location === loc.id ? 'bg-primary/10 text-primary' : 'bg-muted text-foreground/80'
                           }`}>
                           <HugeiconsIcon icon={loc.icon} className="w-6 h-6"  />
                         </div>
@@ -882,7 +882,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={type.id}
                       onClick={() => setFormData({ ...formData, userType: type.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.userType === type.id
-                        ? 'border-0 bg-blue-50'
+                        ? 'border-0 bg-primary/5'
                         : 'border-0 hover:border-0'
                         }`}
                     >
@@ -913,14 +913,14 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                         setFormData({ ...formData, tensionAreas: newAreas });
                       }}
                       className={`w-full text-left p-4 rounded-3xl border-2 transition duration-200 ${formData.tensionAreas.includes(option)
-                        ? 'border-0 bg-blue-50'
+                        ? 'border-0 bg-primary/5'
                         : 'border-0 hover:border-0'
                         }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-foreground">{option}</span>
                         {formData.tensionAreas.includes(option) && (
-                          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-blue-600"  />
+                          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-5 h-5 text-primary"  />
                         )}
                       </div>
                     </button>
@@ -943,7 +943,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={state.id}
                       onClick={() => setFormData({ ...formData, emotionalState: state.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.emotionalState === state.id
-                        ? 'border-0 bg-blue-50'
+                        ? 'border-0 bg-primary/5'
                         : 'border-0 hover:border-0'
                         }`}
                     >
@@ -969,7 +969,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={time.id}
                       onClick={() => setFormData({ ...formData, timeCommitment: time.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.timeCommitment === time.id
-                        ? 'border-0 bg-blue-50'
+                        ? 'border-0 bg-primary/5'
                         : 'border-0 hover:border-0'
                         }`}
                     >
@@ -995,7 +995,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
                       key={budget.id}
                       onClick={() => setFormData({ ...formData, budget: budget.id })}
                       className={`w-full text-left p-6 rounded-3xl border-2 transition duration-200  ${formData.budget === budget.id
-                        ? 'border-0 bg-blue-50'
+                        ? 'border-0 bg-primary/5'
                         : 'border-0 hover:border-0'
                         }`}
                     >

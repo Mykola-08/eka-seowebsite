@@ -49,7 +49,7 @@ export default function LanguageSelector() {
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-zinc-800/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-md hover:bg-zinc-800/80 hover:border-amber-500/40 transition duration-200"
+        className="flex items-center space-x-2 px-3 py-2 bg-foreground/90/60 border border-amber-500/20 text-amber-200 rounded-lg backdrop-blur-md hover:bg-foreground/90/80 hover:border-amber-500/40 transition duration-200"
       >
         <HugeiconsIcon icon={GlobeIcon} className="w-4 h-4"  />
         <span className="text-sm font-medium">
@@ -66,7 +66,7 @@ export default function LanguageSelector() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute bottom-full right-0 mb-3 w-48 bg-zinc-900/85 backdrop-blur-xl border border-amber-500/30 rounded-xl overflow-hidden z-[100] ring-1 ring-white/5"
+            className="absolute bottom-full right-0 mb-3 w-48 bg-foreground/85 backdrop-blur-xl border border-amber-500/30 rounded-xl overflow-hidden z-[100] ring-1 ring-white/5"
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -80,7 +80,7 @@ export default function LanguageSelector() {
                   className={"w-full text-left px-3 py-2.5 text-sm flex items-center space-x-3 transition-all duration-200 rounded-lg " + (
                     language === lang.code
                       ? 'bg-amber-500/15 text-amber-200 font-medium'
-                      : 'text-zinc-400 hover:bg-white/5 hover:text-amber-100'
+                      : 'text-muted-foreground/70 hover:bg-card/5 hover:text-amber-100'
                   )}
                 >
                   <span className="text-base">{lang.flag}</span>

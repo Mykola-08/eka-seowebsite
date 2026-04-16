@@ -99,8 +99,8 @@ export default function PrivacyPolicyContent() {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-3xl  border-0 bg-blue-50/50 p-6 grid sm:grid-cols-2 gap-4 text-sm">
-                <div className="sm:col-span-2"><span className="text-xs font-bold uppercase tracking-wider text-blue-500">Data Protection Officer (DPO)</span></div>
+              <div className="mt-4 rounded-3xl  border-0 bg-primary/5/50 p-6 grid sm:grid-cols-2 gap-4 text-sm">
+                <div className="sm:col-span-2"><span className="text-xs font-bold uppercase tracking-wider text-primary">Data Protection Officer (DPO)</span></div>
                 {[
                   ['Name', 'Olena Kucherova Dryzhak'],
                   ['Email', 'dpo@ekabalance.com'],
@@ -117,11 +117,11 @@ export default function PrivacyPolicyContent() {
             <Section id="data" icon={File01Icon} title="1. Data We Collect">
               <p>We collect personal data necessary to provide our wellness services, including:</p>
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="rounded-3xl  border-0 bg-blue-50/30 p-5">
+                <div className="rounded-3xl  border-0 bg-primary/5/30 p-5">
                   <p className="font-semibold text-foreground text-sm mb-2">Personal Identification</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
                     {['Full name', 'Email address', 'Phone number', 'Postal address', 'Date of birth'].map(item => (
-                      <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-blue-400 shrink-0"/>{item}</li>
+                      <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-primary/30 shrink-0"/>{item}</li>
                     ))}
                   </ul>
                 </div>

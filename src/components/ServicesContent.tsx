@@ -61,9 +61,9 @@ export default function ServicesContent() {
         <section className="py-16 bg-transparent">
           <div className="section-container">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="bg-white p-8 rounded-3xl border border-gray-200/50">
-                <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                  <span className="font-semibold text-gray-900 block mb-2 text-base">{t('services.disclaimerPrefix')}:</span>
+              <div className="bg-card p-8 rounded-3xl border border-border/50">
+                <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                  <span className="font-semibold text-foreground block mb-2 text-base">{t('services.disclaimerPrefix')}:</span>
                   {t('services.disclaimerBody')}
                 </p>
               </div>

@@ -7,7 +7,7 @@ export default function Footer() {
   const { t } = useLanguage();
   return (
     <motion.footer 
-      className="bg-black  border-0 relative overflow-hidden"
+      className="bg-foreground  border-0 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
@@ -49,7 +49,7 @@ export default function Footer() {
               </div>
             </div>
             
-            <p className="text-zinc-400 leading-relaxed font-light">
+            <p className="text-muted-foreground/70 leading-relaxed font-light">
               {t('revision360.footer.description')}
             </p>
             
@@ -78,7 +78,7 @@ export default function Footer() {
                 href="https://wa.me/34658867133"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 text-zinc-300 group"
+                className="flex items-center space-x-3 text-muted-foreground/50 group"
                 whileHover={{ 
                   color: "rgb(252, 211, 77)",
                   x: 5
@@ -91,7 +91,7 @@ export default function Footer() {
               
               <motion.a
                 href="mailto:contact@ekabalance.com"
-                className="flex items-center space-x-3 text-zinc-300 group"
+                className="flex items-center space-x-3 text-muted-foreground/50 group"
                 whileHover={{ 
                   color: "rgb(252, 211, 77)",
                   x: 5
@@ -103,7 +103,7 @@ export default function Footer() {
               </motion.a>
               
               <motion.div
-                className="flex items-start space-x-3 text-zinc-300"
+                className="flex items-start space-x-3 text-muted-foreground/50"
                 whileHover={{ 
                   color: "rgb(252, 211, 77)"
                 }}
@@ -112,7 +112,7 @@ export default function Footer() {
                 <HugeiconsIcon icon={Location01Icon} className="w-5 h-5 text-amber-400 mt-0.5"  />
                 <div>
                   <p>{t('revision360.labels.presentialConsultations')}</p>
-                  <p className="text-sm text-zinc-400">{t('revision360.labels.onlineSessionsAvailable')}</p>
+                  <p className="text-sm text-muted-foreground/70">{t('revision360.labels.onlineSessionsAvailable')}</p>
                 </div>
               </motion.div>
             </div>
@@ -140,7 +140,7 @@ export default function Footer() {
               ].map((service, index) => (
                 <motion.p
                   key={service}
-                  className="text-zinc-300 text-sm cursor-pointer"
+                  className="text-muted-foreground/50 text-sm cursor-pointer"
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.02 }}
@@ -167,7 +167,7 @@ export default function Footer() {
         >
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 lg:gap-8">
             <p 
-              className="text-zinc-400 text-sm"
+              className="text-muted-foreground/70 text-sm"
             >
               {t('revision360.footer.copyright')}
             </p>
@@ -179,7 +179,7 @@ export default function Footer() {
             transition={{ duration: 0.2 }}
           >
             <span>{t('revision360.footer.madeWith')}</span>
-            <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-red-400"  />
+            <HugeiconsIcon icon={FavouriteIcon} className="w-4 h-4 text-destructive/70"  />
             <span>{t('revision360.footer.forHealing')}</span>
           </motion.div>
         </motion.div>

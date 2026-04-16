@@ -25,14 +25,14 @@ export default function LanguagePopup() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-90 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs"
+                className="fixed inset-0 z-90 flex items-center justify-center p-4 bg-foreground/40 backdrop-blur-xs"
                 onClick={() => setShowLanguagePopup(false)}
             >
                 <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
-                    className="bg-white rounded-3xl max-w-md w-full p-8 relative border border-gray-100"
+                    className="bg-card rounded-3xl max-w-md w-full p-8 relative border border-border"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <Button
@@ -62,7 +62,7 @@ export default function LanguagePopup() {
                             <Button
                                 key={lang.code}
                                 onClick={() => confirmLanguage(lang.code)}
-                                variant="outline-solid"
+                                variant="outline"
                                 className="justify-start h-auto p-4 rounded-3xl"
                             >
                                 <span className="text-2xl mr-4">{lang.flag}</span>

@@ -67,10 +67,10 @@ interface CoreServiceTemplateProps {
 }
 
 const iconColorMap: Record<string, string> = {
-  orange: 'text-orange-600 bg-orange-100',
-  blue: 'text-blue-600 bg-blue-100',
-  green: 'text-green-600 bg-green-100',
-  purple: 'text-purple-600 bg-purple-100',
+  orange: 'text-gold-dark bg-gold/10',
+  blue: 'text-primary bg-primary/10',
+  green: 'text-primary bg-primary/10',
+  purple: 'text-primary bg-primary/10',
   pink: 'text-pink-600 bg-pink-100',
   amber: 'text-amber-600 bg-amber-100',
 };
@@ -111,10 +111,10 @@ export default function CoreServiceTemplate({
       >
       {/* Bento Grid Section */}
       {bentoGrid && (
-        <section className="py-16 sm:py-20 lg:py-24 bg-white relative z-10">
+        <section className="py-16 sm:py-20 lg:py-24 bg-card relative z-10">
           <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-black">
+              <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-foreground">
                 {t(bentoGrid.titleKey)}
               </h2>
               {bentoGrid.subtitleKey && (
@@ -155,7 +155,7 @@ export default function CoreServiceTemplate({
       <section className="py-16 sm:py-20 lg:py-24 bg-muted/30">
         <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
               {t(features.titleKey)}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
@@ -169,12 +169,12 @@ export default function CoreServiceTemplate({
                 return (
                   <div
                     key={index}
-                    className="p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-[180px]"
+                    className="p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-[180px]"
                   >
                     <div className="absolute -top-4 -right-4 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500 transform group-hover:scale-110">
                       <CheckCircle className="w-40 h-40" />
                     </div>
-                      <div className={`w-12 h-12 rounded-xl sm:rounded-2xl flex items-center justify-center mb-6 relative z-10 bg-gray-50 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
+                      <div className={`w-12 h-12 rounded-xl sm:rounded-2xl flex items-center justify-center mb-6 relative z-10 bg-muted/50 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
                       <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tracking-tight leading-[1.2] relative z-10 w-[95%]">
@@ -188,10 +188,10 @@ export default function CoreServiceTemplate({
       </section>
 
       {/* Pricing / Duration Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white relative">
+      <section className="py-16 sm:py-20 lg:py-24 bg-card relative">
         <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-black">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
               {t(pricing.titleKey)}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
@@ -201,10 +201,10 @@ export default function CoreServiceTemplate({
 
           <div className={`grid gap-6 md:gap-8 max-w-300 mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {pricing.options.map((option, index) => (
-                <div key={index} className="bg-[#fbfbfd] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-gray-100 hover:border-gray-200 transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gray-100 rounded-bl-full z-0 opacity-50 group-hover:bg-blue-50 transition-colors duration-500" />
+                <div key={index} className="bg-muted/30 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-border hover:border-border transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-muted rounded-bl-full z-0 opacity-50 group-hover:bg-primary/5 transition-colors duration-500" />
                 
-                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[1.25rem] bg-white  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
+                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[1.25rem] bg-card  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
                   <HugeiconsIcon icon={Clock01Icon} className="w-7 h-7"  />
                 </div>
 
@@ -235,7 +235,7 @@ export default function CoreServiceTemplate({
                         onClick={() => navigateToBooking()}
                         variant="default"
                         size="xl"
-                        className="w-full rounded-full bg-[#1d1d1f] hover:bg-[#000000] text-white transition-all font-medium text-lg"
+                        className="w-full rounded-full bg-foreground hover:bg-foreground/90 text-primary-foreground transition-all font-medium text-lg"
                     >
                         {t('common.bookNow')}
                     </Button>
@@ -248,13 +248,13 @@ export default function CoreServiceTemplate({
       
       {/* Testimonials (Optional) */}
       {testimonials && testimonials.items.length > 0 && (
-          <section className="py-16 sm:py-20 lg:py-24 bg-white">
+          <section className="py-16 sm:py-20 lg:py-24 bg-card">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     {testimonials.items.map((testimonial, i) => (
-                        <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 h-full flex flex-col hover:bg-white transition duration-300">
-                             <div className="flex gap-1 mb-4 text-yellow-400">
+                        <div key={i} className="bg-muted/50 p-8 rounded-3xl border border-border h-full flex flex-col hover:bg-card transition duration-300">
+                             <div className="flex gap-1 mb-4 text-gold">
                                 {[...Array(testimonial.rating)].map((_, i) => (
                                     <HugeiconsIcon icon={StarIcon} key={i} className="w-5 h-5 fill-current"  />
                                 ))}

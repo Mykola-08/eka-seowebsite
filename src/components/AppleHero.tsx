@@ -83,7 +83,7 @@ export default function AppleHero() {
               asChild
               variant="default"
               size="xl"
-              className="px-8 py-6 h-auto rounded-full w-full sm:w-auto transition-all duration-300"
+              className="px-8 py-6 h-auto w-full sm:w-auto transition-all shadow-none font-medium"
               onClick={() => logEvent('hero_first_time_click')}
             >
               <Link href="/first-time">
@@ -96,7 +96,7 @@ export default function AppleHero() {
               asChild
               variant="outline"
               size="xl"
-              className="px-8 py-6 h-auto rounded-full w-full sm:w-auto backdrop-blur-md transition-all duration-300"
+              className="px-8 py-6 h-auto w-full sm:w-auto backdrop-blur-md transition-all shadow-none font-medium"
               onClick={() => logEvent('hero_services_click')}
             >
               <Link href="/services">
@@ -108,7 +108,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-3xl overflow-hidden mx-auto group">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple overflow-hidden mx-auto group shadow-apple-sm border border-border/10">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (
@@ -133,7 +133,7 @@ export default function AppleHero() {
                 quality={85}
               />
               {/* Gradient Overlay for depth and text contrast */}
-              <div className="absolute inset-0 bg-linear-to-t from-gray-900/30 via-gray-900/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-foreground/30 via-foreground/10 to-transparent pointer-events-none" />
             </div>
           );
         })}

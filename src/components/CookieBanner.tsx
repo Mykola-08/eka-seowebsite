@@ -82,7 +82,7 @@ export default function CookieBanner() {
           className="fixed bottom-0 left-0 right-0 z-60 p-4 pb-24 md:pb-6 md:p-6 md:left-auto md:right-6 md:bottom-6 md:w-105"
           data-testid="cookie-banner"
         >
-          <div className="bg-background/95 backdrop-blur-xl border border-border rounded-3xl overflow-hidden pointer-events-auto">
+          <div className="bg-background/95 backdrop-blur-xl border border-border rounded-2xl overflow-hidden pointer-events-auto">
             <div className="p-5 sm:p-6">
               {/* Header */}
               <div className="flex items-start justify-between gap-3 mb-3">

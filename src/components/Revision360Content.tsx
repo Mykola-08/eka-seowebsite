@@ -104,12 +104,12 @@ export default function Revision360Content() {
           subtitle={t('revision360.hero.subtitle')}
           actions={
             <>
-              <Button asChild size="lg" className="rounded-full px-8">
+              <Button asChild size="lg" className="px-8 shadow-none font-medium">
                 <a href={bookHref} target="_blank" rel="noopener noreferrer">
                   {t('revision360.hero.cta.book')}
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-8">
+              <Button asChild size="lg" variant="outline" className="px-8 shadow-none font-medium">
                 <a href="#process">{t('revision360.hero.cta.learn')}</a>
               </Button>
             </>
@@ -177,7 +177,7 @@ export default function Revision360Content() {
           subtitle={t('revision360.final.subtitle')}
           actions={
             <>
-              <Button asChild size="lg" variant="secondary" className="rounded-full px-8">
+              <Button asChild size="lg" variant="secondary" className="px-8 shadow-none font-medium text-primary">
                 <a href={bookHref} target="_blank" rel="noopener noreferrer">
                   {t('common.bookNow')}
                 </a>
@@ -186,7 +186,7 @@ export default function Revision360Content() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                className="px-8 shadow-none font-medium border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
               >
                 <a href={discoveryHref} target="_blank" rel="noopener noreferrer">
                   {t('cta.scheduleDiscoveryCall')}

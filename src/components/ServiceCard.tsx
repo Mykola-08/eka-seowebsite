@@ -17,20 +17,19 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const { t, language } = useLanguage();
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-all hover:bg-surface-muted border-border/60 group">
+    <Card className="flex flex-col h-full overflow-hidden transition-all hover:shadow-apple-sm border-border/40 group">
       {service.image && (
-        <div className="relative w-full h-48 overflow-hidden bg-muted">
+        <div className="relative w-full h-48 overflow-hidden bg-muted/20 border-b border-border/20">
           <Image 
             src={service.image} 
             alt={t(service.titleKey)}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-opacity duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
         </div>
       )}
-      <CardHeader className={service.image ? 'pt-4 relative z-10' : ''}>
+      <CardHeader className={service.image ? 'pt-5' : ''}>
         <div className="flex justify-between items-start gap-4 mb-2">
           <CardTitle className="text-2xl font-medium leading-tight">
             {t(service.titleKey)}
@@ -78,16 +77,16 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         </div>
       </CardContent>
 
-      <CardFooter className="pt-0 flex flex-col sm:flex-row gap-3">
-        <Button asChild className="w-full sm:flex-1 rounded-full">
+      <CardFooter className="pt-4 pb-6 flex flex-col sm:flex-row gap-3 border-t border-border/10 mt-auto">
+        <Button asChild className="w-full sm:flex-1 shadow-none font-medium">
           <Link href={`/booking?service=${encodeURIComponent(t(service.titleKey))}`}>
             {t('nav.bookNow') || 'Book Now'}
           </Link>
         </Button>
-        <Button asChild variant="outline" className="w-full sm:flex-1 rounded-full group/btn">
+        <Button asChild variant="outline" className="w-full sm:flex-1 shadow-none font-medium group/btn">
           <Link href={service.href}>
             {t('common.readMore') || 'Details'}
-            <ArrowRight01Icon className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            <ArrowRight01Icon className="ml-2 w-4 h-4 text-muted-foreground group-hover/btn:translate-x-1 group-hover/btn:text-foreground transition-all" />
           </Link>
         </Button>
       </CardFooter>

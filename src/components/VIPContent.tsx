@@ -180,7 +180,7 @@ const ComparativeTable = () => {
           </h2>
         </div>
         
-        <div className="overflow-x-auto rounded-3xl bg-card border border-border">
+        <div className="overflow-x-auto rounded-2xl bg-card border border-border">
           <table className="w-full min-w-[600px] border-collapse">
             <thead>
               <tr className="bg-muted/40/50">
@@ -267,7 +267,7 @@ export default function VIPContent() {
             {defaultLuxuryFeatures.map((feature, idx) => {
               const Icon = feature.icon || Diamond01Icon;
               return (
-                <div key={idx} className="p-8 rounded-3xl bg-muted/50 border border-border hover:border-amber-100 transition-colors group">
+                <div key={idx} className="p-8 rounded-2xl bg-muted/50 border border-border hover:border-amber-100 transition-colors group">
                   <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 transition-colors">
                     <Icon className="w-7 h-7 text-amber-600" />
                   </div>
@@ -292,7 +292,7 @@ export default function VIPContent() {
                {vipServices.map((service, idx) => (
                  <div key={idx} className="bg-card rounded-apple-xl p-10 border border-border transition- duration-300">
                     <div className="flex items-start gap-6">
-                       <div className="w-16 h-16 rounded-3xl bg-amber-50 flex items-center justify-center shrink-0">
+                       <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0">
                           <service.icon className="w-8 h-8 text-amber-600" />
                        </div>
                        <div>
@@ -353,7 +353,7 @@ export default function VIPContent() {
                  </div>
 
                  <button 
-                   className={`w-full h-14 rounded-3xl text-lg font-normal tracking-tight border-none transition ${
+                   className={`w-full h-14 rounded-2xl text-lg font-normal tracking-tight border-none transition ${
                      plan.popular 
                        ? 'bg-amber-500 hover:bg-amber-600 text-primary-foreground' 
                        : 'bg-muted hover:bg-muted text-foreground'
@@ -379,7 +379,7 @@ export default function VIPContent() {
 
             <div className="grid md:grid-cols-3 gap-8">
                {testimonials.map((test, i) => (
-                  <div key={i} className="bg-card/5 backdrop-blur-md rounded-3xl p-8">
+                  <div key={i} className="bg-card/5 backdrop-blur-md rounded-2xl p-8">
                      <div className="flex gap-1 mb-6">
                         {[...Array(test.rating)].map((_, j) => (
                            <StarIcon key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />

@@ -70,7 +70,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="relative order-1 lg:order-2 flex justify-center"
                         >
-                            <div className="relative w-full max-w-lg aspect-square rounded-3xl border border-border bg-card/50 overflow-hidden">
+                            <div className="relative w-full max-w-lg aspect-square rounded-2xl border border-border bg-card/50 overflow-hidden">
                                 <Image
                                     src={imageUrl}
                                     alt={translatedName}
@@ -140,7 +140,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
 
                         {/* Left Column (2/3): Description + Accordion */}
                         <div className="lg:col-span-2 space-y-8">
-                            <Card className="rounded-3xl border border-border shadow-none">
+                            <Card className="rounded-2xl border border-border shadow-none">
                                 <CardHeader>
                                     <CardTitle className="text-2xl font-light text-foreground">
                                         {t('agenyz.aboutProduct') || 'About the Formula'}
@@ -153,7 +153,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                 </CardContent>
                             </Card>
 
-                            <Accordion type="single" collapsible defaultValue="ingredients" className="w-full bg-card rounded-3xl border border-border shadow-none">
+                            <Accordion type="single" collapsible defaultValue="ingredients" className="w-full bg-card rounded-2xl border border-border shadow-none">
                                 {translatedIngredients.length > 0 && (
                                     <AccordionItem value="ingredients" className="border-b border-border px-6">
                                         <AccordionTrigger className="text-lg font-medium hover:no-underline py-5">
@@ -190,7 +190,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                         {/* Right Column (1/3): Benefits + Trust Badges */}
                         <div className="lg:col-span-1 space-y-8">
                             {translatedBenefits.length > 0 && (
-                                <Card className="bg-primary/10 border-primary/20 shadow-none overflow-hidden relative rounded-3xl">
+                                <Card className="bg-primary/10 border-primary/20 shadow-none overflow-hidden relative rounded-2xl">
                                     <CardHeader className="pb-4">
                                         <CardTitle className="text-xl font-medium flex items-center gap-2 text-primary relative z-10">
                                             <Zap className="w-5 h-5" />
@@ -210,7 +210,7 @@ export default function AgenyzProductContent({ id }: { id: string }) {
                                 </Card>
                             )}
 
-                            <div className="bg-card rounded-3xl p-6 border border-border grid grid-cols-2 gap-4 shadow-none">
+                            <div className="bg-card rounded-2xl p-6 border border-border grid grid-cols-2 gap-4 shadow-none">
                                 <div className="text-center p-2">
                                     <div className="mx-auto w-10 h-10 bg-muted rounded-full flex items-center justify-center mb-3 text-muted-foreground">
                                         <ShieldCheck className="w-5 h-5" />

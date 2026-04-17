@@ -1,26 +1,24 @@
 'use client';
 
-import PageLayout from '@/components/PageLayout';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { SparklesIcon } from '@/lib/icons';
-import FirstTimeWizard from './FirstTimeWizard';
+
+import { type ProblemState, FUNNEL_DATA } from '@/lib/funnel-data';
+import { FunnelHero } from '@/components/templates/FunnelHero';
+import { AdaptiveMethodology } from '@/components/templates/AdaptiveMethodology';
+import { AdaptiveServices } from '@/components/templates/AdaptiveServices';
+import { FunnelReviews } from '@/components/templates/FunnelReviews';
 
 export default function FirstTimeContent() {
   const { t } = useLanguage();
+  const [problem, setProblem] = useState<ProblemState>('back_pain');
 
   return (
-    <PageLayout
-      hero={{
-        title: t('onboarding.welcome.title') || "Primera Visita",
-        subtitle: t('onboarding.welcome.description') || "Descubre tu plan personalizado respondiendo unas breves preguntas.",
-        badge: t('hero.firstTime') || "First Time",
-        icon: <SparklesIcon className="w-4 h-4" />
-      }}
-      className="bg-secondary"
-    >
-      <div className="section-container py-12 md:py-20 flex justify-center">
-        <FirstTimeWizard />
-      </div>
-    </PageLayout>
+    <main className="bg-background pt-24 pb-16">
+      <FunnelHero currentProblem={problem} onProblemChange={setProblem} />
+      <AdaptiveMethodology currentProblem={problem} />
+      <AdaptiveServices currentProblem={problem} />
+      <FunnelReviews testimonials={FUNNEL_DATA[problem].testimonials} />
+    </main>
   );
 }

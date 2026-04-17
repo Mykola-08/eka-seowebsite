@@ -27,7 +27,7 @@ export function AdaptiveTransformation({ problem }: AdaptiveTransformationProps)
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="bg-card  rounded-3xl p-8 md:p-12"
+            className="bg-card  rounded-2xl p-8 md:p-12"
           >
             <p className="text-2xl md:text-4xl font-semibold leading-tight md:leading-tight text-primary">
               "{content.transformation}"

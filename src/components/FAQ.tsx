@@ -70,7 +70,7 @@ const FAQ = ({ items, title, subtitle }: FAQProps) => {
         <div className="w-full">
           <Accordion type="single" collapsible defaultValue="item-1" className="flex flex-col gap-4">
             {faqItems.map((item) => (
-              <AccordionItem key={item.id} value={item.id} className="bg-muted/40 rounded-3xl px-6 sm:px-8 border-none transition-all duration-300">
+              <AccordionItem key={item.id} value={item.id} className="bg-muted/40 rounded-2xl px-6 sm:px-8 border-none transition-all duration-300">
                 <AccordionTrigger className="text-lg sm:text-xl font-medium text-foreground hover:text-primary hover:no-underline py-6 text-left transition-colors duration-200">
                   {item.question}
                 </AccordionTrigger>

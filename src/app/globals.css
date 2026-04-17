@@ -346,10 +346,10 @@
     --apple-gray-dark: #1d1d1f;
     --apple-blue: #0071e3;
     --apple-purple: #5856d6;
-    --apple-border-radius: 36px;
+    --apple-border-radius: 24px;
     --apple-border-radius-small: 9999px;
-    --apple-border-radius-large: 52px;
-    --apple-border-radius-xl: 68px;
+    --apple-border-radius-large: 32px;
+    --apple-border-radius-xl: 40px;
     --apple-shadow: 0 0 #0000;
     --apple-shadow-hover: 0 0 #0000;
     --apple-shadow-large: 0 0 #0000;
@@ -431,8 +431,8 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.488 0.243 264.376);
-    --primary-foreground: oklch(0.97 0.014 254.604);
+    --primary: #0071e3;
+    --primary-foreground: #ffffff;
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
     --muted: oklch(0.97 0 0);
@@ -446,10 +446,6 @@
 
     /* Brand Colors */
     --brand-whatsapp: #25D366;
-
-/* ekabalance.com blue */
-  --primary: #0071e3;
-  --primary-foreground: #ffffff;
 
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
@@ -488,9 +484,8 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-  /* ekabalance.com blue */
-  --primary: #0071e3;
-  --primary-foreground: #ffffff;
+    --primary: #0071e3;
+    --primary-foreground: #ffffff;
     --secondary: oklch(0.274 0.006 286.033);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);

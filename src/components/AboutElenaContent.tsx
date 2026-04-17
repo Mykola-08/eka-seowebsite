@@ -164,7 +164,7 @@ export default function AboutElenaContent() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 }
                   }}
-                  className="px-8 py-4 bg-secondary text-foreground/80 rounded-3xl font-medium cursor-default hover:bg-secondary/80 transition-colors"
+                  className="px-8 py-4 bg-secondary text-foreground/80 rounded-2xl font-medium cursor-default hover:bg-secondary/80 transition-colors"
                 >
                   {tech.name}
                 </motion.div>

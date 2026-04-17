@@ -1,9 +1,12 @@
 'use client';
 
 import React, { useState, useCallback, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { BookingContext } from '@/contexts/bookingContext';
-import SmartBookingPopup from './SmartBookingPopup';
+
+// Heavy (framer-motion + portal) and only shown on demand — keep out of the initial bundle
+const SmartBookingPopup = dynamic(() => import('./SmartBookingPopup'), { ssr: false });
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const { logEvent } = useAnalytics();

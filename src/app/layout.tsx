@@ -49,6 +49,13 @@ export const metadata: Metadata = {
   creator: "EKA Balance",
   alternates: {
     canonical: "/",
+    languages: {
+      'ca-ES': '/',
+      'en': '/',
+      'es-ES': '/',
+      'ru': '/',
+      'x-default': '/',
+    },
   },
   openGraph: {
     title: "EKA Balance - Integrative Somatic Therapies in Barcelona",

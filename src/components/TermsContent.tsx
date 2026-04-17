@@ -52,7 +52,7 @@ export default function TermsContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer — always first, always prominent */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-3xl border border-warning/30 bg-warning/10 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>

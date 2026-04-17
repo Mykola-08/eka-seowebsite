@@ -122,7 +122,7 @@ export default function AgenyzContent() {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-3xl overflow-hidden">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
                         {stats.map((stat, i) => (
                             <motion.div
                                 key={stat.label}
@@ -170,7 +170,7 @@ export default function AgenyzContent() {
                             >
                                 <Link
                                     href={`/agenyz/${product.id}`}
-                                      className="group block h-full bg-card rounded-3xl overflow-hidden transition-all duration-500 border border-border hover:border-border"
+                                      className="group block h-full bg-card rounded-2xl overflow-hidden transition-all duration-500 border border-border hover:border-border"
                                 >
                                     <div className={`relative w-full bg-muted/20 flex shrink-0 items-center justify-center overflow-hidden border-b border-border ${product.imageLayout === 'banner' ? 'p-0' : 'p-6'} ${idx === 0 ? 'h-72 md:h-80' : 'h-64'}`}>
                                         {product.image ? (
@@ -258,7 +258,7 @@ export default function AgenyzContent() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ duration: 0.35 }}
-                                          className="bg-muted/50 border border-border/80 rounded-3xl p-7 flex flex-col h-full transition-all duration-400 hover:bg-muted/30"
+                                          className="bg-muted/50 border border-border/80 rounded-2xl p-7 flex flex-col h-full transition-all duration-400 hover:bg-muted/30"
                                     >
                                         <div className="mb-5">
                                             <span className="px-3.5 py-1.5 bg-card text-muted-foreground text-xs font-medium rounded-full uppercase tracking-widest border border-border">

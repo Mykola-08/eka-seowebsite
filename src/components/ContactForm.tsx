@@ -178,7 +178,7 @@ export default function ContactFormOptimized() {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-2xl mx-auto"
       >
-        <div className="bg-muted/40 rounded-3xl p-12 text-center border border-border">
+        <div className="bg-muted/40 rounded-2xl p-12 text-center border border-border">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -236,7 +236,7 @@ export default function ContactFormOptimized() {
                 transition={{ delay: index * 0.1 }}
                 className="flex items-start space-x-4 p-6 bg-card rounded-2xl border border-border transition- duration-300"
               >
-                <div className={`w-12 h-12 ${item.iconBg} rounded-3xl flex items-center justify-center shrink-0`}>
+                <div className={`w-12 h-12 ${item.iconBg} rounded-2xl flex items-center justify-center shrink-0`}>
                   <item.icon className={`w-6 h-6 ${item.iconText}`} />
                 </div>
                 <div>
@@ -260,7 +260,7 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-muted/40 border border-border rounded-3xl p-6"
+            className="bg-muted/40 border border-border rounded-2xl p-6"
           >
             <div className="flex items-start space-x-3">
               <Clock01Icon className="w-6 h-6 text-primary mt-1 shrink-0" />
@@ -291,7 +291,7 @@ export default function ContactFormOptimized() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-card rounded-3xl border border-border overflow-hidden"
+            className="bg-card rounded-2xl border border-border overflow-hidden"
           >
             <div className="p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -308,7 +308,7 @@ export default function ContactFormOptimized() {
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
-                    className="bg-destructive/5 rounded-3xl p-4 flex items-center"
+                    className="bg-destructive/5 rounded-2xl p-4 flex items-center"
                   >
                     <Shield01Icon className="w-5 h-5 text-destructive mr-3" />
                     <p className="text-destructive text-sm">{serverError}</p>
@@ -328,7 +328,7 @@ export default function ContactFormOptimized() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.name ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.name ? 'border-0 bg-destructive/5' : 'border-0'}`}
                         placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
@@ -347,7 +347,7 @@ export default function ContactFormOptimized() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.email ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.email ? 'border-0 bg-destructive/5' : 'border-0'}`}
                         placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
@@ -368,7 +368,7 @@ export default function ContactFormOptimized() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.phone ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full pl-12 pr-4 py-3 border rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 ${errors.phone ? 'border-0 bg-destructive/5' : 'border-0'}`}
                         placeholder="+34 123 456 789"
                       />
                     </div>
@@ -385,7 +385,7 @@ export default function ContactFormOptimized() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                        className={`w-full px-4 py-3 border rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none ${errors.service ? 'border-0 bg-destructive/5' : 'border-0'}`}
                       >
                         <option value="">{t('contact.form.service.placeholder')}</option>
                         {services.map((service) => (
@@ -412,7 +412,7 @@ export default function ContactFormOptimized() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-0 bg-destructive/5' : 'border-0'}`}
+                    className={`w-full px-4 py-3 border rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 resize-none ${errors.message ? 'border-0 bg-destructive/5' : 'border-0'}`}
                     placeholder={t('contact.form.message.placeholder')}
                   />
                   {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
@@ -431,7 +431,7 @@ export default function ContactFormOptimized() {
                       ].map((option) => (
                         <label
                           key={option.value}
-                          className={`flex flex-col items-center justify-center p-3 rounded-3xl border cursor-pointer transition duration-200 ${
+                          className={`flex flex-col items-center justify-center p-3 rounded-2xl border cursor-pointer transition duration-200 ${
                             formData.preferred_contact === option.value
                               ? 'border-0 bg-primary/5 text-primary'
                               : ' hover:bg-muted/40'
@@ -463,7 +463,7 @@ export default function ContactFormOptimized() {
                         name="preferred_time"
                         value={formData.preferred_time}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-3 rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none"
+                        className="w-full pl-12 pr-4 py-3 rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none"
                       >
                         <option value="">{t('contact.form.selectTime')}</option>
                         {timeSlots.map((slot) => (
@@ -489,7 +489,7 @@ export default function ContactFormOptimized() {
                       name="source"
                       value={formData.source}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-3xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none"
+                      className="w-full px-4 py-3 rounded-2xl focus-visible:ring-2 focus-visible:ring-ring focus:border-transparent transition duration-200 appearance-none"
                     >
                       <option value="">{t('contact.form.source.placeholder')}</option>
                       {sources.map((source) => (

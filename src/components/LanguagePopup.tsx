@@ -32,7 +32,7 @@ export default function LanguagePopup() {
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
-                    className="bg-card rounded-3xl max-w-md w-full p-8 relative border border-border"
+                    className="bg-card rounded-2xl max-w-md w-full p-8 relative border border-border"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <Button
@@ -63,7 +63,7 @@ export default function LanguagePopup() {
                                 key={lang.code}
                                 onClick={() => confirmLanguage(lang.code)}
                                 variant="outline"
-                                className="justify-start h-auto p-4 rounded-3xl"
+                                className="justify-start h-auto p-4 rounded-2xl"
                             >
                                 <span className="text-2xl mr-4">{lang.flag}</span>
                                 <span className="font-medium">

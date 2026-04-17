@@ -50,7 +50,7 @@ export default function CookiePolicyContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Health notice */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-3xl border border-warning/30 bg-warning/10 p-6">
+            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-warning/30 bg-warning/10 p-6">
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-5 h-5 text-foreground shrink-0 mt-0.5" />
                 <div>

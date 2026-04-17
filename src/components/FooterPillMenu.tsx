@@ -29,7 +29,7 @@ export default function FooterPillMenu() {
           /* Match the scrolled header's glass style exactly */
           'bg-background/90 backdrop-blur-xl',
           'border border-border/60',
-          'rounded-3xl p-1.5',
+          'rounded-2xl p-1.5',
           'flex items-stretch gap-0.5',
           'w-full',
         ].join(' ')}
@@ -48,7 +48,7 @@ export default function FooterPillMenu() {
               href={item.href}
               aria-current={isActive ? 'page' : undefined}
               className={cn(
-                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-3xl',
+                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-2xl',
                 'transition-colors duration-150 active:scale-[0.93] select-none',
                 isActive ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground/80',
               )}
@@ -57,7 +57,7 @@ export default function FooterPillMenu() {
               {isActive && (
                 <motion.div
                   layoutId="pill-active-bg"
-                  className="absolute inset-0 rounded-3xl bg-primary"
+                  className="absolute inset-0 rounded-2xl bg-primary"
                   transition={{ type: 'spring', stiffness: 420, damping: 38 }}
                 />
               )}

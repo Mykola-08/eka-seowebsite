@@ -13,7 +13,7 @@ export default function CTASection() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 pb-4 mb-4">
-      <div className="rounded-3xl overflow-hidden">
+      <div className="rounded-2xl overflow-hidden">
         <ParallaxBackground
             src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920"
             className="py-32 sm:py-40"
@@ -30,7 +30,7 @@ export default function CTASection() {
               <Button
                 onClick={() => navigateToBooking()}
                 size="xl"
-                className="w-full sm:w-auto px-10 py-7 text-lg rounded-full h-auto bg-card text-foreground hover:bg-muted hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto rounded-full bg-card text-foreground hover:bg-muted"
               >
                 {t('common.bookNow')}
                 <ArrowRight01Icon className="w-5 h-5 ml-2" />
@@ -39,7 +39,7 @@ export default function CTASection() {
                 <Button
                   size="xl"
                   variant="outline"
-                  className="w-full sm:w-auto px-10 py-7 rounded-full h-auto border-white/30 text-white backdrop-blur hover:bg-white/10 transition-all duration-300"
+                  className="w-full sm:w-auto rounded-full border-primary-foreground/30 text-primary-foreground bg-transparent backdrop-blur hover:bg-primary-foreground/10 hover:text-primary-foreground"
                 >
                   {t('common.contactUs') || 'Contact Us'}
                 </Button>

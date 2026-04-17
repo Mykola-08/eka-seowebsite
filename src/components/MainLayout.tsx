@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
 import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, Medicine01Icon, NeuralNetworkIcon, RotateLeft01Icon, GlobeIcon, Cancel01Icon, Menu01Icon, ArrowDown01Icon } from '@/lib/icons';
@@ -15,10 +16,12 @@ import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { Button } from '@/components/ui/button';
 import ToastContainer from '@/components/Toast';
-import LanguagePopup from '@/components/LanguagePopup';
-import CookieBanner from './CookieBanner';
 import FooterPillMenu from '@/components/FooterPillMenu';
 import NewsletterSignup from '@/components/NewsletterSignup';
+
+// Off-screen / delayed UI — ship outside the critical bundle
+const LanguagePopup = dynamic(() => import('@/components/LanguagePopup'), { ssr: false });
+const CookieBanner = dynamic(() => import('./CookieBanner'), { ssr: false });
 
 export default function MainLayout({
   children
@@ -261,8 +264,8 @@ export default function MainLayout({
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-background/70 backdrop-blur-xl border border-border/30 shadow-apple-md mt-4 rounded-full'
-    : 'bg-transparent border border-transparent backdrop-blur-none mt-4';
+    ? 'bg-card/85 backdrop-blur-2xl backdrop-saturate-150 border border-border/30 shadow-apple-sm mt-4 rounded-full'
+    : 'bg-card/60 backdrop-blur-xl backdrop-saturate-150 border border-border/10 mt-4 rounded-full'
 
   // Icon map for dropdown items
   const serviceIcons: Record<string, React.ReactNode> = {
@@ -436,8 +439,9 @@ export default function MainLayout({
                   <Button
                     key={lang}
                     onClick={() => setLanguage(lang)}
-                    variant={language === lang ? 'secondary' : 'ghost'}
+                    variant={language === lang ? 'default' : 'outline'}
                     size="sm"
+                    className={language === lang ? '' : 'text-muted-foreground bg-background/50 hover:bg-background'}
                   >
                     {lang === 'ca' && 'Catalan'}
                     {lang === 'en' && 'English'}
@@ -602,10 +606,10 @@ export default function MainLayout({
                                           <Link
                                             href={product.href}
                                             onClick={() => setActiveDropdown(null)}
-                                            className="group/prod flex flex-col items-center p-2 rounded-3xl hover:bg-muted/40 transition-colors"
+                                            className="group/prod flex flex-col items-center p-2 rounded-2xl hover:bg-muted/40 transition-colors"
                                             role="menuitem"
                                           >
-                                            <div className="w-full aspect-square mb-2 relative bg-muted/40 rounded-3xl overflow-hidden">
+                                            <div className="w-full aspect-square mb-2 relative bg-muted/40 rounded-2xl overflow-hidden">
                                               {product.image && (
                                                 <Image src={product.image} alt={product.name} fill className="object-contain p-1 group-hover/prod:scale-105 transition-transform duration-300" sizes="100px" />
                                               )}
@@ -651,7 +655,7 @@ export default function MainLayout({
                                           <Link
                                             href={dropdownItem.href}
                                             onClick={() => setActiveDropdown(null)}
-                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-3xl text-sm text-foreground/80 hover:text-foreground hover:bg-foreground/4 active:bg-foreground/[0.07] transition-all duration-150 tracking-tight"
+                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-2xl text-sm text-foreground/80 hover:text-foreground hover:bg-foreground/4 active:bg-foreground/[0.07] transition-all duration-150 tracking-tight"
                                             role="menuitem"
                                             suppressHydrationWarning
                                           >
@@ -693,7 +697,7 @@ export default function MainLayout({
                 size="sm"
                 className="inline-flex font-medium rounded-full h-9 px-4 sm:px-5"
               >
-                <Link href="/booking" suppressHydrationWarning>
+                <Link href="/booking" className="text-primary-foreground" suppressHydrationWarning>
                   {t('nav.bookNow')}
                 </Link>
               </Button>
@@ -744,7 +748,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-110 overflow-y-auto pt-15 rounded-t-3xl overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-3xl overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}
@@ -765,7 +769,7 @@ export default function MainLayout({
               <Cancel01Icon className="w-5 h-5" />
             </Button>
             <div className="p-6 pb-24 space-y-4">
-              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-3xl border border-border/40">
+              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-2xl border border-border/40">
                 {/* Home */}
                 <div className="border-b border-border/40 pb-2">
                   <Link
@@ -794,7 +798,7 @@ export default function MainLayout({
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 py-2 text-lg text-muted-foreground font-medium active:scale-[0.98] transition-transform"
                       >
-                        <span className="flex items-center justify-center w-8 h-8 rounded-3xl bg-muted/40 text-muted-foreground">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-2xl bg-muted/40 text-muted-foreground">
                           {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
                         </span>
                         {dropdownItem.name}
@@ -816,7 +820,7 @@ export default function MainLayout({
               </div>
 
               {/* Additional App Links */}
-              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-3xl border border-border/40">
+              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-2xl border border-border/40">
                 <div className="border-b border-border pb-2">
                   <Link
                     href="/360-revision"
@@ -843,6 +847,7 @@ export default function MainLayout({
                   <Link
                     href="/booking"
                     onClick={() => setIsMenuOpen(false)}
+                    className="text-primary-foreground"
                   >
                     {t('nav.bookNow')}
                   </Link>

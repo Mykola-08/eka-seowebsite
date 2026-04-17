@@ -37,7 +37,7 @@ export default function PriceDisplay({
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
       {/* Main Price */}
-      <div className={`font-light text-foreground dark:text-primary-foreground tabular-nums ${sizeClasses[size]}`}>
+      <div className={`font-light text-foreground tabular-nums ${sizeClasses[size]}`}>
         {formatPrice(actualFinalPrice)}
       </div>
 
@@ -47,7 +47,7 @@ export default function PriceDisplay({
           {hasDiscount && (
             <>
               <ChartDecreaseIcon className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground dark:text-muted-foreground line-through">
+              <span className="text-sm text-muted-foreground line-through">
                 {formatPrice(basePriceCents)}
               </span>
             </>
@@ -56,7 +56,7 @@ export default function PriceDisplay({
           {hasSurcharge && (
             <>
               <ChartIncreaseIcon className="w-4 h-4 text-gold" />
-              <span className="text-sm text-muted-foreground dark:text-muted-foreground line-through">
+              <span className="text-sm text-muted-foreground line-through">
                 {formatPrice(basePriceCents)}
               </span>
             </>
@@ -66,7 +66,7 @@ export default function PriceDisplay({
 
       {/* Special Badge */}
       {hasDiscount && selectedDiscount && (
-        <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/10 text-primary dark:text-primary/80">
+        <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
           <StarIcon className="w-3 h-3 mr-1" />
           {selectedDiscount.name} -{selectedDiscount.percentage}%
         </div>

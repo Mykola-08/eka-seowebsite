@@ -95,14 +95,14 @@ export default function DiscountsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-card rounded-3xl p-8 transition duration-300 border border-border overflow-hidden"
+                className="group relative bg-card rounded-2xl p-8 transition duration-300 border border-border overflow-hidden"
               >
                 {/* Background Gradient */}
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Header */}
                 <div className="relative flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 bg-primary/10 rounded-3xl flex items-center justify-center text-primary transition-colors duration-300">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary transition-colors duration-300">
                     <PercentIcon className="w-7 h-7" />
                   </div>
                   {discount.isActive && (
@@ -126,7 +126,7 @@ export default function DiscountsContent() {
                 {/* Code & Action */}
                 {discount.code && (
                     <div className="relative space-y-3">
-                      <div className="flex items-center justify-between p-3 bg-muted/40 rounded-3xl border-dashed group-hover:border-0 transition-colors">
+                      <div className="flex items-center justify-between p-3 bg-muted/40 rounded-2xl border-dashed group-hover:border-0 transition-colors">
                          <div className="flex items-center space-x-2 overflow-hidden">
                             <GiftIcon className="w-4 h-4 text-primary shrink-0" />
                             <code className="text-sm font-medium text-primary bg-primary/5 px-2 py-0.5 rounded truncate">
@@ -142,7 +142,7 @@ export default function DiscountsContent() {
                       </div>
 
                       {selectedDiscount?.code === discount.code ? (
-                        <div className="w-full py-3 bg-primary/5 text-primary font-medium rounded-3xl text-center text-sm flex items-center justify-center gap-2">
+                        <div className="w-full py-3 bg-primary/5 text-primary font-medium rounded-2xl text-center text-sm flex items-center justify-center gap-2">
                           <Tick01Icon className="w-4 h-4" />
                           {t('discounts.activeBadge') || "Descompte actiu"}
                         </div>

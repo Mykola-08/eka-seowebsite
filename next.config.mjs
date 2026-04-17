@@ -39,6 +39,12 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  async redirects() {
+    return [
+      // Server-side 301: /contact is consolidated into /booking
+      { source: '/contact', destination: '/booking', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -228,7 +229,7 @@ export default function FirstTimeWizard() {
                       key={goal.id}
                       onClick={() => toggleGoal(goal.id)}
                       className={cn(
-                        "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all duration-200 text-center gap-3 h-32 outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        "flex flex-col items-center justify-center p-4 rounded-xl border border-border/20 transition-all duration-200 text-center gap-3 h-32 outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                         isSelected 
                           ? "border-primary bg-primary/5 text-primary" 
                           : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
@@ -285,7 +286,7 @@ export default function FirstTimeWizard() {
                       key={loc.id}
                       onClick={() => setSelectedLocation(loc.id)}
                       className={cn(
-                        "flex flex-col items-center p-8 rounded-2xl border-2 transition-all duration-200 gap-4 text-center outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        "flex flex-col items-center p-8 rounded-2xl border border-border/20 transition-all duration-200 gap-4 text-center outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                         isSelected 
                           ? "border-primary bg-primary/5 text-primary" 
                           : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
@@ -348,11 +349,12 @@ export default function FirstTimeWizard() {
                   return (
                     <Card className="overflow-hidden border-border/60 transition-all flex flex-col group hover:bg-surface-muted">
                       <div className="aspect-4/3 relative overflow-hidden">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img 
-                          src={recommendation.image} 
+                        <Image
+                          src={recommendation.image}
                           alt={t(recommendation.titleKey) || "Recommended Service"}
-                          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 28rem"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 text-primary-foreground">
                           <h3 className="text-2xl font-serif font-medium mb-1">

@@ -22,6 +22,37 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
       <div className="absolute inset-0 bg-linear-to-b from-background via-muted/20 to-background -z-10" />
       
       <div className="container px-4 md:px-6 z-10 flex flex-col items-center text-center">
+        {/* Interactive Options */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-12 sm:mb-16 w-full max-w-5xl mx-auto flex flex-col items-center justify-center gap-6"
+        >
+          <span className="text-xl sm:text-2xl font-medium text-muted-foreground">
+            {t('funnel.hero.iAmLookingFor') || 'I am looking for help with...'}
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {Object.entries(FUNNEL_DATA).map(([key, data]) => {
+              const isSelected = currentProblem === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => onProblemChange(key as ProblemState)}
+                  className={cn(
+                    "px-6 py-3 rounded-full text-base sm:text-lg font-medium transition-all duration-200 border border-border/20",
+                    isSelected 
+                      ? "border-primary bg-primary text-primary-foreground scale-105" 
+                      : "border-muted/50 bg-background text-foreground hover:border-primary/50 hover:bg-muted/30"
+                  )}
+                >
+                  {t(data.label)}
+                </button>
+              );
+            })}
+          </div>
+        </motion.div>
+
         {/* Main Headline (Adaptive) */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -40,37 +71,6 @@ export function FunnelHero({ currentProblem, onProblemChange, className }: Funne
             </p>
           </motion.div>
         </AnimatePresence>
-
-        {/* Interactive Options */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto flex flex-col items-center justify-center gap-6"
-        >
-          <span className="text-xl sm:text-2xl font-medium text-muted-foreground">
-            {t('funnel.hero.iAmLookingFor') || 'I am looking for help with...'}
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {Object.entries(FUNNEL_DATA).map(([key, data]) => {
-              const isSelected = currentProblem === key;
-              return (
-                <button
-                  key={key}
-                  onClick={() => onProblemChange(key as ProblemState)}
-                  className={cn(
-                    "px-6 py-3 rounded-full text-base sm:text-lg font-medium transition-all duration-200 border-2",
-                    isSelected 
-                      ? "border-primary bg-primary text-primary-foreground scale-105" 
-                      : "border-muted/50 bg-background text-foreground hover:border-primary/50 hover:bg-muted/30"
-                  )}
-                >
-                  {t(data.label)}
-                </button>
-              );
-            })}
-          </div>
-        </motion.div>
 
         {/* Action Button */}
         <motion.div

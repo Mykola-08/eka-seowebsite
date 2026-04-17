@@ -17,16 +17,8 @@ import CasosSection from '@/components/CasosSection';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 
-import React, { useState } from 'react';
-import { type ProblemState, FUNNEL_DATA } from '@/lib/funnel-data';
-import { FunnelHero } from '@/components/templates/FunnelHero';
-import { AdaptiveMethodology } from '@/components/templates/AdaptiveMethodology';
-import { AdaptiveServices } from '@/components/templates/AdaptiveServices';
-import { FunnelReviews } from '@/components/templates/FunnelReviews';
-
 export default function HomeContent() {
   const { t } = useLanguage();
-  const [problem, setProblem] = useState<ProblemState>('back_pain');
 
   const stats = [
     { value: 1500, suffix: '+', label: t('hero.stats.sessions') },
@@ -56,7 +48,7 @@ export default function HomeContent() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-3xl transition-colors duration-300">
+              <div key={index} className="flex flex-col items-center justify-center text-center p-6 rounded-apple transition-colors duration-300">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-3 tabular-nums">
                   {stat.value}{stat.suffix}
                 </div>
@@ -159,10 +151,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <FunnelHero currentProblem={problem} onProblemChange={setProblem} />
-      <AdaptiveMethodology currentProblem={problem} />
-      <AdaptiveServices currentProblem={problem} />
-      <FunnelReviews testimonials={FUNNEL_DATA[problem].testimonials} />
+      
 
       {/* Elena Introduction Section - REDESIGNED */}
       <section className="py-24 relative overflow-hidden bg-muted/20">
@@ -177,7 +166,7 @@ export default function HomeContent() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-card">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-apple overflow-hidden bg-card border border-border/10 shadow-apple-sm">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}

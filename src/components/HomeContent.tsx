@@ -199,7 +199,7 @@ export default function HomeContent() {
               </div>
 
               <Link href="/about-elena" className="inline-block pt-4">
-                <Button variant="default" size="xl" className="px-10 py-6 h-auto">
+                <Button variant="default" size="xl" className="px-6 py-4 sm:px-10 sm:py-6 h-auto">
                   {t('common.readMore')}
                 </Button>
               </Link>
@@ -235,7 +235,7 @@ export default function HomeContent() {
 
           <div className="mt-16 text-center">
             <Link href="/services">
-              <Button variant="default" size="xl" className="px-10 py-6 h-auto">
+              <Button variant="default" size="xl" className="px-6 py-4 sm:px-10 sm:py-6 h-auto">
                 {t('services.viewAll')}
               </Button>
             </Link>

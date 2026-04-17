@@ -6,14 +6,13 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
-import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, Medicine01Icon, NeuralNetworkIcon, RotateLeft01Icon, GlobeIcon, Cancel01Icon, Menu01Icon, ArrowDown01Icon } from '@/lib/icons';
+import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, Medicine01Icon, NeuralNetworkIcon, RotateLeft01Icon, GlobeIcon, ArrowDown01Icon } from '@/lib/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Language } from '@/contexts/LanguageTypes';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useAnalytics } from '@/hooks/useAnalytics';
-import { useScrollLock } from '@/hooks/useScrollLock';
 import { Button } from '@/components/ui/button';
 import ToastContainer from '@/components/Toast';
 import FooterPillMenu from '@/components/FooterPillMenu';
@@ -31,63 +30,12 @@ export default function MainLayout({
   const pathname = usePathname();
   const { t, language, setLanguage } = useLanguage();
   const { logPageView } = useAnalytics();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   // Log page views
   useEffect(() => {
     if (pathname) {
       logPageView(pathname);
     }
   }, [pathname, logPageView]);
-
-  // Gesture support: swipe left from right edge to open menu
-  useEffect(() => {
-    let touchStartX = 0;
-    let touchStartY = 0;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = (e: TouchEvent) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const touchEndY = e.changedTouches[0].clientY;
-
-      const deltaX = touchEndX - touchStartX;
-      const deltaY = touchEndY - touchStartY;
-
-      // Start within 40px of right edge, swipe left at least 50px, not too much vertical
-      if (
-        touchStartX > window.innerWidth - 40 &&
-        deltaX < -50 &&
-        Math.abs(deltaY) < 50 &&
-        !isMenuOpen
-      ) {
-        setIsMenuOpen(true);
-      }
-    };
-
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-    return () => {
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [isMenuOpen]);
-
-
-  // Lock background scroll when mobile menu is open (prevents page progress reset on iOS/Android)
-  useScrollLock(isMenuOpen);
-
-  // Close mobile menu on browser back-button / Android back gesture
-  useEffect(() => {
-    if (!isMenuOpen) return;
-    const handlePopState = () => setIsMenuOpen(false);
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, [isMenuOpen]);
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -228,17 +176,14 @@ export default function MainLayout({
     };
   }, []);
 
-  // Global Escape key closes mobile menu or dropdown
+  // Global Escape key closes dropdown
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (isMenuOpen) setIsMenuOpen(false);
-        else if (activeDropdown) setActiveDropdown(null);
-      }
+      if (e.key === 'Escape') setActiveDropdown(null);
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isMenuOpen, activeDropdown]);
+  }, [activeDropdown]);
 
   useEffect(() => {
     return () => {
@@ -676,134 +621,12 @@ export default function MainLayout({
                 </Link>
               </Button>
 
-              {/* Mobile menu button */}
-              <Button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                variant="ghost"
-                size="icon"
-                className="md:hidden rounded-full"
-                aria-label="Toggle menu"
-              >
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={isMenuOpen ? "close" : "open"}
-                    initial={{ opacity: 0, rotate: isMenuOpen ? -90 : 90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: isMenuOpen ? 90 : -90 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {isMenuOpen ? (
-                      <Cancel01Icon className="w-5 h-5" />
-                    ) : (
-                      <Menu01Icon className="w-5 h-5" />
-                    )}
-                  </motion.div>
-                </AnimatePresence>
-              </Button>
             </div>
           </div>
 
         </div>
       </nav>
 
-      {/* Mobile Navigation Drawer — rendered at nav level so fixed positioning is viewport-relative */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            drag="y"
-            dragConstraints={{ top: 0, bottom: 0 }}
-            dragElastic={{ top: 0, bottom: 0.5 }}
-            onDragEnd={(_, { offset, velocity }) => {
-              if (offset.y > 150 || velocity.y > 500) {
-                setIsMenuOpen(false);
-              }
-            }}
-            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-xl overscroll-none touch-pan-y"
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') setIsMenuOpen(false);
-            }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation menu"
-          >
-            {/* Drag handle for visual affordance */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-muted rounded-full" />
-            {/* Close button */}
-            <Button
-              onClick={() => setIsMenuOpen(false)}
-              variant="ghost"
-              size="icon"
-              className="absolute top-4 right-6 rounded-full"
-              aria-label="Close menu"
-            >
-              <Cancel01Icon className="w-5 h-5" />
-            </Button>
-            <div className="p-6 pb-24 space-y-4">
-              <div className="flex flex-col space-y-1 bg-card/70 backdrop-blur-md p-4 rounded-apple border border-border/40">
-                {/* Home */}
-                <div className="border-b border-border/40 pb-2 mb-2">
-                  <Link
-                    href="/"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex min-h-11 items-center py-2 text-2xl font-semibold text-foreground tracking-tight active:scale-[0.98] transition-transform"
-                  >
-                    {t('nav.home') || 'Home'}
-                  </Link>
-                </div>
-
-                {/* Dynamic Navigation */}
-                {navigation.map((item, idx) => (
-                  <div key={item.name} className={idx < navigation.length - 1 ? "border-b border-border/40 py-2" : "pt-2"}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex min-h-11 items-center py-2 text-2xl font-semibold text-foreground tracking-tight active:scale-[0.98] transition-transform"
-                      suppressHydrationWarning
-                    >
-                      {item.name}
-                    </Link>
-                    {item.hasDropdown && item.dropdownItems && (
-                      <div className="ml-2 space-y-1 mt-2 pl-4 border-l border-muted">
-                        {item.dropdownItems.map(dropdownItem => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            onClick={() => setIsMenuOpen(false)}
-                            className="flex min-h-11 items-center gap-3 py-2 text-lg text-muted-foreground font-medium active:scale-[0.98] transition-transform"
-                            suppressHydrationWarning
-                          >
-                            <span className="flex items-center justify-center w-8 h-8 rounded-apple bg-muted/40 text-muted-foreground shrink-0">
-                              {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
-                            </span>
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Mobile Reserva */}
-              <div className="pt-4 pb-12">
-                <Button asChild variant="default" size="lg" className="w-full rounded-apple h-14 active:scale-[0.97] transition-transform">
-                  <Link
-                    href="/booking"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-primary-foreground"
-                  >
-                    {t('nav.bookNow')}
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Main Content */}
       <main id="main-content" className="flex-1 w-full pb-24 md:pb-0 overflow-x-hidden">
@@ -821,19 +644,9 @@ export default function MainLayout({
 
             </FooterUncover>
       
-      <AnimatePresence>
-        {!isMenuOpen && (
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="md:hidden"
-          >
-            <FooterPillMenu />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="md:hidden">
+        <FooterPillMenu />
+      </div>
     </>
   );
 }

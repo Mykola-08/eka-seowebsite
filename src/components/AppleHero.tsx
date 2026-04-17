@@ -59,25 +59,25 @@ export default function AppleHero() {
         </AnimateIn>
 
         <AnimateIn delay={0.05} duration={0.3} from="bottom">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-foreground">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6 text-foreground">
             {t('hero.title')}
           </h1>
         </AnimateIn>
 
         <AnimateIn delay={0.1} duration={0.3} from="bottom">
-          <p className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl mx-auto mb-10 text-balance leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl mx-auto mb-10 text-balance leading-relaxed">
             {t('hero.subtitle')}
           </p>
         </AnimateIn>
 
         <AnimateIn delay={0.15} duration={0.3} from="bottom">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             {/* Primary Button */}
             <Button
               asChild
               variant="default"
-              size="xl"
-              className="px-8 py-6 h-auto w-full sm:w-auto transition-all shadow-none font-medium"
+              size="default"
+              className="px-6 py-4 sm:px-8 sm:py-6 h-auto w-full sm:w-auto transition-all shadow-none font-medium text-base sm:text-xl"
               onClick={() => logEvent('hero_first_time_click')}
             >
               <Link href="/first-time">
@@ -89,8 +89,8 @@ export default function AppleHero() {
             <Button
               asChild
               variant="outline"
-              size="xl"
-              className="px-8 py-6 h-auto w-full sm:w-auto backdrop-blur-md transition-all shadow-none font-medium"
+              size="default"
+              className="px-6 py-4 sm:px-8 sm:py-6 h-auto w-full sm:w-auto backdrop-blur-md transition-all shadow-none font-medium text-base sm:text-xl"
               onClick={() => logEvent('hero_services_click')}
             >
               <Link href="/services">

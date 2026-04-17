@@ -2,17 +2,23 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home01Icon, SparklesIcon, Briefcase01Icon, Calendar01Icon } from '@/lib/icons';
+import { Home01Icon, SparklesIcon, Briefcase01Icon, Medicine01Icon, type IconComp } from '@/lib/icons';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 
-const items = [
+type PillItem = {
+  href: string;
+  icon: IconComp;
+  exact: boolean;
+} & ({ labelKey: string; label?: never } | { label: string; labelKey?: never });
+
+const items: PillItem[] = [
   { href: '/', icon: Home01Icon, labelKey: 'nav.home', exact: true },
   { href: '/services', icon: SparklesIcon, labelKey: 'nav.services', exact: false },
+  { href: '/agenyz', icon: Medicine01Icon, label: 'Agenyz', exact: false },
   { href: '/for-business', icon: Briefcase01Icon, labelKey: 'personalizedServices.business', exact: false },
-  { href: '/booking', icon: Calendar01Icon, labelKey: 'nav.bookNow', exact: true },
-] as const;
+];
 
 export default function FooterPillMenu() {
   const pathname = usePathname();
@@ -26,10 +32,9 @@ export default function FooterPillMenu() {
     >
       <nav
         className={[
-          /* Match the scrolled header's glass style exactly */
           'bg-background/90 backdrop-blur-xl',
           'border border-border/60',
-          'rounded-[2rem] p-1.5',
+          'rounded-apple p-1.5',
           'flex items-stretch gap-0.5',
           'w-full',
         ].join(' ')}
@@ -37,7 +42,7 @@ export default function FooterPillMenu() {
         aria-label="Main navigation"
       >
         {items.map((item) => {
-          const label = t(item.labelKey);
+          const label = item.label ?? t(item.labelKey!);
           const isActive = item.exact
             ? pathname === item.href
             : pathname === item.href || pathname.startsWith(item.href + '/');
@@ -48,7 +53,7 @@ export default function FooterPillMenu() {
               href={item.href}
               aria-current={isActive ? 'page' : undefined}
               className={cn(
-                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-[2rem]',
+                'relative flex flex-col items-center justify-center flex-1 py-2 px-2 rounded-apple',
                 'transition-colors duration-150 active:scale-[0.93] select-none',
                 isActive ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground/80',
               )}
@@ -57,7 +62,7 @@ export default function FooterPillMenu() {
               {isActive && (
                 <motion.div
                   layoutId="pill-active-bg"
-                  className="absolute inset-0 rounded-[2rem] bg-primary"
+                  className="absolute inset-0 rounded-apple bg-primary"
                   transition={{ type: 'spring', stiffness: 420, damping: 38 }}
                 />
               )}

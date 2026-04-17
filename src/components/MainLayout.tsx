@@ -114,8 +114,8 @@ export default function MainLayout({
 
     const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
 
-    // Floating detached menu
-    const top = triggerRect.bottom + 16;
+    // Small gap between header and dropdown for visual separation
+    const top = triggerRect.bottom + 4;
 
     // Compute transform-origin X percentage based on where the trigger center falls inside the dropdown
     const originX = ((triggerCenter - clampedLeft) / panelWidth) * 100;
@@ -449,7 +449,7 @@ export default function MainLayout({
           </div>
 
           {/* Copyright */}
-          <div className=" border-0 pt-8">
+          <div className="pt-8">
             <p className="text-xs text-muted-foreground">
               {t('footer.copyright')}
             </p>
@@ -581,7 +581,7 @@ export default function MainLayout({
                           >
                             {/* Inner content wrapper with the actual visual styling */}
                             <div
-                              className="mx-auto overflow-hidden relative bg-background/95 backdrop-blur-xl rounded-b-2xl border border-t-0 border-border/60"
+                              className="mx-auto overflow-hidden relative bg-background/90 backdrop-blur-xl rounded-2xl border border-border/40"
                               style={{ width: dropdownPosition.width }}
                             >
                               <div className="absolute inset-x-0 top-0 h-px bg-card/40" />
@@ -617,7 +617,7 @@ export default function MainLayout({
                                       ))}
                                     </div>
                                   </div>
-                                  <div className=" border-0 px-4 py-2.5 flex items-center justify-between">
+                                  <div className="border-t border-border/40 px-4 py-2.5 flex items-center justify-between">
                                     <Link
                                       href={item.href}
                                       onClick={() => setActiveDropdown(null)}
@@ -664,7 +664,7 @@ export default function MainLayout({
                                       ))}
                                     </div>
                                   </div>
-                                  <div className=" border-0 px-3 py-2.5 relative z-20">
+                                  <div className="border-t border-border/40 px-3 py-2.5 relative z-20">
                                     <Link
                                       href={item.href}
                                       onClick={() => setActiveDropdown(null)}
@@ -691,7 +691,7 @@ export default function MainLayout({
                 asChild
                 variant="default"
                 size="sm"
-                className="inline-flex sm: font-medium rounded-full h-9 sm:h-9 px-4 sm:px-5"
+                className="inline-flex font-medium rounded-full h-9 px-4 sm:px-5"
               >
                 <Link href="/booking" suppressHydrationWarning>
                   {t('nav.bookNow')}
@@ -744,7 +744,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-110 overflow-y-auto pt-15 rounded-t-3xl 0_-8px_30px_rgba(0,0,0,0.12)] overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-110 overflow-y-auto pt-15 rounded-t-3xl overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}
@@ -767,7 +767,7 @@ export default function MainLayout({
             <div className="p-6 pb-24 space-y-4">
               <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-3xl border border-border/40">
                 {/* Home */}
-                <div className=" border-0 pb-2">
+                <div className="border-b border-border/40 pb-2">
                   <Link
                     href="/"
                     onClick={() => setIsMenuOpen(false)}
@@ -778,7 +778,7 @@ export default function MainLayout({
                 </div>
 
                 {/* Services */}
-                <div className=" border-0 py-2">
+                <div className="border-b border-border/40 py-2">
                   <Link
                     href="/services"
                     onClick={() => setIsMenuOpen(false)}

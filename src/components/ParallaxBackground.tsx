@@ -18,7 +18,7 @@ export default function ParallaxBackground({
   alt = 'Background image',
   children,
   className = '',
-  overlayOpacity = 0.4
+  overlayOpacity = 0.5
 }: ParallaxBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({

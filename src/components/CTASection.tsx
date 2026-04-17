@@ -20,7 +20,7 @@ export default function CTASection() {
             overlayOpacity={0.65}
         >
           <div className="section-container relative z-10 text-center px-4">
-            <h2 className="text-5xl sm:text-6xl mb-6 font-semibold text-white tracking-tight text-balance font-serif">
+            <h2 className="text-5xl sm:text-6xl mb-6 font-semibold text-white tracking-tight text-balance">
               {t('common.readyToStart') || 'Ready to start your journey?'}
             </h2>
             <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
@@ -39,7 +39,7 @@ export default function CTASection() {
                 <Button
                   size="xl"
                   variant="outline"
-                  className="w-full sm:w-auto px-10 py-7 rounded-full h-auto /30 backdrop-blur hover: transition-all duration-300"
+                  className="w-full sm:w-auto px-10 py-7 rounded-full h-auto border-white/30 text-white backdrop-blur hover:bg-white/10 transition-all duration-300"
                 >
                   {t('common.contactUs') || 'Contact Us'}
                 </Button>

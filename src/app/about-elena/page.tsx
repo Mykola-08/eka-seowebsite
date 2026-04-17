@@ -3,21 +3,24 @@ import AboutElenaContent from '@/components/AboutElenaContent';
 
 
 export const metadata: Metadata = {
-  title: "Sobre Elena Kucherova | EKA Balance",
-  description: "Descobreix la trajectòria d'Elena Kucherova, especialista en integració somàtica, rehabilitació neuro-motora i teràpies naturals.",
-  keywords: ["Elena Kucherova", "Biografia", "EKA Balance", "Integració Somàtica", "Rehabilitació", "Barcelona"],
+  title: "About Elena Kucherova | EKA Balance Barcelona",
+  description: "Meet Elena Kucherova, certified integrative therapist specializing in somatic integration, kinesiology, and nervous system regulation in Barcelona.",
+  keywords: ["Elena Kucherova", "integrative therapist Barcelona", "somatic specialist", "kinesiology expert", "EKA Balance founder"],
   openGraph: {
-    title: "Sobre Elena Kucherova | EKA Balance",
-    description: "Especialista en integració somàtica i kinesiologia. Descobreix el mètode Elena Kucherova.",
+    title: "About Elena Kucherova | EKA Balance",
+    description: "Meet Elena Kucherova, certified integrative therapist specializing in somatic integration and kinesiology in Barcelona.",
     type: 'profile',
     images: [
         {
           url: 'https://5tghbndjb61dnqaj.public.blob.vercel-storage.com/therapist_photo.jpg',
           width: 800,
           height: 800,
-          alt: 'Elena Kucherova',
+          alt: 'Elena Kucherova - Integrative Therapist',
         },
     ],
+  },
+  alternates: {
+    canonical: 'https://ekabalance.com/about-elena',
   }
 };
 

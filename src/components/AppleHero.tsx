@@ -10,20 +10,14 @@ import AnimateIn from './AnimateIn';
 import { Sparkles } from '@/lib/icons';
 import { shimmerBlurDataURL } from '@/lib/image-utils';
 
-// Verified massage therapy in beautiful spa environments — all URLs confirmed on Pexels
+// Curated massage therapy visuals — reduced set for faster load times
 const heroImages = [
   'https://images.pexels.com/photos/3760262/pexels-photo-3760262.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman getting a back massage at a spa
   'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman lying on bed getting massage, serene spa scene
   'https://images.pexels.com/photos/5240678/pexels-photo-5240678.jpeg?auto=compress&cs=tinysrgb&w=2000', // Back massage in spa salon
   'https://images.pexels.com/photos/3865803/pexels-photo-3865803.jpeg?auto=compress&cs=tinysrgb&w=2000', // Masseuse massaging shoulder and back of client
   'https://images.pexels.com/photos/3760270/pexels-photo-3760270.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman getting a head massage, serene spa
-  'https://images.pexels.com/photos/3757657/pexels-photo-3757657.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman in white towel lying on bed getting massage
   'https://images.pexels.com/photos/6628613/pexels-photo-6628613.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman having a massage on comfortable couch in spa
-  'https://images.pexels.com/photos/6628614/pexels-photo-6628614.jpeg?auto=compress&cs=tinysrgb&w=2000', // Soothing massage with calming palo santo aroma
-  'https://images.pexels.com/photos/5793981/pexels-photo-5793981.jpeg?auto=compress&cs=tinysrgb&w=2000', // Massage therapist working in tranquil indoor setting
-  'https://images.pexels.com/photos/3865523/pexels-photo-3865523.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman eyes closed, relaxing during massage therapy
-  'https://images.pexels.com/photos/3865496/pexels-photo-3865496.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman lying down having head massage by therapist
-  'https://images.pexels.com/photos/5240802/pexels-photo-5240802.jpeg?auto=compress&cs=tinysrgb&w=2000', // Woman getting calming head massage at spa
 ];
 
 export default function AppleHero() {
@@ -138,8 +132,8 @@ export default function AppleHero() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 quality={85}
               />
-              {/* Subtle Gradient Overlay for depth */}
-              <div className="absolute inset-0 bg-linear-to-t from-gray-900/20 via-transparent to-transparent pointer-events-none" />
+              {/* Gradient Overlay for depth and text contrast */}
+              <div className="absolute inset-0 bg-linear-to-t from-gray-900/30 via-gray-900/10 to-transparent pointer-events-none" />
             </div>
           );
         })}

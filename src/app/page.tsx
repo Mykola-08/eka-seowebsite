@@ -3,21 +3,24 @@ import HomeContent from '@/components/HomeContent';
 
 
 export const metadata: Metadata = {
-  title: "EKA Balance | Elena Kucherova - Teràpies Somàtiques a Barcelona",
-  description: "Restaura la teva vitalitat sistèmica amb Elena Kucherova. Especialista en integració somàtica, kinesiologia i regulació del sistema nerviós a Barcelona.",
-  keywords: ["Elena Kucherova", "EKA Balance", "Teràpies Somàtiques", "Barcelona", "Kinesiologia", "Integració Somàtica", "Benestar", "Salut", "Movement Lesson", "JKA"],
+  title: "EKA Balance | Elena Kucherova - Integrative Somatic Therapies in Barcelona",
+  description: "Restore your systemic vitality with Elena Kucherova. Specialist in somatic integration, kinesiology, and nervous system regulation in Barcelona. Book your session today.",
+  keywords: ["Elena Kucherova", "EKA Balance", "somatic therapies Barcelona", "kinesiology", "integrative wellness", "massage therapy", "movement lesson", "JKA", "holistic health Barcelona"],
   openGraph: {
-    title: "EKA Balance | Elena Kucherova",
-    description: "Restaura la teva vitalitat sistèmica. Centre de referència en teràpies somàtiques i regulació del sistema nerviós a Barcelona.",
+    title: "EKA Balance | Elena Kucherova - Integrative Somatic Therapies",
+    description: "Restore your systemic vitality. Leading center for somatic therapies and nervous system regulation in Barcelona.",
     type: 'website',
     images: [
       {
-        url: '/images/eka_logo.png', // Assuming this exists based on layout usage
+        url: '/images/eka_logo.png',
         width: 800,
         height: 600,
-        alt: 'EKA Balance Logo',
+        alt: 'EKA Balance - Integrative Wellness Center',
       },
     ],
+  },
+  alternates: {
+    canonical: 'https://ekabalance.com',
   }
 };
 

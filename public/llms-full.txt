@@ -66,6 +66,5 @@ We offer personalized nutritional advice and premium supplements (Agenyz).
   - /services/nutrition
 - /technique (JKA/Movement Lesson)
 - /booking
-- /contact
 - /cases (Success stories)
 - /agenyz (Products)

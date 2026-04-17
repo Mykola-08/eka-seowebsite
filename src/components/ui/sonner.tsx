@@ -6,7 +6,7 @@ import {
   CheckmarkCircle01Icon,
   InformationCircleIcon,
   Loading01Icon,
-  CancelCircleIcon,
+  XCircle,
   AlertTriangle,
 } from "@/lib/icons"
 
@@ -19,7 +19,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
         success: <CheckmarkCircle01Icon className="size-4" />,
         info: <InformationCircleIcon className="size-4" />,
         warning: <AlertTriangle className="size-4" />,
-        error: <CancelCircleIcon className="size-4" />,
+        error: <XCircle className="size-4" />,
         loading: <Loading01Icon className="size-4 animate-spin" />,
       }}
       style={

@@ -39,7 +39,7 @@ export default function HomeContent() {
       <AppleHero />
 
       {/* Stats Section - Minimalist Redesign */}
-      <section className="py-24 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="section-container">
           <AnimateIn
             duration={0.4}
@@ -58,7 +58,7 @@ export default function HomeContent() {
       </section>
 
       {/* Bento Grid Collage */}
-      <section className="py-24 bg-background overflow-hidden relative">
+      <section className="py-12 md:py-24 bg-background overflow-hidden relative">
         <div className="section-container">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-sm font-semibold text-primary tracking-wider uppercase mb-3">{t('home.bento.badge')}</h2>
@@ -106,7 +106,7 @@ export default function HomeContent() {
                 <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%]">
                   <h3 className="text-foreground text-2xl font-medium mb-3 tracking-tight">{t('home.bento.kinesiology.title')}</h3>
                   <p className="text-foreground/80 font-medium mb-6 text-sm md:text-base leading-relaxed">{t('home.bento.kinesiology.desc')}</p>
-                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:text-primary-600 transition-colors">
+                  <span className="inline-flex items-center text-sm font-medium text-primary active:text-primary/80 transition-colors">
                     {t('home.bento.explore')}
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default function HomeContent() {
       
 
       {/* Elena Introduction Section - REDESIGNED */}
-      <section className="py-24 relative overflow-hidden bg-muted/20">
+      <section className="py-12 md:py-24 relative overflow-hidden bg-muted/20">
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 
@@ -213,7 +213,7 @@ export default function HomeContent() {
       </section>
 
       {/* Featured Services Section */}
-      <section className="py-32 bg-card">
+      <section className="py-16 md:py-32 bg-card">
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-6 tracking-tight">

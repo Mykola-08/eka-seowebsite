@@ -124,7 +124,7 @@ export function ServiceBentoItem({
       {/* Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent
-          className="p-0 overflow-hidden sm:max-w-3xl lg:max-w-4xl max-h-[92svh] flex flex-col gap-0"
+          className="p-0 overflow-hidden sm:max-w-4xl lg:max-w-5xl xl:max-w-6xl w-[95vw] shadow-2xl max-h-[92svh] flex flex-col gap-0"
         >
           <VisuallyHidden.Root>
             <DialogTitle>{title}</DialogTitle>
@@ -151,13 +151,13 @@ export function ServiceBentoItem({
             ) : null}
 
             <div className="flex-1 min-h-0 flex flex-col overflow-y-auto overscroll-contain">
-              <div className={`flex-1 p-6 sm:p-8 md:p-10 ${image ? 'text-left' : 'text-center flex flex-col items-center'}`}>
+              <div className={`flex-1 p-6 md:p-12 lg:p-14 ${image ? 'text-left' : 'text-center flex flex-col items-center'}`}>
                 {!image && (
-                  <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-4">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-foreground mb-6">
                     {title}
                   </h2>
                 )}
-                <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                <p className="text-base sm:text-xl lg:text-2xl leading-relaxed text-muted-foreground mb-8 max-w-3xl mx-auto">
                   {description}
                 </p>
                 {details && (
@@ -168,17 +168,17 @@ export function ServiceBentoItem({
               </div>
 
               {(bookUrl || readMoreUrl) && (
-                <div className="flex flex-col sm:flex-row gap-3 p-6 sm:p-8 md:px-10 md:pb-10 md:pt-0 border-t border-border md:border-t-0 bg-card">
+                <div className="flex flex-col sm:flex-row gap-4 p-6 sm:p-8 md:px-12 lg:px-14 md:pb-12 lg:pb-14 md:pt-0 border-t border-border md:border-t-0 bg-background shrink-0 w-full max-w-4xl mx-auto">
                   {bookUrl && (
-                    <Button asChild size="lg" className="flex-1 rounded-full">
+                    <Button asChild size="lg" className="flex-1 rounded-full text-base py-7">
                       <Link href={bookUrl}>{bookText}</Link>
                     </Button>
                   )}
                   {readMoreUrl && (
-                    <Button asChild size="lg" variant="outline" className="flex-1 rounded-full">
+                    <Button asChild size="lg" variant="outline" className="flex-1 rounded-full text-base py-7 border-border hover:bg-muted/50">
                       <Link href={readMoreUrl}>
                         {readMoreText}
-                        <ArrowRight className="ml-1.5 w-4 h-4" />
+                        <ArrowRight className="ml-2 w-5 h-5" />
                       </Link>
                     </Button>
                   )}

@@ -171,13 +171,13 @@ export default function Revision360Content() {
       {/* Final invitation */}
       <Section spacing="loose" bleed>
         <CTABlock
-          tone="bold"
+          tone="soft"
           eyebrow="EKA Balance · 360° Integral Method"
           title={t('revision360.final.title')}
           subtitle={t('revision360.final.subtitle')}
           actions={
             <>
-              <Button asChild size="lg" variant="secondary" className="px-8 shadow-none font-medium text-primary">
+              <Button asChild size="lg" className="px-8 shadow-none font-medium">
                 <a href={bookHref} target="_blank" rel="noopener noreferrer">
                   {t('common.bookNow')}
                 </a>
@@ -186,7 +186,7 @@ export default function Revision360Content() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="px-8 shadow-none font-medium border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                className="px-8 shadow-none font-medium bg-transparent"
               >
                 <a href={discoveryHref} target="_blank" rel="noopener noreferrer">
                   {t('cta.scheduleDiscoveryCall')}

@@ -83,12 +83,16 @@ import {
   UserIcon as _UserIcon,
   WindPower01Icon as _WindPower01Icon,
   ZapIcon as _ZapIcon,
+  Copy01Icon as _Copy01Icon,
+  CheckmarkBadge01Icon as _CheckmarkBadge01Icon,
 } from '@hugeicons/core-free-icons';
 import type { ComponentProps } from 'react';
 
 export type IconProps = Omit<ComponentProps<typeof HugeiconsIcon>, 'icon'>;
 export type IconComp = (props: IconProps) => React.ReactElement;
 
+export const Copy01Icon: IconComp = (props) => <HugeiconsIcon icon={_Copy01Icon} {...props} />;
+export const CheckmarkBadge01Icon: IconComp = (props) => <HugeiconsIcon icon={_CheckmarkBadge01Icon} {...props} />;
 export const Activity: IconComp = (props) => <HugeiconsIcon icon={_Activity01Icon} {...props} />;
 export const Activity01Icon: IconComp = (props) => <HugeiconsIcon icon={_Activity01Icon} {...props} />;
 export const Alert01Icon: IconComp = (props) => <HugeiconsIcon icon={_Alert01Icon} {...props} />;

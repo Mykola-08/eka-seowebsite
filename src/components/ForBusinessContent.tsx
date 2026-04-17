@@ -8,9 +8,61 @@ import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { ServiceBentoItem } from '@/components/ui/service-bento';
+import ServiceCard from '@/components/ServiceCard';
+import { ServiceItem } from '@/shared/types';
 import Link from 'next/link';
 import { ArrowRight01Icon, CheckmarkCircle01Icon } from '@/lib/icons';
+
+const BUSINESS_SERVICES_DATA: ServiceItem[] = [
+  {
+    id: 'business-massage',
+    titleKey: 'business.massage.title',
+    subtitleKey: 'business.massage.subtitle',
+    descriptionKey: 'business.massage.description',
+    iconName: 'Heart',
+    color: 'orange',
+    durations: [60, 90],
+    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+    href: '/services/massage',
+    benefitsKeys: ['business.massage.b1', 'business.massage.b2', 'business.massage.b3']
+  },
+  {
+    id: 'business-kinesio',
+    titleKey: 'business.kinesio.title',
+    subtitleKey: 'business.kinesio.subtitle',
+    descriptionKey: 'business.kinesio.description',
+    iconName: 'Brain',
+    color: 'blue',
+    durations: [60, 90],
+    image: 'https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800',
+    href: '/services/kinesiology',
+    benefitsKeys: ['business.kinesio.b1', 'business.kinesio.b2', 'business.kinesio.b3']
+  },
+  {
+    id: 'business-nutrition',
+    titleKey: 'business.nutrition.title',
+    subtitleKey: 'business.nutrition.subtitle',
+    descriptionKey: 'business.nutrition.description',
+    iconName: 'Leaf',
+    color: 'green',
+    durations: [],
+    image: 'https://images.pexels.com/photos/4098228/pexels-photo-4098228.jpeg?auto=compress&cs=tinysrgb&w=800',
+    href: '/services/nutrition',
+    benefitsKeys: ['business.nutrition.b1', 'business.nutrition.b2', 'business.nutrition.b3']
+  },
+  {
+    id: 'business-360',
+    titleKey: 'business.360.title',
+    subtitleKey: 'business.360.subtitle',
+    descriptionKey: 'business.360.description',
+    iconName: 'RotateCcw',
+    color: 'purple',
+    durations: [60, 90, 120],
+    image: 'https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=800',
+    href: '/360-revision',
+    benefitsKeys: ['business.360.b1', 'business.360.b2', 'business.360.b3']
+  }
+];
 
 export default function ForBusinessContent() {
   const { t } = useLanguage();
@@ -62,16 +114,16 @@ export default function ForBusinessContent() {
           </Button>
         </div>
 
-        {/* Apple-Style Bento Section */}
-        <section className="py-20 bg-muted/30 relative overflow-hidden">
+        {/* Services Grid (Core) - Transparent Background */}
+        <section className="py-16 bg-muted/30 relative overflow-hidden">
           <div className="section-container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-16 max-w-3xl mx-auto"
             >
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-6">
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mb-6">
                 {t('personalized.business.bento.title')}
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
@@ -79,74 +131,18 @@ export default function ForBusinessContent() {
               </p>
             </motion.div>
 
-                        {/* Service Bento Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              <ServiceBentoItem
-                title={t('personalized.business.bento.box1.title')}
-                description={t('personalized.business.bento.box1.desc')}
-                image="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="md:col-span-2"
-                details={
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-medium text-foreground">{t("personalized.business.bento.box1.details.title")}</h4>
-                    <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box1.details.desc")}</p>
-                  </div>
-                }
-                bookUrl="/booking?subject=teams"
-                bookText={t("common.enquireNow")}
-              />
-
-              <ServiceBentoItem
-                title={t('personalized.business.bento.box2.title')}
-                description={t('personalized.business.bento.box2.desc')}
-                image="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="col-span-1"
-                delay={0.1}
-                details={
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-medium text-foreground">{t("personalized.business.bento.box2.details.title")}</h4>
-                    <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box2.details.desc")}</p>
-                  </div>
-                }
-                bookUrl="/booking?subject=office"
-                bookText={t("common.enquireNow")}
-              />
-
-              <ServiceBentoItem
-                title={t('personalized.business.bento.box3.title')}
-                description={t('personalized.business.bento.box3.desc')}
-                image="https://images.pexels.com/photos/4098228/pexels-photo-4098228.jpeg?auto=compress&cs=tinysrgb&w=800"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="col-span-1"
-                delay={0.2}
-                details={
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-medium text-foreground">{t("personalized.business.bento.box3.details.title")}</h4>
-                    <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box3.details.desc")}</p>
-                  </div>
-                }
-                bookUrl="/booking?subject=teams"
-                bookText={t("common.enquireNow")}
-              />
-
-              <ServiceBentoItem
-                title={t('personalized.business.bento.box4.title')}
-                description={t('personalized.business.bento.box4.desc')}
-                image="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="md:col-span-2"
-                delay={0.3}
-                details={
-                  <div className="space-y-4">
-                     <h4 className="text-xl font-medium text-foreground">{t("personalized.business.bento.box4.details.title")}</h4>
-                     <p className="text-foreground/80 leading-relaxed">{t("personalized.business.bento.box4.details.desc")}</p>
-                  </div>
-                }
-                bookUrl="/booking?subject=office"
-                bookText={t("common.enquireNow")}
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {BUSINESS_SERVICES_DATA.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <ServiceCard service={service} />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -215,10 +211,9 @@ export default function ForBusinessContent() {
                 
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-medium text-primary-foreground tracking-tighter">€500</span>
-                    <span className="text-xl text-primary-foreground/80 font-medium">/mo</span>
+                    <span className="text-4xl sm:text-5xl font-medium text-primary-foreground tracking-tighter">{t('personalized.business.plans.enterprise.priceValue') || 'Custom'}</span>
                   </div>
-                  <div className="text-sm text-primary-foreground/80 mt-1 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
+                  <div className="text-sm text-primary-foreground/80 mt-2 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
                 </div>
 
                 <ul className="space-y-5 mb-10 relative z-10 grow">

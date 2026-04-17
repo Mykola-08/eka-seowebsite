@@ -36,9 +36,9 @@ export default function PersonalizedServicesContent() {
              <div className="mt-8 flex justify-center">
                 <Link href="/booking">
                   <Button
-                      size="xl"
+                      size="lg"
                       variant="default"
-                      className="px-8 py-4"
+                      className="px-8 py-6 text-lg rounded-full"
                   >
                       {t('personalizedServices.cta')}
                       <ArrowRight01Icon className="ml-2 w-5 h-5" />

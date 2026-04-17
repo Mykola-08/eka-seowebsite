@@ -174,7 +174,7 @@ export default function DisclaimerContent() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Link href="/terms-of-service" className="text-primary hover:underline text-sm">Terms of Service</Link>
             <Link href="/privacy-policy" className="text-primary hover:underline text-sm">Privacy Policy</Link>
-            <Link href="/contact" className="text-primary hover:underline text-sm">Contact Us</Link>
+            <Link href="/booking" className="text-primary hover:underline text-sm">Contact Us & Book</Link>
           </div>
         </div>
 

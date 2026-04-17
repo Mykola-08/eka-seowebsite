@@ -14,12 +14,12 @@ interface PersonalizedServiceCardProps {
 }
 
 export default function PersonalizedServiceCard({ service }: PersonalizedServiceCardProps) {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-colors hover:border-primary/30 border-border group pt-0">
+    <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-primary/40 border-border group pt-0">
       {service.image && (
-        <div className="relative w-full aspect-video overflow-hidden bg-muted border-b border-border rounded-t-[2rem]">
+        <div className="relative w-full aspect-video overflow-hidden bg-muted border-b border-border rounded-t-apple">
           <Image 
             src={service.image} 
             alt={t(service.titleKey)}
@@ -45,7 +45,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
       
       <CardContent className="grow space-y-6">
         {service.resultKey && (
-          <div className="bg-muted/40 p-4 rounded-[2rem] mb-4 border border-border/40">
+          <div className="bg-muted/40 p-4 rounded-apple mb-4 border border-border/40">
             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest block mb-1">
               {t('common.expectedResult') || 'Expected Result'}
             </span>
@@ -65,11 +65,6 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
                   {t(key)}
                 </li>
               ))}
-              {service.benefitsKeys.length > 3 && (
-                <li className="flex items-start text-sm text-muted-foreground italic pl-4.5">
-                  + {service.benefitsKeys.length - 3} {language === 'ru' ? 'еще' : language === 'es' ? 'más' : language === 'ca' ? 'més' : 'more'}
-                </li>
-              )}
             </ul>
           </div>
         )}

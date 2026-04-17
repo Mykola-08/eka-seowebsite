@@ -65,7 +65,7 @@ export default function HubSpotForm({
 
     // Otherwise, load the HubSpot forms script
     const script = document.createElement('script');
-    script.src = 'https://js.hsforms.net/forms/v2.js';
+    script.src = region ? `https://js-${region}.hsforms.net/forms/embed/v2.js` : 'https://js.hsforms.net/forms/v2.js';
     script.async = true;
     script.onload = createForm;
     document.head.appendChild(script);

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
@@ -8,13 +8,13 @@ import PageLayout from '@/components/PageLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { products, getLocalized } from '@/app/agenyz/products';
+
 import { Sparkles, Leaf, ShieldCheck } from '@/lib/icons';
 
 export default function AgenyzContent() {
   const { language, t } = useLanguage();
 
-  const categories = Array.from(new Set(products.map((p) => p.category)));
+  
 
   return (
     <>
@@ -26,16 +26,16 @@ export default function AgenyzContent() {
 
       <PageLayout
         hero={{
-          title: t('agenyz.hero.title') || 'Agenyz Â· Cellular Nutrition',
+          title: t('agenyz.page.title') || 'Agenyz � Cellular Nutrition',
           subtitle:
-            t('agenyz.hero.subtitle') ||
+            t('agenyz.page.subtitle') ||
             'Bio-available supplements designed to restore balance, defy aging, and fuel your vitality at the DNA level.',
-          badge: t('agenyz.hero.badge') || 'Our Partner',
+          badge: t('agenyz.brand.badge') || 'Our Partner',
         }}
       >
         {/* Value props */}
         <section className="py-16 sm:py-20 bg-background">
-          <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
@@ -47,7 +47,7 @@ export default function AgenyzContent() {
                 },
                 {
                   icon: Sparkles,
-                  title: t('agenyz.value.absorption.title') || 'XBi-AÂ® Absorption',
+                  title: t('agenyz.value.absorption.title') || 'XBi-A� Absorption',
                   desc:
                     t('agenyz.value.absorption.desc') ||
                     'Patented complex that boosts bioavailability by up to 60%.',
@@ -76,75 +76,74 @@ export default function AgenyzContent() {
           </div>
         </section>
 
-        {/* Catalogue */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-card">
-          <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-foreground">
-                {t('agenyz.catalog.title') || 'The Catalogue'}
+        {/* About Agenyz Brand */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
+                {t('agenyz.why.title') || 'Why Agenyz?'}
               </h2>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto tracking-tight font-medium">
-                {t('agenyz.catalog.subtitle') ||
-                  'Explore the full range of cellular nutrition products.'}
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t('agenyz.why.subtitle') || 'Science-backed benefits for your body and mind.'}
               </p>
             </div>
-
-            {categories.map((category) => {
-              const items = products.filter((p) => p.category === category);
-              return (
-                <div key={category} className="mb-16 last:mb-0">
-                  <div className="flex items-center justify-between mb-8">
-                    <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
-                      {category}
-                    </h3>
-                    <Badge variant="secondary" className="rounded-full">
-                      {items.length}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="bg-card border-border transition-all hover:border-foreground/20">
+                <CardContent className="p-8 md:p-10 flex flex-col justify-center h-full">
+                  <div className="mb-6 flex justify-start">
+                    <Badge variant="secondary" className="rounded-full px-4 py-1 text-sm font-medium">
+                      {t('agenyz.stats.clients') || '200k+ Clients'}
                     </Badge>
                   </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {items.map((product) => {
-                      const name = getLocalized(product.name, language);
-                      const desc = getLocalized(
-                        product.shortDescription || product.description,
-                        language
-                      );
-                      const href = `/agenyz/${product.id}`;
-                      return (
-                        <Link key={product.id} href={href} className="group">
-                          <Card className="flex flex-col h-full overflow-hidden transition-colors hover:border-foreground/25 border-border">
-                            <div className="relative aspect-square bg-muted overflow-hidden">
-                              {product.image && (
-                                <Image
-                                  src={product.image}
-                                  alt={name}
-                                  fill
-                                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                  className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
-                                />
-                              )}
-                            </div>
-                            <CardContent className="p-6 flex-1 flex flex-col">
-                              <h4 className="text-lg font-semibold tracking-tight text-foreground mb-2 line-clamp-2">
-                                {name}
-                              </h4>
-                              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
-                                {desc}
-                              </p>
-                              {product.price && (
-                                <p className="mt-4 text-base font-semibold text-foreground">
-                                  {product.price}
-                                </p>
-                              )}
-                            </CardContent>
-                          </Card>
-                        </Link>
-                      );
-                    })}
+                  <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-4 text-foreground">
+                    {t('agenyz.brand.eco.title') || 'Eco-Community'}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg sm:text-xl">
+                    {t('agenyz.brand.eco.desc') || 'We are creating a community filled with understanding, respect, gratitude, and love for oneself and our environment.'}
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-card border-border transition-all hover:border-foreground/20">
+                <CardContent className="p-8 md:p-10 flex flex-col justify-center h-full">
+                  <div className="mb-6 flex justify-start">
+                    <Badge variant="secondary" className="rounded-full px-4 py-1 text-sm font-medium">
+                      {t('agenyz.stats.cases') || '13 Clinical Studies'}
+                    </Badge>
                   </div>
-                </div>
-              );
-            })}
+                  <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-4 text-foreground">
+                    {t('agenyz.brand.bio.title') || 'Biohacking'}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg sm:text-xl">
+                    {t('agenyz.brand.bio.desc') || 'Innovative products to improve physical form, increase energy levels and slow down the aging process.'}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* General Product Info */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-card">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-8 text-balance text-foreground">
+              {t('agenyz.general.title') || 'Advanced Nutrition & Biohacking'}
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground tracking-tight font-medium mb-12">
+              {t('agenyz.general.subtitle') || 'A complete range of supplements designed to optimize your body and mind.'}
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-16">
+              <div className="bg-background rounded-3xl p-8 border border-border">
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  {t('agenyz.general.desc1') || 'Agenyz products stand out for their innovative approach to health. Using premium natural ingredients and the patented XBi-A� absorption technology, each formula is designed for maximum bioavailability and effectiveness at the cellular level.'}
+                </p>
+              </div>
+              <div className="bg-background rounded-3xl p-8 border border-border">
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  {t('agenyz.general.desc2') || 'From immune support and sustained energy to cognitive clarity and cellular regeneration, discover how the Agenyz product ecosystem can elevate your quality of life.'}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -152,20 +151,33 @@ export default function AgenyzContent() {
         <section className="py-20 sm:py-24 bg-background">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-5xl font-semibold tracking-tighter mb-6 text-foreground">
-              {t('agenyz.cta.title') || 'Shop the full store on Agenyz'}
+              {t('agenyz.brand.cta') || 'Join the Community'}
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
               {t('agenyz.cta.subtitle') ||
                 'Browse the complete range, read ingredient details, and place orders through the official Agenyz storefront.'}
             </p>
-            <Button asChild size="lg" className="rounded-full h-12 px-8">
-              <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
-                {t('agenyz.cta.button') || 'Visit agenyz.es'}
-              </a>
-            </Button>
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button asChild size="lg" className="rounded-full h-12 px-8">
+                  <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
+                    {t('agenyz.cta.visitStore') || 'Visit agenyz.es'}
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-8">
+                  <Link href="/booking">
+                    {t('common.contactUs') || 'Contact EKA Balance'}
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-sm text-muted-foreground mt-2 max-w-sm text-center">
+                {t('agenyz.redirect.notice') || 'You will be redirected to our partner website.'}
+              </p>
+            </div>
           </div>
         </section>
       </PageLayout>
     </>
   );
 }
+

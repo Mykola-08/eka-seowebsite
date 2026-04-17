@@ -39,7 +39,7 @@ export default function AnimateIn({
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReduced || typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
+      setTimeout(() => setVisible(true), 0);
       return;
     }
 

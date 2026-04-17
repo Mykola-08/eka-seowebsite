@@ -18,7 +18,7 @@ interface PageLayoutProps {
   mainClassName?: string;
 }
 
-export default function PageLayout({ children, hero, className = '', mainClassName = 'bg-card rounded-t-[3rem]' }: PageLayoutProps) {
+export default function PageLayout({ children, hero, className = '', mainClassName = 'bg-background rounded-t-[3rem]' }: PageLayoutProps) {
   const isCustomHero = React.isValidElement(hero);
   const heroData = !isCustomHero ? (hero as {
     title: string;

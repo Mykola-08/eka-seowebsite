@@ -14,10 +14,10 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ service }: ServiceCardProps) {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
-    <Card className="flex flex-col h-full transition-colors hover:border-foreground/25 border-border group">
+    <Card className="flex flex-col h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-primary/40 border-border group">
       {service.image && (
         <div className="relative w-full aspect-4/3 -mt-6 overflow-hidden bg-muted">
           <Image
@@ -56,11 +56,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                   {t(key)}
                 </li>
               ))}
-              {service.benefitsKeys.length > 3 && (
-                <li className="flex items-start text-sm text-muted-foreground italic pl-4.5">
-                  + {service.benefitsKeys.length - 3} {language === 'ru' ? 'еще' : language === 'es' ? 'más' : language === 'ca' ? 'més' : 'more'}
-                </li>
-              )}
             </ul>
           </div>
         )}

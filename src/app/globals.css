@@ -72,7 +72,7 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-  --radius-apple: var(--apple-border-radius);
+  --radius-apple: 2rem;
   --radius-apple-lg: var(--apple-border-radius-large);
   --radius-apple-xl: var(--apple-border-radius-xl);
 
@@ -101,23 +101,23 @@
   --animate-subtle-pulse: subtlePulse 3s ease-in-out infinite;
   --animate-gentle-float: gentleFloat 6s ease-in-out infinite;
 
-  /* Site elevation shadows */
-  --shadow-2xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.04);
-  --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.08);
-  --shadow-3xl: 0 35px 60px -15px rgb(0 0 0 / 0.3);
-  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  --shadow-apple: 0px 4px 12px rgba(0, 0, 0, 0.05), 0px 1px 3px rgba(0, 0, 0, 0.02);
-  --shadow-apple-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-apple-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-apple-lg: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-apple-xl: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+  /* Flat design: no elevation shadows. All shadow tokens disabled precisely per user command. */
+  --shadow-2xs: 0 0 #0000;
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-xl: 0 0 #0000;
+  --shadow-2xl: 0 0 #0000;
+  --shadow-card: 0 0 #0000;
+  --shadow-card-hover: 0 0 #0000;
+  --shadow-3xl: 0 0 #0000;
+  --shadow-glass: 0 0 #0000;
+  --shadow-apple: 0 0 #0000;
+  --shadow-apple-sm: 0 0 #0000;
+  --shadow-apple-md: 0 0 #0000;
+  --shadow-apple-lg: 0 0 #0000;
+  --shadow-apple-xl: 0 0 #0000;
 
   @keyframes fadeIn {
     0% {
@@ -234,21 +234,17 @@
 */
 
 @utility rounded-apple {
-  border-radius: var(--apple-border-radius);
+  border-radius: 2rem;
 }
 
 @utility apple-card {
-  /* Apple Card */
-  @apply bg-card text-card-foreground transition-all duration-300;
-  border-radius: var(--apple-border-radius);
+  /* Apple Card (flat) */
+  @apply bg-card text-card-foreground transition-colors duration-200;
+  border-radius: 2rem;
   border: 1px solid var(--border);
 
   &:hover {
-    transform: scale(1.01);
-  }
-
-  &:active {
-    transform: scale(0.99);
+    @apply border-primary/30;
   }
 }
 
@@ -300,39 +296,7 @@
 }
 
 @layer utilities {
-  /* ─── Squircle corners (CSS Borders Level 4, Chrome 133+) ──────────────────
-   Applied only to large card-level elements for smooth iOS-style corners.
-   Buttons, inputs, badges and small elements keep standard rounded corners.
-   Falls back to standard border-radius on unsupported browsers.
-   ──────────────────────────────────────────────────────────────────────── */
-  @supports (corner-shape: squircle) {
-    .apple-card,
-    .squircle,
-    .squircle-md,
-    .squircle-lg,
-    .squircle-xl,
-    .squircle-2xl,
-    .rounded-apple,
-    .rounded-apple-lg,
-    .rounded-apple-xl,
-    .rounded-4xl,
-    .rounded-3xl,
-    .rounded-2xl,
-    .rounded-xl,
-    .rounded-lg,
-    .rounded-md,
-    .rounded-sm,
-    .rounded-b-2xl,
-    .rounded-b-3xl,
-    .rounded-t-2xl,
-    .rounded-t-3xl,
-    .rounded-t-4xl,
-    .rounded-b-4xl,
-    .rounded-\[2\.5rem\],
-    .rounded-\[3\.5rem\] {
-      corner-shape: squircle;
-    }
-  }
+/* Squircle logic REMOVED to prioritize standard, straight-edged box modeling globally */
 
   :root {
     /* Font Weights */
@@ -342,17 +306,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
 
-    --apple-gray: #f5f5f7;
-    --apple-gray-dark: #1d1d1f;
-    --apple-blue: #0071e3;
-    --apple-purple: #5856d6;
-    --apple-border-radius: 24px;
-    --apple-border-radius-small: 9999px;
-    --apple-border-radius-large: 32px;
-    --apple-border-radius-xl: 40px;
-    --apple-shadow: 0 0 #0000;
-    --apple-shadow-hover: 0 0 #0000;
-    --apple-shadow-large: 0 0 #0000;
+/* Apple Border Radius overrides REMOVED to prioritize straight, sharp edges */
     --surface-primary: #ffffff;
     --surface-muted: #fafafa;
     --surface-elevated: #ffffff;
@@ -467,7 +421,7 @@
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 2rem;
+    --radius: 1.5rem; /* Large pill/Apple curve */
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.546 0.245 262.881);
@@ -523,18 +477,14 @@
     @apply font-sans;
   }
 
-  /* Apple Card */
+  /* Apple Card (flat) */
   .apple-card {
-    @apply bg-card text-card-foreground transition-all duration-300 border border-border/60;
-    border-radius: var(--apple-border-radius);
+    @apply bg-card text-card-foreground transition-colors duration-200 border border-border;
+    border-radius: 2rem;
   }
 
   .apple-card:hover {
-    transform: scale(1.01);
-  }
-
-  .apple-card:active {
-    transform: scale(0.99);
+    @apply border-primary/30;
   }
 
   /* Typography */

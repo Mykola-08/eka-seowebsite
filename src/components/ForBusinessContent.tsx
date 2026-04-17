@@ -85,6 +85,7 @@ export default function ForBusinessContent() {
                 title={t('personalized.business.bento.box1.title')}
                 description={t('personalized.business.bento.box1.desc')}
                 image="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="md:col-span-2"
                 details={
                   <div className="space-y-4">
@@ -100,6 +101,7 @@ export default function ForBusinessContent() {
                 title={t('personalized.business.bento.box2.title')}
                 description={t('personalized.business.bento.box2.desc')}
                 image="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="col-span-1"
                 delay={0.1}
                 details={
@@ -116,6 +118,7 @@ export default function ForBusinessContent() {
                 title={t('personalized.business.bento.box3.title')}
                 description={t('personalized.business.bento.box3.desc')}
                 image="https://images.pexels.com/photos/4098228/pexels-photo-4098228.jpeg?auto=compress&cs=tinysrgb&w=800"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="col-span-1"
                 delay={0.2}
                 details={
@@ -132,6 +135,7 @@ export default function ForBusinessContent() {
                 title={t('personalized.business.bento.box4.title')}
                 description={t('personalized.business.bento.box4.desc')}
                 image="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="md:col-span-2"
                 delay={0.3}
                 details={
@@ -164,7 +168,7 @@ export default function ForBusinessContent() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-150 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
               {/* Plan 1 - Teams */}
-              <div className="bg-card rounded-2xl p-8 sm:p-10 border border-border relative transition-all duration-300 flex flex-col h-full">
+              <div className="bg-card rounded-[2rem] p-8 sm:p-10 border border-border relative transition-all duration-300 flex flex-col h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full bg-primary/30 pointer-events-none" />
                 <h3 className="text-3xl font-semibold tracking-tight text-foreground mb-3 relative z-10">{t("personalized.business.plans.teams.title")}</h3>
                 <p className="text-muted-foreground font-medium mb-8 grow relative z-10">{t("personalized.business.plans.teams.desc")}</p>
@@ -196,13 +200,13 @@ export default function ForBusinessContent() {
                   </li>
                 </ul>
 
-                <Button asChild className="w-full rounded-2xl py-6 relative z-10">
+                <Button asChild className="w-full rounded-[2rem] py-6 relative z-10">
                   <Link href="/booking?subject=teams">{t('common.getStarted')}</Link>
                 </Button>
               </div>
 
               {/* Plan 2 - Office */}
-              <div className="bg-foreground rounded-2xl p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
+              <div className="bg-foreground rounded-[2rem] p-8 sm:p-10 relative transition-transform duration-300 flex flex-col h-full overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 opacity-20 rounded-bl-full bg-card pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 opacity-10 rounded-tr-full bg-card pointer-events-none" />
                 
@@ -236,7 +240,7 @@ export default function ForBusinessContent() {
                   </li>
                 </ul>
 
-                <Button asChild className="w-full rounded-2xl py-6 relative z-10">
+                <Button asChild className="w-full rounded-[2rem] py-6 relative z-10">
                   <Link href="/booking?subject=office">{t('common.getStarted')}</Link>
                 </Button>
               </div>

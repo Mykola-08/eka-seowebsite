@@ -53,7 +53,7 @@ export default class ErrorBoundary extends Component<Props, State> {
 
       return (
         <div className="min-h-screen bg-muted/50 flex items-center justify-center p-4">
-          <div className="bg-card rounded-2xl max-w-md w-full p-8 text-center">
+          <div className="bg-card rounded-[2rem] max-w-md w-full p-8 text-center">
             <div className="w-20 h-20 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <AlertTriangle className="w-10 h-10 text-destructive" />
             </div>
@@ -71,7 +71,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                 <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground/80 font-medium">
                   Detalls de l&apos;error
                 </summary>
-                <div className="mt-4 p-4 bg-muted rounded-lg">
+                <div className="mt-4 p-4 bg-muted rounded-full">
                   <p className="font-mono text-sm font-medium text-destructive mb-2">
                     {this.state.error.name}: {this.state.error.message}
                   </p>
@@ -119,7 +119,7 @@ export function ErrorFallback({
   resetError: () => void; 
 }) {
   return (
-    <div className="p-8 bg-destructive/5 rounded-2xl">
+    <div className="p-8 bg-destructive/5 rounded-[2rem]">
       <div className="flex items-center mb-4">
         <Alert01Icon className="w-6 h-6 text-destructive mr-3" />
         <h2 className="text-lg font-medium text-foreground">

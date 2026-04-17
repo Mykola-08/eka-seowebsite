@@ -23,7 +23,7 @@ const Block = ({ icon: Icon, title, children, color = 'amber' }: {
     gray: 'text-foreground/80 bg-muted',
   };
   return (
-    <div className={`rounded-2xl p-6 sm:p-8 ${styles[color]}`}>
+    <div className={`rounded-[2rem] p-6 sm:p-8 ${styles[color]}`}>
       <div className="flex items-start gap-4">
         <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${iconStyles[color]}`}>
           <Icon className="w-5 h-5" />
@@ -48,7 +48,7 @@ export default function DisclaimerContent() {
       <div className="max-w-3xl mx-auto px-4 sm:px-8 py-12 space-y-8">
 
         {/* Top alert */}
-        <div className="rounded-2xl border border-warning/30 bg-warning/10 p-6 sm:p-8">
+        <div className="rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
           <div className="flex items-start gap-4">
             <Alert01Icon className="w-7 h-7 text-foreground shrink-0 mt-0.5" />
             <div>
@@ -155,7 +155,7 @@ export default function DisclaimerContent() {
               { country: 'General Emergency', number: '112' },
               { country: 'Crisis Line (ES)', number: '024' },
             ].map(({ country, number }) => (
-              <div key={country} className="bg-card border border-border rounded-2xl p-3 text-center">
+              <div key={country} className="bg-card border border-border rounded-[2rem] p-3 text-center">
                 <p className="text-2xl font-medium text-destructive">{number}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{country}</p>
               </div>
@@ -164,7 +164,7 @@ export default function DisclaimerContent() {
         </Block>
 
         {/* Footer note */}
-        <div className="rounded-2xl bg-muted/40 border border-border p-6 text-sm text-foreground/80 space-y-3">
+        <div className="rounded-[2rem] bg-muted/40 border border-border p-6 text-sm text-foreground/80 space-y-3">
           <p>
             This disclaimer is provided in accordance with Spanish consumer protection law (Real Decreto Legislativo 1/2007), EU Directive 2011/83/EU on consumer rights, and applicable professional wellness practice standards.
           </p>

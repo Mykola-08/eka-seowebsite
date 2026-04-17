@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -34,6 +40,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'front.agenyz.eu' },
       { protocol: 'https', hostname: 'storage.agenyz.eu' },
       { protocol: 'https', hostname: 'front.agenyz.ru' },
+      { protocol: 'https', hostname: 'a0.muscache.com' },
     ],
   },
   typescript: {
@@ -87,4 +94,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

@@ -7,6 +7,9 @@ type Feature = {
   description?: React.ReactNode;
 };
 
+export type { Feature };
+
+
 type FeatureGridProps = {
   features: Feature[];
   columns?: 2 | 3 | 4;
@@ -21,7 +24,7 @@ const columnsMap = {
 
 /**
  * FeatureGrid — unified bento/feature list for benefits, values, etc.
- * Apple-minimal: rounded-apple surfaces, hairline borders, subtle hover lift.
+ * Apple-minimal: rounded-[2rem] surfaces, hairline borders, subtle hover lift.
  */
 function FeatureGrid({
   features,
@@ -39,19 +42,19 @@ function FeatureGrid({
       {features.map((feature, i) => (
         <div
           key={i}
-          className="group relative flex flex-col gap-4 rounded-apple border border-border/60 bg-card p-8 transition-all duration-300 hover:border-border hover:bg-surface-muted"
+          className="group relative flex flex-col gap-4 apple-card p-8 transition-all duration-300"
         >
           {feature.icon ? (
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">    
               {feature.icon}
             </div>
           ) : null}
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold tracking-tight text-foreground">
+            <h3 className="apple-title tracking-tight text-foreground">
               {feature.title}
             </h3>
             {feature.description ? (
-              <p className="text-sm md:text-base text-foreground/70 leading-relaxed font-light">
+              <p className="apple-subtitle text-foreground/70">
                 {feature.description}
               </p>
             ) : null}
@@ -62,5 +65,5 @@ function FeatureGrid({
   );
 }
 
+export default FeatureGrid;
 export { FeatureGrid };
-export type { Feature };

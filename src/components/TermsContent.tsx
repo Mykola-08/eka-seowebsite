@@ -52,7 +52,7 @@ export default function TermsContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer — always first, always prominent */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-warning/30 bg-warning/10 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
@@ -106,7 +106,7 @@ export default function TermsContent() {
                   </li>
                 ))}
               </ul>
-              <div className="rounded-2xl bg-primary/5 border border-border p-5 text-sm">
+              <div className="rounded-[2rem] bg-primary/5 border border-border p-5 text-sm">
                 <p className="text-foreground">
                   <strong>Important:</strong> Continue following your physician&apos;s recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
                 </p>
@@ -170,12 +170,12 @@ export default function TermsContent() {
 
             <Section id="contact" icon={Phone} title="5. Contact">
               <div className="grid gap-4 sm:grid-cols-2 text-sm">
-                <div className="rounded-2xl bg-primary/5 border border-border p-5 space-y-1">
+                <div className="rounded-[2rem] bg-primary/5 border border-border p-5 space-y-1">
                   <p className="font-medium text-foreground">Legal Inquiries</p>
                   <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline block">legal@ekabalance.com</a>
                   <p className="text-muted-foreground">Calle Plata 1, 08191 Rubí, Barcelona</p>
                 </div>
-                <div className="rounded-2xl bg-muted/40 border border-border p-5 space-y-1">
+                <div className="rounded-[2rem] bg-muted/40 border border-border p-5 space-y-1">
                   <p className="font-medium text-foreground">Data Protection Officer</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                   <p className="text-muted-foreground">+34 658 867 133</p>

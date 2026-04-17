@@ -23,7 +23,7 @@ export const ContactFormSchema = z.object({
   preferred_contact: z.enum(['email', 'phone', 'whatsapp']).default('email'),
   preferred_time: z.string().optional(),
   source: z.string().optional(),
-  privacy_policy: z.boolean().optional(),
+  privacy_policy: z.literal(true),
 });
 
 export type OnboardingData = z.infer<typeof OnboardingDataSchema>;

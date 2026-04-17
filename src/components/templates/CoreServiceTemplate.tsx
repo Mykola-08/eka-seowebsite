@@ -31,6 +31,7 @@ interface CoreServiceTemplateProps {
     subtitleKey: string;
     badgeKey: string;
     icon?: React.ComponentType<{ className?: string }>;
+    backgroundImage?: string;
   };
   bentoGrid?: {
     titleKey: string;
@@ -104,7 +105,7 @@ export default function CoreServiceTemplate({
           title: t(hero.titleKey),
           subtitle: t(hero.subtitleKey),
 
-          backgroundImage: serviceData?.image,
+          backgroundImage: hero.backgroundImage || serviceData?.image,
           themeColor: theme
         }}
       >
@@ -168,12 +169,12 @@ export default function CoreServiceTemplate({
                 return (
                   <div
                     key={index}
-                    className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-2xl bg-card border border-border transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-45"
+                    className="p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-45"
                   >
                     <div className="absolute -top-4 -right-4 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500 transform group-hover:scale-110">
                       <CheckCircle className="w-40 h-40" />
                     </div>
-                      <div className={`w-12 h-12 rounded-xl sm:rounded-2xl flex items-center justify-center mb-6 relative z-10 bg-muted/50 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
+                      <div className={`w-12 h-12 rounded-[2rem] sm:rounded-[2rem] flex items-center justify-center mb-6 relative z-10 bg-muted/50 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
                       <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tracking-tight leading-[1.2] relative z-10 w-[95%]">
@@ -200,10 +201,10 @@ export default function CoreServiceTemplate({
 
           <div className={`grid gap-6 md:gap-8 max-w-300 mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {pricing.options.map((option, index) => (
-                <div key={index} className="bg-muted/30 rounded-2xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border border-border hover:border-border transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
+                <div key={index} className="bg-muted/30 rounded-[2rem] sm:rounded-[2rem] p-6 sm:p-8 md:p-10 border border-border hover:border-border transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-muted rounded-bl-full z-0 opacity-50 group-hover:bg-primary/5 transition-colors duration-500" />
                 
-                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-2xl bg-card  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
+                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[2rem] bg-card  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
                   <Clock01Icon className="w-7 h-7" />
                 </div>
 
@@ -252,7 +253,7 @@ export default function CoreServiceTemplate({
                 <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     {testimonials.items.map((testimonial, i) => (
-                        <div key={i} className="bg-muted/50 p-8 rounded-2xl border border-border h-full flex flex-col hover:bg-card transition duration-300">
+                        <div key={i} className="bg-muted/50 p-8 rounded-[2rem] border border-border h-full flex flex-col hover:bg-card transition duration-300">
                              <div className="flex gap-1 mb-4 text-gold">
                                 {[...Array(testimonial.rating)].map((_, i) => (
                                     <StarIcon key={i} className="w-5 h-5 fill-current" />

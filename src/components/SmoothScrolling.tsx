@@ -66,13 +66,41 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
       });
     };
 
-    start().catch((err) => {
-      if (process.env.NODE_ENV === 'development') {
-        console.warn('SmoothScrolling: Failed to initialize Lenis', err);
-      }
-    });
+    // Defer Lenis initialization until the browser is idle so it never
+    // competes with LCP/hydration work. Falls back to a short timeout when
+    // requestIdleCallback is unavailable (Safari < 17).
+    const ric =
+      (window as unknown as {
+        requestIdleCallback?: (
+          cb: () => void,
+          opts?: { timeout?: number }
+        ) => number;
+      }).requestIdleCallback;
+    const cic =
+      (window as unknown as {
+        cancelIdleCallback?: (handle: number) => void;
+      }).cancelIdleCallback;
+    const runStart = () =>
+      start().catch((err) => {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('SmoothScrolling: Failed to initialize Lenis', err);
+        }
+      });
+    let idleHandle: number | undefined;
+    let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+    if (typeof ric === 'function') {
+      idleHandle = ric(runStart, { timeout: 2000 });
+    } else {
+      timeoutHandle = setTimeout(runStart, 200);
+    }
 
     return () => {
+      if (idleHandle !== undefined && typeof cic === 'function') {
+        cic(idleHandle);
+      }
+      if (timeoutHandle !== undefined) {
+        clearTimeout(timeoutHandle);
+      }
       anchors.forEach((anchor) => {
         anchor.removeEventListener('click', handleAnchorClick);
       });

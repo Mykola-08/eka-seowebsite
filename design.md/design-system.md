@@ -66,13 +66,18 @@ Larger text needs tighter letter spacing; smaller text needs looser spacing. Pai
 | `'`        | `'` (curly apostrophe) |
 | `"`        | `"` (curly quotes)     |
 
-### Shadows for Borders
+### Shadows & Borders (Flat Apple Clean Minimalist)
 
-Use shadows instead of hard borders for better blending:
+**DO NOT USE SHADOWS.** The site design is strictly flat to maintain an Apple-clean minimalist aesthetic.
+- Use borders instead of shadows to separate surfaces (e.g., `border border-border/60`).
+- Ensure all elevation tokens (`--shadow-sm`, `--shadow-md`, etc.) evaluate to flat (`0 0 #0000`).
 
-```css
-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-```
+### Rounding (Fully Rounded Radius)
+
+The baseline border-radius for the entire website is designed to be highly rounded, reflecting macOS/iOS behaviors:
+- **Controls & Buttons**: `rounded-full` (e.g., standard buttons, inputs, hover pills in headers).
+- **Large Surfaces**: `rounded-[2rem]` (e.g., cards, dialogs, dropdown panels, cookie banners).
+- Avoid blocky or squared-off corners (`rounded-md`, `rounded-lg`, `rounded-xl`) across foundational elements.
 
 ### Hairline Borders
 

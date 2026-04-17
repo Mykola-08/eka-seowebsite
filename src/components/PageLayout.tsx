@@ -93,8 +93,8 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
               animate={{ opacity: 1 }}
               className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center justify-center animate-bounce"
             >
-               <div className="w-7.5 h-12.5 rounded-full border border-border/20 border-white/50 flex justify-center p-2">
-                 <div className="w-1.5 h-3 bg-whitee rounded-full"></div>
+               <div className="w-7.5 h-12.5 rounded-full border border-white/50 flex justify-center p-2">
+                 <div className="w-1.5 h-3 bg-white rounded-full"></div>
                </div>
             </motion.div>
           </section>

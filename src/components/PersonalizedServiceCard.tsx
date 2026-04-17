@@ -17,20 +17,19 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
   const { t, language } = useLanguage();
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-all hover:bg-surface-muted border-border/60 group">
+    <Card className="flex flex-col h-full overflow-hidden transition-colors hover:border-primary/30 border-border group pt-0">
       {service.image && (
-        <div className="relative w-full h-48 overflow-hidden bg-muted">
+        <div className="relative w-full aspect-video overflow-hidden bg-muted border-b border-border rounded-t-[2rem]">
           <Image 
             src={service.image} 
             alt={t(service.titleKey)}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
         </div>
       )}
-      <CardHeader className={service.image ? 'pt-4 relative z-10' : ''}>
+      <CardHeader className={service.image ? 'pt-5' : ''}>
         <div className="flex justify-between items-start gap-4 mb-2">
           <CardTitle className="text-2xl font-medium leading-tight">
             {t(service.titleKey)}
@@ -46,7 +45,7 @@ export default function PersonalizedServiceCard({ service }: PersonalizedService
       
       <CardContent className="grow space-y-6">
         {service.resultKey && (
-          <div className="bg-muted/40 p-4 rounded-xl mb-4 border border-border/40">
+          <div className="bg-muted/40 p-4 rounded-[2rem] mb-4 border border-border/40">
             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest block mb-1">
               {t('common.expectedResult') || 'Expected Result'}
             </span>

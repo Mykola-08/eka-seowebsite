@@ -17,19 +17,19 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const { t, language } = useLanguage();
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-all hover:shadow-apple-sm border-border/40 group">
+    <Card className="flex flex-col h-full transition-colors hover:border-foreground/25 border-border group">
       {service.image && (
-        <div className="relative w-full h-48 overflow-hidden bg-muted/20 border-b border-border/20">
-          <Image 
-            src={service.image} 
+        <div className="relative w-full aspect-4/3 -mt-6 overflow-hidden bg-muted">
+          <Image
+            src={service.image}
             alt={t(service.titleKey)}
             fill
-            className="object-cover transition-opacity duration-300"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
-      <CardHeader className={service.image ? 'pt-5' : ''}>
+      <CardHeader>
         <div className="flex justify-between items-start gap-4 mb-2">
           <CardTitle className="text-2xl font-medium leading-tight">
             {t(service.titleKey)}

@@ -117,15 +117,15 @@ export default function MainLayout({
 
     const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
 
-    // Small gap between header and dropdown for visual separation
-    const top = triggerRect.bottom + 4;
+    // Eliminate visual gap between header and dropdown by using zero margin
+    const top = triggerRect.bottom;
 
-    // Compute transform-origin X percentage based on where the trigger center falls inside the dropdown
+    // Compute transform-origin X offset percentage based on hover trigger
     const originX = ((triggerCenter - clampedLeft) / panelWidth) * 100;
 
     setDropdownPosition({
       left: clampedLeft,
-      top: top,
+      top: top - 8, // Overlap the bottom margin explicitly to attach visually
       triggerBottom: triggerRect.bottom,
       originX: Math.max(10, Math.min(90, originX)),
       width: panelWidth
@@ -264,8 +264,8 @@ export default function MainLayout({
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-card/85 backdrop-blur-2xl backdrop-saturate-150 border border-border/30 shadow-apple-sm mt-4 rounded-full'
-    : 'bg-card/60 backdrop-blur-xl backdrop-saturate-150 border border-border/10 mt-4 rounded-full'
+    ? 'bg-background/80 backdrop-blur-2xl backdrop-saturate-150 border border-border/40 mt-4 rounded-full'
+    : 'bg-background/50 backdrop-blur-xl backdrop-saturate-150 border border-transparent mt-4 rounded-full'
 
   // Icon map for dropdown items
   const serviceIcons: Record<string, React.ReactNode> = {
@@ -296,29 +296,8 @@ export default function MainLayout({
     {
       name: 'Agenyz',
       href: '/agenyz',
-      hasDropdown: true,
-      dropdownType: 'agenyz',
-      dropdownWidth: 380,
-      dropdownItems: [
-        {
-          name: 'CellGenetiX',
-          href: '/agenyz/CellGenetiX',
-          image: 'https://storage.agenyz.eu/y1/f3/_En.vgnko1s5plrh7vau2elp51f9jzgl.png',
-          subtitle: 'DNA cell support'
-        },
-        {
-          name: 'OctoMagnesium',
-          href: '/agenyz/Octomagnesium-XBi-A',
-          image: 'https://storage.agenyz.eu/bs/rq/1240340_OCTOMAGNESIUMXBi-A.4z7ynoqb1iqdyexcgpej.jpg',
-          subtitle: '8-form magnesium'
-        },
-        {
-          name: '3D-Matrix',
-          href: '/agenyz/3D-Matrix',
-          image: 'https://storage.agenyz.eu/sc/w8/3dMatrix_En.6o8ovei0rtlqdqm6cixc1ff6mj.png',
-          subtitle: 'Triple protein matrix'
-        },
-      ]
+      hasDropdown: false,
+      isExternal: true
     },
     {
       name: t('nav.revision360'),
@@ -395,6 +374,9 @@ export default function MainLayout({
                 <Link href="/about-elena" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
                   {t('nav.aboutElena')}
                 </Link>
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
+                  {t('nav.contact') || 'Contact'}
+                </Link>
                 <Link href="/booking" className="hover:text-foreground transition-colors duration-200 text-sm font-medium text-primary">
                   {t('nav.bookNow')}
                 </Link>
@@ -466,7 +448,7 @@ export default function MainLayout({
         {/* Main Content Container inside Uncover */}
 
       {/* Navigation with scroll effect - Liquid Glass Style */}
-      <nav className={`fixed top-0 left-0 right-0 z-(--z-dropdown) transition-all duration-500 ease-out flex justify-center pointer-events-none px-4 sm:px-6`}>
+      <nav className="fixed top-0 left-0 right-0 z-(--z-dropdown) transition-all duration-500 ease-out flex justify-center pointer-events-none px-4 sm:px-6">
         <div className={`pointer-events-auto transition-all duration-500 max-w-7xl w-full mx-auto px-6 lg:px-8 ${headerSurfaceClass}`}>
           <div className="flex items-center h-14 relative">
             {/* Logo Only - Left Side */}
@@ -494,7 +476,7 @@ export default function MainLayout({
                   {item.hasDropdown ? (
                     <Link
                       href={item.href}
-                      className={`nav-trigger py-4 px-4 -mx-4 text-sm font-normal transition-colors duration-200 flex items-center gap-1 tracking-tight group/trigger ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`nav-trigger py-2 px-4 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full tracking-tight group/trigger ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
                       onMouseEnter={(e) => openDropdown(e, item.name, item.dropdownWidth)}
                       onMouseLeave={scheduleHide}
                       onFocus={(e) => openDropdown(e, item.name, item.dropdownWidth)}
@@ -507,22 +489,19 @@ export default function MainLayout({
                       <ArrowDown01Icon className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-foreground/80' : isNavItemActive ? 'text-muted-foreground' : 'text-muted-foreground group-hover/trigger:translate-y-px'}`} />
                     </Link>
                   ) : item.isExternal ? (
-                    <a
+                    <Link
                       href={item.href}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className={`py-4 px-4 -mx-4 text-sm font-normal transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.open(item.href, '_blank', 'noopener,noreferrer');
-                      }}
+                      className={`py-2 px-4 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full tracking-tight ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
                       suppressHydrationWarning
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ) : (
                     <Link
                       href={item.href}
-                      className={`py-4 px-4 -mx-4 text-sm font-normal transition-colors duration-200 tracking-tight ${isNavItemActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`py-2 px-4 text-sm font-medium transition-all duration-300 rounded-full flex items-center tracking-tight ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
                       suppressHydrationWarning
                     >
                       {item.name}
@@ -585,10 +564,9 @@ export default function MainLayout({
                           >
                             {/* Inner content wrapper with the actual visual styling */}
                             <div
-                              className="mx-auto overflow-hidden relative bg-background/90 backdrop-blur-xl rounded-2xl border border-border/40"
-                              style={{ width: dropdownPosition.width }}
+                              className="mx-auto overflow-hidden relative bg-background/95 backdrop-blur-2xl rounded-[1.75rem] border border-border shadow-xl shadow-foreground/5"
+                              style={{ width: dropdownPosition.width, marginTop: '10px' }}
                             >
-                              <div className="absolute inset-x-0 top-0 h-px bg-card/40" />
 
                               {item.dropdownType === 'agenyz' ? (
                                 /* Agenyz: product image cards */
@@ -606,12 +584,12 @@ export default function MainLayout({
                                           <Link
                                             href={product.href}
                                             onClick={() => setActiveDropdown(null)}
-                                            className="group/prod flex flex-col items-center p-2 rounded-2xl hover:bg-muted/40 transition-colors"
+                                            className="group/prod flex flex-col items-center p-2 rounded-[2rem] hover:bg-muted/40 transition-colors"
                                             role="menuitem"
                                           >
-                                            <div className="w-full aspect-square mb-2 relative bg-muted/40 rounded-2xl overflow-hidden">
+                                            <div className="w-full aspect-square mb-2 relative bg-muted/40 rounded-[2rem] overflow-hidden border border-border">
                                               {product.image && (
-                                                <Image src={product.image} alt={product.name} fill className="object-contain p-1 group-hover/prod:scale-105 transition-transform duration-300" sizes="100px" />
+                                                <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="100px" />
                                               )}
                                             </div>
                                             <span className="text-xs font-medium text-foreground text-center leading-tight">{product.name}</span>
@@ -655,11 +633,11 @@ export default function MainLayout({
                                           <Link
                                             href={dropdownItem.href}
                                             onClick={() => setActiveDropdown(null)}
-                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-2xl text-sm text-foreground/80 hover:text-foreground hover:bg-foreground/4 active:bg-foreground/[0.07] transition-all duration-150 tracking-tight"
+                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-[2rem] text-sm text-foreground/80 hover:text-foreground hover:bg-foreground/4 active:bg-foreground/[0.07] transition-all duration-150 tracking-tight"
                                             role="menuitem"
                                             suppressHydrationWarning
                                           >
-                                            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/80 text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 shrink-0">
+                                            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-muted/80 text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 shrink-0">
                                               {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
                                             </span>
                                             <span className="font-medium">{dropdownItem.name}</span>
@@ -748,7 +726,7 @@ export default function MainLayout({
                 setIsMenuOpen(false);
               }
             }}
-            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-3xl overscroll-none touch-pan-y"
+            className="md:hidden fixed inset-0 w-full h-dvh bg-secondary/90 backdrop-blur-xl z-(--z-modal) overflow-y-auto pt-15 rounded-t-xl overscroll-none touch-pan-y"
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsMenuOpen(false);
             }}
@@ -769,7 +747,7 @@ export default function MainLayout({
               <Cancel01Icon className="w-5 h-5" />
             </Button>
             <div className="p-6 pb-24 space-y-4">
-              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-2xl border border-border/40">
+              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-[2rem] border border-border/40">
                 {/* Home */}
                 <div className="border-b border-border/40 pb-2">
                   <Link
@@ -798,7 +776,7 @@ export default function MainLayout({
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 py-2 text-lg text-muted-foreground font-medium active:scale-[0.98] transition-transform"
                       >
-                        <span className="flex items-center justify-center w-8 h-8 rounded-2xl bg-muted/40 text-muted-foreground">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-[2rem] bg-muted/40 text-muted-foreground">
                           {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
                         </span>
                         {dropdownItem.name}
@@ -820,7 +798,7 @@ export default function MainLayout({
               </div>
 
               {/* Additional App Links */}
-              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-2xl border border-border/40">
+              <div className="flex flex-col space-y-2 bg-card/70 backdrop-blur-md p-4 rounded-[2rem] border border-border/40">
                 <div className="border-b border-border pb-2">
                   <Link
                     href="/360-revision"
@@ -843,7 +821,7 @@ export default function MainLayout({
 
               {/* Mobile Reserva */}
               <div className="pt-4 pb-12">
-                <Button asChild variant="default" size="lg" className="w-full rounded-2xl h-14 active:scale-[0.97] transition-transform">
+                <Button asChild variant="default" size="lg" className="w-full rounded-[2rem] h-14 active:scale-[0.97] transition-transform">
                   <Link
                     href="/booking"
                     onClick={() => setIsMenuOpen(false)}

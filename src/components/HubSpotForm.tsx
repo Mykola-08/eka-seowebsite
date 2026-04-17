@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface HubSpotFormProps {
   portalId: string;
@@ -35,6 +35,7 @@ export default function HubSpotForm({
 }: HubSpotFormProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const formCreated = useRef(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     if (!portalId || !formId || formCreated.current) return;
@@ -52,6 +53,7 @@ export default function HubSpotForm({
           onFormSubmitted: onSubmit,
         });
         formCreated.current = true;
+        setReady(true);
       }
     };
 
@@ -73,5 +75,16 @@ export default function HubSpotForm({
     };
   }, [portalId, formId, region, onSubmit]);
 
-  return <div ref={containerRef} className={className} />;
+  return (
+    <div ref={containerRef} className={className}>
+      {!ready && (
+        // Reserved-space skeleton — prevents CLS while HubSpot JS loads.
+        <div
+          aria-hidden
+          className="min-h-110 animate-pulse rounded-apple bg-muted/40"
+        />
+      )}
+    </div>
+  );
 }
+

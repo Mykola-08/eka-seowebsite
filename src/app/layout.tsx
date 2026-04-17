@@ -12,6 +12,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import ImagePreloader from "@/components/ImagePreloader";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -115,8 +116,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.pexels.com" />
         <meta name="wot-verification" content="96379ee3c82e2684e400"/>
       </head>
-      <body className="font-sans text-foreground bg-background overflow-x-hidden">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-background focus:px-4 focus:py-2 focus:rounded-lg focus:text-primary focus:font-medium">
+      <body className="font-sans text-foreground bg-background overflow-x-hidden relative">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-background focus:px-4 focus:py-2 focus:rounded-full focus:text-primary focus:font-medium">
           Skip to main content
         </a>
         <SmoothScrolling>
@@ -135,7 +136,8 @@ export default function RootLayout({
           </LanguageProvider>
         </SmoothScrolling>
         <Analytics />
-        <SpeedInsights />
+        <SpeedInsights sampleRate={0.5} />
+        <Toaster position="top-center" richColors closeButton />
         {/* HubSpot tracking script — loads after cookie consent via CookieBanner */}
         {process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID && process.env.NEXT_PUBLIC_HUBSPOT_TRACKING_ENABLED !== 'false' && (
           <Script

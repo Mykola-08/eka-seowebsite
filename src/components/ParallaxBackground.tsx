@@ -30,7 +30,11 @@ export default function ParallaxBackground({
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
 
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`} style={{ position: 'relative' }}>
+    <div
+      ref={ref}
+      className={`relative overflow-hidden min-h-100 ${className}`}
+      style={{ position: 'relative' }}
+    >
       <motion.div
         className="absolute inset-0 z-0"
         style={{ y, scale }}

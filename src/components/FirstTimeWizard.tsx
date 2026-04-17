@@ -229,7 +229,7 @@ export default function FirstTimeWizard() {
                       key={goal.id}
                       onClick={() => toggleGoal(goal.id)}
                       className={cn(
-                        "flex flex-col items-center justify-center p-4 rounded-xl border border-border/20 transition-all duration-200 text-center gap-3 h-32 outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        "flex flex-col items-center justify-center p-4 rounded-[2rem] border border-border/20 transition-all duration-200 text-center gap-3 h-32 outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                         isSelected 
                           ? "border-primary bg-primary/5 text-primary" 
                           : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
@@ -286,7 +286,7 @@ export default function FirstTimeWizard() {
                       key={loc.id}
                       onClick={() => setSelectedLocation(loc.id)}
                       className={cn(
-                        "flex flex-col items-center p-8 rounded-2xl border border-border/20 transition-all duration-200 gap-4 text-center outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        "flex flex-col items-center p-8 rounded-[2rem] border border-border/20 transition-all duration-200 gap-4 text-center outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                         isSelected 
                           ? "border-primary bg-primary/5 text-primary" 
                           : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"

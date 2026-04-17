@@ -95,7 +95,7 @@ function ToastComponent({ toast, onClose }: ToastProps) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden max-w-md w-full rounded-lg border  backdrop-blur-xs transition duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
+        "relative overflow-hidden max-w-md w-full rounded-full border  backdrop-blur-xs transition duration-300 ease-out transform pointer-events-auto flex items-start gap-3 p-4",
         getVariantStyles(),
         isVisible && !isExiting
           ? 'translate-x-0 opacity-100 scale-100'

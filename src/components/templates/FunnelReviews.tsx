@@ -35,7 +35,7 @@ export function FunnelReviews({ testimonials, className }: FunnelReviewsProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-background rounded-2xl p-8 flex flex-col justify-between"
+                className="bg-background rounded-[2rem] p-8 flex flex-col justify-between"
               >
                 <div className="flex gap-1 mb-6 text-gold">
                   {[1, 2, 3, 4, 5].map((star) => (

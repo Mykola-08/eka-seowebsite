@@ -75,7 +75,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ service: preselectedService }),
-    }).catch(() => {});
+    }).catch((err) => console.warn('[hubspot] track-booking failed', err));
     const message = encodeURIComponent(t('booking.whatsapp.greetingGeneric'));
     window.open(`https://wa.me/34644506377?text=${message}`, '_blank');
     onClose();
@@ -96,7 +96,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         service: formData.service,
         timePreference: formData.timePreference,
       }),
-    }).catch(() => {});
+    }).catch((err) => console.warn('[hubspot] track-booking failed', err));
     const message = encodeURIComponent(
       t('booking.whatsapp.greetingGeneric') + '\n\n' +
       t('booking.whatsapp.name') + `: ${formData.name}\n` +
@@ -131,7 +131,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-card/90 backdrop-blur-xl rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative shadow-apple-xl border border-border/60"
+              className="bg-card rounded-[2rem] max-w-lg w-full max-h-[90vh] overflow-y-auto relative border border-border"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -164,7 +164,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                 <div className="grid gap-4">
                   <button
                     onClick={handleQuickWhatsApp}
-                    className="flex items-center p-4 rounded-2xl border border-border/20  bg-primary/5 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-[2rem] border border-border/20  bg-primary/5 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 transition-colors">
                       <Message01Icon className="w-6 h-6 text-primary" />
@@ -181,7 +181,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
 
                   <button
                     onClick={() => setStep('form')}
-                    className="flex items-center p-4 rounded-2xl border border-border/20  bg-primary/5 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="flex items-center p-4 rounded-[2rem] border border-border/20  bg-primary/5 hover:bg-primary/5 transition duration-200 group text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 transition-colors">
                       <File01Icon className="w-6 h-6 text-primary" />
@@ -228,7 +228,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-[2rem] bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
                     />
                   </div>
 
@@ -240,7 +240,7 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       id="booking-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-[2rem] bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
                     >
                       <option value="">{t('booking.smart.service.placeholder')}</option>
                       {services.map((s) => (
@@ -259,13 +259,13 @@ export default function SmartBookingPopup({ isOpen, onClose, preselectedService 
                       placeholder={t('booking.smart.time.placeholder')}
                       value={formData.timePreference}
                       onChange={(e) => setFormData({ ...formData, timePreference: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
+                      className="w-full px-4 py-3 rounded-[2rem] bg-muted/40 focus-visible:ring-2 focus-visible:ring-ring outline-hidden transition"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-xl font-normal transition-colors flex items-center justify-center"
+                    className="w-full py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-[2rem] font-normal transition-colors flex items-center justify-center"
                   >
                     <Message01Icon className="w-5 h-5 mr-2" />
                     {t('booking.smart.send')}

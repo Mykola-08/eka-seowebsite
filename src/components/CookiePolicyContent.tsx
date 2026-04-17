@@ -50,7 +50,7 @@ export default function CookiePolicyContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Health notice */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-warning/30 bg-warning/10 p-6">
+            <div id="disclaimer" className="scroll-mt-24 rounded-[2rem] border border-warning/30 bg-warning/10 p-6">
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-5 h-5 text-foreground shrink-0 mt-0.5" />
                 <div>
@@ -92,7 +92,7 @@ export default function CookiePolicyContent() {
                     required: false,
                   },
                 ].map(({ title, desc, required }) => (
-                  <div key={title} className="rounded-2xl border border-border bg-muted/40 p-5">
+                  <div key={title} className="rounded-[2rem] border border-border bg-muted/40 p-5">
                     <div className="flex items-center justify-between mb-2">
                       <p className="font-medium text-foreground text-sm">{title}</p>
                       <span className={`text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full ${required ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}>
@@ -112,7 +112,7 @@ export default function CookiePolicyContent() {
               <p>
                 You may also withdraw consent granted through our cookie banner at any time by clearing your browser cookies and revisiting the site.
               </p>
-              <div className="rounded-2xl bg-muted/40 border border-border p-5 text-sm">
+              <div className="rounded-[2rem] bg-muted/40 border border-border p-5 text-sm">
                 <p className="font-medium text-foreground mb-2">Browser Cookie Settings</p>
                 <ul className="space-y-1 text-foreground/80">
                   {['Chrome: Settings → Privacy → Cookies', 'Firefox: Options → Privacy → Cookies', 'Safari: Preferences → Privacy', 'Edge: Settings → Privacy → Cookies'].map(item => (

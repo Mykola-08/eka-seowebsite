@@ -52,7 +52,7 @@ export default function PrivacyPolicyContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer — always first, always prominent */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-2xl border border-warning/30 bg-warning/10 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
@@ -86,7 +86,7 @@ export default function PrivacyPolicyContent() {
             </div>
 
             <Section id="controller" icon={UserCheck01Icon} title="Data Controller">
-              <div className="bg-muted/40 border border-border rounded-2xl p-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="bg-muted/40 border border-border rounded-[2rem] p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 {[
                   ['Name', 'Olena Kucherova Dryzhak (EKA Balance)'],
                   ['Address', 'Calle Plata 1, 08191 Rubí, Barcelona, Spain'],
@@ -99,7 +99,7 @@ export default function PrivacyPolicyContent() {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-2xl border border-border bg-primary/5 p-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="mt-4 rounded-[2rem] border border-border bg-primary/5 p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="sm:col-span-2"><span className="text-xs font-medium uppercase tracking-wider text-primary">Data Protection Officer (DPO)</span></div>
                 {[
                   ['Name', 'Olena Kucherova Dryzhak'],
@@ -117,7 +117,7 @@ export default function PrivacyPolicyContent() {
             <Section id="data" icon={File01Icon} title="1. Data We Collect">
               <p>We collect personal data necessary to provide our wellness services, including:</p>
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-border bg-primary/5 p-5">
+                <div className="rounded-[2rem] border border-border bg-primary/5 p-5">
                   <p className="font-medium text-foreground text-sm mb-2">Personal Identification</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
                     {['Full name', 'Email address', 'Phone number', 'Postal address', 'Date of birth'].map(item => (
@@ -125,7 +125,7 @@ export default function PrivacyPolicyContent() {
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-2xl border border-border bg-muted/40 p-5">
+                <div className="rounded-[2rem] border border-border bg-muted/40 p-5">
                   <p className="font-medium text-foreground text-sm mb-2">Wellness &amp; Health Data</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
                     {['Physical condition & wellbeing notes', 'Pain or discomfort indicators', 'Session history and preferences', 'Emotional wellbeing notes (with consent)'].map(item => (
@@ -144,7 +144,7 @@ export default function PrivacyPolicyContent() {
                   { title: 'Legal Obligations', items: ['Tax and accounting', 'Health & safety requirements', 'Data retention rules'] },
                   { title: 'Legitimate Interests', items: ['Service improvement', 'Fraud prevention', 'Statistical analysis'] },
                 ].map(({ title, items }) => (
-                  <div key={title} className="rounded-2xl border border-border bg-muted/40 p-5">
+                  <div key={title} className="rounded-[2rem] border border-border bg-muted/40 p-5">
                     <p className="font-medium text-foreground text-sm mb-2">{title}</p>
                     <ul className="space-y-1 text-sm text-foreground/80">
                       {items.map(item => <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-primary/50 shrink-0"/>{item}</li>)}
@@ -163,13 +163,13 @@ export default function PrivacyPolicyContent() {
                   { right: 'Portability (Art. 20)', desc: 'Receive your data in a structured, machine-readable format.' },
                   { right: 'Objection (Art. 21)', desc: 'Object to processing based on legitimate interests or for direct marketing.' },
                 ].map(({ right, desc }) => (
-                  <div key={right} className="flex gap-4 rounded-2xl bg-muted/40 p-4 border border-border">
+                  <div key={right} className="flex gap-4 rounded-[2rem] bg-muted/40 p-4 border border-border">
                     <span className="font-medium text-foreground text-sm w-36 shrink-0">{right}</span>
                     <span className="text-sm text-foreground/80">{desc}</span>
                   </div>
                 ))}
               </div>
-              <div className="rounded-2xl bg-primary/5 border border-border p-5 text-sm">
+              <div className="rounded-[2rem] bg-primary/5 border border-border p-5 text-sm">
                 <p className="font-medium text-foreground mb-1">To exercise your rights, contact:</p>
                 <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline">dpo@ekabalance.com</a>
               </div>
@@ -177,12 +177,12 @@ export default function PrivacyPolicyContent() {
 
             <Section id="contact" icon={MailIcon} title="Contact & Supervisory Authority">
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl bg-muted/40 border border-border p-5 text-sm space-y-2">
+                <div className="rounded-[2rem] bg-muted/40 border border-border p-5 text-sm space-y-2">
                   <p className="font-medium text-foreground">DPO Contact</p>
                   <p className="text-foreground/80">Olena Kucherova Dryzhak</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                 </div>
-                <div className="rounded-2xl bg-destructive/5 border border-destructive/20 p-5 text-sm space-y-2">
+                <div className="rounded-[2rem] bg-destructive/5 border border-destructive/20 p-5 text-sm space-y-2">
                   <p className="font-medium text-foreground">Supervisory Authority</p>
                   <p className="text-foreground/80">Agencia Española de Protección de Datos (AEPD)</p>
                   <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline block">www.aepd.es</a>

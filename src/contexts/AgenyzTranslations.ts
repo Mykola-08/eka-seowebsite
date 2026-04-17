@@ -151,10 +151,24 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Serveis Destacats',
     'services.featuredSubtitle': 'Descobreix les nostres ofertes més populars',
     'services.viewAll': 'Veure Tots els Serveis',
-  
-        
-  
-        
+    'agenyz.brand.badge': 'Agenyz · Bio Innovation',
+    'agenyz.hero.title.line1': 'Salut cel·lular.',
+    'agenyz.hero.title.line2': 'Dissenyada per a tu.',
+    'agenyz.hero.visitStore': 'Visita agenyz.es',
+    'agenyz.hero.scroll': 'Scroll',
+    'agenyz.tech.label': 'Tecnologia',
+    'agenyz.tech.title': 'Tecnologia XBi-A®',
+    'agenyz.tech.subtitle': 'Complex patentat de biodisponibilitat que millora l\'absorció de nutrients fins a un 60% respecte als suplements estàndard.',
+    'agenyz.stats.bioavailability.label': 'Biodisponibilitat',
+    'agenyz.stats.bioavailability.sub': 'Tecnologia XBi-A',
+    'agenyz.stats.natural.label': 'Natural',
+    'agenyz.stats.natural.sub': 'Sense additius sintètics',
+    'agenyz.stats.mg.label': 'Formes de Mg',
+    'agenyz.stats.mg.sub': 'Complex OctoMagnesium',
+    'agenyz.stats.products.label': 'Productes',
+    'agenyz.stats.products.sub': 'Gamma de fórmules cel·lulars',
+    'agenyz.bento.title': 'Smart Cell Food',
+    'agenyz.bento.subtitle': 'La nova generació de bio-innovació per a la teva longevitat i salut.',
   },
   en: {    'agenyz.seo.title': 'Agenyz - Cellular Nutrition & Biohacking | EKA Balance',
     'agenyz.seo.description': 'Agenyz biohacking supplements for cellular regeneration. Energy, immunity, and systemic wellness.',
@@ -304,10 +318,24 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Our services',
     'services.featuredSubtitle': 'Personalized therapy sessions designed to bring you lasting relief and real results',
     'services.viewAll': 'View all services',
-  
-    
-  
-    
+    'agenyz.brand.badge': 'Agenyz · Bio Innovation',
+    'agenyz.hero.title.line1': 'Cellular health.',
+    'agenyz.hero.title.line2': 'Designed for you.',
+    'agenyz.hero.visitStore': 'Visit agenyz.es',
+    'agenyz.hero.scroll': 'Scroll',
+    'agenyz.tech.label': 'Technology',
+    'agenyz.tech.title': 'XBi-A® Technology',
+    'agenyz.tech.subtitle': 'Patented bioavailability complex that enhances nutrient absorption up to 60% compared to standard supplements.',
+    'agenyz.stats.bioavailability.label': 'Bioavailability',
+    'agenyz.stats.bioavailability.sub': 'XBi-A technology',
+    'agenyz.stats.natural.label': 'Natural',
+    'agenyz.stats.natural.sub': 'No synthetic additives',
+    'agenyz.stats.mg.label': 'Mg Forms',
+    'agenyz.stats.mg.sub': 'OctoMagnesium complex',
+    'agenyz.stats.products.label': 'Products',
+    'agenyz.stats.products.sub': 'Cellular formula range',
+    'agenyz.bento.title': 'Smart Cell Food',
+    'agenyz.bento.subtitle': 'The next generation of bio-innovation for your longevity and health.',
   },
   es: {
     'agenyz.product.vitamin-d3.name': 'Vitamina D3 + XBi-A',
@@ -459,10 +487,24 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Servicios Destacados',
     'services.featuredSubtitle': 'Descubre nuestras ofertas más populares',
     'services.viewAll': 'Ver Todos los Servicios',
-  
-    
-  
-    
+    'agenyz.brand.badge': 'Agenyz · Bio Innovation',
+    'agenyz.hero.title.line1': 'Salud celular.',
+    'agenyz.hero.title.line2': 'Diseñada para ti.',
+    'agenyz.hero.visitStore': 'Visita agenyz.es',
+    'agenyz.hero.scroll': 'Scroll',
+    'agenyz.tech.label': 'Tecnología',
+    'agenyz.tech.title': 'Tecnología XBi-A®',
+    'agenyz.tech.subtitle': 'Complejo patentado de biodisponibilidad que mejora la absorción de nutrientes hasta un 60% frente a los suplementos estándar.',
+    'agenyz.stats.bioavailability.label': 'Biodisponibilidad',
+    'agenyz.stats.bioavailability.sub': 'Tecnología XBi-A',
+    'agenyz.stats.natural.label': 'Natural',
+    'agenyz.stats.natural.sub': 'Sin aditivos sintéticos',
+    'agenyz.stats.mg.label': 'Formas de Mg',
+    'agenyz.stats.mg.sub': 'Complejo OctoMagnesium',
+    'agenyz.stats.products.label': 'Productos',
+    'agenyz.stats.products.sub': 'Gama de fórmulas celulares',
+    'agenyz.bento.title': 'Smart Cell Food',
+    'agenyz.bento.subtitle': 'La nueva generación de bio-innovación para tu longevidad y salud.',
   },
   ru: {
     'agenyz.seo.title': 'Agenyz - Клеточное питание и биохакинг | EKA Balance',
@@ -614,9 +656,23 @@ export const agenyzTranslations: Record<Language, Record<string, string>> = {
     'services.featuredTitle': 'Популярные услуги',
     'services.featuredSubtitle': 'Откройте для себя наши лучшие предложения',
     'services.viewAll': 'Посмотреть все услуги',
-  
-    
-  
-    
+    'agenyz.brand.badge': 'Agenyz · Био-инновации',
+    'agenyz.hero.title.line1': 'Клеточное здоровье.',
+    'agenyz.hero.title.line2': 'Создано для тебя.',
+    'agenyz.hero.visitStore': 'Посетить agenyz.es',
+    'agenyz.hero.scroll': 'Вниз',
+    'agenyz.tech.label': 'Технология',
+    'agenyz.tech.title': 'Технология XBi-A®',
+    'agenyz.tech.subtitle': 'Запатентованный комплекс биодоступности, повышающий усвоение нутриентов до 60% по сравнению со стандартными добавками.',
+    'agenyz.stats.bioavailability.label': 'Биодоступность',
+    'agenyz.stats.bioavailability.sub': 'Технология XBi-A',
+    'agenyz.stats.natural.label': 'Натурально',
+    'agenyz.stats.natural.sub': 'Без синтетических добавок',
+    'agenyz.stats.mg.label': 'Формы Mg',
+    'agenyz.stats.mg.sub': 'Комплекс OctoMagnesium',
+    'agenyz.stats.products.label': 'Продукты',
+    'agenyz.stats.products.sub': 'Линейка клеточных формул',
+    'agenyz.bento.title': 'Smart Cell Food',
+    'agenyz.bento.subtitle': 'Новое поколение био-инноваций для вашей долголетия и здоровья.',
   }
 };

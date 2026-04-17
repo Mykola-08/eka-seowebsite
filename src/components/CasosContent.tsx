@@ -150,9 +150,9 @@ export default function CasosContent() {
                 <Link
                   key={problem.id}
                   href={`/cases/${problem.id}`}
-                  className="group relative bg-card rounded-2xl p-8 flex flex-col h-full border border-border/50 transition duration-300 active:scale-[0.97]"
+                  className="group relative bg-card rounded-[2rem] p-8 flex flex-col h-full border border-border/50 transition duration-300 active:scale-[0.97]"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-muted/40 flex items-center justify-center mb-6 text-foreground">
+                  <div className="w-14 h-14 rounded-[2rem] bg-muted/40 flex items-center justify-center mb-6 text-foreground">
                     <Icon className="w-7 h-7" />
                   </div>
                   
@@ -187,7 +187,7 @@ export default function CasosContent() {
             {additionalProblemsKeys.map((key) => (
               <div 
                 key={key} 
-                className="flex items-center p-4 rounded-2xl bg-secondary hover:bg-muted transition-colors duration-200 cursor-default"
+                className="flex items-center p-4 rounded-[2rem] bg-secondary hover:bg-muted transition-colors duration-200 cursor-default"
               >
                 <div className="w-2 h-2 rounded-full bg-primary mr-4" />
                 <span className="text-foreground/80 font-medium">

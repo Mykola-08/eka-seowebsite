@@ -92,7 +92,7 @@ export default function CasoDetailContent() {
             {t('casos.title')}
           </Link>
 
-          <div className={`w-24 h-24 mx-auto rounded-2xl ${accentColorClass} flex items-center justify-center mb-8 `}>
+          <div className={`w-24 h-24 mx-auto rounded-[2rem] ${accentColorClass} flex items-center justify-center mb-8 `}>
             <Icon className="w-12 h-12" />
           </div>
 
@@ -121,7 +121,7 @@ export default function CasoDetailContent() {
               </h2>
               <ul className="space-y-4">
                 {symptoms.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-2xl bg-muted/40">
+                  <li key={idx} className="p-6 rounded-[2rem] bg-muted/40">
                     <p className="text-foreground/80 text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}
@@ -136,7 +136,7 @@ export default function CasoDetailContent() {
               </h2>
               <ul className="space-y-4">
                 {causes.map((item, idx) => (
-                  <li key={idx} className="p-6 rounded-2xl bg-card border border-border">
+                  <li key={idx} className="p-6 rounded-[2rem] bg-card border border-border">
                     <p className="text-muted-foreground text-lg leading-relaxed">{item}</p>
                   </li>
                 ))}
@@ -145,7 +145,7 @@ export default function CasoDetailContent() {
           </div>
 
           {/* Treatment & Results - Highlight Section */}
-          <div className="bg-foreground rounded-2xl p-8 md:p-16 text-primary-foreground relative overflow-hidden">
+          <div className="bg-foreground rounded-[2rem] p-8 md:p-16 text-primary-foreground relative overflow-hidden">
               {/* Subtle mesh gradient background */}
               <div className="absolute top-0 right-0 w-150 h-150 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 

@@ -15,7 +15,8 @@ export default function MassageContent() {
         titleKey: 'services.massage.title',
         subtitleKey: 'services.massage.description',
         badgeKey: 'services.massage.subtitle',
-        icon: FavouriteIcon
+        icon: FavouriteIcon,
+        backgroundImage: 'https://a0.muscache.com/im/pictures/Mt/MtTemplate-6223451/original/cfa32987-ba20-4ff7-b4ef-f7aad720db56.jpeg?im_w=1440'
       }}
       bentoGrid={{
         titleKey: 'massage.bento.title',
@@ -25,7 +26,7 @@ export default function MassageContent() {
             titleKey: 'massage.techniques.deepTissue',
             descriptionKey: 'massage.techniques.deepTissue.desc',
             detailsKey: 'massage.techniques.deepTissue.details',
-            image: 'https://images.pexels.com/photos/3760262/pexels-photo-3760262.jpeg?auto=compress&cs=tinysrgb&w=1200',
+            image: 'https://a0.muscache.com/im/pictures/Mt/MtTemplate-6223451/original/84352a07-89b1-4e4f-8cfb-412bcabd3af7.jpeg?im_w=1440',
             colSpan: 2
           },
           {

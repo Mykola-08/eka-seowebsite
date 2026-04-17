@@ -13,7 +13,7 @@ export default function CTASection() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 pb-4 mb-4">
-      <div className="rounded-2xl overflow-hidden">
+      <div className="rounded-[2rem] overflow-hidden">
         <ParallaxBackground
             src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920"
             className="py-32 sm:py-40"

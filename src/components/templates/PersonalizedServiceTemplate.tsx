@@ -162,7 +162,7 @@ export default function PersonalizedServiceTemplate({
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-350 mx-auto">
               {/* Description 1 - Large box */}
-              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-2xl bg-card border border-border transition-all duration-500 relative overflow-hidden group">
+              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group">
                  <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
                  <p className="text-xl sm:text-2xl md:text-3xl text-foreground font-medium leading-tight relative z-10 text-balance">
                     {t(`${translationKey}.understanding.description1`)}
@@ -179,7 +179,7 @@ export default function PersonalizedServiceTemplate({
 
               {/* Benefits Box */}
               {benefits.length > 0 && (
-                <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-4xl sm:rounded-2xl ${theme.bg} ${theme.border} border  transition-all duration-500 flex flex-col justify-center`}>
+                <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2rem] ${theme.bg} ${theme.border} border  transition-all duration-500 flex flex-col justify-center`}>
                   <h3 className={`font-semibold text-xl sm:text-2xl mb-4 sm:mb-6 tracking-tight ${theme.text}`}>
                     {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
                   </h3>
@@ -206,8 +206,8 @@ export default function PersonalizedServiceTemplate({
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                 {validSteps.map((step, index) => (
-                    <div key={index} className={`rounded-4xl sm:rounded-2xl p-6 sm:p-8 md:p-10 ${theme.stepsBg}  group  transition-all duration-500`}>
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                    <div key={index} className={`rounded-[2rem] sm:rounded-[2rem] p-6 sm:p-8 md:p-10 ${theme.stepsBg}  group  transition-all duration-500`}>
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[2rem] ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-500`}>
                       {index + 1}
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-foreground tracking-tight leading-tight">
@@ -238,7 +238,7 @@ export default function PersonalizedServiceTemplate({
             <div className={`grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5 sm:gap-6 md:gap-8`}>
               {recommendedServices.map((service, index) => {
                 const details = (
-                  <div className="flex items-center gap-6 mt-8 p-6 bg-muted/40 rounded-2xl">
+                  <div className="flex items-center gap-6 mt-8 p-6 bg-muted/40 rounded-[2rem]">
                     <div className="flex flex-col">
                       <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('common.duration') || 'Duration'}</span>
                       <span className="text-xl font-semibold text-foreground">{service.duration || '60-90 min'}</span>

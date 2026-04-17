@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
 import { BentoCard } from '@/components/ui/bento-card';
 import { shimmerBlurDataURL } from '@/lib/image-utils';
 import AppleHero from '@/components/AppleHero';
@@ -13,6 +12,7 @@ import { SERVICES_DATA } from '@/shared/constants';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 import SEOUpdater from '@/components/SEOUpdater';
+import AnimateIn from '@/components/AnimateIn';
 import CasosSection from '@/components/CasosSection';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
@@ -41,10 +41,8 @@ export default function HomeContent() {
       {/* Stats Section - Minimalist Redesign */}
       <section className="py-24 bg-background">
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <AnimateIn
+            duration={0.4}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {stats.map((stat, index) => (
@@ -55,7 +53,7 @@ export default function HomeContent() {
                 <span className="text-xs md:text-sm font-medium text-muted-foreground uppercase tracking-widest">{stat.label}</span>
               </div>
             ))}
-          </motion.div>
+          </AnimateIn>
         </div>
       </section>
 
@@ -76,7 +74,8 @@ export default function HomeContent() {
                 alt="Integrative Wellness"
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/10 z-10"></div>
@@ -98,7 +97,7 @@ export default function HomeContent() {
                   alt="Kinesiology"
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                   className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply"
                 />
                 <div className="absolute inset-0 bg-linear-to-r from-secondary via-secondary/80 to-transparent pointer-events-none"></div>
@@ -121,7 +120,7 @@ export default function HomeContent() {
                 alt="Healthy Lifestyle"
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, 300px"
+                sizes="(max-width: 768px) 100vw, 25vw"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent z-10"></div>
@@ -159,14 +158,11 @@ export default function HomeContent() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 
             {/* Image Column (5 cols) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+            <AnimateIn
+              duration={0.8}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-apple overflow-hidden bg-card border border-border/10 shadow-apple-sm">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-apple overflow-hidden bg-card border border-border">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}
@@ -178,14 +174,14 @@ export default function HomeContent() {
                   blurDataURL={shimmerBlurDataURL(500, 625)}
                 />
               </div>
-            </motion.div>
+            </AnimateIn>
 
             {/* Content Column (7 cols) */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+            <AnimateIn
+              duration={0.8}
+              delay={0.2}
+              from="right"
+              amount={30}
               className="lg:col-span-7 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
@@ -211,7 +207,7 @@ export default function HomeContent() {
                   {t('common.readMore')}
                 </Button>
               </Link>
-            </motion.div>
+            </AnimateIn>
           </div>
         </div>
       </section>
@@ -230,16 +226,14 @@ export default function HomeContent() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {SERVICES_DATA.slice(0, 4).map((service, index) => (
-              <motion.div
+              <AnimateIn
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
+                amount={20}
                 className="h-full"
               >
                 <ServiceCard service={service} />
-              </motion.div>
+              </AnimateIn>
             ))}
           </div>
 

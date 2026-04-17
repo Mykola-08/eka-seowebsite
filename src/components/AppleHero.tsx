@@ -49,12 +49,6 @@ export default function AppleHero() {
   return (
     <section className="relative w-full min-h-svh md:h-svh bg-background flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-24 pb-8 sm:pb-10 overflow-hidden">
 
-      {/* Subtle background glows — hidden on mobile to protect performance */}
-      <div className="hidden sm:block absolute top-0 left-0 w-full h-125 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-2/5 h-2/5 bg-primary/10 rounded-full blur-3xl mix-blend-multiply" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-2/5 h-2/5 bg-primary/5 rounded-full blur-3xl mix-blend-multiply" />
-      </div>
-
       {/* Content Layer - Centered Text */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 text-center mb-6 sm:mb-8 md:mb-6">
         <AnimateIn delay={0} duration={0.3} from="bottom">
@@ -108,7 +102,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple overflow-hidden mx-auto group shadow-apple-sm border border-border/10">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple overflow-hidden mx-auto group border border-border">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (
@@ -123,6 +117,7 @@ export default function AppleHero() {
                 alt={`Wellness atmosphere ${index + 1}`}
                 fill
                 priority={index === 0}
+                fetchPriority={index === 0 ? 'high' : 'auto'}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 placeholder="blur"
                 blurDataURL={shimmerBlurDataURL(1200, 800)}

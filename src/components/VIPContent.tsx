@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -118,42 +117,8 @@ const testimonials = [
   }
 ];
 
-const useRandomShine = () => {
-  const [isShining, setIsShining] = useState(false);
-
-  useEffect(() => {
-    let outerTimer: ReturnType<typeof setTimeout>;
-    let innerTimer: ReturnType<typeof setTimeout>;
-    let cancelled = false;
-
-    const scheduleNextShine = () => {
-      if (cancelled) return;
-      const delay = Math.random() * (45000 - 30000) + 30000; // 30-45s
-      outerTimer = setTimeout(() => {
-        if (cancelled) return;
-        setIsShining(true);
-        innerTimer = setTimeout(() => {
-          if (cancelled) return;
-          setIsShining(false);
-          scheduleNextShine();
-        }, 3000);
-      }, delay);
-    };
-
-    scheduleNextShine();
-    return () => {
-      cancelled = true;
-      clearTimeout(outerTimer);
-      clearTimeout(innerTimer);
-    };
-  }, []);
-
-  return isShining;
-};
-
 const ComparativeTable = () => {
   const { t } = useLanguage();
-  const isShining = useRandomShine();
 
   const features = [
     { key: 'sessions', label: 'vip.table.sessions', bronze: '2', silver: '4', gold: '8' },
@@ -166,7 +131,7 @@ const ComparativeTable = () => {
 
   const renderValue = (val: string | boolean) => {
     if (typeof val === 'boolean') {
-      return val ? <Tick01Icon className="w-5 h-5 text-amber-600 mx-auto" /> : <div className="w-1.5 h-1.5 bg-muted rounded-full mx-auto" />;
+      return val ? <Tick01Icon className="w-5 h-5 text-primary mx-auto" /> : <div className="w-1.5 h-1.5 bg-muted rounded-full mx-auto" />;
     }
     return <span className="text-foreground/80 font-medium">{val}</span>;
   };
@@ -176,18 +141,18 @@ const ComparativeTable = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-light mb-4 text-foreground">
-            <span className={`text-transparent bg-clip-text bg-linear-to-r from-amber-600 via-yellow-500 to-amber-600 ${isShining ? 'animate-pulse' : ''}`}>{t('vip.table.title')}</span>
+            <span className="text-primary">{t('vip.table.title')}</span>
           </h2>
         </div>
         
-        <div className="overflow-x-auto rounded-2xl bg-card border border-border">
-          <table className="w-full min-w-[600px] border-collapse">
+        <div className="overflow-x-auto rounded-[2rem] bg-card border border-border">
+          <table className="w-full min-w-150 border-collapse">
             <thead>
               <tr className="bg-muted/40/50">
                 <th className="p-6 text-left text-muted-foreground font-light w-1/3"></th>
-                <th className="p-6 text-center text-amber-800 font-medium text-lg tracking-wider">BRONZE</th>
+                <th className="p-6 text-center text-muted-foreground font-medium text-lg tracking-wider">BRONZE</th>
                 <th className="p-6 text-center text-foreground/80 font-medium text-lg tracking-wider">SILVER</th>
-                <th className="p-6 text-center font-medium text-lg tracking-wider"><span className="text-amber-500 font-medium">GOLD</span></th>
+                <th className="p-6 text-center font-medium text-lg tracking-wider"><span className="text-primary font-medium">GOLD</span></th>
               </tr>
             </thead>
             <tbody>
@@ -219,7 +184,7 @@ export default function VIPContent() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-card text-foreground font-sans selection:bg-amber-100 selection:text-amber-900">
+    <div className="min-h-screen bg-card text-foreground font-sans selection:bg-primary/15 selection:text-primary">
       <SEOUpdater 
         titleKey="seo.vip.title"
         descriptionKey="seo.vip.description"
@@ -236,9 +201,9 @@ export default function VIPContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-amber-200 mb-8">
-              <Crown className="w-5 h-5 text-amber-500" />
-              <span className="text-amber-800 font-medium tracking-wide">VIP CLUB</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-primary/20 mb-8">
+              <Crown className="w-5 h-5 text-primary" />
+              <span className="text-primary font-medium tracking-wide">VIP CLUB</span>
             </div>
 
             <h1 className="text-6xl md:text-8xl font-sans text-foreground mb-8 tracking-tight">
@@ -267,9 +232,9 @@ export default function VIPContent() {
             {defaultLuxuryFeatures.map((feature, idx) => {
               const Icon = feature.icon || Diamond01Icon;
               return (
-                <div key={idx} className="p-8 rounded-2xl bg-muted/50 border border-border hover:border-amber-100 transition-colors group">
-                  <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 transition-colors">
-                    <Icon className="w-7 h-7 text-amber-600" />
+                <div key={idx} className="p-8 rounded-[2rem] bg-muted/50 border border-border hover:border-primary/30 transition-colors group">
+                  <div className="w-14 h-14 rounded-[2rem] bg-card border border-border flex items-center justify-center mb-6 transition-colors">
+                    <Icon className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="text-xl font-medium text-foreground mb-3">{t(feature.title)}</h3>
                   <p className="text-foreground/80 leading-relaxed">{t(feature.description)}</p>
@@ -292,8 +257,8 @@ export default function VIPContent() {
                {vipServices.map((service, idx) => (
                  <div key={idx} className="bg-card rounded-apple-xl p-10 border border-border transition- duration-300">
                     <div className="flex items-start gap-6">
-                       <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0">
-                          <service.icon className="w-8 h-8 text-amber-600" />
+                       <div className="w-16 h-16 rounded-[2rem] bg-primary/10 flex items-center justify-center shrink-0">
+                          <service.icon className="w-8 h-8 text-primary" />
                        </div>
                        <div>
                           <h3 className="text-2xl font-medium text-foreground mb-4">{t(service.title)}</h3>
@@ -301,7 +266,7 @@ export default function VIPContent() {
                           <ul className="grid sm:grid-cols-2 gap-3">
                              {service.features.map((feat, i) => (
                                <li key={i} className="flex items-center gap-2 text-foreground/80">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                                   <span className="text-sm font-medium">{t(feat)}</span>
                                </li>
                              ))}
@@ -329,7 +294,7 @@ export default function VIPContent() {
                  className={`relative bg-card rounded-apple-xl p-8 border ${plan.popular ? 'border-0  ' : 'border-0 '}`}
                >
                  {plan.popular && (
-                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-primary-foreground px-6 py-2 rounded-full text-sm font-medium tracking-wide">
+                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full text-sm font-medium tracking-wide">
                      MOST POPULAR
                    </div>
                  )}
@@ -346,16 +311,16 @@ export default function VIPContent() {
                  <div className="space-y-4 mb-8">
                     {plan.features.map((feature: string, i: number) => (
                       <div key={i} className="flex items-start gap-3">
-                         <Tick01Icon className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                         <Tick01Icon className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                          <span className="text-foreground/80 text-sm">{t(feature)}</span>
                       </div>
                     ))}
                  </div>
 
                  <button 
-                   className={`w-full h-14 rounded-2xl text-lg font-normal tracking-tight border-none transition ${
+                   className={`w-full h-14 rounded-[2rem] text-lg font-normal tracking-tight border-none transition ${
                      plan.popular 
-                       ? 'bg-amber-500 hover:bg-amber-600 text-primary-foreground' 
+                       ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
                        : 'bg-muted hover:bg-muted text-foreground'
                    }`}
                  >
@@ -379,16 +344,16 @@ export default function VIPContent() {
 
             <div className="grid md:grid-cols-3 gap-8">
                {testimonials.map((test, i) => (
-                  <div key={i} className="bg-card/5 backdrop-blur-md rounded-2xl p-8">
+                  <div key={i} className="bg-card/5 backdrop-blur-md rounded-[2rem] p-8">
                      <div className="flex gap-1 mb-6">
                         {[...Array(test.rating)].map((_, j) => (
-                           <StarIcon key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                           <StarIcon key={j} className="w-4 h-4 fill-primary text-primary" />
                         ))}
                      </div>
                      <p className="text-muted-foreground mb-8 italic leading-relaxed">"{t(test.comment)}"</p>
                      <div>
                         <p className="text-primary-foreground font-medium">{test.name}</p>
-                        <p className="text-amber-400/80 text-sm">{t(test.role)}</p>
+                        <p className="text-primary/80 text-sm">{t(test.role)}</p>
                      </div>
                   </div>
                ))}

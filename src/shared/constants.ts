@@ -10,7 +10,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Heart',
     color: 'orange',
     durations: [60, 90, 120],
-    image: 'https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://a0.muscache.com/im/pictures/Mt/MtTemplate-6223451/original/84352a07-89b1-4e4f-8cfb-412bcabd3af7.jpeg?im_w=1440',
     href: '/services/massage',
     benefitsKeys: ['services.benefits.reduces', 'services.benefits.stress', 'services.benefits.circulation', 'services.benefits.relaxation'],
     price: 60

@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import PageLayout from '@/components/PageLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,11 +18,7 @@ export default function AgenyzContent() {
 
   return (
     <>
-      <SEOUpdater
-        titleKey="agenyz.seo.title"
-        descriptionKey="agenyz.seo.description"
-        keywordsKey="agenyz.seo.keywords"
-      />
+      
 
       <PageLayout
         hero={{

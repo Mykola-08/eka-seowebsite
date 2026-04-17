@@ -6,7 +6,7 @@ import { Search01Icon, ArrowRight01Icon, Activity01Icon, Brain01Icon, FavouriteI
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
-import SEOUpdater from '@/components/SEOUpdater';
+
 
 import ParallaxBackground from '@/components/ParallaxBackground';
 interface Problem {
@@ -120,11 +120,7 @@ export default function CasosContent() {
 
   return (
     <>
-      <SEOUpdater 
-        titleKey="casos.seo.title"
-        descriptionKey="casos.seo.desc"
-        keywordsKey="casos.seo.keywords"
-      />
+      
       <PageLayout
         hero={{
           title: t('casos.title'),

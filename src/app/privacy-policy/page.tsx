@@ -1,12 +1,14 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import PrivacyPolicyContent from '@/components/PrivacyPolicyContent';
 
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | EKA Balance',
-  description: 'Learn how EKA Balance collects, uses, and protects your personal data.',
-};
+
 
 export default function PrivacyPolicyPage() {
   return <PrivacyPolicyContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('privacy', '/privacy-policy');
 }

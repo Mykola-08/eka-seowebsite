@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { Button } from '@/components/ui/button';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { SERVICES_DATA } from '@/shared/constants';
@@ -95,11 +95,7 @@ export default function CoreServiceTemplate({
 
   return (
     <>
-      <SEOUpdater 
-        titleKey={seoKeys.title}
-        descriptionKey={seoKeys.description}
-        keywordsKey={seoKeys.keywords}
-      />
+      
       <PageLayout
         hero={{
           title: t(hero.titleKey),

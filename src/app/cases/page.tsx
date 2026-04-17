@@ -1,12 +1,14 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import CasosContent from '@/components/CasosContent';
 
 
-export const metadata: Metadata = {
-    title: 'Casos Frecuentes | EKA Balance',
-    description: 'Descubre cómo ayudamos a resolver problemas comunes como dolor de espalda, estrés, ansiedad, migrañas y más.',
-};
+
 
 export default function CasosPage() {
   return <CasosContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('casos', '/cases');
 }

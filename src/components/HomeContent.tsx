@@ -11,7 +11,7 @@ import { SERVICES_DATA } from '@/shared/constants';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
-import SEOUpdater from '@/components/SEOUpdater';
+
 import AnimateIn from '@/components/AnimateIn';
 import CasosSection from '@/components/CasosSection';
 import FAQ from '@/components/FAQ';
@@ -29,11 +29,7 @@ export default function HomeContent() {
 
   return (
     <>
-      <SEOUpdater 
-        titleKey="seo.home.title"
-        descriptionKey="seo.home.description"
-        keywordsKey="seo.home.keywords"
-      />
+      
 
             {/* Hero Section */}
       <AppleHero />

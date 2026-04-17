@@ -1,12 +1,14 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import PersonalizedServicesContent from '@/components/PersonalizedServicesContent';
 
 
-export const metadata: Metadata = {
-  title: "Plans Personalitzats i Serveis VIP | EKA Balance",
-  description: "Descobreix els nostres plans personalitzats per a oficinistes, atletes, músics i més.",
-};
+
 
 export default function PersonalizedServicesPage() {
   return <PersonalizedServicesContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('personalized', '/personalized-services');
 }

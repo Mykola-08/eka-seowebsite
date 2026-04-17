@@ -1,11 +1,13 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import FamiliesContent from '@/components/FamiliesContent';
 
-export const metadata: Metadata = {
-  title: 'Bienestar para Familias | EKA Balance',
-  description: 'Terapia sistémica y bienestar para toda la familia.',
-};
+
 
 export default function FamiliesPage() {
   return <FamiliesContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('services', '/services/families');
 }

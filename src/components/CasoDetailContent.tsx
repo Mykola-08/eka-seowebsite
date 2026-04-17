@@ -78,9 +78,9 @@ export default function CasoDetailContent() {
   }[config.color] || 'text-primary bg-primary/5';
 
   // Data
-  const symptoms = getArray(`casos.problems.${config.key}.symptom`);
+  const concerns = getArray(`casos.problems.${config.key}.concern`);
   const causes = getArray(`casos.problems.${config.key}.cause`);
-  const treatment = t(`casos.problems.${config.key}.treatment`);
+  const approach = t(`casos.problems.${config.key}.approach`);
   const results = t(`casos.problems.${config.key}.results`);
 
   const Hero = (
@@ -117,10 +117,10 @@ export default function CasoDetailContent() {
             <div>
               <h2 className="text-3xl font-semibold text-foreground mb-8 tracking-tight flex items-center gap-3">
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-foreground text-primary-foreground text-sm font-medium">1</span>
-                {t('casos.symptoms')}
+                {t('casos.concerns')}
               </h2>
               <ul className="space-y-4">
-                {symptoms.map((item, idx) => (
+                {concerns.map((item, idx) => (
                   <li key={idx} className="p-6 rounded-[2rem] bg-muted/40">
                     <p className="text-foreground/80 text-lg leading-relaxed">{item}</p>
                   </li>
@@ -144,7 +144,7 @@ export default function CasoDetailContent() {
             </div>
           </div>
 
-          {/* Treatment & Results - Highlight Section */}
+          {/* approach & Results - Highlight Section */}
           <div className="bg-foreground rounded-[2rem] p-8 md:p-16 text-primary-foreground relative overflow-hidden">
               {/* Subtle mesh gradient background */}
               <div className="absolute top-0 right-0 w-150 h-150 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -153,10 +153,10 @@ export default function CasoDetailContent() {
                   <div>
                       <h2 className="text-2xl font-semibold text-primary-foreground mb-6 flex items-center gap-3">
                           <Activity01Icon className="w-6 h-6 text-primary/80" />
-                          {t('casos.treatment')}
+                          {t('casos.approach')}
                       </h2>
                       <p className="text-muted-foreground leading-relaxed text-xl font-light">
-                          {treatment}
+                          {approach}
                       </p>
                   </div>
 

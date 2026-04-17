@@ -1,11 +1,13 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import AdultsContent from '@/components/AdultsContent';
 
-export const metadata: Metadata = {
-  title: 'Terapias para Adultos | EKA Balance',
-  description: 'Gestión del estrés, ansiedad y problemas digestivos para adultos.',
-};
+
 
 export default function AdultsPage() {
   return <AdultsContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('services', '/services/adults');
 }

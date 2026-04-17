@@ -61,7 +61,7 @@ export default function CookiePolicyContent() {
                     <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
                   </p>
                   <a href="/disclaimer" className="text-xs text-muted-foreground underline hover:text-foreground mt-2 inline-block">
-                    Full Alternative Therapy Disclaimer →
+                    Full Wellness Disclaimer →
                   </a>
                 </div>
               </div>

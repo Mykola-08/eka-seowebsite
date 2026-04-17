@@ -42,6 +42,19 @@ export const SERVICES_DATA: ServiceItem[] = [
     benefitsKeys: ['services.benefits.habits', 'services.benefits.vitality', 'services.benefits.weight', 'services.benefits.longterm']
   },
   {
+    id: 'constelaciones',
+    titleKey: 'services.constelaciones.title',
+    subtitleKey: 'services.constelaciones.subtitle',
+    descriptionKey: 'services.constelaciones.description',
+    iconName: 'Star',
+    color: 'purple',
+    durations: [90, 120],
+    image: 'https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=800',
+    href: '/services/constelaciones',
+    benefitsKeys: ['services.benefits.stress', 'services.benefits.energy', 'services.benefits.relaxation'],
+    price: 80
+  },
+  {
     id: 'revisio360',
     titleKey: 'services.revision360.title',
     subtitleKey: 'services.revision360.subtitle',

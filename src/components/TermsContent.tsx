@@ -56,7 +56,7 @@ export default function TermsContent() {
               <div className="flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
-                  <h2 className="text-lg font-medium text-foreground mb-3">Alternative Therapy Disclaimer</h2>
+                  <h2 className="text-lg font-medium text-foreground mb-3">Wellness Disclaimer</h2>
                   <p className="text-foreground/90 mb-4 font-medium">
                     EKA Balance provides complementary and alternative wellness services. These services are <strong>not medical treatment, diagnosis, or a substitute for licensed healthcare</strong>.
                   </p>
@@ -83,7 +83,7 @@ export default function TermsContent() {
                     </li>
                   </ul>
                   <p className="mt-4 text-xs text-muted-foreground">
-                    Read the full <a href="/disclaimer" className="underline font-medium hover:text-foreground">Alternative Therapy Disclaimer</a>.
+                      Read the full <a href="/disclaimer" className="underline font-medium hover:text-foreground">Wellness Disclaimer</a>.
                   </p>
                 </div>
               </div>

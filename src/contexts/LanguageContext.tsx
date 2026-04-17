@@ -7,6 +7,7 @@ import { techniqueTranslations } from './TechniqueTranslations';
 import { agenyzTranslations } from './AgenyzTranslations';
 import { bentoTranslations } from './BentoTranslations';
 import { funnelTranslations } from './FunnelTranslations';
+import { firstTimeTranslations } from './FirstTimeTranslations';
 
 import { Language, LanguageContextType } from './LanguageTypes';
 
@@ -111,7 +112,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'footer.readyToBegin': 'Preparat per començar?',
     'hero.badge': 'Benestar somàtic i acompanyament integratiu',
     'hero.subtitle': "Acompanyament somàtic i de benestar per millorar la mobilitat, reduir l'estrès i recuperar equilibri.",
-    'hero.firstTime': 'Primera sessió de benestar',
+    'hero.firstTime': 'És la teva primera vegada? Descobreix el que necessites.',
     'hero.trust.experience': '15+ Anys d\'Experiència Clínica',
     'hero.trust.clients': '1500+ Clients Satisfets',
     'how.title': 'El teu camí cap a la recuperació',
@@ -147,8 +148,8 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'services.subtitle': "Enfocament somàtic i integratiu per mobilitat, regulació de l'estrès i equilibri corporal.",
     'services.cta': 'Explorar sessions',
     'problems.subtitle': 'Situacions freqüents que acompanyem amb enfocament complementari i personalitzat.',
-    'discovery.diagnosis.title': 'Valoració personalitzada',
-    'casos.treatment': 'Com et donem suport',
+    'discovery.assessment.title': 'Valoració personalitzada',
+    'casos.approach': 'Com et donem suport',
     'technique.why': 'Per què aquesta tècnica?',
   
     'nav.parents': 'Pares',
@@ -186,7 +187,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'personalized.business.plans.enterprise.feature1': 'Exclusive corporate health plan',
     'personalized.business.plans.enterprise.feature2': 'Sessions adapted to schedules/spaces',
     'personalized.business.plans.enterprise.feature3': 'KPI evaluation and health tracking',
-    'personalized.business.plans.enterprise.feature4': 'On-site therapy & physical audits',
+    'personalized.business.plans.enterprise.feature4': 'On-site wellness practices & physical audits',
 
     'business.massage.title': 'Corporate Massage',
     'business.massage.subtitle': 'On-site tension relief',
@@ -216,7 +217,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'adult.cta.desc': 'Start your wellness path with a personalized session.',
     'adult.cta.title': 'Ready to begin?',
     'adult.recommended': 'Recommended services',
-    'adult.recommended.desc': 'Selected therapies for adults and integral wellbeing.',
+    'adult.recommended.desc': 'Selected wellness practices for adults and integral wellbeing.',
     'booking.form.close': 'Close form',
     'common.minutes': 'min',
     'common.notFound': 'Not found',
@@ -252,10 +253,10 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'discovery.tension.none': 'No main tension',
     'elena.approach': 'Together, we listen to what your body is telling you — and create the conditions for it to heal.',
     'footer.readyToBegin': 'Ready to begin?',
-    'hero.badge': 'Somatic wellness & integrative therapy',
+    'hero.badge': 'Somatic wellness & integrative wellness practices',
     'hero.subtitle': 'Personalized somatic and wellness support to improve mobility, reduce stress, and restore everyday balance.',
-    'hero.firstTime': 'First time? Start here',
-    'hero.trust.experience': '15+ Years Clinical Experience',
+    'hero.firstTime': 'Is it your first time? Get to know what you need.',
+    'hero.trust.experience': '15+ Years science-backed Experience',
     'hero.trust.clients': '1500+ Happy Clients',
     'how.title': 'Your Path to Recovery',
     'how.step1.title': '1. Deep Assessment',
@@ -280,9 +281,9 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'services.disclaimerBody': 'This content is informational. Our methods are complementary and do not replace medical or mental health care.',
     'services.disclaimerPrefix': 'Disclaimer',
     'services.exploreOurServices': 'Explore our comprehensive range of services',
-    'services.coreTitle': 'Integral Therapies',
-    'services.coreDesc': 'From relaxing massages to specialized kinesiology therapies.',
-    'services.descriptionPrefix': 'From relaxing massages to specialized kinesiology therapies.',
+    'services.coreTitle': 'Integral wellness practices',
+    'services.coreDesc': 'From relaxing massages to specialized kinesiology wellness practices.',
+    'services.descriptionPrefix': 'From relaxing massages to specialized kinesiology wellness practices.',
     'services.feldenkrais.title': 'Feldenkrais Method',
     'services.kinesiology.shortDesc': 'Balance body, mind, and energy.',
     'services.nutrition.shortDesc': 'Functional nutrition tailored to your case.',
@@ -290,8 +291,8 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'services.subtitle': 'Somatic and movement support for stress relief, mobility, and sustainable wellbeing.',
     'services.cta': 'Explore sessions',
     'problems.subtitle': 'Common situations we support through complementary, non-medical wellness work.',
-    'discovery.diagnosis.title': 'Personalized assessment',
-    'casos.treatment': 'How we support you',
+    'discovery.assessment.title': 'Personalized assessment',
+    'casos.approach': 'How we support you',
     'technique.why': 'Why this technique?',
   
     'common.spanish': 'Spanish',
@@ -365,7 +366,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'common.clickHere': 'Haz clic aquí',
     'whatsapp.booking': 'Hola, quiero reservar una sesión',
     'adult.recommended': 'Servicios recomendados',
-    'adult.recommended.desc': 'Terapias seleccionadas para adultos y bienestar integral.',
+    'adult.recommended.desc': 'prácticas de bienestar seleccionadas para adultos y bienestar integral.',
     'booking.form.close': 'Cerrar formulario',
     'common.minutes': 'min',
     'common.notFound': 'No encontrado',
@@ -396,13 +397,13 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'footer.readyToBegin': '¿Lista para empezar?',
     'hero.badge': 'Bienestar somático y acompañamiento integrativo',
     'hero.subtitle': 'Acompañamiento somático y de bienestar para mejorar movilidad, regular el estrés y recuperar equilibrio diario.',
-    'hero.firstTime': '¿Es tu primera vez?',
+    'hero.firstTime': '¿Es tu primera vez? Descubre lo que necesitas.',
     'hero.trust.experience': '15+ Años de Experiencia Clínica',
     'hero.trust.clients': '1500+ Clientes Satisfechos',
     'how.title': 'Tu Camino hacia la Recuperación',
     'how.step1.title': '1. Evaluación Profunda',
     'how.step1.desc': 'Evaluamos tu cuerpo de forma integral para descubrir la raíz del problema.',
-    'how.step2.title': '2. Tratamiento Efectivo',
+    'how.step2.title': '2. enfoque Efectivo',
     'how.step2.desc': 'Técnicas precisas para liberar la tensión y restaurar tu equilibrio.',
     'how.step3.title': '3. Resultados Duraderos',
     'how.step3.desc': 'Herramientas y orientación para que te sientas bien a largo plazo.',
@@ -420,9 +421,9 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'recommendations.kinesiology.emotional_description': 'Regulación emocional para recuperar claridad y calma.',
     'recommendations.systemic.description': 'Trabajo sistémico para liberar bloqueos profundos.',
     'services.exploreOurServices': 'Explora nuestra gama de servicios integrales',
-    'services.coreTitle': 'Terapias Integrales',
-    'services.coreDesc': 'Desde masajes relajantes hasta terapias especializadas de kinesiología.',
-    'services.descriptionPrefix': 'Desde masajes relajantes hasta terapias especializadas de kinesiología.',
+    'services.coreTitle': 'prácticas de bienestar Integrales',
+    'services.coreDesc': 'Desde masajes relajantes hasta prácticas de bienestar especializadas de kinesiología.',
+    'services.descriptionPrefix': 'Desde masajes relajantes hasta prácticas de bienestar especializadas de kinesiología.',
     'services.disclaimerBody': 'Este contenido es informativo. Nuestros métodos son complementarios y no sustituyen la atención médica o psicológica.',
     'services.disclaimerPrefix': 'Aviso',
     'services.feldenkrais.title': 'Método Feldenkrais',
@@ -432,8 +433,8 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'services.subtitle': 'Enfoque somático e integrativo para movilidad, regulación del estrés y equilibrio corporal.',
     'services.cta': 'Explorar sesiones',
     'problems.subtitle': 'Situaciones frecuentes que acompañamos con enfoque complementario y personalizado.',
-    'discovery.diagnosis.title': 'Valoración personalizada',
-    'casos.treatment': 'Cómo te acompañamos',
+    'discovery.assessment.title': 'Valoración personalizada',
+    'casos.approach': 'Cómo te acompañamos',
     'technique.why': '¿Por qué esta técnica?',
   
     'nav.vip': 'VIP',
@@ -599,7 +600,7 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'footer.readyToBegin': 'Готовы начать?',
     'hero.badge': 'Соматическое здоровье и интегративная поддержка',
     'hero.subtitle': 'Персонализированная соматическая поддержка для улучшения подвижности, снятия стресса и восстановления баланса.',
-    'hero.firstTime': 'В первый раз?',
+    'hero.firstTime': 'В первый раз? Узнайте, что вам нужно.',
     'hero.trust.experience': '15+ лет клинического опыта',
     'hero.trust.clients': '1500+ довольных клиентов',
     'how.title': 'Ваш путь к восстановлению',
@@ -635,8 +636,8 @@ const guaranteedTranslations: Record<Language, Record<string, string>> = {
     'services.subtitle': 'Соматический и двигательный подход для регуляции стресса и баланса тела.',
     'services.cta': 'Узнать больше об услугах',
     'problems.subtitle': 'Частые ситуации, в которых мы помогаем с помощью дополнительного подхода.',
-    'discovery.diagnosis.title': 'Персональная оценка',
-    'casos.treatment': 'Как мы помогаем',
+    'discovery.assessment.title': 'Персональная оценка',
+    'casos.approach': 'Как мы помогаем',
     'technique.why': 'Почему эта техника?',
   
     'personalized.officeWorkers.method.title': 'Протокол Корпоративного Велнеса',
@@ -848,7 +849,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.backPain.cause2': 'Càrrega emocional somatitzada (estrès, ansietat) que es manifesta com a tensió muscular.',
     'casos.problems.backPain.cause3': 'Sedentarisme i falta de to muscular o mobilitat articular.',
     'casos.problems.backPain.cause4': 'Patrons respiratoris restringits que bloquegen el moviment natural de la columna.',
-    'casos.problems.backPain.treatment': "Abordatge integral: massatge terapèutic profund, alliberament miofascial, kinesiologia per identificar l'origen (estructural, químic o emocional) i reeducació postural (Mètode Feldenkrais).",
+    'casos.problems.backPain.approach': "Abordatge integral: massatge terapèutic profund, alliberament miofascial, kinesiologia per identificar l'origen (estructural, químic o emocional) i reeducació postural (Mètode Feldenkrais).",
     'casos.problems.backPain.results': "Alleujament immediat del dolor i la tensió. Recuperació de la mobilitat i l'agilitat. A llarg termini, una esquena més forta, flexible i lliure de dolor recurrent.",
 
     // Stress
@@ -860,7 +861,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.stress.cause2': 'Desconnexió de les pròpies necessitats i manca de temps de qualitat per a un mateix.',
     'casos.problems.stress.cause3': 'Traumes no processats o situacions vitals difícils que mantenen el sistema en alerta.',
     'casos.problems.stress.cause4': 'Desregulació del sistema nerviós autònom (simpaticotonia crònica).',
-    'casos.problems.stress.treatment': 'Regulació del sistema nerviós: kinesiologia emocional, tècniques vagals, treball corporal suau (Feldenkrais) i respiració conscient per restablir la calma interna.',
+    'casos.problems.stress.approach': 'Regulació del sistema nerviós: kinesiologia emocional, tècniques vagals, treball corporal suau (Feldenkrais) i respiració conscient per restablir la calma interna.',
     'casos.problems.stress.results': "Recuperació de la pau mental i l'equilibri emocional. Millora de la qualitat del son i la capacitat de gestió de l'estrès.Sensació de control i benestar profund.",
 
     // Digestive
@@ -872,7 +873,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.digestive.cause2': 'Hàbits alimentaris inadequats: menjar ràpid, amb estrès o a deshores.',
     'casos.problems.digestive.cause3': "Eix intestí-cervell: l'estrès emocional impactant directament en la funció digestiva.",
     'casos.problems.digestive.cause4': 'Disfuncions viscerals mecàniques o desequilibris de la microbiota.',
-    'casos.problems.digestive.treatment': "Kinesiologia nutricional per testar aliments, massatge visceral per millorar la motilitat i pautes d'alimentació conscient i personalitzada.",
+    'casos.problems.digestive.approach': "Kinesiologia nutricional per testar aliments, massatge visceral per millorar la motilitat i pautes d'alimentació conscient i personalitzada.",
     'casos.problems.digestive.results': "Digestions lleugeres i sense molèsties. Desaparició de la inflor i recuperació de l'energia vital. Una relació sana i plaent amb l'alimentació.",
 
     // Migraines
@@ -884,7 +885,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.migraines.cause2': "Disfunció de l'ATM (bruxisme) que irradia dolor cap al cap.",
     'casos.problems.migraines.cause3': 'Sobrecàrrega mental, estrès visual o falta de descans real.',
     'casos.problems.migraines.cause4': 'Factors metabòlics: desequilibris hormonals, histamina o toxicitat hepàtica.',
-    'casos.problems.migraines.treatment': 'Teràpia manual cranial (Osteobalance), alliberament de la tensió cervical i mandibular, i regulació del sistema nerviós i hormonal amb kinesiologia.',
+    'casos.problems.migraines.approach': 'Teràpia manual cranial (Osteobalance), alliberament de la tensió cervical i mandibular, i regulació del sistema nerviós i hormonal amb kinesiologia.',
     'casos.problems.migraines.results': 'Reducció dràstica de la freqüència i intensitat de les crisis. En molts casos, desaparició total del dolor. Major claredat mental i benestar.',
 
     // Low Energy
@@ -896,7 +897,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.lowEnergy.cause2': 'Desequilibris nutricionals (dèficits de vitamines/minerals) o metabòlics.',
     'casos.problems.lowEnergy.cause3': "Disfunció de l'eix hormonal (fatiga adrenal, tiroides).",
     'casos.problems.lowEnergy.cause4': "Bloquejos emocionals o falta de propòsit vital que drenen l'energia.",
-    'casos.problems.lowEnergy.treatment': "Revitalització integral: kinesiologia per detectar fugues d'energia, suport nutricional, i treball corporal per reactivar el flux vital.",
+    'casos.problems.lowEnergy.approach': "Revitalització integral: kinesiologia per detectar fugues d'energia, suport nutricional, i treball corporal per reactivar el flux vital.",
     'casos.problems.lowEnergy.results': "Recuperació de la vitalitat i l'entusiasme. Ment clara i desperta. Capacitat per afrontar el dia a dia amb energia i alegria.",
 
     // Discovery New Keys
@@ -912,7 +913,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.sleep.cause2': 'Desregulació dels ritmes circadians (horaris, llum blava).',
     'casos.problems.sleep.cause3': 'Hàbits de son inadequats o entorn poc propici.',
     'casos.problems.sleep.cause4': 'Causes orgàniques: digestions pesades, dolor crònic o desequilibris hormonals.',
-    'casos.problems.sleep.treatment': "Reeducació del son: tècniques de relaxació profunda, regulació del sistema nerviós (vagal), i pautes d'higiene del son personalitzades.",
+    'casos.problems.sleep.approach': "Reeducació del son: tècniques de relaxació profunda, regulació del sistema nerviós (vagal), i pautes d'higiene del son personalitzades.",
     'casos.problems.sleep.results': "Son profund, continu i reparador. Despertar-se amb energia i sensació de descans real. Millora de l'estat d'ànim i la salut global.",
 
     // Recovery
@@ -924,7 +925,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.recovery.cause2': 'Patrons de moviment alterats per protegir la lesió (compensacions).',
     'casos.problems.recovery.cause3': 'Trauma cel·lular o memòria del dolor que manté la zona en alerta.',
     'casos.problems.recovery.cause4': 'Rehabilitació incompleta o precipitada.',
-    'casos.problems.recovery.treatment': 'Recuperació funcional: tractament de cicatrius, reeducació del moviment (Feldenkrais), i treball emocional per alliberar la memòria del trauma.',
+    'casos.problems.recovery.approach': 'Recuperació funcional: tractament de cicatrius, reeducació del moviment (Feldenkrais), i treball emocional per alliberar la memòria del trauma.',
     'casos.problems.recovery.results': "Recuperació total de la funcionalitat i la confiança en el cos. Moviment lliure, fluid i sense dolor. Retorn a l'activitat normal amb seguretat.",
 
     // Contact Form
@@ -980,10 +981,10 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.time.any': 'Sense preferència',
 
 
-    // Symptoms, causes, treatment, results labels
-    'casos.symptoms': 'Símptomes',
+    // Symptoms, causes, approach, results labels
+    'casos.concerns': 'Símptomes',
     'casos.causes': 'Causes',
-    'casos.treatment': "Com t'ajudem",
+    'casos.approach': "Com t'ajudem",
     'casos.results': 'Resultats',
 
     // Additional problems list
@@ -1209,27 +1210,27 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'Tens',
     'discovery.analysis.want': 'I vols millorar',
     'discovery.analysis.feel': 'Per sentir-te',
-    'discovery.diagnosis.title': 'Fitxa de valoració avançada',
-    'discovery.diagnosis.profile': 'Perfil del client',
-    'discovery.diagnosis.symptoms': 'Indicadors identificats',
-    'discovery.diagnosis.rootCause': 'Possibles causes arrel',
-    'discovery.diagnosis.strategy': 'Estratègia recomanada',
-    'discovery.diagnosis.frequency': 'Freqüència suggerida',
+    'discovery.assessment.title': 'Fitxa de valoració avançada',
+    'discovery.assessment.profile': 'Perfil del client',
+    'discovery.assessment.concerns': 'Indicadors identificats',
+    'discovery.assessment.rootCause': 'Possibles causes arrel',
+    'discovery.assessment.strategy': 'Estratègia recomanada',
+    'discovery.assessment.frequency': 'Freqüència suggerida',
     'discovery.view.basic': 'Recomanació simple',
     'discovery.view.advanced': 'Valoració completa',
-    'discovery.diagnosis.cause.posture': 'Fatiga postural (sedentarisme)',
-    'discovery.diagnosis.cause.overload': 'Sobrecàrrega muscular',
-    'discovery.diagnosis.cause.stress': 'Tensió psicosomàtica',
-    'discovery.diagnosis.cause.emotional': 'Bloqueig emocional',
-    'discovery.diagnosis.cause.metabolic': 'Desequilibri metabòlic/digestiu',
-    'discovery.diagnosis.cause.structural': 'Desequilibri estructural/mecànic',
-    'discovery.diagnosis.cause.general': 'Necessitat de manteniment/prevenció',
-    'discovery.diagnosis.strategy.structural': 'Alliberament estructural i mobilitat',
-    'discovery.diagnosis.strategy.regulation': 'Regulació del sistema nerviós',
-    'discovery.diagnosis.strategy.rebalance': 'Reequilibri cos-ment',
-    'discovery.diagnosis.freq.high': 'Intensiu (1 sessió/setmana durant 3 setmanes)',
-    'discovery.diagnosis.freq.medium': 'Manteniment (1 sessió cada 2-3 setmanes)',
-    'discovery.diagnosis.freq.low': 'Preventiu (1 sessió al mes)',
+    'discovery.assessment.cause.posture': 'Fatiga postural (sedentarisme)',
+    'discovery.assessment.cause.overload': 'Sobrecàrrega muscular',
+    'discovery.assessment.cause.stress': 'Tensió psicosomàtica',
+    'discovery.assessment.cause.emotional': 'Bloqueig emocional',
+    'discovery.assessment.cause.metabolic': 'Desequilibri metabòlic/digestiu',
+    'discovery.assessment.cause.structural': 'Desequilibri estructural/mecànic',
+    'discovery.assessment.cause.general': 'Necessitat de manteniment/prevenció',
+    'discovery.assessment.strategy.structural': 'Alliberament estructural i mobilitat',
+    'discovery.assessment.strategy.regulation': 'Regulació del sistema nerviós',
+    'discovery.assessment.strategy.rebalance': 'Reequilibri cos-ment',
+    'discovery.assessment.freq.high': 'Intensiu (1 sessió/setmana durant 3 setmanes)',
+    'discovery.assessment.freq.medium': 'Manteniment (1 sessió cada 2-3 setmanes)',
+    'discovery.assessment.freq.low': 'Preventiu (1 sessió al mes)',
     'discovery.goal.athlete': 'La teva recuperació esportiva',
     'discovery.goal.office': 'La teva postura',
     'discovery.goal.stress': 'La teva tranquil·litat',
@@ -2191,7 +2192,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.feature.retreat': 'Descompte en retirs anuals',
 
     // Missing Keys Patch
-    'hero.firstTime': 'Primera vegada?',
+    'hero.firstTime': 'És la teva primera vegada? Descobreix el que necessites.',
     'hero.dontKnowWhatToChoose': "No saps què triar?",
     'hero.discoverServices': 'Descobreix els serveis',
     'hero.stats.sessions': 'Sessions realitzades',
@@ -2416,6 +2417,10 @@ const translations: Record<Language, Record<string, string>> = {
     'services.revision360.title': 'Revisió 360',
     'services.revision360.subtitle': 'Total',
     'services.revision360.description': 'Avaluació completa',
+    'services.constelaciones.title': 'Constel·lacions Familiars',
+    'services.constelaciones.subtitle': 'Sanació sistèmica',
+    'services.constelaciones.description': 'Allibera patrons heretats i restaura l\'harmonia en les teves relacions.',
+    'services.constelaciones.desc': 'Allibera patrons heretats i restaura l\'harmonia en les teves relacions.',
     'services.consultation.title': 'Consulta',
     'services.consultation.description': 'Parlem 15 min',
     'services.consultation.feeling': 'Claredat',
@@ -2560,7 +2565,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Elena Approach & Targets
     'elena.approach.title': 'The Elena Kucherova method',
-    'elena.approach.desc': 'I believe that your body, mind, and emotions are not separate parts, but a single, living system. My approach goes beyond treating symptoms—I seek the root cause of your discomfort to help your body rediscover its natural ability to heal and self-regulate. By integrating advanced bodywork with nervous system re-education—using techniques like Movement Lesson, JKA, Child’Space, Feldenkrais, and Biodynamics—I offer a gentle yet profound pathway to release deep tension, rewire old patterns, and restore the joy of effortless movement.',
+    'elena.approach.desc': 'I believe that your body, mind, and emotions are not separate parts, but a single, living system. My approach goes beyond treating concerns—I seek the root cause of your discomfort to help your body rediscover its natural ability to heal and self-regulate. By integrating advanced bodywork with nervous system re-education—using techniques like Movement Lesson, JKA, Child’Space, Feldenkrais, and Biodynamics—I offer a gentle yet profound pathway to release deep tension, rewire old patterns, and restore the joy of effortless movement.',
 
     'elena.target.adults.title': 'For adults',
     'elena.target.adults.desc': 'If you are navigating chronic fatigue, persistent back or neck pain, or the heavy toll of stress and trauma, I am here to help. Together, we will restore your inner resources, align your posture, and release psychosomatic blockages. This is more than a massage; it is a complete reset for your nervous system, empowering you to move through life with renewed lightness and vitality.',
@@ -2586,10 +2591,10 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.name': 'Elena Kucherova',
 
     // Hero section
-    'hero.badge': 'Somatic wellness & integrative therapy',
+    'hero.badge': 'Somatic wellness & integrative wellness practices',
     'hero.title': 'Live Pain-Free Again',
-    'hero.subtitle': 'Stop managing symptoms and start healing. We pinpoint the root cause of your chronic tension through somatic therapy and kinesiology, restoring your body’s true balance.',
-    'hero.firstTime': 'First time? Start here',
+    'hero.subtitle': 'Stop managing concerns and start healing. We pinpoint the root cause of your chronic tension through somatic wellness practices and kinesiology, restoring your body’s true balance.',
+    'hero.firstTime': 'Is it your first time? Get to know what you need.',
     'hero.dontKnowWhatToChoose': 'Help me choose',
     'hero.discoverServices': 'Explore our services',
     'hero.stats.sessions': 'Sessions delivered',
@@ -2627,7 +2632,7 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.step.description.placeholder': 'Ex: i have had back pain for weeks...',
 
     // Services
-    'services.massage.title': 'Massage therapy',
+    'services.massage.title': 'Massage wellness practices',
     'services.massage.subtitle': 'Deep tissue, sports & relaxation',
     'services.massage.description': 'Release chronic tension and restore natural movement. We combine deep tissue work and myofascial release to address the root cause of pain and help your body recover fully.',
     'services.kinesiology.title': 'Holistic kinesiology',
@@ -2642,7 +2647,7 @@ const translations: Record<Language, Record<string, string>> = {
     'children.kinesiology.badge': 'Learning & Emotions',
     'children.kinesiology.desc': 'Support for learning difficulties, emotional management, and motor coordination.',
     'children.health.title': 'Body Balance',
-    'children.health.desc': 'Holistic treatment for allergies, intolerances, and healthy physical development.',
+    'children.health.desc': 'Holistic approach for allergies, intolerances, and healthy physical development.',
     'children.kinesiology.imgAlt': 'Pediatric Kinesiology',
     'children.health.badge': 'Physical Health',
     'children.health.imgAlt': 'Physical Health',
@@ -2654,11 +2659,15 @@ const translations: Record<Language, Record<string, string>> = {
     'services.nutrition.subtitle': 'Functional nutrition & biochemistry',
     'services.nutrition.description': 'Therapeutic nutritional strategies designed to reduce systemic inflammation, optimize metabolic function, and support neuro-endocrine regulation.',
     'services.revision360.title': '360° comprehensive assessment',
-    'services.revision360.subtitle': 'Comprehensive Functional diagnosis',
+    'services.revision360.subtitle': 'Comprehensive Functional assessment',
     'services.revision360.description': 'An exhaustive evaluation of your biomechanics, posture, and metabolic status. We generate a detailed wellness report and a personalized therapeutic roadmap.',
+    'services.constelaciones.title': 'Family Constellations',
+    'services.constelaciones.subtitle': 'Systemic healing',
+    'services.constelaciones.description': 'Release inherited patterns and restore harmony in your relationships through this powerful systemic therapy.',
+    'services.constelaciones.desc': 'Release inherited patterns and restore harmony in your relationships through this powerful systemic therapy.',
     'services.therapiesFor': 'Specialized methods for',
     'services.integralWellbeing': 'Integral wellbeing',
-    'services.personalizedTreatments': 'Discover treatments tailored to your unique lifestyle and needs',
+    'services.personalizedTreatments': 'Discover approach tailored to your unique lifestyle and needs',
     'services.consultation.title': 'Free 15-min consultation',
     'services.consultation.description': 'Unsure which path is right for you? Let’s chat for 15 minutes, no strings attached, to see how I can best support your journey.',
     'services.consultation.feeling': 'Gain clarity on your next step',
@@ -2685,7 +2694,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.role': 'Body therapist & somatic healing specialist',
     'elena.bio': 'For over a decade, I\'ve worked with hundreds of people to help them reconnect with their bodies and resolve the pain, tension, and imbalance that gets in the way of living fully.',
     'elena.work.title': 'My approach',
-    'elena.description1': 'I specialize in therapeutic massage, kinesiology, and somatic integration. My work is built on a simple belief: real healing happens when you treat the whole person, not just the symptom.',
+    'elena.description1': 'I specialize in therapeutic massage, kinesiology, and somatic integration. My work is built on a simple belief: real healing happens when you treat the whole person, not just the concern.',
     'elena.description2': 'My goal is to help you release the weight you\'ve been carrying — physically and emotionally — and move through life with ease, energy, and a renewed sense of yourself.',
     'elena.knowMore': 'Read my full story',
     'elena.quote': "The body knows how to heal. My job is to remove what's in the way.",
@@ -2701,9 +2710,9 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why choose us
     'whyChoose.title': 'Why choose EKA Balance?',
-    'whyChoose.subtitle': 'We are more than a therapy center; we are your dedicated partners in holistic well-being.',
+    'whyChoose.subtitle': 'We are more than a wellness practices center; we are your dedicated partners in holistic well-being.',
     'whyChoose.personalized.title': 'Truly personalized plans',
-    'whyChoose.personalized.description': 'Your body is unique, and your therapy should be too. We tailor every session to your specific physiology and history for faster, sustainable results.',
+    'whyChoose.personalized.description': 'Your body is unique, and your wellness practices should be too. We tailor every session to your specific physiology and history for faster, sustainable results.',
     'whyChoose.holistic.title': 'Systemic integration',
     'whyChoose.holistic.description': 'We treat the whole you—structural, chemical, and emotional. Real healing happens when all your systems work in harmony.',
     'whyChoose.experienced.title': 'Expert guidance',
@@ -2743,7 +2752,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.stress.title': 'Autonomic dysregulation',
     'casos.problems.stress.description': 'Therapeutic intervention for high-stress states, anxiety, and sympathetic dominance. We restore vagal tone and promote physiological equilibrium.',
     'casos.problems.digestive.title': 'Visceral dysfunction',
-    'casos.problems.digestive.description': 'Integrative treatment for Functional gastrointestinal disorders. We optimize the gut-brain axis to resolve bloating, motility issues, and systemic inflammation.',
+    'casos.problems.digestive.description': 'Integrative approach for Functional gastrointestinal disorders. We optimize the gut-brain axis to resolve bloating, motility issues, and systemic inflammation.',
     'casos.problems.migraines.title': 'Cephalalgia & migraine',
     'casos.problems.migraines.description': 'Neuro-vascular regulation for chronic headaches. We treat cervical triggers and cranial tension patterns to reduce frequency and intensity.',
     'casos.problems.lowEnergy.title': 'Systemic fatigue',
@@ -2762,7 +2771,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.backPain.cause2': 'Accumulated emotional stress stored in muscles',
     'casos.problems.backPain.cause3': 'Lack of Movement and sedentary habits',
     'casos.problems.backPain.cause4': 'Blocked or shallow breathing patterns',
-    'casos.problems.backPain.treatment': 'We use therapeutic massage, myofascial release, and kinesiology to find the root cause (stress, joint, or visceral blockage), combined with Feldenkrais for postural re-education.',
+    'casos.problems.backPain.approach': 'We use therapeutic massage, myofascial release, and kinesiology to find the root cause (stress, joint, or visceral blockage), combined with Feldenkrais for postural re-education.',
     'casos.problems.backPain.results': 'Most clients feel immediate relief and improved mobility after just one session. Over time, your body relearns to support itself with effortless ease.',
     'casos.problems.stress.symptom1': 'Racing thoughts and mental loops',
     'casos.problems.stress.symptom2': 'Inability to relax or switch off',
@@ -2772,7 +2781,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.stress.cause2': 'Chronic stress and lack of self-care time',
     'casos.problems.stress.cause3': 'Unresolved trauma or difficult life events',
     'casos.problems.stress.cause4': 'Imbalance in the autonomic nervous system',
-    'casos.problems.stress.treatment': 'We employ emotional kinesiology and vagal nerve techniques to soothe the nervous system, adding gentle bodywork (Feldenkrais, breathwork) to teach your body to truly"let go."',
+    'casos.problems.stress.approach': 'We employ emotional kinesiology and vagal nerve techniques to soothe the nervous system, adding gentle bodywork (Feldenkrais, breathwork) to teach your body to truly"let go."',
     'casos.problems.stress.results': 'Sleep improves, internal tension melts away, and you regain a sense of control and deep serenity.',
     'casos.problems.digestive.symptom1': 'Bloating, gas, reflux, or pain after eating',
     'casos.problems.digestive.symptom2': 'Post-meal fatigue or brain fog',
@@ -2782,7 +2791,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.digestive.cause2': 'Irregular eating habits or stress during meals',
     'casos.problems.digestive.cause3': 'Emotional stress impacting gut function',
     'casos.problems.digestive.cause4': 'Visceral restrictions affecting organ motility',
-    'casos.problems.digestive.treatment': 'We use nutritional kinesiology to identify sensitivities, apply gentle visceral massage, and provide personalized dietary guidance.',
+    'casos.problems.digestive.approach': 'We use nutritional kinesiology to identify sensitivities, apply gentle visceral massage, and provide personalized dietary guidance.',
     'casos.problems.digestive.results': 'Digestion becomes smooth, bloating vanishes, and daily energy soars. You learn to listen to your body and nourish it correctly.',
     'casos.problems.migraines.symptom1': 'Throbbing pain on one side of the head or neck',
     'casos.problems.migraines.symptom2': 'Pressure behind the eyes or a"tight helmet" sensation',
@@ -2792,7 +2801,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.migraines.cause2': 'Jaw tension (bruxism) and TMJ issues',
     'casos.problems.migraines.cause3': 'Sleep deprivation or mental overload',
     'casos.problems.migraines.cause4': 'Hormonal fluctuations or dietary triggers',
-    'casos.problems.migraines.treatment': 'We combine cranial Osteobalance, muscle release, and vagal techniques to rebalance the nervous system, alongside breathing and posture correction.',
+    'casos.problems.migraines.approach': 'We combine cranial Osteobalance, muscle release, and vagal techniques to rebalance the nervous system, alongside breathing and posture correction.',
     'casos.problems.migraines.results': 'Significant reduction in frequency and intensity. Many clients experience complete relief after addressing the cervical and cranial root causes.',
     'casos.problems.lowEnergy.symptom1': 'Constant exhaustion despite adequate sleep',
     'casos.problems.lowEnergy.symptom2': 'Brain fog, poor memory, and lack of focus',
@@ -2802,7 +2811,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.lowEnergy.cause2': 'Nutritional deficiencies or metabolic issues',
     'casos.problems.lowEnergy.cause3': 'Hormonal imbalances (thyroid, adrenals)',
     'casos.problems.lowEnergy.cause4': 'Emotional exhaustion and lack of purpose',
-    'casos.problems.lowEnergy.treatment': 'We use kinesiology to pinpoint imbalances, recommend natural supplementation, and use conscious Movement to reignite your vitality.',
+    'casos.problems.lowEnergy.approach': 'We use kinesiology to pinpoint imbalances, recommend natural supplementation, and use conscious Movement to reignite your vitality.',
     'casos.problems.lowEnergy.results': 'A noticeable surge in energy, sharper mental clarity, and a more stable, positive mood.',
     'casos.problems.sleep.symptom1': 'Trouble falling asleep or frequent waking',
     'casos.problems.sleep.symptom2': 'Waking up tired, tense, or after intense dreams',
@@ -2812,7 +2821,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.sleep.cause2': 'Circadian rhythm disruption and nervous system dysregulation',
     'casos.problems.sleep.cause3': 'Poor sleep hygiene or lack of routine',
     'casos.problems.sleep.cause4': 'Digestive issues or hormonal shifts',
-    'casos.problems.sleep.treatment': 'We integrate Feldenkrais, guided breathwork, vagal toning, and kinesiology to reset your body’s natural sleep cycles.',
+    'casos.problems.sleep.approach': 'We integrate Feldenkrais, guided breathwork, vagal toning, and kinesiology to reset your body’s natural sleep cycles.',
     'casos.problems.sleep.results': 'Restoration of deep, restorative sleep and waking up feeling truly refreshed within a few sessions.',
     'casos.problems.recovery.symptom1': 'Lingering pain or limited range of motion',
     'casos.problems.recovery.symptom2': 'Feeling weak, unstable, or off-Balance',
@@ -2822,7 +2831,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.recovery.cause2': 'Compensatory Movement patterns',
     'casos.problems.recovery.cause3': 'Physical trauma with trapped emotional stress',
     'casos.problems.recovery.cause4': 'Cellular memory of the traumatic event',
-    'casos.problems.recovery.treatment': 'We use Osteobalance, fascial release, and postural re-education to heal the tissue and help you regain trust in your body.',
+    'casos.problems.recovery.approach': 'We use Osteobalance, fascial release, and postural re-education to heal the tissue and help you regain trust in your body.',
     'casos.problems.recovery.results': 'Full recovery of mobility, elimination of pain, and a renewed sense of safety and confidence in Movement.',
 
     // Contact Form
@@ -2877,10 +2886,10 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.time.evening': 'Evening (18:00 - 21:00)',
     'contact.time.any': 'No preference',
 
-    // Symptoms, causes, treatment, results labels
-    'casos.symptoms': 'Symptoms',
+    // Symptoms, causes, approach, results labels
+    'casos.concerns': 'Symptoms',
     'casos.causes': 'Causes',
-    'casos.treatment': 'Our Approach',
+    'casos.approach': 'Our Approach',
     'casos.results': 'Results',
 
     // Additional problems list
@@ -2926,14 +2935,14 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Discounts page
     'discounts.pageTitle': 'Discounts - EKA Balance',
-    'discounts.pageDescription': 'Discover our special discounts for wellness services and therapies',
+    'discounts.pageDescription': 'Discover our special discounts for wellness services and wellness practices',
     'discounts.badge': 'Special offers',
     'discounts.title': 'Special discounts',
     'discounts.subtitle': 'Enjoy reduced prices on our wellness services with our exclusive discounts',
     'discounts.availableTitle': 'Available discounts',
     'discounts.availableSubtitle': 'Take advantage of these special offers to start your wellness journey',
     'discounts.mykolaFriend.description': "Special 20% discount for mykola's friends. Valid for all sessions and services.",
-    'discounts.conocidoMykola.description': "10% discount for mykola's acquaintances. Applicable to all our treatments.",
+    'discounts.conocidoMykola.description': "10% discount for mykola's acquaintances. Applicable to all our approach.",
     'discounts.off': 'Off',
     'discounts.active': 'Active',
     'discounts.code': 'Code',
@@ -2953,7 +2962,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Personalized Services
     'personalizedServices.title': 'Specialized programs',
-    'personalizedServices.subtitle': 'Discover therapies specifically adapted to your professional lifestyle',
+    'personalizedServices.subtitle': 'Discover wellness practices specifically adapted to your professional lifestyle',
     'personalizedServices.cta': 'Book your session',
     'personalizedServices.difference.title': 'Difference between services',
     'personalizedServices.main.title': 'Main services',
@@ -3041,7 +3050,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.form.submit': 'Process request',
 
     // Options
-    'booking.options.service.massage': 'Manual therapy',
+    'booking.options.service.massage': 'Manual wellness practices',
     'booking.options.service.kinesiology': 'Holistic kinesiology',
     'booking.options.service.osteobalance': 'Osteobalance',
     'booking.options.service.movementLesson': 'Movement Lesson',
@@ -3117,7 +3126,7 @@ const translations: Record<Language, Record<string, string>> = {
     'artists.challenge3.desc': 'Physical restriction impacting creative flow and expression',
     'artists.help.title': 'Therapeutic intervention',
     'artists.help1.title': 'Motor rehabilitation',
-    'artists.help1.desc': 'Specific manual therapy to restore hand and wrist function',
+    'artists.help1.desc': 'Specific manual wellness practices to restore hand and wrist function',
     'artists.help2.title': 'Ergonomic re-education',
     'artists.help2.desc': 'Biomechanical optimization of the creative gesture to prevent injury',
     'artists.help3.title': 'Somatic unblocking',
@@ -3147,7 +3156,7 @@ const translations: Record<Language, Record<string, string>> = {
     'musicians.problem4.desc': 'Loss of fine motor control and neuromuscular coordination',
     'musicians.help.title': 'Therapeutic protocol',
     'musicians.help1.title': 'Functional rehabilitation',
-    'musicians.help1.desc': 'Advanced manual therapy to restore upper extremity biomechanics',
+    'musicians.help1.desc': 'Advanced manual wellness practices to restore upper extremity biomechanics',
     'musicians.help2.title': 'Postural re-education',
     'musicians.help2.desc': 'Ergonomic analysis and correction of instrumental technical gesture',
     'musicians.help3.title': 'Autonomic control',
@@ -3158,14 +3167,14 @@ const translations: Record<Language, Record<string, string>> = {
     'musicians.results.point3': 'Security and control in stage execution',
     'musicians.plans.title': 'Intervention programs',
     'musicians.plans.subtitle': 'Select the level of assistance required',
-    'musicians.plan1.name': 'Diagnostic evaluation',
-    'musicians.plan1.desc': 'Initial assessment and emergency treatment',
+    'musicians.plan1.name': 'assessment evaluation',
+    'musicians.plan1.desc': 'Initial assessment and emergency approach',
     'musicians.plan1.benefit1': 'Biomechanical gesture analysis',
-    'musicians.plan1.benefit2': 'Focused manual therapy',
+    'musicians.plan1.benefit2': 'Focused manual wellness practices',
     'musicians.plan1.benefit3': 'Immediate ergonomic guidelines',
     'musicians.plan1.benefit4': 'Preliminary assessment',
-    'musicians.plan1.result': 'Functional diagnosis and symptomatic relief',
-    'musicians.plan2.name': 'Intensive treatment',
+    'musicians.plan1.result': 'Functional assessment and symptomatic relief',
+    'musicians.plan2.name': 'Intensive approach',
     'musicians.plan2.desc': 'Functional recovery protocol',
     'musicians.plan2.benefit1': 'Everything included in evaluation',
     'musicians.plan2.benefit2': 'Weekly evolutionary monitoring',
@@ -3217,14 +3226,14 @@ const translations: Record<Language, Record<string, string>> = {
     'students.results.point3': 'Optimization of rest and energy recovery',
     'students.plans.title': 'Intervention programs',
     'students.plans.subtitle': 'Select the level of assistance required',
-    'students.plan1.name': 'Diagnostic evaluation',
-    'students.plan1.desc': 'Initial assessment and emergency treatment',
+    'students.plan1.name': 'assessment evaluation',
+    'students.plan1.desc': 'Initial assessment and emergency approach',
     'students.plan1.benefit1': 'Postural and tension analysis',
-    'students.plan1.benefit2': 'Cervical manual therapy',
+    'students.plan1.benefit2': 'Cervical manual wellness practices',
     'students.plan1.benefit3': 'Basic ergonomic guidelines',
     'students.plan1.benefit4': 'Preliminary assessment',
     'students.plan1.result': 'Symptomatic relief and postural awareness',
-    'students.plan2.name': 'Intensive treatment',
+    'students.plan2.name': 'Intensive approach',
     'students.plan2.desc': 'Functional recovery protocol',
     'students.plan2.benefit1': 'Everything included in evaluation',
     'students.plan2.benefit2': 'Weekly evolutionary monitoring',
@@ -3269,14 +3278,14 @@ const translations: Record<Language, Record<string, string>> = {
     'office.results.point3': 'Prevention of degenerative spinal injuries',
     'office.plans.title': 'Intervention programs',
     'office.plans.subtitle': 'Select the level of specialized assistance required',
-    'office.plan1.name': 'Diagnostic evaluation',
-    'office.plan1.desc': 'Initial assessment and emergency treatment',
+    'office.plan1.name': 'assessment evaluation',
+    'office.plan1.desc': 'Initial assessment and emergency approach',
     'office.plan1.benefit1': 'Digital ergonomic analysis',
-    'office.plan1.benefit2': 'Decompressive manual therapy',
+    'office.plan1.benefit2': 'Decompressive manual wellness practices',
     'office.plan1.benefit3': 'Immediate postural guidelines',
     'office.plan1.benefit4': 'Preliminary assessment report',
     'office.plan1.result': 'Symptomatic relief and ergonomic awareness',
-    'office.plan2.name': 'Intensive treatment',
+    'office.plan2.name': 'Intensive approach',
     'office.plan2.desc': 'Functional recovery protocol',
     'office.plan2.benefit1': 'Everything included in evaluation',
     'office.plan2.benefit2': 'Weekly evolutionary monitoring',
@@ -3298,9 +3307,9 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'Frequently asked questions',
     'faq.subtitle': 'Find answers to the most common questions about our services',
     'faq.q1.question': 'How long does a typical session last?',
-    'faq.q1.answer': 'Sessions usually last between 60 and 90 minutes, depending on the chosen treatment and your specific needs.',
+    'faq.q1.answer': 'Sessions usually last between 60 and 90 minutes, depending on the chosen approach and your specific needs.',
     'faq.q2.question': 'Do i need prior experience?',
-    'faq.q2.answer': 'No prior experience is needed. All our treatments are adapted to your level and specific needs.',
+    'faq.q2.answer': 'No prior experience is needed. All our approach are adapted to your level and specific needs.',
     'faq.q3.question': 'How often should i come?',
     'faq.q3.answer': 'Depending on your goals, we recommend 1-2 sessions per week initially, and then monthly maintenance sessions.',
     'faq.q4.question': 'What payment methods do you accept?',
@@ -3311,7 +3320,7 @@ const translations: Record<Language, Record<string, string>> = {
     // First Time Visitor Form
     'form.badge': 'Personalized discovery',
     'form.title': 'Find the perfect service for you',
-    'form.subtitle': "Answer a few quick questions and we'll help you find the ideal therapy",
+    'form.subtitle': "Answer a few quick questions and we'll help you find the ideal wellness practices",
     'form.contactWhatsApp': 'Contact WhatsApp',
     'form.step': 'Step',
     'form.of': 'Of',
@@ -3351,19 +3360,19 @@ const translations: Record<Language, Record<string, string>> = {
     'form.time.standard': '1-1.5 hours',
     'form.time.long': 'More than 1.5 hours',
 
-    'form.step4.question': 'What experience do you have with body therapies?',
+    'form.step4.question': 'What experience do you have with body wellness practices?',
     'form.experience.none': 'This is my first time',
-    'form.experience.noneDesc': 'I have never received body therapies',
+    'form.experience.noneDesc': 'I have never received body wellness practices',
     'form.experience.some': 'I have some experience',
-    'form.experience.someDesc': 'I have been to massages or therapies occasionally',
+    'form.experience.someDesc': 'I have been to massages or wellness practices occasionally',
     'form.experience.experienced': 'I have experience',
-    'form.experience.experiencedDesc': 'I receive therapies regularly',
+    'form.experience.experiencedDesc': 'I receive wellness practices regularly',
 
     'form.step5.question': 'What type of intensity do you prefer?',
     'form.intensity.gentle': 'Gentle and relaxing',
-    'form.intensity.gentleDesc': 'I prefer a gentle and calm treatment',
+    'form.intensity.gentleDesc': 'I prefer a gentle and calm approach',
     'form.intensity.medium': 'Moderate',
-    'form.intensity.mediumDesc': 'Balanced treatment between relaxation and deep work',
+    'form.intensity.mediumDesc': 'Balanced approach between relaxation and deep work',
     'form.intensity.deep': 'Intense and deep',
     'form.intensity.deepDesc': 'I want deep work for specific tensions',
 
@@ -3396,7 +3405,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.artist.benefit4': 'Functional longevity',
 
     'form.recommendation.musician.title': 'Performing arts medicine',
-    'form.recommendation.musician.desc': 'Specialized treatment for instrumentalists. We address focal dystonia, overuse syndromes, and performance anxiety.',
+    'form.recommendation.musician.desc': 'Specialized approach for instrumentalists. We address focal dystonia, overuse syndromes, and performance anxiety.',
     'form.recommendation.musician.benefit1': 'Technical gesture optimization',
     'form.recommendation.musician.benefit2': 'Neuromuscular coordination',
     'form.recommendation.musician.benefit3': 'Autonomic regulation',
@@ -3410,13 +3419,13 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.student.benefit4': 'Adrenal support',
 
     'form.recommendation.holistic.title': 'Integrative somatic session',
-    'form.recommendation.holistic.desc': 'Synergistic application of manual therapy and holistic kinesiology for systemic diagnosis and treatment.',
-    'form.recommendation.holistic.benefit1': 'Systemic diagnosis',
+    'form.recommendation.holistic.desc': 'Synergistic application of manual wellness practices and holistic kinesiology for systemic assessment and approach.',
+    'form.recommendation.holistic.benefit1': 'Systemic assessment',
     'form.recommendation.holistic.benefit2': 'Neuro-affective Balance',
     'form.recommendation.holistic.benefit3': 'Structural alignment',
     'form.recommendation.holistic.benefit4': 'Emotional processing',
 
-    'form.recommendation.therapeutic.title': 'Advanced manual therapy',
+    'form.recommendation.therapeutic.title': 'Advanced manual wellness practices',
     'form.recommendation.therapeutic.desc': 'Deep tissue mobilization for chronic pain management and Functional restoration.',
     'form.recommendation.therapeutic.benefit1': 'Pain pattern resolution',
     'form.recommendation.therapeutic.benefit2': 'Joint mobilization',
@@ -3424,7 +3433,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.therapeutic.benefit4': 'Parasympathetic activation',
 
     'form.recommendation.kinesiology.title': 'Holistic kinesiology',
-    'form.recommendation.kinesiology.desc': 'Therapy that combines body and emotional techniques to rebalance your general state',
+    'form.recommendation.kinesiology.desc': 'wellness practices that combines body and emotional techniques to rebalance your general state',
     'form.recommendation.kinesiology.benefit1': 'Emotional Balance',
     'form.recommendation.kinesiology.benefit2': 'Stress management',
     'form.recommendation.kinesiology.benefit3': 'Improves self-awareness',
@@ -3507,11 +3516,11 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.students.understanding.callToAction': 'Restore your cognitive capacity and structural integrity through therapeutic intervention.',
     'personalized.students.services.title': 'Therapeutic protocols',
     'personalized.students.services.subtitle': 'Evidence-based interventions for academic performance',
-    'personalized.students.services.kinesiologyStress.title': 'Neuro-regulation therapy',
+    'personalized.students.services.kinesiologyStress.title': 'Neuro-regulation wellness practices',
     'personalized.students.services.kinesiologyStress.description': 'Targeted protocol to down-regulate the sympathetic nervous system and restore focus.',
     'personalized.students.services.relaxingMassage.title': 'Cervical decompression',
-    'personalized.students.services.relaxingMassage.description': 'Manual therapy focused on releasing suboccipital tension and improving cerebral blood flow.',
-    'personalized.students.testimonial.title': 'Patient outcome',
+    'personalized.students.services.relaxingMassage.description': 'Manual wellness practices focused on releasing suboccipital tension and improving cerebral blood flow.',
+    'personalized.students.testimonial.title': 'clients outcome',
     'personalized.students.testimonial.quote': 'The protocol significantly improved my retention capacity and eliminated the chronic cervical tension during finals week.',
     'personalized.students.testimonial.author': 'Maria, medical student',
 
@@ -3527,8 +3536,8 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.services.therapeuticMassage.description': 'Deep tissue work to reverse anterior head carriage and thoracic kyphosis.',
     'personalized.officeWorkers.services.feldenkrais.title': 'Neuromuscular re-education',
     'personalized.officeWorkers.services.feldenkrais.description': 'Somatic learning to restore efficient Movement patterns and prevent degenerative changes.',
-    'personalized.officeWorkers.testimonial.title': 'Patient outcome',
-    'personalized.officeWorkers.testimonial.quote': 'The treatment resolved my chronic migraines and lumbar pain. Essential maintenance for high-performance work.',
+    'personalized.officeWorkers.testimonial.title': 'clients outcome',
+    'personalized.officeWorkers.testimonial.quote': 'The approach resolved my chronic migraines and lumbar pain. Essential maintenance for high-performance work.',
     'personalized.officeWorkers.testimonial.author': 'Joan, senior software engineer',
 
     'personalized.officeWorkers.method.title': 'Corporate Wellness Protocol',
@@ -3556,19 +3565,19 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.musicians.method.step3.desc': 'We unite breath and movement, reducing anxiety and allowing for fluid technical execution.',
 
     'personalized.musicians.benefits.title': 'Key Benefits',
-    'personalized.musicians.benefit1': 'Prevention and treatment of Repetitive Strain Injuries (RSI) and tendonitis.',
+    'personalized.musicians.benefit1': 'Prevention and approach of Repetitive Strain Injuries (RSI) and tendonitis.',
     'personalized.musicians.benefit2': 'Enhanced breath control and resonance for wind players and vocalists.',
     'personalized.musicians.benefit3': 'Greater fluidity and reduced tension in playing posture.',
     'personalized.musicians.benefit4': 'Reduction of performance anxiety through nervous system regulation.',
 
     'personalized.musicians.faq.title': 'Common Questions',
-    'personalized.musicians.faq.q1': 'Can this help with tendonitis or carpal tunnel symptoms?',
+    'personalized.musicians.faq.q1': 'Can this help with tendonitis or carpal tunnel concerns?',
     'personalized.musicians.faq.a1': 'Yes. We treat not just locally, but trace the tension chain to the neck, addressing nerve compression at the source.',
-    'personalized.musicians.faq.q2': 'Will treatment affect my playing technique?',
+    'personalized.musicians.faq.q2': 'Will approach affect my playing technique?',
     'personalized.musicians.faq.a2': 'It will refine it. By removing unnecessary tension, you will play with more ease, speed, and endurance.',
     'personalized.musicians.faq.q3': 'I play an asymmetrical instrument. How do you help?',
     'personalized.musicians.faq.a3': 'We focus on unwinding rotational patterns, restoring symmetry to your resting posture.',
-    'personalized.officeWorkers.faq.q1': 'I have "tech neck". Can somatic therapy fix my posture?',
+    'personalized.officeWorkers.faq.q1': 'I have "tech neck". Can somatic wellness practices fix my posture?',
     'personalized.officeWorkers.faq.a1': "It is highly effective because it doesn't just force shoulders back; it releases the tension pulling you forward, so good posture feels natural.",
     'personalized.officeWorkers.faq.q2': 'Is this suitable for preventative care?',
     'personalized.officeWorkers.faq.a2': 'Absolutely. Regular sessions prevent the accumulation of micro-traumas from static postures.',
@@ -3588,7 +3597,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.musicians.services.kinesiologyPerformance.title': 'Performance neuro-integration',
     'personalized.musicians.services.kinesiologyPerformance.description': 'Targeted protocol to resolve stage anxiety and beta-adrenergic blockage.',
     'personalized.musicians.testimonial.title': 'Artist outcome',
-    'personalized.musicians.testimonial.quote': 'The treatment resolved my focal dystonia symptoms and allowed me to return to the concert stage with full confidence.',
+    'personalized.musicians.testimonial.quote': 'The approach resolved my focal dystonia concerns and allowed me to return to the concert stage with full confidence.',
     'personalized.musicians.testimonial.author': 'Anna, concert pianist',
 
     'personalized.artists.hero.title': 'Visual artists',
@@ -3598,13 +3607,13 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.artists.understanding.description2': 'Musculoskeletal compromise derived from prolonged static postures.',
     'personalized.artists.understanding.callToAction': 'We help you release physical blocks impacting creative flow.',
     'personalized.artists.services.title': 'Therapeutic intervention',
-    'personalized.artists.services.subtitle': 'Specialized treatments for artists',
+    'personalized.artists.services.subtitle': 'Specialized approach for artists',
     'personalized.artists.benefits.title': 'Creative impact',
     'personalized.artists.method.title': 'Our artist protocol',
     'personalized.artists.method.step1.title': 'Assessment',
     'personalized.artists.method.step1.desc': 'We analyze your posture and technical gestures.',
-    'personalized.artists.method.step2.title': 'Treatment',
-    'personalized.artists.method.step2.desc': 'Manual therapy to release tension and pain.',
+    'personalized.artists.method.step2.title': 'approach',
+    'personalized.artists.method.step2.desc': 'Manual wellness practices to release tension and pain.',
     'personalized.artists.method.step3.title': 'Prevention',
     'personalized.artists.method.step3.desc': 'Exercises and guidelines to maintain health while creating.',
     'personalized.artists.benefits.benefit1': 'Sustainability of artistic practice and freedom of movement.',
@@ -3642,8 +3651,8 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.athletes.benefit4': 'Increased proprioceptive awareness for better coordination and agility.',
 
     'personalized.athletes.faq.title': 'Common Questions',
-    'personalized.athletes.faq.q1': 'How does somatic therapy differ from a regular sports massage?',
-    'personalized.athletes.faq.a1': 'While sports massage focuses on muscle relaxation, somatic therapy addresses the nervous system control over those muscles. We work on the root cause.',
+    'personalized.athletes.faq.q1': 'How does somatic wellness practices differ from a regular sports massage?',
+    'personalized.athletes.faq.a1': 'While sports massage focuses on muscle relaxation, somatic wellness practices addresses the nervous system control over those muscles. We work on the root cause.',
     'personalized.athletes.faq.q2': "Can this help with chronic injuries that haven't healed with traditional physio?",
     'personalized.athletes.faq.a2': 'Yes. Chronic injuries often persist because the body is stuck in a protective pattern. Our approach helps your nervous system feel safe enough to release these protective mechanisms.',
     'personalized.athletes.faq.q3': 'When should I schedule a session relative to my competition?',
@@ -3661,37 +3670,37 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.parents.services.emotionalKinesiology.description': 'Therapeutic protocol to process family stress and restore emotional homeostasis.',
     'personalized.parents.services.relaxingMassage.title': 'Deep somatic restoration',
     'personalized.parents.services.relaxingMassage.description': 'Restorative massage focused on adrenal recovery and releasing chronic holding patterns.',
-    'personalized.parents.testimonial.title': 'Patient outcome',
+    'personalized.parents.testimonial.title': 'clients outcome',
     'personalized.parents.testimonial.quote': 'The sessions restored my energy levels and patience. It is not just relaxation; it is essential physiological maintenance.',
     'personalized.parents.testimonial.author': 'Laura, mother of two',
 
-    'seo.students.title': 'Somatic therapy for academic performance | EKA Balance',
+    'seo.students.title': 'Somatic wellness practices for academic performance | EKA Balance',
     'seo.students.description': 'Neuro-cognitive optimization and postural correction for students. Improve focus, manage exam anxiety, and resolve study-related pain.',
-    'seo.students.keywords': 'Academic performance therapy, study ergonomics, exam anxiety relief, cognitive focus, student physiotherapy Barcelona',
+    'seo.students.keywords': 'Academic performance wellness practices, study ergonomics, exam anxiety relief, cognitive focus, student physiotherapy Barcelona',
 
     'seo.officeWorkers.title': 'Executive health & ergonomics | EKA Balance',
-    'seo.officeWorkers.description': 'Comprehensive management of sedentary pathology. Treatment for tech neck, carpal tunnel, and digital burnout. Corporate wellness solutions.',
-    'seo.officeWorkers.keywords': 'Executive health, office ergonomics, tech neck treatment, corporate wellness, repetitive strain injury Barcelona',
+    'seo.officeWorkers.description': 'Comprehensive management of sedentary pathology. approach for tech neck, carpal tunnel, and digital burnout. Corporate wellness solutions.',
+    'seo.officeWorkers.keywords': 'Executive health, office ergonomics, tech neck approach, corporate wellness, repetitive strain injury Barcelona',
 
     'seo.musicians.title': 'Performing arts medicine | EKA Balance',
-    'seo.musicians.description': 'Specialized physiotherapy for musicians. Treatment of focal dystonia, overuse syndromes, and performance anxiety. Instrumental ergonomics.',
-    'seo.musicians.keywords': 'Performing arts medicine, musician physiotherapy, focal dystonia treatment, stage anxiety, instrumental ergonomics Barcelona',
+    'seo.musicians.description': 'Specialized physiotherapy for musicians. approach of focal dystonia, overuse syndromes, and performance anxiety. Instrumental ergonomics.',
+    'seo.musicians.keywords': 'Performing arts medicine, musician physiotherapy, focal dystonia approach, stage anxiety, instrumental ergonomics Barcelona',
 
-    'seo.artists.title': 'Therapies for Artists - Creativity & Wellness | EKA Balance',
+    'seo.artists.title': 'wellness practices for Artists - Creativity & Wellness | EKA Balance',
     'seo.artists.description': 'Services for artists of all disciplines. Unlock your creativity, reduce stress, and improve your artistic expression.',
-    'seo.artists.keywords': 'Artist therapies, creativity, emotional wellness, artistic expression, art therapy Barcelona',
+    'seo.artists.keywords': 'Artist wellness practices, creativity, emotional wellness, artistic expression, art wellness practices Barcelona',
 
     'seo.adults.title': 'Holistic Wellness for Adults - Health & Balance | EKA Balance',
-    'seo.adults.description': 'Personalized treatments for adults: stress management, chronic pain relief, and quality of life improvement. Massage, kinesiology, and more.',
+    'seo.adults.description': 'Personalized approach for adults: stress management, chronic pain relief, and quality of life improvement. Massage, kinesiology, and more.',
     'seo.adults.keywords': 'Adult wellness, stress management, chronic pain, therapeutic massage, kinesiology Barcelona',
 
-    'seo.children.title': 'Therapies for Children - Development & Growth | EKA Balance',
+    'seo.children.title': 'wellness practices for Children - Development & Growth | EKA Balance',
     'seo.children.description': 'Support for child development through kinesiology and gentle methods. We help with learning, emotional, and coordination issues.',
-    'seo.children.keywords': 'Children therapies, child development, child kinesiology, learning difficulties, psychomotor coordination Barcelona',
+    'seo.children.keywords': 'Children wellness practices, child development, child kinesiology, learning difficulties, psychomotor coordination Barcelona',
 
     'seo.families.title': 'Wellness for Families - Harmony & Connection | EKA Balance',
-    'seo.families.description': 'Health space for the whole family. Improve coexistence, reduce tension, and find family balance with our systemic therapies.',
-    'seo.families.keywords': 'Family wellness, family therapy, home harmony, family kinesiology, parent-child relations Barcelona',
+    'seo.families.description': 'Health space for the whole family. Improve coexistence, reduce tension, and find family balance with our systemic wellness practices.',
+    'seo.families.keywords': 'Family wellness, family wellness practices, home harmony, family kinesiology, parent-child relations Barcelona',
 
     'seo.athletes.title': 'Sports recovery & biomechanics | EKA Balance',
     'seo.athletes.description': 'Advanced sports recovery and biomechanical optimization. Deep tissue mobilization, injury prevention, and performance enhancement.',
@@ -3707,7 +3716,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.recommended': 'Recommended',
     'common.back': 'Back',
     'common.continue': 'Continue',
-    'common.disclaimer': 'EKA Balance services are complementary support, not medical. They do not replace any professional diagnosis or treatment. The goal is to accompany you towards more wellbeing, awareness and global Balance.',
+    'common.disclaimer': 'EKA Balance services are complementary support, not medical. They do not replace any professional assessment or approach. The goal is to accompany you towards more wellbeing, awareness and global Balance.',
 
     'contact.form.whatsapp': 'WhatsApp',
     'contact.form.preferredTime': 'Preferred time',
@@ -3747,33 +3756,33 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Elena SEO
     'elena.seo.title': 'Elena Kucherova - integrative somatic therapist | EKA Balance',
-    'elena.seo.desc': 'Specialist in neuro-integrative kinesiology and advanced manual therapy. Over 10 years of professional experience in musculoskeletal recovery and autonomic regulation.',
-    'elena.seo.keywords': 'Elena Kucherova, integrative somatic therapist, neuro-integrative kinesiology, manual therapy Barcelona, musculoskeletal specialist',
+    'elena.seo.desc': 'Specialist in neuro-integrative kinesiology and advanced manual wellness practices. Over 10 years of professional experience in musculoskeletal recovery and autonomic regulation.',
+    'elena.seo.keywords': 'Elena Kucherova, integrative somatic therapist, neuro-integrative kinesiology, manual wellness practices Barcelona, musculoskeletal specialist',
 
     // Casos SEO
     'casos.seo.title': 'Case studies & therapeutic outcomes | EKA Balance',
-    'casos.seo.desc': 'Evidence-based results in the treatment of chronic pain, autonomic dysregulation, and Functional rehabilitation. Real therapeutic protocols and patient outcomes.',
-    'casos.seo.keywords': 'Case studies, chronic pain treatment, autonomic regulation, Functional rehabilitation, therapeutic outcomes Barcelona',
+    'casos.seo.desc': 'Evidence-based results in the approach of chronic pain, autonomic dysregulation, and Functional rehabilitation. Real therapeutic protocols and clients outcomes.',
+    'casos.seo.keywords': 'Case studies, chronic pain approach, autonomic regulation, Functional rehabilitation, therapeutic outcomes Barcelona',
 
     // SEO
-    'seo.home.title': 'EKA Balance - integrative somatics & manual therapy Barcelona',
-    'seo.home.description': 'Advanced center for musculoskeletal recovery and autonomic regulation. Specialized in manual therapy, holistic kinesiology, and biomechanics.',
-    'seo.home.keywords': 'Integrative somatics, manual therapy Barcelona, holistic kinesiology, biomechanics, musculoskeletal recovery, autonomic regulation',
+    'seo.home.title': 'EKA Balance - integrative somatics & manual wellness practices Barcelona',
+    'seo.home.description': 'Advanced center for musculoskeletal recovery and autonomic regulation. Specialized in manual wellness practices, holistic kinesiology, and biomechanics.',
+    'seo.home.keywords': 'Integrative somatics, manual wellness practices Barcelona, holistic kinesiology, biomechanics, musculoskeletal recovery, autonomic regulation',
     'seo.contact.title': 'Contact - appointments | EKA Balance',
     'seo.contact.description': 'Schedule your comprehensive evaluation. Centers in Barcelona and Rubí. Professional consultation for complex musculoskeletal cases.',
     'seo.contact.keywords': 'Therapeutic appointment, physiotherapy booking, health center Barcelona, wellness consultation',
     'seo.services.title': 'Therapeutic services | EKA Balance',
-    'seo.services.description': 'Evidence-based interventions: advanced manual therapy, neuro-integrative kinesiology, and functional biomechanics. Systemic health solutions.',
-    'seo.services.keywords': 'Manual therapy, holistic kinesiology, biomechanics, systemic health, integrative medicine Barcelona',
+    'seo.services.description': 'Evidence-based interventions: advanced manual wellness practices, neuro-integrative kinesiology, and functional biomechanics. Systemic health solutions.',
+    'seo.services.keywords': 'Manual wellness practices, holistic kinesiology, biomechanics, systemic health, integrative medicine Barcelona',
     'seo.personalized.title': 'Specialized therapeutic protocols | EKA Balance',
     'seo.personalized.description': 'Targeted interventions for executives, elite athletes, performing artists, and academic performance. Precision medicine Approach.',
-    'seo.personalized.keywords': 'Executive health, sports medicine, performing arts medicine, academic performance, personalized therapy',
+    'seo.personalized.keywords': 'Executive health, sports medicine, performing arts medicine, academic performance, personalized wellness practices',
     'seo.vip.title': 'Inner circle VIP - elite health management | EKA Balance',
     'seo.vip.description': 'Exclusive health management for high-performance individuals. Priority access, comprehensive monitoring, and personalized therapeutic strategy.',
     'seo.vip.keywords': 'VIP health management, executive health program, elite wellness, concierge medicine Barcelona',
-    'seo.massage.title': 'Advanced manual therapy & myofascial release | EKA Balance',
-    'seo.massage.description': 'Advanced manual therapy for chronic pain, structural alignment, and tissue recovery. Deep tissue mobilization and fascial release.',
-    'seo.massage.keywords': 'Manual therapy, myofascial release, deep tissue massage, chronic pain relief, structural integration',
+    'seo.massage.title': 'Advanced manual wellness practices & myofascial release | EKA Balance',
+    'seo.massage.description': 'Advanced manual wellness practices for chronic pain, structural alignment, and tissue recovery. Deep tissue mobilization and fascial release.',
+    'seo.massage.keywords': 'Manual wellness practices, myofascial release, deep tissue massage, chronic pain relief, structural integration',
     'seo.kinesiology.title': 'Holistic kinesiology & neuro-integration | EKA Balance',
     'seo.kinesiology.description': 'Integrative assessment of physiological, structural, and emotional imbalances. Bio-feedback mechanisms for systemic regulation.',
     'seo.kinesiology.keywords': 'Holistic kinesiology, neuro-integration, systemic regulation, emotional Balance, muscle testing',
@@ -3863,7 +3872,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     'discovery.recommendation.integrative.service': 'Integrative tension relief (4-in-1)',
     'discovery.recommendation.integrative.desc': 'Our signature blend of massage, kinesiology, osteopathy, and somatic Movement (Feldenkrais). The ultimate solution for chronic issues.',
-    'discovery.recommendation.integrative.benefit1': 'Holistic treatment',
+    'discovery.recommendation.integrative.benefit1': 'Holistic approach',
     'discovery.recommendation.integrative.benefit2': 'Root cause resolution',
     'discovery.recommendation.integrative.benefit3': 'Multi-technique synergy',
     'discovery.recommendation.integrative.benefit4': 'Long-lasting results',
@@ -3891,27 +3900,27 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'You are experiencing',
     'discovery.analysis.want': 'And your goal is',
     'discovery.analysis.feel': 'To feel',
-    'discovery.diagnosis.title': 'Professional assessment',
-    'discovery.diagnosis.profile': 'Your profile',
-    'discovery.diagnosis.symptoms': 'Key indicators',
-    'discovery.diagnosis.rootCause': 'Potential root causes',
-    'discovery.diagnosis.strategy': 'Our strategy',
-    'discovery.diagnosis.frequency': 'Recommended frequency',
+    'discovery.assessment.title': 'Professional assessment',
+    'discovery.assessment.profile': 'Your profile',
+    'discovery.assessment.concerns': 'Key indicators',
+    'discovery.assessment.rootCause': 'Potential root causes',
+    'discovery.assessment.strategy': 'Our strategy',
+    'discovery.assessment.frequency': 'Recommended frequency',
     'discovery.view.basic': 'Simple view',
     'discovery.view.advanced': 'Detailed assessment',
-    'discovery.diagnosis.cause.posture': 'Postural fatigue (sedentary strain)',
-    'discovery.diagnosis.cause.overload': 'Muscular overload',
-    'discovery.diagnosis.cause.stress': 'Psychosomatic tension',
-    'discovery.diagnosis.cause.emotional': 'Emotional blockage',
-    'discovery.diagnosis.cause.metabolic': 'Metabolic/digestive imbalance',
-    'discovery.diagnosis.cause.structural': 'Structural/mechanical misalignment',
-    'discovery.diagnosis.cause.general': 'Need for maintenance/prevention',
-    'discovery.diagnosis.strategy.structural': 'Structural release & mobility work',
-    'discovery.diagnosis.strategy.regulation': 'Nervous system regulation',
-    'discovery.diagnosis.strategy.rebalance': 'Mind-body rebalancing',
-    'discovery.diagnosis.freq.high': 'Intensive (weekly for 3 weeks)',
-    'discovery.diagnosis.freq.medium': 'Maintenance (every 2-3 weeks)',
-    'discovery.diagnosis.freq.low': 'Preventive (monthly)',
+    'discovery.assessment.cause.posture': 'Postural fatigue (sedentary strain)',
+    'discovery.assessment.cause.overload': 'Muscular overload',
+    'discovery.assessment.cause.stress': 'Psychosomatic tension',
+    'discovery.assessment.cause.emotional': 'Emotional blockage',
+    'discovery.assessment.cause.metabolic': 'Metabolic/digestive imbalance',
+    'discovery.assessment.cause.structural': 'Structural/mechanical misalignment',
+    'discovery.assessment.cause.general': 'Need for maintenance/prevention',
+    'discovery.assessment.strategy.structural': 'Structural release & mobility work',
+    'discovery.assessment.strategy.regulation': 'Nervous system regulation',
+    'discovery.assessment.strategy.rebalance': 'Mind-body rebalancing',
+    'discovery.assessment.freq.high': 'Intensive (weekly for 3 weeks)',
+    'discovery.assessment.freq.medium': 'Maintenance (every 2-3 weeks)',
+    'discovery.assessment.freq.low': 'Preventive (monthly)',
     'discovery.goal.athlete': 'Peak athletic recovery',
     'discovery.goal.office': 'Postural correction',
     'discovery.goal.stress': 'Deep peace of mind',
@@ -3945,27 +3954,27 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Office Workers
     'office.seo.title': 'Services for office workers - EKA Balance Barcelona',
-    'office.seo.desc': 'Specialized therapies for office workers: relieve tension, improve posture and manage work stress. 1 hour sessions for 70â‚¬.',
+    'office.seo.desc': 'Specialized wellness practices for office workers: relieve tension, improve posture and manage work stress. 1 hour sessions for 70â‚¬.',
     'office.seo.keywords': 'Office massage Barcelona, work stress, computer back pain, kinesiology workers',
 
     // Athletes SEO
     'athletes.seo.title': 'Services for athletes - EKA Balance Barcelona',
-    'athletes.seo.desc': 'Specialized therapies for athletes: muscle recovery, flexibility improvement and pre-competition stress management. 1 hour sessions for 70â‚¬.',
+    'athletes.seo.desc': 'Specialized wellness practices for athletes: muscle recovery, flexibility improvement and pre-competition stress management. 1 hour sessions for 70â‚¬.',
     'athletes.seo.keywords': 'Sports massage Barcelona, muscle recovery, sports flexibility, competition stress',
 
     // Artists SEO
     'artists.seo.title': 'Services for artists - EKA Balance Barcelona',
-    'artists.seo.desc': 'Therapies for visual artists and creators: hand care, posture improvement and creative unblocking. 1 hour sessions for 70â‚¬.',
+    'artists.seo.desc': 'wellness practices for visual artists and creators: hand care, posture improvement and creative unblocking. 1 hour sessions for 70â‚¬.',
     'artists.seo.keywords': 'Artists massage Barcelona, artists hand pain, creative posture, creative block',
 
     // Musicians SEO
     'musicians.seo.title': 'Services for musicians - EKA Balance Barcelona',
-    'musicians.seo.desc': 'Specialized therapies for musicians: injury prevention, technique improvement and stage anxiety management. 1 hour sessions for 70â‚¬.',
+    'musicians.seo.desc': 'Specialized wellness practices for musicians: injury prevention, technique improvement and stage anxiety management. 1 hour sessions for 70â‚¬.',
     'musicians.seo.keywords': 'Musicians physiotherapy Barcelona, musicians injuries, stage anxiety, musical technique',
 
     // Students SEO
     'students.seo.title': 'Services for students - EKA Balance Barcelona',
-    'students.seo.desc': 'Therapies for students: exam stress management, concentration improvement and postural correction. 1 hour sessions for 70â‚¬.',
+    'students.seo.desc': 'wellness practices for students: exam stress management, concentration improvement and postural correction. 1 hour sessions for 70â‚¬.',
     'students.seo.keywords': 'Exam stress Barcelona, study concentration, student posture, academic anxiety',
 
     'office.problems.pain.title': 'Postural pain',
@@ -4042,14 +4051,14 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.business.plans.enterprise.feat3': "Wellness metrics and reporting",
     'personalized.business.understanding.title': 'A healthy team is a happy team',
     'personalized.business.understanding.description1': 'Sitting for hours causes neck strain and mental fatigue. We help employees recover their energy and stay sharp.',
-    'personalized.business.understanding.description2': 'Whether you need weekly group classes, ergonomic consulting, or in-office therapies, we adjust our schedule to fit yours.',
+    'personalized.business.understanding.description2': 'Whether you need weekly group classes, ergonomic consulting, or in-office wellness practices, we adjust our schedule to fit yours.',
     'personalized.business.understanding.callToAction': 'Lets talk and build a plan tailored to your workplace.',
     'personalized.business.services.title': 'Corporate Services',
     'personalized.business.services.subtitle': 'Options built to improve health in a busy environment',
     'personalized.business.services.groupClasses.title': 'Group Posture & Stretching',
     'personalized.business.services.groupClasses.description': 'Friendly and effective sessions focusing on relieving desk-related back pain, done online or on-site.',
     'personalized.business.services.consulting.title': 'Consulting & In-Office Care',
-    'personalized.business.services.consulting.description': 'We evaluate your teams workspace and teach them how to stay pain-free. We can also provide manual therapy days right at your office.',
+    'personalized.business.services.consulting.description': 'We evaluate your teams workspace and teach them how to stay pain-free. We can also provide manual wellness practices days right at your office.',
     'personalized.business.faq.q1': 'Can you work around our schedule?',
     'personalized.business.faq.a1': 'Yes, we know you have meetings and deadlines. We seamlessly integrate into your workday.',
     'personalized.business.faq.q2': 'Do you come to our office?',
@@ -4076,8 +4085,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // First Time Visitor Form
     'firstTime.seo.title': "Don't know what to choose? - Find your ideal service at EKA Balance",
-    'firstTime.seo.desc': 'Intelligent personalized system to discover the perfect holistic therapy service for your specific needs. Empathetic recommendations based on who you are and what you are looking for.',
-    'firstTime.seo.keywords': "Don't know what to choose, personalized form, therapy recommendations, ideal service, Barcelona, intelligent onboarding",
+    'firstTime.seo.desc': 'Intelligent personalized system to discover the perfect holistic wellness practices service for your specific needs. Empathetic recommendations based on who you are and what you are looking for.',
+    'firstTime.seo.keywords': "Don't know what to choose, personalized form, wellness practices recommendations, ideal service, Barcelona, intelligent onboarding",
 
     // VIP Section
     'vip.plan.bronze': 'Bronze membership',
@@ -4093,7 +4102,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.service.priority.title': 'Priority access',
     'vip.service.priority.description': 'Skip the wait. Your schedule is our priority, with exclusive slots reserved just for you.',
     'vip.service.displacements.title': 'Concierge home visits',
-    'vip.service.displacements.description': 'We bring the sanctuary to you. Save time and enjoy world-class treatments in the privacy of your home.',
+    'vip.service.displacements.description': 'We bring the sanctuary to you. Save time and enjoy world-class approach in the privacy of your home.',
     'vip.service.health.title': 'Proactive health monitoring',
     'vip.service.health.description': 'We don’t just treat; we track. Regular assessments ensure your physical health is always progressing.',
     'vip.service.family.title': 'Family privileges',
@@ -4127,7 +4136,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.hero.badge': 'Ultra premium',
     'vip.hero.title.beyond': 'Beyond',
     'vip.hero.title.wellness': 'Wellness',
-    'vip.hero.subtitle': 'Step into a realm where your health is our sole focus. Unparalleled attention, priority access, and bespoke treatments designed for the few.',
+    'vip.hero.subtitle': 'Step into a realm where your health is our sole focus. Unparalleled attention, priority access, and bespoke approach designed for the few.',
     'vip.hero.cta.join': 'Apply for membership',
 
     'vip.dashboard.member': 'Member lounge',
@@ -4138,7 +4147,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     'vip.features.badge': 'Excellence',
     'vip.features.title': 'Curated for the elite',
-    'vip.features.subtitle': 'Every detail is orchestrated to provide an experience that transcends traditional therapy.',
+    'vip.features.subtitle': 'Every detail is orchestrated to provide an experience that transcends traditional wellness practices.',
 
     'vip.plans.badge': 'Membership',
     'vip.plans.title': 'Select your legacy',
@@ -4176,8 +4185,8 @@ const translations: Record<Language, Record<string, string>> = {
     'about.badge': 'My journey',
     'about.title': 'Elena Kucherova',
     'about.role': 'Somatic integration specialist',
-    'about.description1': 'With over 15 years of professional practice, i have refined a method that goes beyond conventional treatment. My mission is to decode your body language to unlock its innate regeneration capacity.',
-    'about.description2': 'I fuse neuroscience precision with manual therapy depth. Each session is a strategic intervention in your nervous system to deactivate pain patterns and restore vital Balance.',
+    'about.description1': 'With over 15 years of professional practice, i have refined a method that goes beyond conventional approach. My mission is to decode your body language to unlock its innate regeneration capacity.',
+    'about.description2': 'I fuse neuroscience precision with manual wellness practices depth. Each session is a strategic intervention in your nervous system to deactivate pain patterns and restore vital Balance.',
     'about.cta': 'Discover the method',
 
     // Services General
@@ -4187,7 +4196,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.cta': 'Explore protocols',
 
     // Service: Massage
-    'massage.title': 'Advanced manual therapy',
+    'massage.title': 'Advanced manual wellness practices',
     'massage.desc': 'Reconstruction of body architecture. Fusion of deep tissue techniques and myofascial release to eliminate chronic restrictions.',
     'massage.benefit1': 'Structural decompression',
     'massage.benefit2': 'Postural realignment',
@@ -4197,7 +4206,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Service: Kinesiology
     'kinesiology.title': 'Applied kinesiology',
     'kinesiology.desc': 'Precision biofeedback. We use neurological muscle testing to decode and correct structural, biochemical, and emotional dysfunctions.',
-    'kinesiology.benefit1': 'Causal diagnosis',
+    'kinesiology.benefit1': 'Causal assessment',
     'kinesiology.benefit2': 'Neurological optimization',
     'kinesiology.benefit3': 'Structural integration',
     'kinesiology.benefit4': 'Systemic stability',
@@ -4211,7 +4220,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nutrition.benefit4': 'Hormonal regulation',
 
     // Problems
-    'problems.badge': 'Diagnosis & resolution',
+    'problems.badge': 'assessment & resolution',
     'problems.title': 'Pathology identification',
     'problems.subtitle': 'Integrative Approach to common dysfunctions via somatic integration protocols.',
     'problems.backpain.title': 'Chronic vertebral dysfunction',
@@ -4281,7 +4290,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.plan.pack3.name': 'Wellness pack (3)',
     'pricing.plan.pack3.desc': 'Pack of 3 sessions for continuous follow-up',
     'pricing.plan.pack5.name': 'Transformation pack (5)',
-    'pricing.plan.pack5.desc': 'Comprehensive treatment for deep changes',
+    'pricing.plan.pack5.desc': 'Comprehensive approach for deep changes',
 
     'pricing.feature.massage': 'Therapeutic massage',
     'pricing.feature.kinesiology': 'Kinesiology',
@@ -4303,7 +4312,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.guarantee.equipment.desc': 'We use only top quality equipment and products',
 
     'pricing.cta.unsure.title': 'Not sure which plan to choose?',
-    'pricing.cta.unsure.subtitle': 'Take our free assessment and discover which treatment best fits your needs',
+    'pricing.cta.unsure.subtitle': 'Take our free assessment and discover which approach best fits your needs',
     'pricing.cta.unsure.button': 'Discover our services',
 
     // Booking Popup
@@ -4390,7 +4399,7 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.approach.desc': 'En el núcleo de mi trabajo yace una profunda comprensión de que el cuerpo, el cerebro y las emociones son un sistema unificado. No trato síntomas, sino que busco su causa raíz, ayudando al organismo a restaurar su capacidad natural de autorregulación. Mi método combina técnicas avanzadas de trabajo con el cuerpo y el sistema nervioso: Movement Lesson, JKA (Jeremy Krauss Approach), child’space, Feldenkrais y biodinámica. Es una influencia suave pero poderosa que reentrena el sistema nervioso, libera tensiones profundas y restaura la facilidad de movimiento y la claridad mental.',
 
     'elena.target.adults.title': 'Adultos',
-    'elena.target.adults.desc': 'Para quienes sienten fatiga crónica, dolor de espalda o cuello, o los efectos del estrés y el trauma. Te ayudo a restaurar tu estado de recursos, mejorar la postura, liberar bloqueos psicosomáticos y recuperar la ligereza al moverte. No es solo un masaje o una terapia; es un reinicio de tu sistema nervioso para elevar tu calidad de vida.',
+    'elena.target.adults.desc': 'Para quienes sienten fatiga crónica, dolor de espalda o cuello, o los efectos del estrés y el trauma. Te ayudo a restaurar tu estado de recursos, mejorar la postura, liberar bloqueos psicosomáticos y recuperar la ligereza al moverte. No es solo un masaje o una prácticas de bienestar; es un reinicio de tu sistema nervioso para elevar tu calidad de vida.',
 
     'elena.target.children.title': 'Niños',
     'elena.target.children.desc': 'Apoyo para un desarrollo armonioso desde los primeros días. Trabajo con retrasos motores, alteraciones posturales, hiperactividad y dificultades de aprendizaje. Mediante técnicas suaves, ayudo al niño a sentir mejor su cuerpo, desarrollando coordinación, seguridad y confianza en sí mismo.',
@@ -4416,19 +4425,19 @@ const translations: Record<Language, Record<string, string>> = {
     'about.badge': 'Mi trayectoria',
     'about.title': 'Elena Kucherova',
     'about.role': 'Especialista en integración somática y kinesiología',
-    'about.description1': 'Con más de 15 años de práctica clínica, he perfeccionado un método que va más allá del tratamiento convencional. Mi misión es decodificar el lenguaje de tu cuerpo para desbloquear su capacidad innata de regeneración.',
-    'about.description2': 'Fusiono la precisión de la neurociencia aplicada con la profundidad de las terapias manuales. Cada sesión es una intervención estratégica en tu sistema nervioso para desactivar patrones de dolor y restaurar el equilibrio vital.',
+    'about.description1': 'Con más de 15 años de práctica clínica, he perfeccionado un método que va más allá del enfoque convencional. Mi misión es decodificar el lenguaje de tu cuerpo para desbloquear su capacidad innata de regeneración.',
+    'about.description2': 'Fusiono la precisión de la neurociencia aplicada con la profundidad de las prácticas de bienestar manuales. Cada sesión es una intervención estratégica en tu sistema nervioso para desactivar patrones de dolor y restaurar el equilibrio vital.',
     'about.cta': 'Descubre el método',
 
     // Hero Section
     'hero.title': 'Vuelve a vivir sin dolor',
     'hero.title.part1': 'Encuentra alivio al',
     'hero.title.part2': 'dolor y estrés',
-    'hero.subtitle': 'Deja atrás la tensión crónica. Combinamos terapia somática y kinesiología para encontrar la raíz de tu problema y no solo adormecer el síntoma, para que disfrutes de verdadera libertad.',
+    'hero.subtitle': 'Deja atrás la tensión crónica. Combinamos prácticas de bienestar somática y kinesiología para encontrar la raíz de tu problema y no solo adormecer el síntoma, para que disfrutes de verdadera libertad.',
     'hero.cta.primary': 'Reserva tu sesión',
     'hero.cta.secondary': 'Descubre tu camino',
     'hero.badge': 'Excelencia en salud integrativa',
-    'hero.stats.clients': 'Pacientes tratados',
+    'hero.stats.clients': 'clients tratados',
     'hero.stats.experience': 'Años de práctica clínica',
     'hero.stats.rating': 'Excelencia terapéutica',
 
@@ -4445,11 +4454,11 @@ const translations: Record<Language, Record<string, string>> = {
     // Services Section
     'services.badge': 'Protocolos clínicos',
     'services.title': 'Intervenciones terapéuticas avanzadas',
-    'services.subtitle': 'Metodología integrativa que fusiona terapia manual, corrección biomecánica y regulación del sistema nervioso autónomo.',
-    'services.cta': 'Explorar tratamientos',
+    'services.subtitle': 'Metodología integrativa que fusiona prácticas de bienestar manual, corrección biomecánica y regulación del sistema nervioso autónomo.',
+    'services.cta': 'Explorar enfoque',
 
     // Service: Massage
-    'massage.title': 'Terapia manual avanzada',
+    'massage.title': 'prácticas de bienestar manual avanzada',
     'massage.desc': 'Restauración estructural profunda. Combinamos técnicas de tejido profundo con liberación miofascial para disolver la tensión crónica y restaurar la movilidad funcional.',
     'massage.benefit1': 'Alivio del dolor estructural',
     'massage.benefit2': 'Corrección biomecánica',
@@ -4458,8 +4467,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Service: Kinesiology
     'kinesiology.title': 'Kinesiología clínica',
-    'kinesiology.desc': 'Diagnóstico funcional preciso. Utilizamos el test muscular para identificar desequilibrios estructurales, químicos y emocionales, corrigiéndolos desde su origen neurológico.',
-    'kinesiology.benefit1': 'Diagnóstico sistémico',
+    'kinesiology.desc': 'evaluación funcional preciso. Utilizamos el test muscular para identificar desequilibrios estructurales, químicos y emocionales, corrigiéndolos desde su origen neurológico.',
+    'kinesiology.benefit1': 'evaluación sistémico',
     'kinesiology.benefit2': 'Equilibrio bioenergético',
     'kinesiology.benefit3': 'Optimización postural',
     'kinesiology.benefit4': 'Integración somática',
@@ -4473,35 +4482,35 @@ const translations: Record<Language, Record<string, string>> = {
     'nutrition.benefit4': 'Regulación hormonal',
 
     // Problems / Casos Section
-    'problems.badge': 'Diagnóstico y resolución',
+    'problems.badge': 'evaluación y resolución',
     'problems.title': 'Identificación clínica',
     'problems.subtitle': 'Análisis preciso de patologías para el desarrollo de estrategias terapéuticas efectivas.',
 
     // Problem: Back Pain
     'problems.backpain.title': 'Disfunción vertebral crónica',
     'problems.backpain.desc': 'Malestar estructural persistente que compromete el descanso y la funcionalidad laboral.',
-    'problems.backpain.solution': 'Protocolo clínico',
+    'problems.backpain.solution': 'Protocolo basado en ciencia',
     'problems.backpain.solutionDesc': 'Descompresión axial y neuromodulación postural para una corrección sostenida.',
 
     // Problem: Stress
     'problems.stress.title': 'Desregulación del sistema nervioso',
     'problems.stress.desc': 'Estado de hiperactivación, opresión torácica y ausencia de descanso reparador.',
-    'problems.stress.solution': 'Protocolo clínico',
-    'problems.stress.solutionDesc': 'Regulación vegetativa mediante terapia craneosacral y respiración controlada.',
+    'problems.stress.solution': 'Protocolo basado en ciencia',
+    'problems.stress.solutionDesc': 'Regulación vegetativa mediante prácticas de bienestar craneosacral y respiración controlada.',
 
     // Problem: Fatigue
     'problems.fatigue.title': 'Agotamiento sistémico',
     'problems.fatigue.desc': 'Letargo crónico y déficit energético que persiste tras el sueño.',
-    'problems.fatigue.solution': 'Protocolo clínico',
+    'problems.fatigue.solution': 'Protocolo basado en ciencia',
     'problems.fatigue.solutionDesc': 'Reactivación metabólica y desbloqueo bioenergético para restaurar la vitalidad.',
 
     // Problem: Injuries
     'problems.injuries.title': 'Rehabilitación funcional avanzada',
     'problems.injuries.desc': 'Limitaciones traumáticas que reducen el rendimiento deportivo y la biomecánica.',
-    'problems.injuries.solution': 'Protocolo clínico',
+    'problems.injuries.solution': 'Protocolo basado en ciencia',
     'problems.injuries.solutionDesc': 'Regeneración tisular acelerada y estabilización preventiva para el alto rendimiento.',
     'casos.problems.backPain.cause4': 'Respiración bloqueada o superficial',
-    'casos.problems.backPain.treatment': 'Trabajamos con masaje terapéutico, liberación miofascial, kinesiología para encontrar la causa profunda (estrés, bloqueo articular o visceral), y técnicas de reeducación postural (Feldenkrais).',
+    'casos.problems.backPain.approach': 'Trabajamos con masaje terapéutico, liberación miofascial, kinesiología para encontrar la causa profunda (estrés, bloqueo articular o visceral), y técnicas de reeducación postural (Feldenkrais).',
     'casos.problems.backPain.results': 'Muchas personas notan alivio inmediato y más movilidad después de la primera sesión. Con el tiempo, el cuerpo reaprende a sostenerse con menos esfuerzo y más fluidez.',
     'casos.problems.stress.symptom1': 'Pensamientos constantes y bucle mental',
     'casos.problems.stress.symptom2': 'Dificultad para relajarse o dormir',
@@ -4511,7 +4520,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.stress.cause2': 'Estrés crónico y falta de tiempo para uno mismo',
     'casos.problems.stress.cause3': 'Traumas no resueltos o experiencias difíciles',
     'casos.problems.stress.cause4': 'Desajuste del sistema nervioso autónomo',
-    'casos.problems.stress.treatment': 'Utilizamos kinesiología emocional y técnicas del sistema vagal para calmar el sistema nervioso. Añadimos trabajo corporal suave (Feldenkrais, respiración consciente) para enseñar al cuerpo a"salir de la lucha".',
+    'casos.problems.stress.approach': 'Utilizamos kinesiología emocional y técnicas del sistema vagal para calmar el sistema nervioso. Añadimos trabajo corporal suave (Feldenkrais, respiración consciente) para enseñar al cuerpo a"salir de la lucha".',
     'casos.problems.stress.results': 'La persona vuelve a dormir mejor, disminuye la tensión interna y recupera la sensación de control y serenidad.',
     'casos.problems.digestive.symptom1': 'Hinchazón abdominal, gases, reflujo o dolor después de comer',
     'casos.problems.digestive.symptom2': 'Cansancio o somnolencia después de las comidas',
@@ -4521,7 +4530,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.digestive.cause2': 'Alimentación irregular o estrés durante las comidas',
     'casos.problems.digestive.cause3': 'Estrés emocional que afecta la digestión',
     'casos.problems.digestive.cause4': 'Bloqueos viscerales que afectan la movilidad de los órganos',
-    'casos.problems.digestive.treatment': 'Aplicamos kinesiología nutricional para detectar intolerancias o déficits, técnicas de masaje visceral suave y recomendaciones alimentarias personalizadas.',
+    'casos.problems.digestive.approach': 'Aplicamos kinesiología nutricional para detectar intolerancias o déficits, técnicas de masaje visceral suave y recomendaciones alimentarias personalizadas.',
     'casos.problems.digestive.results': 'Mejora la digestión, desaparece la hinchazón y aumenta la energía diaria. El cliente aprende a escuchar su cuerpo y a adaptar su alimentación.',
     'casos.problems.migraines.symptom1': 'Dolor intenso de un lado de la cabeza o en la nuca',
     'casos.problems.migraines.symptom2': 'Presión ocular o sensación de casco',
@@ -4531,7 +4540,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.migraines.cause2': 'Tensión mandibular (bruxismo)',
     'casos.problems.migraines.cause3': 'Falta de descanso o exceso de estimulación mental',
     'casos.problems.migraines.cause4': 'Desequilibrios hormonales o alimentarios',
-    'casos.problems.migraines.treatment': 'Combinamos Osteobalance craneal, descarga muscular y técnicas vagales para equilibrar el sistema nervioso. También revisamos la respiración y la postura.',
+    'casos.problems.migraines.approach': 'Combinamos Osteobalance craneal, descarga muscular y técnicas vagales para equilibrar el sistema nervioso. También revisamos la respiración y la postura.',
     'casos.problems.migraines.results': 'Reducción de la frecuencia e intensidad de las migrañas. En muchos casos, desaparecen completamente después de regular el cuello y el cráneo.',
     'casos.problems.lowEnergy.symptom1': 'Cansancio constante a pesar de dormir bien',
     'casos.problems.lowEnergy.symptom2': 'Baja concentración y memoria',
@@ -4541,7 +4550,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.lowEnergy.cause2': 'Déficits nutricionales o desequilibrios metabólicos',
     'casos.problems.lowEnergy.cause3': 'Problemas hormonales (tiroides, adrenales)',
     'casos.problems.lowEnergy.cause4': 'Desgaste emocional y falta de propósito',
-    'casos.problems.lowEnergy.treatment': 'Usamos kinesiología para identificar desequilibrios químicos o emocionales, suplementación natural y técnicas de movimiento consciente.',
+    'casos.problems.lowEnergy.approach': 'Usamos kinesiología para identificar desequilibrios químicos o emocionales, suplementación natural y técnicas de movimiento consciente.',
     'casos.problems.lowEnergy.results': 'Mejora notable de la energía, claridad mental y estado de ánimo más estable.',
     'casos.problems.sleep.symptom1': 'Dificultad para dormirse o despertares nocturnos',
     'casos.problems.sleep.symptom2': 'Fatiga matinal, tensión o sueños intensos',
@@ -4551,7 +4560,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.sleep.cause2': 'Desajuste del sistema nervioso y ritmos circadianos',
     'casos.problems.sleep.cause3': 'Falta de rutina o higiene del sueño',
     'casos.problems.sleep.cause4': 'Problemas digestivos o hormonales',
-    'casos.problems.sleep.treatment': 'Integramos Feldenkrais, respiración guiada, técnicas vagales y kinesiología para equilibrar el sistema hormonal.',
+    'casos.problems.sleep.approach': 'Integramos Feldenkrais, respiración guiada, técnicas vagales y kinesiología para equilibrar el sistema hormonal.',
     'casos.problems.sleep.results': 'Mejora del sueño profundo y descanso reparador después de pocas sesiones.',
     'casos.problems.recovery.symptom1': 'Dolor residual o limitación articular',
     'casos.problems.recovery.symptom2': 'Sensación de debilidad o desequilibrio',
@@ -4561,7 +4570,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.recovery.cause2': 'Compensaciones musculares y posturales',
     'casos.problems.recovery.cause3': 'Trauma físico con componente emocional',
     'casos.problems.recovery.cause4': 'Memoria corporal de la experiencia traumática',
-    'casos.problems.recovery.treatment': 'Trabajamos con Osteobalance, reeducación postural y trabajo del sistema fascial. Acompañamos también la confianza corporal y la memoria del cuerpo.',
+    'casos.problems.recovery.approach': 'Trabajamos con Osteobalance, reeducación postural y trabajo del sistema fascial. Acompañamos también la confianza corporal y la memoria del cuerpo.',
     'casos.problems.recovery.results': 'Recuperación de la movilidad, alivio del dolor y sensación de seguridad en el movimiento.',
 
     // Contact Form
@@ -4616,10 +4625,10 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.time.evening': 'Noche (18:00 - 21:00)',
     'contact.time.any': 'Sin preferencia',
 
-    // Symptoms, causes, treatment, results labels
-    'casos.symptoms': 'Síntomas',
+    // Symptoms, causes, approach, results labels
+    'casos.concerns': 'concerns',
     'casos.causes': 'Causas',
-    'casos.treatment': 'Cómo te ayudamos',
+    'casos.approach': 'Cómo te ayudamos',
     'casos.results': 'Resultados',
 
     // Additional problems list
@@ -4665,14 +4674,14 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Discounts page
     'discounts.pageTitle': 'Descuentos - EKA Balance',
-    'discounts.pageDescription': 'Descubre nuestros descuentos especiales para servicios de bienestar y terapias',
+    'discounts.pageDescription': 'Descubre nuestros descuentos especiales para servicios de bienestar y prácticas de bienestar',
     'discounts.badge': 'Ofertas especiales',
     'discounts.title': 'Descuentos especiales',
     'discounts.subtitle': 'Disfruta de precios reducidos en nuestros servicios de bienestar con nuestros descuentos exclusivos',
     'discounts.availableTitle': 'Descuentos disponibles',
     'discounts.availableSubtitle': 'Aprovecha estas ofertas especiales para comenzar tu camino hacia el bienestar',
     'discounts.mykolaFriend.description': 'Descuento especial del 20% para amigos de mykola. Válido para todas las sesiones y servicios.',
-    'discounts.conocidoMykola.description': 'Descuento del 10% para conocidos de mykola. Aplicable a todos nuestros tratamientos.',
+    'discounts.conocidoMykola.description': 'Descuento del 10% para conocidos de mykola. Aplicable a todos nuestros enfoque.',
     'discounts.off': 'Descuento',
     'discounts.active': 'Activo',
     'discounts.code': 'Código',
@@ -4692,7 +4701,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Personalized Services
     'personalizedServices.title': 'Programas especializados',
-    'personalizedServices.subtitle': 'Descubre terapias adaptadas específicamente a tu profesión y estilo de vida',
+    'personalizedServices.subtitle': 'Descubre prácticas de bienestar adaptadas específicamente a tu profesión y estilo de vida',
     'personalizedServices.cta': 'Reserva tu sesión',
     'personalizedServices.difference.title': 'Diferencia entre servicios',
     'personalizedServices.main.title': 'Servicios principales',
@@ -4780,7 +4789,7 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.form.submit': 'Tramitar solicitud',
 
     // Options
-    'booking.options.service.massage': 'Terapia manual',
+    'booking.options.service.massage': 'prácticas de bienestar manual',
     'booking.options.service.kinesiology': 'Kinesiología clínica',
     'booking.options.service.osteobalance': 'Osteobalance',
     'booking.options.service.movementLesson': 'Movement Lesson',
@@ -4836,7 +4845,7 @@ const translations: Record<Language, Record<string, string>> = {
     'athletes.help2.desc': 'Restauración de la movilidad articular y la eficiencia neuromuscular',
     'athletes.help3.title': 'Regulación autonómica',
     'athletes.help3.desc': 'Estrategias somáticas para el control del estrés y la focalización',
-    'athletes.result.title': 'Impacto clínico',
+    'athletes.result.title': 'Impacto basado en ciencia',
     'athletes.result.desc': 'Maximización del rendimiento, longevidad deportiva y resiliencia física',
     'athletes.stats.recovery': 'Recuperación óptima',
     'athletes.stats.flexibility': 'Movilidad funcional',
@@ -4856,12 +4865,12 @@ const translations: Record<Language, Record<string, string>> = {
     'artists.challenge3.desc': 'Restricción física que impacta en la fluidez y expresión creativa',
     'artists.help.title': 'Intervención clínica',
     'artists.help1.title': 'Rehabilitación de la motricidad',
-    'artists.help1.desc': 'Terapia manual específica para restaurar la función de manos y muñecas',
+    'artists.help1.desc': 'prácticas de bienestar manual específica para restaurar la función de manos y muñecas',
     'artists.help2.title': 'Reeducación ergonómica',
     'artists.help2.desc': 'Optimización biomecánica del gesto creativo para prevenir lesiones',
     'artists.help3.title': 'Desbloqueo somático',
     'artists.help3.desc': 'Liberación de tensiones profundas para facilitar el flujo artístico',
-    'artists.result.title': 'Impacto clínico',
+    'artists.result.title': 'Impacto basado en ciencia',
     'artists.result.desc': 'Sostenibilidad de la práctica artística y libertad de movimiento',
     'artists.stats.confidence': 'Confianza creativa',
     'artists.stats.tension': 'Alivio tensional',
@@ -4875,7 +4884,7 @@ const translations: Record<Language, Record<string, string>> = {
     'musicians.hero.title': 'Músicos profesionales',
     'musicians.hero.subtitle': 'Ergonomía instrumental, prevención de distonías y optimización del gesto técnico',
     'musicians.problems.title': 'Patologías específicas',
-    'musicians.problems.subtitle': 'Abordaje clínico de las disfunciones musculoesqueléticas asociadas a la práctica instrumental',
+    'musicians.problems.subtitle': 'Abordaje basado en ciencia de las disfunciones musculoesqueléticas asociadas a la práctica instrumental',
     'musicians.problem1.title': 'Síndromes de sobrecarga',
     'musicians.problem1.desc': 'Tendinopatías y atrapamientos nerviosos derivados de la repetición motriz',
     'musicians.problem2.title': 'Disfunción postural',
@@ -4886,7 +4895,7 @@ const translations: Record<Language, Record<string, string>> = {
     'musicians.problem4.desc': 'Pérdida de control motor fino y coordinación neuromuscular',
     'musicians.help.title': 'Protocolo terapéutico',
     'musicians.help1.title': 'Rehabilitación funcional',
-    'musicians.help1.desc': 'Terapia manual avanzada para restaurar la biomecánica de la extremidad superior',
+    'musicians.help1.desc': 'prácticas de bienestar manual avanzada para restaurar la biomecánica de la extremidad superior',
     'musicians.help2.title': 'Reeducación postural',
     'musicians.help2.desc': 'Análisis ergonómico y corrección del gesto técnico instrumental',
     'musicians.help3.title': 'Control autonómico',
@@ -4898,13 +4907,13 @@ const translations: Record<Language, Record<string, string>> = {
     'musicians.plans.title': 'Programas de intervención',
     'musicians.plans.subtitle': 'Selecciona el nivel de asistencia clínica requerido',
     'musicians.plan1.name': 'Evaluación diagnóstica',
-    'musicians.plan1.desc': 'Valoración inicial y tratamiento de urgencia',
+    'musicians.plan1.desc': 'Valoración inicial y enfoque de urgencia',
     'musicians.plan1.benefit1': 'Análisis biomecánico del gesto',
-    'musicians.plan1.benefit2': 'Terapia manual focalizada',
+    'musicians.plan1.benefit2': 'prácticas de bienestar manual focalizada',
     'musicians.plan1.benefit3': 'Pautas ergonómicas inmediatas',
-    'musicians.plan1.benefit4': 'Informe clínico preliminar',
-    'musicians.plan1.result': 'Diagnóstico funcional y alivio sintomático',
-    'musicians.plan2.name': 'Tratamiento intensivo',
+    'musicians.plan1.benefit4': 'Informe basado en ciencia preliminar',
+    'musicians.plan1.result': 'evaluación funcional y alivio sintomático',
+    'musicians.plan2.name': 'enfoque intensivo',
     'musicians.plan2.desc': 'Protocolo de recuperación funcional',
     'musicians.plan2.benefit1': 'Todo lo incluido en evaluación',
     'musicians.plan2.benefit2': 'Seguimiento evolutivo semanal',
@@ -4958,9 +4967,9 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'Preguntas frecuentes',
     'faq.subtitle': 'Encuentra respuestas a las preguntas más comunes sobre nuestros servicios',
     'faq.q1.question': '¿Cuánto dura una sesión típica?',
-    'faq.q1.answer': 'Las sesiones suelen durar entre 60 y 90 minutos, dependiendo del tratamiento elegido y tus necesidades específicas.',
+    'faq.q1.answer': 'Las sesiones suelen durar entre 60 y 90 minutos, dependiendo del enfoque elegido y tus necesidades específicas.',
     'faq.q2.question': '¿Necesito experiencia previa?',
-    'faq.q2.answer': 'No se necesita experiencia previa. Todos nuestros tratamientos se adaptan a tu nivel y necesidades específicas.',
+    'faq.q2.answer': 'No se necesita experiencia previa. Todos nuestros enfoque se adaptan a tu nivel y necesidades específicas.',
     'faq.q3.question': '¿Con qué frecuencia debería venir?',
     'faq.q3.answer': 'Dependiendo de tus objetivos, recomendamos 1-2 sesiones por semana inicialmente, y luego sesiones de mantenimiento mensuales.',
     'faq.q4.question': '¿Qué métodos de pago aceptan?',
@@ -4971,7 +4980,7 @@ const translations: Record<Language, Record<string, string>> = {
     // First Time Visitor Form
     'form.badge': 'Descubrimiento personalizado',
     'form.title': 'Encuentra el servicio perfecto para ti',
-    'form.subtitle': 'Responde unas preguntas rápidas y te ayudaremos a encontrar la terapia ideal',
+    'form.subtitle': 'Responde unas preguntas rápidas y te ayudaremos a encontrar la prácticas de bienestar ideal',
     'form.contactWhatsApp': 'Contactar por WhatsApp',
     'form.step': 'Paso',
     'form.of': 'De',
@@ -5011,19 +5020,19 @@ const translations: Record<Language, Record<string, string>> = {
     'form.time.standard': '1-1.5 horas',
     'form.time.long': 'Más de 1.5 horas',
 
-    'form.step4.question': '¿Qué experiencia tienes con terapias corporales?',
+    'form.step4.question': '¿Qué experiencia tienes con prácticas de bienestar corporales?',
     'form.experience.none': 'Es mi primera vez',
-    'form.experience.noneDesc': 'Nunca he recibido terapias corporales',
+    'form.experience.noneDesc': 'Nunca he recibido prácticas de bienestar corporales',
     'form.experience.some': 'Tengo algo de experiencia',
-    'form.experience.someDesc': 'He ido alguna vez a masajes o terapias',
+    'form.experience.someDesc': 'He ido alguna vez a masajes o prácticas de bienestar',
     'form.experience.experienced': 'Tengo experiencia',
-    'form.experience.experiencedDesc': 'Recibo terapias regularmente',
+    'form.experience.experiencedDesc': 'Recibo prácticas de bienestar regularmente',
 
     'form.step5.question': '¿Qué tipo de intensidad prefieres?',
     'form.intensity.gentle': 'Suave y relajante',
-    'form.intensity.gentleDesc': 'Prefiero un tratamiento suave y tranquilo',
+    'form.intensity.gentleDesc': 'Prefiero un enfoque suave y tranquilo',
     'form.intensity.medium': 'Moderada',
-    'form.intensity.mediumDesc': 'Tratamiento equilibrado entre relajación y trabajo profundo',
+    'form.intensity.mediumDesc': 'enfoque equilibrado entre relajación y trabajo profundo',
     'form.intensity.deep': 'Intensa y profunda',
     'form.intensity.deepDesc': 'Quiero un trabajo profundo para tensiones específicas',
 
@@ -5035,7 +5044,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.benefits': 'Beneficios principales',
 
     'form.recommendation.officeWorker.title': 'Sesión para trabajadores de oficina',
-    'form.recommendation.officeWorker.desc': 'Terapia especializada para aliviar tensiones del trabajo sedentario, mejorar la postura y reducir el estrés laboral',
+    'form.recommendation.officeWorker.desc': 'prácticas de bienestar especializada para aliviar tensiones del trabajo sedentario, mejorar la postura y reducir el estrés laboral',
     'form.recommendation.officeWorker.benefit1': 'Alivia dolor cervical y de espalda',
     'form.recommendation.officeWorker.benefit2': 'Mejora la postura frente al ordenador',
     'form.recommendation.officeWorker.benefit3': 'Reduce el estrés laboral',
@@ -5056,7 +5065,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.artist.benefit4': 'Previene lesiones por uso repetitivo',
 
     'form.recommendation.musician.title': 'Sesión para músicos',
-    'form.recommendation.musician.desc': 'Terapia especializada para músicos: prevención de lesiones, mejora de la técnica y gestión de la ansiedad escénica',
+    'form.recommendation.musician.desc': 'prácticas de bienestar especializada para músicos: prevención de lesiones, mejora de la técnica y gestión de la ansiedad escénica',
     'form.recommendation.musician.benefit1': 'Previene lesiones musicales',
     'form.recommendation.musician.benefit2': 'Mejora técnica',
     'form.recommendation.musician.benefit3': 'Gestiona ansiedad escénica',
@@ -5070,8 +5079,8 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.student.benefit4': 'Más energía para estudiar',
 
     'form.recommendation.holistic.title': 'Sesión holística integral',
-    'form.recommendation.holistic.desc': 'Combinación de masaje terapéutico y kinesiología para un tratamiento completo del cuerpo y las emociones',
-    'form.recommendation.holistic.benefit1': 'Tratamiento integral',
+    'form.recommendation.holistic.desc': 'Combinación de masaje terapéutico y kinesiología para un enfoque completo del cuerpo y las emociones',
+    'form.recommendation.holistic.benefit1': 'enfoque integral',
     'form.recommendation.holistic.benefit2': 'Equilibrio cuerpo-mente',
     'form.recommendation.holistic.benefit3': 'Alivia tensiones físicas',
     'form.recommendation.holistic.benefit4': 'Gestiona emociones',
@@ -5084,7 +5093,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.therapeutic.benefit4': 'Relajación profunda',
 
     'form.recommendation.kinesiology.title': 'Kinesiología holística',
-    'form.recommendation.kinesiology.desc': 'Terapia que combina técnicas corporales y emocionales para reequilibrar tu estado general',
+    'form.recommendation.kinesiology.desc': 'prácticas de bienestar que combina técnicas corporales y emocionales para reequilibrar tu estado general',
 
 
     'form.recommendation.kinesiology.benefit1': 'Equilibrio emocional',
@@ -5099,36 +5108,36 @@ const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.discovery.benefit3': 'Primera experiencia',
     'form.recommendation.discovery.benefit4': 'Orientación profesional',
 
-    'seo.students.title': 'Terapias para estudiantes | EKA Balance',
+    'seo.students.title': 'prácticas de bienestar para estudiantes | EKA Balance',
     'seo.students.description': 'Alivio del estrés y mejora de la postura para estudiantes. Sesiones personalizadas para mejorar la concentración y reducir la tensión de estudio.',
-    'seo.students.keywords': 'Terapia estudiantes, alivio estrés estudio, corrección postura, mejora concentración, masaje estudiantes Barcelona',
+    'seo.students.keywords': 'prácticas de bienestar estudiantes, alivio estrés estudio, corrección postura, mejora concentración, masaje estudiantes Barcelona',
 
     'seo.officeWorkers.title': 'Bienestar para trabajadores de oficina | EKA Balance',
     'seo.officeWorkers.description': 'Soluciones para el dolor de espalda, cuello y muñecas causado por el trabajo de oficina. Mejora tu postura y reduce el estrés laboral.',
     'seo.officeWorkers.keywords': 'Ergonomía oficina, dolor espalda oficina, síndrome túnel carpiano, alivio estrés laboral, masaje ejecutivo Barcelona',
 
     'seo.musicians.title': 'Fisioterapia y bienestar para músicos | EKA Balance',
-    'seo.musicians.description': 'Tratamientos especializados para músicos. Prevención de lesiones, mejora del rendimiento y gestión de la ansiedad escénica.',
-    'seo.musicians.keywords': 'Terapia músicos, lesiones músicos, ansiedad escénica, ergonomía musical, fisioterapia artes escénicas',
+    'seo.musicians.description': 'enfoque especializados para músicos. Prevención de lesiones, mejora del rendimiento y gestión de la ansiedad escénica.',
+    'seo.musicians.keywords': 'prácticas de bienestar músicos, lesiones músicos, ansiedad escénica, ergonomía musical, fisioterapia artes escénicas',
 
-    'seo.artists.title': 'Terapias para artistas - Creatividad y bienestar | EKA Balance',
+    'seo.artists.title': 'prácticas de bienestar para artistas - Creatividad y bienestar | EKA Balance',
     'seo.artists.description': 'Servicios para artistas de todas las disciplinas. Desbloquea tu creatividad, reduce el estrés y mejora tu expresión artística.',
-    'seo.artists.keywords': 'Terapias artistas, creatividad, bienestar emocional, expresión artística, arteterapia Barcelona',
+    'seo.artists.keywords': 'prácticas de bienestar artistas, creatividad, bienestar emocional, expresión artística, arteterapia Barcelona',
 
     'seo.adults.title': 'Bienestar integral para adultos - Salud y equilibrio | EKA Balance',
-    'seo.adults.description': 'Tratamientos personalizados para adultos: gestión del estrés, dolor crónico y mejora de la calidad de vida. Masaje, kinesiología y más.',
+    'seo.adults.description': 'enfoque personalizados para adultos: gestión del estrés, dolor crónico y mejora de la calidad de vida. Masaje, kinesiología y más.',
     'seo.adults.keywords': 'Bienestar adultos, gestión estrés, dolor crónico, masaje terapéutico, kinesiología Barcelona',
 
-    'seo.children.title': 'Terapias para niños - Desarrollo y crecimiento | EKA Balance',
+    'seo.children.title': 'prácticas de bienestar para niños - Desarrollo y crecimiento | EKA Balance',
     'seo.children.description': 'Apoyo al desarrollo infantil a través de kinesiología y métodos suaves. Ayudamos en problemas de aprendizaje, emocionales y de coordinación.',
-    'seo.children.keywords': 'Terapias niños, desarrollo infantil, kinesiología niños, problemas aprendizaje, coordinación psicomotriz Barcelona',
+    'seo.children.keywords': 'prácticas de bienestar niños, desarrollo infantil, kinesiología niños, problemas aprendizaje, coordinación psicomotriz Barcelona',
 
     'seo.families.title': 'Bienestar para familias - Armonía y conexión | EKA Balance',
-    'seo.families.description': 'Espacio de salud para toda la familia. Mejora la convivencia, reduce tensiones y encuentra el equilibrio familiar con nuestras terapias sistémicas.',
-    'seo.families.keywords': 'Bienestar familiar, terapia familiar, armonía hogar, kinesiología familiar, relaciones padres hijos Barcelona',
+    'seo.families.description': 'Espacio de salud para toda la familia. Mejora la convivencia, reduce tensiones y encuentra el equilibrio familiar con nuestras prácticas de bienestar sistémicas.',
+    'seo.families.keywords': 'Bienestar familiar, prácticas de bienestar familiar, armonía hogar, kinesiología familiar, relaciones padres hijos Barcelona',
 
     'seo.athletes.title': 'Recuperación y rendimiento deportivo | EKA Balance',
-    'seo.athletes.description': 'Masaje deportivo y terapias de recuperación para atletas. Mejora tu rendimiento, previene lesiones y recupérate más rápido.',
+    'seo.athletes.description': 'Masaje deportivo y prácticas de bienestar de recuperación para atletas. Mejora tu rendimiento, previene lesiones y recupérate más rápido.',
     'seo.athletes.keywords': 'Masaje deportivo, recuperación atletas, prevención lesiones deportivas, mejora rendimiento, fisioterapia deportiva Barcelona',
 
     'seo.parents.title': 'Bienestar y energía para padres | EKA Balance',
@@ -5166,8 +5175,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // SEO
     'seo.home.title': 'EKA Balance | masaje terapéutico y kinesiología en Barcelona',
-    'seo.home.description': 'Centro de bienestar integral en Barcelona. Especialistas en masaje terapéutico, kinesiología holística y terapias personalizadas para aliviar el dolor y el estrés.',
-    'seo.home.keywords': 'Masaje Barcelona, kinesiología, bienestar, terapia manual, dolor de espalda, estrés, relajación',
+    'seo.home.description': 'Centro de bienestar integral en Barcelona. Especialistas en masaje terapéutico, kinesiología holística y prácticas de bienestar personalizadas para aliviar el dolor y el estrés.',
+    'seo.home.keywords': 'Masaje Barcelona, kinesiología, bienestar, prácticas de bienestar manual, dolor de espalda, estrés, relajación',
 
     // Onboarding
     'onboarding.welcome.title': 'Bienvenido a tu experiencia personalizada',
@@ -5186,28 +5195,28 @@ const translations: Record<Language, Record<string, string>> = {
     'onboarding.results.personalizedInfo': 'Información personalizada',
 
     // Personalized Pages SEO
-    'personalized.office.title': 'Terapias para trabajadores de oficina | EKA Balance',
-    'personalized.office.description': 'Alivia el dolor de espalda y el estrés laboral con nuestras terapias especializadas para trabajadores de oficina en Barcelona.',
+    'personalized.office.title': 'prácticas de bienestar para trabajadores de oficina | EKA Balance',
+    'personalized.office.description': 'Alivia el dolor de espalda y el estrés laboral con nuestras prácticas de bienestar especializadas para trabajadores de oficina en Barcelona.',
     'personalized.office.keywords': 'Masaje oficina, dolor espalda ordenador, estrés laboral, ergonomía, Barcelona',
 
     'personalized.athletes.title': 'Masaje deportivo y recuperación | EKA Balance',
-    'personalized.athletes.description': 'Mejora tu rendimiento y acelera tu recuperación con nuestros masajes deportivos y terapias para atletas en Barcelona.',
+    'personalized.athletes.description': 'Mejora tu rendimiento y acelera tu recuperación con nuestros masajes deportivos y prácticas de bienestar para atletas en Barcelona.',
     'personalized.athletes.keywords': 'Masaje deportivo, recuperación muscular, lesiones deportivas, rendimiento, Barcelona',
 
     'personalized.artists.title': 'Bienestar para artistas y creativos | EKA Balance',
-    'personalized.artists.description': 'Cuida tus manos y tu postura. Terapias especializadas para artistas visuales, músicos y creativos en Barcelona.',
+    'personalized.artists.description': 'Cuida tus manos y tu postura. prácticas de bienestar especializadas para artistas visuales, músicos y creativos en Barcelona.',
     'personalized.artists.keywords': 'Masaje artistas, dolor manos, postura creativa, bienestar creativos, Barcelona',
 
     'personalized.musicians.title': 'Fisioterapia y masaje para músicos | EKA Balance',
-    'personalized.musicians.description': 'Prevención de lesiones y mejora del rendimiento para músicos. Tratamientos especializados en Barcelona.',
+    'personalized.musicians.description': 'Prevención de lesiones y mejora del rendimiento para músicos. enfoque especializados en Barcelona.',
     'personalized.musicians.keywords': 'Masaje músicos, lesiones músicos, distonía focal, postura musical, Barcelona',
 
     'personalized.students.title': 'Relajación y concentración para estudiantes | EKA Balance',
-    'personalized.students.description': 'Reduce el estrés de los exámenes y mejora tu concentración con nuestras terapias para estudiantes en Barcelona.',
+    'personalized.students.description': 'Reduce el estrés de los exámenes y mejora tu concentración con nuestras prácticas de bienestar para estudiantes en Barcelona.',
     'personalized.students.keywords': 'Estrés exámenes, concentración, postura estudio, masaje estudiantes, Barcelona',
 
     'personalized.parents.title': 'Bienestar para padres y madres | EKA Balance',
-    'personalized.parents.description': 'Encuentra tu momento de paz. Terapias para aliviar el estrés y la fatiga de la crianza en Barcelona.',
+    'personalized.parents.description': 'Encuentra tu momento de paz. prácticas de bienestar para aliviar el estrés y la fatiga de la crianza en Barcelona.',
     'personalized.parents.keywords': 'Estrés padres, posparto, fatiga crianza, masaje relax, Barcelona',
 
     // Common
@@ -5246,9 +5255,9 @@ const translations: Record<Language, Record<string, string>> = {
     'elena.seo.keywords': 'Elena terapeuta, masaje Barcelona, kinesiología, terapeuta holística, bienestar',
 
     // Casos SEO
-    'casos.seo.title': 'Casos de éxito y tratamientos | EKA Balance',
-    'casos.seo.desc': 'Descubre cómo hemos ayudado a nuestros clientes a superar dolor de espalda, estrés, ansiedad y otros problemas de salud con nuestras terapias personalizadas.',
-    'casos.seo.keywords': 'Casos éxito, testimonios masaje, tratamiento dolor espalda, alivio estrés, resultados terapia',
+    'casos.seo.title': 'Casos de éxito y enfoque | EKA Balance',
+    'casos.seo.desc': 'Descubre cómo hemos ayudado a nuestros clientes a superar dolor de espalda, estrés, ansiedad y otros problemas de salud con nuestras prácticas de bienestar personalizadas.',
+    'casos.seo.keywords': 'Casos éxito, testimonios masaje, enfoque dolor espalda, alivio estrés, resultados prácticas de bienestar',
 
     // Contact SEO
     'seo.contact.title': 'Contacto y reservas | EKA Balance Barcelona',
@@ -5256,19 +5265,19 @@ const translations: Record<Language, Record<string, string>> = {
     'seo.contact.keywords': 'Contacto EKA Balance, reservar masaje Barcelona, cita kinesiología, ubicación centro bienestar',
 
     // Services SEO
-    'seo.services.title': 'Servicios de bienestar y terapias | EKA Balance',
+    'seo.services.title': 'Servicios de bienestar y prácticas de bienestar | EKA Balance',
     'seo.services.description': 'Explora nuestra gama de servicios: masaje terapéutico, kinesiología, nutrición consciente y planes personalizados para tu salud.',
-    'seo.services.keywords': 'Servicios bienestar, masaje terapéutico, kinesiología holística, nutrición, terapias Barcelona',
+    'seo.services.keywords': 'Servicios bienestar, masaje terapéutico, kinesiología holística, nutrición, prácticas de bienestar Barcelona',
 
     // Personalized SEO
-    'seo.personalized.title': 'Terapias personalizadas por profesión | EKA Balance',
-    'seo.personalized.description': 'Tratamientos adaptados a tu estilo de vida: oficina, deporte, arte, música o estudios. Encuentra el equilibrio en tu día a día.',
-    'seo.personalized.keywords': 'Terapias personalizadas, masaje oficina, masaje deportivo, salud músicos, bienestar artistas',
+    'seo.personalized.title': 'prácticas de bienestar personalizadas por profesión | EKA Balance',
+    'seo.personalized.description': 'enfoque adaptados a tu estilo de vida: oficina, deporte, arte, música o estudios. Encuentra el equilibrio en tu día a día.',
+    'seo.personalized.keywords': 'prácticas de bienestar personalizadas, masaje oficina, masaje deportivo, salud músicos, bienestar artistas',
 
     // VIP SEO
     'seo.vip.title': 'Club VIP y membresías | EKA Balance',
     'seo.vip.description': 'Únete a nuestro club exclusivo y disfruta de descuentos, prioridad en reservas y seguimiento personalizado para tu bienestar continuo.',
-    'seo.vip.keywords': 'Club VIP bienestar, membresía masaje, descuentos terapia, salud exclusiva Barcelona',
+    'seo.vip.keywords': 'Club VIP bienestar, membresía masaje, descuentos prácticas de bienestar, salud exclusiva Barcelona',
 
     // Massage SEO
     'seo.massage.title': 'Masaje terapéutico y relajante | EKA Balance',
@@ -5278,7 +5287,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Kinesiology SEO
     'seo.kinesiology.title': 'Kinesiología holística y emocional | EKA Balance',
     'seo.kinesiology.description': 'Equilibra cuerpo y mente con kinesiología. Detecta y trata el origen de tus problemas físicos y emocionales.',
-    'seo.kinesiology.keywords': 'Kinesiología holística, test muscular, equilibrio emocional, terapia natural, Barcelona',
+    'seo.kinesiology.keywords': 'Kinesiología holística, test muscular, equilibrio emocional, prácticas de bienestar natural, Barcelona',
 
     // Nutrition SEO
     'seo.nutrition.title': 'Nutrición consciente y saludable | EKA Balance',
@@ -5337,8 +5346,8 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.officeWorkers.understanding.callToAction': 'Solicitar protocolo',
     'personalized.officeWorkers.services.title': 'Intervención clínica',
     'personalized.officeWorkers.services.subtitle': 'Recuperación funcional para ejecutivos',
-    'personalized.officeWorkers.services.therapeuticMassage.title': 'Terapia manual avanzada',
-    'personalized.officeWorkers.services.therapeuticMassage.description': 'Tratamiento profundo de la musculatura antigravitatoria y cervical.',
+    'personalized.officeWorkers.services.therapeuticMassage.title': 'prácticas de bienestar manual avanzada',
+    'personalized.officeWorkers.services.therapeuticMassage.description': 'enfoque profundo de la musculatura antigravitatoria y cervical.',
     'personalized.officeWorkers.services.feldenkrais.title': 'Reeducación somática',
     'personalized.officeWorkers.services.feldenkrais.description': 'Optimización de la postura sedente y la eficiencia biomecánica.',
     'personalized.artists.hero.title': 'Artistas visuales',
@@ -5348,13 +5357,13 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.artists.understanding.description2': 'Compromiso musculoesquelético derivado de posturas estáticas prolongadas.',
     'personalized.artists.understanding.callToAction': 'Te ayudamos a liberar restricciones físicas que impactan en el flujo creativo.',
     'personalized.artists.services.title': 'Intervención clínica',
-    'personalized.artists.services.subtitle': 'Tratamientos especializados para artistas',
-    'personalized.artists.benefits.title': 'Impacto clínico',
+    'personalized.artists.services.subtitle': 'enfoque especializados para artistas',
+    'personalized.artists.benefits.title': 'Impacto basado en ciencia',
     'personalized.artists.method.title': 'Protocolo para artistas',
     'personalized.artists.method.step1.title': 'Evaluación',
     'personalized.artists.method.step1.desc': 'Analizamos tu postura y gestos técnicos.',
-    'personalized.artists.method.step2.title': 'Tratamiento',
-    'personalized.artists.method.step2.desc': 'Terapia manual para liberar tensiones y dolor.',
+    'personalized.artists.method.step2.title': 'enfoque',
+    'personalized.artists.method.step2.desc': 'prácticas de bienestar manual para liberar tensiones y dolor.',
     'personalized.artists.method.step3.title': 'Prevención',
     'personalized.artists.method.step3.desc': 'Ejercicios y pautas para mantener la salud mientras creas.',
     'personalized.artists.benefits.benefit1': 'Sostenibilidad de la práctica artística y libertad de movimiento.',
@@ -5390,7 +5399,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.athletes.services.title': 'Intervención deportiva',
     'personalized.athletes.services.subtitle': 'Tecnología manual aplicada al deporte',
     'personalized.athletes.services.sportsMassage.title': 'Descarga muscular',
-    'personalized.athletes.services.sportsMassage.description': 'Terapia profunda para la eliminación de metabolitos y adherencias.',
+    'personalized.athletes.services.sportsMassage.description': 'prácticas de bienestar profunda para la eliminación de metabolitos y adherencias.',
     'personalized.athletes.services.osteobalance.title': 'Alineación estructural',
     'personalized.athletes.services.osteobalance.description': 'Corrección de disfunciones articulares para la eficiencia biomecánica.',
     'personalized.athletes.testimonial.title': 'Experiencia de atleta',
@@ -5401,13 +5410,13 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.parents.hero.description': 'Restauración de la vitalidad y regulación del sistema nervioso.',
     'personalized.parents.understanding.title': 'Sostenibilidad del cuidador',
     'personalized.parents.understanding.description1': 'La demanda física y emocional de la crianza impacta en la reserva adaptativa del organismo.',
-    'personalized.parents.understanding.description2': 'Ofrecemos un espacio clínico de contención y regeneración para prevenir el agotamiento.',
+    'personalized.parents.understanding.description2': 'Ofrecemos un espacio basado en ciencia de contención y regeneración para prevenir el agotamiento.',
     'personalized.parents.understanding.callToAction': 'Restaurar vitalidad',
     'personalized.parents.services.title': 'Protocolos de bienestar',
     'personalized.parents.services.subtitle': 'Apoyo integral a la crianza',
     'personalized.parents.services.emotionalKinesiology.title': 'Regulación emocional',
     'personalized.parents.services.emotionalKinesiology.description': 'Procesamiento del estrés parental y equilibrio neuroafectivo.',
-    'personalized.parents.services.relaxingMassage.title': 'Terapia sedativa',
+    'personalized.parents.services.relaxingMassage.title': 'prácticas de bienestar sedativa',
     'personalized.parents.services.relaxingMassage.description': 'Inducción profunda al estado parasimpático para el descanso reparador.',
     'personalized.parents.testimonial.title': 'Testimonio de madre',
     'personalized.parents.testimonial.quote': '"es mi momento sagrado de la semana. Salgo renovada."',
@@ -5481,7 +5490,7 @@ const translations: Record<Language, Record<string, string>> = {
     'personalized.business.services.groupClasses.title': 'Clases Grupales y Estiramientos',
     'personalized.business.services.groupClasses.description': 'Sesiones amenas de postura o estiramientos para destensar el cuello y la espalda, en la oficina o por videollamada.',
     'personalized.business.services.consulting.title': 'Consultoría y Cuidado en la Oficina',
-    'personalized.business.services.consulting.description': 'Evaluamos cómo trabaja tu equipo y les enseñamos a cuidar su descanso. Además, podemos llevar las terapias manuales a tu oficina.',
+    'personalized.business.services.consulting.description': 'Evaluamos cómo trabaja tu equipo y les enseñamos a cuidar su descanso. Además, podemos llevar las prácticas de bienestar manuales a tu oficina.',
     'personalized.business.faq.q1': '¿Adaptáis los horarios a la jornada?',
     'personalized.business.faq.a1': 'Sí, sabemos que el tiempo es oro. Diseñamos nuestras intervenciones para no interrumpir el flujo de trabajo.',
     'personalized.business.faq.q2': '¿Se desplazan a la oficina?',
@@ -5510,7 +5519,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.askQuestions': 'Hacer preguntas',
     'common.recommended': 'Recomendado',
     'common.continue': 'Continuar',
-    'common.disclaimer': 'Los servicios de EKA Balance son de acompañamiento y bienestar, no sustituyen el tratamiento médico.',
+    'common.disclaimer': 'Los servicios de EKA Balance son de acompañamiento y bienestar, no sustituyen el enfoque médico.',
 
     // VIP Section
     'vip.plan.bronze': 'Membresía bronce',
@@ -5526,7 +5535,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.service.priority.title': 'Acceso prioritario',
     'vip.service.priority.description': 'Sin esperas. Tu agenda es nuestra prioridad, con franjas exclusivas reservadas solo para ti.',
     'vip.service.displacements.title': 'Visitas concierge a domicilio',
-    'vip.service.displacements.description': 'Llevamos el santuario a tu hogar. Ahorra tiempo y disfruta de tratamientos de clase mundial en tu privacidad.',
+    'vip.service.displacements.description': 'Llevamos el santuario a tu hogar. Ahorra tiempo y disfruta de enfoque de clase mundial en tu privacidad.',
     'vip.service.health.title': 'Monitorización proactiva de salud',
     'vip.service.health.description': 'No solo tratamos; hacemos seguimiento. Evaluaciones regulares aseguran que tu salud física siempre progrese.',
     'vip.service.family.title': 'Privilegios familiares',
@@ -5560,7 +5569,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.hero.badge': 'Ultra premium',
     'vip.hero.title.beyond': 'Más allá',
     'vip.hero.title.wellness': 'Del bienestar',
-    'vip.hero.subtitle': 'Entra en un reino donde tu salud es nuestro único foco. Atención inigualable, acceso prioritario y tratamientos a medida diseñados para unos pocos.',
+    'vip.hero.subtitle': 'Entra en un reino donde tu salud es nuestro único foco. Atención inigualable, acceso prioritario y enfoque a medida diseñados para unos pocos.',
     'vip.hero.cta.join': 'Solicitar membresía',
 
     'vip.dashboard.member': 'Salón de miembros',
@@ -5571,7 +5580,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     'vip.features.badge': 'Excelencia',
     'vip.features.title': 'Curado para la élite',
-    'vip.features.subtitle': 'Cada detalle está orquestado para proporcionar una experiencia que trasciende la terapia tradicional.',
+    'vip.features.subtitle': 'Cada detalle está orquestado para proporcionar una experiencia que trasciende la prácticas de bienestar tradicional.',
 
     'vip.plans.badge': 'Membresía',
     'vip.plans.title': 'Selecciona tu legado',
@@ -5654,7 +5663,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     'discovery.recommendation.integrative.service': 'Alivio de tensión integrativo (4 en 1)',
     'discovery.recommendation.integrative.desc': 'Nuestra mezcla exclusiva de masaje, kinesiología, osteopatía y movimiento somático (Feldenkrais). La solución definitiva para problemas crónicos.',
-    'discovery.recommendation.integrative.benefit1': 'Tratamiento holístico',
+    'discovery.recommendation.integrative.benefit1': 'enfoque holístico',
     'discovery.recommendation.integrative.benefit2': 'Resolución de causa raíz',
     'discovery.recommendation.integrative.benefit3': 'Sinergia multi-técnica',
     'discovery.recommendation.integrative.benefit4': 'Resultados duraderos',
@@ -5682,27 +5691,27 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'Estás experimentando',
     'discovery.analysis.want': 'Y tu objetivo es',
     'discovery.analysis.feel': 'Sentirte',
-    'discovery.diagnosis.title': 'Evaluación profesional',
-    'discovery.diagnosis.profile': 'Tu perfil',
-    'discovery.diagnosis.symptoms': 'Indicadores clave',
-    'discovery.diagnosis.rootCause': 'Posibles causas raíz',
-    'discovery.diagnosis.strategy': 'Nuestra estrategia',
-    'discovery.diagnosis.frequency': 'Frecuencia recomendada',
+    'discovery.assessment.title': 'Evaluación profesional',
+    'discovery.assessment.profile': 'Tu perfil',
+    'discovery.assessment.concerns': 'Indicadores clave',
+    'discovery.assessment.rootCause': 'Posibles causas raíz',
+    'discovery.assessment.strategy': 'Nuestra estrategia',
+    'discovery.assessment.frequency': 'Frecuencia recomendada',
     'discovery.view.basic': 'Vista simple',
     'discovery.view.advanced': 'Evaluación detallada',
-    'discovery.diagnosis.cause.posture': 'Fatiga postural (tensión sedentaria)',
-    'discovery.diagnosis.cause.overload': 'Sobrecarga muscular',
-    'discovery.diagnosis.cause.stress': 'Tensión psicosomática',
-    'discovery.diagnosis.cause.emotional': 'Bloqueo emocional',
-    'discovery.diagnosis.cause.metabolic': 'Desequilibrio metabólico/digestivo',
-    'discovery.diagnosis.cause.structural': 'Desalineación estructural/mecánica',
-    'discovery.diagnosis.cause.general': 'Necesidad de mantenimiento/prevención',
-    'discovery.diagnosis.strategy.structural': 'Liberación estructural y trabajo de movilidad',
-    'discovery.diagnosis.strategy.regulation': 'Regulación del sistema nervioso',
-    'discovery.diagnosis.strategy.rebalance': 'Reequilibrio mente-cuerpo',
-    'discovery.diagnosis.freq.high': 'Intensivo (semanal por 3 semanas)',
-    'discovery.diagnosis.freq.medium': 'Mantenimiento (cada 2-3 semanas)',
-    'discovery.diagnosis.freq.low': 'Preventivo (mensual)',
+    'discovery.assessment.cause.posture': 'Fatiga postural (tensión sedentaria)',
+    'discovery.assessment.cause.overload': 'Sobrecarga muscular',
+    'discovery.assessment.cause.stress': 'Tensión psicosomática',
+    'discovery.assessment.cause.emotional': 'Bloqueo emocional',
+    'discovery.assessment.cause.metabolic': 'Desequilibrio metabólico/digestivo',
+    'discovery.assessment.cause.structural': 'Desalineación estructural/mecánica',
+    'discovery.assessment.cause.general': 'Necesidad de mantenimiento/prevención',
+    'discovery.assessment.strategy.structural': 'Liberación estructural y trabajo de movilidad',
+    'discovery.assessment.strategy.regulation': 'Regulación del sistema nervioso',
+    'discovery.assessment.strategy.rebalance': 'Reequilibrio mente-cuerpo',
+    'discovery.assessment.freq.high': 'Intensivo (semanal por 3 semanas)',
+    'discovery.assessment.freq.medium': 'Mantenimiento (cada 2-3 semanas)',
+    'discovery.assessment.freq.low': 'Preventivo (mensual)',
     'discovery.goal.athlete': 'Recuperación atlética máxima',
     'discovery.goal.office': 'Corrección postural',
     'discovery.goal.stress': 'Paz mental profunda',
@@ -5736,27 +5745,27 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Office Workers SEO
     'office.seo.title': 'Servicios para trabajadores de oficina - EKA Balance Barcelona',
-    'office.seo.desc': 'Terapias especializadas para oficinistas: alivia la tensión, mejora la postura y gestiona el estrés laboral. Sesiones de 1.5h por 60€.',
+    'office.seo.desc': 'prácticas de bienestar especializadas para oficinistas: alivia la tensión, mejora la postura y gestiona el estrés laboral. Sesiones de 1.5h por 60€.',
     'office.seo.keywords': 'Masaje oficina Barcelona, estrés laboral, dolor de espalda ordenador, kinesiología trabajadores',
 
     // Athletes SEO
     'athletes.seo.title': 'Servicios para deportistas - EKA Balance Barcelona',
-    'athletes.seo.desc': 'Terapias especializadas para atletas: recuperación muscular, mejora de flexibilidad y gestión del estrés pre-competición. Sesiones de 1.5h por 60€.',
+    'athletes.seo.desc': 'prácticas de bienestar especializadas para atletas: recuperación muscular, mejora de flexibilidad y gestión del estrés pre-competición. Sesiones de 1.5h por 60€.',
     'athletes.seo.keywords': 'Masaje deportivo Barcelona, recuperación muscular, flexibilidad deportiva, estrés competición',
 
     // Artists SEO
     'artists.seo.title': 'Servicios para artistas - EKA Balance Barcelona',
-    'artists.seo.desc': 'Terapias para artistas visuales y creadores: cuidado de manos, mejora postural y desbloqueo creativo. Sesiones de 1.5h por 60€.',
+    'artists.seo.desc': 'prácticas de bienestar para artistas visuales y creadores: cuidado de manos, mejora postural y desbloqueo creativo. Sesiones de 1.5h por 60€.',
     'artists.seo.keywords': 'Masaje artistas Barcelona, dolor manos artistas, postura creativa, bloqueo creativo',
 
     // Musicians SEO
     'musicians.seo.title': 'Servicios para músicos - EKA Balance Barcelona',
-    'musicians.seo.desc': 'Terapias especializadas para músicos: prevención de lesiones, mejora técnica y gestión de ansiedad escénica. Sesiones de 1.5h por 60€.',
+    'musicians.seo.desc': 'prácticas de bienestar especializadas para músicos: prevención de lesiones, mejora técnica y gestión de ansiedad escénica. Sesiones de 1.5h por 60€.',
     'musicians.seo.keywords': 'Fisioterapia músicos Barcelona, lesiones músicos, ansiedad escénica, técnica musical',
 
     // Students SEO
     'students.seo.title': 'Servicios para estudiantes - EKA Balance Barcelona',
-    'students.seo.desc': 'Terapias para estudiantes: gestión de estrés de exámenes, mejora de concentración y corrección postural. Sesiones de 1.5h por 60€.',
+    'students.seo.desc': 'prácticas de bienestar para estudiantes: gestión de estrés de exámenes, mejora de concentración y corrección postural. Sesiones de 1.5h por 60€.',
     'students.seo.keywords': 'Estrés exámenes Barcelona, concentración estudio, postura estudiante, ansiedad académica',
 
     'office.problems.pain.title': 'Dolor postural',
@@ -5774,8 +5783,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // First Time Visitor Form
     'firstTime.seo.title': '¿No sabes qué elegir? - Encuentra tu servicio ideal en EKA Balance',
-    'firstTime.seo.desc': 'Sistema inteligente personalizado para descubrir la terapia holística perfecta para tus necesidades específicas. Recomendaciones empáticas basadas en quién eres y qué buscas.',
-    'firstTime.seo.keywords': 'No sé qué elegir, formulario personalizado, recomendaciones terapia, servicio ideal, Barcelona, onboarding inteligente',
+    'firstTime.seo.desc': 'Sistema inteligente personalizado para descubrir la prácticas de bienestar holística perfecta para tus necesidades específicas. Recomendaciones empáticas basadas en quién eres y qué buscas.',
+    'firstTime.seo.keywords': 'No sé qué elegir, formulario personalizado, recomendaciones prácticas de bienestar, servicio ideal, Barcelona, onboarding inteligente',
 
     // Casos details (partial)
     'casos.problems.backPain.symptom1': 'Dolor punzante, rigidez o tensión constante.',
@@ -5825,7 +5834,7 @@ const translations: Record<Language, Record<string, string>> = {
     'onboarding.time.120min': '120 minutos',
 
     // Recommendations
-    'recommendations.massage.description': 'Terapia manual para liberar tensión y restaurar la estructura.',
+    'recommendations.massage.description': 'prácticas de bienestar manual para liberar tensión y restaurar la estructura.',
     'recommendations.kinesiology.description': 'Equilibrio del sistema nervioso y emocional mediante test muscular.',
     'recommendations.feldenkrais.description': 'Reeducación del movimiento para una vida sin dolor.',
 
@@ -5848,7 +5857,7 @@ const translations: Record<Language, Record<string, string>> = {
     'vip.feature.retreat': 'Descuento en retiros',
 
     // Missing Keys Patch
-    'hero.firstTime': '¿Primera vez?',
+    'hero.firstTime': '¿Es tu primera vez? Descubre lo que necesitas.',
     'hero.dontKnowWhatToChoose': "¿No sabes qué elegir?",
     'hero.discoverServices': 'Descubre los servicios',
     'hero.stats.sessions': 'Sesiones realizadas',
@@ -5890,7 +5899,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.otherCasesSubtitle': 'Otras áreas',
     'casos.ctaTitle': '¿Tienes un caso similar?',
     'casos.ctaSubtitle': 'Habla con nosotros',
-    'casos.discoverIdeal': 'Descubre el tratamiento',
+    'casos.discoverIdeal': 'Descubre el enfoque',
     'casos.bookSession': 'Reservar sesión',
     'casos.seeDetails': 'Ver detalles',
     'casos.section.badge': 'Casos clínicos',
@@ -6000,7 +6009,7 @@ const translations: Record<Language, Record<string, string>> = {
     'office.plan3.result': 'Cultura',
     'office.plan.cta': 'Contactar',
     'office.plan1.benefit1': 'Análisis',
-    'office.plan1.benefit2': 'Tratamiento',
+    'office.plan1.benefit2': 'enfoque',
     'office.plan1.benefit3': 'Informe',
     'office.plan1.benefit4': 'Seguimiento',
     'office.plan2.benefit1': 'Talleres',
@@ -6041,7 +6050,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.getStarted': 'Comenzar',
     'common.free': 'Gratis',
 
-    'services.therapiesFor': 'Terapias para',
+    'services.therapiesFor': 'prácticas de bienestar para',
     'services.integralWellbeing': 'Bienestar integral',
     'services.personalizedTreatments': 'Personalizado',
     'services.massage.title': 'Masaje',
@@ -6059,7 +6068,7 @@ const translations: Record<Language, Record<string, string>> = {
     'children.kinesiology.badge': 'Aprendizaje y Emociones',
     'children.kinesiology.desc': 'Apoyo en dificultades de aprendizaje, gestión emocional y coordinación motora.',
     'children.health.title': 'Equilibrio Corporal',
-    'children.health.desc': 'Tratamiento holístico para alergias, intolerancias y desarrollo físico saludable.',
+    'children.health.desc': 'enfoque holístico para alergias, intolerancias y desarrollo físico saludable.',
     'children.kinesiology.imgAlt': 'Kinesiología Infantil',
     'children.health.badge': 'Salud Física',
     'children.health.imgAlt': 'Salud Física',
@@ -6073,14 +6082,18 @@ const translations: Record<Language, Record<string, string>> = {
     'services.revision360.title': 'Revisión 360',
     'services.revision360.subtitle': 'Total',
     'services.revision360.description': 'Evaluación completa',
+    'services.constelaciones.title': 'Constelaciones Familiares',
+    'services.constelaciones.subtitle': 'Sanación sistémica',
+    'services.constelaciones.description': 'Libera patrones heredados y restaura la armonía en tus relaciones a través de esta poderosa terapia sistémica.',
+    'services.constelaciones.desc': 'Libera patrones heredados y restaura la armonía en tus relaciones a través de esta poderosa terapia sistémica.',
     'services.consultation.title': 'Consulta',
     'services.consultation.description': 'Hablamos 15 min',
     'services.consultation.feeling': 'Claridad',
 
     'whyChoose.title': '¿Por qué elegir EKA Balance?',
-    'whyChoose.subtitle': 'Somos más que un centro de terapia; somos tus socios dedicados en el bienestar holístico.',
+    'whyChoose.subtitle': 'Somos más que un centro de prácticas de bienestar; somos tus socios dedicados en el bienestar holístico.',
     'whyChoose.personalized.title': 'Planes verdaderamente personalizados',
-    'whyChoose.personalized.description': 'Tu cuerpo es único, y tu terapia también debería serlo. Adaptamos cada sesión a tu fisiología e historia específicas para obtener resultados más rápidos y sostenibles.',
+    'whyChoose.personalized.description': 'Tu cuerpo es único, y tu prácticas de bienestar también debería serlo. Adaptamos cada sesión a tu fisiología e historia específicas para obtener resultados más rápidos y sostenibles.',
     'whyChoose.holistic.title': 'Integración sistémica',
     'whyChoose.holistic.description': 'Tratamos todo tu ser: estructural, químico y emocional. La verdadera curación ocurre cuando todos tus sistemas trabajan en armonía.',
     'whyChoose.experienced.title': 'Guía experta',
@@ -6104,7 +6117,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.plan.pack3.name': 'Pack bienestar (3)',
     'pricing.plan.pack3.desc': 'Pack de 3 sesiones para un seguimiento continuo',
     'pricing.plan.pack5.name': 'Pack transformación (5)',
-    'pricing.plan.pack5.desc': 'Tratamiento integral para cambios profundos',
+    'pricing.plan.pack5.desc': 'enfoque integral para cambios profundos',
 
     'pricing.feature.massage': 'Masaje terapéutico',
     'pricing.feature.kinesiology': 'Kinesiología',
@@ -6126,7 +6139,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.guarantee.equipment.desc': 'Utilizamos solo equipo y productos de máxima calidad',
 
     'pricing.cta.unsure.title': '¿No estás seguro de qué plan elegir?',
-    'pricing.cta.unsure.subtitle': 'Haz nuestra evaluación gratuita y descubre qué tratamiento se adapta mejor a tus necesidades',
+    'pricing.cta.unsure.subtitle': 'Haz nuestra evaluación gratuita y descubre qué enfoque se adapta mejor a tus necesidades',
     'pricing.cta.unsure.button': 'Descubrir nuestros servicios',
 
     // Booking Popup
@@ -6204,7 +6217,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Естественный способ исцеления',
     'hero.title': 'Жизнь без боли',
     'hero.subtitle': 'Хватит бороться с симптомами, начните исцеление. Мы находим корень вашего дискомфорта с помощью соматической терапии и возвращаем вам истинную свободу в теле.',
-    'hero.firstTime': 'Это ваш первый раз?',
+    'hero.firstTime': 'В первый раз? Узнайте, что вам нужно.',
     'hero.dontKnowWhatToChoose': 'Не знаете, с чего начать?',
     'hero.discoverServices': 'Откройте наши услуги',
     'hero.stats.sessions': 'Проведенных сессий',
@@ -6267,6 +6280,10 @@ const translations: Record<Language, Record<string, string>> = {
     'services.revision360.title': 'Обзор 360°',
     'services.revision360.subtitle': 'Карта вашего здоровья',
     'services.revision360.description': 'Комплексная диагностическая сессия, анализирующая осанку, паттерны движения и метаболическое здоровье для создания точного маршрута к восстановлению.',
+    'services.constelaciones.title': 'Семейные расстановки',
+    'services.constelaciones.subtitle': 'Системное исцеление',
+    'services.constelaciones.description': 'Освободитесь от унаследованных паттернов и восстановите гармонию в отношениях через эту мощную системную терапию.',
+    'services.constelaciones.desc': 'Освободитесь от унаследованных паттернов и восстановите гармонию в отношениях через эту мощную системную терапию.',
     'services.therapiesFor': 'Методы для',
     'services.integralWellbeing': 'Комплексного благополучия',
     'services.personalizedTreatments': 'Откройте персонализированные методы, адаптированные к вашим конкретным потребностям',
@@ -6416,7 +6433,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.backPain.cause2': 'Соматизированный эмоциональный груз (стресс, тревога), проявляющийся как мышечный панцирь.',
     'casos.problems.backPain.cause3': 'Гиподинамия и недостаток мышечного тонуса или суставной подвижности.',
     'casos.problems.backPain.cause4': 'Ограниченные паттерны дыхания, блокирующие естественное движение позвоночника.',
-    'casos.problems.backPain.treatment': 'Комплексный подход: глубокий терапевтический массаж, миофасциальный релиз, кинезиология для поиска первопричины (структурной, химической или эмоциональной) и переобучение осанки (метод фельденкрайза).',
+    'casos.problems.backPain.approach': 'Комплексный подход: глубокий терапевтический массаж, миофасциальный релиз, кинезиология для поиска первопричины (структурной, химической или эмоциональной) и переобучение осанки (метод фельденкрайза).',
     'casos.problems.backPain.results': 'Мгновенное облегчение боли и напряжения. Восстановление подвижности и легкости. В долгосрочной перспективе — более сильная, гибкая спина без рецидивирующей боли.',
 
     // Stress
@@ -6428,7 +6445,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.stress.cause2': 'Потеря контакта с собственными потребностями и нехватка качественного времени для себя.',
     'casos.problems.stress.cause3': 'Непроработанные травмы или сложные жизненные ситуации, удерживающие систему в режиме"бей или беги".',
     'casos.problems.stress.cause4': 'Дисрегуляция вегетативной нервной системы (хроническая симпатикотония).',
-    'casos.problems.stress.treatment': 'Регуляция нервной системы: эмоциональная кинезиология, вагальные техники, мягкая работа с телом (фельденкрайз) и осознанное дыхание для восстановления внутреннего покоя.',
+    'casos.problems.stress.approach': 'Регуляция нервной системы: эмоциональная кинезиология, вагальные техники, мягкая работа с телом (фельденкрайз) и осознанное дыхание для восстановления внутреннего покоя.',
     'casos.problems.stress.results': 'Восстановление душевного равновесия и эмоционального баланса. Улучшение качества сна и способности справляться со стрессом. Чувство контроля и глубокого благополучия.',
 
     // Digestive
@@ -6440,7 +6457,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.digestive.cause2': 'Неправильные пищевые привычки: еда на бегу, в стрессе или в неподходящее время.',
     'casos.problems.digestive.cause3': 'Ось кишечник-мозг: эмоциональный стресс, напрямую влияющий на функцию пищеварения.',
     'casos.problems.digestive.cause4': 'Механические висцеральные дисфункции или дисбаланс микробиоты.',
-    'casos.problems.digestive.treatment': 'Нутрициологическая кинезиология для тестирования продуктов, висцеральный массаж для улучшения моторики и рекомендации по осознанному и персонализированному питанию.',
+    'casos.problems.digestive.approach': 'Нутрициологическая кинезиология для тестирования продуктов, висцеральный массаж для улучшения моторики и рекомендации по осознанному и персонализированному питанию.',
     'casos.problems.digestive.results': 'Легкое пищеварение без дискомфорта. Исчезновение вздутия и восстановление жизненной энергии. Здоровые и приятные отношения с едой.',
 
     // Migraines
@@ -6452,7 +6469,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.migraines.cause2': 'Дисфункция внчс (бруксизм), иррадиирующая боль в голову.',
     'casos.problems.migraines.cause3': 'Умственная перегрузка, зрительный стресс или недостаток настоящего отдыха.',
     'casos.problems.migraines.cause4': 'Метаболические факторы: гормональный дисбаланс, гистамин или токсическая нагрузка на печень.',
-    'casos.problems.migraines.treatment': 'Краниальная мануальная терапия (остеобаланс), освобождение шейного и челюстного напряжения, регуляция нервной и гормональной систем с помощью кинезиологии.',
+    'casos.problems.migraines.approach': 'Краниальная мануальная терапия (остеобаланс), освобождение шейного и челюстного напряжения, регуляция нервной и гормональной систем с помощью кинезиологии.',
     'casos.problems.migraines.results': 'Радикальное снижение частоты и интенсивности приступов. Во многих случаях — полное исчезновение боли. Ясность ума и улучшение самочувствия.',
 
     // Low Energy
@@ -6464,7 +6481,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.lowEnergy.cause2': 'Нутрициологический дисбаланс (дефицит витаминов/минералов) или метаболические нарушения.',
     'casos.problems.lowEnergy.cause3': 'Дисфункция гормональной оси (усталость надпочечников, щитовидная железа).',
     'casos.problems.lowEnergy.cause4': 'Эмоциональные блоки или потеря жизненной цели, истощающие энергию.',
-    'casos.problems.lowEnergy.treatment': 'Комплексная ревитализация: кинезиология для обнаружения утечек энергии, нутрициологическая поддержка и работа с телом для реактивации жизненного потока.',
+    'casos.problems.lowEnergy.approach': 'Комплексная ревитализация: кинезиология для обнаружения утечек энергии, нутрициологическая поддержка и работа с телом для реактивации жизненного потока.',
     'casos.problems.lowEnergy.results': 'Возвращение жизненных сил и энтузиазма. Ясный и бодрый ум. Способность справляться с повседневными делами с энергией и радостью.',
 
     // Discovery New Keys
@@ -6480,7 +6497,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.sleep.cause2': 'Дисрегуляция циркадных ритмов (режим, синий свет).',
     'casos.problems.sleep.cause3': 'Неподходящие привычки сна или неблагоприятная обстановка.',
     'casos.problems.sleep.cause4': 'Органические причины: тяжелое пищеварение, хроническая боль или гормональный дисбаланс.',
-    'casos.problems.sleep.treatment': 'Переобучение сна: техники глубокой релаксации, регуляция нервной системы (вагальной), и персонализированные рекомендации по гигиене сна.',
+    'casos.problems.sleep.approach': 'Переобучение сна: техники глубокой релаксации, регуляция нервной системы (вагальной), и персонализированные рекомендации по гигиене сна.',
     'casos.problems.sleep.results': 'Глубокий, непрерывный и восстанавливающий сон. Пробуждение с энергией и чувством настоящего отдыха. Улучшение настроения и общего здоровья.',
 
     // Recovery
@@ -6492,7 +6509,7 @@ const translations: Record<Language, Record<string, string>> = {
     'casos.problems.recovery.cause2': 'Измененные паттерны движения для защиты травмы (компенсации).',
     'casos.problems.recovery.cause3': 'Клеточная травма или память о боли, удерживающая зону в состоянии тревоги.',
     'casos.problems.recovery.cause4': 'Незавершенная или поспешная реабилитация.',
-    'casos.problems.recovery.treatment': 'Функциональное восстановление: работа со шрамами, переобучение движения (фельденкрайз) и эмоциональная работа для освобождения памяти о травме.',
+    'casos.problems.recovery.approach': 'Функциональное восстановление: работа со шрамами, переобучение движения (фельденкрайз) и эмоциональная работа для освобождения памяти о травме.',
     'casos.problems.recovery.results': 'Полное восстановление функциональности и доверия к телу. Свободное, плавное движение без боли. Возвращение к нормальной активности с уверенностью.',
 
     // Contact Form
@@ -6547,10 +6564,10 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.time.evening': 'Вечер (18:00 - 21:00)',
     'contact.time.any': 'Без предпочтений',
 
-    // Symptoms, causes, treatment, results labels
-    'casos.symptoms': 'Симптомы',
+    // Symptoms, causes, approach, results labels
+    'casos.concerns': 'Симптомы',
     'casos.causes': 'Причины',
-    'casos.treatment': 'Наш подход',
+    'casos.approach': 'Наш подход',
     'casos.results': 'Результаты',
 
     // Additional problems list
@@ -7337,27 +7354,27 @@ const translations: Record<Language, Record<string, string>> = {
     'discovery.analysis.have': 'У вас',
     'discovery.analysis.want': 'И вы хотите улучшить',
     'discovery.analysis.feel': 'Чтобы чувствовать себя',
-    'discovery.diagnosis.title': 'Расширенная карта оценки',
-    'discovery.diagnosis.profile': 'Профиль клиента',
-    'discovery.diagnosis.symptoms': 'Выявленные индикаторы',
-    'discovery.diagnosis.rootCause': 'Возможные первопричины',
-    'discovery.diagnosis.strategy': 'Рекомендуемая стратегия',
-    'discovery.diagnosis.frequency': 'Рекомендуемая частота',
+    'discovery.assessment.title': 'Расширенная карта оценки',
+    'discovery.assessment.profile': 'Профиль клиента',
+    'discovery.assessment.concerns': 'Выявленные индикаторы',
+    'discovery.assessment.rootCause': 'Возможные первопричины',
+    'discovery.assessment.strategy': 'Рекомендуемая стратегия',
+    'discovery.assessment.frequency': 'Рекомендуемая частота',
     'discovery.view.basic': 'Простая рекомендация',
     'discovery.view.advanced': 'Полная оценка',
-    'discovery.diagnosis.cause.posture': 'Постуральная усталость (сидячий образ жизни)',
-    'discovery.diagnosis.cause.overload': 'Мышечная перегрузка',
-    'discovery.diagnosis.cause.stress': 'Психосоматическое напряжение',
-    'discovery.diagnosis.cause.emotional': 'Эмоциональный блок',
-    'discovery.diagnosis.cause.metabolic': 'Метаболический/пищеварительный дисбаланс',
-    'discovery.diagnosis.cause.structural': 'Структурный/механический дисбаланс',
-    'discovery.diagnosis.cause.general': 'Потребность в обслуживании/профилактике',
-    'discovery.diagnosis.strategy.structural': 'Структурное освобождение и мобильность',
-    'discovery.diagnosis.strategy.regulation': 'Регуляция нервной системы',
-    'discovery.diagnosis.strategy.rebalance': 'Восстановление баланса тела и разума',
-    'discovery.diagnosis.freq.high': 'Интенсивный (1 сеанс/неделю в течение 3 недель)',
-    'discovery.diagnosis.freq.medium': 'Поддерживающий (1 сеанс каждые 2-3 недели)',
-    'discovery.diagnosis.freq.low': 'Профилактический (1 сеанс в месяц)',
+    'discovery.assessment.cause.posture': 'Постуральная усталость (сидячий образ жизни)',
+    'discovery.assessment.cause.overload': 'Мышечная перегрузка',
+    'discovery.assessment.cause.stress': 'Психосоматическое напряжение',
+    'discovery.assessment.cause.emotional': 'Эмоциональный блок',
+    'discovery.assessment.cause.metabolic': 'Метаболический/пищеварительный дисбаланс',
+    'discovery.assessment.cause.structural': 'Структурный/механический дисбаланс',
+    'discovery.assessment.cause.general': 'Потребность в обслуживании/профилактике',
+    'discovery.assessment.strategy.structural': 'Структурное освобождение и мобильность',
+    'discovery.assessment.strategy.regulation': 'Регуляция нервной системы',
+    'discovery.assessment.strategy.rebalance': 'Восстановление баланса тела и разума',
+    'discovery.assessment.freq.high': 'Интенсивный (1 сеанс/неделю в течение 3 недель)',
+    'discovery.assessment.freq.medium': 'Поддерживающий (1 сеанс каждые 2-3 недели)',
+    'discovery.assessment.freq.low': 'Профилактический (1 сеанс в месяц)',
     'discovery.goal.athlete': 'Ваше спортивное восстановление',
     'discovery.goal.office': 'Вашу осанку',
     'discovery.goal.stress': 'Ваше спокойствие',
@@ -8023,6 +8040,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       (agenyzTranslations[language] as Record<string, string>)?.[key] ||
       (bentoTranslations[language] as Record<string, string>)?.[key] ||
       (funnelTranslations[language] as Record<string, string>)?.[key] ||
+        (firstTimeTranslations[language as keyof typeof firstTimeTranslations] as Record<string, string>)?.[key] ||
       (translations.en as Record<string, string>)?.[key] ||
       (servicesTranslations.en as Record<string, string>)?.[key] ||
       (revision360Translations.en as Record<string, string>)?.[key] ||
@@ -8030,6 +8048,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       (agenyzTranslations.en as Record<string, string>)?.[key] ||
       (bentoTranslations.en as Record<string, string>)?.[key] ||
       (funnelTranslations.en as Record<string, string>)?.[key] ||
+        (firstTimeTranslations.en as Record<string, string>)?.[key] ||
       key;
 
     if (params) {

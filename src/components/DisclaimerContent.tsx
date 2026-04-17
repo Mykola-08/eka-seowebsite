@@ -41,7 +41,7 @@ export default function DisclaimerContent() {
   return (
     <PageLayout
       hero={{
-        title: 'Alternative Therapy Disclaimer',
+        title: 'Wellness Disclaimer',
         subtitle: 'Please read before booking or using any EKA Balance service',
       }}
     >
@@ -53,7 +53,7 @@ export default function DisclaimerContent() {
             <Alert01Icon className="w-7 h-7 text-foreground shrink-0 mt-0.5" />
             <div>
               <p className="text-xl font-medium text-foreground mb-3">
-                These are not medical services.
+                These are wellness and complementary services.
               </p>
               <p className="text-foreground/90 font-medium text-lg mb-4">
                 Always consult your doctor before making any health decision.
@@ -71,7 +71,7 @@ export default function DisclaimerContent() {
         {/* What EKA Balance is */}
         <Block icon={FavouriteIcon} title="What EKA Balance Is" color="blue">
           <p>
-            EKA Balance offers complementary and alternative wellness services, including therapeutic massage, kinesiology, nutritional coaching, somatic bodywork, and integrative wellness sessions.
+            EKA Balance offers complementary and alternative wellness services, including holistic massage, movement coaching, nutritional guidance, somatic bodywork, and integrative wellness sessions.
           </p>
           <p>
             These services are designed to <strong>support your overall wellbeing</strong> alongside — not instead of — conventional medicine. Our practitioners are trained wellness professionals, not licensed medical doctors.
@@ -99,15 +99,15 @@ export default function DisclaimerContent() {
         {/* Doctor consultation */}
         <Block icon={StethoscopeIcon} title="Always Consult Your Doctor First" color="amber">
           <p className="font-medium text-foreground">
-            Before beginning any complementary or alternative therapy, consult your licensed physician, especially if you:
+            Before beginning any complementary or alternative wellness service, consult your licensed physician, especially if you:
           </p>
           <ul className="space-y-2 mt-2">
             {[
-              'Have a diagnosed medical condition or chronic illness',
+              'Have a pre-existing health condition or ongoing wellness concern',
               'Are currently taking prescribed medication',
               'Are pregnant or breastfeeding',
               'Have recently undergone surgery or a medical procedure',
-              'Experience persistent, acute, or unexplained symptoms',
+              'Experience persistent, acute, or unexplained physical concerns',
               'Are under the care of a specialist (cardiologist, oncologist, psychiatrist, etc.)',
             ].map(item => (
               <li key={item} className="flex items-start gap-2.5">
@@ -117,7 +117,7 @@ export default function DisclaimerContent() {
             ))}
           </ul>
           <p className="mt-3 text-foreground font-medium">
-            Do not stop, reduce, or modify any prescribed medical treatment based on anything received or read at EKA Balance.
+            Do not stop, reduce, or modify any prescribed healthcare plan based on anything received or read at EKA Balance.
           </p>
         </Block>
 
@@ -130,7 +130,7 @@ export default function DisclaimerContent() {
             {[
               'Decisions made without first consulting a licensed physician',
               'Any modification or discontinuation of prescribed medical care',
-              'Individual variation in response to complementary therapy',
+              'Individual variation in response to complementary services',
               'Pre-existing conditions not disclosed prior to sessions',
             ].map(item => (
               <li key={item} className="flex items-start gap-2.5">

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { shimmerBlurDataURL } from '@/lib/image-utils';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
@@ -84,11 +84,7 @@ export default function ChildrenContent() {
 
   return (
     <>
-      <SEOUpdater
-        titleKey="seo.children.title"
-        descriptionKey="seo.children.description"
-        keywordsKey="seo.children.keywords"
-      />
+      
       <PageLayout>
       {Hero}
       

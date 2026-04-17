@@ -1,12 +1,14 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import FirstTimeContent from '@/components/FirstTimeContent';
 
 
-export const metadata: Metadata = {
-  title: 'Primera Visita - Descubre tu Plan Ideal | EKA Balance',
-  description: 'Responde unas preguntas rápidas y obtén tu plan personalizado de bienestar.',
-};
+
 
 export default function FirstTimePage() {
   return <FirstTimeContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('firsttime', '/first-time');
 }

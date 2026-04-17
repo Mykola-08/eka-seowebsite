@@ -1,11 +1,13 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import ChildrenContent from '@/components/ChildrenContent';
 
-export const metadata: Metadata = {
-  title: 'Terapias Infantiles | EKA Balance',
-  description: 'Kinesiología y apoyo al desarrollo para niños.',
-};
+
 
 export default function ChildrenPage() {
   return <ChildrenContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('services', '/services/children');
 }

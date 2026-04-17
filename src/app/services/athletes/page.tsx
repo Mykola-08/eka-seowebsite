@@ -1,11 +1,13 @@
+import { generateAppMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
 import ForAthletesContent from '@/components/ForAthletesContent';
 
-export const metadata: Metadata = {
-  title: 'Rendimiento para Deportistas | EKA Balance',
-  description: 'Prevención de lesiones y mejora del rendimiento deportivo.',
-};
+
 
 export default function AthletesPage() {
   return <ForAthletesContent />;
+}
+
+export async function generateMetadata() {
+  return generateAppMetadata('services', '/services/athletes');
 }

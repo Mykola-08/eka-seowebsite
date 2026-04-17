@@ -10,6 +10,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight01Icon, ArrowLeft01Icon, SmileIcon, FavouriteIcon, ZapIcon, Moon02Icon, Money01Icon, Location01Icon, LaptopProgrammingIcon, BodyPartMuscleIcon, UserIcon, Home01Icon, Brain01Icon, Activity01Icon } from '@/lib/icons';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import type { ProblemState } from '@/lib/funnel-data';
 
 // -------------------------------------------------------------------------------- //
 // DATA & TYPES
@@ -38,10 +39,10 @@ const GOALS: GoalMeta[] = [
   { id: 'money', translationKey: 'onboarding.goals.money', icon: Money01Icon, category: 'systemic' },
 ];
 
-const LOCATIONS: { id: Location; labelKey?: string, fallback: string; icon: React.ComponentType<{ className?: string }>; available: boolean }[] = [
-  { id: 'barcelona', fallback: 'Barcelona (Sant Gervasi)', icon: Location01Icon, available: true },
-  { id: 'rubi', fallback: 'Rubí (Bosc Tancat)', icon: Location01Icon, available: true },
-  { id: 'online', fallback: 'Online / Remote', icon: LaptopProgrammingIcon, available: true },
+const LOCATIONS: { id: Location; labelKey: string; icon: React.ComponentType<{ className?: string }>; available: boolean }[] = [
+  { id: 'barcelona', labelKey: 'form.location.bcn', icon: Location01Icon, available: true },
+  { id: 'rubi', labelKey: 'form.location.rubi', icon: Location01Icon, available: true },
+  { id: 'online', labelKey: 'form.location.online', icon: LaptopProgrammingIcon, available: true },
 ];
 
 // -------------------------------------------------------------------------------- //
@@ -78,7 +79,7 @@ function getRecommendation(selectedGoals: Goal[], location: Location | null): Re
     }
     return {
       id: 'online_session',
-      titleKey: 'services.kinesiologia.online', // Fallback mapping, ideally have dedicated online coaching key
+      titleKey: 'services.kinesiologia.online',
       descKey: 'services.kinesiologia.desc',
       image: 'https://images.pexels.com/photos/4098157/pexels-photo-4098157.jpeg',
       duration: '60 min',
@@ -148,57 +149,83 @@ function getRecommendation(selectedGoals: Goal[], location: Location | null): Re
   };
 }
 
+function getProblemStateFromGoals(goals: Goal[]): ProblemState {
+  if (goals.includes('pain')) return 'back_pain';
+  if (goals.includes('stress')) return 'stress_anxiety';
+  if (goals.includes('sleep')) return 'sleep';
+  if (goals.includes('posture')) return 'posture_office';
+  if (goals.includes('energy')) return 'fatigue';
+  if (goals.includes('focus')) return 'headaches';
+  if (goals.some(g => ['relationships', 'family', 'selfworth', 'money'].includes(g))) return 'emotional_block';
+  return 'back_pain';
+}
+
 // -------------------------------------------------------------------------------- //
 // COMPONENT
 // -------------------------------------------------------------------------------- //
 
-export default function FirstTimeWizard() {
+interface FirstTimeWizardProps {
+  onComplete?: (problem: ProblemState) => void;
+}
+
+export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
   const { t } = useLanguage();
   const [step, setStep] = useState<number>(1);
   const [selectedGoals, setSelectedGoals] = useState<Goal[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
 
   const toggleGoal = (goal: Goal) => {
-    setSelectedGoals(prev => 
+    setSelectedGoals(prev =>
       prev.includes(goal) ? prev.filter(g => g !== goal) : [...prev, goal]
     );
   };
 
   const handleNext = () => {
     if (step === 1 && selectedGoals.length > 0) setStep(2);
-    if (step === 2 && selectedLocation) setStep(3);
+    if (step === 2 && selectedLocation) {
+      setStep(3);
+      if (onComplete) {
+        onComplete(getProblemStateFromGoals(selectedGoals));
+      }
+    }
   };
-  
+
   const handleBack = () => {
     if (step > 1) setStep(step - 1);
   };
 
+  const handleStartOver = () => {
+    setStep(1);
+    setSelectedGoals([]);
+    setSelectedLocation(null);
+  };
+
   const wizardVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -20 }
+    hidden: { opacity: 0, scale: 0.95, y: 10 },
+    visible: { opacity: 1, scale: 1, y: 0 },
+    exit: { opacity: 0, scale: 1.05, y: -10 }
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto min-h-125 flex flex-col relative">
+    <Card className="w-full max-w-4xl mx-auto border-none shadow-none md:border md:shadow-md md:rounded-apple overflow-hidden bg-card relative min-h-125 flex flex-col md:p-10 z-10 transition-all duration-300">
       
       {/* Progress Indicator */}
-      <div className="flex items-center justify-between mb-8 px-4">
+      <div className="flex items-center justify-between mb-8 px-4 md:px-0 pt-4 md:pt-0">
         <div className="flex items-center space-x-2">
           {[1, 2, 3].map((s) => (
             <div key={s} className={cn(
-              "w-3 h-3 rounded-full transition-colors duration-300",
+              "w-12 h-1.5 rounded-full transition-colors duration-300",
               step >= s ? "bg-primary" : "bg-muted"
             )} />
           ))}
         </div>
         <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
-           Step {step} of 3
+           {t('form.step')} {step} / 3
         </span>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 relative overflow-hidden px-1">
+      <div className="flex-1 relative px-4 md:px-0">
         <AnimatePresence mode="wait">
           {/* STEP 1: GOALS */}
           {step === 1 && (
@@ -212,15 +239,16 @@ export default function FirstTimeWizard() {
               className="flex flex-col gap-6"
             >
               <div className="text-center mb-6">
-                <h2 className="text-3xl md:text-4xl font-serif text-primary mb-3">
-                  {t('personalized.booking.step1') || "What brings you here today?"}
+                <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">{t('form.badge')}</Badge>
+                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-3">
+                  {t('form.step1.title')}
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                  {t('personalized.booking.step1Desc') || "Select all the areas you would like to focus on or improve. This helps me suggest the perfect starting point for your journey."}
+                  {t('form.step1.desc')}
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 pb-8">
                 {GOALS.map((goal) => {
                   const isSelected = selectedGoals.includes(goal.id);
                   const Icon = goal.icon;
@@ -229,10 +257,10 @@ export default function FirstTimeWizard() {
                       key={goal.id}
                       onClick={() => toggleGoal(goal.id)}
                       className={cn(
-                        "flex flex-col items-center justify-center p-4 rounded-[2rem] border border-border/20 transition-all duration-200 text-center gap-3 h-32 outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                        isSelected 
-                          ? "border-primary bg-primary/5 text-primary" 
-                          : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
+                        "flex flex-col items-center justify-center p-4 rounded-xl border transition-all duration-200 text-center gap-3 h-32 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        isSelected
+                          ? "border-primary bg-primary/5 text-primary shadow-sm"
+                          : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-accent hover:text-accent-foreground"
                       )}
                     >
                       <Icon className={cn("w-8 h-8", isSelected ? "text-primary" : "text-muted-foreground")} />
@@ -244,14 +272,14 @@ export default function FirstTimeWizard() {
                 })}
               </div>
 
-              <div className="flex justify-end mt-8">
-                <Button 
-                  onClick={handleNext} 
+              <div className="flex justify-end mt-auto pt-4 pb-8 md:pb-0 border-t border-transparent md:border-none">
+                <Button
+                  onClick={handleNext}
                   disabled={selectedGoals.length === 0}
-                  className="gap-2"
+                  className="gap-2 rounded-full px-8 w-full md:w-auto"
                   size="lg"
                 >
-                  Continue <ArrowRight01Icon className="w-4 h-4" />
+                  {t('form.next')} <ArrowRight01Icon className="w-4 h-4" />
                 </Button>
               </div>
             </motion.div>
@@ -266,18 +294,18 @@ export default function FirstTimeWizard() {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.3 }}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-6 h-full"
             >
               <div className="text-center mb-6">
-                <h2 className="text-3xl md:text-4xl font-serif text-primary mb-3">
-                   Where would you prefer to meet?
+                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-3">
+                   {t('form.step2.title')}
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                   Select the setting that is most convenient for you.
+                   {t('form.step2.desc')}
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
                 {LOCATIONS.map((loc) => {
                   const isSelected = selectedLocation === loc.id;
                   const Icon = loc.icon;
@@ -286,37 +314,42 @@ export default function FirstTimeWizard() {
                       key={loc.id}
                       onClick={() => setSelectedLocation(loc.id)}
                       className={cn(
-                        "flex flex-col items-center p-8 rounded-[2rem] border border-border/20 transition-all duration-200 gap-4 text-center outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                        isSelected 
-                          ? "border-primary bg-primary/5 text-primary" 
-                          : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-muted"
+                        "flex flex-col items-center p-8 rounded-xl border transition-all duration-200 gap-4 text-center outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        isSelected
+                          ? "border-primary bg-primary/5 text-primary shadow-sm"
+                          : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-accent hover:text-accent-foreground"
                       )}
                     >
                       <div className={cn(
-                        "w-16 h-16 rounded-full flex items-center justify-center mb-2",
+                        "w-16 h-16 rounded-full flex items-center justify-center mb-2 transition-colors",
                         isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                       )}>
                         <Icon className="w-8 h-8" />
                       </div>
-                      <span className="text-lg font-medium">
-                        {loc.labelKey ? t(loc.labelKey) : loc.fallback}
-                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-lg font-medium mb-1">
+                          {t(loc.labelKey)}
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {t(loc.labelKey + '.desc')}
+                        </span>
+                      </div>
                     </button>
                   );
                 })}
               </div>
 
-              <div className="flex justify-between mt-8">
-                <Button variant="outline" onClick={handleBack} className="gap-2">
-                  <ArrowLeft01Icon className="w-4 h-4" /> Back
+              <div className="flex flex-col-reverse md:flex-row justify-between mt-auto pt-4 pb-8 md:pb-0 gap-4 md:gap-0">
+                <Button variant="outline" onClick={handleBack} className="gap-2 rounded-full w-full md:w-auto" size="lg">
+                  <ArrowLeft01Icon className="w-4 h-4" /> {t('form.previous')}
                 </Button>
-                <Button 
-                  onClick={handleNext} 
+                <Button
+                  onClick={handleNext}
                   disabled={!selectedLocation}
-                  className="gap-2"
+                  className="gap-2 rounded-full px-8 w-full md:w-auto"
                   size="lg"
                 >
-                  See Recommendation <ArrowRight01Icon className="w-4 h-4" />
+                  {t('form.seeRecommendation')} <ArrowRight01Icon className="w-4 h-4" />
                 </Button>
               </div>
             </motion.div>
@@ -334,20 +367,20 @@ export default function FirstTimeWizard() {
               className="flex flex-col gap-6 items-center"
             >
               <div className="text-center max-w-2xl mx-auto mb-6">
-                <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">Your Personalized Recommendation</Badge>
-                <h2 className="text-3xl md:text-5xl font-serif text-primary mb-4 leading-tight">
-                   The Perfect First Step For You
+                <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">{t('form.recommendation.title')}</Badge>
+                <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4 leading-tight pb-2">
+                   {t('form.recommendation.subtitle')}
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                   Based on your focus areas and preferred setting, we recommend starting here.
+                   {t('form.recommendation.desc')}
                 </p>
               </div>
 
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-md pb-8">
                 {(() => {
                   const recommendation = getRecommendation(selectedGoals, selectedLocation);
                   return (
-                    <Card className="overflow-hidden border-border/60 transition-all flex flex-col group hover:bg-surface-muted">
+                    <Card className="overflow-hidden border border-border shadow-md transition-all flex flex-col group hover:bg-accent/5">
                       <div className="aspect-4/3 relative overflow-hidden">
                         <Image
                           src={recommendation.image}
@@ -356,34 +389,34 @@ export default function FirstTimeWizard() {
                           sizes="(max-width: 768px) 100vw, 28rem"
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-linear-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 text-primary-foreground">
-                          <h3 className="text-2xl font-serif font-medium mb-1">
+                        <div className="absolute inset-0 bg-background/20 bg-linear-to-t from-background/95 to-transparent flex flex-col justify-end p-6 text-foreground">
+                          <h3 className="text-2xl font-serif font-medium mb-1 drop-shadow-sm">
                             {t(recommendation.titleKey) || recommendation.titleKey}
                           </h3>
                         </div>
                       </div>
-                      
-                      <div className="p-6 flex flex-col flex-1 gap-4">
+
+                      <div className="p-6 flex flex-col flex-1 gap-4 bg-card">
                         <div className="flex flex-wrap gap-2">
                           {recommendation.tagsKeys.map((tagKey, idx) => (
-                            <Badge key={idx} variant="outline" className="bg-background/50 backdrop-blur-xs">
+                            <Badge key={idx} variant="secondary" className="bg-muted text-muted-foreground font-normal">
                               {t(tagKey)}
                             </Badge>
                           ))}
                         </div>
-                        
+
                         <p className="text-muted-foreground text-sm line-clamp-3">
                           {t(recommendation.descKey) || recommendation.descKey}
                         </p>
-                        
-                        <div className="flex items-center justify-between text-sm font-medium mt-auto pt-4 border-t border-border">
-                          <span>{recommendation.duration}</span>
-                          <span className="text-primary">{recommendation.price}</span>
+
+                        <div className="flex items-center justify-between text-sm font-medium pt-4 border-t border-border mt-2">
+                          <span className="text-muted-foreground">{recommendation.duration}</span>
+                          <span className="text-primary font-semibold">{recommendation.price}</span>
                         </div>
 
-                        <Button asChild size="lg" className="w-full mt-2 group/btn">
+                        <Button asChild size="lg" className="w-full mt-2 group/btn rounded-full bg-primary hover:bg-primary/90 text-primary-foreground">
                           <Link href={`/booking?service=${recommendation.id}`}>
-                            Book First Session
+                            {t('form.recommendation.bookBtn')}
                             <ArrowRight01Icon className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                           </Link>
                         </Button>
@@ -393,9 +426,9 @@ export default function FirstTimeWizard() {
                 })()}
               </div>
 
-              <div className="mt-8 flex gap-4">
-                 <Button variant="ghost" onClick={() => setStep(1)} className="text-muted-foreground">
-                  Start Over
+              <div className="mt-2 flex gap-4 pb-8 md:pb-0">
+                 <Button variant="ghost" onClick={handleStartOver} className="text-muted-foreground hover:text-foreground rounded-full">
+                  {t('form.startOver')}
                 </Button>
               </div>
             </motion.div>
@@ -403,6 +436,6 @@ export default function FirstTimeWizard() {
         </AnimatePresence>
       </div>
 
-    </div>
+    </Card>
   );
 }

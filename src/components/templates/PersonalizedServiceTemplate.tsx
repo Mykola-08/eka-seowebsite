@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import { ServiceBentoItem } from '@/components/ui/service-bento';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
@@ -115,11 +115,7 @@ export default function PersonalizedServiceTemplate({
 
   return (
     <>
-      <SEOUpdater
-        titleKey={seoKeys.title}
-        descriptionKey={seoKeys.description}
-        keywordsKey={seoKeys.keywords}
-      />
+      
       <PageLayout
         hero={{
           title: t(`${translationKey}.hero.title`),

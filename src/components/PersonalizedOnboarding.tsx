@@ -3,7 +3,7 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';
@@ -35,11 +35,7 @@ export default function ForBusinessContent() {
 
   return (
     <>
-      <SEOUpdater
-        titleKey="seo.business.title"
-        descriptionKey="seo.business.description"
-        keywordsKey="seo.business.keywords"
-      />
+      
       <PageLayout
         hero={{
           title: t('personalized.business.hero.title'),

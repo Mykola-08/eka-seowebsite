@@ -8,7 +8,7 @@ import {
   SparklesIcon, Shield01Icon, Tick01Icon, Diamond01Icon, StarIcon, Award01Icon,
 } from '@/lib/icons';
 import { useLanguage } from '@/contexts/LanguageContext';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import CTASection from '@/components/CTASection';
 
 // --- Constants & Data ---
@@ -185,11 +185,7 @@ export default function VIPContent() {
 
   return (
     <div className="min-h-screen bg-card text-foreground font-sans selection:bg-primary/15 selection:text-primary">
-      <SEOUpdater 
-        titleKey="seo.vip.title"
-        descriptionKey="seo.vip.description"
-        keywordsKey="seo.vip.keywords"
-      />
+      
       
       {/* Hero Section */}
       <div className="relative pt-32 pb-24 overflow-hidden bg-muted/30">

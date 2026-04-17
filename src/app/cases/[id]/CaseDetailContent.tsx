@@ -67,9 +67,9 @@ export default function CaseDetailContent({ id }: { id: string }) {
   };
   const colorClass = colors[config.color as keyof typeof colors] || colors.blue;
 
-  const symptoms = getArray(`casos.problems.${config.key}.symptom`);
+  const concerns = getArray(`casos.problems.${config.key}.concern`);
   const causes = getArray(`casos.problems.${config.key}.cause`);
-  const treatment = t(`casos.problems.${config.key}.treatment`);
+  const approach = t(`casos.problems.${config.key}.approach`);
   const results = t(`casos.problems.${config.key}.results`);
 
   return (
@@ -107,10 +107,10 @@ export default function CaseDetailContent({ id }: { id: string }) {
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-destructive/40 to-transparent rounded-full opacity-50" />
             <h2 className="text-2xl font-light text-foreground mb-6 flex items-center">
               <span className="w-8 h-8 rounded-full bg-destructive/5 text-destructive flex items-center justify-center mr-3 text-sm font-medium">1</span>
-              {t('casos.symptoms')}
+              {t('casos.concerns')}
             </h2>
             <ul className="space-y-4">
-              {symptoms.map((item, idx) => (
+              {concerns.map((item, idx) => (
                 <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-[2rem]">
                   <span className="w-1.5 h-1.5 mt-2 rounded-full bg-destructive/60 mr-3 shrink-0" />
                   <span className="text-foreground/80">{item}</span>
@@ -137,7 +137,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
           </div>
         </div>
 
-        {/* Treatment & Results */}
+        {/* approach & Results */}
         <div className="bg-foreground rounded-apple-xl p-8 md:p-12 text-primary-foreground relative overflow-hidden">
           <div className={`absolute top-0 right-0 w-96 h-96 ${colorClass.bg.replace('bg-', 'bg-')} opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2`} />
 
@@ -145,10 +145,10 @@ export default function CaseDetailContent({ id }: { id: string }) {
             <div>
               <h2 className="text-2xl font-light text-primary-foreground mb-6 flex items-center">
                 <Activity01Icon className="w-6 h-6 text-primary-foreground/80 mr-3" />
-                {t('casos.treatment')}
+                {t('casos.approach')}
               </h2>
               <p className="text-primary-foreground/90 leading-relaxed text-lg font-light">
-                {treatment}
+                {approach}
               </p>
             </div>
 

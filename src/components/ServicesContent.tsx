@@ -6,7 +6,7 @@ import { SERVICES_DATA } from '@/shared/constants';
 import { motion } from 'framer-motion';
 import ServiceCard from '@/components/ServiceCard';
 import PageLayout from './PageLayout';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import CTASection from '@/components/CTASection';
 
 export default function ServicesContent() {
@@ -14,11 +14,7 @@ export default function ServicesContent() {
 
   return (
     <>
-      <SEOUpdater
-        titleKey="seo.services.title"
-        descriptionKey="seo.services.description"
-        keywordsKey="seo.services.keywords"
-      />
+      
       <PageLayout
         hero={{
           badge: t('services.integralWellbeingFor'),

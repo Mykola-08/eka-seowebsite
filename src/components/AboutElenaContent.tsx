@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -128,11 +128,7 @@ export default function AboutElenaContent() {
 
   return (
     <>
-      <SEOUpdater 
-        titleKey="elena.seo.title"
-        descriptionKey="elena.seo.desc"
-        keywordsKey="elena.seo.keywords"
-      />
+      
       
       <PageLayout hero={CustomHero} className="bg-secondary">
         {/* Techniques Section */}

@@ -1,9 +1,10 @@
-'use client';
+﻿'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Section, PageHero, FeatureGrid, CTABlock, type Feature } from '@/components/layout';
-import SEOUpdater from '@/components/SEOUpdater';
+import FAQ from '@/components/FAQ';
+
 import {
   Activity,
   Brain,
@@ -18,6 +19,8 @@ import {
   Sparkles,
   Wind,
   Zap,
+  CheckCircle,
+  ArrowRight
 } from '@/lib/icons';
 
 const WA_NUMBER = '34658867133';
@@ -65,37 +68,38 @@ export default function Revision360Content() {
     { icon: <Sparkles className="h-5 w-5" />, title: t('revision360.benefits.benefit9.title'), description: t('revision360.benefits.benefit9.description') },
   ];
 
-  const variants: Feature[] = [
-    {
-      icon: <RotateCcw className="h-6 w-6" />,
-      title: t('revision360.variants.reset.title'),
-      description: t('revision360.variants.reset.description'),
-    },
-    {
-      icon: <MapPin className="h-6 w-6" />,
-      title: t('revision360.variants.mapping.title'),
-      description: t('revision360.variants.mapping.description'),
-    },
-    {
-      icon: <Compass className="h-6 w-6" />,
-      title: t('revision360.variants.alignment.title'),
-      description: t('revision360.variants.alignment.description'),
-    },
-    {
-      icon: <Sparkles className="h-6 w-6" />,
-      title: t('revision360.variants.integral.title'),
-      description: t('revision360.variants.integral.description'),
-    },
+  const variantKeys = [
+    { key: 'reset', icon: <RotateCcw className="h-6 w-6" /> },
+    { key: 'mapping', icon: <MapPin className="h-6 w-6" /> },
+    { key: 'alignment', icon: <Compass className="h-6 w-6" /> },
+    { key: 'integral', icon: <Sparkles className="h-6 w-6" /> },
   ];
+
+  const faqItems = [
+    {
+      id: 'faq-1',
+      question: t('revision360.faq.q1'),
+      answer: t('revision360.faq.a1')
+    },
+    {
+      id: 'faq-2',
+      question: t('revision360.faq.q2'),
+      answer: t('revision360.faq.a2')
+    },
+    {
+      id: 'faq-3',
+      question: t('revision360.faq.q3'),
+      answer: t('revision360.faq.a3')
+    }
+  ];
+
+  const _t = (key: string) => {
+    const val = t(key);
+    return val === key ? '' : val;
+  };
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOUpdater
-        titleKey="revision360.seo.title"
-        descriptionKey="revision360.seo.description"
-        keywordsKey="revision360.seo.keywords"
-      />
-
       {/* Hero */}
       <Section spacing="loose" className="pt-32">
         <PageHero
@@ -120,7 +124,7 @@ export default function Revision360Content() {
         </blockquote>
       </Section>
 
-      {/* Why 360 — four layers */}
+      {/* Why 360 */}
       <Section tone="muted">
         <PageHero
           eyebrow={t('revision360.why360.badge')}
@@ -132,24 +136,108 @@ export default function Revision360Content() {
         </div>
       </Section>
 
-      {/* Process */}
+      {/* Process Timeline */}
       <Section id="process">
         <PageHero
           eyebrow={t('revision360.service.badge')}
           title={t('revision360.service.title')}
           subtitle={t('revision360.service.subtitle')}
         />
+        <div className="mt-16 max-w-4xl mx-auto space-y-12">
+          {[1, 2, 3, 4].map((step) => (
+            <div key={step} className="flex flex-col md:flex-row gap-6 md:gap-12">
+              <div className="md:w-1/3 flex-shrink-0">
+                <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                  {t('revision360.service.step')} {step}
+                </div>
+                <h3 className="text-2xl font-medium text-foreground tracking-tight">
+                  {t(`revision360.service.step${step}.title`)}
+                </h3>
+              </div>
+              <div className="md:w-2/3">
+                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                  {t(`revision360.service.step${step}.description`)}
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[1, 2, 3, 4].map((idx) => {
+                    const detail = _t(`revision360.service.step${step}.details.${idx}`);
+                    if (!detail || detail.includes('revision360.service')) return null;
+                    return (
+                      <li key={idx} className="flex items-center gap-3 text-muted-foreground">
+                        <div className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-primary/60" />
+                        <span>{detail}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 text-center">
+            <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">{t('revision360.service.total.title')}</p>
+            <p className="text-2xl font-medium mt-2">{t('revision360.service.total.duration')}</p>
+            <p className="text-muted-foreground mt-1">{t('revision360.service.total.note')}</p>
+        </div>
       </Section>
 
-      {/* Variants */}
+      {/* Variants (Rich Service Cards) */}
       <Section tone="muted">
         <PageHero
           eyebrow={t('revision360.variants.badge')}
           title={t('revision360.variants.title')}
           subtitle={t('revision360.variants.subtitle')}
         />
-        <div className="mt-16">
-          <FeatureGrid features={variants} columns={2} />
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {variantKeys.map((variant) => (
+            <div key={variant.key} className="bg-background rounded-[2rem] p-8 sm:p-10 shadow-sm border border-border/50 flex flex-col h-full">
+              <div className="flex items-center gap-4 mb-6">
+                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                   {variant.icon}
+                 </div>
+                 <div>
+                   <h3 className="text-2xl font-semibold tracking-tight text-foreground">{t(`revision360.variants.${variant.key}.title`)}</h3>
+                   <p className="text-primary font-medium">{t(`revision360.variants.${variant.key}.duration`)}</p>
+                 </div>
+              </div>
+              
+              <p className="text-lg font-medium text-foreground mb-2">{t(`revision360.variants.${variant.key}.subtitle`)}</p>
+              <p className="text-muted-foreground mb-8 text-pretty leading-relaxed flex-grow">{t(`revision360.variants.${variant.key}.description`)}</p>
+              
+              <div className="space-y-6 pt-6 border-t border-border/40 mt-auto">
+                <div>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('revision360.variants.idealFor')}</h4>
+                  <ul className="space-y-3">
+                    {[1, 2, 3, 4].map((idx) => {
+                      const item = _t(`revision360.variants.${variant.key}.idealFor.${idx}`);
+                      if (!item || item.includes('revision360.')) return null;
+                      return (
+                        <li key={idx} className="flex items-start gap-3 text-muted-foreground">
+                          <CheckCircle className="h-5 w-5 text-primary/70 shrink-0" />
+                          <span className="leading-snug">{item}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('revision360.variants.includes')}</h4>
+                  <ul className="space-y-3">
+                    {[1, 2, 3, 4].map((idx) => {
+                      const item = _t(`revision360.variants.${variant.key}.includes.${idx}`);
+                      if (!item || item.includes('revision360.')) return null;
+                      return (
+                        <li key={idx} className="flex items-start gap-3 text-muted-foreground">
+                          <ArrowRight className="h-5 w-5 text-foreground/40 shrink-0" />
+                          <span className="leading-snug">{item}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -168,6 +256,15 @@ export default function Revision360Content() {
         </blockquote>
       </Section>
 
+      {/* FAQ */}
+      <Section>
+         <FAQ 
+           items={faqItems} 
+           title={t('revision360.faq.title')} 
+           subtitle={_t('revision360.faq.subtitle')}
+         />
+      </Section>
+
       {/* Final invitation */}
       <Section spacing="loose" bleed>
         <CTABlock
@@ -179,7 +276,7 @@ export default function Revision360Content() {
             <>
               <Button asChild size="lg" className="px-8 shadow-none font-medium">
                 <a href={bookHref} target="_blank" rel="noopener noreferrer">
-                  {t('common.bookNow')}
+                  {_t('common.bookNow') || _t('revision360.hero.cta.book')}
                 </a>
               </Button>
               <Button
@@ -189,7 +286,7 @@ export default function Revision360Content() {
                 className="px-8 shadow-none font-medium bg-transparent"
               >
                 <a href={discoveryHref} target="_blank" rel="noopener noreferrer">
-                  {t('cta.scheduleDiscoveryCall')}
+                  {_t('cta.scheduleDiscoveryCall') || "Programar trucada"}
                 </a>
               </Button>
             </>

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
-import SEOUpdater from '@/components/SEOUpdater';
+
 import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { SERVICES_DATA } from '@/shared/constants';
 import { ServiceItem } from '@/shared/types';
@@ -48,11 +48,7 @@ export default function AdultsContent() {
 
   return (
     <>
-      <SEOUpdater
-        titleKey="seo.adults.title"
-        descriptionKey="seo.adults.description"
-        keywordsKey="seo.adults.keywords"
-      />
+      
       <PageLayout>
       {HeroCustom}
       

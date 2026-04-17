@@ -9,18 +9,14 @@ import { motion } from 'framer-motion';
 
 import PersonalizedServiceCard from '@/components/PersonalizedServiceCard';
 import PageLayout from './PageLayout';
-import SEOUpdater from '@/components/SEOUpdater';
+
 
 export default function PersonalizedServicesContent() {
   const { t } = useLanguage();
 
   return (
     <>
-      <SEOUpdater 
-        titleKey="seo.personalized.title"
-        descriptionKey="seo.personalized.description"
-        keywordsKey="seo.personalized.keywords"
-      />
+      
       <PageLayout
         hero={{
           title: t('personalizedServices.title'),

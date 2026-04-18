@@ -99,6 +99,22 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'pricing.best.value': 'Millor valor',
     'pricing.limited.time': 'Temps limitat',
 
+    // Discovery/Wizard Budget
+    'discovery.budget.basic.title': 'Fins a 70€',
+    'discovery.budget.standard.title': '70€ - 90€',
+    'discovery.budget.premium.title': 'Més de 90€',
+
+    // Discounts
+    'discounts.mykolaFriend.description': 'Descompte especial per a amics d\'en Mykola.',
+    'discounts.conocidoMykola.description': 'Descompte per a coneguts d\'en Mykola.',
+    
+    // First Time SEO
+    'firstTime.seo.title': 'Primera Vegada | EKA Balance',
+    'firstTime.seo.keywords': 'benestar, teràpia, barcelona, primera sessió, diagnòstic',
+    
+    // Onboarding
+    'onboarding.processing.subtitle': 'Estem preparant la millor recomanació per a tu...',
+
     // VIP specific
     'vip.title': 'Plans VIP - control de salut i benestar | EKA Balance',
     'vip.description': 'Plans VIP exclusius amb sessions a domicili, control de salut mensual i beneficis familiars. Bronze, silver i gold VIP a Barcelona.',
@@ -138,7 +154,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.plan.silver.price': '690€',
     'vip.plan.silver.description': 'Perfecte per a professionals',
     'vip.plan.gold': 'Gold VIP',
-    'vip.plan.gold.price': '990€',
+    'vip.plan.gold.price': '500€',
     'vip.plan.gold.description': 'L\'experiència VIP definitiva',
     'vip.plan.popular': 'Popular',
     'vip.plan.premium': 'Premium',
@@ -790,7 +806,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.plan.silver.price': '690€',
     'vip.plan.silver.description': 'Perfect for professionals',
     'vip.plan.gold': 'Gold VIP',
-    'vip.plan.gold.price': '990€',
+    'vip.plan.gold.price': '500€',
     'vip.plan.gold.description': 'The ultimate VIP experience',
     'vip.plan.popular': 'Popular',
     'vip.plan.premium': 'Premium',
@@ -1322,7 +1338,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'service.duration': 'Duración',
     'service.price': 'Precio',
     'service.supplements.title': 'Suplementos personalizados',
-    'service.systemic.title': 'prácticas de bienestar sistémica',
+    'service.systemic.title': 'Constelaciones Familiares',
     'service.benefits': 'Beneficios',
     'service.ideal.for': 'Ideal para',
     'service.what.to.expect': 'Qué esperar',
@@ -1440,7 +1456,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.plan.silver.price': '690€',
     'vip.plan.silver.description': 'Perfecto para profesionales',
     'vip.plan.gold': 'Gold VIP',
-    'vip.plan.gold.price': '990€',
+    'vip.plan.gold.price': '500€',
     'vip.plan.gold.description': 'La experiencia VIP definitiva',
     'vip.plan.popular': 'Popular',
     'vip.plan.premium': 'Premium',
@@ -2474,9 +2490,10 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'testimonials.maria.timeframe': '3 месяца',
     'testimonials.maria.before': 'Постоянное напряжение, плохая осанка, тревога, влияющая на повседневную жизнь',
     'testimonials.maria.after': 'Движение без боли, уверенная осанка, спокойная нервная система',
+
     'testimonials.david.name': 'Давид',
     'testimonials.david.issue': 'Спортивные показатели и восстановление',
-    'testimonials.david.quote': 'Я думал, что знаю свое тело как спортсмен. картирование 360° выявило паттерны, о которых я никогда не знал. мои показатели и восстановление достигли нового уровня.',
+    'testimonials.david.quote': 'Я думал, что знаю свое тело как спортсмен. картирование 360° выявило паттерны, о которых я ни�е знал. мои показатели и восстановление достигли нового уровня.',
     'testimonials.david.result': '25% улучшение времени восстановления, устранены повторяющиеся травмы',
     'testimonials.david.timeframe': '6 недель',
     'testimonials.david.before': 'Частые травмы, медленное восстановление, застой в результатах',
@@ -2604,7 +2621,7 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.plan.silver.price': '690€',
     'vip.plan.silver.description': 'Идеально для профессионалов',
     'vip.plan.gold': 'Gold VIP',
-    'vip.plan.gold.price': '990€',
+    'vip.plan.gold.price': '500€',
     'vip.plan.gold.description': 'Ультимативный VIP опыт',
     'vip.plan.popular': 'Популярный',
     'vip.plan.premium': 'Premium',
@@ -2633,11 +2650,12 @@ export const servicesTranslations: Record<Language, Record<string, string>> = {
     'vip.testimonialsSubtitle': 'Реальные истории наших VIP участников',
     'vip.elite': 'Premium',
     'vip.innerCircleAwaits': 'Ваше пространство заботы ждет',
-    'vip.readyToTranscend': 'Готовы перейти',
+    'vip.readyToTranscend': 'Ваше пространство заботы ждет',
     'vip.transcend': 'На новый уровень?',
     'vip.transcendSubtitle': 'Присоединяйтесь к элите благополучия и испытайте новый уровень заботы о себе',
     'vip.joinInnerCircle': 'Присоединиться к программе',
     'vip.exclusiveExperiences': 'Эксклюзивный опыт для VIP участников',
-
   }
 };
+
+

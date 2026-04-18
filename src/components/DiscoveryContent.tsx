@@ -416,8 +416,8 @@ export default function DiscoveryContent() {
       return {
         service: t('discovery.recommendation.integrative.service'),
         description: t('discovery.recommendation.integrative.desc'),
-        price: '90-120€',
-        duration: '1,5-2h',
+        price: '90-140€',
+        duration: '90-120 min',
         benefits: generateBenefits([
           t('discovery.recommendation.integrative.benefit1'),
           t('discovery.recommendation.integrative.benefit2'),

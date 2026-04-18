@@ -9,11 +9,11 @@ export const SERVICES_DATA: ServiceItem[] = [
     descriptionKey: 'services.massage.description',
     iconName: 'Heart',
     color: 'orange',
-    durations: [60, 90, 120],
+    durations: [60, 90],
     image: 'https://a0.muscache.com/im/pictures/Mt/MtTemplate-6223451/original/84352a07-89b1-4e4f-8cfb-412bcabd3af7.jpeg?im_w=1440',
     href: '/services/massage',
     benefitsKeys: ['services.benefits.reduces', 'services.benefits.stress', 'services.benefits.circulation', 'services.benefits.relaxation'],
-    price: 60
+    price: 70
   },
   {
     id: 'kinesiologia',
@@ -35,10 +35,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     descriptionKey: 'services.nutrition.description',
     iconName: 'Leaf',
     color: 'green',
-    durations: [],
+    durations: [60],
     image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/nutrition',
-    price: 60,
+    price: 70,
     benefitsKeys: ['services.benefits.habits', 'services.benefits.vitality', 'services.benefits.weight', 'services.benefits.longterm']
   },
   {
@@ -48,24 +48,11 @@ export const SERVICES_DATA: ServiceItem[] = [
     descriptionKey: 'services.constelaciones.description',
     iconName: 'Star',
     color: 'purple',
-    durations: [90, 120],
+    durations: [90],
     image: 'https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: '/services/constelaciones',
     benefitsKeys: ['services.benefits.stress', 'services.benefits.energy', 'services.benefits.relaxation'],
-    price: 80
-  },
-  {
-    id: 'revisio360',
-    titleKey: 'services.revision360.title',
-    subtitleKey: 'services.revision360.subtitle',
-    descriptionKey: 'services.revision360.description',
-    iconName: 'RotateCcw',
-    color: 'purple',
-    durations: [60, 90, 120],
-    image: 'https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=800',
-    href: '/360-revision',
-    price: 150,
-    benefitsKeys: ['services.benefits.assessment', 'services.benefits.plan', 'services.benefits.recommendations', 'services.benefits.followup']
+    price: 90
   }
 ];
 
@@ -147,7 +134,7 @@ export const PERSONALIZED_SERVICES_DATA: PersonalizedServiceItem[] = [
       'personalizedServices.students.benefit3'
     ],
     resultKey: 'personalizedServices.students.result',
-    price: 60,
+    price: 70,
     duration: '60'
   },
   {

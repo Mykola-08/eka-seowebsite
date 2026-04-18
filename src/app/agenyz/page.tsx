@@ -1,6 +1,5 @@
 import { generateAppMetadata } from '@/lib/seo';
 import AgenyzContent from '@/components/AgenyzContent';
-import { Metadata } from 'next';
 
 
 

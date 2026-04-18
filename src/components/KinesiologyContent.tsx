@@ -15,7 +15,8 @@ export default function KinesiologiaContent() {
         titleKey: 'services.kinesiology.title',
         subtitleKey: 'services.kinesiology.description',
         badgeKey: 'services.kinesiology.subtitle',
-        icon: Brain01Icon
+        icon: Brain01Icon,
+        backgroundImage: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
       bentoGrid={{
         titleKey: 'kinesiology.page.benefitsTitle',
@@ -23,38 +24,37 @@ export default function KinesiologiaContent() {
         items: [
           {
             titleKey: 'services.kinesiology.subtitle',
-            descriptionKey: 'kinesiology.bento.balance.desc',
+            descriptionKey: 'kinesiologia.bento.structural.desc',
             detailsKey: 'services.kinesiology.description',
-            image: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=800',
-            colSpan: 1
+            icon: 'Activity',
+            color: 'blue',
+            size: 'large'
           },
           {
             titleKey: 'kinesiology.benefits.posture',
-            descriptionKey: 'kinesiology.bento.posture.desc',
+            descriptionKey: 'kinesiologia.bento.posture.desc',
             detailsKey: 'services.kinesiology.description',
-            image: 'https://images.pexels.com/photos/5793981/pexels-photo-5793981.jpeg?auto=compress&cs=tinysrgb&w=1200',
-            colSpan: 2
+            icon: 'Zap',
+            color: 'green',
+            size: 'medium'
           },
           {
             titleKey: 'kinesiology.benefits.stress',
-            descriptionKey: 'kinesiology.bento.stress.desc',
+            descriptionKey: 'kinesiologia.bento.stress.desc',
             detailsKey: 'services.kinesiology.description',
-            image: 'https://images.pexels.com/photos/3865523/pexels-photo-3865523.jpeg?auto=compress&cs=tinysrgb&w=1200',
-            colSpan: 2
+            icon: 'Heart',
+            color: 'purple',
+            size: 'medium'
           },
           {
             titleKey: 'kinesiology.benefits.energy',
-            descriptionKey: 'kinesiology.bento.energy.desc',
+            descriptionKey: 'kinesiologia.bento.energy.desc',
             detailsKey: 'services.kinesiology.description',
-            image: 'https://images.pexels.com/photos/3760270/pexels-photo-3760270.jpeg?auto=compress&cs=tinysrgb&w=800',
-            colSpan: 1
+            icon: 'Brain',
+            color: 'orange',
+            size: 'large'
           }
         ]
-      }}
-      seoKeys={{
-        title: 'seo.kinesiology.title',
-        description: 'seo.kinesiology.description',
-        keywords: 'seo.kinesiology.keywords'
       }}
       features={{
         titleKey: 'kinesiology.page.benefitsTitle',
@@ -67,11 +67,11 @@ export default function KinesiologiaContent() {
         ]
       }}
       pricing={{
-        titleKey: 'kinesiology.page.durationsTitle',
-        subtitleKey: 'kinesiology.page.durationsSubtitle',
+        titleKey: 'kinesiologia.page.durationsTitle',
+        subtitleKey: 'kinesiologia.page.durationsSubtitle',
         options: [
-          { duration: 60, descriptionKey: 'kinesiology.page.duration60' },
-          { duration: 90, descriptionKey: 'kinesiology.page.duration90' }
+          { duration: 60, price: 70, descriptionKey: 'kinesiologia.page.duration60' },
+          { duration: 90, price: 90, descriptionKey: 'kinesiologia.page.duration90' }
         ]
       }}
       testimonials={{

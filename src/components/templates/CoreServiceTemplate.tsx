@@ -1,276 +1,207 @@
 'use client';
 
 import React from 'react';
-import { CheckCircle, Clock01Icon, StarIcon } from '@/lib/icons';
+import { CheckCircle, Clock01Icon } from '@/lib/icons';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
-import { ServiceBentoItem } from '@/components/ui/service-bento';
 import { Button } from '@/components/ui/button';
-
-import FAQ from '@/components/FAQ';
+import { Badge } from '@/components/ui/badge';
 import CTASection from '@/components/CTASection';
-import { SERVICES_DATA } from '@/shared/constants';
-interface PricingOption {
-  duration: number | string;
-  price?: number;
-  descriptionKey?: string;
-  nameKey?: string;
-}
-
-interface Testimonial {
-  name: string;
-  text: string;
-  rating: number;
-}
+import FAQ from '@/components/FAQ';
+import { BentoCard } from '@/components/ui/bento-card';
 
 interface CoreServiceTemplateProps {
   serviceId: string;
   hero: {
     titleKey: string;
     subtitleKey: string;
-    badgeKey: string;
-    icon?: React.ComponentType<{ className?: string }>;
-    backgroundImage?: string;
-  };
-  bentoGrid?: {
-    titleKey: string;
-    subtitleKey?: string;
-    items: Array<{
-      titleKey: string;
-      descriptionKey: string;
-      detailsKey?: string;
-      image?: string;
-      colSpan?: number;
-    }>;
+    badgeKey?: string;
+    icon: React.ElementType;
+    backgroundImage: string;
   };
   features: {
     titleKey: string;
     subtitleKey: string;
-    benefits: string[]; // translation keys or direct text
+    benefits: string[];
   };
-  pricing: {
+  bentoGrid?: {
     titleKey: string;
     subtitleKey: string;
-    options: PricingOption[];
+    items: Array<{
+      titleKey: string;
+      descriptionKey: string;
+      detailsKey?: string;
+      icon?: string;
+      color?: 'purple' | 'blue' | 'orange' | 'green' | 'pink' | 'amber';
+      size?: 'small' | 'medium' | 'large';
+      colSpan?: number;
+    }>;
+  };
+  faqItems?: Array<{
+    id: string;
+    question: string;
+    answer: string;
+  }>;
+  pricing?: {
+    titleKey?: string;
+    subtitleKey?: string;
+    options: Array<{
+      duration: string | number;
+      price?: number | string;
+      nameKey?: string;
+      descriptionKey?: string;
+    }>;
   };
   testimonials?: {
     titleKey: string;
-    items: Testimonial[];
-  };
-  faqItems?: Array<{ id: string; question: string; answer: string }>;
-  seoKeys: {
-    title: string;
-    description: string;
-    keywords: string;
+    items: Array<{
+        name: string;
+        text: string;
+        rating: number;
+    }>;
   };
 }
-
-const iconColorMap: Record<string, string> = {
-  orange: 'text-gold-dark bg-gold/10',
-  blue: 'text-primary bg-primary/10',
-  green: 'text-primary bg-primary/10',
-  purple: 'text-primary bg-primary/10',
-  pink: 'text-pink-600 bg-pink-100',
-  amber: 'text-amber-600 bg-amber-100',
-};
 
 export default function CoreServiceTemplate({
   serviceId,
   hero,
-  bentoGrid,
   features,
+  bentoGrid,
   pricing,
-  testimonials,
   faqItems,
-  seoKeys
+  testimonials
 }: CoreServiceTemplateProps) {
-  const { navigateToBooking } = useBooking();
   const { t } = useLanguage();
-  const serviceData = SERVICES_DATA.find(s => s.id === serviceId);
-  const theme = serviceData?.color || 'blue';
-  
-  // Styles based on theme
-  const iconStyle = iconColorMap[theme] || iconColorMap.blue;
+  const { openBooking } = useBooking();
 
   return (
     <>
-      
       <PageLayout
-        hero={{
-          title: t(hero.titleKey),
-          subtitle: t(hero.subtitleKey),
-
-          backgroundImage: hero.backgroundImage || serviceData?.image,
-          themeColor: theme
+        seo={{
+          title: t(`seo.${serviceId}.title`),
+          description: t(`seo.${serviceId}.description`),
+          keywords: t(`seo.${serviceId}.keywords`),
         }}
       >
-      {/* Bento Grid Section */}
-      {bentoGrid && (
-        <section className="py-16 sm:py-20 lg:py-24 bg-card relative z-10">
-          <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-foreground">
-                {t(bentoGrid.titleKey)}
-              </h2>
-              {bentoGrid.subtitleKey && (
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto tracking-tight font-medium">
-                  {t(bentoGrid.subtitleKey)}
-                </p>
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-3xl mx-auto">
+              {hero.badgeKey && (
+                <Badge variant="outline" className="mb-6 px-4 py-1 rounded-full border-primary/20 text-primary bg-primary/5 uppercase tracking-wider text-[10px] font-bold">
+                  {t(hero.badgeKey)}
+                </Badge>
               )}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-350 mx-auto">
-              {bentoGrid.items.map((item, index) => {
-                 let spanClass = "col-span-1";
-                 if (item.colSpan === 2) spanClass = "md:col-span-2";
-                 if (item.colSpan === 3) spanClass = "md:col-span-2 lg:col-span-3";
-                 
-                 const title = t(item.titleKey) !== item.titleKey ? t(item.titleKey) : item.titleKey;
-                 const desc = t(item.descriptionKey) !== item.descriptionKey ? t(item.descriptionKey) : item.descriptionKey;
-                 const detailsKey = item.detailsKey || item.descriptionKey;
-                 const details = t(detailsKey) !== detailsKey ? t(detailsKey) : detailsKey;
-
-                 return (
-                   <div key={index} className={spanClass}>
-                     <ServiceBentoItem 
-                       title={title}
-                       description={desc}
-                       image={item.image}
-                       details={<p>{details}</p>}
-                       delay={0.1 * index}
-                     />
-                   </div>
-                 );
-              })}
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-foreground mb-6 leading-[0.95]">
+                {t(hero.titleKey)}
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10">
+                {t(hero.subtitleKey)}
+              </p>
+              <Button size="lg" className="rounded-full px-8 h-14 text-base" onClick={openBooking}>
+                {t('common.bookNow')}
+              </Button>
             </div>
           </div>
         </section>
-      )}
 
-      {/* Benefits Section - Apple Bento Layout */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-muted/30">
-        <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
-              {t(features.titleKey)}
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
-              {t(features.subtitleKey)}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-350 mx-auto">
-            {features.benefits.map((benefit, index) => {
-              const title = t(benefit) !== benefit ? t(benefit) : benefit;    
-                return (
-                  <div
-                    key={index}
-                    className="p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group flex flex-col justify-start min-h-45"
-                  >
-                    <div className="absolute -top-4 -right-4 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500 transform group-hover:scale-110">
-                      <CheckCircle className="w-40 h-40" />
-                    </div>
-                      <div className={`w-12 h-12 rounded-[2rem] sm:rounded-[2rem] flex items-center justify-center mb-6 relative z-10 bg-muted/50 ${iconStyle}  group-hover:scale-110 transition-transform duration-500 shrink-0`}>
-                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tracking-tight leading-[1.2] relative z-10 w-[95%]">
-                      {title}
-                    </h3>
-                  </div>
-                );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing / Duration Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-card relative">
-        <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
-              {t(pricing.titleKey)}
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
-              {t(pricing.subtitleKey)}
-            </p>
-          </div>
-
-          <div className={`grid gap-6 md:gap-8 max-w-300 mx-auto ${pricing.options.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
-            {pricing.options.map((option, index) => (
-                <div key={index} className="bg-muted/30 rounded-[2rem] sm:rounded-[2rem] p-6 sm:p-8 md:p-10 border border-border hover:border-border transition-all duration-500 group text-center flex flex-col items-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-muted rounded-bl-full z-0 opacity-50 group-hover:bg-primary/5 transition-colors duration-500" />
-                
-                <div className={`flex items-center justify-center mb-8 w-16 h-16 rounded-[2rem] bg-card  mx-auto group-hover:scale-110 transition-transform duration-500 relative z-10 ${iconStyle}`}>
-                  <Clock01Icon className="w-7 h-7" />
-                </div>
-
-                {option.nameKey && (
-                    <h3 className="text-lg font-medium text-muted-foreground tracking-tight mb-2 relative z-10">
-                         {t(option.nameKey) !== option.nameKey ? t(option.nameKey) : option.nameKey}
-                    </h3>
-                )}
-
-                <h3 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tighter mb-4 relative z-10">
-                  {typeof option.duration === 'number' ? `${option.duration}'` : option.duration}
-                </h3>
-
-                {option.descriptionKey && (
-                    <p className="text-muted-foreground mb-8 font-medium leading-relaxed text-sm max-w-62.5 relative z-10">
-                        {t(option.descriptionKey)}
-                    </p>
-                )}
-
-                {option.price && (
-                   <div className="mb-8 relative z-10">
-                      <span className="text-4xl font-semibold tracking-tighter text-foreground">{option.price}€</span>
-                   </div>
-                )}
-
-                <div className="mt-auto w-full pt-4 relative z-10">
-                    <Button
-                        onClick={() => navigateToBooking()}
-                        variant="default"
-                        size="xl"
-                        className="w-full rounded-full bg-foreground hover:bg-foreground/90 text-primary-foreground transition-all font-medium text-lg"
-                    >
-                        {t('common.bookNow')}
-                    </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Testimonials (Optional) */}
-      {testimonials && testimonials.items.length > 0 && (
-          <section className="py-16 sm:py-20 lg:py-24 bg-card">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                    {testimonials.items.map((testimonial, i) => (
-                        <div key={i} className="bg-muted/50 p-8 rounded-[2rem] border border-border h-full flex flex-col hover:bg-card transition duration-300">
-                             <div className="flex gap-1 mb-4 text-gold">
-                                {[...Array(testimonial.rating)].map((_, i) => (
-                                    <StarIcon key={i} className="w-5 h-5 fill-current" />
-                                ))}
-                             </div>
-                             <p className="text-lg text-foreground/80 mb-6 italic grow">&ldquo;{testimonial.text}&rdquo;</p>
-                             <div className="font-semibold text-foreground mt-auto">{testimonial.name}</div>
+        {/* Features / Benefits */}
+        <section className="py-20 lg:py-32 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                   <h2 className="heading-2 mb-6">{t(features.titleKey)}</h2>
+                   <p className="text-lg text-muted-foreground mb-10">{t(features.subtitleKey)}</p>
+                   <div className="grid gap-4">
+                      {features.benefits.map((benefitKey, i) => (
+                        <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-background border border-border">
+                           <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                           <span className="text-foreground/80 font-medium">{t(benefitKey)}</span>
                         </div>
+                      ))}
+                   </div>
+                </div>
+                <div className="relative rounded-[2.5rem] overflow-hidden aspect-square lg:aspect-[4/5] shadow-2xl">
+                   <img src={hero.backgroundImage} alt={t(hero.titleKey)} className="absolute inset-0 w-full h-full object-cover" />
+                </div>
+             </div>
+          </div>
+        </section>
+
+        {/* Bento Grid (Optional) */}
+        {bentoGrid && (
+          <section className="py-20 lg:py-32 bg-background">
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                   <h2 className="heading-2 mb-4">{t(bentoGrid.titleKey)}</h2>
+                   <p className="text-muted-foreground max-w-2xl mx-auto">{t(bentoGrid.subtitleKey)}</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                   {bentoGrid.items.map((item, i) => (
+                      <div key={i} className={item.colSpan === 2 ? 'md:col-span-2' : ''}>
+                        <BentoCard 
+                          href="/booking"
+                        >
+                            <div className="p-8 h-full flex flex-col">
+                                <h3 className="text-2xl font-semibold mb-2">{t(item.titleKey)}</h3>
+                                <p className="text-muted-foreground">{t(item.descriptionKey)}</p>
+                                {item.detailsKey && <p className="text-sm mt-4 opacity-70 leading-relaxed">{t(item.detailsKey)}</p>}
+                            </div>
+                        </BentoCard>
+                      </div>
+                   ))}
+                </div>
+             </div>
+          </section>
+        )}
+
+        {/* Pricing / Sessions */}
+        {pricing && (
+          <section className="py-20 lg:py-32 bg-muted/30">
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                  <h2 className="heading-2 mb-4">{t(pricing.titleKey || 'services.pricing.title')}</h2>
+                  {pricing.subtitleKey && <p className="text-muted-foreground">{t(pricing.subtitleKey)}</p>}
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                    {pricing.options.map((option, i) => (
+                      <div key={i} className="bg-background rounded-3xl p-8 border border-border flex flex-col items-center text-center">
+                          <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center mb-6">
+                             <Clock01Icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <h3 className="text-xl font-semibold mb-2">{option.nameKey ? t(option.nameKey) : `${option.duration} min`}</h3>
+                          {option.price && <p className="text-3xl font-bold text-foreground mb-4">{option.price}€</p>}
+                          {option.descriptionKey && <p className="text-muted-foreground text-sm mb-6">{t(option.descriptionKey)}</p>}
+                          <Button variant="outline" className="w-full mt-auto rounded-full" onClick={openBooking}>
+                            {t('common.bookNow')}
+                          </Button>
+                      </div>
                     ))}
                 </div>
-            </div>
+             </div>
           </section>
-      )}
+        )}
 
-      {faqItems ? <FAQ items={faqItems} /> : <FAQ />}
-      <CTASection />
+        {testimonials && (
+           <section className="py-20 lg:py-32 bg-background">
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="heading-2 text-center mb-16">{t(testimonials.titleKey)}</h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                    {testimonials.items.map((test, i) => (
+                      <div key={i} className="p-8 rounded-[2rem] bg-muted/30 border border-border/50">
+                        <p className="text-lg italic mb-6">"{test.text}"</p>
+                        <p className="font-semibold">{test.name}</p>
+                      </div>
+                    ))}
+                </div>
+             </div>
+           </section>
+        )}
+
+        {faqItems ? <FAQ items={faqItems} /> : <FAQ />}
+        <CTASection />
       </PageLayout>
     </>
   );
 }
-
-
-
-

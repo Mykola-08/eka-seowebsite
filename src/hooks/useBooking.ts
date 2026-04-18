@@ -6,5 +6,12 @@ export function useBooking() {
   if (context === undefined) {
     throw new Error('useBooking must be used within a BookingProvider');
   }
-  return context;
+  
+  // In our provider, navigateToBooking is the function that opens the popup
+  const openBooking = () => context.navigateToBooking();
+
+  return {
+    ...context,
+    openBooking
+  };
 }

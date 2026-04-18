@@ -1,275 +1,154 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight } from '@/lib/icons';
-import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 import PageLayout from '@/components/PageLayout';
+import { Section, PageHero } from '@/components/layout';
 import { Button } from '@/components/ui/button';
-import { ServiceBentoItem } from '@/components/ui/service-bento';
-
-import FAQ from '@/components/FAQ';
+import { Card, CardContent } from '@/components/ui/card';
 import CTASection from '@/components/CTASection';
-import { PERSONALIZED_SERVICES_DATA } from '@/shared/constants';
-interface RecommendedService {
-  titleKey: string;
-  descriptionKey: string;
-  duration?: string;
-  href: string;
-}
-
-interface MethodStep {
-  title: string;
-  description: string;
-}
+import { CheckCircle, ArrowRight, Clock01Icon } from '@/lib/icons';
 
 interface PersonalizedServiceTemplateProps {
   serviceId: string;
-  translationKey: string;
-  Icon: React.ComponentType<{ className?: string }>;
-  seoKeys: {
-    title: string;
-    description: string;
-    keywords: string;
+  hero: {
+    titleKey: string;
+    subtitleKey: string;
+    badgeKey?: string;
+    icon: React.ElementType;
+    backgroundImage: string;
   };
-  recommendedServices: RecommendedService[];
-  faqItems?: Array<{ id: string; question: string; answer: string }>;
+  benefits: {
+    titleKey: string;
+    subtitleKey: string;
+    items: string[];
+  };
+  recommendedServices: Array<{
+    titleKey: string;
+    descriptionKey: string;
+    href: string;
+    duration?: string;
+    price?: string;
+  }>;
   showMethodology?: boolean;
-  benefits?: string[];
-  methodSteps?: MethodStep[];
-  children?: React.ReactNode;
-  childrenTop?: React.ReactNode;
 }
-
-interface Theme {
-  bg: string;
-  border: string;
-  text: string;
-  subtext: string;
-  accent: string;
-  dots: string;
-  stepsBg: string;
-  stepsIconBg: string;
-  stepsIconText: string;
-  servicesBgFrom: string;
-  servicesBgTo: string;
-  serviceCardHoverText: string;
-  serviceLinkText: string;
-}
-
-// Unified design-token theme — consistent across all audience segments.
-const unifiedTheme: Theme = {
-  bg: 'bg-muted/40',
-  border: 'border border-border',
-  text: 'text-foreground',
-  subtext: 'text-foreground/80',
-  accent: 'text-foreground',
-  dots: 'bg-primary',
-  stepsBg: 'bg-muted/30',
-  stepsIconBg: 'bg-primary/10',
-  stepsIconText: 'text-primary',
-  servicesBgFrom: 'from-transparent',
-  servicesBgTo: 'to-muted/30',
-  serviceCardHoverText: 'group-hover:text-primary',
-  serviceLinkText: 'text-primary'
-};
-
-const themeConfig: Record<string, Theme> = {
-  orange: unifiedTheme,
-  purple: unifiedTheme,
-  blue: unifiedTheme,
-  green: unifiedTheme,
-  pink: unifiedTheme,
-  amber: unifiedTheme,
-};
 
 export default function PersonalizedServiceTemplate({
   serviceId,
-  translationKey,
-  seoKeys,
+  hero,
+  benefits,
   recommendedServices,
-  faqItems,
-  showMethodology = true,
-  benefits = [],
-  methodSteps,
-  children,
-  childrenTop
+  showMethodology = true
 }: PersonalizedServiceTemplateProps) {
   const { t } = useLanguage();
-  const serviceData = PERSONALIZED_SERVICES_DATA.find(s => s.id === serviceId);
-
-  const colorKey = serviceData?.color || 'orange';
-  const theme = themeConfig[colorKey] || themeConfig.orange;
-
-  // Fallback methodology steps if none provided but showMethodology is true
-  // Try to load from translation keys if methodSteps is empty but showMethodology is true
-  const stepsToRender = (methodSteps && methodSteps.length > 0) ? methodSteps : (showMethodology ? [1, 2, 3].map(step => ({
-    title: t(`${translationKey}.method.step${step}.title`),
-    description: t(`${translationKey}.method.step${step}.desc`)
-  })) : []);
-
-  // Filter out any steps that look like translation keys (if t returns the key)
-  const validSteps = stepsToRender.filter(step =>
-    !step.title.includes(translationKey) && !step.description.includes(translationKey)
-  );
+  const { openBooking } = useBooking();
 
   return (
     <>
-      
       <PageLayout
-        hero={{
-          title: t(`${translationKey}.hero.title`),
-          subtitle: t(`${translationKey}.hero.description`),
-          backgroundImage: serviceData?.image,
-          themeColor: serviceData?.color || 'orange'
+        seo={{
+          title: t(`seo.${serviceId}.title`),
+          description: t(`seo.${serviceId}.description`),
+          keywords: t(`seo.${serviceId}.keywords`),
         }}
       >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 mb-16 relative z-20">
-          <Button
-            asChild
-            size="xl"
-            variant="default"
-            
-          >
-            <Link href={`/booking?service=${encodeURIComponent(t(`${translationKey}.hero.title`))}`}>
-              {t('nav.bookNow')}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
-          <Link href="/booking">
-            <Button
-              size="xl"
-              variant="outline"
-              className="backdrop-blur-sm"
-            >
-              {t('common.askQuestions')}
-            </Button>
-          </Link>
-        </div>
-        {childrenTop}
-        {/* Understanding Section - Bento Box */}
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-muted/30">
-          <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-foreground">
-                {t(`${translationKey}.understanding.title`)}
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-350 mx-auto">
-              {/* Description 1 - Large box */}
-              <div className="col-span-1 md:col-span-2 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2rem] bg-card border border-border transition-all duration-500 relative overflow-hidden group">
-                 <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-full ${theme.bg} transition-colors duration-500`} />
-                 <p className="text-xl sm:text-2xl md:text-3xl text-foreground font-medium leading-tight relative z-10 text-balance">
-                    {t(`${translationKey}.understanding.description1`)}
-                 </p>
-                 <p className="mt-6 sm:mt-8 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl font-medium relative z-10">
-                    {t(`${translationKey}.understanding.description2`)}
-                 </p>
-                 <div className="mt-6 sm:mt-8 relative z-10">
-                    <p className={`font-semibold tracking-tight ${theme.text} text-sm sm:text-base`}>
-                      {t(`${translationKey}.understanding.callToAction`)}
-                    </p>
-                 </div>
-              </div>
-
-              {/* Benefits Box */}
-              {benefits.length > 0 && (
-                <div className={`col-span-1 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2rem] ${theme.bg} ${theme.border} border  transition-all duration-500 flex flex-col justify-center`}>
-                  <h3 className={`font-semibold text-xl sm:text-2xl mb-4 sm:mb-6 tracking-tight ${theme.text}`}>
-                    {t('common.benefits') || t(`${translationKey}.benefits.title`) || 'Beneficis clau'}
-                  </h3>
-                  <ul className="space-y-3 sm:space-y-4">
-                    {benefits.map((benefit: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 sm:gap-4">
-                        <div className={`mt-2 w-2 h-2 rounded-full ${theme.dots} shrink-0`} />
-                        <span className={`text-base sm:text-lg font-medium leading-tight ${theme.text}`}>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+        {/* Hero */}
+        <Section spacing="loose" className="pt-32">
+          <PageHero
+            eyebrow={hero.badgeKey ? t(hero.badgeKey) : undefined}
+            title={t(hero.titleKey)}
+            subtitle={t(hero.subtitleKey)}
+            actions={
+              <Button size="lg" className="rounded-full px-8" onClick={openBooking}>
+                {t('common.bookNow')}
+              </Button>
+            }
+          />
+          <div className="mt-16 relative rounded-[2.5rem] overflow-hidden aspect-[21/9] shadow-2xl">
+             <img src={hero.backgroundImage} alt={t(hero.titleKey)} className="absolute inset-0 w-full h-full object-cover" />
           </div>
-        </section>
+        </Section>
 
-        {/* Methodology Section - Apple Bento layout */}
-        {showMethodology && validSteps.length > 0 && (
-          <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card">
-            <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-12 sm:mb-16 text-center text-foreground">
-                {t(`${translationKey}.method.title`)}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-                {validSteps.map((step, index) => (
-                    <div key={index} className={`rounded-[2rem] sm:rounded-[2rem] p-6 sm:p-8 md:p-10 ${theme.stepsBg}  group  transition-all duration-500`}>
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[2rem] ${theme.stepsIconBg} flex items-center justify-center ${theme.stepsIconText} text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                      {index + 1}
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-foreground tracking-tight leading-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-medium">
-                      {step.description}
-                    </p>
+        {/* Benefits Section */}
+        <Section tone="muted">
+          <div className="max-w-7xl mx-auto">
+             <div className="text-center mb-16">
+                <h2 className="heading-2 mb-4">{t(benefits.titleKey)}</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">{t(benefits.subtitleKey)}</p>
+             </div>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {benefits.items.map((itemKey, i) => (
+                  <div key={i} className="bg-background p-6 rounded-2xl border border-border flex gap-4">
+                     <CheckCircle className="w-6 h-6 text-primary shrink-0" />
+                     <p className="text-foreground/80 font-medium leading-relaxed">{t(itemKey)}</p>
                   </div>
                 ))}
-              </div>
+             </div>
+          </div>
+        </Section>
+
+        {/* Methodology (Optional) */}
+        {showMethodology && (
+          <Section>
+            <div className="max-w-4xl mx-auto">
+               <div className="text-center mb-16">
+                  <h2 className="heading-2 mb-4">{t('common.methodology.title') || 'Nuestro Método'}</h2>
+                  <p className="text-muted-foreground">{t('common.methodology.subtitle') || 'Un enfoque integrado para resultados duraderos.'}</p>
+               </div>
+               <div className="space-y-12">
+                  {[1, 2, 3].map((step) => (
+                    <div key={step} className="flex gap-6 md:gap-12">
+                       <div className="text-4xl font-bold text-primary/20 shrink-0">0{step}</div>
+                       <div>
+                          <h3 className="text-xl font-semibold mb-2">{t(`personalized.${serviceId}.method.step${step}.title`)}</h3>
+                          <p className="text-muted-foreground leading-relaxed">{t(`personalized.${serviceId}.method.step${step}.desc`)}</p>
+                       </div>
+                    </div>
+                  ))}
+               </div>
             </div>
-          </section>
+          </Section>
         )}
 
-        {/* Recommended Services Section */}
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-muted/30">
-          <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter mb-3 sm:mb-4 text-foreground">
-                {t(`${translationKey}.services.title`)}
-              </h2>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto tracking-tight font-medium">
-                {t(`${translationKey}.services.subtitle`)}
-              </p>
-            </div>
+        {/* Recommended Services */}
+        <Section tone="muted">
+           <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                 <h2 className="heading-2 mb-4">{t('personalized.recommendedServices') || 'Servicios Recomendados'}</h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                 {recommendedServices.map((service, i) => (
+                    <Card key={i} className="bg-background border-border overflow-hidden rounded-3xl">
+                       <CardContent className="p-8">
+                          <div className="flex justify-between items-start mb-6">
+                             <div className="p-3 rounded-2xl bg-primary/5">
+                                <hero.icon className="w-6 h-6 text-primary" />
+                             </div>
+                             {service.duration && (
+                               <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                                  <Clock01Icon className="w-3.5 h-3.5" />
+                                  {service.duration}
+                               </div>
+                             )}
+                          </div>
+                          <h3 className="text-2xl font-semibold mb-4">{t(service.titleKey)}</h3>
+                          <p className="text-muted-foreground mb-8 leading-relaxed">{t(service.descriptionKey)}</p>
+                          <Button asChild variant="outline" className="w-full rounded-full group">
+                             <a href={service.href}>
+                                {t('common.readMore')}
+                                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                             </a>
+                          </Button>
+                       </CardContent>
+                    </Card>
+                 ))}
+              </div>
+           </div>
+        </Section>
 
-            <div className={`grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5 sm:gap-6 md:gap-8`}>
-              {recommendedServices.map((service, index) => {
-                const details = (
-                  <div className="flex items-center gap-6 mt-8 p-6 bg-muted/40 rounded-[2rem]">
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('common.duration') || 'Duration'}</span>
-                      <span className="text-xl font-semibold text-foreground">{service.duration || '60-90 min'}</span>
-                    </div>
-                  </div>
-                );
-
-                return (
-                  <ServiceBentoItem
-                    key={index}
-                    title={t(service.titleKey)}
-                    description={t(service.descriptionKey)}
-                    details={details}
-                    bookUrl={`/booking?service=${encodeURIComponent(t(service.titleKey))}`}
-                    bookText={t('nav.bookNow') || 'Book Now'}
-                    readMoreUrl={service.href}
-                    readMoreText={t('common.moreInfo') || 'More Info'}
-                    className="h-full"
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {children}
-
-        {faqItems ? <FAQ items={faqItems} /> : <FAQ />}
         <CTASection />
       </PageLayout>
     </>
   );
 }
-
-
-
-
-

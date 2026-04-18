@@ -1,0 +1,7 @@
+    'vip.readyToTranscend': 'Ваше пространство заботы ждет',
+    'vip.transcend': 'На новый уровень?',
+    'vip.transcendSubtitle': 'Присоединяйтесь к элите благополучия и испытайте новый уровень заботы о себе',
+    'vip.joinInnerCircle': 'Присоединиться к программе',
+    'vip.exclusiveExperiences': 'Эксклюзивный опыт для VIP участников',
+  }
+};

@@ -26,29 +26,27 @@ export default function MassageContent() {
             titleKey: 'massage.techniques.deepTissue',
             descriptionKey: 'massage.techniques.deepTissue.desc',
             detailsKey: 'massage.techniques.deepTissue.details',
-            image: 'https://a0.muscache.com/im/pictures/Mt/MtTemplate-6223451/original/84352a07-89b1-4e4f-8cfb-412bcabd3af7.jpeg?im_w=1440',
-            colSpan: 2
+            icon: 'Activity',
+            color: 'orange',
+            size: 'large'
           },
           {
             titleKey: 'massage.techniques.recovery',
             descriptionKey: 'massage.techniques.recovery.desc',
             detailsKey: 'massage.techniques.recovery.details',
-            image: 'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=800',
-            colSpan: 1
+            icon: 'Zap',
+            color: 'blue',
+            size: 'medium'
           },
           {
             titleKey: 'massage.techniques.relaxation',
             descriptionKey: 'massage.techniques.relaxation.desc',
             detailsKey: 'massage.techniques.relaxation.details',
-            image: 'https://images.pexels.com/photos/3865803/pexels-photo-3865803.jpeg?auto=compress&cs=tinysrgb&w=1200',
-            colSpan: 3
+            icon: 'Wind',
+            color: 'green',
+            size: 'medium'
           }
         ]
-      }}
-      seoKeys={{
-        title: 'seo.massage.title',
-        description: 'seo.massage.description',
-        keywords: 'seo.massage.keywords'
       }}
       features={{
         titleKey: 'massage.page.benefitsTitle',
@@ -64,9 +62,9 @@ export default function MassageContent() {
         titleKey: 'massage.page.durationsTitle',
         subtitleKey: 'massage.page.durationsSubtitle',
         options: [
-          { duration: 60, descriptionKey: 'massage.page.duration60' },
-          { duration: 90, descriptionKey: 'massage.page.duration90' },
-          { duration: 120, descriptionKey: 'massage.page.duration120' }
+          { duration: 60, price: 70, descriptionKey: 'massage.page.duration60' },
+          { duration: 90, price: 90, descriptionKey: 'massage.page.duration90' },
+          { duration: 120, price: 140, descriptionKey: 'massage.page.duration120' }
         ]
       }}
       testimonials={{

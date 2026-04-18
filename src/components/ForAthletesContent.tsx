@@ -2,30 +2,9 @@
 
 import React from 'react';
 import { FlashIcon } from '@/lib/icons';
-import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForAthletesContent() {
-  const { t } = useLanguage();
-
-  const faqItems = [
-    {
-      id: 'athlete-q1',
-      question: t('personalized.athletes.faq.q1'),
-      answer: t('personalized.athletes.faq.a1')
-    },
-    {
-      id: 'athlete-q2',
-      question: t('personalized.athletes.faq.q2'),
-      answer: t('personalized.athletes.faq.a2')
-    },
-    {
-      id: 'athlete-q3',
-      question: t('personalized.athletes.faq.q3'),
-      answer: t('personalized.athletes.faq.a3')
-    }
-  ];
-
   const recommendedServices = [
     {
       titleKey: 'personalized.athletes.services.sportsMassage.title',
@@ -44,15 +23,22 @@ export default function ForAthletesContent() {
   return (
     <PersonalizedServiceTemplate
       serviceId="athletes"
-      translationKey="personalized.athletes"
-      Icon={FlashIcon}
-      seoKeys={{
-        title: 'seo.athletes.title',
-        description: 'seo.athletes.description',
-        keywords: 'seo.athletes.keywords'
+      hero={{
+        titleKey: "personalized.athletes.hero.title",
+        subtitleKey: "personalized.athletes.hero.description",
+        icon: FlashIcon,
+        backgroundImage: "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800"
+      }}
+      benefits={{
+        titleKey: "personalized.athletes.benefits.title",
+        subtitleKey: "personalizedServices.athletes.desc",
+        items: [
+          "personalizedServices.athletes.benefit1",
+          "personalizedServices.athletes.benefit2",
+          "personalizedServices.athletes.benefit3"
+        ]
       }}
       recommendedServices={recommendedServices}
-      faqItems={faqItems}
     />
   );
 }

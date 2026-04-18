@@ -96,7 +96,7 @@ export const revision360Translations: Record<Language, Record<string, string>> =
     'revision360.service.step4.details.4': "Informe general d'assoliments",
     'revision360.service.total.title': "Temps Total",
     'revision360.service.total.duration': "De 60 a 90 minuts depenent del pla",
-    'revision360.service.total.note': "(Cada organisme requereix el seu ritme)",
+    'revision360.service.total.note': "Programa de 4 a 9 sessions segons les teves necessitats individuals. Els resultats varien segons la persona i els problemes a resoldre.",
     'revision360.variants.badge': "Plans de Servei",
     'revision360.variants.title': "Adapta la revisió a la teva realitat",
     'revision360.variants.subtitle': "Opcions pensades per a cada fase de l'evolució corporal.",
@@ -709,4 +709,5 @@ export const revision360Translations: Record<Language, Record<string, string>> =
     'revision360.faq.q3': "Сколько сеансов мне нужно?",
     'revision360.faq.a3': "Это зависит от выбранного плана и реакции вашего тела. Тактический Сброс — это всего один сеанс, тогда как Интегральный Опыт включает несколько для полного сопровождения."
   }
-};
+  };
+

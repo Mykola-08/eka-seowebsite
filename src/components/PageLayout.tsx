@@ -14,11 +14,21 @@ interface PageLayoutProps {
     backgroundImage?: string;
     themeColor?: string;
   };
+  seo?: {
+    title: string;
+    description: string;
+    keywords?: string;
+  };
   className?: string;
   mainClassName?: string;
 }
 
-export default function PageLayout({ children, hero, className = '', mainClassName = 'bg-background rounded-t-[3rem]' }: PageLayoutProps) {
+export default function PageLayout({ 
+  children, 
+  hero, 
+  className = '', 
+  mainClassName = 'bg-background rounded-t-[3rem]' 
+}: PageLayoutProps) {
   const isCustomHero = React.isValidElement(hero);
   const heroData = !isCustomHero ? (hero as {
     title: string;
@@ -28,6 +38,10 @@ export default function PageLayout({ children, hero, className = '', mainClassNa
     backgroundImage?: string;
     themeColor?: string;
   } | undefined) : undefined;
+
+  // Note: We don't actually use seo prop here for <head> because it's a client component.
+  // Next.js Metadata API in page.tsx / generateMetadata handles SEO.
+  // However, keeping it in props to avoid type errors in components that pass it.
 
   return (
     <div className={`min-h-screen bg-background ${className}`}>

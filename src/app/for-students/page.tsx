@@ -1,5 +1,4 @@
 import { generateAppMetadata } from '@/lib/seo';
-import { Metadata } from 'next';
 import ForStudentsContent from '@/components/ForStudentsContent';
 
 

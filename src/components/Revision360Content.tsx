@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -20,7 +20,8 @@ import {
   Wind,
   Zap,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  AlertCircle
 } from '@/lib/icons';
 
 const WA_NUMBER = '34658867133';
@@ -174,10 +175,10 @@ export default function Revision360Content() {
             </div>
           ))}
         </div>
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center max-w-2xl mx-auto">
             <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">{t('revision360.service.total.title')}</p>
-            <p className="text-2xl font-medium mt-2">{t('revision360.service.total.duration')}</p>
-            <p className="text-muted-foreground mt-1">{t('revision360.service.total.note')}</p>
+            <p className="text-3xl font-medium mt-2 text-foreground">{t('revision360.service.total.duration')}</p>
+            <p className="text-muted-foreground mt-3 leading-relaxed">{t('revision360.service.total.note')}</p>
         </div>
       </Section>
 
@@ -190,7 +191,7 @@ export default function Revision360Content() {
         />
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {variantKeys.map((variant) => (
-            <div key={variant.key} className="bg-background rounded-[2rem] p-8 sm:p-10 shadow-sm border border-border/50 flex flex-col h-full">
+            <div key={variant.key} className="bg-background rounded-[2rem] p-8 sm:p-10 border border-border/50 flex flex-col h-full shadow-none hover:border-primary/20 transition-colors">
               <div className="flex items-center gap-4 mb-6">
                  <div className="p-3 rounded-xl bg-primary/10 text-primary">
                    {variant.icon}
@@ -257,12 +258,22 @@ export default function Revision360Content() {
       </Section>
 
       {/* FAQ */}
-      <Section>
+      <Section tone="muted">
          <FAQ 
            items={faqItems} 
            title={t('revision360.faq.title')} 
            subtitle={_t('revision360.faq.subtitle')}
          />
+      </Section>
+
+      {/* Disclaimer */}
+      <Section className="py-0">
+        <div className="max-w-3xl mx-auto p-8 rounded-[2rem] bg-amber-50/50 border border-amber-100 flex items-start gap-4">
+          <AlertCircle className="w-6 h-6 text-amber-600 shrink-0 mt-1" />
+          <p className="text-amber-900/80 text-sm leading-relaxed font-medium">
+            {t('revision360.final.disclaimer')}
+          </p>
+        </div>
       </Section>
 
       {/* Final invitation */}
@@ -276,7 +287,7 @@ export default function Revision360Content() {
             <>
               <Button asChild size="lg" className="px-8 shadow-none font-medium">
                 <a href={bookHref} target="_blank" rel="noopener noreferrer">
-                  {_t('common.bookNow') || _t('revision360.hero.cta.book')}
+                  {t('common.bookNow') || t('revision360.hero.cta.book')}
                 </a>
               </Button>
               <Button
@@ -286,7 +297,7 @@ export default function Revision360Content() {
                 className="px-8 shadow-none font-medium bg-transparent"
               >
                 <a href={discoveryHref} target="_blank" rel="noopener noreferrer">
-                  {_t('cta.scheduleDiscoveryCall') || "Programar trucada"}
+                  {t('cta.scheduleDiscoveryCall') || "Programar trucada"}
                 </a>
               </Button>
             </>

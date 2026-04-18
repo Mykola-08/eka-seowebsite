@@ -11,12 +11,20 @@ export default function ArtistsContent() {
   return (
     <PersonalizedServiceTemplate
       serviceId="artists"
-      translationKey="personalized.artists" // Strategy: I'll need to define this, OR I can rely on 'artists' if I change the key
-      Icon={PaintBoardIcon}
-      seoKeys={{
-        title: 'seo.artists.title',
-        description: 'seo.artists.description',
-        keywords: 'seo.artists.keywords'
+      hero={{
+        titleKey: "personalized.artists.hero.title",
+        subtitleKey: "personalized.artists.hero.description",
+        icon: PaintBoardIcon,
+        backgroundImage: "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=800"
+      }}
+      benefits={{
+        titleKey: "personalized.artists.benefits.title",
+        subtitleKey: "personalizedServices.artists.desc",
+        items: [
+          "personalized.artists.benefits.benefit1",
+          "personalized.artists.benefits.benefit2",
+          "personalized.artists.benefits.benefit3"
+        ]
       }}
       recommendedServices={[
         {
@@ -26,7 +34,7 @@ export default function ArtistsContent() {
           duration: '60 min'
         }
       ]}
-      showMethodology={false}
+      showMethodology={true}
     />
   );
 }

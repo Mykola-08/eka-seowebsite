@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import CaseDetailContent from './CaseDetailContent';
 
@@ -17,7 +16,7 @@ export async function generateStaticParams() {
   return Object.keys(caseSlugs).map((id) => ({ id }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const caseInfo = caseSlugs[id];
   if (!caseInfo) return { title: 'Case Not Found | EKA Balance' };

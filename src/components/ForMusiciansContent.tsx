@@ -2,57 +2,40 @@
 
 import React from 'react';
 import { MusicNote01Icon } from '@/lib/icons';
-import { useLanguage } from '@/contexts/LanguageContext';
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForMusiciansContent() {
-  const { t } = useLanguage();
-
-  const faqItems = [
-    {
-      id: 'musician-q1',
-      question: t('personalized.musicians.faq.q1'),
-      answer: t('personalized.musicians.faq.a1')
-    },
-    {
-      id: 'musician-q2',
-      question: t('personalized.musicians.faq.q2'),
-      answer: t('personalized.musicians.faq.a2')
-    },
-    {
-      id: 'musician-q3',
-      question: t('personalized.musicians.faq.q3'),
-      answer: t('personalized.musicians.faq.a3')
-    }
-  ];
-
-  const recommendedServices = [
-    {
-      titleKey: 'personalized.musicians.services.feldenkraisExpression.title',
-      descriptionKey: 'personalized.musicians.services.feldenkraisExpression.description',
-      href: '/services/feldenkrais',
-      duration: '60-90 min'
-    },
-    {
-      titleKey: 'personalized.musicians.services.kinesiologyPerformance.title',
-      descriptionKey: 'personalized.musicians.services.kinesiologyPerformance.description',
-      href: '/services/kinesiology',
-      duration: '60 min'
-    }
-  ];
-
   return (
     <PersonalizedServiceTemplate
       serviceId="musicians"
-      translationKey="personalized.musicians"
-      Icon={MusicNote01Icon}
-      seoKeys={{
-        title: 'seo.musicians.title',
-        description: 'seo.musicians.description',
-        keywords: 'seo.musicians.keywords'
+      hero={{
+        titleKey: 'personalized.musicians.hero.title',
+        subtitleKey: 'personalized.musicians.hero.description',
+        icon: MusicNote01Icon,
+        backgroundImage: 'https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
-      recommendedServices={recommendedServices}
-      faqItems={faqItems}
+      benefits={{
+        titleKey: 'personalized.musicians.understanding.title',
+        subtitleKey: 'personalized.musicians.understanding.description1',
+        items: [
+          'personalized.musicians.understanding.description1',
+          'personalized.musicians.understanding.description2'
+        ]
+      }}
+      recommendedServices={[
+        {
+          titleKey: 'personalized.musicians.services.feldenkraisExpression.title',
+          descriptionKey: 'personalized.musicians.services.feldenkraisExpression.description',
+          href: '/services/kinesiology',
+          duration: '60-90 min'
+        },
+        {
+          titleKey: 'personalized.musicians.services.kinesiologyPerformance.title',
+          descriptionKey: 'personalized.musicians.services.kinesiologyPerformance.description',
+          href: '/services/kinesiology',
+          duration: '60 min'
+        }
+      ]}
     />
   );
 }

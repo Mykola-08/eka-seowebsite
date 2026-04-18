@@ -8,9 +8,6 @@ import CoreServiceTemplate from '@/components/templates/CoreServiceTemplate';
 export default function NutritionContent() {
   const { t } = useLanguage();
 
-  // Note: Nutrition pricing options are slightly more complex in the original (name + description + duration string)
-  // The CoreServiceTemplate supports `nameKey` and string duration, so I'll adapt it.
-  
   return (
     <CoreServiceTemplate
       serviceId="nutritio"
@@ -18,7 +15,8 @@ export default function NutritionContent() {
         titleKey: 'services.nutrition.title',
         subtitleKey: 'services.nutrition.description',
         badgeKey: 'services.nutrition.subtitle',
-        icon: Leaf01Icon
+        icon: Leaf01Icon,
+        backgroundImage: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
       bentoGrid={{
         titleKey: 'nutrition.page.benefitsTitle',
@@ -28,36 +26,35 @@ export default function NutritionContent() {
             titleKey: 'nutrition.benefits.habits',
             descriptionKey: 'nutrition.benefits.habits',
             detailsKey: 'nutrition.benefits.habits.details',
-            image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=2070', // healthy food bowls
-            colSpan: 2
+            icon: 'Activity',
+            color: 'green',
+            size: 'large'
           },
           {
             titleKey: 'services.nutrition.subtitle',
             descriptionKey: 'services.nutrition.subtitle',
             detailsKey: 'nutrition.benefits.knowledge.details',
-            image: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&q=80&w=2070', // fresh ingredients making salad
-            colSpan: 1
+            icon: 'Leaf',
+            color: 'orange',
+            size: 'medium'
           },
           {
             titleKey: 'nutrition.benefits.weight',
             descriptionKey: 'nutrition.benefits.weight',
             detailsKey: 'nutrition.benefits.weight.details',
-            image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=2070', // fit body / healthy lifestyle
-            colSpan: 1
+            icon: 'Clock',
+            color: 'blue',
+            size: 'medium'
           },
           {
             titleKey: 'nutrition.benefits.prevention',
             descriptionKey: 'nutrition.benefits.prevention',
             detailsKey: 'nutrition.benefits.prevention.details',
-            image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=2070', // healthy detox juice / salad bowl
-            colSpan: 2
+            icon: 'Sparkles',
+            color: 'pink',
+            size: 'large'
           }
         ]
-      }}
-      seoKeys={{
-        title: 'seo.nutrition.title',
-        description: 'seo.nutrition.description',
-        keywords: 'seo.nutrition.keywords'
       }}
       features={{
         titleKey: 'nutrition.page.benefitsTitle',
@@ -75,11 +72,13 @@ export default function NutritionContent() {
         options: [
           { 
             duration: '60 min', 
+            price: 70,
             nameKey: 'nutrition.session.first.name',
             descriptionKey: 'nutrition.session.first.description' 
           },
           { 
             duration: '45 min', 
+            price: 55,
             nameKey: 'nutrition.session.followup.name',
             descriptionKey: 'nutrition.session.followup.description' 
           }

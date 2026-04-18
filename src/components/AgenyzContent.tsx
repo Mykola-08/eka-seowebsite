@@ -1,49 +1,70 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import PageLayout from '@/components/PageLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Sparkles, Leaf, ShieldCheck, Zap } from '@/lib/icons';
 
-import { Sparkles, Leaf, ShieldCheck } from '@/lib/icons';
+const WA_NUMBER = '34658867133';
 
 export default function AgenyzContent() {
-  const { language, t } = useLanguage();
-
-  
+  const { t } = useLanguage();
 
   return (
     <>
-      
-
       <PageLayout
-        hero={{
-          title: t('agenyz.page.title') || 'Agenyz � Cellular Nutrition',
-          subtitle:
-            t('agenyz.page.subtitle') ||
-            'Bio-available supplements designed to restore balance, defy aging, and fuel your vitality at the DNA level.',
-          badge: t('agenyz.brand.badge') || 'Our Partner',
+        seo={{
+          title: t('agenyz.seo.title'),
+          description: t('agenyz.seo.description'),
+          keywords: t('agenyz.seo.keywords'),
         }}
       >
-        {/* Value props */}
-        <section className="py-16 sm:py-20 bg-background">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pt-48 overflow-hidden bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
+                <Sparkles className="w-3.5 h-3.5" />
+                {t('agenyz.brand.badge') || 'Agenyz · Bio Innovation'}
+              </div>
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tighter text-foreground mb-8">
+                {t('agenyz.hero.title.line1') || 'Cellular health.'}
+                <br />
+                <span className="text-muted-foreground">{t('agenyz.hero.title.line2') || 'Designed for you.'}</span>
+              </h1>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button asChild size="lg" className="rounded-full px-8 h-14 text-base shadow-none">
+                  <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
+                    {t('agenyz.hero.visitStore') || 'Visit agenyz.es'}
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-14 text-base shadow-none bg-transparent">
+                  <Link href="#consultation">
+                    {t('agenyz.consultation.cta') || 'Free Consultation'}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Value Props */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
                   icon: Leaf,
                   title: t('agenyz.value.vegan.title') || '100% Vegan',
-                  desc:
-                    t('agenyz.value.vegan.desc') ||
-                    'Plant-based, ethically sourced ingredients in every formula.',
+                  desc: t('agenyz.value.vegan.desc') || 'Plant-based, ethically sourced ingredients in every formula.',
                 },
                 {
-                  icon: Sparkles,
-                  title: t('agenyz.value.absorption.title') || 'XBi-A� Absorption',
+                  icon: Zap,
+                  title: t('agenyz.value.absorption.title') || 'XBi-A Absorption',
                   desc:
                     t('agenyz.value.absorption.desc') ||
                     'Patented complex that boosts bioavailability by up to 60%.',
@@ -68,6 +89,41 @@ export default function AgenyzContent() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Free Consultation CTA */}
+        <section id="consultation" className="py-16 sm:py-20 lg:py-24 bg-background">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="bg-primary/5 border border-primary/10 rounded-[2.5rem] p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center gap-10 text-center md:text-left relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+                  <Sparkles className="w-64 h-64 text-primary" />
+               </div>
+               
+              <div className="flex-1 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  {t('agenyz.consultation.badge')}
+                </div>
+                <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+                  {t('agenyz.consultation.title')}
+                </h2>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                  {t('agenyz.consultation.desc')}
+                </p>
+              </div>
+              <div className="shrink-0 relative z-10">
+                <Button asChild size="lg" className="rounded-full px-10 h-16 text-lg shadow-none">
+                  <a 
+                    href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t('agenyz.consultation.cta'))}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t('agenyz.consultation.cta')}
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -131,7 +187,7 @@ export default function AgenyzContent() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-16">
               <div className="bg-background rounded-3xl p-8 border border-border">
                 <p className="text-lg text-foreground/80 leading-relaxed">
-                  {t('agenyz.general.desc1') || 'Agenyz products stand out for their innovative approach to health. Using premium natural ingredients and the patented XBi-A� absorption technology, each formula is designed for maximum bioavailability and effectiveness at the cellular level.'}
+                  {t('agenyz.general.desc1') || 'Agenyz products stand out for their innovative approach to health. Using premium natural ingredients and the patented XBi-A absorption technology, each formula is designed for maximum bioavailability and effectiveness at the cellular level.'}
                 </p>
               </div>
               <div className="bg-background rounded-3xl p-8 border border-border">
@@ -149,24 +205,13 @@ export default function AgenyzContent() {
             <h2 className="text-3xl md:text-5xl font-semibold tracking-tighter mb-6 text-foreground">
               {t('agenyz.brand.cta') || 'Join the Community'}
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              {t('agenyz.cta.subtitle') ||
-                'Browse the complete range, read ingredient details, and place orders through the official Agenyz storefront.'}
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button asChild size="lg" className="rounded-full h-12 px-8">
-                  <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
-                    {t('agenyz.cta.visitStore') || 'Visit agenyz.es'}
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-8">
-                  <Link href="/booking">
-                    {t('common.contactUs') || 'Contact EKA Balance'}
-                  </Link>
-                </Button>
-              </div>
-              <p className="text-sm text-muted-foreground mt-2 max-w-sm text-center">
+            <div className="flex flex-col items-center gap-4">
+              <Button asChild size="lg" className="rounded-full px-12 h-16 text-lg shadow-none">
+                <a href="https://agenyz.es" target="_blank" rel="noopener noreferrer">
+                  {t('agenyz.cta.visitStore') || 'Go to Shop'}
+                </a>
+              </Button>
+              <p className="text-muted-foreground text-sm mt-2 max-w-sm text-center">
                 {t('agenyz.redirect.notice') || 'You will be redirected to our partner website.'}
               </p>
             </div>
@@ -176,4 +221,3 @@ export default function AgenyzContent() {
     </>
   );
 }
-

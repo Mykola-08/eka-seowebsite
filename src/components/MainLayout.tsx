@@ -6,7 +6,8 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
-import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, Medicine01Icon, NeuralNetworkIcon, RotateLeft01Icon, GlobeIcon, ArrowDown01Icon } from '@/lib/icons';
+import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, StarIcon, ArrowDown01Icon } from '@/lib/icons';
+
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Language } from '@/contexts/LanguageTypes';
@@ -30,6 +31,7 @@ export default function MainLayout({
   const pathname = usePathname();
   const { t, language, setLanguage } = useLanguage();
   const { logPageView } = useAnalytics();
+  
   // Log page views
   useEffect(() => {
     if (pathname) {
@@ -73,7 +75,7 @@ export default function MainLayout({
 
     setDropdownPosition({
       left: clampedLeft,
-      top: top - 8, // Overlap the bottom margin explicitly to attach visually
+      top: top - 8,
       triggerBottom: triggerRect.bottom,
       originX: Math.max(10, Math.min(90, originX)),
       width: panelWidth
@@ -86,7 +88,6 @@ export default function MainLayout({
       hideTimeoutRef.current = null;
     }
 
-    // Check if triggered from an event
     if (e && e.currentTarget) {
       activeTriggerRef.current = e.currentTarget as HTMLElement;
     }
@@ -96,7 +97,6 @@ export default function MainLayout({
       showTimeoutRef.current = null;
     }
 
-    // If a dropdown is already active, skip the delay for swift sequential navigation
     if (activeDropdown) {
       setActiveDropdown(id);
       if (activeTriggerRef.current) {
@@ -110,7 +110,7 @@ export default function MainLayout({
       if (activeTriggerRef.current) {
         computeDropdownPosition(activeTriggerRef.current, panelWidth);
       }
-    }, 200); // Short delay to prevent accidental activation
+    }, 200);
   };
 
   const keepMenuOpen = (id: string) => {
@@ -135,10 +135,9 @@ export default function MainLayout({
     }
     hideTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 220); // Short delay before disappearing
+    }, 220);
   };
 
-  // Close dropdown on scroll or resize to prevent floating incorrectly
   useEffect(() => {
     const handleScrollOrResize = () => {
       if (activeDropdown) {
@@ -149,51 +148,29 @@ export default function MainLayout({
     return () => window.removeEventListener('resize', handleScrollOrResize);
   }, [activeDropdown]);
 
-  // Handle scroll effect for header
   useEffect(() => {
     let rafId: number | null = null;
-
     const handleScroll = () => {
       if (rafId !== null) return;
       rafId = window.requestAnimationFrame(() => {
         const scrollTop = window.scrollY;
-        setIsScrolled((prev) => {
-          const next = scrollTop > 20;
-          return prev === next ? prev : next;
-        });
+        setIsScrolled(scrollTop > 20);
         rafId = null;
       });
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (rafId !== null) {
-        window.cancelAnimationFrame(rafId);
-      }
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
     };
   }, []);
 
-  // Global Escape key closes dropdown
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setActiveDropdown(null);
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [activeDropdown]);
-
-  useEffect(() => {
-    return () => {
-      if (hideTimeoutRef.current) {
-        clearTimeout(hideTimeoutRef.current);
-      }
-      if (showTimeoutRef.current) {
-        clearTimeout(showTimeoutRef.current);
-      }
-    };
   }, []);
 
   // Navigation items
@@ -204,22 +181,17 @@ export default function MainLayout({
     dropdownType?: 'services' | 'agenyz';
     dropdownWidth?: number;
     dropdownItems?: { name: string; href: string; image?: string; subtitle?: string }[];
-    isGold?: boolean;
-    isExternal?: boolean;
   }
 
   const headerSurfaceClass = isScrolled
-    ? 'bg-background/80 backdrop-blur-2xl backdrop-saturate-150 border border-border/40 mt-4 rounded-full'
-    : 'bg-background/50 backdrop-blur-xl backdrop-saturate-150 border border-border/30 mt-4 rounded-full'
+    ? 'bg-background/80 backdrop-blur-2xl border border-border/40 mt-4 rounded-full shadow-lg'
+    : 'bg-background/50 backdrop-blur-xl border border-border/30 mt-4 rounded-full'
 
-  // Icon map for dropdown items
   const serviceIcons: Record<string, React.ReactNode> = {
     '/services/massage': <TouchInteraction01Icon className="w-4 h-4" />,
     '/services/kinesiology': <Brain01Icon className="w-4 h-4" />,
     '/services/nutrition': <Apple01Icon className="w-4 h-4" />,
-    '/services/supplements': <Medicine01Icon className="w-4 h-4" />,
-    '/services/systemic': <NeuralNetworkIcon className="w-4 h-4" />,
-    '/360-revision': <RotateLeft01Icon className="w-4 h-4" />,
+    '/services/constelaciones': <StarIcon className="w-4 h-4" />,
   };
 
   const navigation: NavItem[] = [
@@ -233,9 +205,7 @@ export default function MainLayout({
         { name: t('services.massage.title') || 'Massage', href: '/services/massage' },
         { name: t('services.kinesiology.title') || 'Kinesiology', href: '/services/kinesiology' },
         { name: t('services.nutrition.title') || 'Nutrition', href: '/services/nutrition' },
-        { name: t('service.supplements.title') || 'Supplements', href: '/services/supplements' },
-        { name: t('service.systemic.title') || 'Systemic', href: '/services/systemic' },
-        { name: t('services.revision360.title') || '360° Revision', href: '/360-revision' },
+        { name: t('services.constelaciones.title') || 'Constellations', href: '/services/constelaciones' },
       ]
     },
     {
@@ -257,392 +227,164 @@ export default function MainLayout({
     <>
       <FooterUncover
         footer={
-          <>
-          {/* Footer */}
-      <footer className="pt-12 pb-32 md:py-16 bg-secondary text-foreground">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
-            <div className="relative w-8 h-8">
-              <Image
-                src="/images/eka_logo.png"
-                alt="EKA Balance Logo"
-                fill
-                className="object-contain"
-                sizes="32px"
-              />
-            </div>
-            <span className="text-lg font-medium tracking-tight">EKA Balance</span>
-          </Link>
+          <footer className="pt-12 pb-32 md:py-16 bg-secondary text-foreground">
+            <div className="max-w-5xl mx-auto px-6 text-center">
+              <Link href="/" className="flex items-center justify-center space-x-2 mb-8 group w-fit mx-auto opacity-80 hover:opacity-100">
+                <div className="relative w-8 h-8">
+                  <Image src="/images/eka_logo.png" alt="EKA Balance Logo" fill className="object-contain" sizes="32px" />
+                </div>
+                <span className="text-lg font-medium tracking-tight">EKA Balance</span>
+              </Link>
 
-          {/* Contact Info */}
-          <div className="space-y-1 mb-8 text-muted-foreground text-sm">
-            <p>Carrer Pelai, 12, 08001 Barcelona</p>
-            <p>contact@ekabalance.com</p>
-          </div>
-
-          {/* Footer Links */}
-          <div className="mb-10 w-full max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left mb-8 px-4">
-              {/* Column 1: Core Services */}
-              <div className="flex flex-col space-y-1">
-                <h4 className="font-semibold text-foreground mb-2 px-2">{t('nav.services')}</h4>
-                <Link href="/services" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('nav.services')}
-                </Link>
-                <Link href="/personalized-services" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('nav.personalizedServices')}
-                </Link>
-                <Link href="/for-business" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('personalizedServices.business')}
-                </Link>
-                <Link href="/vip" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('nav.vip')}
-                </Link>
+              <div className="space-y-1 mb-8 text-muted-foreground text-sm">
+                <p>Carrer Pelai, 12, 08001 Barcelona</p>
+                <p>contact@ekabalance.com</p>
               </div>
 
-              {/* Column 2: Specific Modalities */}
-              <div className="flex flex-col space-y-1">
-                <h4 className="font-semibold text-foreground mb-2 px-2">EKA Balance</h4>
-                <Link href="/360-revision" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('nav.revision360')}
-                </Link>
-                <Link href="/first-time" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('hero.firstTime')}
-                </Link>
+              <div className="mb-10 w-full max-w-4xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left mb-8 px-4">
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-semibold text-foreground mb-2 px-2">{t('nav.services')}</h4>
+                    <Link href="/services" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('nav.services')}</Link>
+                    <Link href="/personalized-services" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('nav.personalizedServices')}</Link>
+                    <Link href="/for-business" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('personalizedServices.business')}</Link>
+                    <Link href="/vip" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('nav.vip')}</Link>
+                  </div>
+
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-semibold text-foreground mb-2 px-2">EKA Balance</h4>
+                    <Link href="/360-revision" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('nav.revision360')}</Link>
+                    <Link href="/first-time" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('hero.firstTime')}</Link>
+                  </div>
+
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-semibold text-foreground mb-2 px-2">{t('nav.aboutElena')}</h4>
+                    <Link href="/about-elena" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('nav.aboutElena')}</Link>
+                    <Link href="/booking" className="inline-flex min-h-11 items-center px-2 hover:text-foreground text-sm font-medium text-primary">{t('nav.bookNow')}</Link>
+                  </div>
+
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-semibold text-foreground mb-2 px-2">Legal</h4>
+                    <Link href="/discounts" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('footer.discounts')}</Link>
+                    <Link href="/disclaimer" className="inline-flex min-h-11 items-center px-2 text-primary hover:text-primary/80 text-sm font-medium">Health Disclaimer</Link>
+                    <Link href="/privacy-policy" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('footer.privacyPolicy')}</Link>
+                    <Link href="/cookie-policy" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('footer.cookiePolicy')}</Link>
+                  </div>
+                </div>
               </div>
 
-              {/* Column 3: Company */}
-              <div className="flex flex-col space-y-1">
-                <h4 className="font-semibold text-foreground mb-2 px-2">{t('nav.aboutElena')}</h4>
-                <Link href="/about-elena" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('nav.aboutElena')}
-                </Link>
-                <Link href="/booking" className="inline-flex min-h-11 items-center px-2 hover:text-foreground transition-colors duration-200 text-sm font-medium text-primary">
-                  {t('nav.bookNow')}
-                </Link>
+              <div className="mb-10 flex flex-col items-center">
+                <h4 className="text-sm font-semibold text-foreground mb-3">{t('newsletter.title')}</h4>
+                <NewsletterSignup />
               </div>
 
-              {/* Column 4: Resources */}
-              <div className="flex flex-col space-y-1">
-                <h4 className="font-semibold text-foreground mb-2 px-2">Legal</h4>
-                <Link href="/discounts" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('footer.discounts')}
-                </Link>
-                <Link href="/disclaimer" className="inline-flex min-h-11 items-center px-2 text-primary hover:text-primary/80 transition-colors duration-200 text-sm font-medium">
-                  Health Disclaimer
-                </Link>
-                <Link href="/privacy-policy" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('footer.privacyPolicy')}
-                </Link>
-                <Link href="/cookie-policy" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('footer.cookiePolicy')}
-                </Link>
-                <Link href="/terms-of-service" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm">
-                  {t('footer.termsOfService')}
-                </Link>
+              <div className="mb-8">
+                <div className="flex justify-center space-x-2">
+                    {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
+                      <Button
+                        key={lang}
+                        onClick={() => setLanguage(lang)}
+                        variant={language === lang ? 'default' : 'outline'}
+                        size="sm"
+                        className={`min-h-11 min-w-11 ${language === lang ? '' : 'text-muted-foreground'}`}
+                      >
+                        {lang.toUpperCase()}
+                      </Button>
+                    ))}
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <p className="text-xs text-muted-foreground">{t('footer.copyright')}</p>
               </div>
             </div>
-          </div>
-
-          {/* Newsletter Signup */}
-          <div className="mb-10 flex flex-col items-center">
-            <h4 className="text-sm font-semibold text-foreground mb-3">{t('newsletter.title')}</h4>
-            <NewsletterSignup />
-          </div>
-
-          {/* Language Selector */}
-          <div className="mb-8">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <GlobeIcon className="w-3 h-3 text-muted-foreground" />
-              <span className="text-xs text-muted-foreground">{t('footer.selectLanguage')}</span>
-            </div>
-            <div className="flex justify-center space-x-2">
-                {(['ca', 'en', 'es', 'ru'] as Language[]).map((lang) => (
-                  <Button
-                    key={lang}
-                    onClick={() => setLanguage(lang)}
-                    variant={language === lang ? 'default' : 'outline'}
-                    size="sm"
-                    className={`min-h-11 min-w-11 ${language === lang ? '' : 'text-muted-foreground bg-background/50 hover:bg-background'}`}
-                  >
-                    {lang === 'ca' && 'Catalan'}
-                    {lang === 'en' && 'English'}
-                    {lang === 'es' && 'Spanish'}
-                    {lang === 'ru' && 'Russian'}
-                  </Button>
-                ))}
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="pt-8">
-            <p className="text-xs text-muted-foreground">
-              {t('footer.copyright')}
-            </p>
-          </div>
-        </div>
-      </footer>
-          </>
+          </footer>
         }
       >
-        {/* Main Content Container inside Uncover */}
-
-      {/* Navigation with scroll effect - Liquid Glass Style */}
-      <nav className="fixed top-0 left-0 right-0 z-(--z-dropdown) transition-all duration-500 ease-out flex justify-center pointer-events-none px-4 sm:px-6">
-        <div className={`pointer-events-auto transition-all duration-500 max-w-7xl w-full mx-auto px-6 lg:px-8 ${headerSurfaceClass}`}>
-          <div className="flex items-center h-14 relative">
-            {/* Logo Only - Left Side */}
-            <Link href="/" className="flex items-center shrink-0 group relative opacity-90 hover:opacity-100 transition-opacity z-10">
-              <div className="relative w-8 h-8">
-                <Image
-                  src="/images/eka_logo.png"
-                  alt="EKA Balance Logo"
-                  fill
-                  sizes="32px"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </Link>
-
-            {/* Desktop Navigation — absolutely centered in the full nav bar width */}
-            <div ref={navBarRef} className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 z-10">
-              {navigation.map(item => {
-                const isNavItemActive = pathname === item.href ||
-                  (item.href !== '/' && pathname.startsWith(item.href));
-                return (
-                <div key={item.name} className={`nav-item ${item.hasDropdown ? 'relative flex items-center h-full' : 'flex items-center h-full'}`}
-                  ref={item.hasDropdown ? navRef : undefined}>
-                  {item.hasDropdown ? (
-                    <Link
-                      href={item.href}
-                      className={`nav-trigger py-2 px-4 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full tracking-tight group/trigger ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
-                      onMouseEnter={(e) => openDropdown(e, item.name, item.dropdownWidth)}
-                      onMouseLeave={scheduleHide}
-                      onFocus={(e) => openDropdown(e, item.name, item.dropdownWidth)}
-                      onBlur={scheduleHide}
-                      aria-expanded={activeDropdown === item.name}
-                      aria-haspopup="true"
-                      suppressHydrationWarning
-                    >
-                      {item.name}
-                      <ArrowDown01Icon className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180 text-foreground/80' : isNavItemActive ? 'text-muted-foreground' : 'text-muted-foreground group-hover/trigger:translate-y-px'}`} />
-                    </Link>
-                  ) : item.isExternal ? (
-                    <Link
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`py-2 px-4 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full tracking-tight ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
-                      suppressHydrationWarning
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={`py-2 px-4 text-sm font-medium transition-all duration-300 rounded-full flex items-center tracking-tight ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
-                      suppressHydrationWarning
-                    >
-                      {item.name}
-                    </Link>
-                  )}
+        <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 sm:px-6">
+          <div className={`pointer-events-auto transition-all duration-500 max-w-7xl w-full mx-auto px-6 lg:px-8 ${headerSurfaceClass}`}>
+            <div className="flex items-center h-14 relative">
+              <Link href="/" className="flex items-center shrink-0 group relative opacity-90 hover:opacity-100 z-10">
+                <div className="relative w-8 h-8">
+                  <Image src="/images/eka_logo.png" alt="EKA Balance Logo" fill sizes="32px" className="object-contain" priority />
                 </div>
-              )})}
-            </div>
+              </Link>
 
-            {/* Dropdown Menus - Rendered outside transformed container to fix alignment offsets */}
-            {navigation.map(item => {
-              if (!item.hasDropdown) return null;
-              
-              return (
+              <div ref={navBarRef} className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 z-10">
+                {navigation.map(item => {
+                  const isNavItemActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+                  return (
+                    <div key={item.name} className="relative flex items-center h-full" ref={item.hasDropdown ? navRef : undefined}>
+                      <Link
+                        href={item.href}
+                        className={`py-2 px-4 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${isNavItemActive ? 'text-foreground bg-muted/60' : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}
+                        onMouseEnter={(e) => item.hasDropdown && openDropdown(e, item.name, item.dropdownWidth)}
+                        onMouseLeave={item.hasDropdown ? scheduleHide : undefined}
+                      >
+                        {item.name}
+                        {item.hasDropdown && <ArrowDown01Icon className={`w-3 h-3 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />}
+                      </Link>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {navigation.map(item => item.hasDropdown && activeDropdown === item.name && dropdownPosition && (
                 <div key={`${item.name}-dropdown`} className="contents">
-                  {/* Hover bridge — spans full width of dropdown zone for seamless mouse travel */}
-                  {activeDropdown === item.name && dropdownPosition && (
-                    <div
-                      className="fixed z-(--z-dropdown)"
+                  <AnimatePresence>
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      className="fixed z-[110]"
                       style={{
-                        top: dropdownPosition.triggerBottom,
-                        left: dropdownPosition.left - 30,
-                        width: dropdownPosition.width + 60,
-                        height: dropdownPosition.top - dropdownPosition.triggerBottom,
+                        top: dropdownPosition.triggerBottom + 10,
+                        left: dropdownPosition.left,
+                        width: dropdownPosition.width,
+                        transformOrigin: `${dropdownPosition.originX}% top`
                       }}
                       onMouseEnter={() => keepMenuOpen(item.name)}
                       onMouseLeave={scheduleHide}
-                      aria-hidden="true"
-                    />
-                  )}
-
-                  {/* Dropdown — positioned relative to viewport, floating design */}
-                  <AnimatePresence>
-                    {activeDropdown === item.name && dropdownPosition && (
-                      <motion.div
-                          initial={{ opacity: 0, scaleY: 0.95, y: -4 }}
-                          animate={{ opacity: 1, scaleY: 1, y: 0 }}
-                          exit={{ opacity: 0, scaleY: 0.95, y: -4 }}
-                          transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-                            className="fixed z-110"
-                            style={{
-                              top: dropdownPosition.triggerBottom, // Start exactly from the bottom of the nav trigger
-                              left: dropdownPosition.left - 40, // Add large invisible left padding zone
-                              width: dropdownPosition.width + 80, // Expand width by total horizontal padding
-                                transformOrigin: `${40 + (dropdownPosition.originX / 100 * dropdownPosition.width)}px top`,
-                              paddingTop: Math.max(0, dropdownPosition.top - dropdownPosition.triggerBottom),
-                              paddingLeft: 40, // Left invisible safe zone
-                              paddingRight: 40, // Right invisible safe zone
-                              paddingBottom: 40, // Bottom invisible safe zone
-                            }}
-                            onMouseEnter={() => keepMenuOpen(item.name)}
-                            onMouseLeave={scheduleHide}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Escape') {
-                                setActiveDropdown(null);
-                              }
-                            }}
-                            role="menu"
-                            aria-label={`${item.name} submenu`}
-                          >
-                            {/* Inner content wrapper with the actual visual styling */}
-                            <div
-                              className="mx-auto overflow-hidden relative bg-background/95 backdrop-blur-2xl rounded-[1.75rem] border border-border shadow-xl shadow-foreground/5"
-                              style={{ width: dropdownPosition.width, marginTop: '10px' }}
+                    >
+                      <div className="bg-background/95 backdrop-blur-2xl rounded-2xl border border-border shadow-xl p-3">
+                        <div className="grid grid-cols-2 gap-1">
+                          {item.dropdownItems?.map((dropdownItem) => (
+                            <Link
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:text-foreground hover:bg-muted transition-colors"
                             >
-
-                              {item.dropdownType === 'agenyz' ? (
-                                /* Agenyz: product image cards */
-                                <>
-                                  <div className="py-4 px-3">
-                                    <p className="text-[10px] text-muted-foreground tracking-[0.18em] uppercase px-2 mb-3 font-medium">Cellular health. Designed for you.</p>
-                                    <div className="grid grid-cols-3 gap-2">
-                                      {item.dropdownItems?.map((product, idx) => (
-                                        <motion.div
-                                          key={product.name}
-                                          initial={{ opacity: 0, y: 4 }}
-                                          animate={{ opacity: 1, y: 0 }}
-                                          transition={{ duration: 0.18, delay: idx * 0.04 }}
-                                        >
-                                          <Link
-                                            href={product.href}
-                                            onClick={() => setActiveDropdown(null)}
-                                            className="group/prod flex flex-col items-center p-2 rounded-apple hover:bg-muted/40 transition-colors"
-                                            role="menuitem"
-                                          >
-                                            <div className="w-full aspect-square mb-2 relative bg-muted/40 rounded-apple overflow-hidden border border-border">
-                                              {product.image && (
-                                                <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="100px" />
-                                              )}
-                                            </div>
-                                            <span className="text-xs font-medium text-foreground text-center leading-tight">{product.name}</span>
-                                            {product.subtitle && <span className="text-[10px] text-muted-foreground text-center mt-0.5 leading-tight">{product.subtitle}</span>}
-                                          </Link>
-                                        </motion.div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                  <div className="border-t border-border/40 px-4 py-2.5 flex items-center justify-between">
-                                    <Link
-                                      href={item.href}
-                                      onClick={() => setActiveDropdown(null)}
-                                      className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
-                                    >
-                                      View catalogue →
-                                    </Link>
-                                    <a
-                                      href="https://agenyz.es"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      onClick={() => setActiveDropdown(null)}
-                                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                      agenyz.es ↗
-                                    </a>
-                                  </div>
-                                </>
-                              ) : (
-                                /* Services: 2-column icon grid */
-                                <>
-                                  <div className="py-3 px-2 relative z-20">
-                                    <div className="grid grid-cols-2 gap-0.5">
-                                      {item.dropdownItems?.map((dropdownItem, idx) => (
-                                        <motion.div
-                                          key={dropdownItem.name}
-                                          initial={{ opacity: 0, y: 4 }}
-                                          animate={{ opacity: 1, y: 0 }}
-                                          transition={{ duration: 0.18, delay: idx * 0.03 }}
-                                        >
-                                          <Link
-                                            href={dropdownItem.href}
-                                            onClick={() => setActiveDropdown(null)}
-                                            className="group/item flex items-center gap-3 px-3 py-2.5 mx-0.5 rounded-apple text-sm text-foreground/80 hover:text-foreground hover:bg-foreground/4 active:bg-foreground/[0.07] transition-all duration-150 tracking-tight"
-                                            role="menuitem"
-                                            suppressHydrationWarning
-                                          >
-                                            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-muted/80 text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-150 shrink-0">
-                                              {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
-                                            </span>
-                                            <span className="font-medium">{dropdownItem.name}</span>
-                                          </Link>
-                                        </motion.div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                  <div className="border-t border-border/40 px-3 py-2.5 relative z-20">
-                                    <Link
-                                      href={item.href}
-                                      onClick={() => setActiveDropdown(null)}
-                                      className="flex items-center text-sm text-muted-foreground hover:text-primary font-medium transition-colors duration-150 px-1.5"
-                                    >
-                                      <span>{t('nav.services')} →</span>
-                                    </Link>
-                                  </div>
-                                </>
-                              )}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground">
+                                {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
+                              </span>
+                              <span className="font-medium">{dropdownItem.name}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-              );
-            })}
+              ))}
 
-            {/* Right side actions */}
-            <div className="flex items-center space-x-3 sm:space-x-4 shrink-0 ml-auto z-10">
-
-              {/* Reserva Button - Visible on mobile now */}
-              <Button
-                asChild
-                variant="default"
-                size="sm"
-                className="inline-flex font-medium rounded-full h-9 px-4 sm:px-5"
-              >
-                <Link href="/booking" className="text-primary-foreground" suppressHydrationWarning>
-                  {t('nav.bookNow')}
-                </Link>
-              </Button>
-
+              <div className="flex items-center space-x-3 ml-auto z-10">
+                <Button asChild size="sm" className="rounded-full h-9 px-5">
+                  <Link href="/booking">{t('nav.bookNow')}</Link>
+                </Button>
+              </div>
             </div>
           </div>
+        </nav>
 
-        </div>
-      </nav>
+        <main id="main-content" className="flex-1 w-full pb-24 md:pb-0">
+          {children}
+        </main>
 
-
-      {/* Main Content */}
-      <main id="main-content" className="flex-1 w-full pb-24 md:pb-0 overflow-x-hidden">
-        {children}
-      </main>
-
-      {/* Toast Notifications */}
-      <ToastContainer />
-
-      {/* Cookie Banner */}
-      <CookieBanner />
-      <LanguagePopup />
-
-      
-
-            </FooterUncover>
+        <ToastContainer />
+        <CookieBanner />
+        <LanguagePopup />
+      </FooterUncover>
       
       <div className="md:hidden">
         <FooterPillMenu />

@@ -2,19 +2,25 @@
 
 import React from 'react';
 import { Brain01Icon } from '@/lib/icons';
-
 import PersonalizedServiceTemplate from '@/components/templates/PersonalizedServiceTemplate';
 
 export default function ForStudentsContent() {
   return (
     <PersonalizedServiceTemplate
       serviceId="students"
-      translationKey="personalized.students"
-      Icon={Brain01Icon}
-      seoKeys={{
-        title: 'seo.students.title',
-        description: 'seo.students.description',
-        keywords: 'seo.students.keywords'
+      hero={{
+        titleKey: 'personalized.students.hero.title',
+        subtitleKey: 'personalized.students.hero.description',
+        icon: Brain01Icon,
+        backgroundImage: 'https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1440'
+      }}
+      benefits={{
+        titleKey: 'personalized.students.understanding.title',
+        subtitleKey: 'personalized.students.understanding.description1',
+        items: [
+          'personalized.students.understanding.description1',
+          'personalized.students.understanding.description2'
+        ]
       }}
       recommendedServices={[
         {

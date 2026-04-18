@@ -15,6 +15,36 @@ export default function ConstelacionesContent() {
         icon: StarIcon,
         backgroundImage: 'https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
+      bentoGrid={{
+        titleKey: 'constelaciones.bento.title',
+        subtitleKey: 'constelaciones.bento.subtitle',
+        items: [
+          {
+            titleKey: 'constelaciones.bento.laws.title',
+            descriptionKey: 'constelaciones.bento.laws.desc',
+            detailsKey: 'constelaciones.bento.laws.details',
+            colSpan: 2
+          },
+          {
+            titleKey: 'constelaciones.bento.loyalties.title',
+            descriptionKey: 'constelaciones.bento.loyalties.desc',
+            detailsKey: 'constelaciones.bento.loyalties.details',
+            colSpan: 1
+          },
+          {
+            titleKey: 'constelaciones.bento.healing.title',
+            descriptionKey: 'constelaciones.bento.healing.desc',
+            detailsKey: 'constelaciones.bento.healing.details',
+            colSpan: 1
+          },
+          {
+            titleKey: 'constelaciones.bento.resolution.title',
+            descriptionKey: 'constelaciones.bento.resolution.desc',
+            detailsKey: 'constelaciones.bento.resolution.details',
+            colSpan: 2
+          }
+        ]
+      }}
       features={{
         titleKey: 'services.constelaciones.subtitle',
         subtitleKey: 'services.constelaciones.description',
@@ -29,14 +59,8 @@ export default function ConstelacionesContent() {
         titleKey: 'services.pricing.title',
         subtitleKey: 'services.pricing.subtitle',
         options: [
-          { duration: 90, price: 80 },
-          { duration: 120, price: 100 }
+          { duration: 90, price: 90 }
         ]
-      }}
-      seoKeys={{
-        title: 'seo.constelaciones.title',
-        description: 'seo.constelaciones.description',
-        keywords: 'seo.constelaciones.keywords'
       }}
     />
   );

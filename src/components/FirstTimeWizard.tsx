@@ -1,152 +1,212 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight01Icon, ArrowLeft01Icon, SmileIcon, FavouriteIcon, ZapIcon, Moon02Icon, Money01Icon, Location01Icon, LaptopProgrammingIcon, BodyPartMuscleIcon, UserIcon, Home01Icon, Brain01Icon, Activity01Icon } from '@/lib/icons';
+import { 
+  ArrowRight01Icon, 
+  ArrowLeft01Icon, 
+  SmileIcon, 
+  FavouriteIcon, 
+  ZapIcon, 
+  Moon02Icon, 
+  Money01Icon, 
+  Location01Icon, 
+  LaptopProgrammingIcon, 
+  BodyPartMuscleIcon, 
+  UserIcon, 
+  Home01Icon, 
+  Brain01Icon, 
+  Activity01Icon,
+  Clock01Icon,
+  CheckCircle,
+  SparklesIcon,
+  FlashIcon,
+  Message01Icon,
+  InformationCircleIcon
+} from '@/lib/icons';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import type { ProblemState } from '@/lib/funnel-data';
 
 // -------------------------------------------------------------------------------- //
-// DATA & TYPES
+// TYPES & DATA
 // -------------------------------------------------------------------------------- //
 
+type Step = 'profile' | 'goals' | 'intensity' | 'duration' | 'energy' | 'mood' | 'location' | 'processing' | 'result';
+
+type Profile = 'office' | 'athlete' | 'artist' | 'musician' | 'student' | 'parent' | 'other';
 type Goal = 'stress' | 'pain' | 'posture' | 'sleep' | 'energy' | 'focus' | 'relationships' | 'family' | 'selfworth' | 'money';
+type Intensity = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type Duration = 'days' | 'weeks' | 'months' | 'years';
+type Energy = 'low' | 'medium' | 'high';
+type Mood = 'stressed' | 'sad' | 'frustrated' | 'calm';
 type Location = 'barcelona' | 'rubi' | 'online';
 
-interface GoalMeta {
-  id: Goal;
-  translationKey: string;
-  icon: React.ComponentType<{ className?: string }>;
-  category: 'physical' | 'mental' | 'systemic';
+interface AssessmentData {
+  profile: Profile | null;
+  goals: Goal[];
+  intensity: Intensity;
+  duration: Duration | null;
+  energy: Energy | null;
+  mood: Mood | null;
+  location: Location | null;
 }
 
-const GOALS: GoalMeta[] = [
-  { id: 'stress', translationKey: 'onboarding.goals.stress', icon: Brain01Icon, category: 'mental' },
-  { id: 'pain', translationKey: 'onboarding.goals.pain', icon: BodyPartMuscleIcon, category: 'physical' },
-  { id: 'posture', translationKey: 'onboarding.goals.posture', icon: UserIcon, category: 'physical' },
-  { id: 'sleep', translationKey: 'onboarding.goals.sleep', icon: Moon02Icon, category: 'mental' },
-  { id: 'energy', translationKey: 'onboarding.goals.energy', icon: ZapIcon, category: 'mental' },
-  { id: 'focus', translationKey: 'onboarding.goals.focus', icon: Activity01Icon, category: 'mental' },
-  { id: 'relationships', translationKey: 'onboarding.goals.relationships', icon: FavouriteIcon, category: 'systemic' },
-  { id: 'family', translationKey: 'onboarding.goals.family', icon: Home01Icon, category: 'systemic' },
-  { id: 'selfworth', translationKey: 'onboarding.goals.selfworth', icon: SmileIcon, category: 'mental' },
-  { id: 'money', translationKey: 'onboarding.goals.money', icon: Money01Icon, category: 'systemic' },
+const PROFILES: { id: Profile; labelKey: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'office', labelKey: 'onboarding.userTypes.office', icon: LaptopProgrammingIcon },
+  { id: 'athlete', labelKey: 'onboarding.userTypes.athlete', icon: Activity01Icon },
+  { id: 'artist', labelKey: 'onboarding.userTypes.artist', icon: SmileIcon },
+  { id: 'musician', labelKey: 'onboarding.userTypes.musician', icon: Activity01Icon },
+  { id: 'student', labelKey: 'onboarding.userTypes.student', icon: Brain01Icon },
+  { id: 'parent', labelKey: 'onboarding.userTypes.parent', icon: Home01Icon },
+  { id: 'other', labelKey: 'onboarding.userTypes.other', icon: UserIcon },
 ];
 
-const LOCATIONS: { id: Location; labelKey: string; icon: React.ComponentType<{ className?: string }>; available: boolean }[] = [
-  { id: 'barcelona', labelKey: 'form.location.bcn', icon: Location01Icon, available: true },
-  { id: 'rubi', labelKey: 'form.location.rubi', icon: Location01Icon, available: true },
-  { id: 'online', labelKey: 'form.location.online', icon: LaptopProgrammingIcon, available: true },
+const GOALS: { id: Goal; labelKey: string; icon: React.ComponentType<{ className?: string }>; category: 'physical' | 'mental' | 'systemic' }[] = [
+  { id: 'stress', labelKey: 'onboarding.goals.stress', icon: Brain01Icon, category: 'mental' },
+  { id: 'pain', labelKey: 'onboarding.goals.pain', icon: BodyPartMuscleIcon, category: 'physical' },
+  { id: 'posture', labelKey: 'onboarding.goals.posture', icon: UserIcon, category: 'physical' },
+  { id: 'sleep', labelKey: 'onboarding.goals.sleep', icon: Moon02Icon, category: 'mental' },
+  { id: 'energy', labelKey: 'onboarding.goals.energy', icon: ZapIcon, category: 'mental' },
+  { id: 'focus', labelKey: 'onboarding.goals.focus', icon: Activity01Icon, category: 'mental' },
+  { id: 'relationships', labelKey: 'onboarding.goals.relationships', icon: FavouriteIcon, category: 'systemic' },
+  { id: 'family', labelKey: 'onboarding.goals.family', icon: Home01Icon, category: 'systemic' },
+  { id: 'selfworth', labelKey: 'onboarding.goals.selfworth', icon: SmileIcon, category: 'mental' },
+  { id: 'money', labelKey: 'onboarding.goals.money', icon: Money01Icon, category: 'systemic' },
+];
+
+const DURATIONS: { id: Duration; labelKey: string }[] = [
+  { id: 'days', labelKey: 'assessment.duration.days' },
+  { id: 'weeks', labelKey: 'assessment.duration.weeks' },
+  { id: 'months', labelKey: 'assessment.duration.months' },
+  { id: 'years', labelKey: 'assessment.duration.years' },
+];
+
+const ENERGIES: { id: Energy; labelKey: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'low', labelKey: 'assessment.energy.low', icon: Moon02Icon },
+  { id: 'medium', labelKey: 'assessment.energy.medium', icon: Activity01Icon },
+  { id: 'high', labelKey: 'assessment.energy.high', icon: ZapIcon },
+];
+
+const MOODS: { id: Mood; labelKey: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'stressed', labelKey: 'assessment.mood.stressed', icon: FlashIcon },
+  { id: 'sad', labelKey: 'assessment.mood.sad', icon: Moon02Icon },
+  { id: 'frustrated', labelKey: 'assessment.mood.frustrated', icon: FlashIcon },
+  { id: 'calm', labelKey: 'assessment.mood.calm', icon: SmileIcon },
+];
+
+const LOCATIONS: { id: Location; labelKey: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'barcelona', labelKey: 'form.location.bcn', icon: Location01Icon },
+  { id: 'rubi', labelKey: 'form.location.rubi', icon: Location01Icon },
+  { id: 'online', labelKey: 'form.location.online', icon: LaptopProgrammingIcon },
 ];
 
 // -------------------------------------------------------------------------------- //
 // RECOMMENDATION LOGIC
 // -------------------------------------------------------------------------------- //
 
-interface RecommendedService {
-  id: string;
+interface FinalRecommendation {
+  serviceId: string;
   titleKey: string;
   descKey: string;
   image: string;
   duration: string;
   price: string;
-  tagsKeys: string[];
+  href: string;
+  whyKeys: string[];
+  tags: string[];
 }
 
-function getRecommendation(selectedGoals: Goal[], location: Location | null): RecommendedService {
-  const goalMetas = selectedGoals.map(gId => GOALS.find(g => g.id === gId)!);
-  const physicalCount = goalMetas.filter(g => g.category === 'physical').length;
-  const systemicCount = goalMetas.filter(g => g.category === 'systemic').length;
-  const mentalCount = goalMetas.filter(g => g.category === 'mental').length;
+function calculateRecommendation(data: AssessmentData): FinalRecommendation {
+  const isChronic = data.duration === 'months' || data.duration === 'years';
+  const highIntensity = data.intensity >= 7;
+  const systemicFocus = data.goals.some(g => GOALS.find(goal => goal.id === g)?.category === 'systemic');
+  const lowEnergy = data.energy === 'low';
 
-  if (location === 'online') {
-    if (systemicCount > 0) {
-      return {
-        id: 'constelaciones',
-        titleKey: 'services.constelaciones.title',
-        descKey: 'services.constelaciones.desc',
-        image: 'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg',
-        duration: '90-120 min',
-        price: '110€',
-        tagsKeys: ['home.services.badges.systemic', 'home.services.badges.online']
-      };
-    }
+  // 1. VIP/360 REVISION (Highest level)
+  if (isChronic && highIntensity) {
     return {
-      id: 'online_session',
-      titleKey: 'services.kinesiologia.online',
-      descKey: 'services.kinesiologia.desc',
-      image: 'https://images.pexels.com/photos/4098157/pexels-photo-4098157.jpeg',
-      duration: '60 min',
-      price: '50€',
-      tagsKeys: ['home.services.badges.online', 'home.services.badges.development']
+      serviceId: 'revision-360',
+      titleKey: 'services.revision360.title',
+      descKey: 'services.revision360.description',
+      image: 'https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=800',
+      duration: '4-9 sessions',
+      price: 'From 280€',
+      href: '/360-revision',
+      whyKeys: ['assessment.why.chronic', 'assessment.why.intensity'],
+      tags: ['Premium', 'Comprehensive']
     };
   }
 
-  // In-person specific recommendations
-  if (physicalCount > 0 && physicalCount >= mentalCount && physicalCount >= systemicCount) {
-    if (selectedGoals.includes('pain')) {
-      return {
-        id: 'quiromasaje',
-        titleKey: 'services.masaje.title',
-        descKey: 'services.masaje.desc',
-        image: 'https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg',
-        duration: '60 min',
-        price: '50€',
-        tagsKeys: ['home.services.badges.physical', 'home.services.badges.inPerson']
-      };
-    }
+  // 2. FAMILY CONSTELLATIONS (Systemic)
+  if (systemicFocus || data.mood === 'sad') {
     return {
-      id: 'kinesiologia',
-      titleKey: 'services.kinesiologia.title',
-      descKey: 'services.kinesiologia.desc',
-      image: 'https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg',
-      duration: '60-90 min',
-      price: '60€',
-      tagsKeys: ['home.services.badges.physical', 'home.services.badges.emotional']
-    };
-  }
-
-  if (systemicCount > 0) {
-    return {
-      id: 'constelaciones',
+      serviceId: 'constelaciones',
       titleKey: 'services.constelaciones.title',
-      descKey: 'services.constelaciones.desc',
-      image: 'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg',
-      duration: '90-120 min',
-      price: '110€',
-      tagsKeys: ['home.services.badges.systemic', 'home.services.badges.relationship']
+      descKey: 'services.constelaciones.description',
+      image: 'https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=800',
+      duration: '90 min',
+      price: '90€',
+      href: '/services/constelaciones',
+      whyKeys: ['assessment.why.systemic', 'assessment.why.emotional'],
+      tags: ['Systemic', 'Deep']
     };
   }
 
-  // Default mental/emotional
-  if (selectedGoals.includes('stress') || selectedGoals.includes('sleep')) {
+  // 3. NUTRITION (Bioenergetic)
+  if (lowEnergy) {
     return {
-      id: 'barras_access',
-      titleKey: 'services.barras.title',
-      descKey: 'services.barras.desc',
-      image: 'https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg',
+      serviceId: 'nutrition',
+      titleKey: 'services.nutrition.title',
+      descKey: 'services.nutrition.description',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
       duration: '60 min',
-      price: '55€',
-      tagsKeys: ['home.services.badges.mind', 'home.services.badges.energy']
+      price: '70€',
+      href: '/services/nutrition',
+      whyKeys: ['assessment.why.energy', 'assessment.why.biochemical'],
+      tags: ['Metabolic', 'Vitality']
     };
   }
 
-  // Fallback
+  // 4. KINESIOLOGY (Balanced/Default)
+  if (data.profile === 'office' || data.profile === 'student' || data.mood === 'stressed') {
+    return {
+      serviceId: 'kinesiology',
+      titleKey: 'services.kinesiology.title',
+      descKey: 'services.kinesiology.description',
+      image: 'https://images.pexels.com/photos/4098157/pexels-photo-4098157.jpeg?auto=compress&cs=tinysrgb&w=800',
+      duration: '60-90 min',
+      price: '70-90€',
+      href: '/services/kinesiology',
+      whyKeys: ['assessment.why.balanced', 'assessment.why.stress'],
+      tags: ['Holistic', 'Precision']
+    };
+  }
+
+  // 5. MASSAGE (Physical Focus)
   return {
-    id: 'kinesiologia',
-    titleKey: 'services.kinesiologia.title',
-    descKey: 'services.kinesiologia.desc',
-    image: 'https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg',
+    serviceId: 'massage',
+    titleKey: 'services.massage.title',
+    descKey: 'services.massage.description',
+    image: 'https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=800',
     duration: '60-90 min',
-    price: '60€',
-    tagsKeys: ['home.services.badges.physical', 'home.services.badges.emotional']
+    price: '70-90€',
+    href: '/services/massage',
+    whyKeys: ['assessment.why.physical', 'assessment.why.tension'],
+    tags: ['Restorative', 'Manual']
   };
+}
+
+// -------------------------------------------------------------------------------- //
+// COMPONENT
+// -------------------------------------------------------------------------------- //
+
+interface FirstTimeWizardProps {
+  onComplete?: (problem: ProblemState) => void;
 }
 
 function getProblemStateFromGoals(goals: Goal[]): ProblemState {
@@ -160,282 +220,476 @@ function getProblemStateFromGoals(goals: Goal[]): ProblemState {
   return 'back_pain';
 }
 
-// -------------------------------------------------------------------------------- //
-// COMPONENT
-// -------------------------------------------------------------------------------- //
-
-interface FirstTimeWizardProps {
-  onComplete?: (problem: ProblemState) => void;
-}
-
 export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
   const { t } = useLanguage();
-  const [step, setStep] = useState<number>(1);
-  const [selectedGoals, setSelectedGoals] = useState<Goal[]>([]);
-  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  const [step, setStep] = useState<Step>('profile');
+  const [data, setData] = useState<AssessmentData>({
+    profile: null,
+    goals: [],
+    intensity: 5,
+    duration: null,
+    energy: null,
+    mood: null,
+    location: null,
+  });
+
+  const [processingState, setProcessingState] = useState(0);
+
+  // Auto-advance for processing
+  useEffect(() => {
+    if (step === 'processing') {
+      const timer = setInterval(() => {
+        setProcessingState(prev => {
+          if (prev >= 3) {
+            clearInterval(timer);
+            setStep('result');
+            // Trigger completion callback when analysis is done
+            if (onComplete) {
+              onComplete(getProblemStateFromGoals(data.goals));
+            }
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 1200);
+      return () => clearInterval(timer);
+    }
+  }, [step, onComplete, data.goals]);
 
   const toggleGoal = (goal: Goal) => {
-    setSelectedGoals(prev =>
-      prev.includes(goal) ? prev.filter(g => g !== goal) : [...prev, goal]
-    );
+    setData(prev => ({
+      ...prev,
+      goals: prev.goals.includes(goal) ? prev.goals.filter(g => g !== goal) : [...prev.goals, goal]
+    }));
   };
 
-  const handleNext = () => {
-    if (step === 1 && selectedGoals.length > 0) setStep(2);
-    if (step === 2 && selectedLocation) {
-      setStep(3);
-      if (onComplete) {
-        onComplete(getProblemStateFromGoals(selectedGoals));
+  const stepsOrder: Step[] = ['profile', 'goals', 'intensity', 'duration', 'energy', 'mood', 'location'];
+  const currentIndex = stepsOrder.indexOf(step);
+  const totalSteps = stepsOrder.length;
+
+  const nextStep = () => {
+    if (currentIndex < totalSteps - 1) {
+      setStep(stepsOrder[currentIndex + 1]);
+    } else {
+      setStep('processing');
+    }
+  };
+
+  const prevStep = () => {
+    if (currentIndex > 0) {
+      setStep(stepsOrder[currentIndex - 1]);
+    }
+  };
+
+  const wizardVariants = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -20 },
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 'profile':
+        return (
+          <motion.div key="profile" {...wizardVariants} className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('form.step1.question')}</h2>
+              <p className="apple-subtitle">{t('discovery.step1.subtitle')}</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {PROFILES.map(p => (
+                <button
+                  key={p.id}
+                  onClick={() => { setData(prev => ({ ...prev, profile: p.id })); nextStep(); }}
+                  className={cn(
+                    "apple-card p-8 flex flex-col items-center gap-4 group transition-all duration-300",
+                    data.profile === p.id ? "bg-primary/5 border-primary" : "hover:bg-muted/40"
+                  )}
+                >
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500",
+                    data.profile === p.id ? "bg-primary text-white scale-110 shadow-lg shadow-primary/20" : "bg-muted text-muted-foreground group-hover:bg-background"
+                  )}>
+                    <p.icon className="w-8 h-8" />
+                  </div>
+                  <span className="font-bold text-center text-sm">{t(p.labelKey)}</span>
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        );
+
+      case 'goals':
+        return (
+          <motion.div key="goals" {...wizardVariants} className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('onboarding.questions.goals.title')}</h2>
+              <p className="apple-subtitle">{t('form.step2.question')}</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {GOALS.map(g => (
+                <button
+                  key={g.id}
+                  onClick={() => toggleGoal(g.id)}
+                  className={cn(
+                    "apple-card p-6 flex flex-col items-center gap-4 relative",
+                    data.goals.includes(g.id) ? "bg-primary/5 border-primary" : "hover:bg-muted/40"
+                  )}
+                >
+                  <g.icon className={cn("w-6 h-6", data.goals.includes(g.id) ? "text-primary" : "text-muted-foreground")} />
+                  <span className="text-xs font-bold text-center leading-tight">{t(g.labelKey)}</span>
+                  {data.goals.includes(g.id) && (
+                    <motion.div layoutId="check" className="absolute top-2 right-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                    </motion.div>
+                  )}
+                </button>
+              ))}
+            </div>
+            <div className="flex justify-center pt-8">
+               <Button size="xl" className="rounded-full px-12" disabled={data.goals.length === 0} onClick={nextStep}>
+                 {t('common.next')} <ArrowRight01Icon className="ml-2 w-5 h-5" />
+               </Button>
+            </div>
+          </motion.div>
+        );
+
+      case 'intensity':
+        return (
+          <motion.div key="intensity" {...wizardVariants} className="space-y-12 max-w-2xl mx-auto">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('assessment.step.intensity.title')}</h2>
+              <p className="apple-subtitle">{t('assessment.step.intensity.desc')}</p>
+            </div>
+            <div className="space-y-8">
+               <div className="flex justify-between px-2 text-2xl font-black text-primary">
+                  <span>1</span>
+                  <span className="text-5xl">{data.intensity}</span>
+                  <span>10</span>
+               </div>
+               <input 
+                 type="range" 
+                 min="1" 
+                 max="10" 
+                 step="1" 
+                 value={data.intensity}
+                 onChange={(e) => setData(prev => ({ ...prev, intensity: parseInt(e.target.value) as Intensity }))}
+                 className="w-full h-3 bg-muted rounded-full appearance-none cursor-pointer accent-primary"
+               />
+               <div className="flex justify-between text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
+                  <span>Mild discomfort</span>
+                  <span>Severe pain</span>
+               </div>
+            </div>
+            <div className="flex justify-center gap-4">
+               <Button variant="ghost" size="lg" className="rounded-full" onClick={prevStep}>
+                 <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
+               </Button>
+               <Button size="xl" className="rounded-full px-12" onClick={nextStep}>
+                 {t('common.next')} <ArrowRight01Icon className="ml-2 w-5 h-5" />
+               </Button>
+            </div>
+          </motion.div>
+        );
+
+      case 'duration':
+        return (
+          <motion.div key="duration" {...wizardVariants} className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('assessment.step.duration.title')}</h2>
+              <p className="apple-subtitle">{t('assessment.step.duration.desc')}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+               {DURATIONS.map(d => (
+                 <button
+                   key={d.id}
+                   onClick={() => { setData(prev => ({ ...prev, duration: d.id })); nextStep(); }}
+                   className={cn(
+                     "apple-card p-10 text-xl font-bold transition-all duration-300",
+                     data.duration === d.id ? "bg-primary text-white" : "hover:bg-muted/40"
+                   )}
+                 >
+                   {t(d.labelKey)}
+                 </button>
+               ))}
+            </div>
+            <div className="flex justify-center">
+               <Button variant="ghost" onClick={prevStep} className="rounded-full">
+                 <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
+               </Button>
+            </div>
+          </motion.div>
+        );
+
+      case 'energy':
+        return (
+          <motion.div key="energy" {...wizardVariants} className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('assessment.step.energy.title')}</h2>
+              <p className="apple-subtitle">{t('assessment.step.energy.desc')}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+               {ENERGIES.map(e => (
+                 <button
+                   key={e.id}
+                   onClick={() => { setData(prev => ({ ...prev, energy: e.id })); nextStep(); }}
+                   className={cn(
+                     "apple-card p-10 flex flex-col items-center gap-6 group",
+                     data.energy === e.id ? "bg-primary/5 border-primary shadow-lg shadow-primary/5" : "hover:bg-muted/40"
+                   )}
+                 >
+                    <div className={cn(
+                      "w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-500",
+                      data.energy === e.id ? "bg-primary text-white scale-110" : "bg-muted text-muted-foreground group-hover:bg-background"
+                    )}>
+                      <e.icon className="w-10 h-10" />
+                    </div>
+                    <span className="font-bold text-center leading-tight">{t(e.labelKey)}</span>
+                 </button>
+               ))}
+            </div>
+            <div className="flex justify-center">
+               <Button variant="ghost" onClick={prevStep} className="rounded-full">
+                 <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
+               </Button>
+            </div>
+          </motion.div>
+        );
+
+      case 'mood':
+        return (
+          <motion.div key="mood" {...wizardVariants} className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('assessment.step.mood.title')}</h2>
+              <p className="apple-subtitle">{t('assessment.step.mood.desc')}</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+               {MOODS.map(m => (
+                 <button
+                   key={m.id}
+                   onClick={() => { setData(prev => ({ ...prev, mood: m.id })); nextStep(); }}
+                   className={cn(
+                     "apple-card p-10 flex flex-col items-center gap-4 group",
+                     data.mood === m.id ? "bg-primary text-white" : "hover:bg-muted/40"
+                   )}
+                 >
+                   <m.icon className={cn("w-8 h-8 transition-colors", data.mood === m.id ? "text-white" : "text-primary")} />
+                   <span className="font-bold text-sm text-center">{t(m.labelKey)}</span>
+                 </button>
+               ))}
+            </div>
+            <div className="flex justify-center">
+               <Button variant="ghost" onClick={prevStep} className="rounded-full">
+                 <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
+               </Button>
+            </div>
+          </motion.div>
+        );
+
+      case 'location':
+        return (
+          <motion.div key="location" {...wizardVariants} className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="apple-title text-3xl md:text-5xl">{t('discovery.step.location.title')}</h2>
+              <p className="apple-subtitle">{t('discovery.step.location.subtitle')}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+               {LOCATIONS.map(l => (
+                 <button
+                   key={l.id}
+                   onClick={() => { setData(prev => ({ ...prev, location: l.id })); nextStep(); }}
+                   className={cn(
+                     "apple-card p-10 flex flex-col items-center gap-6 group",
+                     data.location === l.id ? "bg-primary/5 border-primary shadow-lg shadow-primary/5" : "hover:bg-muted/40"
+                   )}
+                 >
+                    <div className={cn(
+                      "w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-500",
+                      data.location === l.id ? "bg-primary text-white scale-110" : "bg-muted text-muted-foreground group-hover:bg-background"
+                    )}>
+                      <l.icon className="w-10 h-10" />
+                    </div>
+                    <span className="font-bold text-center leading-tight">{t(l.labelKey)}</span>
+                 </button>
+               ))}
+            </div>
+            <div className="flex justify-center">
+               <Button variant="ghost" onClick={prevStep} className="rounded-full">
+                 <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
+               </Button>
+            </div>
+          </motion.div>
+        );
+
+      case 'processing':
+        return (
+          <motion.div key="processing" {...wizardVariants} className="py-20 flex flex-col items-center justify-center space-y-12">
+            <div className="relative w-40 h-40">
+                <motion.div 
+                   animate={{ rotate: 360 }}
+                   transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                   className="absolute inset-0 rounded-full border-t-2 border-primary/20 border-r-2 border-primary/10"
+                />
+                <motion.div 
+                   animate={{ scale: [1, 1.1, 1] }}
+                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                   className="absolute inset-0 flex items-center justify-center"
+                >
+                   <SparklesIcon className="w-16 h-16 text-primary" />
+                </motion.div>
+            </div>
+            <div className="text-center space-y-4">
+               <h2 className="apple-title text-3xl">{t('assessment.processing.title')}</h2>
+               <div className="flex flex-col items-center gap-2">
+                  <AnimatePresence mode="wait">
+                    <motion.p 
+                      key={processingState}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="text-primary font-bold uppercase tracking-[0.2em] text-[10px]"
+                    >
+                      {t(`assessment.processing.step${Math.min(processingState + 1, 3)}`)}
+                    </motion.p>
+                  </AnimatePresence>
+                  <div className="flex gap-1">
+                     {[0, 1, 2].map(i => (
+                        <div key={i} className={cn("w-1.5 h-1.5 rounded-full transition-colors", i <= processingState ? "bg-primary" : "bg-muted")} />
+                     ))}
+                  </div>
+               </div>
+            </div>
+          </motion.div>
+        );
+
+      case 'result': {
+        const recommendation = calculateRecommendation(data);
+        return (
+          <motion.div key="result" {...wizardVariants} className="space-y-16">
+            <div className="text-center space-y-6 max-w-3xl mx-auto">
+               <Badge variant="outline" className="rounded-full px-4 py-1 uppercase tracking-widest text-[10px] font-black bg-primary/5 text-primary border-primary/10">
+                 Analysis Completed
+               </Badge>
+               <h2 className="apple-title text-4xl md:text-7xl leading-[0.95]">{t('assessment.result.match')}</h2>
+               <h3 className="apple-subtitle">{t('form.recommendation.subtitle')}</h3>
+            </div>
+
+            <div className="apple-card overflow-hidden grid lg:grid-cols-5 min-h-[600px] border-primary/10 shadow-2xl shadow-primary/5">
+                <div className="lg:col-span-2 relative min-h-[400px] lg:min-h-full">
+                  <Image 
+                    src={recommendation.image} 
+                    alt={t(recommendation.titleKey)} 
+                    fill 
+                    className="object-cover" 
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-10 left-10 right-10 space-y-6">
+                     <div className="flex flex-wrap gap-2">
+                        {recommendation.tags.map((tag, i) => (
+                          <Badge key={i} className="bg-white/10 backdrop-blur-xl border-white/20 text-white uppercase tracking-widest text-[9px] font-black">
+                            {tag}
+                          </Badge>
+                        ))}
+                     </div>
+                     <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-white/80 text-xs font-bold uppercase tracking-widest">
+                           <Clock01Icon className="w-4 h-4" /> {recommendation.duration}
+                        </div>
+                        <div className="text-white text-4xl font-black">{recommendation.price}</div>
+                     </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-3 p-10 md:p-20 flex flex-col justify-center space-y-12">
+                   <div className="space-y-6">
+                      <h3 className="apple-title text-3xl md:text-5xl leading-tight">{t(recommendation.titleKey)}</h3>
+                      <p className="text-lg text-muted-foreground leading-relaxed">{t(recommendation.descKey)}</p>
+                   </div>
+
+                   <div className="space-y-8 pt-10 border-t border-border/60">
+                      <div className="flex items-center gap-2 text-primary font-black uppercase tracking-widest text-[10px]">
+                         <InformationCircleIcon className="w-4 h-4" /> {t('assessment.result.why')}
+                      </div>
+                      <div className="grid sm:grid-cols-2 gap-6">
+                         {recommendation.whyKeys.map((key, i) => (
+                            <div key={i} className="flex gap-4 items-start">
+                               <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                                  <CheckCircle className="w-3 h-3 text-primary" />
+                               </div>
+                               <p className="text-sm font-semibold text-foreground/80 leading-snug">{t(key)}</p>
+                            </div>
+                         ))}
+                      </div>
+                   </div>
+
+                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                      <Button asChild size="xl" className="flex-1 rounded-full h-18 text-lg font-black shadow-lg shadow-primary/20 group">
+                         <Link href={`/booking?service=${recommendation.serviceId}&assessment=complete&intensity=${data.intensity}&mood=${data.mood}&energy=${data.energy}`}>
+                            {t('assessment.result.book.prefilled')}
+                            <ArrowRight01Icon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                         </Link>
+                      </Button>
+                      <Button asChild variant="outline" size="xl" className="rounded-full h-18 px-10 border-border hover:bg-muted bg-transparent">
+                         <Link href={recommendation.href}>{t('common.learnMore')}</Link>
+                      </Button>
+                   </div>
+                </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-8 py-10">
+               <div className="p-8 apple-card bg-muted/30 border-dashed border-2 flex flex-col md:flex-row items-center gap-8 max-w-3xl w-full">
+                  <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm">
+                     <Message01Icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="flex-1 text-center md:text-left space-y-2">
+                     <h4 className="font-black text-lg">Prefer personal contact?</h4>
+                     <p className="text-sm text-muted-foreground font-medium">Send your assessment results directly to Elena via WhatsApp for a preliminary advice.</p>
+                  </div>
+                  <Button variant="secondary" className="rounded-full px-8 h-14 font-bold shrink-0">
+                     Chat with Elena
+                  </Button>
+               </div>
+
+               <button 
+                 onClick={() => { setStep('profile'); setData({ profile: null, goals: [], intensity: 5, duration: null, energy: null, mood: null, location: null }); }}
+                 className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-[10px] transition-colors underline underline-offset-8 decoration-border"
+               >
+                 {t('form.startOver')}
+               </button>
+            </div>
+          </motion.div>
+        );
       }
     }
   };
 
-  const handleBack = () => {
-    if (step > 1) setStep(step - 1);
-  };
-
-  const handleStartOver = () => {
-    setStep(1);
-    setSelectedGoals([]);
-    setSelectedLocation(null);
-  };
-
-  const wizardVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 10 },
-    visible: { opacity: 1, scale: 1, y: 0 },
-    exit: { opacity: 0, scale: 1.05, y: -10 }
-  };
-
   return (
-    <Card className="w-full max-w-4xl mx-auto border-none shadow-none md:border md:shadow-md md:rounded-apple overflow-hidden bg-card relative min-h-125 flex flex-col md:p-10 z-10 transition-all duration-300">
+    <div className="w-full max-w-6xl mx-auto px-6">
       
-      {/* Progress Indicator */}
-      <div className="flex items-center justify-between mb-8 px-4 md:px-0 pt-4 md:pt-0">
-        <div className="flex items-center space-x-2">
-          {[1, 2, 3].map((s) => (
-            <div key={s} className={cn(
-              "w-12 h-1.5 rounded-full transition-colors duration-300",
-              step >= s ? "bg-primary" : "bg-muted"
-            )} />
-          ))}
+      {/* Dynamic Progress Indicator */}
+      {step !== 'processing' && step !== 'result' && (
+        <div className="max-w-md mx-auto mb-20 space-y-6">
+           <div className="flex justify-between items-end">
+              <div className="space-y-1">
+                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Wellness Assessment</p>
+                 <h3 className="font-bold text-sm">Personalizing your path</h3>
+              </div>
+              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Step {currentIndex + 1} of {totalSteps}</p>
+           </div>
+           <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
+              <motion.div 
+                 initial={{ width: 0 }}
+                 animate={{ width: `${((currentIndex + 1) / totalSteps) * 100}%` }}
+                 className="h-full bg-primary"
+                 transition={{ type: "spring", stiffness: 50, damping: 20 }}
+              />
+           </div>
         </div>
-        <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
-           {t('form.step')} {step} / 3
-        </span>
-      </div>
+      )}
 
-      {/* Main Content Area */}
-      <div className="flex-1 relative px-4 md:px-0">
-        <AnimatePresence mode="wait">
-          {/* STEP 1: GOALS */}
-          {step === 1 && (
-            <motion.div
-              key="step1"
-              variants={wizardVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-              className="flex flex-col gap-6"
-            >
-              <div className="text-center mb-6">
-                <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">{t('form.badge')}</Badge>
-                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-3">
-                  {t('form.step1.title')}
-                </h2>
-                <p className="text-muted-foreground max-w-xl mx-auto">
-                  {t('form.step1.desc')}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 pb-8">
-                {GOALS.map((goal) => {
-                  const isSelected = selectedGoals.includes(goal.id);
-                  const Icon = goal.icon;
-                  return (
-                    <button
-                      key={goal.id}
-                      onClick={() => toggleGoal(goal.id)}
-                      className={cn(
-                        "flex flex-col items-center justify-center p-4 rounded-xl border transition-all duration-200 text-center gap-3 h-32 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                        isSelected
-                          ? "border-primary bg-primary/5 text-primary shadow-sm"
-                          : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-accent hover:text-accent-foreground"
-                      )}
-                    >
-                      <Icon className={cn("w-8 h-8", isSelected ? "text-primary" : "text-muted-foreground")} />
-                      <span className="text-sm font-medium leading-tight">
-                        {t(goal.translationKey)}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="flex justify-end mt-auto pt-4 pb-8 md:pb-0 border-t border-transparent md:border-none">
-                <Button
-                  onClick={handleNext}
-                  disabled={selectedGoals.length === 0}
-                  className="gap-2 rounded-full px-8 w-full md:w-auto"
-                  size="lg"
-                >
-                  {t('form.next')} <ArrowRight01Icon className="w-4 h-4" />
-                </Button>
-              </div>
-            </motion.div>
-          )}
-
-          {/* STEP 2: LOCATION */}
-          {step === 2 && (
-            <motion.div
-              key="step2"
-              variants={wizardVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-              className="flex flex-col gap-6 h-full"
-            >
-              <div className="text-center mb-6">
-                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-3">
-                   {t('form.step2.title')}
-                </h2>
-                <p className="text-muted-foreground max-w-xl mx-auto">
-                   {t('form.step2.desc')}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
-                {LOCATIONS.map((loc) => {
-                  const isSelected = selectedLocation === loc.id;
-                  const Icon = loc.icon;
-                  return (
-                    <button
-                      key={loc.id}
-                      onClick={() => setSelectedLocation(loc.id)}
-                      className={cn(
-                        "flex flex-col items-center p-8 rounded-xl border transition-all duration-200 gap-4 text-center outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                        isSelected
-                          ? "border-primary bg-primary/5 text-primary shadow-sm"
-                          : "border-border bg-card text-card-foreground hover:border-primary/50 hover:bg-accent hover:text-accent-foreground"
-                      )}
-                    >
-                      <div className={cn(
-                        "w-16 h-16 rounded-full flex items-center justify-center mb-2 transition-colors",
-                        isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                      )}>
-                        <Icon className="w-8 h-8" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-lg font-medium mb-1">
-                          {t(loc.labelKey)}
-                        </span>
-                        <span className="text-sm text-muted-foreground">
-                          {t(loc.labelKey + '.desc')}
-                        </span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="flex flex-col-reverse md:flex-row justify-between mt-auto pt-4 pb-8 md:pb-0 gap-4 md:gap-0">
-                <Button variant="outline" onClick={handleBack} className="gap-2 rounded-full w-full md:w-auto" size="lg">
-                  <ArrowLeft01Icon className="w-4 h-4" /> {t('form.previous')}
-                </Button>
-                <Button
-                  onClick={handleNext}
-                  disabled={!selectedLocation}
-                  className="gap-2 rounded-full px-8 w-full md:w-auto"
-                  size="lg"
-                >
-                  {t('form.seeRecommendation')} <ArrowRight01Icon className="w-4 h-4" />
-                </Button>
-              </div>
-            </motion.div>
-          )}
-
-          {/* STEP 3: RECOMMENDATION */}
-          {step === 3 && (
-            <motion.div
-              key="step3"
-              variants={wizardVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-              className="flex flex-col gap-6 items-center"
-            >
-              <div className="text-center max-w-2xl mx-auto mb-6">
-                <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">{t('form.recommendation.title')}</Badge>
-                <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4 leading-tight pb-2">
-                   {t('form.recommendation.subtitle')}
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                   {t('form.recommendation.desc')}
-                </p>
-              </div>
-
-              <div className="w-full max-w-md pb-8">
-                {(() => {
-                  const recommendation = getRecommendation(selectedGoals, selectedLocation);
-                  return (
-                    <Card className="overflow-hidden border border-border shadow-md transition-all flex flex-col group hover:bg-accent/5">
-                      <div className="aspect-4/3 relative overflow-hidden">
-                        <Image
-                          src={recommendation.image}
-                          alt={t(recommendation.titleKey) || "Recommended Service"}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 28rem"
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-background/20 bg-linear-to-t from-background/95 to-transparent flex flex-col justify-end p-6 text-foreground">
-                          <h3 className="text-2xl font-serif font-medium mb-1 drop-shadow-sm">
-                            {t(recommendation.titleKey) || recommendation.titleKey}
-                          </h3>
-                        </div>
-                      </div>
-
-                      <div className="p-6 flex flex-col flex-1 gap-4 bg-card">
-                        <div className="flex flex-wrap gap-2">
-                          {recommendation.tagsKeys.map((tagKey, idx) => (
-                            <Badge key={idx} variant="secondary" className="bg-muted text-muted-foreground font-normal">
-                              {t(tagKey)}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        <p className="text-muted-foreground text-sm line-clamp-3">
-                          {t(recommendation.descKey) || recommendation.descKey}
-                        </p>
-
-                        <div className="flex items-center justify-between text-sm font-medium pt-4 border-t border-border mt-2">
-                          <span className="text-muted-foreground">{recommendation.duration}</span>
-                          <span className="text-primary font-semibold">{recommendation.price}</span>
-                        </div>
-
-                        <Button asChild size="lg" className="w-full mt-2 group/btn rounded-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                          <Link href={`/booking?service=${recommendation.id}`}>
-                            {t('form.recommendation.bookBtn')}
-                            <ArrowRight01Icon className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </Card>
-                  );
-                })()}
-              </div>
-
-              <div className="mt-2 flex gap-4 pb-8 md:pb-0">
-                 <Button variant="ghost" onClick={handleStartOver} className="text-muted-foreground hover:text-foreground rounded-full">
-                  {t('form.startOver')}
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-    </Card>
+      <AnimatePresence mode="wait">
+        {renderStep()}
+      </AnimatePresence>
+    </div>
   );
 }

@@ -33,7 +33,7 @@ export default async function RootLayout({
   const lang = 'ca'; 
 
   return (
-    <html lang={lang} className={inter.variable}>
+    <html lang={lang} className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>

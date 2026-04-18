@@ -10,7 +10,9 @@ import { AdaptiveServices } from '@/components/templates/AdaptiveServices';
 import { FunnelReviews } from '@/components/templates/FunnelReviews';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft01Icon } from '@/lib/icons';
+import { ArrowLeft01Icon, SparklesIcon } from '@/lib/icons';
+import PageLayout from '@/components/PageLayout';
+import { Badge } from '@/components/ui/badge';
 
 export default function FirstTimeContent() {
   const { t } = useLanguage();
@@ -20,67 +22,98 @@ export default function FirstTimeContent() {
   useEffect(() => {
     if (problem) {
       setTimeout(() => {
-        document.getElementById('funnel-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const element = document.getElementById('funnel-solutions');
+        if (element) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }, 500);
     }
   }, [problem]);
 
   return (
-    <main className="bg-background pt-24 pb-16 min-h-screen">
-      <div className="container mx-auto px-4 mb-20 max-w-6xl">
-         <div className="text-center max-w-3xl mx-auto mb-10 mt-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4 tracking-tight">
-              {t('form.title')}
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground text-balance">
-              {t('form.subtitle')}
-            </p>
-         </div>
-         <FirstTimeWizard onComplete={setProblem} />
-      </div>
-
-      <AnimatePresence>
-        {problem && (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            id="funnel-solutions"
-            className="border-t border-border pt-20"
-          >
-            <div className="container mx-auto px-4 mb-16 text-center">
-              <span className="text-sm font-medium text-primary uppercase tracking-widest mb-4 block">
-                {t('common.whyItWorks') || 'Why this works for you'}
-              </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-6 text-balance">
-                 {t(FUNNEL_DATA[problem].heroHeadline)}
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-                 {t(FUNNEL_DATA[problem].heroSubheadline)}
+    <PageLayout
+      seo={{
+        title: t('assessment.title'),
+        description: t('assessment.subtitle'),
+        keywords: t('firstTime.seo.keywords'),
+      }}
+    >
+      <div className="bg-background pt-32 pb-16 min-h-screen">
+        <div className="container mx-auto px-6 mb-20 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
+              <Badge variant="outline" className="rounded-full px-6 py-1.5 uppercase tracking-[0.3em] text-[10px] font-black bg-primary/5 text-primary border-primary/10">
+                 AI-Driven Assessment
+              </Badge>
+              <h1 className="apple-headline text-5xl md:text-8xl leading-[0.95] mb-8">
+                {t('assessment.title')}
+              </h1>
+              <p className="apple-subtitle max-w-2xl mx-auto">
+                {t('assessment.subtitle')}
               </p>
-            </div>
-            
-            <AdaptiveMethodology currentProblem={problem} />
-            <AdaptiveServices currentProblem={problem} />
-            <FunnelReviews testimonials={FUNNEL_DATA[problem].testimonials} />
-            
-            <div className="container mx-auto px-4 flex justify-center py-20">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                onClick={() => {
-                  setProblem(null);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="gap-2 rounded-full"
-              >
-                <ArrowLeft01Icon className="w-4 h-4" /> {t('form.startOver')}
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </main>
+           </div>
+           
+           <div className="relative">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,113,227,0.03),transparent)] pointer-events-none" />
+              <FirstTimeWizard onComplete={setProblem} />
+           </div>
+        </div>
+
+        <AnimatePresence>
+          {problem && (
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+              id="funnel-solutions"
+              className="pt-20 border-t border-border/60"
+            >
+              <div className="container mx-auto px-6 mb-16 text-center space-y-6">
+                <div className="flex items-center justify-center gap-2 text-primary font-black uppercase tracking-[0.2em] text-[10px]">
+                   <SparklesIcon className="w-4 h-4" /> {t('common.whyItWorks') || 'AI RECOMMENDATION'}
+                </div>
+                <h2 className="apple-title text-4xl md:text-7xl lg:text-8xl mb-8 leading-[0.95]">
+                   {t(FUNNEL_DATA[problem].heroHeadline)}
+                </h2>
+                <p className="apple-subtitle max-w-3xl mx-auto">
+                   {t(FUNNEL_DATA[problem].heroSubheadline)}
+                </p>
+              </div>
+              
+              <div className="space-y-40 pb-24">
+                <AdaptiveMethodology currentProblem={problem} />
+                <AdaptiveServices currentProblem={problem} />
+                <div className="bg-muted/30 py-40">
+                   <FunnelReviews testimonials={FUNNEL_DATA[problem].testimonials} />
+                </div>
+              </div>
+              
+              <div className="container mx-auto px-6 flex justify-center py-24">
+                <Button 
+                  variant="outline" 
+                  size="xl" 
+                  onClick={() => {
+                    setProblem(null);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="gap-3 rounded-full px-12 h-18 text-base border-border hover:bg-muted transition-all font-black uppercase tracking-widest"
+                >
+                  <ArrowLeft01Icon className="w-5 h-5" /> {t('form.startOver')}
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </PageLayout>
   );
 }

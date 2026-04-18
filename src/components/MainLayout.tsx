@@ -47,9 +47,8 @@ export default function MainLayout({
   // Hover intent management for dropdown
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const showTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const navBarRef = useRef<HTMLDivElement>(null);
   const activeTriggerRef = useRef<HTMLElement | null>(null);
-  const [dropdownPosition, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number } | null>(null);
+  const [dropdownPosition, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number; triggerCenterX: number } | null>(null);
 
   // Calculate where the dropdown should appear relative to the nav bar container
   const computeDropdownPosition = useCallback((triggerElement: HTMLElement, panelWidth: number = 280) => {
@@ -67,7 +66,7 @@ export default function MainLayout({
 
     const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
 
-    // Eliminate visual gap between header and dropdown by using zero margin
+    // Position exactly at the bottom of the trigger without gap
     const top = triggerRect.bottom;
 
     // Compute transform-origin X offset percentage based on hover trigger
@@ -75,10 +74,11 @@ export default function MainLayout({
 
     setDropdownPosition({
       left: clampedLeft,
-      top: top - 8,
+      top: top,
       triggerBottom: triggerRect.bottom,
       originX: Math.max(10, Math.min(90, originX)),
-      width: panelWidth
+      width: panelWidth,
+      triggerCenterX: triggerCenter
     });
   }, []);
 
@@ -110,7 +110,7 @@ export default function MainLayout({
       if (activeTriggerRef.current) {
         computeDropdownPosition(activeTriggerRef.current, panelWidth);
       }
-    }, 200);
+    }, 120);
   };
 
   const keepMenuOpen = (id: string) => {
@@ -135,7 +135,7 @@ export default function MainLayout({
     }
     hideTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 220);
+    }, 180);
   };
 
   useEffect(() => {
@@ -310,7 +310,7 @@ export default function MainLayout({
                 </div>
               </Link>
 
-              <div ref={navBarRef} className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 z-10">
+              <div className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 z-10">
                 {navigation.map(item => {
                   const isNavItemActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
                   return (
@@ -333,12 +333,18 @@ export default function MainLayout({
                 <div key={`${item.name}-dropdown`} className="contents">
                   <AnimatePresence>
                     <motion.div
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
+                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 24,
+                        duration: 0.2
+                      }}
                       className="fixed z-[110]"
                       style={{
-                        top: dropdownPosition.triggerBottom + 10,
+                        top: dropdownPosition.top,
                         left: dropdownPosition.left,
                         width: dropdownPosition.width,
                         transformOrigin: `${dropdownPosition.originX}% top`
@@ -346,19 +352,39 @@ export default function MainLayout({
                       onMouseEnter={() => keepMenuOpen(item.name)}
                       onMouseLeave={scheduleHide}
                     >
-                      <div className="bg-background/95 backdrop-blur-2xl rounded-2xl border border-border shadow-xl p-3">
-                        <div className="grid grid-cols-2 gap-1">
+                      {/* Integrated "Beak" / Arrow */}
+                      <div 
+                        className="absolute -top-1.5 h-3 w-3 bg-background/95 backdrop-blur-2xl border-t border-l border-border rotate-45 z-0"
+                        style={{
+                           left: `${dropdownPosition.originX}%`,
+                           marginLeft: '-6px'
+                        }}
+                      />
+
+                      {/* Bridge to prevent accidental mouseout */}
+                      <div className="h-2 w-full bg-transparent" />
+                      
+                      <div className="bg-background/95 backdrop-blur-2xl rounded-[2.5rem] border border-border shadow-2xl p-4 overflow-hidden relative isolate">
+                        {/* Elegant background highlight */}
+                        <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary/50 via-primary to-primary/50 opacity-10" />
+                        
+                        <div className="grid grid-cols-2 gap-2 relative z-10">
                           {item.dropdownItems?.map((dropdownItem) => (
                             <Link
                               key={dropdownItem.name}
                               href={dropdownItem.href}
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:text-foreground hover:bg-muted transition-colors"
+                              className="group/item flex items-center gap-4 p-4 rounded-3xl text-sm text-foreground/80 hover:text-foreground hover:bg-muted/80 transition-all duration-300"
                             >
-                              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground">
-                                {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-4 h-4" />}
+                              <span className="flex items-center justify-center w-10 h-10 rounded-2xl bg-muted text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-300">
+                                {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-5 h-5" />}
                               </span>
-                              <span className="font-medium">{dropdownItem.name}</span>
+                              <div>
+                                <span className="font-semibold block">{dropdownItem.name}</span>
+                                {dropdownItem.subtitle && (
+                                  <span className="text-[11px] text-muted-foreground line-clamp-1">{dropdownItem.subtitle}</span>
+                                )}
+                              </div>
                             </Link>
                           ))}
                         </div>

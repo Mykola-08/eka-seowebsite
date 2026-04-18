@@ -42,6 +42,17 @@ export const assessmentTranslations = {
     'assessment.why.stress': 'L\'estrès és el factor principal que bloqueja la teva recuperació.',
     'assessment.why.physical': 'L\'objectiu principal és alliberar la tensió mecànica acumulada.',
     'assessment.why.tension': 'La teva activitat diària genera una sobrecàrrega que cal buidar.',
+
+    'assessment.contact.title': 'Prefereixes contacte personal?',
+    'assessment.contact.desc': 'Envia els resultats de la teva anàlisi directament a l\'Elena via WhatsApp per a un consell previ.',
+    'assessment.contact.btn': 'Parlar amb Elena',
+    'assessment.progress.title': 'Avaluació de Benestar',
+    'assessment.progress.subtitle': 'Personalitzant el teu camí',
+    'assessment.progress.step': 'Pas',
+    'assessment.progress.of': 'de',
+    'assessment.intensity.mild': 'Molèstia lleu',
+    'assessment.intensity.severe': 'Dolor sever',
+    'assessment.result.badge': 'Anàlisi completada',
   },
   en: {
     'assessment.title': 'Personalized Wellness Analysis',
@@ -86,6 +97,17 @@ export const assessmentTranslations = {
     'assessment.why.stress': 'Stress is the main factor blocking your recovery.',
     'assessment.why.physical': 'The main goal is to release accumulated mechanical tension.',
     'assessment.why.tension': 'Your daily activity generates an overload that needs to be emptied.',
+
+    'assessment.contact.title': 'Prefer personal contact?',
+    'assessment.contact.desc': 'Send your assessment results directly to Elena via WhatsApp for a preliminary advice.',
+    'assessment.contact.btn': 'Chat with Elena',
+    'assessment.progress.title': 'Wellness Assessment',
+    'assessment.progress.subtitle': 'Personalizing your path',
+    'assessment.progress.step': 'Step',
+    'assessment.progress.of': 'of',
+    'assessment.intensity.mild': 'Mild discomfort',
+    'assessment.intensity.severe': 'Severe pain',
+    'assessment.result.badge': 'Analysis completed',
   },
   es: {
     'assessment.title': 'Análisis de Bienestar Personalizado',
@@ -116,7 +138,7 @@ export const assessmentTranslations = {
     'assessment.processing.step3': 'Optimizando ruta de tratamiento',
     'assessment.processing.done': 'Análisis completado',
     
-    'assessment.result.match': 'Este es tu combinación ideal',
+    'assessment.result.match': 'Esta es tu combinación ideal',
     'assessment.result.why': '¿Por qué hemos elegido esto para ti?',
     'assessment.result.book.prefilled': 'Reserva ahora con tu perfil analizado',
 
@@ -130,6 +152,19 @@ export const assessmentTranslations = {
     'assessment.why.stress': 'El estrés es el factor principal que bloquea tu recuperación.',
     'assessment.why.physical': 'El objetivo principal es liberar la tensión mecánica acumulada.',
     'assessment.why.tension': 'Tu actividad diaria genera una sobrecarga que es necesario vaciar.',
+
+    'assessment.contact.title': '¿Prefieres contacto personal?',
+    'assessment.contact.desc': 'Envía los resultados de tu análisis directamente a Elena vía WhatsApp para un consejo previo.',
+    'assessment.contact.btn': 'Hablar con Elena',
+    'assessment.progress.title': 'Evaluación de Bienestar',
+    'assessment.progress.subtitle': 'Personalizando tu camino',
+    'assessment.progress.step': 'Paso',
+    'assessment.progress.of': 'de',
+    'assessment.intensity.mild': 'Molestia leve',
+    'assessment.intensity.severe': 'Dolor severo',
+    'assessment.result.badge': 'Análisis completado',
+    'assessment.badge': 'Evaluación Inteligente',
+    'assessment.recommendation.badge': 'RECOMENDACIÓN IA',
   },
   ru: {
     'assessment.title': 'Персонализированный анализ благополучия',
@@ -174,5 +209,18 @@ export const assessmentTranslations = {
     'assessment.why.stress': 'Стресс — основной фактор, блокирующий ваше выздоровление.',
     'assessment.why.physical': 'Основная цель — снять накопленное механическое напряжение.',
     'assessment.why.tension': 'Ваша ежедневная деятельность создает перегрузку, которую необходимо снять.',
+
+    'assessment.contact.title': 'Предпочитаете личный контакт?',
+    'assessment.contact.desc': 'Отправьте результаты вашего анализа Елене в WhatsApp для получения предварительной консультации.',
+    'assessment.contact.btn': 'Связаться с Еленой',
+    'assessment.progress.title': 'Оценка благополучия',
+    'assessment.progress.subtitle': 'Персонализация вашего пути',
+    'assessment.progress.step': 'Шаг',
+    'assessment.progress.of': 'из',
+    'assessment.intensity.mild': 'Легкий дискомфорт',
+    'assessment.intensity.severe': 'Сильная боль',
+    'assessment.result.badge': 'Анализ завершен',
+    'assessment.badge': 'Интеллектуальная Оценка',
+    'assessment.recommendation.badge': 'РЕКОМЕНДАЦИЯ ИИ',
   }
 };

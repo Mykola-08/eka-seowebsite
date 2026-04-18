@@ -642,11 +642,13 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                      <Message01Icon className="w-8 h-8 text-primary" />
                   </div>
                   <div className="flex-1 text-center md:text-left space-y-2">
-                     <h4 className="font-black text-lg">Prefer personal contact?</h4>
-                     <p className="text-sm text-muted-foreground font-medium">Send your assessment results directly to Elena via WhatsApp for a preliminary advice.</p>
+                     <h4 className="font-black text-lg">{t('assessment.contact.title')}</h4>
+                     <p className="text-sm text-muted-foreground font-medium">{t('assessment.contact.desc')}</p>
                   </div>
-                  <Button variant="secondary" className="rounded-full px-8 h-14 font-bold shrink-0">
-                     Chat with Elena
+                  <Button asChild variant="secondary" className="rounded-full px-8 h-14 font-bold shrink-0">
+                     <a href="https://wa.me/34658867133" target="_blank" rel="noopener noreferrer">
+                       {t('assessment.contact.btn')}
+                     </a>
                   </Button>
                </div>
 
@@ -671,10 +673,10 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
         <div className="max-w-md mx-auto mb-20 space-y-6">
            <div className="flex justify-between items-end">
               <div className="space-y-1">
-                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Wellness Assessment</p>
-                 <h3 className="font-bold text-sm">Personalizing your path</h3>
+                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{t('assessment.progress.title')}</p>
+                 <h3 className="font-bold text-sm">{t('assessment.progress.subtitle')}</h3>
               </div>
-              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Step {currentIndex + 1} of {totalSteps}</p>
+              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('assessment.progress.step')} {currentIndex + 1} {t('assessment.progress.of')} {totalSteps}</p>
            </div>
            <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
               <motion.div 

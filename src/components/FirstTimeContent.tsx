@@ -79,7 +79,7 @@ export default function FirstTimeContent() {
             >
               <div className="container mx-auto px-6 mb-16 text-center space-y-6">
                 <div className="flex items-center justify-center gap-2 text-primary font-black uppercase tracking-[0.2em] text-[10px]">
-                   <SparklesIcon className="w-4 h-4" /> {t('common.whyItWorks') || 'AI RECOMMENDATION'}
+                   <SparklesIcon className="w-4 h-4" /> {t('assessment.recommendation.badge')}
                 </div>
                 <h2 className="apple-title text-4xl md:text-7xl lg:text-8xl mb-8 leading-[0.95]">
                    {t(FUNNEL_DATA[problem].heroHeadline)}

@@ -100,7 +100,7 @@ const MOODS: { id: Mood; labelKey: string; icon: React.ComponentType<{ className
 ];
 
 const LOCATIONS: { id: Location; labelKey: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { id: 'barcelona', labelKey: 'form.location.bcn', icon: Location01Icon },
+  { id: 'barcelona', labelKey: 'form.location.barcelona', icon: Location01Icon },
   { id: 'rubi', labelKey: 'form.location.rubi', icon: Location01Icon },
   { id: 'online', labelKey: 'form.location.online', icon: LaptopProgrammingIcon },
 ];

@@ -20,7 +20,6 @@ import FooterPillMenu from '@/components/FooterPillMenu';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 // Off-screen / delayed UI — ship outside the critical bundle
-const LanguagePopup = dynamic(() => import('@/components/LanguagePopup'), { ssr: false });
 const CookieBanner = dynamic(() => import('./CookieBanner'), { ssr: false });
 
 export default function MainLayout({
@@ -409,7 +408,6 @@ export default function MainLayout({
 
         <ToastContainer />
         <CookieBanner />
-        <LanguagePopup />
       </FooterUncover>
       
       <div className="md:hidden">

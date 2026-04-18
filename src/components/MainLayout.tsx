@@ -55,27 +55,28 @@ export default function MainLayout({
     const triggerRect = triggerElement.getBoundingClientRect();
 
     // Center the dropdown under the trigger
-    const triggerCenter = triggerRect.left + triggerRect.width / 2;
-    const idealLeft = triggerCenter - panelWidth / 2;
+    const triggerCenter = triggerRect.left + (triggerRect.width / 2);
+    const idealLeft = triggerCenter - (panelWidth / 2);
 
     // Viewport constraints
     const pad = 16;
+    const clientWidth = document.documentElement.clientWidth;
     const minLeft = pad;
-    const maxLeft = document.documentElement.clientWidth - panelWidth - pad;
+    const maxLeft = clientWidth - panelWidth - pad;
 
     const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
 
-    // Position exactly at the bottom of the trigger without gap
+    // Position exactly at the bottom of the trigger
     const top = triggerRect.bottom;
 
-    // Compute transform-origin X offset percentage based on hover trigger
+    // Compute transform-origin X offset percentage based on trigger center relative to the dropdown panel
     const originX = ((triggerCenter - clampedLeft) / panelWidth) * 100;
 
     setDropdownPosition({
       left: clampedLeft,
       top: top,
       triggerBottom: triggerRect.bottom,
-      originX: Math.max(10, Math.min(90, originX)),
+      originX: Math.max(5, Math.min(95, originX)), // Ensure beak stays within panel bounds
       width: panelWidth,
       triggerCenterX: triggerCenter
     });

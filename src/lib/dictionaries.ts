@@ -95,7 +95,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'footer.readyToBegin': 'Preparat per començar?',
     'hero.badge': 'Benestar somàtic i acompanyament integratiu',
     'hero.subtitle': "Acompanyament somàtic i de benestar per millorar la mobilitat, reduir l'estrès i recuperar equilibri.",
-    'hero.firstTime': 'Primera sessió de benestar',
+    'hero.firstTime': 'Primera vegada?',
     'hero.trust.experience': '15+ Anys d\'Experiència Clínica',
     'hero.trust.clients': '1500+ Clients Satisfets',
     'how.title': 'El teu camí cap a la recuperació',
@@ -238,7 +238,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'footer.readyToBegin': 'Ready to begin?',
     'hero.badge': 'Somatic wellness & integrative therapy',
     'hero.subtitle': 'Personalized somatic and wellness support to improve mobility, reduce stress, and restore everyday balance.',
-    'hero.firstTime': 'First time? Start here',
+    'hero.firstTime': 'First time here?',
     'hero.trust.experience': '15+ Years Clinical Experience',
     'hero.trust.clients': '1500+ Happy Clients',
     'how.title': 'Your Path to Recovery',
@@ -380,7 +380,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'footer.readyToBegin': '¿Lista para empezar?',
     'hero.badge': 'Bienestar somático y acompañamiento integrativo',
     'hero.subtitle': 'Acompañamiento somático y de bienestar para mejorar movilidad, regular el estrés y recuperar equilibrio diario.',
-    'hero.firstTime': '¿Es tu primera vez?',
+    'hero.firstTime': '¿Primera vez?',
     'hero.trust.experience': '15+ Años de Experiencia Clínica',
     'hero.trust.clients': '1500+ Clientes Satisfechos',
     'how.title': 'Tu Camino hacia la Recuperación',
@@ -583,7 +583,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'footer.readyToBegin': 'Готовы начать?',
     'hero.badge': 'Соматическое здоровье и интегративная поддержка',
     'hero.subtitle': 'Персонализированная соматическая поддержка для улучшения подвижности, снятия стресса и восстановления баланса.',
-    'hero.firstTime': 'В первый раз?',
+    'hero.firstTime': 'Вы здесь впервые?',
     'hero.trust.experience': '15+ лет клинического опыта',
     'hero.trust.clients': '1500+ довольных клиентов',
     'how.title': 'Ваш путь к восстановлению',
@@ -693,7 +693,21 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
 export const translations: Record<Language, Record<string, string>> = {
   ca: {
     // Navigation
-    'nav.home': 'Inici',
+    'common.clickToCopy': 'Fes clic per copiar',
+    'common.copied': 'Copiat!',
+    'vip.seo.title': 'Programa Wellness VIP | EKA Balance Barcelona',
+    'vip.seo.description': 'Accés exclusiu a sessions personalitzades, reserva prioritària i acompanyament integral per a perfils d\'alt rendiment.',
+    'vip.seo.keywords': 'bienestar vip barcelona, kinesiològia premium, massatge a domicili barcelona, salut executiva',
+    'vip.services.title': 'Serveis Signature',
+    'vip.services.subtitle': 'Una selecció de les nostres teràpies més exclusives adaptades al teu estil de vida.',
+    'vip.pricing.title': 'Plans d\'Acompanyament',
+    'vip.pricing.subtitle': 'Escull el nivell d\'excel·lència que millor s\'adapti a les teves necessitats.',
+    'booking.smart.close': 'Tancar assistent',
+    'agenyz.redirect.notice': 'Estàs sent redirigit a la botiga oficial d\'Agenyz.',
+    'casos.approach': 'El nostre enfocament',
+    'casos.concerns': 'Punts de dolor',
+    'casos.results': 'Resultats obtinguts',
+    'casos.causes': 'Causes detectades',
     'nav.services': 'Serveis',
     'nav.personalizedServices': 'Serveis personalitzats',
     'nav.revision360': 'Revisió 360°',
@@ -965,9 +979,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Symptoms, causes, treatment, results labels
     'casos.symptoms': 'Símptomes',
-    'casos.causes': 'Causes',
     'casos.treatment': "Com t'ajudem",
-    'casos.results': 'Resultats',
 
     // Additional problems list
     'casos.additionalProblems.bruxism': 'Bruxisme i tensió mandibular',
@@ -2527,6 +2539,17 @@ export const translations: Record<Language, Record<string, string>> = {
 
   en: {
     // Navigation
+    'common.clickToCopy': 'Click to copy',
+    'common.copied': 'Copied!',
+    'vip.seo.title': 'VIP Wellness Program | EKA Balance Barcelona',
+    'vip.seo.description': 'Exclusive access to personalized sessions, priority booking, and comprehensive support for high-performance individuals.',
+    'vip.seo.keywords': 'vip wellness barcelona, premium kinesiology, home massage barcelona, executive health',
+    'booking.smart.close': 'Close assistant',
+    'agenyz.redirect.notice': 'You are being redirected to the official Agenyz store.',
+    'casos.approach': 'Our approach',
+    'casos.concerns': 'Pain points',
+    'casos.results': 'Results obtained',
+    'casos.causes': 'Detected causes',
     'nav.home': 'Home',
     'nav.services': 'Services',
     'nav.personalizedServices': 'Personalized services',
@@ -2572,7 +2595,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Somatic wellness & integrative therapy',
     'hero.title': 'Live Pain-Free Again',
     'hero.subtitle': 'Stop managing symptoms and start healing. We pinpoint the root cause of your chronic tension through somatic therapy and kinesiology, restoring your body’s true balance.',
-    'hero.firstTime': 'First time? Start here',
+    'hero.firstTime': 'First time here?',
     'hero.dontKnowWhatToChoose': 'Help me choose',
     'hero.discoverServices': 'Explore our services',
     'hero.stats.sessions': 'Sessions delivered',
@@ -2862,9 +2885,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Symptoms, causes, treatment, results labels
     'casos.symptoms': 'Symptoms',
-    'casos.causes': 'Causes',
     'casos.treatment': 'Our Approach',
-    'casos.results': 'Results',
 
     // Additional problems list
     'casos.additionalProblems.bruxism': 'Bruxism and jaw tension',
@@ -6233,7 +6254,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Естественный способ исцеления',
     'hero.title': 'Жизнь без боли',
     'hero.subtitle': 'Хватит бороться с симптомами, начните исцеление. Мы находим корень вашего дискомфорта с помощью соматической терапии и возвращаем вам истинную свободу в теле.',
-    'hero.firstTime': 'Это ваш первый раз?',
+    'hero.firstTime': 'Вы здесь впервые?',
     'hero.dontKnowWhatToChoose': 'Не знаете, с чего начать?',
     'hero.discoverServices': 'Откройте наши услуги',
     'hero.stats.sessions': 'Проведенных сессий',

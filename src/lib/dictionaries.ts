@@ -134,14 +134,14 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'discovery.diagnosis.title': 'Valoració personalitzada',
     'casos.treatment': 'Com et donem suport',
     'technique.why': 'Per què aquesta tècnica?',
-  
+
     'nav.parents': 'Pares',
     'common.spanish': 'Espanyol',
     'common.english': 'Anglès',
     'common.catalan': 'Català',
     'common.russian': 'Rus',
 
-  
+
 
   },
   en: {
@@ -277,16 +277,39 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'discovery.diagnosis.title': 'Personalized assessment',
     'casos.treatment': 'How we support you',
     'technique.why': 'Why this technique?',
-  
+
+    'common.name': 'Name',
+    'common.address': 'Address',
+    'common.phone': 'Phone',
+    'common.email': 'Email',
+    'common.dataController': 'Data Controller',
+    'common.lastUpdated': 'Last updated',
+    'common.methodology.title': 'Our method',
+    'common.methodology.subtitle': 'An integrated approach for long-lasting results.',
+    'personalized.recommendedServices': 'Recommended services',
+    'revision360.final.disclaimer': 'This assessment is informational and does not replace a medical diagnosis.',
+    'vip.table.subtitle': 'Detailed benefits of each membership tier.',
+
     'common.spanish': 'Spanish',
     'common.english': 'English',
     'common.catalan': 'Catalan',
     'common.russian': 'Russian',
-
-  
-
   },
+
   es: {
+    'common.name': 'Nombre',
+    'common.address': 'Dirección',
+    'common.phone': 'Teléfono',
+    'common.email': 'Correo electrónico',
+    'common.dataController': 'Responsable del tratamiento',
+    'common.lastUpdated': 'Última actualización',
+    'common.methodology.title': 'Nuestro método',
+    'common.methodology.subtitle': 'Un enfoque integrado para resultados duraderos.',
+    'personalized.recommendedServices': 'Servicios recomendados',
+    'revision360.final.disclaimer': 'Esta evaluación es informativa y no sustituye un diagnóstico médico.',
+    'vip.table.subtitle': 'Detalle de los beneficios de cada nivel de membresía.',
+
+    'nav.agenyz': 'Agenyz',
     'common.enquireNow': 'Consultar Ahora',
     'personalized.business.bento.box1.details.title': 'Cohesión de Equipo',
     'personalized.business.bento.box1.details.desc': 'Nuestras actividades especializadas ayudan a romper el hielo, fomentar la comunicación y construir vínculos sólidos dentro del equipo.',
@@ -419,7 +442,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'discovery.diagnosis.title': 'Valoración personalizada',
     'casos.treatment': 'Cómo te acompañamos',
     'technique.why': '¿Por qué esta técnica?',
-  
+
     'nav.vip': 'VIP',
     'personalized.officeWorkers.method.title': 'Protocolo de Bienestar Corporativo',
     'personalized.officeWorkers.method.step1.title': 'Descompresión Postural',
@@ -440,7 +463,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'personalized.officeWorkers.faq.a2': 'No, es una técnica suave.',
     'personalized.officeWorkers.faq.q3': '¿Puedo hacerlo online?',
     'personalized.officeWorkers.faq.a3': 'Algunas prácticas sí.',
-    
+
     'personalized.musicians.method.title': 'Optimización para Músicos',
     'personalized.musicians.method.step1.title': 'Liberación de Tensión',
     'personalized.musicians.method.step1.desc': 'Liberamos la tensión en áreas clave.',
@@ -480,13 +503,12 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'personalized.athletes.faq.a2': 'Es un enfoque más integral y neurológico.',
     'personalized.athletes.faq.q3': '¿Trata lesiones específicas?',
     'personalized.athletes.faq.a3': 'Acompaña la recuperación estructural.',
-    
+
     'personalized.artists.hero.title': 'Artistas',
 
-  
-    
 
-    
+
+
 
   },
   ru: {
@@ -541,6 +563,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'business.360.b1': 'Полная оценка здоровья',
     'business.360.b2': 'Стимулирует эффективность',
     'business.360.b3': 'Долгосрочный план',
+    'nav.agenyz': 'Agenyz',
 
     'adult.cta.desc': 'Начните путь к благополучию с персональной сессии.',
     'adult.cta.title': 'Готовы начать?',
@@ -622,7 +645,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'discovery.diagnosis.title': 'Персональная оценка',
     'casos.treatment': 'Как мы помогаем',
     'technique.why': 'Почему эта техника?',
-  
+
     'personalized.officeWorkers.method.title': 'Протокол Корпоративного Велнеса',
     'personalized.officeWorkers.method.step1.title': 'Постуральная Декомпрессия',
     'personalized.officeWorkers.method.step1.desc': 'Мы работаем с фасциальными линиями.',
@@ -642,7 +665,7 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'personalized.officeWorkers.faq.a2': 'Нет, методики очень мягкие.',
     'personalized.officeWorkers.faq.q3': 'Можно ли онлайн?',
     'personalized.officeWorkers.faq.a3': 'Некоторые практики можно.',
-    
+
     'personalized.musicians.method.title': 'Оптимизация для Музыкантов',
     'personalized.musicians.method.step1.title': 'Снятие Напряжения',
     'personalized.musicians.method.step1.desc': 'Работаем с ключевыми зонами напряжений.',
@@ -683,8 +706,8 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
     'personalized.athletes.faq.q3': 'Лечите ли вы травмы?',
     'personalized.athletes.faq.a3': 'Мы сопровождаем структурное восстановление.',
 
-  
-    
+
+
 
 
   },
@@ -744,6 +767,18 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contacte',
     'nav.aboutElena': 'Sobre Elena',
     'nav.casos': 'Casos reals',
+
+    'common.name': 'Nom',
+    'common.address': 'Adreça',
+    'common.phone': 'Telèfon',
+    'common.email': 'Correu electrònic',
+    'common.dataController': 'Responsable del tractament',
+    'common.lastUpdated': 'Última actualització',
+    'common.methodology.title': 'El nostre mètode',
+    'common.methodology.subtitle': 'Un enfocament integrat per a resultats duradors.',
+    'personalized.recommendedServices': 'Serveis recomanats',
+    'revision360.final.disclaimer': 'Aquesta avaluació és informativa i no substitueix un diagnòstic mèdic.',
+    'vip.table.subtitle': 'Detall dels beneficis de cada nivell de membre.',
 
     'common.consultPrice': 'Consultar preu',
     'services.variableDuration': 'Variable',
@@ -1362,24 +1397,24 @@ export const translations: Record<Language, Record<string, string>> = {
     'personalized.business.bento.box3.desc': "Fomenta la concentració i redueix l'estrès mitjançant tècniques de relaxació profundes.",
     'personalized.business.bento.box4.title': "Entorn Holístic",
     'personalized.business.bento.box4.desc': "Dissenyem entorns i rutines que promouen la vitalitat física i la claredat mental a l'oficina.",
-    
+
     'personalized.business.plans.title': "Plans Corporatius",
     'personalized.business.plans.subtitle': "Solucions adaptades a la mida i necessitats del teu equip",
-    
+
     'personalized.business.plans.starter.name': "Pla Team",
     'personalized.business.plans.starter.desc': "Ideal per a equips petits que busquen introduir el benestar.",
     'personalized.business.plans.starter.price': "A mida",
     'personalized.business.plans.starter.feat1': "1 sessió grupal al mes",
     'personalized.business.plans.starter.feat2': "Avaluació ergonòmica bàsica",
     'personalized.business.plans.starter.feat3': "Accés a rutines digitals",
-    
+
     'personalized.business.plans.pro.name': "Pla Office",
     'personalized.business.plans.pro.desc': "La solució completa per a oficines que volen resultats constants.",
     'personalized.business.plans.pro.price': "A mida",
     'personalized.business.plans.pro.feat1': "Sessions grupals setmanals",
     'personalized.business.plans.pro.feat2': "Massatges a l'oficina (2 dies/mes)",
     'personalized.business.plans.pro.feat3': "Seguiment personalitzat",
-    
+
     'personalized.business.plans.enterprise.name': "Pla Enterprise",
     'personalized.business.plans.enterprise.desc': "Programa integral de salut.",
     'personalized.business.plans.enterprise.price': "A consultar",
@@ -2613,6 +2648,18 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
     'nav.aboutElena': 'About Elena',
     'nav.casos': 'Cases',
+
+    'common.name': 'Name',
+    'common.address': 'Address',
+    'common.phone': 'Phone',
+    'common.email': 'Email',
+    'common.dataController': 'Data Controller',
+    'common.lastUpdated': 'Last updated',
+    'common.methodology.title': 'Our method',
+    'common.methodology.subtitle': 'An integrated approach for long-lasting results.',
+    'personalized.recommendedServices': 'Recommended services',
+    'revision360.final.disclaimer': 'This assessment is informational and does not replace a medical diagnosis.',
+    'vip.table.subtitle': 'Detailed benefits of each membership tier.',
 
     'common.consultPrice': 'Ask price',
     'services.variableDuration': 'Variable',
@@ -4077,24 +4124,24 @@ export const translations: Record<Language, Record<string, string>> = {
     'personalized.business.bento.box3.desc': "Foster concentration and reduce stress through deep relaxation techniques.",
     'personalized.business.bento.box4.title': "Holistic Workplace",
     'personalized.business.bento.box4.desc': "Designing environments and routines that promote physical vitality and mental clarity in the office.",
-    
+
     'personalized.business.plans.title': "Corporate Plans",
     'personalized.business.plans.subtitle': "Solutions tailored to your team's size and needs",
-    
+
     'personalized.business.plans.starter.name': "Team Plan",
     'personalized.business.plans.starter.desc': "Ideal for small teams looking to introduce wellness.",
     'personalized.business.plans.starter.price': "Custom",
     'personalized.business.plans.starter.feat1': "1 group session per month",
     'personalized.business.plans.starter.feat2': "Basic ergonomic assessment",
     'personalized.business.plans.starter.feat3': "Access to digital routines",
-    
+
     'personalized.business.plans.pro.name': "Office Plan",
     'personalized.business.plans.pro.desc': "The complete solution for offices wanting consistent results.",
     'personalized.business.plans.pro.price': "Custom",
     'personalized.business.plans.pro.feat1': "Weekly group sessions",
     'personalized.business.plans.pro.feat2': "In-office massages (2 days/mo)",
     'personalized.business.plans.pro.feat3': "Personalized tracking",
-    
+
     'personalized.business.plans.enterprise.name': "Enterprise Plan",
     'personalized.business.plans.enterprise.desc': "Comprehensive health program for the corporation.",
     'personalized.business.plans.enterprise.price': "Let's talk",
@@ -5124,6 +5171,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'form.recommendation.officeWorker.benefit2': 'Mejora la postura frente al ordenador',
     'form.recommendation.officeWorker.benefit3': 'Reduce el estrés laboral',
     'form.recommendation.officeWorker.benefit4': 'Más energía para trabajar',
+    'nav.agenyz': 'Agenyz',
 
     'form.recommendation.athlete.title': 'Sesión para deportistas',
     'form.recommendation.athlete.desc': 'Recuperación muscular, prevención de lesiones y optimización del rendimiento deportivo con técnicas especializadas',
@@ -5535,24 +5583,24 @@ export const translations: Record<Language, Record<string, string>> = {
     'personalized.business.bento.box3.desc': "Fomenta la concentración y reduce el estrés mediante técnicas de relajación profunda.",
     'personalized.business.bento.box4.title': "Entorno Holístico",
     'personalized.business.bento.box4.desc': "Diseñamos entornos y rutinas que promueven la vitalidad física y la claridad mental en la oficina.",
-    
+
     'personalized.business.plans.title': "Planes Corporativos",
     'personalized.business.plans.subtitle': "Soluciones adaptadas al tamaño y necesidades de tu equipo",
-    
+
     'personalized.business.plans.starter.name': "Plan Team",
     'personalized.business.plans.starter.desc': "Ideal para equipos pequeños que buscan introducir el bienestar.",
     'personalized.business.plans.starter.price': "A medida",
     'personalized.business.plans.starter.feat1': "1 sesión grupal al mes",
     'personalized.business.plans.starter.feat2': "Evaluación ergonómica básica",
     'personalized.business.plans.starter.feat3': "Acceso a rutinas digitales",
-    
+
     'personalized.business.plans.pro.name': "Plan Office",
     'personalized.business.plans.pro.desc': "La solución completa para oficinas que buscan resultados constantes.",
     'personalized.business.plans.pro.price': "A medida",
     'personalized.business.plans.pro.feat1': "Sesiones grupales semanales",
     'personalized.business.plans.pro.feat2': "Masajes en la oficina (2 días/mes)",
     'personalized.business.plans.pro.feat3': "Seguimiento personalizado",
-    
+
     'personalized.business.plans.enterprise.name': "Plan Enterprise",
     'personalized.business.plans.enterprise.desc': "Programa integral de salud.",
     'personalized.business.plans.enterprise.price': "A consultar",
@@ -6234,7 +6282,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'booking.smart.send': 'Enviar por WhatsApp',
     'booking.smart.title': 'Reserva tu cita',
     'booking.smart.subtitle': 'Elige cómo quieres contactar',
-  
+
     // Added missing translations
     'nav.vip': "VIP",
     'personalized.officeWorkers.method.title': "Protocolo de Bienestar Corporativo",
@@ -6280,6 +6328,19 @@ export const translations: Record<Language, Record<string, string>> = {
     'personalized.athletes.faq.a1': "Mientras que el masaje deportivo se centra en la relajación muscular, la terapia somática aborda el control del sistema nervioso sobre estos músculos. Trabajamos en la causa raíz.",
     'personalized.athletes.faq.a2': "Sí. Las lesiones crónicas a menudo persisten porque el cuerpo está atrapado en un patrón protector. Nuestro enfoque ayuda a tu sistema nervioso a sentirse lo suficientemente seguro para liberar estos mecanismos.",
     'personalized.athletes.faq.q3': "¿Cuándo debería programar una sesión respecto a mi competición?",
+    'personalized.athletes.faq.a3': 'Para un trabajo de liberación profunda, recomendamos de 3 a 5 días antes de un evento importante. Para la regulación y activación del sistema nervioso, lo ideal es de 24 a 48 horas antes.',
+
+    'common.name': 'Nombre',
+    'common.address': 'Dirección',
+    'common.phone': 'Teléfono',
+    'common.email': 'Correo electrónico',
+    'common.dataController': 'Responsable del tratamiento',
+    'common.lastUpdated': 'Última actualización',
+    'common.methodology.title': 'Nuestro método',
+    'common.methodology.subtitle': 'Un enfoque integrado para resultados duraderos.',
+    'personalized.recommendedServices': 'Servicios recomendados',
+    'revision360.final.disclaimer': 'Esta evaluación es informativa y no sustituye un diagnóstico médico.',
+    'vip.table.subtitle': 'Detalle de los beneficios de cada nivel de membresía.',
   },
 
   ru: {
@@ -7772,24 +7833,24 @@ export const translations: Record<Language, Record<string, string>> = {
     'personalized.business.bento.box3.desc': "Способствует концентрации и снижает стресс благодаря техникам глубокого расслабления.",
     'personalized.business.bento.box4.title': "Целостный Подход",
     'personalized.business.bento.box4.desc': "Мы создаем среду и процедуры, которые способствуют физической активности и ясности ума в офисе.",
-    
+
     'personalized.business.plans.title': "Корпоративные Планы",
     'personalized.business.plans.subtitle': "Решения, адаптированные под размер и потребности вашей команды",
-    
+
     'personalized.business.plans.starter.name': "План Team",
     'personalized.business.plans.starter.desc': "Идеально для небольших команд.",
     'personalized.business.plans.starter.price': "Индивидуально",
     'personalized.business.plans.starter.feat1': "1 групповое занятие в месяц",
     'personalized.business.plans.starter.feat2': "Базовая оценка эргономики",
     'personalized.business.plans.starter.feat3': "Доступ к цифровым тренировкам",
-    
+
     'personalized.business.plans.pro.name': "План Office",
     'personalized.business.plans.pro.desc': "Комплексное решение для офисов.",
     'personalized.business.plans.pro.price': "Индивидуально",
     'personalized.business.plans.pro.feat1': "Еженедельные занятия",
     'personalized.business.plans.pro.feat2': "Массаж в офисе (2 дня в месяц)",
     'personalized.business.plans.pro.feat3': "Индивидуальное сопровождение",
-    
+
     'personalized.business.plans.enterprise.name': "План Enterprise",
     'personalized.business.plans.enterprise.desc': "Комплексная программа здоровья.",
     'personalized.business.plans.enterprise.price': "По запросу",
@@ -8109,7 +8170,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'booking.smart.send': 'Отправить в WhatsApp',
     'booking.smart.title': 'Забронируйте сеанс',
     'booking.smart.subtitle': 'Выберите способ связи',
-  
+
     // Added missing translations
     'personalized.officeWorkers.method.title': "Протокол Корпоративного Благополучия",
     'personalized.officeWorkers.method.step1.title': "Постуральная Декомпрессия",

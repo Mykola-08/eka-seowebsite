@@ -36,7 +36,7 @@ import type { ProblemState } from '@/lib/funnel-data';
 // TYPES & DATA
 // -------------------------------------------------------------------------------- //
 
-type Step = 'profile' | 'goals' | 'intensity' | 'duration' | 'energy' | 'mood' | 'location' | 'processing' | 'result';
+type Step = 'intro' | 'profile' | 'goals' | 'intensity' | 'duration' | 'energy' | 'mood' | 'location' | 'processing' | 'result';
 
 type Profile = 'office' | 'athlete' | 'artist' | 'musician' | 'student' | 'parent' | 'other';
 type Goal = 'stress' | 'pain' | 'posture' | 'sleep' | 'energy' | 'focus' | 'relationships' | 'family' | 'selfworth' | 'money';
@@ -222,7 +222,7 @@ function getProblemStateFromGoals(goals: Goal[]): ProblemState {
 
 export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
   const { t } = useLanguage();
-  const [step, setStep] = useState<Step>('profile');
+  const [step, setStep] = useState<Step>('intro');
   const [data, setData] = useState<AssessmentData>({
     profile: null,
     goals: [],
@@ -263,12 +263,13 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
     }));
   };
 
-  const stepsOrder: Step[] = ['profile', 'goals', 'intensity', 'duration', 'energy', 'mood', 'location'];
+  const stepsOrder: Step[] = ['intro', 'profile', 'goals', 'intensity', 'duration', 'energy', 'mood', 'location'];
   const currentIndex = stepsOrder.indexOf(step);
-  const totalSteps = stepsOrder.length;
+  // stepsOrder.length - 2 because 'processing' and 'result' are not part of the sequential progress
+  const totalSteps = stepsOrder.length; 
 
   const nextStep = () => {
-    if (currentIndex < totalSteps - 1) {
+    if (currentIndex < stepsOrder.length - 1) {
       setStep(stepsOrder[currentIndex + 1]);
     } else {
       setStep('processing');
@@ -282,13 +283,46 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
   };
 
   const wizardVariants = {
-    initial: { opacity: 0, x: 20 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -20 },
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
   };
 
   const renderStep = () => {
     switch (step) {
+      case 'intro':
+        return (
+          <motion.div key="intro" {...wizardVariants} className="max-w-4xl mx-auto space-y-12 py-12">
+            <div className="text-center space-y-8">
+              <Badge variant="outline" className="rounded-full px-6 py-1.5 uppercase tracking-[0.3em] text-[10px] font-black bg-primary/5 text-primary border-primary/10">
+                 {t('assessment.badge')}
+              </Badge>
+              <h1 className="apple-headline text-5xl md:text-8xl leading-[0.95] mb-8">
+                {t('assessment.intro.title')}
+              </h1>
+              <p className="apple-subtitle max-w-2xl mx-auto">
+                {t('assessment.intro.subtitle')}
+              </p>
+            </div>
+            
+            <div className="apple-card p-10 md:p-16 bg-muted/20 border-border/40 text-center space-y-10">
+               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                 {t('assessment.intro.desc')}
+               </p>
+               
+               <div className="flex flex-col items-center gap-6">
+                 <Button size="xl" className="rounded-full px-16 h-18 text-xl font-bold shadow-xl shadow-primary/20 group" onClick={nextStep}>
+                   {t('assessment.intro.start')}
+                   <ArrowRight01Icon className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                 </Button>
+                 <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                   {t('assessment.intro.duration')}
+                 </span>
+               </div>
+            </div>
+          </motion.div>
+        );
+
       case 'profile':
         return (
           <motion.div key="profile" {...wizardVariants} className="space-y-8">
@@ -315,6 +349,11 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                   <span className="font-bold text-center text-sm">{t(p.labelKey)}</span>
                 </button>
               ))}
+            </div>
+            <div className="flex justify-center pt-8">
+               <Button variant="ghost" onClick={prevStep} className="rounded-full">
+                 <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
+               </Button>
             </div>
           </motion.div>
         );
@@ -346,7 +385,10 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                 </button>
               ))}
             </div>
-            <div className="flex justify-center pt-8">
+            <div className="flex justify-center gap-4 pt-8">
+               <Button variant="ghost" size="xl" className="rounded-full px-8" onClick={prevStep}>
+                 <ArrowLeft01Icon className="mr-2 w-5 h-5" /> {t('common.back')}
+               </Button>
                <Button size="xl" className="rounded-full px-12" disabled={data.goals.length === 0} onClick={nextStep}>
                  {t('common.next')} <ArrowRight01Icon className="ml-2 w-5 h-5" />
                </Button>
@@ -377,8 +419,8 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                  className="w-full h-3 bg-muted rounded-full appearance-none cursor-pointer accent-primary"
                />
                <div className="flex justify-between text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
-                  <span>Mild discomfort</span>
-                  <span>Severe pain</span>
+                  <span>{t('assessment.intensity.mild')}</span>
+                  <span>{t('assessment.intensity.severe')}</span>
                </div>
             </div>
             <div className="flex justify-center gap-4">
@@ -413,7 +455,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                  </button>
                ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-8">
                <Button variant="ghost" onClick={prevStep} className="rounded-full">
                  <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
                </Button>
@@ -448,7 +490,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                  </button>
                ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-8">
                <Button variant="ghost" onClick={prevStep} className="rounded-full">
                  <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
                </Button>
@@ -478,7 +520,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                  </button>
                ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-8">
                <Button variant="ghost" onClick={prevStep} className="rounded-full">
                  <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
                </Button>
@@ -513,7 +555,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                  </button>
                ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-8">
                <Button variant="ghost" onClick={prevStep} className="rounded-full">
                  <ArrowLeft01Icon className="mr-2 w-4 h-4" /> {t('common.back')}
                </Button>
@@ -568,7 +610,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
           <motion.div key="result" {...wizardVariants} className="space-y-16">
             <div className="text-center space-y-6 max-w-3xl mx-auto">
                <Badge variant="outline" className="rounded-full px-4 py-1 uppercase tracking-widest text-[10px] font-black bg-primary/5 text-primary border-primary/10">
-                 Analysis Completed
+                 {t('assessment.result.badge')}
                </Badge>
                <h2 className="apple-title text-4xl md:text-7xl leading-[0.95]">{t('assessment.result.match')}</h2>
                <h3 className="apple-subtitle">{t('form.recommendation.subtitle')}</h3>
@@ -600,7 +642,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                   </div>
                 </div>
 
-                <div className="lg:col-span-3 p-10 md:p-20 flex flex-col justify-center space-y-12">
+                <div className="lg:col-span-3 p-10 md:p-20 flex flex-col justify-center space-y-12 bg-card">
                    <div className="space-y-6">
                       <h3 className="apple-title text-3xl md:text-5xl leading-tight">{t(recommendation.titleKey)}</h3>
                       <p className="text-lg text-muted-foreground leading-relaxed">{t(recommendation.descKey)}</p>
@@ -653,7 +695,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                </div>
 
                <button 
-                 onClick={() => { setStep('profile'); setData({ profile: null, goals: [], intensity: 5, duration: null, energy: null, mood: null, location: null }); }}
+                 onClick={() => { setStep('intro'); setData({ profile: null, goals: [], intensity: 5, duration: null, energy: null, mood: null, location: null }); }}
                  className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-[10px] transition-colors underline underline-offset-8 decoration-border"
                >
                  {t('form.startOver')}
@@ -669,19 +711,19 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
     <div className="w-full max-w-6xl mx-auto px-6">
       
       {/* Dynamic Progress Indicator */}
-      {step !== 'processing' && step !== 'result' && (
+      {step !== 'processing' && step !== 'result' && step !== 'intro' && (
         <div className="max-w-md mx-auto mb-20 space-y-6">
            <div className="flex justify-between items-end">
               <div className="space-y-1">
                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{t('assessment.progress.title')}</p>
                  <h3 className="font-bold text-sm">{t('assessment.progress.subtitle')}</h3>
               </div>
-              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('assessment.progress.step')} {currentIndex + 1} {t('assessment.progress.of')} {totalSteps}</p>
+              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('assessment.progress.step')} {currentIndex} {t('assessment.progress.of')} {totalSteps - 1}</p>
            </div>
            <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
               <motion.div 
                  initial={{ width: 0 }}
-                 animate={{ width: `${((currentIndex + 1) / totalSteps) * 100}%` }}
+                 animate={{ width: `${(currentIndex / (totalSteps - 1)) * 100}%` }}
                  className="h-full bg-primary"
                  transition={{ type: "spring", stiffness: 50, damping: 20 }}
               />

@@ -12,7 +12,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft01Icon, SparklesIcon } from '@/lib/icons';
 import PageLayout from '@/components/PageLayout';
-import { Badge } from '@/components/ui/badge';
 
 export default function FirstTimeContent() {
   const { t } = useLanguage();
@@ -49,18 +48,6 @@ export default function FirstTimeContent() {
     >
       <div className="bg-background pt-32 pb-16 min-h-screen">
         <div className="container mx-auto px-6 mb-20 max-w-7xl">
-           <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
-              <Badge variant="outline" className="rounded-full px-6 py-1.5 uppercase tracking-[0.3em] text-[10px] font-black bg-primary/5 text-primary border-primary/10">
-                 AI-Driven Assessment
-              </Badge>
-              <h1 className="apple-headline text-5xl md:text-8xl leading-[0.95] mb-8">
-                {t('assessment.title')}
-              </h1>
-              <p className="apple-subtitle max-w-2xl mx-auto">
-                {t('assessment.subtitle')}
-              </p>
-           </div>
-           
            <div className="relative">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,113,227,0.03),transparent)] pointer-events-none" />
               <FirstTimeWizard onComplete={setProblem} />

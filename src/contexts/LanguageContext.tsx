@@ -19,28 +19,17 @@ import { Language, LanguageContextType } from './LanguageTypes';
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Use lazy initializer to read from localStorage if available
-  const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('language') as Language;
-      if (savedLang && ['ca', 'en', 'es', 'ru'].includes(savedLang)) {
-        return savedLang;
-      }
-    }
-    return 'es';
-  });
-
+  const [language, setLanguageState] = useState<Language>('es');
   const [languageConfirmed, setLanguageConfirmed] = useState(false);
   const [showLanguagePopup, setShowLanguagePopup] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('language');
-      if (savedLang) {
-        setTimeout(() => {
-          setLanguageConfirmed(true);
-        }, 0);
-      }
+    const savedLang = localStorage.getItem('language') as Language;
+    if (savedLang && ['ca', 'en', 'es', 'ru'].includes(savedLang)) {
+      setTimeout(() => {
+        setLanguageState(savedLang);
+        setLanguageConfirmed(true);
+      }, 0);
     }
   }, []);
 

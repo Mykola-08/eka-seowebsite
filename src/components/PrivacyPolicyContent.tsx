@@ -30,14 +30,14 @@ export default function PrivacyPolicyContent() {
 
   return (
     <PageLayout
-      hero={{ title: t('footer.privacyPolicy') || 'Privacy Policy', subtitle: 'Last updated: November 15, 2025' }}
+      hero={{ title: t('footer.privacyPolicy') || 'Privacy Policy', subtitle: `${t('common.lastUpdated')}: November 15, 2025` }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
           {/* Sticky TOC */}
           <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">{t('common.contents')}</p>
             <nav className="space-y-1">
               {toc.map(item => (
                 <a key={item.href} href={item.href}
@@ -56,14 +56,14 @@ export default function PrivacyPolicyContent() {
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
-                  <h2 className="text-lg font-medium text-foreground mb-3">Important Health Disclaimer</h2>
+                  <h2 className="text-lg font-medium text-foreground mb-3">{t('common.healthDisclaimerTitle')}</h2>
                   <p className="text-foreground/90 mb-4 font-medium">
                     EKA Balance offers complementary and alternative wellness services. Our services are <strong>not medical diagnosis, medical treatment, or a substitute for licensed healthcare</strong>.
                   </p>
                   <ul className="space-y-2 text-foreground/80 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      Always consult your doctor before making any health decision. <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
+                      {t('common.consultDoctor')}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -85,17 +85,17 @@ export default function PrivacyPolicyContent() {
               </div>
             </div>
 
-            <Section id="controller" icon={UserCheck01Icon} title="Data Controller">
+            <Section id="controller" icon={UserCheck01Icon} title={t('common.dataController')}>
               <div className="bg-muted/40 border border-border rounded-[2rem] p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 {[
-                  ['Name', 'Olena Kucherova Dryzhak (EKA Balance)'],
-                  ['Address', 'Calle Plata 1, 08191 Rubí, Barcelona, Spain'],
-                  ['Phone', '+34 658 867 133'],
-                  ['Email', 'legal@ekabalance.com'],
+                  [t('common.name'), 'Olena Kucherova Dryzhak (EKA Balance)'],
+                  [t('common.address'), 'Calle Plata 1, 08191 Rubí, Barcelona, Spain'],
+                  [t('common.phone'), '+34 658 867 133'],
+                  [t('common.email'), 'legal@ekabalance.com'],
                 ].map(([label, value]) => (
                   <div key={label}>
                     <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">{label}</span>
-                    <span className="text-foreground">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
+                    <span className="text-foreground">{label === t('common.email') ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
                   </div>
                 ))}
               </div>

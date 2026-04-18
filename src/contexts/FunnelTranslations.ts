@@ -249,18 +249,252 @@ export const funnelTranslations: Record<Language, Record<string, string>> = {
     'funnel.broader.t1.text': '"Me aquejaban un cúmulo de males entre desajuste abdominal, la lumbar cansada y el cansancio crónico. Con este enfoque cruzado logré asir todo, y este tipo de estrategia detallada es sensacional."',
     'funnel.broader.t2.text': '"Por falta de rumbos iniciales; no podía empezar, pero es impresionante. Se detallaron situaciones y nudos ocultos de mí con precisión que resultaba inconcebible sin mencionarlos. Fue fundamental."'
   },
-  ca: {}, // Use generic or translate later fully, but let's copy ES or EN as fallback or use english structure
-  ru: {} // To save space in prompt, these can fallback to generic, but I should copy EN to CA and RU so they don't crash
-};
+  ca: {
+    'funnel.approach': 'El nostre enfocament',
+    'funnel.clinicalApproach': 'Enfocament Clínic',
+    'stats.sessions': 'Sessions',
+    'stats.experience': 'Anys d\'Experiència',
+    'stats.satisfaction': 'Satisfacció del Client',
+    'stats.countries': 'Països Atesos',
+    'funnel.hero.iAmLookingFor': 'Busco ajuda per...',
+    'funnel.hero.seeSolution': 'Veure la solució',
+    'funnel.reviews.title': 'Històries Reals, Resultats Reals',
+    'funnel.reviews.subtitle': 'No només ho diem nosaltres. Escolta les persones que han transformat el seu benestar.',
+    'funnel.reviews.verifiedClient': 'Client Verificat',
+    'funnel.recommendedSolutions': 'Les teves Solucions Recomanades',
+    'funnel.basedOnSelection': 'Segons la teva selecció, aquests són els millors camins a seguir per ajudar-te a assolir els teus objectius.',
+    // Back Pain
+    'funnel.back_pain.label': 'dolor crònic d\'esquena o coll',
+    'funnel.back_pain.heroHeadline': 'Deixa de viure amb dolor d\'esquena.',
+    'funnel.back_pain.heroSubheadline': 'Alleuja la tensió i restaura la mobilitat natural del teu cos amb atenció professional específica.',
+    'funnel.back_pain.transformation': 'De despertar-te rígid i témer el moviment, a saltar del llit i aixecar els teus fills sense esforç.',
+    'funnel.back_pain.authoritativeMethod': 'Utilitzem reeducació neuromuscular profunda, alliberament miofascial específica i kinesiologia estructural per desbloquejar articulacions rígides i corregir permanentment els desequilibris que causen el teu dolor.',
+    'funnel.back_pain.methodologyTitle': 'Atacant l\'Arrel del teu Dolor',
+    'funnel.back_pain.methodologyText': 'El dolor físic sovint prové d\'una tensió profundament arrelada i desequilibris posturals. A través de tècniques manuals avançades i massatges de teixit profund, alliberem els músculs tensos i restaurem l\'alineació correcta.',
+    'funnel.back_pain.t1.text': '"El meu dolor de l\'esquena baixa va desaparèixer després de només dues sessions. Havia estat patint durant mesos i l\'Elena sabia exactament on era el problema. Mans màgiques!"',
+    'funnel.back_pain.t2.text': '"La tensió al coll i les espatlles per treballar a l\'escriptori era insuportable. La teràpia de massatges aquí va transformar completament la meva comoditat i concentració diària."',
 
-function fillMissingLanguages() {
-  const source = funnelTranslations['en'];
-  if (!funnelTranslations.ca) funnelTranslations.ca = {};
-  if (!funnelTranslations.ru) funnelTranslations.ru = {};
-  
-  for (const key in source) {
-    if (!funnelTranslations.ca[key]) funnelTranslations.ca[key] = source[key];
-    if (!funnelTranslations.ru[key]) funnelTranslations.ru[key] = source[key];
+    // Headaches
+    'funnel.headaches.label': 'dolors de cap freqüents o migranyes',
+    'funnel.headaches.heroHeadline': 'Recupera Dies Clars i sense Dolor.',
+    'funnel.headaches.heroSubheadline': 'Aborda la tensió muscular i els factors d\'estrès que causen els teus dolors de cap debilitants.',
+    'funnel.headaches.transformation': 'De perdre dies de la teva vida ajagut en una habitació fosca, a gaudir d\'una claredat mental constant i una concentració ininterrompuda.',
+    'funnel.headaches.authoritativeMethod': 'Combinant alliberament craneosacral, descompressió cervical i resetejos del sistema nerviós per resposta a l\'estrès, eliminem els desencadenants físics de les teves migranyes.',
+    'funnel.headaches.methodologyTitle': 'Alleujant la Tensió Craneal',
+    'funnel.headaches.methodologyText': 'Els dolors de cap i les migranyes sovint són provocats per rigidesa cervical, tensió a la mandíbula o respostes d\'estrès sobrecarregades. Usem alliberament muscular precís i kinesiologia per alleujar la pressió al cap i al coll.',
+    'funnel.headaches.t1.text': '"Solia tenir migranyes setmanalment. Després d\'unes quantes sessions centrades en la tensió del meu coll i espatlles, han desaparegut pràcticament."',
+    'funnel.headaches.t2.text': '"L\'Elena va identificar que els meus nivells d\'estrès i la meva mandíbula desencadenaven els meus dolors de cap. La combinació de massatge i kinesiologia va ser la solució perfecta."',
+
+    // Digestion
+    'funnel.digestion.label': 'problemes digestius o inflor',
+    'funnel.digestion.heroHeadline': 'Sana el teu Intestí. Sente\'t més Lleuger.',
+    'funnel.digestion.heroSubheadline': 'Troba l\'equilibri nutricional i la reducció de l\'estrès que el teu sistema digestiu necessita per funcionar perfectament.',
+    'funnel.digestion.transformation': 'De sentir-te lent, inflat i ansiós després de cada àpat, a un estómac pla i una digestió sense esforç.',
+    'funnel.digestion.authoritativeMethod': 'Identifiquem intoleràncies alimentàries i estressors químics exactes utilitzant kinesiologia aplicada, combinada amb protocols de nutrició clínica per sanar el teu revestiment intestinal.',
+    'funnel.digestion.methodologyTitle': 'Restaurant l\'Harmonia Digestiva',
+    'funnel.digestion.methodologyText': 'La teva salut intestinal està profundament connectada al teu estat emocional i a la teva nutrició. Creem ajustos alimentaris personalitzats i utilitzem kinesiologia per reduir la inflamació i l\'estrès que afecta la teva digestió.',
+    'funnel.digestion.t1.text': '"Fer petits canvis a la meva dieta seguint el consell de l\'Elena va arreglar completament la meva inflor diària. No sabia que podia sentir-me tan lleugera."',
+    'funnel.digestion.t2.text': '"No era només el que menjava, era com el meu cos gestionava l\'estrès. L\'enfocament holístic aquí va resoldre els meus problemes d\'estómac de forma permanent."',
+
+    // Sleep
+    'funnel.sleep.label': 'millorar la qualitat del meu son',
+    'funnel.sleep.heroHeadline': 'Finalment Aconsegueix el Descans que Mereixes.',
+    'funnel.sleep.heroSubheadline': 'Calma el teu sistema nerviós hiperactiu i prepara el teu cos per a un son profund i reparador.',
+    'funnel.sleep.transformation': 'De donar voltes al llit durant hores amb la ment accelerada, a quedar-te adormit sense esforç i despertar-te realment descansat.',
+    'funnel.sleep.authoritativeMethod': 'Usant la regulació del sistema nerviós i tècniques d\'alliberament somàtica, ajudem a que el teu cos surti de l\'estat "lluita o fugida" perquè els teus ritmes circadians naturals puguin prendre el control.',
+    'funnel.sleep.methodologyTitle': 'Resetejant el teu Cicle de Son',
+    'funnel.sleep.methodologyText': 'L\'insomni i la falta de son sovint signifiquen que el teu sistema nerviós està atrapat en un mode d\'alerta. T\'ajudem a desconnectar aquestes respostes d\'estrès i relaxar la tensió muscular perquè tornis a dormir profundament.',
+    'funnel.sleep.t1.text': '"Durant anys, la meva ment corria per les nits. Les sessions de kinesiologia em van ajudar a alliberar aquella ansietat i ara realment dormo tota la nit."',
+    'funnel.sleep.t2.text': '"Relaxar-me físicament abans de dormir era impossible fins que vaig començar a rebre massatges enfocats per alliberar l\'estrès acumulat del dia."',
+
+    // Stress & Anxiety
+    'funnel.stress_anxiety.label': 'estrès constant i ansietat',
+    'funnel.stress_anxiety.heroHeadline': 'Alleuja l\'Estrès i Troba la Pau Interior.',
+    'funnel.stress_anxiety.heroSubheadline': 'Elimina bloquejos emocionals i calma el teu sistema nerviós usant kinesiologia especialitzada.',
+    'funnel.stress_anxiety.transformation': 'De sentir-te constantment al límit i aclaparat, a estar centrat, tranquil i totalment en control del teu estat emocional.',
+    'funnel.stress_anxiety.authoritativeMethod': 'Utilitzem kinesiologia holística per passar per alt la ment conscient, identificant i eliminant els marcadors d\'estrès emocional profundament emmagatzemats que estan esgotant el teu sistema nerviós.',
+    'funnel.stress_anxiety.methodologyTitle': 'Alliberant Bloquejos Emocionals',
+    'funnel.stress_anxiety.methodologyText': 'L\'estrès i l\'ansietat es manifesten físicament. Mitjançant la Kinesiologia, identifiquem i alliberem els bloquejos emocionals subconscients que mantenen el teu sistema nerviós en un estat de tensió constant.',
+    'funnel.stress_anxiety.t1.text': '"Per fi em sento emocionalment equilibrada. Les sessions em van ajudar a alliberar ansietat de la qual ni tan sols em donava compte conscientment que estava aferrada."',
+    'funnel.stress_anxiety.t2.text': '"Aquesta teràpia va molt més enllà de la psicologia tradicional. Realment elimina la sensació física de l\'estrès del teu cos. Un canvi de vida."',
+
+    // Fatigue
+    'funnel.fatigue.label': 'falta d\'energia o fatiga constant',
+    'funnel.fatigue.heroHeadline': 'Recupera la teva Vitalitat i Energia.',
+    'funnel.fatigue.heroSubheadline': 'Optimitza la teva nutrició i elimina els bloquejos d\'energia per superar la fatiga diària.',
+    'funnel.fatigue.transformation': 'De arrossegar-te durant la baixada de les 3 de la tarda, a mantenir una energia alta i concentrada des del matí fins a la nit.',
+    'funnel.fatigue.authoritativeMethod': 'En analitzar els teus drenatges d\'energia química, estructural i emocional, et prescrivim protocols nutricionals exactes i resetejos físics per restaurar la bateria natural del teu cos.',
+    'funnel.fatigue.methodologyTitle': 'Alimentant Correctament el teu Cos',
+    'funnel.fatigue.methodologyText': 'La falta d\'energia sol ser un senyal de desequilibris nutricionals o estrès crònic subjacent. Restaurem la teva vitalitat natural amb ajustos nutricionals realistes i kinesiologia per equilibrar l\'energia.',
+    'funnel.fatigue.t1.text': '"Estava esgotat a les 3 PM cada dia. L\'Elena em va ajudar a identificar les mancances nutricionals i els factors d\'estrès que em frenaven. La meva energia és totalment estable ara."',
+    'funnel.fatigue.t2.text': '"Un pla realista que encaixava en el meu estil de vida. La meva digestió és perfecta i els meus nivells d\'energia mai havien estat tan alts."',
+
+    // Posture & Office
+    'funnel.posture_office.label': 'rigidesa per estar assegut a un escriptori',
+    'funnel.posture_office.heroHeadline': 'Desfés el Dany del Treball d\'Oficina.',
+    'funnel.posture_office.heroSubheadline': 'Alleuja la rigidesa induïda per la postura i protegeix la teva mobilitat a llarg termini.',
+    'funnel.posture_office.transformation': 'De sentir-te encarcarat, encorbat i adolorit al teu escriptori, a mantenir-te dret amb mobilitat completament sense dolor.',
+    'funnel.posture_office.authoritativeMethod': 'Implementem descompressió cervical dirigida i alliberaments del pectoral menor per revertir físicament les adaptacions "encorbades" que crea el teu cos per estar assegut prolongadament.',
+    'funnel.posture_office.methodologyTitle': 'Descomprimint la Postura d\'Oficina',
+    'funnel.posture_office.methodologyText': 'Estar assegut durant hores bloqueja el teu cos en posicions antinaturals, escurçant els músculs i comprimint les articulacions. Utilitzem tècniques de massatge específiques per obrir el pit, alliberar el coll i alleujar l\'esquena baixa.',
+    'funnel.posture_office.t1.text': '"Com a programador, les meves espatlles estaven permanentment caigudes. El treball enfocat a l\'esquena i el coll aquí va millorar la meva postura totalment."',
+    'funnel.posture_office.t2.text': '"Ja no surto de l\'oficina sentint-me rígida com una taula. L\'enfocament de l\'Elena en el dolor per oficina és exactament el que el meu cos requeria."',
+
+    // Sports Recovery
+    'funnel.sports_recovery.label': 'lesions esportives o recuperació lenta',
+    'funnel.sports_recovery.heroHeadline': 'Recupera\'t Més Ràpid. Rendeix Millor.',
+    'funnel.sports_recovery.heroSubheadline': 'Mantén el teu cos funcionant a ple rendiment i prevén recaigudes.',
+    'funnel.sports_recovery.transformation': 'De quedar-te fora per lesions recurrentes, a batre rècords personals amb un cos resistent i optimitzat.',
+    'funnel.sports_recovery.authoritativeMethod': 'Desfem el teixit cicatricial limitant, corregim compensacions biomecàniques a través de kinesiologia i utilitzem massatges de fisiologia esportiva per accelerar en gran mesura els teus temps de recuperació.',
+    'funnel.sports_recovery.methodologyTitle': 'Accelerant la Recuperació Muscular',
+    'funnel.sports_recovery.methodologyText': 'Els cossos dels esportistes demanen atenció especialitzada. Desfem teixit cicatricial, augmentem el flux sanguini en músculs sobreentrenats i restaurem la mecànica de les articulacions perquè tornis a entrenar sense dolor.',
+    'funnel.sports_recovery.t1.text': '"Estava lluitant amb un esquinç recurrent al bessó. El treball en teixits profunds i els ajustos biomecànics m\'han permès córrer de nou sense molèsties."',
+    'funnel.sports_recovery.t2.text': '"El meu temps de recuperació es va reduir a la meitat. L\'Elena comprèn amb exactitud com tractar la tiranteat induïda per l\'esport i millorar la flexibilitat."',
+
+    // Emotional Block
+    'funnel.emotional_block.label': 'sentint-me bloquejat emocionalment',
+    'funnel.emotional_block.heroHeadline': 'Lliura\'t dels Bloquejos Emocionals.',
+    'funnel.emotional_block.heroSubheadline': 'Allibera emocions atrapades i traumes que impedeixen seguir endavant.',
+    'funnel.emotional_block.transformation': 'De sentir pesadesa, aïllament i no poder avançar, a experimentar una sensació profunda de lleugeresa i claredat mental.',
+    'funnel.emotional_block.authoritativeMethod': 'Mitjançant kinesiologia somàtica capdavantera, aconseguim evadir barreres racionals per detectar el foc precís de les trabes emocionals, així aconsegueixes que el cos lliuri bloquejos encoberts.',
+    'funnel.emotional_block.methodologyTitle': 'Assolint la Llibertat Emocional',
+    'funnel.emotional_block.methodologyText': 'A estones el teu estat físic és bo, però hi ha inèrcia emocional de fons. Gràcies a la kinesiologia sobrepassem la ment analítica per destapar i descarregar de forma dòcil aquells estats anímics retinguts.',
+    'funnel.emotional_block.t1.text': '"Em resultava impossible entendre l\'aturada que tenia a la meva vida. Gràcies a la kinesiologia va aflorar estrès del passat que no sabia haver guardat. Hi ha tanta pau avui."',
+    'funnel.emotional_block.t2.text': '"És una sessió totalment sanadora; costa creure que treure un bloqueig ocult modifiqui de cop les emocions i les accions quotidianes."',
+
+    // Broader
+    'funnel.broader.label': 'cap de les opcions coincideix per complet',
+    'funnel.broader.heroHeadline': 'El Teu Cos és Singular. Les Seves Teràpies També Haurien de Ser-ho.',
+    'funnel.broader.heroSubheadline': 'Agenda un estudi global que desvetlli exactament com la cura de la ment i cos et pot socórrer.',
+    'funnel.broader.transformation': 'De la frustració de ser malentès i ofegat per símptomes, a gaudir d\'un pla evident i factible cap al complet benestar.',
+    'funnel.broader.authoritativeMethod': 'El gran pilar resolutiu integral 360 inspecciona l\'entorn muscular, nutricional i instintiu, amb l\'obstinació d\'arribar a la procedència inicial de múltiples simptomatologies combinades.',
+    'funnel.broader.methodologyTitle': 'L\'Exhaustiu Reconeixement 360°',
+    'funnel.broader.methodologyText': 'Qualsevol senyal camuflat, o una aglomeració simptomatològica es desxifra millor en la Revisió dels aspectes elementals —múscul-esquelètics, digestius o de l\'ànim— possibilitant prescriure directrius rigorosament exclusives en la teva restauració global.',
+    'funnel.broader.t1.text': '"Em queien un cúmul de mals entre desajust abdominal, la lumbar cansada i el cansament crònic. Amb aquest enfocament creuat vaig aconseguir agafar-ho tot, i aquest tipus d\'estratègia detallada és sensacional."',
+    'funnel.broader.t2.text': '"Per falta de rumb inicial; no podia començar, però és impressionant. Es van detallar situacions i nusos ocults de mi amb una precisió que resultava inconcebible sense esmentar-los. Va ser fonamental."'
+  },
+  ru: {
+    'funnel.approach': 'Наш подход',
+    'funnel.clinicalApproach': 'Клинический подход',
+    'stats.sessions': 'Сеансов',
+    'stats.experience': 'Лет опыта',
+    'stats.satisfaction': 'Довольных клиентов',
+    'stats.countries': 'Стран обслуживания',
+    'funnel.hero.iAmLookingFor': 'Я ищу помощь с...',
+    'funnel.hero.seeSolution': 'Посмотреть решение',
+    'funnel.reviews.title': 'Реальные истории, реальные результаты',
+    'funnel.reviews.subtitle': 'Не верьте нам на слово. Послушайте людей, которые изменили свою жизнь.',
+    'funnel.reviews.verifiedClient': 'Проверенный клиент',
+    'funnel.recommendedSolutions': 'Ваши рекомендуемые решения',
+    'funnel.basedOnSelection': 'На основании вашего выбора, это лучшие пути для достижения ваших целей.',
+    // Back Pain
+    'funnel.back_pain.label': 'хроническая боль в спине или шее',
+    'funnel.back_pain.heroHeadline': 'Хватит жить с болью в спине.',
+    'funnel.back_pain.heroSubheadline': 'Снимите напряжение и восстановите естественную подвижность вашего тела с помощью профессионального ухода.',
+    'funnel.back_pain.transformation': 'От пробуждения в скованности и страха перед движением до легкости в теле и возможности без труда поднимать детей.',
+    'funnel.back_pain.authoritativeMethod': 'Мы используем глубокое нейромышечное переобучение, точечный миофасциальный релиз и структурную кинезиологию, чтобы разблокировать зажатые суставы и устранить дисбаланс, вызывающий боль.',
+    'funnel.back_pain.methodologyTitle': 'Устранение корня боли',
+    'funnel.back_pain.methodologyText': 'Физическая боль часто проистекает из глубоко укоренившегося напряжения и нарушений осанки. С помощью передовых мануальных техник мы расслабляем зажатые мышцы и восстанавливаем правильное выравнивание тела.',
+    'funnel.back_pain.t1.text': '"Боль в пояснице исчезла всего за два сеанса. Я страдала месяцами, и Елена точно знала, в чем проблема. Волшебные руки!"',
+    'funnel.back_pain.t2.text': '"Напряжение в шее и плечах от работы за столом было невыносимым. Массажная терапия здесь полностью изменила мой повседневный комфорт."',
+
+    // Headaches
+    'funnel.headaches.label': 'частые головные боли или мигрени',
+    'funnel.headaches.heroHeadline': 'Верните себе ясные дни без боли.',
+    'funnel.headaches.heroSubheadline': 'Устраните мышечное напряжение и стрессовые триггеры, вызывающие изматывающие головные боли.',
+    'funnel.headaches.transformation': 'От потери дней жизни в темной комнате до стабильной ясности ума и непрерывной концентрации.',
+    'funnel.headaches.authoritativeMethod': 'Сочетая краниосакральный релиз, декомпрессию шейного отдела и перезагрузку нервной системы, мы устраняем физические причины ваших мигреней.',
+    'funnel.headaches.methodologyTitle': 'Снятие краниального напряжения',
+    'funnel.headaches.methodologyText': 'Головные боли и мигрени часто вызваны скованностью шеи, напряжением челюсти или перегрузкой нервной системы. Мы используем кинезиологию, чтобы снять давление в голове и шее.',
+    'funnel.headaches.t1.text': '"Раньше у меня были еженедельные мигрени. После нескольких сеансов, посвященных напряжению шеи и плеч, они практически исчезли."',
+    'funnel.headaches.t2.text': '"Елена определила, что моя челюсть и уровень стресса провоцировали головные боли. Сочетание массажа и кинезиологии стало идеальным решением."',
+
+    // Digestion
+    'funnel.digestion.label': 'проблемы с пищеварением или вздутие',
+    'funnel.digestion.heroHeadline': 'Исцелите свой кишечник. Почувствуйте легкость.',
+    'funnel.digestion.heroSubheadline': 'Найдите нутрициологический баланс и избавьтесь от стресса, который мешает нормальной работе пищеварения.',
+    'funnel.digestion.transformation': 'От чувства вялости и вздутия после каждого приема пищи до плоского живота и легкого пищеварения.',
+    'funnel.digestion.authoritativeMethod': 'Мы определяем точные пищевые непереносимости и химические стрессоры с помощью прикладной кинезиологии в сочетании с протоколами клинического питания.',
+    'funnel.digestion.methodologyTitle': 'Восстановление гармонии пищеварения',
+    'funnel.digestion.methodologyText': 'Здоровье кишечника тесно связано с вашим эмоциональным состоянием и питанием. Мы создаем индивидуальные планы питания и используем кинезиологию для уменьшения воспаления.',
+    'funnel.digestion.t1.text': '"Небольшие изменения в диете по совету Елены полностью устранили ежедневное вздутие. Я не знала, что могу чувствовать себя такой легкой."',
+    'funnel.digestion.t2.text': '"Дело было не только в еде, но и в том, как мое тело справлялось со стрессом. Холистический подход навсегда решил мои проблемы с животом."',
+
+    // Sleep
+    'funnel.sleep.label': 'улучшение качества сна',
+    'funnel.sleep.heroHeadline': 'Наконец-то получите заслуженный отдых.',
+    'funnel.sleep.heroSubheadline': 'Успокойте гиперактивную нервную систему и подготовьте тело к глубокому, восстанавливающему сну.',
+    'funnel.sleep.transformation': 'От многочасовых попыток уснуть с бегущими мыслями до легкого засыпания и пробуждения по-настоящему бодрым.',
+    'funnel.sleep.authoritativeMethod': 'Используя техники регуляции нервной системы и соматического релиза, мы выводим ваше тело из режима «бей или беги», позволяя естественным циркадным ритмам восстановиться.',
+    'funnel.sleep.methodologyTitle': 'Перезагрузка цикла сна',
+    'funnel.sleep.methodologyText': 'Бессонница часто означает, что ваша нервная система застряла в режиме тревоги. Мы помогаем отключить эти стрессовые реакции и расслабить мышечное напряжение.',
+    'funnel.sleep.t1.text': '"Годами мои мысли не давали мне уснуть. Сеансы кинезиологии помогли мне снять эту тревогу, и теперь я действительно сплю всю ночь."',
+    'funnel.sleep.t2.text': '"Физическое расслабление перед сном было невозможным, пока я не начал делать эти массажи для снятия накопленного дневного стресса."',
+
+    // Stress & Anxiety
+    'funnel.stress_anxiety.label': 'постоянный стресс и тревога',
+    'funnel.stress_anxiety.heroHeadline': 'Снимите стресс и обретите внутренний покой.',
+    'funnel.stress_anxiety.heroSubheadline': 'Устраните эмоциональные блоки и успокойте нервную систему с помощью специализированной кинезиологии.',
+    'funnel.stress_anxiety.transformation': 'От постоянного чувства перегруженности до заземленности, спокойствия и полного контроля над своим состоянием.',
+    'funnel.stress_anxiety.authoritativeMethod': 'Мы используем холистическую кинезиологию, чтобы выявить и устранить глубоко запрятанные маркеры эмоционального стресса, которые истощают вашу нервную систему.',
+    'funnel.stress_anxiety.methodologyTitle': 'Освобождение от эмоциональных блоков',
+    'funnel.stress_anxiety.methodologyText': 'Стресс и тревога проявляются физически. Используя кинезиологию, мы находим и высвобождаем подсознательные блоки, удерживающие тело в напряжении.',
+    'funnel.stress_anxiety.t1.text': '"Я наконец-то чувствую эмоциональное равновесие. Сеансы помогли мне отпустить тревогу, о которой я даже не подозревала."',
+    'funnel.stress_anxiety.t2.text': '"Эта терапия выходит далеко за рамки традиционной психологии. Она действительно убирает физическое ощущение стресса из вашего тела. Это меняет жизнь."',
+
+    // Fatigue
+    'funnel.fatigue.label': 'недостаток энергии или постоянная усталость',
+    'funnel.fatigue.heroHeadline': 'Верните себе жизненную силу и энергию.',
+    'funnel.fatigue.heroSubheadline': 'Оптимизируйте питание и очистите энергетические блоки, чтобы преодолеть ежедневную усталость.',
+    'funnel.fatigue.transformation': 'От борьбы с послеобеденной сонливостью до поддержания высокой концентрации и энергии с утра до вечера.',
+    'funnel.fatigue.authoritativeMethod': 'Анализируя ваши химические, структурные и эмоциональные затраты энергии, мы подбираем нутрициологические протоколы для восстановления ресурсов вашего организма.',
+    'funnel.fatigue.methodologyTitle': 'Правильное топливо для вашего тела',
+    'funnel.fatigue.methodologyText': 'Низкий уровень энергии часто является признаком нутрициологического дисбаланса. Мы восстанавливаем вашу витальность с помощью коррекции питания и балансирующей кинезиологии.',
+    'funnel.fatigue.t1.text': '"Я была истощена к 3 часам дня каждый день. Елена помогла мне найти пробелы в питании и факторы стресса. Теперь моя энергия стабильна."',
+    'funnel.fatigue.t2.text': '"Реалистичный план, который вписался в мой образ жизни. Мое пищеварение в порядке, а уровень энергии никогда не был таким высоким."',
+
+    // Posture & Office
+    'funnel.posture_office.label': 'скованность от сидячей работы',
+    'funnel.posture_office.heroHeadline': 'Устраните вред от сидячей работы.',
+    'funnel.posture_office.heroSubheadline': 'Снимите скованность, вызванную осанкой, и защитите свою долгосрочную подвижность.',
+    'funnel.posture_office.transformation': 'От чувства зажатости и боли за рабочим столом до легкости движений и правильной осанки без усилий.',
+    'funnel.posture_office.authoritativeMethod': 'Мы применяем целевую декомпрессию шейного отдела и расслабление мышц груди, чтобы физически обратить вспять изменения, вызванные длительным сидением.',
+    'funnel.posture_office.methodologyTitle': 'Декомпрессия «офисной» осанки',
+    'funnel.posture_office.methodologyText': 'Часы сидения фиксируют ваше тело в неестественных положениях. Мы используем специальные техники массажа, чтобы раскрыть грудную клетку и освободить шею и поясницу.',
+    'funnel.posture_office.t1.text': '"Как программист, я страдал от постоянно опущенных плеч. Работа с шеей и спиной здесь полностью исправила мою осанку."',
+    'funnel.posture_office.t2.text': '"Я больше не ухожу из офиса с чувством скованности во всем теле. Подход Елены — это именно то, что было нужно моему телу."',
+
+    // Sports Recovery
+    'funnel.sports_recovery.label': 'спортивные травмы или медленное восстановление',
+    'funnel.sports_recovery.heroHeadline': 'Восстанавливайтесь быстрее. Достигайте большего.',
+    'funnel.sports_recovery.heroSubheadline': 'Поддерживайте свое тело на пике возможностей и предотвращайте повторные травмы.',
+    'funnel.sports_recovery.transformation': 'От вынужденных перерывов из-за травм до личных рекордов с устойчивым и оптимизированным телом.',
+    'funnel.sports_recovery.authoritativeMethod': 'Мы работаем со шрамами и зажимами, корректируем биомеханические компенсации и используем спортивный массаж для ускорения восстановления.',
+    'funnel.sports_recovery.methodologyTitle': 'Ускорение восстановления мышц',
+    'funnel.sports_recovery.methodologyText': 'Спортивному телу нужен особый уход. Мы восстанавливаем оптимальную механику суставов, чтобы вы могли вернуться к тренировкам без боли.',
+    'funnel.sports_recovery.t1.text': '"Я боролся с повторяющейся травмой икры. Глубокая проработка тканей и биомеханическая коррекция позволили мне снова бегать без боли."',
+    'funnel.sports_recovery.t2.text': '"Время моего восстановления сократилось вдвое. Елена точно знает, как работать со спортивным напряжением и улучшать гибкость."',
+
+    // Emotional Block
+    'funnel.emotional_block.label': 'чувство эмоциональной блокировки',
+    'funnel.emotional_block.heroHeadline': 'Освободитесь от эмоциональных блоков.',
+    'funnel.emotional_block.heroSubheadline': 'Отпустите застрявшие эмоции и травмы, которые мешают вам двигаться вперед.',
+    'funnel.emotional_block.transformation': 'От чувства тяжести и застоя до глубокого ощущения легкости и эмоциональной ясности.',
+    'funnel.emotional_block.authoritativeMethod': 'Используя передовые методы соматической кинезиологии, мы находим источник блокировок, позволяя вашему телу проработать и отпустить накопленный стресс.',
+    'funnel.emotional_block.methodologyTitle': 'Путь к эмоциональной свободе',
+    'funnel.emotional_block.methodologyText': 'Иногда физически мы здоровы, но чувствуем эмоциональный застой. Кинезиология помогает бережно освободить подавленные эмоции, мешающие вам жить.',
+    'funnel.emotional_block.t1.text': '"Я не могла объяснить, почему чувствую такой застой в жизни. Кинезиология открыла скрытый стресс, и теперь я чувствую невероятную легкость."',
+    'funnel.emotional_block.t2.text': '"Трансформационный опыт. Удивительно, как высвобождение подсознательного блока немедленно меняет ваше самочувствие и действия."',
+
+    // Broader
+    'funnel.broader.label': 'ни один из вариантов не подходит полностью',
+    'funnel.broader.heroHeadline': 'Ваше тело уникально. Ваш уход тоже должен быть таким.',
+    'funnel.broader.heroSubheadline': 'Запишитесь на полную оценку, чтобы найти именно то, что нужно вашему телу и разуму.',
+    'funnel.broader.transformation': 'От чувства растерянности и перегруженности симптомами до четкого и понятного плана действий для здоровья.',
+    'funnel.broader.authoritativeMethod': 'Наш авторский диагностический подход 360 оценивает вас на структурном, химическом и эмоциональном уровнях, чтобы найти истинную причину ваших симптомов.',
+    'funnel.broader.methodologyTitle': 'Комплексный Обзор 360°',
+    'funnel.broader.methodologyText': 'Когда проблема не ясна, наш тщательный Обзор 360 анализирует каждый аспект вашего здоровья, чтобы создать индивидуальную дорожную карту вашего восстановления.',
+    'funnel.broader.t1.text': '"У меня был целый букет проблем: от пищеварения до болей в спине. Обзор 360 помог соединить все точки воедино и составить четкий план."',
+    'funnel.broader.t2.text': '"Я не знал, с чего начать, но оценка Елены была невероятно тщательной. Это была лучшая инвестиция в мое здоровье."'
   }
-}
-fillMissingLanguages();
+};

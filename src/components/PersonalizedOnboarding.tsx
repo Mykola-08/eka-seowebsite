@@ -172,7 +172,7 @@ export default function ForBusinessContent() {
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
                     <span className="text-5xl font-medium text-foreground tracking-tighter">€100</span>
-                    <span className="text-xl text-muted-foreground font-medium">/mo</span>
+                    <span className="text-xl text-muted-foreground font-medium">{t('common.mo')}</span>
                   </div>
                   <div className="text-sm text-muted-foreground mt-1 font-medium">{t("personalized.business.plans.teams.price")}</div>
                 </div>
@@ -212,7 +212,7 @@ export default function ForBusinessContent() {
                 <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
                     <span className="text-5xl font-medium text-primary-foreground tracking-tighter">€500</span>
-                    <span className="text-xl text-primary-foreground/80 font-medium">/mo</span>
+                    <span className="text-xl text-primary-foreground/80 font-medium">{t('common.mo')}</span>
                   </div>
                   <div className="text-sm text-primary-foreground/80 mt-1 font-medium">{t('personalized.business.plans.enterprise.price')}</div>
                 </div>

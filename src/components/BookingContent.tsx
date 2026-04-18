@@ -98,7 +98,7 @@ function BookingContentInner() {
                      <Image src={getServiceImage(service)} alt={service} fill className="object-cover" />
                      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                      <div className="absolute bottom-6 left-6 right-6">
-                        <Badge className="bg-primary text-white uppercase tracking-widest text-[9px] font-black mb-2">RECOMMENDED</Badge>
+                        <Badge className="bg-primary text-white uppercase tracking-widest text-[9px] font-black mb-2">{t('booking.recommended.badge')}</Badge>
                         <h3 className="text-white font-black text-xl leading-tight">{getServiceTitle(service)}</h3>
                      </div>
                   </div>
@@ -108,35 +108,35 @@ function BookingContentInner() {
                            <SparklesIcon className="w-5 h-5" />
                         </div>
                         <div>
-                           <h4 className="font-black text-xs uppercase tracking-[0.2em] text-primary">Assessment Analysis</h4>
-                           <p className="text-lg font-bold">Your personalized path is ready</p>
+                           <h4 className="font-black text-xs uppercase tracking-[0.2em] text-primary">{t('booking.analysis.title')}</h4>
+                           <p className="text-lg font-bold">{t('booking.analysis.subtitle')}</p>
                         </div>
                      </div>
                      
                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                         <div className="space-y-1">
-                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Intensity</span>
+                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('booking.label.intensity')}</span>
                            <div className="flex items-center gap-2">
                               <FlashIcon className={cn("w-4 h-4", parseInt(intensity || '0') > 7 ? "text-destructive" : "text-primary")} />
                               <span className="font-black text-lg">{intensity}/10</span>
                            </div>
                         </div>
                         <div className="space-y-1">
-                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Profile</span>
+                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('booking.label.profile')}</span>
                            <div className="flex items-center gap-2">
                               <Activity01Icon className="w-4 h-4 text-primary" />
                               <span className="font-black text-lg capitalize">{profile || 'Personal'}</span>
                            </div>
                         </div>
                         <div className="space-y-1">
-                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Mood</span>
+                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('booking.label.mood')}</span>
                            <div className="flex items-center gap-2">
                               <ZapIcon className="w-4 h-4 text-primary" />
                               <span className="font-black text-lg capitalize">{mood || 'Neutral'}</span>
                            </div>
                         </div>
                         <div className="space-y-1">
-                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Energy</span>
+                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('booking.label.energy')}</span>
                            <div className="flex items-center gap-2">
                               <ZapIcon className="w-4 h-4 text-primary" />
                               <span className="font-black text-lg capitalize">{energy || 'Normal'}</span>
@@ -211,7 +211,7 @@ Energy: ${energy}`
                       {t('booking.direct.button')}
                     </Button>
                   </a>
-                  <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] mt-6 opacity-60">Response in &lt; 24h</p>
+                  <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] mt-6 opacity-60">{t('booking.response.time')}</p>
                 </div>
               </Card>
             </motion.div>
@@ -302,14 +302,14 @@ Energy: ${energy}`
                 <div className="flex items-start gap-5 p-6 rounded-3xl bg-muted/40 group transition-colors hover:bg-muted/60">
                   <MailIcon className="w-6 h-6 text-primary shrink-0 mt-1" />
                   <div className="space-y-1">
-                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Email Address</p>
+                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('common.email')}</p>
                     <p className="text-lg font-bold">{t('booking.help.email')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-5 p-6 rounded-3xl bg-muted/40 group transition-colors hover:bg-muted/60">
                   <Location01Icon className="w-6 h-6 text-primary shrink-0 mt-1" />
                   <div className="space-y-1">
-                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Location</p>
+                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{t('common.location')}</p>
                     <p className="text-lg font-bold">{t('booking.help.address')}</p>
                   </div>
                 </div>
@@ -343,7 +343,7 @@ Energy: ${energy}`
                  ))}
               </div>
               <div className="p-6 rounded-3xl bg-primary/5 border border-primary/10 text-center">
-                 <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">Prioritize Emergency Requests</p>
+                 <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{t('booking.emergency.prioritize')}</p>
               </div>
             </motion.div>
           </div>

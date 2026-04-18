@@ -1,9 +1,10 @@
 'use client';
 
-import type React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import PageLayout from '@/components/PageLayout';
 import { Alert01Icon, FavouriteIcon, ShieldBanIcon, StethoscopeIcon, InformationCircleIcon, CallIcon } from '@/lib/icons';
 import Link from 'next/link';
+
 const Block = ({ icon: Icon, title, children, color = 'amber' }: {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
@@ -38,10 +39,12 @@ const Block = ({ icon: Icon, title, children, color = 'amber' }: {
 };
 
 export default function DisclaimerContent() {
+  const { t } = useLanguage();
+
   return (
     <PageLayout
       hero={{
-        title: 'Wellness Disclaimer',
+        title: t('footer.disclaimer') || 'Wellness Disclaimer',
         subtitle: 'Please read before booking or using any EKA Balance service',
       }}
     >
@@ -53,16 +56,10 @@ export default function DisclaimerContent() {
             <Alert01Icon className="w-7 h-7 text-foreground shrink-0 mt-0.5" />
             <div>
               <p className="text-xl font-medium text-foreground mb-3">
-                These are wellness and complementary services.
+                {t('common.healthDisclaimerTitle')}
               </p>
               <p className="text-foreground/90 font-medium text-lg mb-4">
-                Always consult your doctor before making any health decision.
-              </p>
-              <p className="text-foreground/90 font-medium">
-                Consulta a tu médico antes de tomar ninguna decisión relacionada con tu salud.
-              </p>
-              <p className="text-foreground/80 mt-2">
-                Consulteu el vostre metge abans de prendre cap decisió relacionada amb la vostra salut.
+                {t('common.consultDoctor')}
               </p>
             </div>
           </div>

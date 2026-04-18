@@ -27,7 +27,7 @@ export default function TechniqueDetailContent({ id }: TechniqueDetailContentPro
   if (!techniqueMap[id]) {
     return (
       <div className="min-h-screen pt-32 px-4 text-center">
-        <h1 className="text-2xl font-medium text-foreground">Technique not found</h1>
+        <h1 className="text-2xl font-medium text-foreground">{t('common.notFound')}</h1>
         <Link href="/" className="text-primary hover:text-primary mt-4 inline-block">
           {t('common.back')}
         </Link>

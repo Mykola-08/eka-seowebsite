@@ -680,7 +680,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                    className="absolute inset-0 flex flex-col items-center justify-center gap-2"
                 >
                    <SparklesIcon className="w-20 h-20 text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]" />
-                   <span className="font-black text-sm tracking-[0.4em] text-primary/60">ANALYZING</span>
+                   <span className="font-black text-sm tracking-[0.4em] text-primary/60">{t('assessment.processing.label')}</span>
                 </motion.div>
             </div>
             <div className="text-center space-y-8 max-w-md">
@@ -788,7 +788,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                    <div className="space-y-8">
                       <div className="flex items-center gap-4">
                          <div className="h-px flex-1 bg-primary/20" />
-                         <Badge variant="secondary" className="bg-primary/10 text-primary font-black uppercase tracking-[0.2em] text-[9px] px-3 py-1">Recommended</Badge>
+                         <Badge variant="secondary" className="bg-primary/10 text-primary font-black uppercase tracking-[0.2em] text-[9px] px-3 py-1">{t('assessment.result.recommended.label')}</Badge>
                          <div className="h-px flex-1 bg-primary/20" />
                       </div>
                       <h3 className="apple-title text-4xl md:text-6xl leading-[1.1] tracking-tight">{t(recommendation.titleKey)}</h3>
@@ -848,7 +848,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                   <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map(i => <StarIcon key={i} className="w-5 h-5 text-amber-500 fill-amber-500" />)}
                   </div>
-                  <h4 className="text-2xl font-black tracking-tight leading-tight">Trusted by 1500+ clients seeking somatic relief in Barcelona.</h4>
+                  <h4 className="text-2xl font-black tracking-tight leading-tight">{t('assessment.result.trust.title')}</h4>
                   <div className="flex items-center gap-4 pt-4">
                      <div className="flex -space-x-3">
                         {[1, 2, 3, 4].map(i => (
@@ -857,7 +857,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                           </div>
                         ))}
                      </div>
-                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">JOIN OUR COMMUNITY</p>
+                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{t('assessment.result.join.community')}</p>
                   </div>
                </motion.div>
 

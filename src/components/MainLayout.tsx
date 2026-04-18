@@ -209,7 +209,7 @@ export default function MainLayout({
       ]
     },
     {
-      name: 'Agenyz',
+      name: t('nav.agenyz') || 'Agenyz',
       href: '/agenyz',
       hasDropdown: false
     },
@@ -264,9 +264,9 @@ export default function MainLayout({
                   </div>
 
                   <div className="flex flex-col space-y-1">
-                    <h4 className="font-semibold text-foreground mb-2 px-2">Legal</h4>
+                    <h4 className="font-semibold text-foreground mb-2 px-2">{t('footer.legal')}</h4>
                     <Link href="/discounts" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('footer.discounts')}</Link>
-                    <Link href="/disclaimer" className="inline-flex min-h-11 items-center px-2 text-primary hover:text-primary/80 text-sm font-medium">Health Disclaimer</Link>
+                    <Link href="/disclaimer" className="inline-flex min-h-11 items-center px-2 text-primary hover:text-primary/80 text-sm font-medium">{t('footer.disclaimer')}</Link>
                     <Link href="/privacy-policy" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('footer.privacyPolicy')}</Link>
                     <Link href="/cookie-policy" className="inline-flex min-h-11 items-center px-2 text-muted-foreground hover:text-foreground text-sm">{t('footer.cookiePolicy')}</Link>
                   </div>

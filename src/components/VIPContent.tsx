@@ -150,7 +150,7 @@ const ComparativeTable = () => {
             {t('vip.table.title') || 'Compare Plans'}
           </h2>
           <p className="apple-subtitle max-w-2xl mx-auto">
-             Detailed benefits of each membership tier.
+             {t('vip.table.subtitle') || 'Detailed benefits of each membership tier.'}
           </p>
         </div>
         
@@ -158,10 +158,10 @@ const ComparativeTable = () => {
           <table className="w-full min-w-150 border-separate border-spacing-0">
             <thead>
               <tr>
-                <th className="p-8 text-left text-muted-foreground font-semibold uppercase tracking-widest text-[10px] w-1/3 border-b border-border bg-muted/20">Benefits</th>
-                <th className="p-8 text-center text-foreground font-bold text-sm tracking-widest border-b border-border bg-muted/20">BRONZE</th>
-                <th className="p-8 text-center text-foreground font-bold text-sm tracking-widest border-b border-border bg-muted/20">SILVER</th>
-                <th className="p-8 text-center text-primary font-bold text-sm tracking-widest border-b border-border bg-muted/20">GOLD</th>
+                <th className="p-8 text-left text-muted-foreground font-semibold uppercase tracking-widest text-[10px] w-1/3 border-b border-border bg-muted/20">{t('vip.table.benefits')}</th>
+                <th className="p-8 text-center text-foreground font-bold text-sm tracking-widest border-b border-border bg-muted/20">{t('vip.tier.bronze')}</th>
+                <th className="p-8 text-center text-foreground font-bold text-sm tracking-widest border-b border-border bg-muted/20">{t('vip.tier.silver')}</th>
+                <th className="p-8 text-center text-primary font-bold text-sm tracking-widest border-b border-border bg-muted/20">{t('vip.tier.gold')}</th>
               </tr>
             </thead>
             <tbody>
@@ -217,7 +217,7 @@ export default function VIPContent() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-10">
                 <Crown className="w-4 h-4 text-primary" />
-                <span className="text-primary font-bold uppercase tracking-[0.2em] text-[10px]">Club VIP EKA</span>
+                <span className="text-primary font-bold uppercase tracking-[0.2em] text-[10px]">{t('vip.label.club')}</span>
               </div>
 
               <h1 className="apple-headline text-5xl md:text-8xl mb-10 leading-[0.95]">
@@ -321,7 +321,7 @@ export default function VIPContent() {
                  >
                    {plan.popular && (
                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg shadow-primary/20 z-10">
-                       Recommended
+                       {t('booking.recommended.badge')}
                      </div>
                    )}
 
@@ -329,7 +329,7 @@ export default function VIPContent() {
                       <h3 className="text-sm font-black uppercase tracking-[0.2em] text-muted-foreground mb-1">{t(plan.name)}</h3>
                       <div className="flex items-baseline gap-1 mt-6">
                          <span className="text-5xl md:text-6xl font-bold tracking-tighter text-foreground">{t(plan.price)}</span>
-                         <span className="text-muted-foreground font-bold text-lg tracking-tight">/mo</span>
+                         <span className="text-muted-foreground font-bold text-lg tracking-tight">{t('common.mo')}</span>
                       </div>
                       <p className="text-muted-foreground mt-8 text-sm font-medium leading-relaxed min-h-12">{t(plan.description)}</p>
                    </div>

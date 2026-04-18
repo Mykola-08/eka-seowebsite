@@ -1,12 +1,15 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface AuthorityBannerProps {
   label: string;
 }
 
 export function AuthorityBanner({ label }: AuthorityBannerProps) {
+  const { t } = useLanguage();
+  
   return (
     <section className="w-full py-12 bg-muted/30 border-y border-border">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -17,19 +20,19 @@ export function AuthorityBanner({ label }: AuthorityBannerProps) {
           {/* Using placeholder badges to signify trust / authority */}
           <div className="flex flex-col items-center text-center space-y-3">
             <div className="text-4xl font-extrabold text-foreground tracking-tighter">10+</div>
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Years Experience</span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('stats.experience.label')}</span>
           </div>
           <div className="flex flex-col items-center text-center space-y-3">
             <div className="text-4xl font-extrabold text-foreground tracking-tighter">1500+</div>
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Clients Helped</span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('stats.clients.label')}</span>
           </div>
            <div className="flex flex-col items-center text-center space-y-3">
             <div className="text-4xl font-extrabold text-foreground tracking-tighter">100%</div>
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Personalized</span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('stats.personalized.label')}</span>
           </div>
            <div className="flex flex-col items-center text-center space-y-3">
             <div className="text-4xl font-extrabold text-foreground tracking-tighter">4.9/5</div>
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Client Rating</span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t('stats.rating.label')}</span>
           </div>
         </div>
       </div>

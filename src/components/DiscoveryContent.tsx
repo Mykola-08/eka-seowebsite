@@ -445,7 +445,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
             className="absolute inset-0 flex flex-col items-center justify-center gap-2"
           >
             <SparklesIcon className="w-16 h-16 text-primary" />
-            <span className="font-black text-[10px] tracking-[0.3em] text-primary/60">ANALYZING</span>
+            <span className="font-black text-[10px] tracking-[0.3em] text-primary/60">{t('assessment.processing.label')}</span>
           </motion.div>
         </div>
         <div className="text-center space-y-4">
@@ -892,7 +892,7 @@ ${t('booking.whatsapp.time', { time: selectedTime })}`;
 
           <div className="max-w-xl mx-auto space-y-6">
             <div className="flex justify-between items-end px-2">
-               <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">Progress Analysis</span>
+               <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">{t('assessment.progress.analysis')}</span>
                <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Step {currentStep + 1} of 7</span>
             </div>
             <div className="h-2 w-full bg-muted/50 rounded-full overflow-hidden p-[2px] border border-border/20 shadow-inner">

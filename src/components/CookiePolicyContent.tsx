@@ -28,14 +28,14 @@ export default function CookiePolicyContent() {
 
   return (
     <PageLayout
-      hero={{ title: t('footer.cookiePolicy') || 'Cookie Policy', subtitle: 'Last updated: November 15, 2025' }}
+      hero={{ title: t('footer.cookiePolicy') || 'Cookie Policy', subtitle: `${t('common.lastUpdated')}: November 15, 2025` }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
           {/* Sticky TOC */}
           <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">{t('common.contents')}</p>
             <nav className="space-y-1">
               {toc.map(item => (
                 <a key={item.href} href={item.href}

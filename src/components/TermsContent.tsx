@@ -30,14 +30,14 @@ export default function TermsContent() {
 
   return (
     <PageLayout
-      hero={{ title: t('footer.termsOfService') || 'Terms of Service', subtitle: 'Last updated: November 15, 2025' }}
+      hero={{ title: t('footer.termsOfService') || 'Terms of Service', subtitle: `${t('common.lastUpdated')}: November 15, 2025` }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
           {/* Sticky TOC */}
           <aside className="hidden lg:block w-52 shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">Contents</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">{t('common.contents')}</p>
             <nav className="space-y-1">
               {toc.map(item => (
                 <a key={item.href} href={item.href}
@@ -56,14 +56,14 @@ export default function TermsContent() {
               <div className="flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
-                  <h2 className="text-lg font-medium text-foreground mb-3">Wellness Disclaimer</h2>
+                  <h2 className="text-lg font-medium text-foreground mb-3">{t('common.healthDisclaimerTitle')}</h2>
                   <p className="text-foreground/90 mb-4 font-medium">
                     EKA Balance provides complementary and alternative wellness services. These services are <strong>not medical treatment, diagnosis, or a substitute for licensed healthcare</strong>.
                   </p>
                   <ul className="space-y-2 text-foreground/80 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <strong>Consult your doctor before making any health decision.</strong> <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
+                      <strong>{t('common.consultDoctor')}</strong>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />

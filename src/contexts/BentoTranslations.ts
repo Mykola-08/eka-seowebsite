@@ -60,7 +60,7 @@ export const bentoTranslations: Record<Language, Record<string, string>> = {
     'home.bento.nutrition.desc': 'Come de una manera que realmente funcione para tu cuerpo',
     'home.bento.testimonial.quote': '"Un antes y un después en mi bienestar."',
     'home.bento.testimonial.author': 'Maria G.',
-    'home.bento.testimonial.role': 'clients frecuente',
+    'home.bento.testimonial.role': 'cliente frecuente',
     'massage.techniques.deepTissue.details': 'Enfoque en las capas más profundas del tejido muscular, deshaciendo nudos y adherencias. Ideal para la tensión crónica y la recuperación atlética, proporciona una liberación inmediata de las restricciones musculares y articulares más persistentes.',
     'massage.techniques.recovery.details': 'Una fusión de estiramientos, compresiones y percusiones específicas diseñadas para eliminar la fatiga miofascial y el dolor post-entrenamiento. Acelera la eliminación del ácido láctico y restaura la fluidez de los tejidos para un mejor rendimiento deportivo.',
     'massage.techniques.relaxation.details': 'Incorporando movimientos fluidos y rítmicos con una presión controlada para calmar el sistema nervioso, aliviar el estrés acumulado y promover un sueño reparador y la regeneración celular. Restaura el equilibrio entre la actividad y el descanso profundo.',

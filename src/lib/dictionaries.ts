@@ -2,6 +2,18 @@ import { Language } from '../contexts/LanguageTypes';
 
 export const guaranteedTranslations: Record<Language, Record<string, string>> = {
   ca: {
+    'common.name': 'Nom',
+    'common.address': 'Adreça',
+    'common.phone': 'Telèfon',
+    'common.email': 'Correu electrònic',
+    'common.dataController': 'Responsable del tractament',
+    'common.lastUpdated': 'Última actualització',
+    'common.methodology.title': 'El nostre mètode',
+    'common.methodology.subtitle': 'Un enfocament integrat per a resultats duradors.',
+    'personalized.recommendedServices': 'Serveis recomanats',
+    'revision360.final.disclaimer': 'Aquesta avaluació és informativa i no substitueix un diagnòstic mèdic.',
+    'vip.table.subtitle': 'Detall dels beneficis de cada nivell de membre.',
+
     'common.enquireNow': 'Consultar Ara',
     'personalized.business.bento.box1.details.title': 'Cohesió d\'Equip',
     'personalized.business.bento.box1.details.desc': 'Les nostres activitats especialitzades ajuden a trencar el gel, fomentar la comunicació i construir vincles sòlids.',
@@ -512,6 +524,18 @@ export const guaranteedTranslations: Record<Language, Record<string, string>> = 
 
   },
   ru: {
+    'common.name': 'Имя',
+    'common.address': 'Адрес',
+    'common.phone': 'Телефон',
+    'common.email': 'Электронная почта',
+    'common.dataController': 'Контролер данных',
+    'common.lastUpdated': 'Последнее обновление',
+    'common.methodology.title': 'Наш метод',
+    'common.methodology.subtitle': 'Интегрированный подход для долгосрочных результатов.',
+    'personalized.recommendedServices': 'Рекомендуемые услуги',
+    'revision360.final.disclaimer': 'Эта оценка носит информационный характер и не заменяет медицинский диагноз.',
+    'vip.table.subtitle': 'Подробные преимущества каждого уровня участия.',
+
     'common.enquireNow': 'Связаться',
     'personalized.business.bento.box1.details.title': 'Сплоченность Команды',
     'personalized.business.bento.box1.details.desc': 'Наши специализированные мероприятия помогают растопить лед, наладить общение и создать крепкие связи.',

@@ -8,5 +8,5 @@ export default function OfficeWorkersPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('forOfficeWorkers', '/for-office-workers');
+  return generateAppMetadata('officeWorkers', '/for-office-workers');
 }

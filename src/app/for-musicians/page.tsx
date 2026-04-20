@@ -9,5 +9,5 @@ export default function MusiciansPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('forMusicians', '/for-musicians');
+  return generateAppMetadata('musicians', '/for-musicians');
 }

@@ -8,5 +8,5 @@ export default function AthletesPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/athletes');
+  return generateAppMetadata('athletes', '/services/athletes');
 }

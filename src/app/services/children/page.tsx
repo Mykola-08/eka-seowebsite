@@ -8,5 +8,5 @@ export default function ChildrenPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/children');
+  return generateAppMetadata('children', '/services/children');
 }

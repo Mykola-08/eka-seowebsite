@@ -26,102 +26,90 @@ export default function AboutElenaContent() {
     { id: 'quiromasaje', name: t('technique.quiromasaje.title') },
   ];
 
-  // Custom Hero for Elena's page matched to Apple style
+  // Custom Hero — split layout: image left, text right
   const CustomHero = (
-    <section className="relative pt-32 pb-24 overflow-hidden bg-card">
-      <div className="section-container relative z-10 text-center">
-        {/* Profile Image with Glow */}
-        <motion.div
-          className="relative max-w-xs mx-auto mb-12"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="relative group w-64 h-64 sm:w-80 sm:h-80 mx-auto">
-            {/* Subtle glow behind */}
-            <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl opacity-60 scale-110" />
-            <div className="relative rounded-full overflow-hidden w-full h-full border border-border">
+    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* Image side */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative rounded-[2.5rem] overflow-hidden aspect-[3/4] shadow-2xl">
               <Image
                 src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 256px, 320px"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
-          </div>
-        </motion.div>
+            {/* Floating quote card */}
+            <motion.div
+              className="absolute -bottom-6 -right-4 lg:-right-8 bg-background border border-border rounded-2xl p-5 shadow-xl max-w-xs"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <p className="text-sm text-foreground/80 italic leading-relaxed">"{t('elena.quote')}"</p>
+            </motion.div>
+          </motion.div>
 
-        {/* Name and Title */}
-        <motion.div
-          className="space-y-6 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-foreground tracking-tight leading-tight">
-            {t('elena.greeting')}
-          </h1>
-
-          <div className="space-y-4">
-            <p className="text-2xl sm:text-3xl text-foreground/80 font-normal tracking-wide">
-              {t('elena.name')}
-            </p>
-            <p className="text-xl sm:text-2xl text-muted-foreground font-light tracking-wide">
+          {/* Text side */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="inline-flex items-center px-4 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-wider">
               {t('elena.role')}
-            </p>
-            <p className="text-lg sm:text-xl text-foreground/80 font-normal max-w-2xl mx-auto leading-relaxed">
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight leading-[0.95]">
+              {t('elena.name')}
+            </h1>
+
+            <p className="text-lg text-muted-foreground leading-relaxed">
               {t('elena.bio')}
             </p>
-          </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-             <Link href="/booking">
-                <Button 
-                  size="xl" 
-                  variant="default"
-                  className="px-10 py-4"
-                >
+            {/* Credential pills */}
+            <div className="flex flex-wrap gap-3 py-2">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/60 rounded-full text-sm font-medium text-foreground/80">
+                <StarIcon className="w-3.5 h-3.5 text-primary" />
+                15+ {t('hero.stats.experience')}
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/60 rounded-full text-sm font-medium text-foreground/80">
+                <FavouriteIcon className="w-3.5 h-3.5 text-primary" />
+                800+ {t('services.stats.clients')}
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/60 rounded-full text-sm font-medium text-foreground/80">
+                <StarIcon className="w-3.5 h-3.5 text-primary" />
+                98% {t('services.stats.satisfaction')}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <Link href="/booking">
+                <Button size="lg" variant="default" className="rounded-full px-8 h-14 text-base w-full sm:w-auto">
                   {t('common.bookNow')}
                 </Button>
-             </Link>
-             <Link href="/booking">
-                <Button 
-                  size="xl" 
-                  variant="outline"
-                  className="px-10 py-4"
-                >
-                  {t('nav.contact')}
+              </Link>
+              <Link href="#approach">
+                <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base w-full sm:w-auto">
+                  {t('common.learnMore')}
                 </Button>
-             </Link>
-          </div>
-
-          {/* Quote */}
-          <div className="max-w-3xl mx-auto mt-16">
-            <blockquote className="text-xl sm:text-2xl text-foreground italic font-light leading-relaxed relative">
-              <span className="relative z-10">"{t('elena.quote')}"</span>
-            </blockquote>
-          </div>
-        </motion.div>
-
-        {/* Stats/Badges Row */}
-        <motion.div 
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 0.4 }}
-           className="flex flex-wrap justify-center gap-4"
-        >
-            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
-               <StarIcon className="w-4 h-4 text-gold mr-2" />
-               <span className="text-foreground/80 font-medium">15+ {t('hero.stats.experience')}</span>
+              </Link>
             </div>
-            <div className="inline-flex items-center px-6 py-3 bg-secondary rounded-full ">
-               <FavouriteIcon className="w-4 h-4 text-destructive mr-2" />
-               <span className="text-foreground/80 font-medium">96% {t('hero.stats.clients')}</span>
-            </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -130,9 +118,9 @@ export default function AboutElenaContent() {
     <>
       
       
-      <PageLayout hero={CustomHero} className="bg-secondary">
+      <PageLayout hero={CustomHero} className="bg-background">
         {/* Techniques Section */}
-        <section className="py-24 bg-card rounded-t-[3rem]">
+        <section id="approach" className="py-24 bg-card rounded-t-[3rem]">
           <div className="section-container relative z-10 text-center">
             <div className="mb-20">
               <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6 tracking-tight">

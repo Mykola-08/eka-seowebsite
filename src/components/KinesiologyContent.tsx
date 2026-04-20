@@ -16,7 +16,8 @@ export default function KinesiologiaContent() {
         subtitleKey: 'services.kinesiology.description',
         badgeKey: 'services.kinesiology.subtitle',
         icon: Brain01Icon,
-        backgroundImage: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=1440'
+        backgroundImage: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&cs=tinysrgb&w=1440',
+        featureImage: 'https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
       bentoGrid={{
         titleKey: 'kinesiology.page.benefitsTitle',
@@ -74,6 +75,7 @@ export default function KinesiologiaContent() {
           { duration: 90, price: 90, descriptionKey: 'kinesiologia.page.duration90' }
         ]
       }}
+      stats={{ clients: '600+', years: '10+', satisfaction: '97%', sessions: '4500+' }}
       testimonials={{
         titleKey: 'kinesiology.page.testimonialsTitle',
         items: [
@@ -85,6 +87,16 @@ export default function KinesiologiaContent() {
           {
             name: 'Marc Rivera',
             text: t('kinesiology.testimonial.2.text'),
+            rating: 5
+          },
+          {
+            name: 'Elena Costa',
+            text: t('kinesiology.testimonial.3.text'),
+            rating: 5
+          },
+          {
+            name: 'Pau Gómez',
+            text: t('kinesiology.testimonial.4.text'),
             rating: 5
           }
         ]

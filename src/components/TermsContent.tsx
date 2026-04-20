@@ -16,21 +16,48 @@ const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.
   </section>
 );
 
-const toc = [
-  { href: '#disclaimer', label: 'Health Disclaimer' },
-  { href: '#nature', label: 'Nature of Services' },
-  { href: '#acceptance', label: 'Acceptance' },
-  { href: '#eligibility', label: 'Eligibility' },
-  { href: '#limitations', label: 'Limitations' },
-  { href: '#contact', label: 'Contact' },
-];
-
 export default function TermsContent() {
   const { t } = useLanguage();
 
+  const toc = [
+    { href: '#disclaimer', label: t('legal.terms.toc.disclaimer') },
+    { href: '#nature', label: t('legal.terms.toc.nature') },
+    { href: '#acceptance', label: t('legal.terms.toc.acceptance') },
+    { href: '#eligibility', label: t('legal.terms.toc.eligibility') },
+    { href: '#limitations', label: t('legal.terms.toc.limitations') },
+    { href: '#contact', label: t('legal.terms.toc.contact') },
+  ];
+
+  const natureItems = [
+    t('legal.terms.nature.item1'),
+    t('legal.terms.nature.item2'),
+    t('legal.terms.nature.item3'),
+    t('legal.terms.nature.item4'),
+  ];
+
+  const acceptanceItems = [
+    t('legal.terms.acceptance.item1'),
+    t('legal.terms.acceptance.item2'),
+    t('legal.terms.acceptance.item3'),
+  ];
+
+  const eligibilityItems = [
+    t('legal.terms.eligibility.item1'),
+    t('legal.terms.eligibility.item2'),
+    t('legal.terms.eligibility.item3'),
+    t('legal.terms.eligibility.item4'),
+  ];
+
+  const limitationItems = [
+    t('legal.terms.limitations.item1'),
+    t('legal.terms.limitations.item2'),
+    t('legal.terms.limitations.item3'),
+    t('legal.terms.limitations.item4'),
+  ];
+
   return (
     <PageLayout
-      hero={{ title: t('footer.termsOfService') || 'Terms of Service', subtitle: `${t('common.lastUpdated')}: November 15, 2025` }}
+      hero={{ title: t('footer.termsOfService'), subtitle: `${t('common.lastUpdated')}: ${t('legal.date')}` }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
@@ -51,55 +78,37 @@ export default function TermsContent() {
           {/* Main content */}
           <div className="flex-1 min-w-0 space-y-14">
 
-            {/* Medical disclaimer — always first, always prominent */}
+            {/* Medical disclaimer */}
             <div id="disclaimer" className="scroll-mt-24 rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
                   <h2 className="text-lg font-medium text-foreground mb-3">{t('common.healthDisclaimerTitle')}</h2>
-                  <p className="text-foreground/90 mb-4 font-medium">
-                    EKA Balance provides complementary and alternative wellness services. These services are <strong>not medical treatment, diagnosis, or a substitute for licensed healthcare</strong>.
-                  </p>
+                  <p className="text-foreground/90 mb-4 font-medium">{t('legal.terms.warning.body')}</p>
                   <ul className="space-y-2 text-foreground/80 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <strong>{t('common.consultDoctor')}</strong>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      Do not stop, reduce, or change prescribed medications or medical treatment based on any content or session received at EKA Balance.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      Results from complementary therapy vary by person. No specific outcome is guaranteed.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      EKA Balance accepts no liability for health decisions made without consulting a licensed physician.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      In any medical emergency, call <strong>112</strong> immediately.
-                    </li>
+                    {[
+                      t('legal.terms.warning.stopMedication'),
+                      t('legal.terms.warning.variability'),
+                      t('legal.terms.warning.noLiability'),
+                      t('legal.terms.warning.emergency'),
+                    ].map(item => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                   <p className="mt-4 text-xs text-muted-foreground">
-                      Read the full <a href="/disclaimer" className="underline font-medium hover:text-foreground">Wellness Disclaimer</a>.
+                    <a href="/disclaimer" className="underline font-medium hover:text-foreground">{t('legal.terms.warning.link')}</a>
                   </p>
                 </div>
               </div>
             </div>
 
-            <Section id="nature" icon={Layers} title="1. Nature of Services">
-              <p>
-                EKA Balance provides complementary and integrative wellness services including therapeutic massage, kinesiology, nutritional guidance, somatic education, and bodywork. These services are:
-              </p>
+            <Section id="nature" icon={Layers} title={t('legal.terms.nature.title')}>
+              <p>{t('legal.terms.nature.intro')}</p>
               <ul className="space-y-2 ml-1">
-                {[
-                  'Supportive and educational in nature',
-                  'Complementary — not primary or medical care',
-                  'Not intended to diagnose, treat, cure, or prevent any disease or condition',
-                  'Not a substitute for licensed medical, psychiatric, or mental-health care',
-                ].map(item => (
+                {natureItems.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     <span>{item}</span>
@@ -107,23 +116,15 @@ export default function TermsContent() {
                 ))}
               </ul>
               <div className="rounded-[2rem] bg-primary/5 border border-border p-5 text-sm">
-                <p className="text-foreground">
-                  <strong>Important:</strong> Continue following your physician&apos;s recommendations. EKA Balance services work <em>alongside</em> conventional medicine, not in place of it.
-                </p>
+                <p className="text-foreground">{t('legal.terms.nature.important')}</p>
               </div>
             </Section>
 
-            <Section id="acceptance" icon={Users} title="2. Acceptance of Terms">
-              <p>
-                By booking, accessing, or using EKA Balance services, you confirm that you have read, understood, and agree to these Terms and our Privacy Policy.
-              </p>
-              <p>Your use constitutes explicit consent to:</p>
+            <Section id="acceptance" icon={Users} title={t('legal.terms.acceptance.title')}>
+              <p>{t('legal.terms.acceptance.body')}</p>
+              <p>{t('legal.terms.acceptance.intro')}</p>
               <ul className="space-y-2 ml-1">
-                {[
-                  'The collection and processing of personal data as described in our Privacy Policy',
-                  'The use of cookies as described in our Cookie Policy',
-                  'The nature of complementary wellness services as described in these Terms',
-                ].map(item => (
+                {acceptanceItems.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     <span>{item}</span>
@@ -132,15 +133,10 @@ export default function TermsContent() {
               </ul>
             </Section>
 
-            <Section id="eligibility" icon={Users} title="3. Eligibility">
-              <p>By using our services, you confirm that:</p>
+            <Section id="eligibility" icon={Users} title={t('legal.terms.eligibility.title')}>
+              <p>{t('legal.terms.eligibility.intro')}</p>
               <ul className="space-y-2 ml-1">
-                {[
-                  'You are at least 18 years old, or have parental consent if between 16–18',
-                  'You have the legal capacity to enter into binding agreements',
-                  'You will provide accurate and complete information',
-                  'You will comply with all applicable laws',
-                ].map(item => (
+                {eligibilityItems.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     <span>{item}</span>
@@ -149,17 +145,10 @@ export default function TermsContent() {
               </ul>
             </Section>
 
-            <Section id="limitations" icon={XCircle} title="4. Limitations of Liability">
-              <p>
-                EKA Balance and its practitioners are not liable for any health outcome, direct or indirect, arising from:
-              </p>
+            <Section id="limitations" icon={XCircle} title={t('legal.terms.limitations.title')}>
+              <p>{t('legal.terms.limitations.intro')}</p>
               <ul className="space-y-2 ml-1">
-                {[
-                  'Decisions made without consulting a licensed physician',
-                  'Stopping or modifying prescribed medical treatment',
-                  'Any pre-existing medical condition not disclosed prior to sessions',
-                  'Individual variation in response to complementary therapy',
-                ].map(item => (
+                {limitationItems.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-muted-foreground/60 shrink-0" />
                     <span>{item}</span>
@@ -168,15 +157,15 @@ export default function TermsContent() {
               </ul>
             </Section>
 
-            <Section id="contact" icon={Phone} title="5. Contact">
+            <Section id="contact" icon={Phone} title={t('legal.terms.contact.title')}>
               <div className="grid gap-4 sm:grid-cols-2 text-sm">
                 <div className="rounded-[2rem] bg-primary/5 border border-border p-5 space-y-1">
-                  <p className="font-medium text-foreground">Legal Inquiries</p>
+                  <p className="font-medium text-foreground">{t('legal.terms.contact.legal')}</p>
                   <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline block">legal@ekabalance.com</a>
-                  <p className="text-muted-foreground">Calle Plata 1, 08191 Rubí, Barcelona</p>
+                  <p className="text-muted-foreground">Carrer Pelai, 12, 08001 Barcelona</p>
                 </div>
                 <div className="rounded-[2rem] bg-muted/40 border border-border p-5 space-y-1">
-                  <p className="font-medium text-foreground">Data Protection Officer</p>
+                  <p className="font-medium text-foreground">{t('legal.terms.contact.dpo')}</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                   <p className="text-muted-foreground">+34 658 867 133</p>
                 </div>
@@ -184,7 +173,7 @@ export default function TermsContent() {
             </Section>
 
             <div className="border-t border-border/60 pt-6 text-center text-xs text-muted-foreground">
-              These Terms comply with applicable EU and Spanish consumer protection and data protection laws.
+              {t('legal.gdpr.terms')}
             </div>
           </div>
         </div>

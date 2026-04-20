@@ -16,21 +16,79 @@ const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.
   </section>
 );
 
-const toc = [
-  { href: '#disclaimer', label: 'Health Disclaimer' },
-  { href: '#controller', label: 'Data Controller' },
-  { href: '#data', label: 'Data We Collect' },
-  { href: '#basis', label: 'Legal Basis' },
-  { href: '#rights', label: 'Your Rights' },
-  { href: '#contact', label: 'Contact' },
-];
-
 export default function PrivacyPolicyContent() {
   const { t } = useLanguage();
 
+  const toc = [
+    { href: '#disclaimer', label: t('legal.privacy.toc.disclaimer') },
+    { href: '#controller', label: t('legal.privacy.toc.controller') },
+    { href: '#data', label: t('legal.privacy.toc.data') },
+    { href: '#basis', label: t('legal.privacy.toc.basis') },
+    { href: '#rights', label: t('legal.privacy.toc.rights') },
+    { href: '#contact', label: t('legal.privacy.toc.contact') },
+  ];
+
+  const personalItems = [
+    t('legal.privacy.data.personal.fullName'),
+    t('legal.privacy.data.personal.email'),
+    t('legal.privacy.data.personal.phone'),
+    t('legal.privacy.data.personal.address'),
+    t('legal.privacy.data.personal.dob'),
+  ];
+
+  const wellnessItems = [
+    t('legal.privacy.data.wellness.item1'),
+    t('legal.privacy.data.wellness.item2'),
+    t('legal.privacy.data.wellness.item3'),
+    t('legal.privacy.data.wellness.item4'),
+  ];
+
+  const legalBases = [
+    {
+      title: t('legal.privacy.basis.consent.title'),
+      items: [
+        t('legal.privacy.basis.consent.item1'),
+        t('legal.privacy.basis.consent.item2'),
+        t('legal.privacy.basis.consent.item3'),
+      ],
+    },
+    {
+      title: t('legal.privacy.basis.contract.title'),
+      items: [
+        t('legal.privacy.basis.contract.item1'),
+        t('legal.privacy.basis.contract.item2'),
+        t('legal.privacy.basis.contract.item3'),
+      ],
+    },
+    {
+      title: t('legal.privacy.basis.legal.title'),
+      items: [
+        t('legal.privacy.basis.legal.item1'),
+        t('legal.privacy.basis.legal.item2'),
+        t('legal.privacy.basis.legal.item3'),
+      ],
+    },
+    {
+      title: t('legal.privacy.basis.interest.title'),
+      items: [
+        t('legal.privacy.basis.interest.item1'),
+        t('legal.privacy.basis.interest.item2'),
+        t('legal.privacy.basis.interest.item3'),
+      ],
+    },
+  ];
+
+  const rights = [
+    { right: t('legal.privacy.right.access'), desc: t('legal.privacy.right.access.desc') },
+    { right: t('legal.privacy.right.erasure'), desc: t('legal.privacy.right.erasure.desc') },
+    { right: t('legal.privacy.right.rectification'), desc: t('legal.privacy.right.rectification.desc') },
+    { right: t('legal.privacy.right.portability'), desc: t('legal.privacy.right.portability.desc') },
+    { right: t('legal.privacy.right.objection'), desc: t('legal.privacy.right.objection.desc') },
+  ];
+
   return (
     <PageLayout
-      hero={{ title: t('footer.privacyPolicy') || 'Privacy Policy', subtitle: `${t('common.lastUpdated')}: November 15, 2025` }}
+      hero={{ title: t('footer.privacyPolicy'), subtitle: `${t('common.lastUpdated')}: ${t('legal.date')}` }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
@@ -51,35 +109,28 @@ export default function PrivacyPolicyContent() {
           {/* Main content */}
           <div className="flex-1 min-w-0 space-y-14">
 
-            {/* Medical disclaimer — always first, always prominent */}
+            {/* Medical disclaimer */}
             <div id="disclaimer" className="scroll-mt-24 rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
                   <h2 className="text-lg font-medium text-foreground mb-3">{t('common.healthDisclaimerTitle')}</h2>
-                  <p className="text-foreground/90 mb-4 font-medium">
-                    EKA Balance offers complementary and alternative wellness services. Our services are <strong>not medical diagnosis, medical treatment, or a substitute for licensed healthcare</strong>.
-                  </p>
+                  <p className="text-foreground/90 mb-4 font-medium">{t('legal.privacy.warning.body')}</p>
                   <ul className="space-y-2 text-foreground/80 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      {t('common.consultDoctor')}
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      Do not stop prescribed medication or medical treatment based on information from this website.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      If you are experiencing a medical emergency, call emergency services immediately (112 in Spain).
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      EKA Balance takes no responsibility for health outcomes resulting from actions taken without consulting a licensed physician.
-                    </li>
+                    {[
+                      t('legal.privacy.warning.stopMedication'),
+                      t('legal.privacy.warning.emergency'),
+                      t('legal.privacy.warning.noResponsibility'),
+                    ].map(item => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                   <p className="mt-4 text-xs text-muted-foreground">
-                    See our full <a href="/disclaimer" className="underline font-medium hover:text-foreground">Alternative Therapy Disclaimer</a> for complete details.
+                    {t('legal.privacy.warning.link')}{' '}
+                    <a href="/disclaimer" className="underline font-medium hover:text-foreground">{t('footer.disclaimer')}</a>
                   </p>
                 </div>
               </div>
@@ -89,7 +140,7 @@ export default function PrivacyPolicyContent() {
               <div className="bg-muted/40 border border-border rounded-[2rem] p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 {[
                   [t('common.name'), 'Olena Kucherova Dryzhak (EKA Balance)'],
-                  [t('common.address'), 'Calle Plata 1, 08191 Rubí, Barcelona, Spain'],
+                  [t('common.address'), 'Carrer Pelai, 12, 08001 Barcelona, Spain'],
                   [t('common.phone'), '+34 658 867 133'],
                   [t('common.email'), 'legal@ekabalance.com'],
                 ].map(([label, value]) => (
@@ -100,35 +151,35 @@ export default function PrivacyPolicyContent() {
                 ))}
               </div>
               <div className="mt-4 rounded-[2rem] border border-border bg-primary/5 p-6 grid sm:grid-cols-2 gap-4 text-sm">
-                <div className="sm:col-span-2"><span className="text-xs font-medium uppercase tracking-wider text-primary">Data Protection Officer (DPO)</span></div>
+                <div className="sm:col-span-2"><span className="text-xs font-medium uppercase tracking-wider text-primary">{t('legal.privacy.dpo.title')}</span></div>
                 {[
-                  ['Name', 'Olena Kucherova Dryzhak'],
-                  ['Email', 'dpo@ekabalance.com'],
-                  ['Phone', '+34 658 867 133'],
+                  [t('common.name'), 'Olena Kucherova Dryzhak'],
+                  [t('common.email'), 'dpo@ekabalance.com'],
+                  [t('common.phone'), '+34 658 867 133'],
                 ].map(([label, value]) => (
                   <div key={label}>
                     <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">{label}</span>
-                    <span className="text-foreground">{label === 'Email' ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
+                    <span className="text-foreground">{label === t('common.email') ? <a href={`mailto:${value}`} className="text-primary hover:underline">{value}</a> : value}</span>
                   </div>
                 ))}
               </div>
             </Section>
 
-            <Section id="data" icon={File01Icon} title="1. Data We Collect">
-              <p>We collect personal data necessary to provide our wellness services, including:</p>
+            <Section id="data" icon={File01Icon} title={t('legal.privacy.data.title')}>
+              <p>{t('legal.privacy.data.intro')}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="rounded-[2rem] border border-border bg-primary/5 p-5">
-                  <p className="font-medium text-foreground text-sm mb-2">Personal Identification</p>
+                  <p className="font-medium text-foreground text-sm mb-2">{t('legal.privacy.data.personal.title')}</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
-                    {['Full name', 'Email address', 'Phone number', 'Postal address', 'Date of birth'].map(item => (
+                    {personalItems.map(item => (
                       <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-primary/50 shrink-0"/>{item}</li>
                     ))}
                   </ul>
                 </div>
                 <div className="rounded-[2rem] border border-border bg-muted/40 p-5">
-                  <p className="font-medium text-foreground text-sm mb-2">Wellness &amp; Health Data</p>
+                  <p className="font-medium text-foreground text-sm mb-2">{t('legal.privacy.data.wellness.title')}</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
-                    {['Physical condition & wellbeing notes', 'Pain or discomfort indicators', 'Session history and preferences', 'Emotional wellbeing notes (with consent)'].map(item => (
+                    {wellnessItems.map(item => (
                       <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-muted-foreground/60 shrink-0"/>{item}</li>
                     ))}
                   </ul>
@@ -136,14 +187,9 @@ export default function PrivacyPolicyContent() {
               </div>
             </Section>
 
-            <Section id="basis" icon={JusticeScale01Icon} title="2. Legal Basis for Processing (GDPR Art. 6)">
+            <Section id="basis" icon={JusticeScale01Icon} title={t('legal.privacy.basis.title')}>
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { title: 'Consent (Art. 6(1)(a))', items: ['Marketing communications', 'Non-essential cookies', 'Wellness data with explicit consent'] },
-                  { title: 'Contractual Necessity', items: ['Providing booked services', 'Processing payments', 'Customer support'] },
-                  { title: 'Legal Obligations', items: ['Tax and accounting', 'Health & safety requirements', 'Data retention rules'] },
-                  { title: 'Legitimate Interests', items: ['Service improvement', 'Fraud prevention', 'Statistical analysis'] },
-                ].map(({ title, items }) => (
+                {legalBases.map(({ title, items }) => (
                   <div key={title} className="rounded-[2rem] border border-border bg-muted/40 p-5">
                     <p className="font-medium text-foreground text-sm mb-2">{title}</p>
                     <ul className="space-y-1 text-sm text-foreground/80">
@@ -154,15 +200,9 @@ export default function PrivacyPolicyContent() {
               </div>
             </Section>
 
-            <Section id="rights" icon={SecurityCheckIcon} title="3. Your Rights Under GDPR (Arts. 12–22)">
+            <Section id="rights" icon={SecurityCheckIcon} title={t('legal.privacy.rights.title')}>
               <div className="space-y-3">
-                {[
-                  { right: 'Access (Art. 15)', desc: 'Request a copy of all personal data we hold about you. We respond within 30 days.' },
-                  { right: 'Erasure (Art. 17)', desc: 'Request deletion of your data when there is no longer a lawful basis to retain it.' },
-                  { right: 'Rectification (Art. 16)', desc: 'Request correction of inaccurate or incomplete personal data.' },
-                  { right: 'Portability (Art. 20)', desc: 'Receive your data in a structured, machine-readable format.' },
-                  { right: 'Objection (Art. 21)', desc: 'Object to processing based on legitimate interests or for direct marketing.' },
-                ].map(({ right, desc }) => (
+                {rights.map(({ right, desc }) => (
                   <div key={right} className="flex gap-4 rounded-[2rem] bg-muted/40 p-4 border border-border">
                     <span className="font-medium text-foreground text-sm w-36 shrink-0">{right}</span>
                     <span className="text-sm text-foreground/80">{desc}</span>
@@ -170,28 +210,28 @@ export default function PrivacyPolicyContent() {
                 ))}
               </div>
               <div className="rounded-[2rem] bg-primary/5 border border-border p-5 text-sm">
-                <p className="font-medium text-foreground mb-1">To exercise your rights, contact:</p>
+                <p className="font-medium text-foreground mb-1">{t('legal.privacy.toc.contact')}:</p>
                 <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline">dpo@ekabalance.com</a>
               </div>
             </Section>
 
-            <Section id="contact" icon={MailIcon} title="Contact & Supervisory Authority">
+            <Section id="contact" icon={MailIcon} title={`${t('legal.privacy.toc.contact')} & ${t('legal.privacy.contact.authority.title')}`}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[2rem] bg-muted/40 border border-border p-5 text-sm space-y-2">
-                  <p className="font-medium text-foreground">DPO Contact</p>
+                  <p className="font-medium text-foreground">{t('legal.privacy.dpo.title')}</p>
                   <p className="text-foreground/80">Olena Kucherova Dryzhak</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                 </div>
                 <div className="rounded-[2rem] bg-destructive/5 border border-destructive/20 p-5 text-sm space-y-2">
-                  <p className="font-medium text-foreground">Supervisory Authority</p>
-                  <p className="text-foreground/80">Agencia Española de Protección de Datos (AEPD)</p>
+                  <p className="font-medium text-foreground">{t('legal.privacy.contact.authority.title')}</p>
+                  <p className="text-foreground/80">{t('legal.privacy.contact.authority.name')}</p>
                   <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline block">www.aepd.es</a>
                 </div>
               </div>
             </Section>
 
             <div className="border-t border-border/60 pt-6 text-center text-xs text-muted-foreground">
-              This Privacy Policy complies with Regulation (EU) 2016/679 (GDPR).
+              {t('legal.gdpr.privacy')}
             </div>
           </div>
         </div>

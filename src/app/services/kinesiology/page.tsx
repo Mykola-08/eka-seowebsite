@@ -8,5 +8,5 @@ export default function KinesiologiaPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/kinesiology');
+  return generateAppMetadata('kinesiology', '/services/kinesiology');
 }

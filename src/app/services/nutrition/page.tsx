@@ -8,5 +8,5 @@ export default function NutritionPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/nutrition');
+  return generateAppMetadata('nutrition', '/services/nutrition');
 }

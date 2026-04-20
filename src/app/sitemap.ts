@@ -1,57 +1,76 @@
 import type { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://ekabalance.com';
+const LOCALES = ['ca', 'en', 'es', 'ru'] as const;
+
+type RouteEntry = {
+  path: string;
+  changeFrequency: 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' | 'always' | 'hourly';
+  priority: number;
+};
+
+const ROUTES: RouteEntry[] = [
+  { path: '', changeFrequency: 'weekly', priority: 1.0 },
+  { path: '/about-elena', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/services', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/booking', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/cases', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/discovery', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/discounts', changeFrequency: 'weekly', priority: 0.6 },
+  { path: '/first-time', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/vip', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/360-revision', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/personalized-services', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/agenyz', changeFrequency: 'weekly', priority: 0.6 },
+
+  // Service detail pages
+  { path: '/services/massage', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/services/kinesiology', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/services/nutrition', changeFrequency: 'monthly', priority: 0.8 },
+
+  // Audience-specific pages
+  { path: '/for-athletes', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/for-business', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/for-musicians', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/for-office-workers', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/for-students', changeFrequency: 'monthly', priority: 0.7 },
+
+  // Service audience pages
+  { path: '/services/adults', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/children', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/families', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/athletes', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/artists', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/musicians', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/students', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/office-workers', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/services/parents', changeFrequency: 'monthly', priority: 0.6 },
+
+  // Technique
+  { path: '/technique', changeFrequency: 'monthly', priority: 0.6 },
+
+  // Legal
+  { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/terms-of-service', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/cookie-policy', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/disclaimer', changeFrequency: 'yearly', priority: 0.3 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
-  
-  // Static pages with their priority and change frequency
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE_URL}/about-elena`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/services`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/booking`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/cases`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${BASE_URL}/discovery`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/discounts`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
-    { url: `${BASE_URL}/first-time`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/vip`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/360-revision`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/personalized-services`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/agenyz`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
-    
-    // Service detail pages
-    { url: `${BASE_URL}/services/massage`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/services/kinesiology`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/services/nutrition`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    
-    // Audience-specific pages
-    { url: `${BASE_URL}/for-athletes`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/for-business`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/for-musicians`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/for-office-workers`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/for-students`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    
-    // Service audience pages
-    { url: `${BASE_URL}/services/adults`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/children`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/families`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/athletes`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/artists`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/musicians`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/students`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/office-workers`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/services/parents`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    
-    // Technique pages
-    { url: `${BASE_URL}/technique`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    
-    // Legal pages
-    { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/terms-of-service`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/disclaimer`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-  ];
 
-  return staticPages;
-}
+  return ROUTES.map(({ path, changeFrequency, priority }) => {
+    const url = `${BASE_URL}${path}`;
+    const languages: Record<string, string> = { 'x-default': url };
+    for (const l of LOCALES) {
+      languages[l] = url;
+    }
+    return {
+      url,
+      lastModified: now,
+      changeFrequency,
+      priority,
+      alternates: { languages },
+    };
+  });
+}

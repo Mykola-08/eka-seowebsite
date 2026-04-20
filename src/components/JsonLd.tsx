@@ -1,5 +1,6 @@
-const SITE = "https://ekabalance.com";
+import type { Locale } from '@/lib/i18n';
 
+const SITE = "https://ekabalance.com";
 export default function JsonLd() {
   const localBusiness = {
     "@context": "https://schema.org",
@@ -329,78 +330,12 @@ export default function JsonLd() {
     "@type": "WebPage",
     "@id": `${SITE}#webpage`,
     url: SITE,
-    name: "EKA Balance – Holistic Wellness Barcelona",
-    inLanguage: ["ca", "en", "es", "ru"],
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", "h2", ".apple-subtitle", ".heading-3", "[data-speakable]"],
     },
   };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: `${SITE}/services`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Book a Session",
-        item: `${SITE}/booking`,
-      },
-    ],
-  };
-
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to get started at EKA Balance",
-    description: "Start your holistic wellness journey at EKA Balance in three simple steps.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Discover your path",
-        text: "Take our short wellness quiz at ekabalance.com/discovery to identify which therapies best match your needs and goals.",
-        url: `${SITE}/discovery`,
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Book a 360° Revision or first session",
-        text: "Schedule your initial 360° health revision or a first therapy session via the online booking form, WhatsApp (+34 658 867 133), or email.",
-        url: `${SITE}/booking`,
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Follow your personalised plan",
-        text: "After your assessment, receive a personalised wellness roadmap with recommended therapies, session frequency, and lifestyle guidance.",
-      },
-    ],
-  };
-
-  const schemas = [
-    localBusiness,
-    website,
-    faqSchema,
-    personSchema,
-    speakable,
-    breadcrumbSchema,
-    howToSchema,
-  ];
-
+  const schemas = [localBusiness, website, faqSchema, personSchema, speakable];
   return (
     <>
       {schemas.map((schema, i) => (

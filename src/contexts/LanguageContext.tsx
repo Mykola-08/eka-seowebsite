@@ -18,19 +18,36 @@ import { Language, LanguageContextType } from './LanguageTypes';
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('es');
+const SUPPORTED: Language[] = ['ca', 'en', 'es', 'ru'];
+
+function setLocaleCookie(value: Language) {
+  if (typeof document === 'undefined') return;
+  document.cookie = `NEXT_LOCALE=${value}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+}
+
+export function LanguageProvider({
+  children,
+  initialLanguage = 'ca',
+}: {
+  children: React.ReactNode;
+  initialLanguage?: Language;
+}) {
+  const [language, setLanguageState] = useState<Language>(initialLanguage);
   const [languageConfirmed, setLanguageConfirmed] = useState(false);
   const [showLanguagePopup, setShowLanguagePopup] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('language') as Language;
-    if (savedLang && ['ca', 'en', 'es', 'ru'].includes(savedLang)) {
-      setTimeout(() => {
+    const savedLang = localStorage.getItem('language') as Language | null;
+    if (savedLang && SUPPORTED.includes(savedLang)) {
+      if (savedLang !== language) {
+        // One-time sync of persisted preference into React state on mount.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLanguageState(savedLang);
-        setLanguageConfirmed(true);
-      }, 0);
+        setLocaleCookie(savedLang);
+      }
+      setLanguageConfirmed(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const t = (key: string, params?: Record<string, string | number>): string => {
@@ -73,7 +90,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLanguage = (newLang: Language) => {
     setLanguageState(newLang);
-    localStorage.setItem('language', newLang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', newLang);
+    }
+    setLocaleCookie(newLang);
   };
 
   const confirmLanguage = (lang: Language) => {

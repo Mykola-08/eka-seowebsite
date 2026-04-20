@@ -18,3 +18,15 @@ public/output.css
 test-results/
 *.log
 tsconfig.tsbuildinfo
+
+# Translation audit artifacts
+to-translate.json
+missing.json
+
+# Bundle analyzer reports
+.next/analyze/
+*.bundle-analysis.html
+
+# Playwright artifacts
+playwright-report/
+.playwright/

@@ -320,107 +320,108 @@ export default function MainLayout({
                         {item.name}
                         {item.hasDropdown && <ArrowDown01Icon className={`w-3 h-3 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />}
                       </Link>
+                      
+                      {/* Inner Dropdown */}
+                      {item.hasDropdown && activeDropdown === item.name && (
+                        <AnimatePresence>
+                          <motion.div
+                            key={`${item.name}-dropdown`}
+                            initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                            transition={{ type: 'spring', stiffness: 340, damping: 26 }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 z-110 pt-4"
+                            style={{
+                              width: item.dropdownWidth || 460,
+                              transformOrigin: 'top center',
+                            }}
+                            onMouseEnter={() => keepMenuOpen(item.name)}
+                            onMouseLeave={scheduleHide}
+                          >
+                            {/* Transparent bridge — covers gap between nav link and panel */}
+                            <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
+
+                            {/* Arrow beak */}
+                            <div
+                              className="absolute top-2.5 h-3 w-3 bg-background/95 border-t border-l border-border rotate-45 z-10"
+                              style={{ left: '50%', marginLeft: '-6px' }}
+                            />
+
+                            <div className="bg-background/95 backdrop-blur-2xl rounded-apple border border-border shadow-2xl overflow-hidden relative">
+                              {/* Top accent */}
+                              <div className="h-px w-full bg-linear-to-r from-transparent via-primary/40 to-transparent" />
+
+                              <div className="p-4 space-y-4">
+                                {/* Core services — 2 col grid */}
+                                <div className="grid grid-cols-2 gap-1.5">
+                                  {coreServices.map((svc) => (
+                                    <Link
+                                      key={svc.href}
+                                      href={svc.href}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="group/item flex items-center gap-3 p-3 rounded-2xl hover:bg-muted/70 transition-colors duration-200"
+                                    >
+                                      <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-muted text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-200 shrink-0">
+                                        {svc.icon}
+                                      </span>
+                                      <div className="min-w-0">
+                                        <span className="font-medium text-sm text-foreground block leading-tight">{svc.name}</span>
+                                        <span className="text-[11px] text-muted-foreground truncate block mt-0.5">{svc.subtitle}</span>
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
+
+                                {/* Divider + personalized section */}
+                                <div className="border-t border-border/60 pt-3">
+                                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1 mb-2">
+                                    {t('nav.personalizedServices') || 'Personalized for'}
+                                  </p>
+                                  <div className="grid grid-cols-4 gap-1">
+                                    {personalizedServices.map((svc) => (
+                                      <Link
+                                        key={svc.href}
+                                        href={svc.href}
+                                        onClick={() => setActiveDropdown(null)}
+                                        className="group/pill flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-muted/70 transition-colors duration-200 text-center"
+                                      >
+                                        <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-muted text-muted-foreground group-hover/pill:bg-primary/10 group-hover/pill:text-primary transition-colors duration-200">
+                                          {svc.icon}
+                                        </span>
+                                        <span className="text-[10px] text-muted-foreground group-hover/pill:text-foreground leading-tight transition-colors">{svc.name}</span>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Footer links */}
+                                <div className="border-t border-border/60 pt-2 flex items-center justify-between">
+                                  <Link
+                                    href="/services"
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="text-xs text-muted-foreground hover:text-foreground transition-colors px-1"
+                                  >
+                                    {t('nav.services')} →
+                                  </Link>
+                                  <Link
+                                    href="/personalized-services"
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="text-xs text-primary hover:text-primary/80 transition-colors font-medium px-1"
+                                  >
+                                    {t('nav.personalizedServices')} →
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </AnimatePresence>
+                      )}
                     </div>
                   )
                 })}
               </div>
 
-              <AnimatePresence>
-                {activeDropdown === t('nav.services') && dropdownPosition && (
-                  <motion.div
-                    key="services-dropdown"
-                    initial={{ opacity: 0, y: -6, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -6, scale: 0.97 }}
-                    transition={{ type: 'spring', stiffness: 340, damping: 26 }}
-                    className="fixed z-[110]"
-                    style={{
-                      top: dropdownPosition.top,
-                      left: dropdownPosition.left,
-                      width: dropdownPosition.width,
-                      transformOrigin: `${dropdownPosition.originX}% top`,
-                    }}
-                    onMouseEnter={() => keepMenuOpen(t('nav.services'))}
-                    onMouseLeave={scheduleHide}
-                  >
-                    {/* Transparent bridge — covers gap between nav link and panel */}
-                    <div className="h-3 w-full" />
-
-                    {/* Arrow beak */}
-                    <div
-                      className="absolute top-1.5 h-3 w-3 bg-background/95 border-t border-l border-border rotate-45 z-10"
-                      style={{ left: `${dropdownPosition.originX}%`, marginLeft: '-6px' }}
-                    />
-
-                    <div className="bg-background/95 backdrop-blur-2xl rounded-[2rem] border border-border shadow-2xl overflow-hidden">
-                      {/* Top accent */}
-                      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-
-                      <div className="p-4 space-y-4">
-                        {/* Core services — 2 col grid */}
-                        <div className="grid grid-cols-2 gap-1.5">
-                          {coreServices.map((svc) => (
-                            <Link
-                              key={svc.href}
-                              href={svc.href}
-                              onClick={() => setActiveDropdown(null)}
-                              className="group/item flex items-center gap-3 p-3 rounded-2xl hover:bg-muted/70 transition-colors duration-200"
-                            >
-                              <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-muted text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-200 shrink-0">
-                                {svc.icon}
-                              </span>
-                              <div className="min-w-0">
-                                <span className="font-medium text-sm text-foreground block leading-tight">{svc.name}</span>
-                                <span className="text-[11px] text-muted-foreground truncate block mt-0.5">{svc.subtitle}</span>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-
-                        {/* Divider + personalized section */}
-                        <div className="border-t border-border/60 pt-3">
-                          <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1 mb-2">
-                            {t('nav.personalizedServices') || 'Personalized for'}
-                          </p>
-                          <div className="grid grid-cols-4 gap-1">
-                            {personalizedServices.map((svc) => (
-                              <Link
-                                key={svc.href}
-                                href={svc.href}
-                                onClick={() => setActiveDropdown(null)}
-                                className="group/pill flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-muted/70 transition-colors duration-200 text-center"
-                              >
-                                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-muted text-muted-foreground group-hover/pill:bg-primary/10 group-hover/pill:text-primary transition-colors duration-200">
-                                  {svc.icon}
-                                </span>
-                                <span className="text-[10px] text-muted-foreground group-hover/pill:text-foreground leading-tight transition-colors">{svc.name}</span>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Footer links */}
-                        <div className="border-t border-border/60 pt-2 flex items-center justify-between">
-                          <Link
-                            href="/services"
-                            onClick={() => setActiveDropdown(null)}
-                            className="text-xs text-muted-foreground hover:text-foreground transition-colors px-1"
-                          >
-                            {t('nav.services')} →
-                          </Link>
-                          <Link
-                            href="/personalized-services"
-                            onClick={() => setActiveDropdown(null)}
-                            className="text-xs text-primary hover:text-primary/80 transition-colors font-medium px-1"
-                          >
-                            {t('nav.personalizedServices')} →
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              
 
               <div className="flex items-center space-x-3 ml-auto z-10">
                 <Button asChild size="sm" className="rounded-full h-9 px-5">

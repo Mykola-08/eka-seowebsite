@@ -12,6 +12,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
+import { getServerLocale, HTML_LANG } from '@/lib/i18n';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,7 +31,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const lang = 'ca'; 
+  const locale = await getServerLocale();
+  const lang = HTML_LANG[locale];
 
   return (
     <html lang={lang} className={inter.variable} suppressHydrationWarning>
@@ -39,7 +41,7 @@ export default async function RootLayout({
       </head>
       <body className="antialiased selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
         <ErrorBoundary>
-          <LanguageProvider>
+          <LanguageProvider initialLanguage={locale}>
             <DiscountProvider>
               <BookingProvider>
                 <SmoothScrolling>
@@ -47,7 +49,7 @@ export default async function RootLayout({
                     {children}
                   </MainLayout>
                 </SmoothScrolling>
-                <JsonLd />
+                <JsonLd locale={locale} />
                 <Toaster position="top-center" expand={false} richColors />
               </BookingProvider>
             </DiscountProvider>

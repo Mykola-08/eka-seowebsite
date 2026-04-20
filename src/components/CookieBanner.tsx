@@ -1,5 +1,4 @@
-﻿/* eslint-disable @typescript-eslint/no-explicit-any */
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { X, Cookie } from '@/lib/icons';
@@ -18,8 +17,8 @@ export default function CookieBanner() {
       const timer = setTimeout(() => setIsVisible(true), 1000);
       return () => clearTimeout(timer);
     } else if (cookieConsent === 'accepted') {
-      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-        (window as any).gtag('consent', 'update', {
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
           ad_storage: 'granted',
           ad_user_data: 'granted',
           ad_personalization: 'granted',
@@ -27,15 +26,17 @@ export default function CookieBanner() {
         });
       }
       // Grant HubSpot cookie consent
-      const _hsp = (window as any)._hsp = (window as any)._hsp || [];
-      _hsp.push(['showBanner', false]);
+      if (typeof window !== 'undefined') {
+        const _hsp = (window._hsp = window._hsp || []);
+        _hsp.push(['showBanner', false]);
+      }
     }
   }, []);
 
   const acceptCookies = () => {
     localStorage.setItem('ekabalance-cookie-consent', 'accepted');
-    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-      (window as any).gtag('consent', 'update', {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
         ad_storage: 'granted',
         ad_user_data: 'granted',
         ad_personalization: 'granted',
@@ -43,15 +44,17 @@ export default function CookieBanner() {
       });
     }
     // Grant HubSpot cookie consent
-    const _hsp = (window as any)._hsp = (window as any)._hsp || [];
-    _hsp.push(['showBanner', false]);
+    if (typeof window !== 'undefined') {
+      const _hsp = (window._hsp = window._hsp || []);
+      _hsp.push(['showBanner', false]);
+    }
     setIsVisible(false);
   };
 
   const rejectCookies = () => {
     localStorage.setItem('ekabalance-cookie-consent', 'rejected');
-    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-      (window as any).gtag('consent', 'update', {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
         ad_storage: 'denied',
         ad_user_data: 'denied',
         ad_personalization: 'denied',
@@ -59,8 +62,10 @@ export default function CookieBanner() {
       });
     }
     // Revoke HubSpot cookie consent
-    const _hsp = (window as any)._hsp = (window as any)._hsp || [];
-    _hsp.push(['revokeCookieConsent']);
+    if (typeof window !== 'undefined') {
+      const _hsp = (window._hsp = window._hsp || []);
+      _hsp.push(['revokeCookieConsent']);
+    }
     setIsVisible(false);
   };
 

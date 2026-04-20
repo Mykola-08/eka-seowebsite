@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 import PageLayout from '@/components/PageLayout';
@@ -66,7 +67,15 @@ export default function PersonalizedServiceTemplate({
             }
           />
           <div className="mt-16 relative rounded-[2.5rem] overflow-hidden aspect-[21/9] shadow-2xl">
-             <img src={hero.backgroundImage} alt={t(hero.titleKey)} className="absolute inset-0 w-full h-full object-cover" />
+             <Image
+               src={hero.backgroundImage}
+               alt={t(hero.titleKey)}
+               fill
+               sizes="(max-width: 1024px) 100vw, 1280px"
+               priority
+               fetchPriority="high"
+               className="object-cover"
+             />
           </div>
         </Section>
 

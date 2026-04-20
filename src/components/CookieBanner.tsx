@@ -68,7 +68,7 @@ export default function CookieBanner() {
     { href: '/cookie-policy', label: t('cookies.learnMore') },
     { href: '/privacy-policy', label: t('footer.privacyPolicy') },
     { href: '/terms-of-service', label: t('footer.termsOfService') },
-    { href: '/disclaimer', label: 'Disclaimer' },
+    { href: '/disclaimer', label: t('footer.disclaimer') },
   ];
 
   return (

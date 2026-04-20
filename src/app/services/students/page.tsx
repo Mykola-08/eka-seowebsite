@@ -8,5 +8,5 @@ export default function StudentsPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/students');
+  return generateAppMetadata('students', '/services/students');
 }

@@ -8,5 +8,5 @@ export default function AdultsPage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/adults');
+  return generateAppMetadata('adults', '/services/adults');
 }

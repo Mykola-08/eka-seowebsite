@@ -16,19 +16,44 @@ const Section = ({ id, icon: Icon, title, children }: { id: string; icon: React.
   </section>
 );
 
-const toc = [
-  { href: '#disclaimer', label: 'Health Notice' },
-  { href: '#what', label: 'What Are Cookies' },
-  { href: '#types', label: 'Types We Use' },
-  { href: '#manage', label: 'Managing Cookies' },
-];
-
 export default function CookiePolicyContent() {
   const { t } = useLanguage();
 
+  const toc = [
+    { href: '#disclaimer', label: t('legal.cookie.toc.notice') },
+    { href: '#what', label: t('legal.cookie.toc.what') },
+    { href: '#types', label: t('legal.cookie.toc.types') },
+    { href: '#manage', label: t('legal.cookie.toc.manage') },
+  ];
+
+  const cookieTypes = [
+    {
+      title: t('legal.cookie.essential.title'),
+      desc: t('legal.cookie.essential.desc'),
+      required: true,
+    },
+    {
+      title: t('legal.cookie.analytics.title'),
+      desc: t('legal.cookie.analytics.desc'),
+      required: false,
+    },
+    {
+      title: t('legal.cookie.preference.title'),
+      desc: t('legal.cookie.preference.desc'),
+      required: false,
+    },
+  ];
+
+  const browserSettings = [
+    t('legal.cookie.browser.chrome'),
+    t('legal.cookie.browser.firefox'),
+    t('legal.cookie.browser.safari'),
+    t('legal.cookie.browser.edge'),
+  ];
+
   return (
     <PageLayout
-      hero={{ title: t('footer.cookiePolicy') || 'Cookie Policy', subtitle: `${t('common.lastUpdated')}: November 15, 2025` }}
+      hero={{ title: t('footer.cookiePolicy'), subtitle: `${t('common.lastUpdated')}: ${t('legal.date')}` }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
@@ -54,49 +79,30 @@ export default function CookiePolicyContent() {
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-5 h-5 text-foreground shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium text-foreground mb-1">Complementary Wellness Notice</p>
+                  <p className="font-medium text-foreground mb-1">{t('legal.wellness.notice.title')}</p>
                   <p className="text-foreground/80 text-sm">
-                    This website presents complementary and alternative wellness services. Nothing on this site constitutes medical advice, diagnosis, or treatment.{' '}
-                    <strong>Always consult your doctor before making any health decision.</strong>{' '}
-                    <em>Consulta a tu médico antes de tomar ninguna decisión de salud.</em>
+                    {t('legal.wellness.notice.body')}{' '}
+                    <strong>{t('legal.wellness.notice.warning')}</strong>
                   </p>
                   <a href="/disclaimer" className="text-xs text-muted-foreground underline hover:text-foreground mt-2 inline-block">
-                    Full Wellness Disclaimer →
+                    {t('legal.wellness.notice.link')}
                   </a>
                 </div>
               </div>
             </div>
 
-            <Section id="what" icon={CookieIcon} title="1. What Are Cookies (GDPR Art. 4(11))">
-              <p>
-                Cookies are small text files placed on your device when you visit our website. They help us provide a functional, secure, and improved experience. Cookies may be first-party (set by us) or third-party (set by external services like analytics).
-              </p>
+            <Section id="what" icon={CookieIcon} title={t('legal.cookie.what.title')}>
+              <p>{t('legal.cookie.what.body')}</p>
             </Section>
 
-            <Section id="types" icon={BarChartIcon} title="2. Cookies We Use">
+            <Section id="types" icon={BarChartIcon} title={t('legal.cookie.types.title')}>
               <div className="grid gap-4">
-                {[
-                  {
-                    title: 'Essential Cookies',
-                    desc: 'Required for the website to function. They cannot be disabled. Used for navigation, security, and booking flows.',
-                    required: true,
-                  },
-                  {
-                    title: 'Analytics Cookies',
-                    desc: 'Help us understand how visitors use our site (e.g., Google Analytics). Used anonymously to improve content and performance.',
-                    required: false,
-                  },
-                  {
-                    title: 'Preference Cookies',
-                    desc: 'Remember your language and region settings so you don\u2019t need to reselect them on each visit.',
-                    required: false,
-                  },
-                ].map(({ title, desc, required }) => (
+                {cookieTypes.map(({ title, desc, required }) => (
                   <div key={title} className="rounded-[2rem] border border-border bg-muted/40 p-5">
                     <div className="flex items-center justify-between mb-2">
                       <p className="font-medium text-foreground text-sm">{title}</p>
                       <span className={`text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full ${required ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}>
-                        {required ? 'Always Active' : 'Optional'}
+                        {required ? t('legal.cookie.alwaysActive') : t('legal.cookie.optional')}
                       </span>
                     </div>
                     <p className="text-sm text-foreground/80">{desc}</p>
@@ -105,28 +111,25 @@ export default function CookiePolicyContent() {
               </div>
             </Section>
 
-            <Section id="manage" icon={Settings01Icon} title="3. Managing Cookies">
-              <p>
-                You can manage, restrict, or delete cookies at any time through your browser settings. Disabling non-essential cookies will not affect core website functionality.
-              </p>
-              <p>
-                You may also withdraw consent granted through our cookie banner at any time by clearing your browser cookies and revisiting the site.
-              </p>
+            <Section id="manage" icon={Settings01Icon} title={t('legal.cookie.manage.title')}>
+              <p>{t('legal.cookie.manage.body1')}</p>
+              <p>{t('legal.cookie.manage.body2')}</p>
               <div className="rounded-[2rem] bg-muted/40 border border-border p-5 text-sm">
-                <p className="font-medium text-foreground mb-2">Browser Cookie Settings</p>
+                <p className="font-medium text-foreground mb-2">{t('legal.cookie.browser.title')}</p>
                 <ul className="space-y-1 text-foreground/80">
-                  {['Chrome: Settings → Privacy → Cookies', 'Firefox: Options → Privacy → Cookies', 'Safari: Preferences → Privacy', 'Edge: Settings → Privacy → Cookies'].map(item => (
+                  {browserSettings.map(item => (
                     <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-muted-foreground/60 shrink-0"/>{item}</li>
                   ))}
                 </ul>
               </div>
               <p>
-                For questions, contact: <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline">legal@ekabalance.com</a>
+                {t('legal.cookie.contact.prefix')}{' '}
+                <a href="mailto:legal@ekabalance.com" className="text-primary hover:underline">legal@ekabalance.com</a>
               </p>
             </Section>
 
             <div className="border-t border-border/60 pt-6 text-center text-xs text-muted-foreground">
-              This Cookie Policy complies with Regulation (EU) 2016/679 (GDPR).
+              {t('legal.gdpr.cookie')}
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import FooterUncover from '@/components/FooterUncover';
 import { usePathname } from 'next/navigation';
-import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, StarIcon, ArrowDown01Icon } from '@/lib/icons';
+import { TouchInteraction01Icon, Brain01Icon, Apple01Icon, StarIcon, ArrowDown01Icon, UserIcon, MusicNote01Icon, PaintBoardIcon, GraduationScrollIcon, Briefcase01Icon, UserGroupIcon, BodyPartMuscleIcon, FavouriteIcon } from '@/lib/icons';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -49,34 +49,29 @@ export default function MainLayout({
   const activeTriggerRef = useRef<HTMLElement | null>(null);
   const [dropdownPosition, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number; triggerCenterX: number } | null>(null);
 
-  // Calculate where the dropdown should appear relative to the nav bar container
+  // Calculate where the dropdown should appear, anchored to the left of the trigger
   const computeDropdownPosition = useCallback((triggerElement: HTMLElement, panelWidth: number = 280) => {
     if (!triggerElement) return;
     const triggerRect = triggerElement.getBoundingClientRect();
 
-    // Center the dropdown under the trigger
-    const triggerCenter = triggerRect.left + (triggerRect.width / 2);
-    const idealLeft = triggerCenter - (panelWidth / 2);
+    // Center the panel under the trigger, then clamp to viewport edges
+    const triggerCenter = triggerRect.left + triggerRect.width / 2;
+    const idealLeft = triggerCenter - panelWidth / 2;
 
-    // Viewport constraints
     const pad = 16;
     const clientWidth = document.documentElement.clientWidth;
-    const minLeft = pad;
-    const maxLeft = clientWidth - panelWidth - pad;
+    const clampedLeft = Math.max(pad, Math.min(idealLeft, clientWidth - panelWidth - pad));
 
-    const clampedLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
-
-    // Position exactly at the bottom of the trigger
     const top = triggerRect.bottom;
 
-    // Compute transform-origin X offset percentage based on trigger center relative to the dropdown panel
+    // Beak: where the trigger center lands within the clamped panel
     const originX = ((triggerCenter - clampedLeft) / panelWidth) * 100;
 
     setDropdownPosition({
       left: clampedLeft,
       top: top,
       triggerBottom: triggerRect.bottom,
-      originX: Math.max(5, Math.min(95, originX)), // Ensure beak stays within panel bounds
+      originX: Math.max(5, Math.min(95, originX)),
       width: panelWidth,
       triggerCenterX: triggerCenter
     });
@@ -178,48 +173,49 @@ export default function MainLayout({
     name: string;
     href: string;
     hasDropdown?: boolean;
-    dropdownType?: 'services' | 'agenyz';
     dropdownWidth?: number;
-    dropdownItems?: { name: string; href: string; image?: string; subtitle?: string }[];
   }
 
   const headerSurfaceClass = isScrolled
     ? 'bg-background/80 backdrop-blur-2xl border border-border/40 mt-4 rounded-full shadow-lg'
     : 'bg-background/50 backdrop-blur-xl border border-border/30 mt-4 rounded-full'
 
-  const serviceIcons: Record<string, React.ReactNode> = {
-    '/services/massage': <TouchInteraction01Icon className="w-4 h-4" />,
-    '/services/kinesiology': <Brain01Icon className="w-4 h-4" />,
-    '/services/nutrition': <Apple01Icon className="w-4 h-4" />,
-    '/services/constelaciones': <StarIcon className="w-4 h-4" />,
-  };
+  const coreServices = [
+    { name: t('services.massage.title') || 'Massage', href: '/services/massage', icon: <TouchInteraction01Icon className="w-4 h-4" />, subtitle: t('massage.benefit1') || 'Therapeutic massage' },
+    { name: t('services.kinesiology.title') || 'Kinesiology', href: '/services/kinesiology', icon: <Brain01Icon className="w-4 h-4" />, subtitle: t('kinesiology.benefit1') || 'Muscle testing & balance' },
+    { name: t('services.nutrition.title') || 'Nutrition', href: '/services/nutrition', icon: <Apple01Icon className="w-4 h-4" />, subtitle: t('nutrition.benefit1') || 'Functional nutrition' },
+    { name: t('nav.revision360') || '360° Revision', href: '/360-revision', icon: <StarIcon className="w-4 h-4" />, subtitle: t('services.revision360.subtitle') || 'Full health assessment' },
+  ];
+
+  const personalizedServices = [
+    { name: t('nav.athletes') || 'Athletes', href: '/services/athletes', icon: <BodyPartMuscleIcon className="w-3.5 h-3.5" /> },
+    { name: t('nav.musicians') || 'Musicians', href: '/services/musicians', icon: <MusicNote01Icon className="w-3.5 h-3.5" /> },
+    { name: t('nav.artists') || 'Artists', href: '/services/artists', icon: <PaintBoardIcon className="w-3.5 h-3.5" /> },
+    { name: t('nav.students') || 'Students', href: '/services/students', icon: <GraduationScrollIcon className="w-3.5 h-3.5" /> },
+    { name: t('nav.officeWorkers') || 'Office', href: '/services/office-workers', icon: <Briefcase01Icon className="w-3.5 h-3.5" /> },
+    { name: t('nav.parents') || 'Parents', href: '/services/parents', icon: <FavouriteIcon className="w-3.5 h-3.5" /> },
+    { name: t('nav.adults') || 'Adults', href: '/services/adults', icon: <UserIcon className="w-3.5 h-3.5" /> },
+    { name: t('nav.families') || 'Families', href: '/services/families', icon: <UserGroupIcon className="w-3.5 h-3.5" /> },
+  ];
 
   const navigation: NavItem[] = [
     {
       name: t('nav.services'),
       href: '/services',
       hasDropdown: true,
-      dropdownType: 'services',
-      dropdownWidth: 460,
-      dropdownItems: [
-        { name: t('services.massage.title') || 'Massage', href: '/services/massage' },
-        { name: t('services.kinesiology.title') || 'Kinesiology', href: '/services/kinesiology' },
-        { name: t('services.nutrition.title') || 'Nutrition', href: '/services/nutrition' },
-        { name: t('services.constelaciones.title') || 'Constellations', href: '/services/constelaciones' },
-      ]
+      dropdownWidth: 520,
+    },
+    {
+      name: t('nav.revision360'),
+      href: '/360-revision',
     },
     {
       name: t('nav.agenyz') || 'Agenyz',
       href: '/agenyz',
-      hasDropdown: false
-    },
-    {
-      name: t('nav.revision360'),
-      href: '/360-revision'
     },
     {
       name: t('personalizedServices.business') || 'For Business',
-      href: '/for-business'
+      href: '/for-business',
     },
   ];
 
@@ -237,8 +233,8 @@ export default function MainLayout({
               </Link>
 
               <div className="space-y-1 mb-8 text-muted-foreground text-sm">
-                <p>Carrer Pelai, 12, 08001 Barcelona</p>
-                <p>contact@ekabalance.com</p>
+                <p>{t('footer.address')}</p>
+                <p>{t('footer.email')}</p>
               </div>
 
               <div className="mb-10 w-full max-w-4xl mx-auto">
@@ -329,70 +325,102 @@ export default function MainLayout({
                 })}
               </div>
 
-              {navigation.map(item => item.hasDropdown && activeDropdown === item.name && dropdownPosition && (
-                <div key={`${item.name}-dropdown`} className="contents">
-                  <AnimatePresence>
-                    <motion.div
-                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 24,
-                        duration: 0.2
-                      }}
-                      className="fixed z-[110]"
-                      style={{
-                        top: dropdownPosition.top,
-                        left: dropdownPosition.left,
-                        width: dropdownPosition.width,
-                        transformOrigin: `${dropdownPosition.originX}% top`
-                      }}
-                      onMouseEnter={() => keepMenuOpen(item.name)}
-                      onMouseLeave={scheduleHide}
-                    >
-                      {/* Integrated "Beak" / Arrow */}
-                      <div 
-                        className="absolute -top-1.5 h-3 w-3 bg-background/95 backdrop-blur-2xl border-t border-l border-border rotate-45 z-0"
-                        style={{
-                           left: `${dropdownPosition.originX}%`,
-                           marginLeft: '-6px'
-                        }}
-                      />
+              <AnimatePresence>
+                {activeDropdown === t('nav.services') && dropdownPosition && (
+                  <motion.div
+                    key="services-dropdown"
+                    initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                    transition={{ type: 'spring', stiffness: 340, damping: 26 }}
+                    className="fixed z-[110]"
+                    style={{
+                      top: dropdownPosition.top,
+                      left: dropdownPosition.left,
+                      width: dropdownPosition.width,
+                      transformOrigin: `${dropdownPosition.originX}% top`,
+                    }}
+                    onMouseEnter={() => keepMenuOpen(t('nav.services'))}
+                    onMouseLeave={scheduleHide}
+                  >
+                    {/* Transparent bridge — covers gap between nav link and panel */}
+                    <div className="h-3 w-full" />
 
-                      {/* Bridge to prevent accidental mouseout */}
-                      <div className="h-2 w-full bg-transparent" />
-                      
-                      <div className="bg-background/95 backdrop-blur-2xl rounded-[2.5rem] border border-border shadow-2xl p-4 overflow-hidden relative isolate">
-                        {/* Elegant background highlight */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary/50 via-primary to-primary/50 opacity-10" />
-                        
-                        <div className="grid grid-cols-2 gap-2 relative z-10">
-                          {item.dropdownItems?.map((dropdownItem) => (
+                    {/* Arrow beak */}
+                    <div
+                      className="absolute top-1.5 h-3 w-3 bg-background/95 border-t border-l border-border rotate-45 z-10"
+                      style={{ left: `${dropdownPosition.originX}%`, marginLeft: '-6px' }}
+                    />
+
+                    <div className="bg-background/95 backdrop-blur-2xl rounded-[2rem] border border-border shadow-2xl overflow-hidden">
+                      {/* Top accent */}
+                      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+                      <div className="p-4 space-y-4">
+                        {/* Core services — 2 col grid */}
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {coreServices.map((svc) => (
                             <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
+                              key={svc.href}
+                              href={svc.href}
                               onClick={() => setActiveDropdown(null)}
-                              className="group/item flex items-center gap-4 p-4 rounded-3xl text-sm text-foreground/80 hover:text-foreground hover:bg-muted/80 transition-all duration-300"
+                              className="group/item flex items-center gap-3 p-3 rounded-2xl hover:bg-muted/70 transition-colors duration-200"
                             >
-                              <span className="flex items-center justify-center w-10 h-10 rounded-2xl bg-muted text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-300">
-                                {serviceIcons[dropdownItem.href] || <TouchInteraction01Icon className="w-5 h-5" />}
+                              <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-muted text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors duration-200 shrink-0">
+                                {svc.icon}
                               </span>
-                              <div>
-                                <span className="font-semibold block">{dropdownItem.name}</span>
-                                {dropdownItem.subtitle && (
-                                  <span className="text-[11px] text-muted-foreground line-clamp-1">{dropdownItem.subtitle}</span>
-                                )}
+                              <div className="min-w-0">
+                                <span className="font-medium text-sm text-foreground block leading-tight">{svc.name}</span>
+                                <span className="text-[11px] text-muted-foreground truncate block mt-0.5">{svc.subtitle}</span>
                               </div>
                             </Link>
                           ))}
                         </div>
+
+                        {/* Divider + personalized section */}
+                        <div className="border-t border-border/60 pt-3">
+                          <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1 mb-2">
+                            {t('nav.personalizedServices') || 'Personalized for'}
+                          </p>
+                          <div className="grid grid-cols-4 gap-1">
+                            {personalizedServices.map((svc) => (
+                              <Link
+                                key={svc.href}
+                                href={svc.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="group/pill flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-muted/70 transition-colors duration-200 text-center"
+                              >
+                                <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-muted text-muted-foreground group-hover/pill:bg-primary/10 group-hover/pill:text-primary transition-colors duration-200">
+                                  {svc.icon}
+                                </span>
+                                <span className="text-[10px] text-muted-foreground group-hover/pill:text-foreground leading-tight transition-colors">{svc.name}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Footer links */}
+                        <div className="border-t border-border/60 pt-2 flex items-center justify-between">
+                          <Link
+                            href="/services"
+                            onClick={() => setActiveDropdown(null)}
+                            className="text-xs text-muted-foreground hover:text-foreground transition-colors px-1"
+                          >
+                            {t('nav.services')} →
+                          </Link>
+                          <Link
+                            href="/personalized-services"
+                            onClick={() => setActiveDropdown(null)}
+                            className="text-xs text-primary hover:text-primary/80 transition-colors font-medium px-1"
+                          >
+                            {t('nav.personalizedServices')} →
+                          </Link>
+                        </div>
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <div className="flex items-center space-x-3 ml-auto z-10">
                 <Button asChild size="sm" className="rounded-full h-9 px-5">

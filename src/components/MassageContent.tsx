@@ -16,7 +16,8 @@ export default function MassageContent() {
         subtitleKey: 'services.massage.description',
         badgeKey: 'services.massage.subtitle',
         icon: FavouriteIcon,
-        backgroundImage: 'https://a0.muscache.com/im/pictures/Mt/MtTemplate-6223451/original/cfa32987-ba20-4ff7-b4ef-f7aad720db56.jpeg?im_w=1440'
+        backgroundImage: 'https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=1440',
+        featureImage: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
       bentoGrid={{
         titleKey: 'massage.bento.title',
@@ -67,6 +68,7 @@ export default function MassageContent() {
           { duration: 120, price: 140, descriptionKey: 'massage.page.duration120' }
         ]
       }}
+      stats={{ clients: '800+', years: '10+', satisfaction: '99%', sessions: '6000+' }}
       testimonials={{
         titleKey: 'massage.page.testimonialsTitle',
         items: [
@@ -78,6 +80,16 @@ export default function MassageContent() {
           {
             name: 'Jordi M.',
             text: t('massage.testimonial.2.text'),
+            rating: 5
+          },
+          {
+            name: 'Laura P.',
+            text: t('massage.testimonial.3.text'),
+            rating: 5
+          },
+          {
+            name: 'Carles V.',
+            text: t('massage.testimonial.4.text'),
             rating: 5
           }
         ]

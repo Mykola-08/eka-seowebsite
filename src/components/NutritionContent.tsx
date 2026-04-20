@@ -16,7 +16,8 @@ export default function NutritionContent() {
         subtitleKey: 'services.nutrition.description',
         badgeKey: 'services.nutrition.subtitle',
         icon: Leaf01Icon,
-        backgroundImage: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1440'
+        backgroundImage: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1440',
+        featureImage: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1440'
       }}
       bentoGrid={{
         titleKey: 'nutrition.page.benefitsTitle',
@@ -84,6 +85,7 @@ export default function NutritionContent() {
           }
         ]
       }}
+      stats={{ clients: '400+', years: '8+', satisfaction: '98%', sessions: '3000+' }}
       testimonials={{
         titleKey: 'nutrition.page.testimonialsTitle',
         items: [
@@ -95,6 +97,16 @@ export default function NutritionContent() {
           {
             name: 'Pere Castell',
             text: t('nutrition.testimonial.2.text'),
+            rating: 5
+          },
+          {
+            name: 'Marta Llopis',
+            text: t('nutrition.testimonial.3.text'),
+            rating: 5
+          },
+          {
+            name: 'Andreu Mas',
+            text: t('nutrition.testimonial.4.text'),
             rating: 5
           }
         ]

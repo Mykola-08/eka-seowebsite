@@ -8,5 +8,5 @@ export default function MassagePage() {
 }
 
 export async function generateMetadata() {
-  return generateAppMetadata('services', '/services/massage');
+  return generateAppMetadata('massage', '/services/massage');
 }

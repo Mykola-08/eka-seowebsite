@@ -1,48 +1,69 @@
 import { Metadata } from 'next';
 import seoMetadata from './seo-metadata.json';
 
-interface SEOItem {
-    title: string;
-    description: string;
-    keywords: string;
-}
+type Language = 'en' | 'es' | 'ca' | 'ru';
+type FlatLangData = Record<string, string>;
+type SEOMetadata = Record<Language, FlatLangData>;
 
-interface SEOLang {
-    [key: string]: SEOItem;
-}
+const SITE = 'https://ekabalance.com';
 
-interface SEOMetadata {
-    en: SEOLang;
-    es: SEOLang;
-    ca: SEOLang;
-    ru: SEOLang;
-}
-
-export function generateAppMetadata(section: string, path: string): Metadata {
-  const metadata = seoMetadata as unknown as SEOMetadata;
-  const langData = metadata.en || {};
-  
-  // Fallback chain: section -> home -> empty strings
-  const data = langData[section] || langData['home'] || {
-      title: 'EKA Balance',
-      description: 'Professional wellness practices in Barcelona',
-      keywords: 'wellness, barcelona'
-  };
-  
+function getItem(langData: FlatLangData, section: string) {
   return {
-    title: data.title || 'EKA Balance',
-    description: data.description || '',
-    keywords: data.keywords || '',
+    title: langData[`seo.${section}.title`] || langData['seo.home.title'] || 'EKA Balance',
+    description: langData[`seo.${section}.description`] || langData['seo.home.description'] || '',
+    keywords: langData[`seo.${section}.keywords`] || langData['seo.home.keywords'] || '',
+  };
+}
+
+export function generateAppMetadata(section: string, path: string, lang: Language = 'es'): Metadata {
+  const metadata = seoMetadata as unknown as SEOMetadata;
+  // Prefer requested language, fall back to Spanish, then English
+  const langData: FlatLangData =
+    metadata[lang] || metadata.es || metadata.en || {};
+  const data = getItem(langData, section);
+
+  const canonicalUrl = `${SITE}${path}`;
+
+  return {
+    title: data.title,
+    description: data.description,
+    keywords: data.keywords,
     alternates: {
-      canonical: `https://ekabalance.com${path}`,
+      canonical: canonicalUrl,
+      languages: {
+        'es': canonicalUrl,
+        'ca': canonicalUrl,
+        'en': canonicalUrl,
+        'ru': canonicalUrl,
+        'x-default': canonicalUrl,
+      },
     },
     openGraph: {
-      title: data.title || 'EKA Balance',
-      description: data.description || '',
-      url: `https://ekabalance.com${path}`,
+      title: data.title,
+      description: data.description,
+      url: canonicalUrl,
       siteName: 'EKA Balance',
-      locale: 'ca_ES',
+      locale: lang === 'ca' ? 'ca_ES' : lang === 'ru' ? 'ru_RU' : lang === 'en' ? 'en_GB' : 'es_ES',
       type: 'website',
+      images: [
+        {
+          url: `${SITE}/images/og-default.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'EKA Balance – Holistic Wellness Barcelona',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.title,
+      description: data.description,
+      images: [`${SITE}/images/og-default.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
     },
   };
 }

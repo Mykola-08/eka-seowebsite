@@ -65,16 +65,32 @@ export default function PageLayout({
                 className="object-cover" 
                 priority
               />
-              <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70 pointer-events-none"></div>
+              {/*
+                Smart contrast overlay: a layered scrim that guarantees AA text
+                readability regardless of the underlying image's luminance.
+                - Base dim layer: uniform 45% black floor on bright images.
+                - Gradient: reinforces top/bottom where nav & scroll-cue sit.
+                - Centered radial: boosts contrast behind headline without
+                  darkening the full frame on already-dark photos.
+              */}
+              <div className="absolute inset-0 bg-black/45 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/80 pointer-events-none" />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0) 75%)',
+                }}
+              />
             </motion.div>
 
-            <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mt-16">
+            <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mt-16 [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
               {heroData.badge && (
                 <motion.div
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0 }}
-                  className="inline-flex items-center text-xs font-medium tracking-widest uppercase text-white/90 mb-6 bg-black/30 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full"
+                  className="inline-flex items-center text-xs font-medium tracking-widest uppercase text-white mb-6 bg-black/45 backdrop-blur-md border border-white/25 px-4 py-1.5 rounded-full"
                 >
                   {heroData.icon && <span className="mr-2 text-white">{heroData.icon}</span>}
                   {heroData.badge}
@@ -95,7 +111,7 @@ export default function PageLayout({
                   initial={{ opacity: 1, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
-                  className="text-lg sm:text-2xl text-white mx-auto leading-relaxed text-balance font-medium tracking-tight"
+                  className="text-lg sm:text-2xl text-white/95 mx-auto leading-relaxed text-balance font-medium tracking-tight"
                 >
                   {heroData.subtitle}
                 </motion.p>

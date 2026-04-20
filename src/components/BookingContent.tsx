@@ -114,10 +114,10 @@ function BookingContentInner() {
             className="py-12"
           >
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-[2rem] border border-primary/20 shadow-xl bg-card grid md:grid-cols-12">
+              <div className="overflow-hidden rounded-apple border border-primary/20 shadow-xl bg-card grid md:grid-cols-12">
                 <div className="md:col-span-4 relative min-h-[220px]">
                   <Image src={getServiceImage(service)} alt={service} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <Badge className="bg-primary text-white uppercase tracking-wider text-[9px] font-bold mb-2">{t('booking.recommended.badge')}</Badge>
                     <h3 className="text-white font-semibold text-xl leading-tight">{getServiceTitle(service)}</h3>
@@ -172,7 +172,7 @@ function BookingContentInner() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-background rounded-[2rem] p-8 border border-border/50 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow"
+              className="bg-background rounded-apple p-8 border border-border/50 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow"
             >
               <div className="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <Message01Icon className="w-8 h-8 text-green-600" />
@@ -210,7 +210,7 @@ function BookingContentInner() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-background rounded-[2rem] p-8 border border-border/50 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow"
+              className="bg-background rounded-apple p-8 border border-border/50 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow"
             >
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                 <MailIcon className="w-8 h-8 text-primary" />
@@ -252,7 +252,7 @@ function BookingContentInner() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Location & Email */}
-            <div className="bg-muted/30 rounded-[2rem] p-8 border border-border/50 space-y-6">
+            <div className="bg-muted/30 rounded-apple p-8 border border-border/50 space-y-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
                   <Location01Icon className="w-6 h-6" />
@@ -278,7 +278,7 @@ function BookingContentInner() {
             </div>
 
             {/* Hours */}
-            <div className="bg-muted/30 rounded-[2rem] p-8 border border-border/50 space-y-6">
+            <div className="bg-muted/30 rounded-apple p-8 border border-border/50 space-y-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
                   <Clock01Icon className="w-6 h-6" />

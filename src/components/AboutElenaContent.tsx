@@ -39,7 +39,7 @@ export default function AboutElenaContent() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative rounded-[2.5rem] overflow-hidden aspect-[3/4] shadow-2xl">
+            <div className="relative rounded-[2.5rem] overflow-hidden aspect-3/4 shadow-2xl">
               <Image
                 src="/images/therapist_photo.jpg"
                 alt={t('home.elenaAlt')}
@@ -48,7 +48,7 @@ export default function AboutElenaContent() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
             </div>
             {/* Floating quote card */}
             <motion.div
@@ -148,7 +148,7 @@ export default function AboutElenaContent() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 }
                   }}
-                  className="px-8 py-4 bg-secondary text-foreground/80 rounded-[2rem] font-medium cursor-default hover:bg-secondary/80 transition-colors"
+                  className="px-8 py-4 bg-secondary text-foreground/80 rounded-apple font-medium cursor-default hover:bg-secondary/80 transition-colors"
                 >
                   {tech.name}
                 </motion.div>

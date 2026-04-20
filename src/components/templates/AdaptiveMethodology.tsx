@@ -30,7 +30,7 @@ export function AdaptiveMethodology({ currentProblem, className }: AdaptiveMetho
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            <div className="w-20 h-20 rounded-[2rem] bg-primary/5 text-primary flex items-center justify-center mb-8">
+            <div className="w-20 h-20 rounded-apple bg-primary/5 text-primary flex items-center justify-center mb-8">
               <Icon size={40} />
             </div>
             
@@ -42,7 +42,7 @@ export function AdaptiveMethodology({ currentProblem, className }: AdaptiveMetho
               {t(content.methodologyText)}
             </p>
 
-            <div className="mt-16 p-8 md:p-12 bg-muted/30 rounded-[2rem] border border-border/60 max-w-3xl text-left mx-auto relative">
+            <div className="mt-16 p-8 md:p-12 bg-muted/30 rounded-apple border border-border/60 max-w-3xl text-left mx-auto relative">
                 <div className="absolute -top-4 left-8 md:left-12">
                    <p className="font-medium text-primary text-xs uppercase tracking-widest bg-background border-0 rounded-full px-4 py-2 inline-block">
                      {t('funnel.clinicalApproach') || 'Clinical Approach'}

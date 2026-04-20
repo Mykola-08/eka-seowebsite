@@ -47,7 +47,7 @@ export default function MainLayout({
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const showTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const activeTriggerRef = useRef<HTMLElement | null>(null);
-  const [dropdownPosition, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number; triggerCenterX: number } | null>(null);
+  const [, setDropdownPosition] = useState<{ left: number; top: number; originX: number; triggerBottom: number; width: number; triggerCenterX: number } | null>(null);
 
   // Calculate where the dropdown should appear, anchored to the left of the trigger
   const computeDropdownPosition = useCallback((triggerElement: HTMLElement, panelWidth: number = 280) => {

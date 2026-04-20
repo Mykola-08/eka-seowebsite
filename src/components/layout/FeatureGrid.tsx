@@ -24,7 +24,7 @@ const columnsMap = {
 
 /**
  * FeatureGrid — unified bento/feature list for benefits, values, etc.
- * Apple-minimal: rounded-[2rem] surfaces, hairline borders, subtle hover lift.
+ * Apple-minimal: rounded-apple surfaces, hairline borders, subtle hover lift.
  */
 function FeatureGrid({
   features,

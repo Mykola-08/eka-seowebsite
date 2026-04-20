@@ -26,10 +26,10 @@ export default function FooterUncover({
   }, []);
 
   return (
-    <div className="relative bg-secondary">
+    <div className="relative">
       {/* Main Content Container */}
       <div
-        className="relative z-10 bg-secondary min-h-screen"
+        className="relative z-10 bg-secondary min-h-dvh rounded-b-apple shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500"
         style={{ marginBottom: `${footerHeight}px` }}
       >
         {children}

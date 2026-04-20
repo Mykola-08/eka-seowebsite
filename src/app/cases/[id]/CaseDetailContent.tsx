@@ -85,7 +85,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
             {t('casos.title')}
           </Link>
 
-          <div className={`w-20 h-20 mx-auto rounded-[2rem] ${colorClass.bg} flex items-center justify-center mb-6 `}>
+          <div className={`w-20 h-20 mx-auto rounded-apple ${colorClass.bg} flex items-center justify-center mb-6 `}>
             <Icon className={`w-10 h-10 ${colorClass.text}`} />
           </div>
 
@@ -111,7 +111,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
             </h2>
             <ul className="space-y-4">
               {concerns.map((item, idx) => (
-                <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-[2rem]">
+                <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-apple">
                   <span className="w-1.5 h-1.5 mt-2 rounded-full bg-destructive/60 mr-3 shrink-0" />
                   <span className="text-foreground/80">{item}</span>
                 </li>
@@ -128,7 +128,7 @@ export default function CaseDetailContent({ id }: { id: string }) {
             </h2>
             <ul className="space-y-4">
               {causes.map((item, idx) => (
-                <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-[2rem]">
+                <li key={idx} className="flex items-start bg-muted/40 p-4 rounded-apple">
                   <span className="w-1.5 h-1.5 mt-2 rounded-full bg-gold mr-3 shrink-0" />
                   <span className="text-foreground/80">{item}</span>
                 </li>

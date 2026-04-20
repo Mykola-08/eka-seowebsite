@@ -110,7 +110,7 @@ export default function PrivacyPolicyContent() {
           <div className="flex-1 min-w-0 space-y-14">
 
             {/* Medical disclaimer */}
-            <div id="disclaimer" className="scroll-mt-24 rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
+            <div id="disclaimer" className="scroll-mt-24 rounded-apple border border-warning/30 bg-warning/10 p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <Alert01Icon className="w-6 h-6 text-foreground shrink-0 mt-0.5" />
                 <div>
@@ -137,7 +137,7 @@ export default function PrivacyPolicyContent() {
             </div>
 
             <Section id="controller" icon={UserCheck01Icon} title={t('common.dataController')}>
-              <div className="bg-muted/40 border border-border rounded-[2rem] p-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="bg-muted/40 border border-border rounded-apple p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 {[
                   [t('common.name'), 'Olena Kucherova Dryzhak (EKA Balance)'],
                   [t('common.address'), 'Carrer Pelai, 12, 08001 Barcelona, Spain'],
@@ -150,7 +150,7 @@ export default function PrivacyPolicyContent() {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-[2rem] border border-border bg-primary/5 p-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="mt-4 rounded-apple border border-border bg-primary/5 p-6 grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="sm:col-span-2"><span className="text-xs font-medium uppercase tracking-wider text-primary">{t('legal.privacy.dpo.title')}</span></div>
                 {[
                   [t('common.name'), 'Olena Kucherova Dryzhak'],
@@ -168,7 +168,7 @@ export default function PrivacyPolicyContent() {
             <Section id="data" icon={File01Icon} title={t('legal.privacy.data.title')}>
               <p>{t('legal.privacy.data.intro')}</p>
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="rounded-[2rem] border border-border bg-primary/5 p-5">
+                <div className="rounded-apple border border-border bg-primary/5 p-5">
                   <p className="font-medium text-foreground text-sm mb-2">{t('legal.privacy.data.personal.title')}</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
                     {personalItems.map(item => (
@@ -176,7 +176,7 @@ export default function PrivacyPolicyContent() {
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-[2rem] border border-border bg-muted/40 p-5">
+                <div className="rounded-apple border border-border bg-muted/40 p-5">
                   <p className="font-medium text-foreground text-sm mb-2">{t('legal.privacy.data.wellness.title')}</p>
                   <ul className="space-y-1 text-sm text-foreground/80">
                     {wellnessItems.map(item => (
@@ -190,7 +190,7 @@ export default function PrivacyPolicyContent() {
             <Section id="basis" icon={JusticeScale01Icon} title={t('legal.privacy.basis.title')}>
               <div className="grid sm:grid-cols-2 gap-4">
                 {legalBases.map(({ title, items }) => (
-                  <div key={title} className="rounded-[2rem] border border-border bg-muted/40 p-5">
+                  <div key={title} className="rounded-apple border border-border bg-muted/40 p-5">
                     <p className="font-medium text-foreground text-sm mb-2">{title}</p>
                     <ul className="space-y-1 text-sm text-foreground/80">
                       {items.map(item => <li key={item} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-primary/50 shrink-0"/>{item}</li>)}
@@ -203,13 +203,13 @@ export default function PrivacyPolicyContent() {
             <Section id="rights" icon={SecurityCheckIcon} title={t('legal.privacy.rights.title')}>
               <div className="space-y-3">
                 {rights.map(({ right, desc }) => (
-                  <div key={right} className="flex gap-4 rounded-[2rem] bg-muted/40 p-4 border border-border">
+                  <div key={right} className="flex gap-4 rounded-apple bg-muted/40 p-4 border border-border">
                     <span className="font-medium text-foreground text-sm w-36 shrink-0">{right}</span>
                     <span className="text-sm text-foreground/80">{desc}</span>
                   </div>
                 ))}
               </div>
-              <div className="rounded-[2rem] bg-primary/5 border border-border p-5 text-sm">
+              <div className="rounded-apple bg-primary/5 border border-border p-5 text-sm">
                 <p className="font-medium text-foreground mb-1">{t('legal.privacy.toc.contact')}:</p>
                 <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline">dpo@ekabalance.com</a>
               </div>
@@ -217,12 +217,12 @@ export default function PrivacyPolicyContent() {
 
             <Section id="contact" icon={MailIcon} title={`${t('legal.privacy.toc.contact')} & ${t('legal.privacy.contact.authority.title')}`}>
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[2rem] bg-muted/40 border border-border p-5 text-sm space-y-2">
+                <div className="rounded-apple bg-muted/40 border border-border p-5 text-sm space-y-2">
                   <p className="font-medium text-foreground">{t('legal.privacy.dpo.title')}</p>
                   <p className="text-foreground/80">Olena Kucherova Dryzhak</p>
                   <a href="mailto:dpo@ekabalance.com" className="text-primary hover:underline block">dpo@ekabalance.com</a>
                 </div>
-                <div className="rounded-[2rem] bg-destructive/5 border border-destructive/20 p-5 text-sm space-y-2">
+                <div className="rounded-apple bg-destructive/5 border border-destructive/20 p-5 text-sm space-y-2">
                   <p className="font-medium text-foreground">{t('legal.privacy.contact.authority.title')}</p>
                   <p className="text-foreground/80">{t('legal.privacy.contact.authority.name')}</p>
                   <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline block">www.aepd.es</a>

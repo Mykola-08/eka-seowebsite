@@ -191,7 +191,7 @@ export default function Revision360Content() {
         />
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {variantKeys.map((variant) => (
-            <div key={variant.key} className="bg-background rounded-[2rem] p-8 sm:p-10 border border-border/50 flex flex-col h-full shadow-none hover:border-primary/20 transition-colors">
+            <div key={variant.key} className="bg-background rounded-apple p-8 sm:p-10 border border-border/50 flex flex-col h-full shadow-none hover:border-primary/20 transition-colors">
               <div className="flex items-center gap-4 mb-6">
                  <div className="p-3 rounded-xl bg-primary/10 text-primary">
                    {variant.icon}
@@ -268,7 +268,7 @@ export default function Revision360Content() {
 
       {/* Disclaimer */}
       <Section className="py-0">
-        <div className="max-w-3xl mx-auto p-8 rounded-[2rem] bg-amber-50/50 border border-amber-100 flex items-start gap-4">
+        <div className="max-w-3xl mx-auto p-8 rounded-apple bg-amber-50/50 border border-amber-100 flex items-start gap-4">
           <AlertCircle className="w-6 h-6 text-amber-600 shrink-0 mt-1" />
           <p className="text-amber-900/80 text-sm leading-relaxed font-medium">
             {t('revision360.final.disclaimer')}

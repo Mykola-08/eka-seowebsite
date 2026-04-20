@@ -158,7 +158,7 @@ export default function HomeContent() {
               duration={0.8}
               className="lg:col-span-5 relative order-first flex justify-center"
             >
-              <div className="relative w-full max-w-md aspect-[4/5] rounded-apple overflow-hidden bg-card border border-border">
+              <div className="relative w-full max-w-md aspect-4/5 rounded-apple overflow-hidden bg-card border border-border">
                 <Image
                   src="/images/therapist_photo.jpg"
                   alt={t('home.elenaAlt')}

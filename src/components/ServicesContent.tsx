@@ -135,7 +135,7 @@ export default function ServicesContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="p-8 rounded-[2rem] bg-muted/30 border border-border/50 flex flex-col gap-4"
+                  className="p-8 rounded-apple bg-muted/30 border border-border/50 flex flex-col gap-4"
                 >
                   <div className="flex gap-1">
                     {Array.from({ length: 5 }).map((_, j) => (
@@ -161,7 +161,7 @@ export default function ServicesContent() {
         {/* Disclaimer */}
         <section className="py-12 bg-transparent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-card p-8 rounded-[2rem] border border-border/50 shadow-xs">
+            <div className="bg-card p-8 rounded-apple border border-border/50 shadow-xs">
               <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                 <span className="font-semibold text-foreground block mb-2 text-base">{t('services.disclaimerPrefix')}:</span>
                 {t('services.disclaimerBody')}

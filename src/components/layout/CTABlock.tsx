@@ -37,7 +37,7 @@ function CTABlock({
     <Container>
       <div
         className={cn(
-          "flex flex-col items-center gap-6 rounded-[2rem] px-6 py-16 md:py-24 text-center",
+          "flex flex-col items-center gap-6 rounded-apple px-6 py-16 md:py-24 text-center",
           toneClasses,
           className
         )}

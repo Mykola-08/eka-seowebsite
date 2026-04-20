@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { Slider } from '@/components/ui/slider';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   ArrowRight01Icon, 
@@ -24,10 +26,7 @@ import {
   Clock01Icon,
   CheckCircle,
   SparklesIcon,
-  FlashIcon,
-  Message01Icon,
-  StarIcon,
-  HelpCircleIcon
+  FlashIcon
 } from '@/lib/icons';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -302,70 +301,43 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
     switch (step) {
       case 'intro':
         return (
-          <motion.div key="intro" {...wizardVariants} className="max-w-4xl mx-auto space-y-12 py-12">
-            <div className="text-center space-y-8">
+          <motion.div key="intro" {...wizardVariants} className="max-w-3xl mx-auto space-y-12 py-12">
+            <div className="text-center space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Badge variant="outline" className="rounded-full px-6 py-1.5 uppercase tracking-[0.3em] text-[10px] font-black bg-primary/5 text-primary border-primary/10">
+                <Badge variant="outline" className="rounded-full px-4 py-1 uppercase tracking-widest text-xs font-bold bg-primary/5 text-primary">
                    {t('assessment.badge')}
                 </Badge>
               </motion.div>
-              <h1 className="apple-headline text-5xl md:text-8xl leading-[0.95] mb-8 bg-linear-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
                 {t('assessment.intro.title')}
               </h1>
-              <p className="apple-subtitle max-w-2xl mx-auto text-xl md:text-2xl opacity-80">
+              <p className="text-lg md:text-xl text-muted-foreground">
                 {t('assessment.intro.subtitle')}
               </p>
             </div>
             
-            <div className="apple-card p-10 md:p-16 bg-muted/20 border-border/40 text-center space-y-10 relative overflow-hidden group">
-               <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto relative z-10">
-                 {t('assessment.intro.desc')}
-               </p>
-               
-               <div className="flex flex-col items-center gap-6 relative z-10">
-                 <Button size="xl" className="rounded-full px-16 h-20 text-xl font-bold shadow-2xl shadow-primary/20 group/btn relative overflow-hidden" onClick={nextStep}>
-                   <span className="relative z-10 flex items-center gap-2">
-                     {t('assessment.intro.start')}
-                     <ArrowRight01Icon className="w-6 h-6 group-hover/btn:translate-x-1 transition-transform" />
-                   </span>
-                   <motion.div 
-                     className="absolute inset-0 bg-linear-to-r from-primary/80 to-primary"
-                     whileHover={{ scale: 1.05 }}
-                   />
-                 </Button>
-                 <div className="flex items-center gap-3 text-xs font-bold text-muted-foreground uppercase tracking-widest">
-                   <Clock01Icon className="w-4 h-4" />
-                   {t('assessment.intro.duration')}
-                 </div>
-               </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 pt-10">
-               {[
-                 { icon: SparklesIcon, title: "Personalized", desc: "Results tailored to your specific physical and emotional state." },
-                 { icon: Activity01Icon, title: "Data-Driven", desc: "Based on 15+ years of clinical experience and somatic research." },
-                 { icon: CheckCircle, title: "Actionable", desc: "Get a clear plan and direct pre-filled booking options." }
-               ].map((item, i) => (
-                 <motion.div 
-                   key={i}
-                   initial={{ opacity: 0, y: 20 }}
-                   animate={{ opacity: 1, y: 0 }}
-                   transition={{ delay: 0.4 + (i * 0.1) }}
-                   className="text-center space-y-4"
-                 >
-                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto text-primary">
-                     <item.icon className="w-6 h-6" />
+            <Card className="text-center bg-muted/20 border-border/40">
+              <CardContent className="p-8 md:p-12 space-y-8">
+                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                   {t('assessment.intro.desc')}
+                 </p>
+                 
+                 <div className="flex flex-col items-center gap-4">
+                   <Button size="lg" className="rounded-full px-12 py-6 text-lg font-bold" onClick={nextStep}>
+                       {t('assessment.intro.start')}
+                       <ArrowRight01Icon className="ml-2 w-5 h-5" />
+                   </Button>
+                   <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+                     <Clock01Icon className="w-4 h-4" />
+                     {t('assessment.intro.duration')}
                    </div>
-                   <h3 className="font-bold text-lg">{item.title}</h3>
-                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                 </motion.div>
-               ))}
-            </div>
+                 </div>
+              </CardContent>
+            </Card>
           </motion.div>
         );
 
@@ -376,27 +348,33 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
               <h2 className="apple-title text-4xl md:text-6xl tracking-tight">{t('form.step1.question')}</h2>
               <p className="apple-subtitle text-lg opacity-60">{t('discovery.step1.subtitle')}</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
               {PROFILES.map((p, i) => (
-                <motion.button
+                <motion.div
                   key={p.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => { setData(prev => ({ ...prev, profile: p.id })); nextStep(); }}
-                  className={cn(
-                    "apple-card p-10 flex flex-col items-center gap-6 group transition-all duration-500 relative overflow-hidden",
-                    data.profile === p.id ? "bg-primary/5 border-primary ring-4 ring-primary/10" : "hover:bg-muted/40 hover:scale-[1.02]"
-                  )}
+                  className="h-full"
                 >
-                  <div className={cn(
-                    "w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-700",
-                    data.profile === p.id ? "bg-primary text-white scale-110 shadow-2xl shadow-primary/40" : "bg-muted text-muted-foreground group-hover:bg-background group-hover:rotate-3"
-                  )}>
-                    <p.icon className="w-10 h-10" />
-                  </div>
-                  <span className="font-black text-center text-base uppercase tracking-wider">{t(p.labelKey)}</span>
-                </motion.button>
+                  <Card 
+                    className={cn(
+                      "cursor-pointer transition-colors h-full flex flex-col items-center justify-center",
+                      data.profile === p.id ? "border-primary bg-primary/5" : "hover:bg-muted/50"
+                    )}
+                    onClick={() => { setData(prev => ({ ...prev, profile: p.id })); nextStep(); }}
+                  >
+                    <CardContent className="p-6 flex flex-col items-center gap-4 w-full">
+                      <div className={cn(
+                        "w-16 h-16 rounded-2xl flex items-center justify-center transition-colors",
+                        data.profile === p.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                      )}>
+                        <p.icon className="w-8 h-8" />
+                      </div>
+                      <span className="font-bold text-center text-sm md:text-base">{t(p.labelKey)}</span>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
             <div className="flex justify-center pt-10">
@@ -414,34 +392,38 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
               <h2 className="apple-title text-4xl md:text-6xl tracking-tight">{t('onboarding.questions.goals.title')}</h2>
               <p className="apple-subtitle text-lg opacity-60">{t('form.step2.question')}</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
               {GOALS.map((g, i) => (
-                <motion.button
+                <motion.div
                   key={g.id}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.03 }}
-                  onClick={() => toggleGoal(g.id)}
-                  className={cn(
-                    "apple-card p-8 flex flex-col items-center gap-5 relative transition-all duration-500",
-                    data.goals.includes(g.id) ? "bg-primary/5 border-primary ring-2 ring-primary/10 scale-[1.05]" : "hover:bg-muted/40 hover:translate-y-[-4px]"
-                  )}
+                  className="h-full"
                 >
-                  <div className={cn(
-                    "w-12 h-12 rounded-2xl flex items-center justify-center transition-colors",
-                    data.goals.includes(g.id) ? "bg-primary text-white" : "bg-muted text-muted-foreground"
-                  )}>
-                    <g.icon className="w-6 h-6" />
-                  </div>
-                  <span className="text-sm font-bold text-center leading-tight uppercase tracking-tight">{t(g.labelKey)}</span>
-                  {data.goals.includes(g.id) && (
-                    <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="absolute top-4 right-4">
-                      <div className="bg-primary text-white rounded-full p-1 shadow-lg">
-                        <CheckCircle className="w-4 h-4" />
+                  <Card 
+                    className={cn(
+                      "cursor-pointer transition-colors h-full flex flex-col items-center justify-center relative",
+                      data.goals.includes(g.id) ? "border-primary bg-primary/5 shadow-sm" : "hover:bg-muted/50"
+                    )}
+                    onClick={() => toggleGoal(g.id)}
+                  >
+                    <CardContent className="p-6 flex flex-col items-center gap-4 w-full">
+                      <div className={cn(
+                        "w-12 h-12 rounded-2xl flex items-center justify-center transition-colors",
+                        data.goals.includes(g.id) ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                      )}>
+                        <g.icon className="w-6 h-6" />
                       </div>
-                    </motion.div>
-                  )}
-                </motion.button>
+                      <span className="text-sm font-bold text-center leading-tight">{t(g.labelKey)}</span>
+                      {data.goals.includes(g.id) && (
+                        <div className="absolute top-3 right-3 text-primary">
+                          <CheckCircle className="w-5 h-5" />
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
             <div className="flex justify-center gap-6 pt-10">
@@ -486,17 +468,15 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                     <div className="w-12 h-12 rounded-2xl bg-background flex items-center justify-center font-black text-xl">10</div>
                   </div>
                </div>
-               <div className="relative px-2">
-                 <input 
-                   type="range" 
-                   min="1" 
-                   max="10" 
-                   step="1" 
-                   value={data.intensity}
-                   onChange={(e) => setData(prev => ({ ...prev, intensity: parseInt(e.target.value) as Intensity }))}
-                   className="w-full h-4 bg-background rounded-full appearance-none cursor-pointer accent-primary border border-border/40"
+               <div className="relative px-6 py-6">
+                 <Slider
+                   min={1}
+                   max={10}
+                   step={1}
+                   value={[data.intensity]}
+                   onValueChange={(val: number[]) => setData(prev => ({ ...prev, intensity: val[0] as Intensity }))}
+                   className="w-full"
                  />
-                 <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-1 bg-primary/20 -z-10 rounded-full" />
                </div>
             </div>
             <div className="flex justify-center gap-6">
@@ -517,21 +497,27 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
               <h2 className="apple-title text-4xl md:text-6xl tracking-tight">{t('assessment.step.duration.title')}</h2>
               <p className="apple-subtitle text-lg opacity-60">{t('assessment.step.duration.desc')}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                {DURATIONS.map((d, i) => (
-                 <motion.button
+                 <motion.div
                    key={d.id}
                    initial={{ opacity: 0, x: -20 }}
                    animate={{ opacity: 1, x: 0 }}
                    transition={{ delay: i * 0.1 }}
-                   onClick={() => { setData(prev => ({ ...prev, duration: d.id })); nextStep(); }}
-                   className={cn(
-                     "apple-card p-12 text-2xl font-black uppercase tracking-tight transition-all duration-500 hover:scale-[1.03]",
-                     data.duration === d.id ? "bg-primary text-white shadow-2xl shadow-primary/20 scale-[1.05] z-10" : "hover:bg-muted/40 bg-muted/10 border-border/20"
-                   )}
+                   className="h-full"
                  >
-                   {t(d.labelKey)}
-                 </motion.button>
+                   <Card 
+                     className={cn(
+                       "cursor-pointer transition-colors h-full flex items-center justify-center min-h-35",
+                       data.duration === d.id ? "border-primary bg-primary/5 shadow-sm" : "hover:bg-muted/50"
+                     )}
+                     onClick={() => { setData(prev => ({ ...prev, duration: d.id })); nextStep(); }}
+                   >
+                     <CardContent className="p-6 text-center w-full">
+                       <span className="text-xl font-bold uppercase">{t(d.labelKey)}</span>
+                     </CardContent>
+                   </Card>
+                 </motion.div>
                ))}
             </div>
             <div className="flex justify-center pt-10">
@@ -549,27 +535,33 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
               <h2 className="apple-title text-4xl md:text-6xl tracking-tight">{t('assessment.step.energy.title')}</h2>
               <p className="apple-subtitle text-lg opacity-60">{t('assessment.step.energy.desc')}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
                {ENERGIES.map((e, i) => (
-                 <motion.button
+                 <motion.div
                    key={e.id}
                    initial={{ opacity: 0, y: 30 }}
                    animate={{ opacity: 1, y: 0 }}
                    transition={{ delay: i * 0.1 }}
-                   onClick={() => { setData(prev => ({ ...prev, energy: e.id })); nextStep(); }}
-                   className={cn(
-                     "apple-card p-12 flex flex-col items-center gap-8 group transition-all duration-700",
-                     data.energy === e.id ? "bg-primary/5 border-primary shadow-2xl shadow-primary/10 scale-[1.05]" : "hover:bg-muted/40 border-border/20"
-                   )}
+                   className="h-full"
                  >
-                    <div className={cn(
-                      "w-24 h-24 rounded-[40px] flex items-center justify-center transition-all duration-700",
-                      data.energy === e.id ? "bg-primary text-white scale-110 shadow-xl shadow-primary/30 rotate-6" : "bg-muted text-muted-foreground group-hover:bg-background group-hover:-rotate-6"
-                    )}>
-                      <e.icon className="w-12 h-12" />
-                    </div>
-                    <span className="font-black text-xl text-center leading-tight uppercase tracking-tight">{t(e.labelKey)}</span>
-                 </motion.button>
+                   <Card 
+                     className={cn(
+                       "cursor-pointer transition-colors h-full flex flex-col items-center justify-center",
+                       data.energy === e.id ? "border-primary bg-primary/5 shadow-sm" : "hover:bg-muted/50"
+                     )}
+                     onClick={() => { setData(prev => ({ ...prev, energy: e.id })); nextStep(); }}
+                   >
+                     <CardContent className="p-8 flex flex-col items-center gap-4 w-full">
+                       <div className={cn(
+                         "w-16 h-16 rounded-2xl flex items-center justify-center transition-colors",
+                         data.energy === e.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                       )}>
+                         <e.icon className="w-8 h-8" />
+                       </div>
+                       <span className="font-bold text-center text-lg uppercase tracking-tight">{t(e.labelKey)}</span>
+                     </CardContent>
+                   </Card>
+                 </motion.div>
                ))}
             </div>
             <div className="flex justify-center pt-10">
@@ -587,27 +579,33 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
               <h2 className="apple-title text-4xl md:text-6xl tracking-tight">{t('assessment.step.mood.title')}</h2>
               <p className="apple-subtitle text-lg opacity-60">{t('assessment.step.mood.desc')}</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
                {MOODS.map((m, i) => (
-                 <motion.button
+                 <motion.div
                    key={m.id}
                    initial={{ opacity: 0, scale: 0.8 }}
                    animate={{ opacity: 1, scale: 1 }}
                    transition={{ delay: i * 0.05 }}
-                   onClick={() => { setData(prev => ({ ...prev, mood: m.id })); nextStep(); }}
-                   className={cn(
-                     "apple-card p-12 flex flex-col items-center gap-6 group transition-all duration-500",
-                     data.mood === m.id ? "bg-primary text-white shadow-2xl shadow-primary/30 scale-[1.05]" : "hover:bg-muted/40 bg-muted/10"
-                   )}
+                   className="h-full"
                  >
-                   <div className={cn(
-                     "w-16 h-16 rounded-full flex items-center justify-center transition-colors mb-2",
-                     data.mood === m.id ? "bg-white/20" : "bg-primary/5"
-                   )}>
-                    <m.icon className={cn("w-10 h-10 transition-colors", data.mood === m.id ? "text-white" : "text-primary")} />
-                   </div>
-                   <span className="font-black text-sm text-center uppercase tracking-widest">{t(m.labelKey)}</span>
-                 </motion.button>
+                   <Card 
+                     className={cn(
+                       "cursor-pointer transition-colors h-full flex flex-col items-center justify-center",
+                       data.mood === m.id ? "border-primary bg-primary/5 shadow-sm" : "hover:bg-muted/50"
+                     )}
+                     onClick={() => { setData(prev => ({ ...prev, mood: m.id })); nextStep(); }}
+                   >
+                     <CardContent className="p-6 flex flex-col items-center gap-4 w-full">
+                       <div className={cn(
+                         "w-12 h-12 rounded-full flex items-center justify-center transition-colors",
+                         data.mood === m.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                       )}>
+                         <m.icon className="w-6 h-6" />
+                       </div>
+                       <span className="font-bold text-sm text-center tracking-wide">{t(m.labelKey)}</span>
+                     </CardContent>
+                   </Card>
+                 </motion.div>
                ))}
             </div>
             <div className="flex justify-center pt-10">
@@ -625,28 +623,33 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
               <h2 className="apple-title text-4xl md:text-6xl tracking-tight">{t('discovery.step.location.title')}</h2>
               <p className="apple-subtitle text-lg opacity-60">{t('discovery.step.location.subtitle')}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
                {LOCATIONS.map((l, i) => (
-                 <motion.button
+                 <motion.div
                    key={l.id}
                    initial={{ opacity: 0, y: 20 }}
                    animate={{ opacity: 1, y: 0 }}
                    transition={{ delay: i * 0.1 }}
-                   onClick={() => { setData(prev => ({ ...prev, location: l.id })); nextStep(); }}
-                   className={cn(
-                     "apple-card p-12 flex flex-col items-center gap-8 group relative overflow-hidden transition-all duration-700",
-                     data.location === l.id ? "bg-primary/5 border-primary shadow-2xl shadow-primary/10" : "hover:bg-muted/40 border-border/20"
-                   )}
+                   className="h-full"
                  >
-                    <div className={cn(
-                      "w-24 h-24 rounded-full flex items-center justify-center transition-all duration-700 relative z-10",
-                      data.location === l.id ? "bg-primary text-white scale-110 shadow-xl shadow-primary/40" : "bg-muted text-muted-foreground group-hover:bg-background"
-                    )}>
-                      <l.icon className="w-12 h-12" />
-                    </div>
-                    <span className="font-black text-xl text-center leading-tight uppercase tracking-widest relative z-10">{t(l.labelKey)}</span>
-                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-1000" />
-                 </motion.button>
+                   <Card 
+                     className={cn(
+                       "cursor-pointer transition-colors h-full flex flex-col items-center justify-center",
+                       data.location === l.id ? "border-primary bg-primary/5 shadow-sm" : "hover:bg-muted/50"
+                     )}
+                     onClick={() => { setData(prev => ({ ...prev, location: l.id })); nextStep(); }}
+                   >
+                     <CardContent className="p-8 flex flex-col items-center gap-4 w-full">
+                       <div className={cn(
+                         "w-16 h-16 rounded-full flex items-center justify-center transition-colors",
+                         data.location === l.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                       )}>
+                         <l.icon className="w-8 h-8" />
+                       </div>
+                       <span className="font-bold text-lg text-center uppercase tracking-wide">{t(l.labelKey)}</span>
+                     </CardContent>
+                   </Card>
+                 </motion.div>
                ))}
             </div>
             <div className="flex justify-center pt-10">
@@ -664,12 +667,12 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                 <motion.div 
                    animate={{ rotate: 360 }}
                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                   className="absolute inset-0 rounded-full border-t-4 border-primary/40 border-r-4 border-primary/20 border-b-4 border-primary/10"
+                   className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary/40 border-r-primary/20 border-b-primary/10"
                 />
                 <motion.div 
                    animate={{ rotate: -360 }}
                    transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                   className="absolute inset-6 rounded-full border-b-2 border-primary/30 border-l-2 border-primary/10"
+                   className="absolute inset-6 rounded-full border-2 border-transparent border-b-primary/30 border-l-primary/10"
                 />
                 <motion.div 
                    animate={{ 
@@ -719,41 +722,28 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
       case 'result': {
         const recommendation = calculateRecommendation(data);
         return (
-          <motion.div key="result" {...wizardVariants} className="space-y-20 py-10">
-            <div className="text-center space-y-8 max-w-4xl mx-auto">
+          <motion.div key="result" {...wizardVariants} className="space-y-16 py-10">
+            <div className="text-center space-y-6 max-w-3xl mx-auto">
                <motion.div
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ opacity: 1, y: 0 }}
                >
-                 <Badge variant="outline" className="rounded-full px-6 py-2 uppercase tracking-[0.3em] text-[11px] font-black bg-primary/5 text-primary border-primary/20 shadow-sm">
+                 <Badge variant="outline" className="rounded-full px-4 py-1 uppercase tracking-widest text-xs font-bold bg-primary/5 text-primary">
                    {t('assessment.result.badge')}
                  </Badge>
                </motion.div>
-               <h2 className="apple-headline text-5xl md:text-8xl leading-[0.95] tracking-tight bg-linear-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
+               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
                  {t('assessment.result.match')}
                </h2>
-               <p className="apple-subtitle text-xl md:text-2xl opacity-70 max-w-2xl mx-auto">
+               <p className="text-lg md:text-xl text-muted-foreground">
                  {t('form.recommendation.subtitle')}
                </p>
             </div>
 
-            {/* Premium Result Card */}
-            <motion.div 
-               initial={{ opacity: 0, y: 40 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: 0.3, duration: 0.8 }}
-               className="apple-card overflow-hidden grid lg:grid-cols-12 min-h-[700px] border-primary/20 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] relative group"
-            >
-                {/* Background Decoration */}
-                <div className={cn("absolute inset-0 bg-linear-to-br transition-opacity duration-1000", recommendation.gradient)} />
-                
-                {/* Image Section */}
-                <div className="lg:col-span-5 relative min-h-[500px] lg:min-h-full overflow-hidden">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 10, ease: "linear" }}
-                    className="absolute inset-0"
-                  >
+            <Card className="overflow-hidden border-border/40 shadow-lg">
+                <div className="grid md:grid-cols-2">
+                  {/* Image Section */}
+                  <div className="relative min-h-64 md:min-h-full">
                     <Image 
                       src={recommendation.image} 
                       alt={t(recommendation.titleKey)} 
@@ -761,134 +751,68 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                       className="object-cover" 
                       priority
                     />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
-                  
-                  <div className="absolute bottom-12 left-12 right-12 space-y-10">
-                     <div className="flex flex-wrap gap-3">
-                        {recommendation.tags.map((tag, i) => (
-                          <Badge key={i} className="bg-white/10 backdrop-blur-2xl border-white/20 text-white uppercase tracking-[0.2em] text-[10px] font-black px-4 py-1.5">
-                            {tag}
-                          </Badge>
-                        ))}
-                     </div>
+                    <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
+                    
+                    <div className="absolute bottom-6 left-6 right-6 space-y-4">
+                       <div className="flex flex-wrap gap-2">
+                          {recommendation.tags.map((tag, i) => (
+                            <Badge key={i} variant="secondary" className="uppercase font-bold text-xs border-background/20 bg-background/50 backdrop-blur-md">
+                              {tag}
+                            </Badge>
+                          ))}
+                       </div>
+                       <div className="text-3xl font-extrabold tracking-tighter text-foreground">
+                         {recommendation.price}
+                       </div>
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <CardContent className="p-8 md:p-10 flex flex-col justify-center space-y-8">
                      <div className="space-y-4">
-                        <div className="flex items-center gap-3 text-white/70 text-sm font-black uppercase tracking-[0.25em]">
-                           <Clock01Icon className="w-5 h-5 text-primary" /> {recommendation.duration}
+                        <div className="flex items-center gap-2 text-sm text-primary font-bold uppercase tracking-widest">
+                           <Clock01Icon className="w-4 h-4" /> {recommendation.duration}
                         </div>
-                        <div className="text-white text-6xl font-black tracking-tighter drop-shadow-2xl">
-                          {recommendation.price}
+                        <h3 className="text-3xl md:text-4xl font-bold tracking-tight">{t(recommendation.titleKey)}</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed">{t(recommendation.descKey)}</p>
+                     </div>
+
+                     <div className="space-y-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+                          {t('assessment.result.why')}
+                        </h4>
+                        <div className="space-y-3">
+                           {recommendation.whyKeys.map((key, i) => (
+                              <div key={i} className="flex gap-3 items-start">
+                                 <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                                 <p className="text-sm text-foreground/80 leading-snug">{t(key)}</p>
+                              </div>
+                           ))}
                         </div>
                      </div>
-                  </div>
-                </div>
 
-                {/* Content Section */}
-                <div className="lg:col-span-7 p-12 md:p-24 flex flex-col justify-center space-y-16 bg-card/80 backdrop-blur-md relative z-10">
-                   <div className="space-y-8">
-                      <div className="flex items-center gap-4">
-                         <div className="h-px flex-1 bg-primary/20" />
-                         <Badge variant="secondary" className="bg-primary/10 text-primary font-black uppercase tracking-[0.2em] text-[9px] px-3 py-1">{t('assessment.result.recommended.label')}</Badge>
-                         <div className="h-px flex-1 bg-primary/20" />
-                      </div>
-                      <h3 className="apple-title text-4xl md:text-6xl leading-[1.1] tracking-tight">{t(recommendation.titleKey)}</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed font-medium">{t(recommendation.descKey)}</p>
-                   </div>
-
-                   <div className="space-y-10">
-                      <div className="flex items-center gap-3 text-primary font-black uppercase tracking-[0.3em] text-[11px]">
-                         <HelpCircleIcon className="w-5 h-5" /> {t('assessment.result.why')}
-                      </div>
-                      <div className="grid sm:grid-cols-2 gap-8">
-                         {recommendation.whyKeys.map((key, i) => (
-                            <motion.div 
-                              key={i} 
-                              initial={{ opacity: 0, x: 20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.6 + (i * 0.1) }}
-                              className="flex gap-5 items-start group/item"
-                            >
-                               <div className="w-8 h-8 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
-                                  <CheckCircle className="w-4 h-4" />
-                               </div>
-                               <p className="text-base font-bold text-foreground/80 leading-snug group-hover/item:text-foreground transition-colors">{t(key)}</p>
-                            </motion.div>
-                         ))}
-                      </div>
-                   </div>
-
-                   <div className="flex flex-col sm:flex-row gap-6 pt-10">
-                      <Button asChild size="xl" className="flex-2 rounded-full h-22 text-xl font-black shadow-2xl shadow-primary/30 group/btn relative overflow-hidden">
-                         <Link href={`/booking?service=${recommendation.serviceId}&assessment=complete&intensity=${data.intensity}&mood=${data.mood}&energy=${data.energy}&profile=${data.profile}`}>
-                            <span className="relative z-10 flex items-center gap-3">
+                     <div className="flex flex-col gap-4 pt-4">
+                        <Button asChild size="lg" className="w-full text-lg font-bold h-14">
+                           <Link href={`/booking?service=${recommendation.serviceId}&assessment=complete&intensity=${data.intensity}&mood=${data.mood}&energy=${data.energy}&profile=${data.profile}`}>
                               {t('assessment.result.book.prefilled')}
-                              <ArrowRight01Icon className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform" />
-                            </span>
-                            <motion.div 
-                              className="absolute inset-0 bg-linear-to-r from-primary/80 to-primary"
-                              whileHover={{ scale: 1.05 }}
-                            />
-                         </Link>
-                      </Button>
-                      <Button asChild variant="outline" size="xl" className="flex-1 rounded-full h-22 px-12 border-border/60 hover:bg-muted bg-background/40 backdrop-blur-sm text-lg font-bold">
-                         <Link href={recommendation.href}>{t('common.learnMore')}</Link>
-                      </Button>
-                   </div>
-                </div>
-            </motion.div>
-
-            {/* Social Proof & Contact */}
-            <div className="grid lg:grid-cols-2 gap-8">
-               <motion.div 
-                 initial={{ opacity: 0, x: -20 }}
-                 animate={{ opacity: 1, x: 0 }}
-                 transition={{ delay: 0.5 }}
-                 className="apple-card p-10 bg-muted/20 border-border/40 flex flex-col justify-center space-y-6"
-               >
-                  <div className="flex gap-1">
-                    {[1, 2, 3, 4, 5].map(i => <StarIcon key={i} className="w-5 h-5 text-amber-500 fill-amber-500" />)}
-                  </div>
-                  <h4 className="text-2xl font-black tracking-tight leading-tight">{t('assessment.result.trust.title')}</h4>
-                  <div className="flex items-center gap-4 pt-4">
-                     <div className="flex -space-x-3">
-                        {[1, 2, 3, 4].map(i => (
-                          <div key={i} className="w-12 h-12 rounded-full border-4 border-background bg-muted overflow-hidden relative">
-                             <Image src={`https://i.pravatar.cc/150?u=${i}`} alt="user" fill />
-                          </div>
-                        ))}
+                              <ArrowRight01Icon className="ml-2 w-5 h-5" />
+                           </Link>
+                        </Button>
+                        <Button asChild variant="outline" size="lg" className="w-full text-lg font-bold h-14 border-border/60">
+                           <Link href={recommendation.href}>{t('common.learnMore')}</Link>
+                        </Button>
                      </div>
-                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{t('assessment.result.join.community')}</p>
-                  </div>
-               </motion.div>
-
-               <motion.div 
-                 initial={{ opacity: 0, x: 20 }}
-                 animate={{ opacity: 1, x: 0 }}
-                 transition={{ delay: 0.6 }}
-                 className="apple-card p-10 bg-primary/5 border-primary/20 flex flex-col md:flex-row items-center gap-10"
-               >
-                  <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center shadow-xl shadow-primary/5 shrink-0">
-                     <Message01Icon className="w-10 h-10 text-primary" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left space-y-4">
-                     <h4 className="font-black text-2xl tracking-tight">{t('assessment.contact.title')}</h4>
-                     <p className="text-muted-foreground font-semibold leading-relaxed">{t('assessment.contact.desc')}</p>
-                     <Button asChild variant="secondary" className="rounded-full px-10 h-16 text-lg font-black shadow-lg shadow-primary/5 hover:scale-105 transition-transform">
-                        <a href="https://wa.me/34658867133" target="_blank" rel="noopener noreferrer">
-                          {t('assessment.contact.btn')}
-                        </a>
-                     </Button>
-                  </div>
-               </motion.div>
-            </div>
+                  </CardContent>
+                </div>
+            </Card>
 
             <div className="flex flex-col items-center gap-8 py-10">
                <button 
                  onClick={() => { setStep('intro'); setData({ profile: null, goals: [], intensity: 5, duration: null, energy: null, mood: null, location: null }); }}
-                 className="text-muted-foreground hover:text-foreground font-black uppercase tracking-[0.3em] text-[11px] transition-all duration-300 flex items-center gap-3 group"
+                 className="text-sm text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest transition-colors flex items-center gap-2 group"
                >
                  <ArrowLeft01Icon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                 <span className="underline underline-offset-8 decoration-border group-hover:decoration-primary">{t('form.startOver')}</span>
+                 <span className="underline underline-offset-4">{t('form.startOver')}</span>
                </button>
             </div>
           </motion.div>
@@ -918,7 +842,7 @@ export default function FirstTimeWizard({ onComplete }: FirstTimeWizardProps) {
                 {t('assessment.progress.step')} {currentIndex} {t('assessment.progress.of')} {totalSteps - 1}
               </p>
            </div>
-           <div className="h-2 w-full bg-muted/40 rounded-full overflow-hidden p-[2px] border border-border/20 shadow-inner">
+           <div className="h-2 w-full bg-muted/40 rounded-full overflow-hidden p-0.5 border border-border/20 shadow-inner">
               <motion.div 
                  initial={{ width: 0 }}
                  animate={{ width: `${(currentIndex / (totalSteps - 1)) * 100}%` }}

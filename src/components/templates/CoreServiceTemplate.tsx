@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { CheckCircle, Clock01Icon } from '@/lib/icons';
 import { useBooking } from '@/hooks/useBooking';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -170,9 +169,9 @@ export default function CoreServiceTemplate({
                   ))}
                 </div>
               </div>
-              <div className="relative rounded-[2.5rem] overflow-hidden aspect-square lg:aspect-[4/5] shadow-2xl">
+              <div className="relative rounded-[2.5rem] overflow-hidden aspect-square lg:aspect-4/5 shadow-2xl">
                 <img src={hero.featureImage || hero.backgroundImage} alt={t(features.titleKey)} className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent" />
               </div>
             </div>
           </div>
@@ -190,7 +189,7 @@ export default function CoreServiceTemplate({
                 { num: '02', titleKey: 'services.step2.title', descKey: 'services.step2.description' },
                 { num: '03', titleKey: 'services.step3.title', descKey: 'services.step3.description' },
               ].map((step, i) => (
-                <div key={i} className="relative bg-background rounded-[2rem] p-8 border border-border/50 shadow-sm">
+                <div key={i} className="relative bg-background rounded-apple p-8 border border-border/50 shadow-sm">
                   <div className="text-5xl font-bold text-primary/10 mb-4 leading-none">{step.num}</div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">{t(step.titleKey)}</h3>
                   <p className="text-muted-foreground leading-relaxed">{t(step.descKey)}</p>
@@ -217,7 +216,7 @@ export default function CoreServiceTemplate({
                   return (
                     <div key={i} className={item.colSpan === 2 ? 'md:col-span-2' : ''}>
                       <BentoCard href="/booking">
-                        <div className={`p-8 h-full flex flex-col rounded-[2rem] border ${colorClasses}`}>
+                        <div className={`p-8 h-full flex flex-col rounded-apple border ${colorClasses}`}>
                           <h3 className="text-xl font-semibold mb-3">{t(item.titleKey)}</h3>
                           <p className="text-sm leading-relaxed opacity-90">{t(item.descriptionKey)}</p>
                           {item.detailsKey && (
@@ -272,7 +271,7 @@ export default function CoreServiceTemplate({
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {testimonials.items.map((test, i) => (
-                  <div key={i} className="p-8 rounded-[2rem] bg-muted/30 border border-border/50 flex flex-col gap-5">
+                  <div key={i} className="p-8 rounded-apple bg-muted/30 border border-border/50 flex flex-col gap-5">
                     {/* Stars */}
                     <div className="flex gap-1">
                       {Array.from({ length: test.rating }).map((_, j) => (

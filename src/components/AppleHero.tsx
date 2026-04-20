@@ -102,7 +102,7 @@ export default function AppleHero() {
       </div>
 
       {/* Image Container - Rounded Apple Style, fills remaining viewport on desktop */}
-      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-[4/3] sm:aspect-video md:aspect-auto md:flex-1 md:min-h-[380px] rounded-apple overflow-hidden mx-auto group border border-border">
+      <div className="relative w-full max-w-[92%] md:max-w-6xl aspect-4/3 sm:aspect-video md:aspect-auto md:flex-1 md:min-h-95 rounded-apple overflow-hidden mx-auto group border border-border">
         {heroImages.map((image, index) => {
           if (!mountedIndices.has(index)) return null;
           return (

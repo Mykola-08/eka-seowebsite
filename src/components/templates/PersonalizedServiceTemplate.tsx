@@ -66,7 +66,7 @@ export default function PersonalizedServiceTemplate({
               </Button>
             }
           />
-          <div className="mt-16 relative rounded-[2.5rem] overflow-hidden aspect-[21/9] shadow-2xl">
+          <div className="mt-16 relative rounded-[2.5rem] overflow-hidden aspect-21/9 shadow-2xl">
              <Image
                src={hero.backgroundImage}
                alt={t(hero.titleKey)}

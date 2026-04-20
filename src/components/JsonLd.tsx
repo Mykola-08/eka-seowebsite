@@ -1,7 +1,8 @@
 import type { Locale } from '@/lib/i18n';
 
 const SITE = "https://ekabalance.com";
-export default function JsonLd() {
+export default function JsonLd(_props: { locale?: Locale } = {}) {
+  void _props;
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "HealthAndBeautyBusiness"],

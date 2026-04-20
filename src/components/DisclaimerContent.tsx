@@ -24,7 +24,7 @@ const Block = ({ icon: Icon, title, children, color = 'amber' }: {
     gray: 'text-foreground/80 bg-muted',
   };
   return (
-    <div className={`rounded-[2rem] p-6 sm:p-8 ${styles[color]}`}>
+    <div className={`rounded-apple p-6 sm:p-8 ${styles[color]}`}>
       <div className="flex items-start gap-4">
         <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${iconStyles[color]}`}>
           <Icon className="w-5 h-5" />
@@ -81,7 +81,7 @@ export default function DisclaimerContent() {
       <div className="max-w-3xl mx-auto px-4 sm:px-8 py-12 space-y-8">
 
         {/* Top alert */}
-        <div className="rounded-[2rem] border border-warning/30 bg-warning/10 p-6 sm:p-8">
+        <div className="rounded-apple border border-warning/30 bg-warning/10 p-6 sm:p-8">
           <div className="flex items-start gap-4">
             <Alert01Icon className="w-7 h-7 text-foreground shrink-0 mt-0.5" />
             <div>
@@ -146,7 +146,7 @@ export default function DisclaimerContent() {
           <p className="font-medium text-destructive text-base">{t('legal.disclaimer.emergency.call')}</p>
           <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
             {emergencyNumbers.map(({ country, number }) => (
-              <div key={country} className="bg-card border border-border rounded-[2rem] p-3 text-center">
+              <div key={country} className="bg-card border border-border rounded-apple p-3 text-center">
                 <p className="text-2xl font-medium text-destructive">{number}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{country}</p>
               </div>
@@ -155,7 +155,7 @@ export default function DisclaimerContent() {
         </Block>
 
         {/* Footer note */}
-        <div className="rounded-[2rem] bg-muted/40 border border-border p-6 text-sm text-foreground/80 space-y-3">
+        <div className="rounded-apple bg-muted/40 border border-border p-6 text-sm text-foreground/80 space-y-3">
           <p>{t('legal.disclaimer.footer.law')}</p>
           <p>{t('legal.disclaimer.footer.confirm')}</p>
           <div className="flex flex-wrap gap-3 pt-2">
